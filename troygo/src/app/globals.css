@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap');
+@import "tailwindcss";
+
+/* ─── Tailwind v4 CSS-first theme ─────────────────────────────────────────── */
+@theme {
+  /* Navy palette */
+  --color-navy:     #0A1628;
+  --color-navy-800: #0D1E35;
+  --color-navy-700: #102444;
+  --color-navy-600: #152D55;
+
+  /* Teal palette */
+  --color-teal:     #00B4D8;
+  --color-teal-400: #00C9F0;
+  --color-teal-600: #0096B5;
+
+  /* Gold palette */
+  --color-gold:     #FFD700;
+  --color-gold-400: #FFE033;
+  --color-gold-600: #E6C200;
+
+  /* Font families */
+  --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+}
+
+/* ─── CSS Custom Properties ────────────────────────────────────────────────── */
+:root {
+  --background: #ffffff;
+  --foreground: #0A1628;
+
+  --color-primary:   #0A1628;
+  --color-accent:    #00B4D8;
+  --color-highlight: #FFD700;
+
+  --shadow-card:      0 4px 24px rgba(10, 22, 40, 0.08);
+  --shadow-card-lift: 0 12px 40px rgba(10, 22, 40, 0.16);
+  --shadow-glow-teal: 0 0 32px rgba(0, 180, 216, 0.25);
+}
+
+/* ─── Base reset & smooth scroll ───────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Custom scrollbar ──────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f0f4f8;
+}
+::-webkit-scrollbar-thumb {
+  background: #00B4D8;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0096B5;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #00B4D8 #f0f4f8;
+}
+
+/* ─── Typography helpers ────────────────────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* ─── Gradient classes ──────────────────────────────────────────────────────── */
+.gradient-hero {
+  background: linear-gradient(
+    135deg,
+    #0A1628 0%,
+    #102444 40%,
+    #0096B5 80%,
+    #00B4D8 100%
+  );
+}
+
+.gradient-navy-teal {
+  background: linear-gradient(90deg, #0A1628 0%, #00B4D8 100%);
+}
+
+.gradient-gold {
+  background: linear-gradient(90deg, #E6C200 0%, #FFD700 50%, #FFE033 100%);
+}
+
+.gradient-text-gold {
+  background: linear-gradient(90deg, #E6C200, #FFD700, #FFE033);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Card hover effect ─────────────────────────────────────────────────────── */
+.card-hover {
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  box-shadow: var(--shadow-card);
+}
+.card-hover:hover {
+  box-shadow: var(--shadow-card-lift);
+  transform: translateY(-4px);
+}
+
+/* ─── Glassmorphism ─────────────────────────────────────────────────────────── */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-effect-light {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* ─── Animation keyframes ───────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(0, 180, 216, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(0, 180, 216, 0.8), 0 0 48px rgba(0, 180, 216, 0.3);
+  }
+}
+
+/* ─── Animation utility classes ─────────────────────────────────────────────── */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.5s ease forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.5s ease forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+/* ─── Utility button styles ─────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  background: #00B4D8;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  background: #0096B5;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 180, 216, 0.35);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  background: #FFD700;
+  color: #0A1628;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+.btn-gold:hover {
+  background: #FFE033;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+/* ─── Section utility ───────────────────────────────────────────────────────── */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
