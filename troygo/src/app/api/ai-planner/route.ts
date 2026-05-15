@@ -1,3 +1,5 @@
+export const dynamic = 'force-static'
+
 import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
