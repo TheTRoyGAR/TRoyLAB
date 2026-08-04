@@ -66,7 +66,16 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
           <button onClick={() => setSaved(!saved)} className="w-10 h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
             <Heart className={`h-5 w-5 ${saved ? 'fill-red-500 text-red-500' : 'text-white'}`} />
           </button>
-          <button className="w-10 h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+          <button
+            onClick={() => {
+              if (navigator.share) {
+                navigator.share({ title: pkg.name, url: window.location.href }).catch(() => {})
+              } else {
+                navigator.clipboard.writeText(window.location.href)
+              }
+            }}
+            className="w-10 h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+          >
             <Share2 className="h-5 w-5 text-white" />
           </button>
         </div>
