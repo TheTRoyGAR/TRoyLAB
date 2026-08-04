@@ -27,10 +27,12 @@ import {
   Phone,
   Mail,
   AlertCircle,
+  Package,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { sampleFlights } from '@/lib/data/flights'
 import { sampleHotels } from '@/lib/data/hotels'
+import { travelPackages } from '@/lib/data/packages'
 import BookingSteps, { type StepId } from '@/components/booking/BookingSteps'
 import MainLayout from '@/components/layout/MainLayout'
 
@@ -94,6 +96,20 @@ function getBookingItem(type: string | null, id: string | null, cls: string | nu
       subtitle: `${h.location.city}, ${h.location.country}`,
       date: null,
       icon: Hotel,
+    }
+  }
+  if (type === 'package') {
+    const p = travelPackages.find((x) => String(x.id) === id)
+    if (!p) return null
+    return {
+      type: 'package' as const,
+      data: p,
+      cabin: null,
+      price: p.price,
+      label: p.name,
+      subtitle: p.countries.join(', '),
+      date: p.departureDates[0] ?? null,
+      icon: Package,
     }
   }
   // Default: sample flight for demo
@@ -893,7 +909,10 @@ function BookingContent() {
   const type = params.get('type')
   const id = params.get('id')
   const cls = params.get('class')
-  const passengersParam = Number(params.get('passengers') ?? 1)
+  // PackageDetailClient's "Book Now" links send `travelers=`, flights/hotels
+  // send `passengers=` — accept either so a package booking isn't silently
+  // stuck at 1 traveler regardless of what was picked on the previous page.
+  const passengersParam = Number(params.get('passengers') ?? params.get('travelers') ?? 1)
 
   const item = getBookingItem(type, id, cls)
 
