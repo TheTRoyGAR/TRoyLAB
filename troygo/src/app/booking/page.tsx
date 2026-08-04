@@ -162,7 +162,7 @@ function StepReview({
             {item.date && (
               <p className="text-xs text-slate-400 mt-1 flex items-center gap-1">
                 <Calendar className="h-3 w-3" />
-                {new Date(item.date).toLocaleDateString('en-US', { weekday: 'short', month: 'long', day: 'numeric', year: 'numeric' })}
+                {new Date(item.date).toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' })}
               </p>
             )}
           </div>
