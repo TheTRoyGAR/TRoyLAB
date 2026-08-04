@@ -49,7 +49,10 @@ export default function PackageCard({ pkg }: { pkg: TravelPackage }) {
   const isBestSeller = pkg.rating >= 4.7
 
   return (
-    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col sm:flex-row">
+    <Link
+      href={`/packages/${pkg.slug}`}
+      className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col sm:flex-row"
+    >
       {/* Image area */}
       <div className={`relative w-full sm:w-64 h-48 sm:h-auto shrink-0 bg-gradient-to-br ${pkg.images} overflow-hidden`}>
         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors" />
@@ -66,11 +69,11 @@ export default function PackageCard({ pkg }: { pkg: TravelPackage }) {
           </span>
         )}
 
-        {/* Save button */}
+        {/* Save button — stops the click from also triggering the card's own link */}
         <button
-          onClick={() => setSaved(!saved)}
+          onClick={(e) => { e.preventDefault(); e.stopPropagation(); setSaved(!saved); }}
           aria-label={saved ? 'Remove from saved' : 'Save package'}
-          className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-colors"
+          className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-colors z-10"
         >
           <Heart className={`h-4 w-4 ${saved ? 'fill-red-500 text-red-500' : 'text-white'}`} />
         </button>
@@ -143,15 +146,14 @@ export default function PackageCard({ pkg }: { pkg: TravelPackage }) {
               <span className="text-xs text-gray-400">({pkg.reviewCount.toLocaleString()})</span>
             </div>
           </div>
-          <Link
-            href={`/packages/${pkg.slug}`}
-            className="shrink-0 px-5 py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:scale-105"
+          <span
+            className="shrink-0 px-5 py-2.5 rounded-xl font-bold text-sm text-white transition-all group-hover:scale-105"
             style={{ background: '#00B4D8' }}
           >
             View Deal
-          </Link>
+          </span>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }

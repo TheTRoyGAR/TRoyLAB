@@ -38,8 +38,9 @@ export default function AgentCard({
 
   return (
     <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 overflow-hidden group">
-      {/* Header */}
-      <div className="p-5 pb-4">
+      {/* Header — the whole content block links to the profile; the two
+          footer actions below stay as their own distinct links. */}
+      <Link href={`/agents/${id}`} className="block p-5 pb-4">
         <div className="flex items-start gap-4 mb-4">
           {/* Avatar */}
           <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${colorClass} flex items-center justify-center text-xl font-black text-white shrink-0`}>
@@ -116,7 +117,7 @@ export default function AgentCard({
             ))}
           </div>
         )}
-      </div>
+      </Link>
 
       {/* Footer actions */}
       <div className="px-5 pb-5 flex gap-2">
