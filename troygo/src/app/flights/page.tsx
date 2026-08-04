@@ -490,8 +490,16 @@ function FlightsContent() {
     return Number(match[1]) + (Number(match[2] ?? 0) / 60)
   }
 
+  function matchesRoute(query: string, endpoint: { city: string; code: string }): boolean {
+    const q = query.trim().toLowerCase()
+    if (!q) return true
+    return endpoint.city.toLowerCase().includes(q) || endpoint.code.toLowerCase() === q
+  }
+
   const filtered = useMemo(() => {
     return sampleFlights.filter((f) => {
+      if (!matchesRoute(from, f.from)) return false
+      if (!matchesRoute(to, f.to)) return false
       if (!stops.has(f.stops)) return false
       const price = f.price[cabinClass]
       if (price < priceRange[0] || price > priceRange[1]) return false
@@ -500,7 +508,7 @@ function FlightsContent() {
       if (parseDurationHours(f.duration) > maxDuration) return false
       return true
     })
-  }, [stops, priceRange, airlines, departureTimes, maxDuration, cabinClass])
+  }, [from, to, stops, priceRange, airlines, departureTimes, maxDuration, cabinClass])
 
   const sorted = useMemo(() => {
     return [...filtered].sort((a, b) => {
