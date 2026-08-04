@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   Plane,
   Hotel,
@@ -70,10 +71,12 @@ function InputField({
   );
 }
 
-function SearchButton({ label = 'Search' }: { label?: string }) {
+function SearchButton({ label = 'Search', tab }: { label?: string; tab: Tab }) {
+  const router = useRouter();
   return (
     <button
       type="button"
+      onClick={() => router.push(`/${tab}`)}
       className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#00B4D8] to-[#0096c7] hover:from-[#0096c7] hover:to-[#0077b6] text-white font-bold px-8 py-3 rounded-xl shadow-lg shadow-[#00B4D8]/30 transition-all duration-200 hover:shadow-[#00B4D8]/50 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
     >
       <Search className="w-4 h-4" />
@@ -146,7 +149,7 @@ function FlightsForm() {
           onChange={setPassengers}
           className="flex-1 max-w-xs"
         />
-        <SearchButton label="Search Flights" />
+        <SearchButton label="Search Flights" tab="flights" />
       </div>
     </div>
   );
@@ -194,7 +197,7 @@ function HotelsForm() {
         />
       </div>
       <div className="flex justify-end">
-        <SearchButton label="Search Hotels" />
+        <SearchButton label="Search Hotels" tab="hotels" />
       </div>
     </div>
   );
@@ -263,7 +266,7 @@ function CarsForm() {
             onChange={setReturnTime}
           />
         </div>
-        <SearchButton label="Search Cars" />
+        <SearchButton label="Search Cars" tab="cars" />
       </div>
     </div>
   );
@@ -319,7 +322,7 @@ function PackagesForm() {
           onChange={setTravelers}
           className="flex-1 max-w-xs"
         />
-        <SearchButton label="Search Packages" />
+        <SearchButton label="Search Packages" tab="packages" />
       </div>
     </div>
   );
@@ -375,7 +378,7 @@ function CruisesForm() {
           onChange={setPassengers}
           className="flex-1 max-w-xs"
         />
-        <SearchButton label="Search Cruises" />
+        <SearchButton label="Search Cruises" tab="cruises" />
       </div>
     </div>
   );

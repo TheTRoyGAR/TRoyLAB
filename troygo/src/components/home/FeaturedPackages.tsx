@@ -1,11 +1,17 @@
 'use client';
 
+import Link from 'next/link';
 import { ArrowRight, Star, Clock, MapPin, Plane, Hotel, Car, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useRef } from 'react';
 
 interface Package {
   id: number;
   name: string;
+  // Matches a real slug in src/lib/data/packages.ts -> links straight to
+  // that package's detail page. Omitted where no matching package exists
+  // yet, so the card falls back to the general listing instead of a
+  // fabricated/broken link.
+  slug?: string;
   duration: string;
   destinations: string[];
   pricePerPerson: number;
@@ -23,6 +29,7 @@ const packages: Package[] = [
   {
     id: 1,
     name: 'Europe Grand Tour',
+    slug: 'europe-grand-tour',
     duration: '14 Days',
     destinations: ['Paris', 'Rome', 'Barcelona', 'Amsterdam'],
     pricePerPerson: 2499,
@@ -38,6 +45,7 @@ const packages: Package[] = [
   {
     id: 2,
     name: 'Bali Paradise Escape',
+    slug: 'bali-paradise-escape',
     duration: '7 Days',
     destinations: ['Ubud', 'Seminyak', 'Uluwatu'],
     pricePerPerson: 1299,
@@ -53,6 +61,7 @@ const packages: Package[] = [
   {
     id: 3,
     name: 'Japan Cultural Journey',
+    slug: 'japan-cultural-journey',
     duration: '10 Days',
     destinations: ['Tokyo', 'Kyoto', 'Osaka', 'Hiroshima'],
     pricePerPerson: 3199,
@@ -199,13 +208,13 @@ function PackageCard({ pkg }: { pkg: Package }) {
         </div>
 
         {/* CTA */}
-        <button
-          type="button"
+        <Link
+          href={pkg.slug ? `/packages/${pkg.slug}` : '/packages'}
           className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#00B4D8] to-[#0096B5] hover:from-[#0096B5] hover:to-[#007A94] text-white font-bold py-2.5 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-[#00B4D8]/30 hover:gap-3"
         >
           View Deal
           <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-        </button>
+        </Link>
       </div>
     </div>
   );
@@ -275,13 +284,13 @@ export default function FeaturedPackages() {
 
         {/* View all CTA */}
         <div className="flex justify-center mt-10">
-          <button
-            type="button"
+          <Link
+            href="/packages"
             className="flex items-center gap-2 border-2 border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628] hover:text-white font-semibold px-8 py-3 rounded-xl transition-all duration-200"
           >
             View All Packages
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>

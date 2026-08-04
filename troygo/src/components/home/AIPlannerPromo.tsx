@@ -149,13 +149,13 @@ export default function AIPlannerPromo() {
                 Start Planning with AI
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <button
-                type="button"
+              <Link
+                href="/trip-planner"
                 className="inline-flex items-center justify-center gap-2 border-2 border-gray-200 hover:border-[#00B4D8] text-gray-600 hover:text-[#00B4D8] font-semibold px-6 py-3.5 rounded-xl transition-all duration-200"
               >
                 <Calendar className="w-4 h-4" />
                 See Sample Itinerary
-              </button>
+              </Link>
             </div>
 
             {/* Social proof */}

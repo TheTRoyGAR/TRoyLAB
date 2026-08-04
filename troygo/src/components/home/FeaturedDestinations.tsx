@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 
 interface Destination {
@@ -62,8 +63,9 @@ const destinations: Destination[] = [
 
 function DestinationCard({ dest }: { dest: Destination }) {
   return (
-    <div
-      className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+    <Link
+      href="/packages"
+      className="group relative block rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
       style={{ background: dest.gradient, minHeight: 220 }}
     >
       {/* Decorative circles */}
@@ -99,17 +101,14 @@ function DestinationCard({ dest }: { dest: Destination }) {
               </p>
               <span className="text-white/60 text-xs">per person</span>
             </div>
-            <button
-              type="button"
-              className="flex items-center gap-1.5 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-sm font-semibold px-4 py-2 rounded-xl border border-white/30 transition-colors group-hover:bg-white group-hover:text-gray-800"
-            >
+            <span className="flex items-center gap-1.5 bg-white/20 group-hover:bg-white backdrop-blur-sm text-white group-hover:text-gray-800 text-sm font-semibold px-4 py-2 rounded-xl border border-white/30 transition-colors">
               Explore
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </button>
+            </span>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -133,13 +132,13 @@ export default function FeaturedDestinations() {
               Handpicked by our travel experts — the world's most captivating places waiting for you.
             </p>
           </div>
-          <button
-            type="button"
+          <Link
+            href="/packages"
             className="self-start sm:self-auto flex items-center gap-2 text-[#0A1628] border-2 border-[#0A1628] hover:bg-[#0A1628] hover:text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 whitespace-nowrap"
           >
             View All Destinations
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
 
         {/* Grid */}

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Star, MapPin, Briefcase, Globe, ArrowRight } from 'lucide-react';
 
 interface Agent {
@@ -176,13 +177,13 @@ function AgentCard({ agent }: { agent: Agent }) {
         </div>
 
         {/* CTA */}
-        <button
-          type="button"
+        <Link
+          href="/agents"
           className="w-full flex items-center justify-center gap-2 border-2 border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628] hover:text-white font-semibold py-2.5 rounded-xl transition-all duration-200 text-sm group/btn"
         >
           View Profile
           <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5" />
-        </button>
+        </Link>
       </div>
     </div>
   );
@@ -208,13 +209,13 @@ export default function FeaturedAgents() {
               Connect with certified travel specialists who know every corner of your dream destination.
             </p>
           </div>
-          <button
-            type="button"
+          <Link
+            href="/agents"
             className="self-start sm:self-auto flex items-center gap-2 text-[#0A1628] border-2 border-[#0A1628] hover:bg-[#0A1628] hover:text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 whitespace-nowrap text-sm"
           >
             Meet All Experts
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
 
         {/* Grid */}
@@ -240,13 +241,13 @@ export default function FeaturedAgents() {
             </h3>
             <p className="text-white/60 text-sm">Join TRoyGO™ and reach thousands of travelers worldwide.</p>
           </div>
-          <button
-            type="button"
+          <Link
+            href="/agents"
             className="flex items-center gap-2 bg-gradient-to-r from-[#FFD700] to-[#E6C200] hover:from-[#FFE033] hover:to-[#FFD700] text-[#0A1628] font-bold px-7 py-3 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-yellow-500/30 whitespace-nowrap"
           >
             Become an Expert
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>
