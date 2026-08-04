@@ -1,3 +1,3 @@
 :HL["/TRoyLAB/_next/static/chunks/02iz8-x56-292.css","style"]
 :HL["/TRoyLAB/_next/static/chunks/0wgl~sjnd39u~.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"KrS0h6Ni6tEIbWs9-234H"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"vRcyyiF77486HneQI7Ggk"}
