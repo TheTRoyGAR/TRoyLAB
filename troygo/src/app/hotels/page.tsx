@@ -167,12 +167,14 @@ function SearchBar({
   checkOut, setCheckOut,
   guests, setGuests,
   rooms, setRooms,
+  onSearch,
 }: {
   destination: string; setDestination: (v: string) => void
   checkIn: string; setCheckIn: (v: string) => void
   checkOut: string; setCheckOut: (v: string) => void
   guests: number; setGuests: (v: number) => void
   rooms: number; setRooms: (v: number) => void
+  onSearch: () => void
 }) {
   return (
     <div className="bg-white rounded-2xl shadow-lg p-4 border border-slate-100">
@@ -231,6 +233,7 @@ function SearchBar({
       </div>
       <div className="mt-3 flex justify-end">
         <button
+          onClick={onSearch}
           className="px-6 py-2.5 rounded-xl font-bold text-sm text-white shadow-sm hover:brightness-110 transition-all"
           style={{ background: '#00B4D8' }}
         >
@@ -464,6 +467,7 @@ export default function HotelsPage() {
               checkOut={checkOut} setCheckOut={setCheckOut}
               guests={guests} setGuests={setGuests}
               rooms={rooms} setRooms={setRooms}
+              onSearch={() => document.getElementById('hotel-results')?.scrollIntoView({ behavior: 'smooth' })}
             />
           </div>
         </div>
@@ -482,7 +486,7 @@ export default function HotelsPage() {
             </div>
 
             {/* Results */}
-            <div className="flex-1 min-w-0">
+            <div id="hotel-results" className="flex-1 min-w-0">
               {/* Sort + view toggle bar */}
               <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
                 <p className="text-sm text-slate-500">

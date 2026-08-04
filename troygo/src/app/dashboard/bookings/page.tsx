@@ -167,9 +167,15 @@ function ConfirmModal({
 function BookingsTable({
   data,
   onApprove,
+  onView,
+  onEdit,
+  onDelete,
 }: {
   data: Booking[];
   onApprove: (b: Booking) => void;
+  onView: (b: Booking) => void;
+  onEdit: (b: Booking) => void;
+  onDelete: (b: Booking) => void;
 }) {
   return (
     <div className="overflow-x-auto">
@@ -253,18 +259,21 @@ function BookingsTable({
                       </button>
                     )}
                   <button
+                    onClick={() => onView(b)}
                     className="w-7 h-7 rounded-lg flex items-center justify-center hover:bg-blue-100"
                     style={{ color: '#3b82f6' }}
                   >
                     <Eye size={14} />
                   </button>
                   <button
+                    onClick={() => onEdit(b)}
                     className="w-7 h-7 rounded-lg flex items-center justify-center hover:bg-yellow-100"
                     style={{ color: '#f59e0b' }}
                   >
                     <Pencil size={14} />
                   </button>
                   <button
+                    onClick={() => onDelete(b)}
                     className="w-7 h-7 rounded-lg flex items-center justify-center hover:bg-red-100"
                     style={{ color: '#ef4444' }}
                   >
@@ -293,6 +302,9 @@ export default function BookingsPage() {
   const [modalBooking, setModalBooking] = useState<Booking | null>(null);
   const [approvedIds, setApprovedIds] = useState<Set<string>>(new Set());
   const [declinedIds, setDeclinedIds] = useState<Set<string>>(new Set());
+  const [viewBooking, setViewBooking] = useState<Booking | null>(null);
+  const [noticeMessage, setNoticeMessage] = useState<string | null>(null);
+  const [deletedIds, setDeletedIds] = useState<Set<string>>(new Set());
 
   // Pending approval: requiresOwnerApproval AND (quoted|confirmed) AND not yet processed
   const pendingApproval = useMemo(
@@ -309,9 +321,15 @@ export default function BookingsPage() {
 
   const tabData = useMemo(() => {
     const tab = tabs.find((t) => t.key === activeTab);
-    if (!tab || !tab.statuses) return bookings;
-    return bookings.filter((b) => tab.statuses!.includes(b.status));
-  }, [activeTab]);
+    const base = !tab || !tab.statuses ? bookings : bookings.filter((b) => tab.statuses!.includes(b.status));
+    return base.filter((b) => !deletedIds.has(b.id));
+  }, [activeTab, deletedIds]);
+
+  const handleDelete = (b: Booking) => {
+    if (window.confirm(`Delete booking #${b.id} for ${getContactName(b.contactId)}? This can't be undone.`)) {
+      setDeletedIds((prev) => new Set([...prev, b.id]));
+    }
+  };
 
   const handleConfirmSale = async () => {
     if (!modalBooking) return;
@@ -356,6 +374,7 @@ export default function BookingsPage() {
             </p>
           </div>
           <button
+            onClick={() => setNoticeMessage('Manual booking creation isn\'t built yet — bookings currently come in through the site\'s own booking flow.')}
             className="px-4 py-2 rounded-lg text-sm font-semibold"
             style={{ background: '#FFD700', color: '#0A1628' }}
           >
@@ -504,7 +523,13 @@ export default function BookingsPage() {
             })}
           </div>
 
-          <BookingsTable data={tabData} onApprove={(b) => setModalBooking(b)} />
+          <BookingsTable
+            data={tabData}
+            onApprove={(b) => setModalBooking(b)}
+            onView={(b) => setViewBooking(b)}
+            onEdit={(b) => setNoticeMessage(`Editing booking #${b.id} isn't built yet — this dashboard is currently read-only for existing bookings.`)}
+            onDelete={handleDelete}
+          />
         </div>
       </div>
 
@@ -515,6 +540,57 @@ export default function BookingsPage() {
           onConfirm={handleConfirmSale}
           onCancel={() => setModalBooking(null)}
         />
+      )}
+
+      {/* View Details Modal */}
+      {viewBooking && (
+        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden">
+            <div
+              className="flex items-center justify-between px-6 py-4 border-b border-gray-100"
+              style={{ background: '#0A1628' }}
+            >
+              <h2 className="font-bold text-white">Booking #{viewBooking.id}</h2>
+              <button onClick={() => setViewBooking(null)}>
+                <X size={20} className="text-gray-400 hover:text-white" />
+              </button>
+            </div>
+            <div className="p-6 space-y-2.5 text-sm">
+              <div className="flex justify-between"><span className="text-gray-500">Client</span><span className="font-semibold" style={{ color: '#0A1628' }}>{getContactName(viewBooking.contactId)}</span></div>
+              <div className="flex justify-between"><span className="text-gray-500">Package</span><span className="font-semibold text-right" style={{ color: '#0A1628' }}>{viewBooking.packageName}</span></div>
+              <div className="flex justify-between"><span className="text-gray-500">Destination</span><span className="font-semibold" style={{ color: '#0A1628' }}>{viewBooking.destination}</span></div>
+              <div className="flex justify-between"><span className="text-gray-500">Departure</span><span className="font-semibold" style={{ color: '#0A1628' }}>{format(new Date(viewBooking.departureDate), 'MMM d, yyyy')}</span></div>
+              <div className="flex justify-between"><span className="text-gray-500">Travelers</span><span className="font-semibold" style={{ color: '#0A1628' }}>{viewBooking.travelers.adults} adults{viewBooking.travelers.children > 0 ? `, ${viewBooking.travelers.children} children` : ''}</span></div>
+              <div className="flex justify-between"><span className="text-gray-500">Amount</span><span className="font-semibold" style={{ color: '#0A1628' }}>${viewBooking.totalAmount.toLocaleString()}</span></div>
+              <div className="flex justify-between items-center"><span className="text-gray-500">Status</span><StatusBadge status={viewBooking.status} /></div>
+            </div>
+            <div className="px-6 pb-6">
+              <button
+                onClick={() => setViewBooking(null)}
+                className="w-full py-2.5 rounded-xl font-semibold text-sm text-white"
+                style={{ background: '#0A1628' }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Lightweight notice for not-yet-built actions */}
+      {noticeMessage && (
+        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 text-center">
+            <p className="text-sm text-gray-600 mb-5">{noticeMessage}</p>
+            <button
+              onClick={() => setNoticeMessage(null)}
+              className="w-full py-2.5 rounded-xl font-semibold text-sm text-white"
+              style={{ background: '#0A1628' }}
+            >
+              Got it
+            </button>
+          </div>
+        </div>
       )}
     </DashboardLayout>
   );

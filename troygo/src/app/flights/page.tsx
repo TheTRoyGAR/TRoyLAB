@@ -182,6 +182,7 @@ function SearchBar({
   from, setFrom, to, setTo,
   date, setDate, returnDate, setReturnDate,
   passengers, setPassengers, cabinClass, setCabinClass,
+  onSearch,
 }: {
   from: string; setFrom: (v: string) => void
   to: string; setTo: (v: string) => void
@@ -189,6 +190,7 @@ function SearchBar({
   returnDate: string; setReturnDate: (v: string) => void
   passengers: number; setPassengers: (v: number) => void
   cabinClass: CabinClass; setCabinClass: (v: CabinClass) => void
+  onSearch: () => void
 }) {
   return (
     <div className="bg-white rounded-2xl shadow-lg p-4 border border-slate-100">
@@ -293,6 +295,7 @@ function SearchBar({
       </div>
       <div className="mt-3 flex justify-end">
         <button
+          onClick={onSearch}
           className="px-6 py-2.5 rounded-xl font-bold text-sm text-white shadow-sm hover:brightness-110 transition-all"
           style={{ background: '#00B4D8' }}
         >
@@ -527,6 +530,7 @@ function FlightsContent() {
               returnDate={returnDate} setReturnDate={setReturnDate}
               passengers={passengers} setPassengers={setPassengers}
               cabinClass={cabinClass} setCabinClass={setCabinClass}
+              onSearch={() => document.getElementById('flight-results')?.scrollIntoView({ behavior: 'smooth' })}
             />
           </div>
         </div>
@@ -545,7 +549,7 @@ function FlightsContent() {
             </div>
 
             {/* Results */}
-            <div className="flex-1 min-w-0">
+            <div id="flight-results" className="flex-1 min-w-0">
               {/* Sort bar */}
               <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
                 <p className="text-sm text-slate-500">

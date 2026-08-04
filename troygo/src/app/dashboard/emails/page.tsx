@@ -28,6 +28,7 @@ export default function EmailsPage() {
   const [previewTemplate, setPreviewTemplate] = useState<string | null>(null)
   const [sent, setSent] = useState(false)
   const [activeTab, setActiveTab] = useState<'compose' | 'templates' | 'history'>('compose')
+  const [noticeMessage, setNoticeMessage] = useState<string | null>(null)
 
   function loadTemplate(templateId: string) {
     const t = emailTemplates.find((e) => e.id === templateId)
@@ -54,6 +55,7 @@ export default function EmailsPage() {
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-black text-[#0A1628]">Email Center</h1>
           <button
+            onClick={() => setNoticeMessage('Creating custom templates isn\'t built yet — pick from the existing templates in the Templates tab for now.')}
             className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold text-white"
             style={{ background: '#00B4D8' }}
           >
@@ -164,7 +166,11 @@ export default function EmailsPage() {
                     <Send className="h-4 w-4" />
                     {sent ? 'Sent!' : 'Send Email'}
                   </button>
-                  <button type="button" className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm border border-gray-200 text-gray-600 hover:border-[#00B4D8] transition-colors">
+                  <button
+                    type="button"
+                    onClick={() => setNoticeMessage('Scheduled sending isn\'t built yet — use Send Email to send right away.')}
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm border border-gray-200 text-gray-600 hover:border-[#00B4D8] transition-colors"
+                  >
                     <Clock className="h-4 w-4" /> Schedule
                   </button>
                 </div>
@@ -272,6 +278,22 @@ export default function EmailsPage() {
           </div>
         )}
       </div>
+
+      {/* Lightweight notice for not-yet-built actions */}
+      {noticeMessage && (
+        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 text-center">
+            <p className="text-sm text-gray-600 mb-5">{noticeMessage}</p>
+            <button
+              onClick={() => setNoticeMessage(null)}
+              className="w-full py-2.5 rounded-xl font-semibold text-sm text-white"
+              style={{ background: '#0A1628' }}
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
     </DashboardLayout>
   )
 }

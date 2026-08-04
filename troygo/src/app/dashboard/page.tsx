@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   LineChart,
   Line,
@@ -120,6 +121,7 @@ function KPICard({ title, value, change, icon: Icon, iconBg, iconColor }: KPICar
 
 // ─── Main Dashboard ──────────────────────────────────────────────────────────
 export default function DashboardPage() {
+  const router = useRouter();
   const [approvalResults, setApprovalResults] = useState<Record<string, 'approved' | 'declined'>>({});
 
   // Derived data
@@ -168,16 +170,17 @@ export default function DashboardPage() {
           {/* Quick Actions */}
           <div className="flex items-center gap-2">
             {[
-              { label: 'New Booking', icon: BookOpen, color: '#0A1628' },
-              { label: 'New Contact', icon: UserPlus, color: '#0A1628' },
-              { label: 'Send Email', icon: Mail, color: '#0A1628' },
-              { label: 'Add Lead', icon: Plus, color: '#FFD700', text: '#0A1628' },
+              { label: 'New Booking', icon: BookOpen, color: '#0A1628', href: '/dashboard/bookings' },
+              { label: 'New Contact', icon: UserPlus, color: '#0A1628', href: '/dashboard/contacts' },
+              { label: 'Send Email', icon: Mail, color: '#0A1628', href: '/dashboard/emails' },
+              { label: 'Add Lead', icon: Plus, color: '#FFD700', text: '#0A1628', href: '/dashboard/contacts' },
             ].map((action) => {
               const Icon = action.icon;
               const isGold = action.color === '#FFD700';
               return (
                 <button
                   key={action.label}
+                  onClick={() => router.push(action.href)}
                   className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-opacity hover:opacity-90"
                   style={{
                     background: action.color,

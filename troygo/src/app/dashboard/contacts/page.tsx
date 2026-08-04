@@ -244,6 +244,53 @@ export default function ContactsPage() {
   const [page, setPage] = useState(1);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [panelOpen, setPanelOpen] = useState(false);
+  const [viewContact, setViewContact] = useState<Contact | null>(null);
+  const [noticeMessage, setNoticeMessage] = useState<string | null>(null);
+  const [deletedIds, setDeletedIds] = useState<Set<string>>(new Set());
+  const [statusOverrides, setStatusOverrides] = useState<Record<string, ContactStatus>>({});
+
+  const displayStatus = (c: Contact): ContactStatus => statusOverrides[c.id] ?? c.status;
+
+  const handleDeleteContact = (c: Contact) => {
+    if (window.confirm(`Delete ${c.firstName} ${c.lastName}? This can't be undone.`)) {
+      setDeletedIds((prev) => new Set([...prev, c.id]));
+      setSelected((prev) => { const next = new Set(prev); next.delete(c.id); return next; });
+    }
+  };
+
+  const handleExportCsv = (rows: Contact[]) => {
+    const header = ['First Name', 'Last Name', 'Email', 'Phone', 'Country', 'Status', 'Total Spent'];
+    const lines = rows.map((c) => [
+      c.firstName, c.lastName, c.email, c.phone, c.country, displayStatus(c), String(c.totalSpent),
+    ].map((v) => `"${String(v).replace(/"/g, '""')}"`).join(','));
+    const csv = [header.join(','), ...lines].join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `contacts-export-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleSendEmail = (rows: Contact[]) => {
+    const bcc = rows.map((c) => c.email).join(',');
+    window.location.href = `mailto:?bcc=${encodeURIComponent(bcc)}`;
+  };
+
+  const handleChangeStatus = (rows: Contact[]) => {
+    const options: ContactStatus[] = ['lead', 'prospect', 'customer', 'vip'];
+    const input = window.prompt(
+      `Change status for ${rows.length} contact${rows.length !== 1 ? 's' : ''} to (${options.join(' / ')}):`
+    );
+    const next = input?.trim().toLowerCase() as ContactStatus | undefined;
+    if (!next || !options.includes(next)) return;
+    setStatusOverrides((prev) => {
+      const updated = { ...prev };
+      rows.forEach((c) => { updated[c.id] = next; });
+      return updated;
+    });
+  };
 
   const countries = useMemo(
     () => Array.from(new Set(contacts.map((c) => c.country))).sort(),
@@ -252,6 +299,7 @@ export default function ContactsPage() {
 
   const filtered = useMemo(() => {
     return contacts.filter((c) => {
+      if (deletedIds.has(c.id)) return false;
       const q = search.toLowerCase();
       const matchSearch =
         !q ||
@@ -259,12 +307,12 @@ export default function ContactsPage() {
         c.lastName.toLowerCase().includes(q) ||
         c.email.toLowerCase().includes(q) ||
         c.phone.includes(q);
-      const matchStatus = statusFilter === 'all' || c.status === statusFilter;
+      const matchStatus = statusFilter === 'all' || displayStatus(c) === statusFilter;
       const matchSource = sourceFilter === 'all' || c.source === sourceFilter;
       const matchCountry = countryFilter === 'all' || c.country === countryFilter;
       return matchSearch && matchStatus && matchSource && matchCountry;
     });
-  }, [search, statusFilter, sourceFilter, countryFilter]);
+  }, [search, statusFilter, sourceFilter, countryFilter, deletedIds, statusOverrides]);
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
@@ -384,18 +432,21 @@ export default function ContactsPage() {
             </span>
             <div className="flex items-center gap-2 ml-auto">
               <button
+                onClick={() => handleExportCsv(contacts.filter((c) => selected.has(c.id)))}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border border-gray-300 bg-white hover:bg-gray-50 transition-colors"
               >
                 <Download size={13} />
                 Export CSV
               </button>
               <button
+                onClick={() => handleSendEmail(contacts.filter((c) => selected.has(c.id)))}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border border-gray-300 bg-white hover:bg-gray-50 transition-colors"
               >
                 <Mail size={13} />
                 Send Email
               </button>
               <button
+                onClick={() => handleChangeStatus(contacts.filter((c) => selected.has(c.id)))}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border border-gray-300 bg-white hover:bg-gray-50 transition-colors"
               >
                 <Filter size={13} />
@@ -471,7 +522,7 @@ export default function ContactsPage() {
                     <td className="px-4 py-3 text-gray-600 whitespace-nowrap">{contact.phone}</td>
                     <td className="px-4 py-3 text-gray-600">{contact.country}</td>
                     <td className="px-4 py-3">
-                      <StatusBadge status={contact.status} />
+                      <StatusBadge status={displayStatus(contact)} />
                     </td>
                     <td className="px-4 py-3 font-semibold whitespace-nowrap" style={{ color: '#0A1628' }}>
                       {contact.totalSpent > 0
@@ -486,6 +537,7 @@ export default function ContactsPage() {
                       <div className="flex items-center gap-1">
                         <button
                           title="View"
+                          onClick={() => setViewContact(contact)}
                           className="w-7 h-7 rounded-lg flex items-center justify-center hover:bg-blue-100 transition-colors"
                           style={{ color: '#3b82f6' }}
                         >
@@ -493,6 +545,7 @@ export default function ContactsPage() {
                         </button>
                         <button
                           title="Edit"
+                          onClick={() => setNoticeMessage(`Editing ${contact.firstName} ${contact.lastName}'s full details isn't built yet — this dashboard is currently read-only for existing contacts.`)}
                           className="w-7 h-7 rounded-lg flex items-center justify-center hover:bg-yellow-100 transition-colors"
                           style={{ color: '#f59e0b' }}
                         >
@@ -500,6 +553,7 @@ export default function ContactsPage() {
                         </button>
                         <button
                           title="Delete"
+                          onClick={() => handleDeleteContact(contact)}
                           className="w-7 h-7 rounded-lg flex items-center justify-center hover:bg-red-100 transition-colors"
                           style={{ color: '#ef4444' }}
                         >
@@ -562,6 +616,64 @@ export default function ContactsPage() {
 
       {/* Slide-in Add Contact Panel */}
       <AddContactPanel open={panelOpen} onClose={() => setPanelOpen(false)} />
+
+      {/* View Contact Modal */}
+      {viewContact && (
+        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden">
+            <div
+              className="flex items-center justify-between px-6 py-4 border-b border-gray-100"
+              style={{ background: '#0A1628' }}
+            >
+              <h2 className="font-bold text-white">{viewContact.firstName} {viewContact.lastName}</h2>
+              <button onClick={() => setViewContact(null)}>
+                <X size={20} className="text-gray-400 hover:text-white" />
+              </button>
+            </div>
+            <div className="p-6 space-y-2.5 text-sm">
+              <div className="flex justify-between"><span className="text-gray-500">Email</span><span className="font-semibold" style={{ color: '#0A1628' }}>{viewContact.email}</span></div>
+              <div className="flex justify-between"><span className="text-gray-500">Phone</span><span className="font-semibold" style={{ color: '#0A1628' }}>{viewContact.phone}</span></div>
+              <div className="flex justify-between"><span className="text-gray-500">Country</span><span className="font-semibold" style={{ color: '#0A1628' }}>{viewContact.country}</span></div>
+              <div className="flex justify-between items-center"><span className="text-gray-500">Status</span><StatusBadge status={displayStatus(viewContact)} /></div>
+              <div className="flex justify-between"><span className="text-gray-500">Source</span><span className="font-semibold capitalize" style={{ color: '#0A1628' }}>{viewContact.source}</span></div>
+              <div className="flex justify-between"><span className="text-gray-500">Total Spent</span><span className="font-semibold" style={{ color: '#0A1628' }}>${viewContact.totalSpent.toLocaleString()}</span></div>
+              <div className="flex justify-between"><span className="text-gray-500">Bookings</span><span className="font-semibold" style={{ color: '#0A1628' }}>{viewContact.bookingsCount}</span></div>
+              <div className="flex justify-between"><span className="text-gray-500">Last Contact</span><span className="font-semibold" style={{ color: '#0A1628' }}>{format(new Date(viewContact.lastContact), 'MMM d, yyyy')}</span></div>
+              {viewContact.notes && (
+                <div className="pt-2 border-t border-gray-100">
+                  <p className="text-gray-500 mb-1">Notes</p>
+                  <p style={{ color: '#0A1628' }}>{viewContact.notes}</p>
+                </div>
+              )}
+            </div>
+            <div className="px-6 pb-6">
+              <button
+                onClick={() => setViewContact(null)}
+                className="w-full py-2.5 rounded-xl font-semibold text-sm text-white"
+                style={{ background: '#0A1628' }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Lightweight notice for not-yet-built actions */}
+      {noticeMessage && (
+        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 text-center">
+            <p className="text-sm text-gray-600 mb-5">{noticeMessage}</p>
+            <button
+              onClick={() => setNoticeMessage(null)}
+              className="w-full py-2.5 rounded-xl font-semibold text-sm text-white"
+              style={{ background: '#0A1628' }}
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
     </DashboardLayout>
   );
 }

@@ -483,6 +483,7 @@ export default function CarsPage() {
               <div className="flex items-center justify-between">
                 <p className="text-xs text-slate-400">{days} day{days > 1 ? 's' : ''} rental</p>
                 <button
+                  onClick={() => document.getElementById('car-results')?.scrollIntoView({ behavior: 'smooth' })}
                   className="px-6 py-2.5 rounded-xl font-bold text-sm text-white shadow-sm hover:brightness-110 transition-all"
                   style={{ background: '#00B4D8' }}
                 >
@@ -591,7 +592,7 @@ export default function CarsPage() {
             </aside>
 
             {/* Results */}
-            <div className="flex-1 min-w-0">
+            <div id="car-results" className="flex-1 min-w-0">
               <div className="flex items-center justify-between mb-5">
                 <p className="text-sm text-slate-500">
                   Showing <span className="font-bold text-navy">{filtered.length}</span> vehicles
