@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# travel research agent (standalone Python, agents/travel_research/)
+agents/travel_research/.venv/
+agents/travel_research/__pycache__/
+agents/travel_research/*.egg-info/
+!agents/travel_research/.env.example

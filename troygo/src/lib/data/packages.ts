@@ -1,5 +1,7 @@
 // ─── TRoyGO™ Travel Packages & Cruises Mock Data ─────────────────────────────
 
+import liveData from './packages-live.json'
+
 export type PackageCategory =
   | 'adventure'
   | 'luxury'
@@ -73,9 +75,13 @@ export interface Cruise {
   description: string
 }
 
-// ─── Travel Packages (20) ────────────────────────────────────────────────────
+// ─── Travel Packages ──────────────────────────────────────────────────────
+// This array is a FALLBACK only, used until the research agent
+// (agents/travel_research/) has produced real data. Once packages-live.json
+// is non-empty, travelPackages below serves that real, web-sourced data
+// instead — see the export at the bottom of this section.
 
-export const travelPackages: TravelPackage[] = [
+const fallbackTravelPackages: TravelPackage[] = [
   {
     id: 1,
     name: 'Europe Grand Tour',
@@ -881,6 +887,15 @@ export const travelPackages: TravelPackage[] = [
     ],
   },
 ]
+
+// Real, web-sourced packages from the research agent take over once they
+// exist. Until the agent has run successfully at least once,
+// packages-live.json is `[]` and the site falls back to the array above —
+// this can never blank out the live site with an empty package list.
+const livePackages = liveData as TravelPackage[]
+
+export const travelPackages: TravelPackage[] =
+  livePackages.length > 0 ? livePackages : fallbackTravelPackages
 
 // ─── Cruises (12) ─────────────────────────────────────────────────────────────
 
