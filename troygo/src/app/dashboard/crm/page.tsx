@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { TrendingUp, DollarSign, Award, Users } from 'lucide-react';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import { leads, contacts, Lead, LeadStage } from '@/lib/data/crm';
@@ -106,6 +106,8 @@ function LeadCard({ lead }: { lead: Lead }) {
 
 // ─── CRM Page ─────────────────────────────────────────────────────────────
 export default function CRMPage() {
+  const [noticeMessage, setNoticeMessage] = useState<string | null>(null);
+
   const leadsByStage = useMemo(() => {
     const map: Record<LeadStage, Lead[]> = {
       new: [], contacted: [], qualified: [], proposal_sent: [],
@@ -146,6 +148,7 @@ export default function CRMPage() {
             </p>
           </div>
           <button
+            onClick={() => setNoticeMessage('Adding new leads manually isn\'t built yet — this dashboard currently shows sample pipeline data.')}
             className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-opacity hover:opacity-90"
             style={{ background: '#FFD700', color: '#0A1628' }}
           >
@@ -298,6 +301,22 @@ export default function CRMPage() {
           </div>
         </div>
       </div>
+
+      {/* Lightweight notice for not-yet-built actions */}
+      {noticeMessage && (
+        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 text-center">
+            <p className="text-sm text-gray-600 mb-5">{noticeMessage}</p>
+            <button
+              onClick={() => setNoticeMessage(null)}
+              className="w-full py-2.5 rounded-xl font-semibold text-sm text-white"
+              style={{ background: '#0A1628' }}
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
     </DashboardLayout>
   );
 }

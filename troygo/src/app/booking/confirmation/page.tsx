@@ -100,7 +100,17 @@ function ConfirmationContent() {
             </a>
           </div>
           <div className="sm:ml-auto flex gap-2">
-            <button className="flex items-center gap-1.5 text-xs font-medium text-gray-500 hover:text-[#0A1628] border border-gray-200 px-3 py-2 rounded-xl hover:border-gray-300 transition-colors">
+            <button
+              onClick={() => {
+                const shareData = { title: packageName, text: `My booking (${ref}) with TRoyGO — ${packageName}`, url: window.location.href }
+                if (navigator.share) {
+                  navigator.share(shareData).catch(() => {})
+                } else {
+                  navigator.clipboard.writeText(window.location.href)
+                }
+              }}
+              className="flex items-center gap-1.5 text-xs font-medium text-gray-500 hover:text-[#0A1628] border border-gray-200 px-3 py-2 rounded-xl hover:border-gray-300 transition-colors"
+            >
               <Share2 className="h-3.5 w-3.5" /> Share
             </button>
           </div>
