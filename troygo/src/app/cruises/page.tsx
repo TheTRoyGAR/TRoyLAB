@@ -5,8 +5,15 @@ import { cruises } from '@/lib/data/packages'
 import { Star, Ship, MapPin, Clock, ChevronDown, Heart, Anchor } from 'lucide-react'
 import Link from 'next/link'
 
-const REGION_OPTIONS = ['Caribbean', 'Mediterranean', 'Alaska', 'Asia', 'Europe', 'South America', 'Antarctica']
-const LINE_OPTIONS = ['Royal TRoy Lines', 'Azure Seas', 'Pacific Voyager', 'Horizon Cruises']
+// Matches the real `category`/`cruiseLine` values in lib/data/packages.ts —
+// these used to be fictional placeholder names that matched nothing in the
+// actual data, so selecting any option here would have shown zero results.
+const REGION_OPTIONS = ['Caribbean', 'Mediterranean', 'Alaska', 'Asia', 'Europe', 'Expedition', 'Transatlantic']
+const LINE_OPTIONS = [
+  'Azamara Club Cruises', 'Celebrity Cruises', 'Celestyal Cruises', 'Cunard',
+  'Disney Cruise Line', 'Lindblad Expeditions', 'MSC Cruises', 'Norwegian Cruise Line',
+  'Regent Seven Seas', 'Royal Caribbean', 'Silversea Cruises', 'Viking Ocean Cruises',
+]
 
 export default function CruisesPage() {
   const [selectedRegion, setSelectedRegion] = useState('')
@@ -20,13 +27,15 @@ export default function CruisesPage() {
     let list = [...cruises]
     if (maxPrice < 20000) list = list.filter((c) => c.price <= maxPrice)
     if (maxDuration < 21) list = list.filter((c) => c.duration <= maxDuration)
+    if (selectedRegion) list = list.filter((c) => c.category === selectedRegion)
+    if (selectedLine) list = list.filter((c) => c.cruiseLine === selectedLine)
     switch (sort) {
       case 'price-asc': list.sort((a, b) => a.price - b.price); break
       case 'price-desc': list.sort((a, b) => b.price - a.price); break
       case 'rating': list.sort((a, b) => b.rating - a.rating); break
     }
     return list
-  }, [maxPrice, maxDuration, sort])
+  }, [maxPrice, maxDuration, selectedRegion, selectedLine, sort])
 
   function toggleSave(id: number) {
     setSaved((prev) => {
