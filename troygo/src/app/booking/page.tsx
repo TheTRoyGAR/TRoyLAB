@@ -528,6 +528,7 @@ function StepPayment({
   const [promoApplied, setPromoApplied] = useState(false)
   const [promoDiscount, setPromoDiscount] = useState(0)
   const [agreedTerms, setAgreedTerms] = useState(false)
+  const [noticeMessage, setNoticeMessage] = useState<string | null>(null)
 
   function formatCard(val: string) {
     return val.replace(/\D/g, '').slice(0, 16).replace(/(.{4})/g, '$1 ').trim()
@@ -555,6 +556,7 @@ function StepPayment({
   const isValid = cardNumber.replace(/\s/g, '').length === 16 && cardName && expiry.length === 5 && cvv.length >= 3 && agreedTerms
 
   return (
+    <>
     <div className="space-y-6">
       {/* Card form */}
       <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
@@ -726,9 +728,9 @@ function StepPayment({
         />
         <span className="text-sm text-slate-600">
           I agree to the{' '}
-          <Link href="#" className="underline hover:no-underline" style={{ color: '#00B4D8' }}>Terms & Conditions</Link>
+          <button type="button" onClick={() => setNoticeMessage("Terms & Conditions page isn't built yet.")} className="underline hover:no-underline" style={{ color: '#00B4D8' }}>Terms & Conditions</button>
           {' '}and{' '}
-          <Link href="#" className="underline hover:no-underline" style={{ color: '#00B4D8' }}>Privacy Policy</Link>
+          <button type="button" onClick={() => setNoticeMessage("Privacy Policy page isn't built yet.")} className="underline hover:no-underline" style={{ color: '#00B4D8' }}>Privacy Policy</button>
           . I understand this is a booking inquiry that requires approval.
         </span>
       </label>
@@ -757,6 +759,23 @@ function StepPayment({
         </button>
       </div>
     </div>
+
+    {/* Lightweight notice for not-yet-built pages */}
+    {noticeMessage && (
+      <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+        <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 text-center">
+          <p className="text-sm text-gray-600 mb-5">{noticeMessage}</p>
+          <button
+            onClick={() => setNoticeMessage(null)}
+            className="w-full py-2.5 rounded-xl font-semibold text-sm text-white"
+            style={{ background: '#0A1628' }}
+          >
+            Got it
+          </button>
+        </div>
+      </div>
+    )}
+    </>
   )
 }
 

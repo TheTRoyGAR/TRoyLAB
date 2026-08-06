@@ -136,6 +136,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen]   = useState(false)
   const [activeLang, setActiveLang]   = useState<Language>(LANGUAGES[0])
   const [activeCurrency, setActiveCurrency] = useState<Currency>(CURRENCIES[0])
+  const [noticeMessage, setNoticeMessage] = useState<string | null>(null)
 
   /* Track scroll for blur/shadow effect */
   useEffect(() => {
@@ -192,7 +193,12 @@ export default function Header() {
                 key={lang.code}
                 role="option"
                 aria-selected={activeLang.code === lang.code}
-                onClick={() => setActiveLang(lang)}
+                onClick={() => {
+                  setActiveLang(lang)
+                  if (lang.code !== 'en') {
+                    setNoticeMessage("Full site translation isn't built yet — content will stay in English for now.")
+                  }
+                }}
                 className={cn(
                   'w-full flex items-center gap-2.5 px-4 py-2.5 text-sm transition-colors text-left',
                   activeLang.code === lang.code
@@ -223,7 +229,12 @@ export default function Header() {
                 key={cur.code}
                 role="option"
                 aria-selected={activeCurrency.code === cur.code}
-                onClick={() => setActiveCurrency(cur)}
+                onClick={() => {
+                  setActiveCurrency(cur)
+                  if (cur.code !== 'USD') {
+                    setNoticeMessage("Live currency conversion isn't built yet — prices will stay in USD for now.")
+                  }
+                }}
                 className={cn(
                   'w-full flex items-center justify-between gap-4 px-4 py-2.5 text-sm transition-colors text-left',
                   activeCurrency.code === cur.code
@@ -304,14 +315,14 @@ export default function Header() {
 
           {/* Auth buttons (desktop) */}
           <div className="hidden md:flex items-center gap-3">
-            <Link
-              href="/auth/sign-in"
+            <button
+              onClick={() => setNoticeMessage("Accounts aren't built yet — sign-in isn't available for now.")}
               className="px-4 py-2 text-sm font-semibold text-white/80 hover:text-white rounded-lg transition-colors hover:bg-white/10"
             >
               Sign In
-            </Link>
-            <Link
-              href="/auth/sign-up"
+            </button>
+            <button
+              onClick={() => setNoticeMessage("Accounts aren't built yet — sign-up isn't available for now.")}
               className="px-4 py-2 text-sm font-bold rounded-lg transition-all hover:brightness-110 hover:-translate-y-px"
               style={{
                 background: '#FFD700',
@@ -319,7 +330,7 @@ export default function Header() {
               }}
             >
               Sign Up
-            </Link>
+            </button>
           </div>
 
           {/* Mobile: hamburger */}
@@ -402,6 +413,9 @@ export default function Header() {
               onChange={(e) => {
                 const lang = LANGUAGES.find((l) => l.code === e.target.value)
                 if (lang) setActiveLang(lang)
+                if (e.target.value !== 'en') {
+                  setNoticeMessage("Full site translation isn't built yet — content will stay in English for now.")
+                }
               }}
               className="flex-1 bg-transparent text-white/70 text-sm focus:outline-none"
               aria-label="Select language"
@@ -418,6 +432,9 @@ export default function Header() {
               onChange={(e) => {
                 const cur = CURRENCIES.find((c) => c.code === e.target.value)
                 if (cur) setActiveCurrency(cur)
+                if (e.target.value !== 'USD') {
+                  setNoticeMessage("Live currency conversion isn't built yet — prices will stay in USD for now.")
+                }
               }}
               className="bg-transparent text-white/70 text-sm focus:outline-none"
               aria-label="Select currency"
@@ -435,26 +452,42 @@ export default function Header() {
             className="border-t px-4 py-4 flex gap-3"
             style={{ borderColor: 'rgba(255,255,255,0.1)' }}
           >
-            <Link
-              href="/auth/sign-in"
+            <button
+              onClick={() => setNoticeMessage("Accounts aren't built yet — sign-in isn't available for now.")}
               className="flex-1 py-3 text-center text-sm font-semibold text-white/80 rounded-xl border transition-colors hover:text-white hover:bg-white/10"
               style={{ borderColor: 'rgba(255,255,255,0.15)' }}
             >
               Sign In
-            </Link>
-            <Link
-              href="/auth/sign-up"
+            </button>
+            <button
+              onClick={() => setNoticeMessage("Accounts aren't built yet — sign-up isn't available for now.")}
               className="flex-1 py-3 text-center text-sm font-bold rounded-xl transition-all"
               style={{ background: '#FFD700', color: '#0A1628' }}
             >
               Sign Up
-            </Link>
+            </button>
           </div>
         </div>
       )}
 
       {/* Spacer so content starts below fixed header */}
       <div className="h-16 md:h-[104px]" aria-hidden="true" />
+
+      {/* Lightweight notice for not-yet-built functionality */}
+      {noticeMessage && (
+        <div className="fixed inset-0 bg-black/60 z-[60] flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 text-center">
+            <p className="text-sm text-gray-600 mb-5">{noticeMessage}</p>
+            <button
+              onClick={() => setNoticeMessage(null)}
+              className="w-full py-2.5 rounded-xl font-semibold text-sm text-white"
+              style={{ background: '#0A1628' }}
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
     </>
   )
 }

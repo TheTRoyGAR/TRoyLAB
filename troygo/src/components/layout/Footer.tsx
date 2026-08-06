@@ -147,20 +147,43 @@ function FooterHeading({ children }: { children: React.ReactNode }) {
 function FooterLink({
   href,
   children,
+  built = true,
+  onUnbuilt,
 }: {
   href: string
   children: React.ReactNode
+  built?: boolean
+  onUnbuilt?: () => void
 }) {
+  const arrow = (
+    <ChevronRight
+      className="h-3 w-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 shrink-0"
+      style={{ color: '#00B4D8' }}
+    />
+  )
+
+  if (!built) {
+    return (
+      <li>
+        <button
+          type="button"
+          onClick={onUnbuilt}
+          className="group flex items-center gap-1.5 text-sm text-white/55 hover:text-white transition-colors py-0.5 text-left w-full"
+        >
+          {arrow}
+          {children}
+        </button>
+      </li>
+    )
+  }
+
   return (
     <li>
       <Link
         href={href}
         className="group flex items-center gap-1.5 text-sm text-white/55 hover:text-white transition-colors py-0.5"
       >
-        <ChevronRight
-          className="h-3 w-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 shrink-0"
-          style={{ color: '#00B4D8' }}
-        />
+        {arrow}
         {children}
       </Link>
     </li>
@@ -171,6 +194,7 @@ function FooterLink({
 export default function Footer() {
   const [email, setEmail] = useState('')
   const [submitting, setSubmitting] = useState(false)
+  const [noticeMessage, setNoticeMessage] = useState<string | null>(null)
 
   function handleNewsletter(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -320,6 +344,12 @@ export default function Footer() {
                   aria-label={label}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(e) => {
+                    if (href === '#') {
+                      e.preventDefault()
+                      setNoticeMessage(`${label.replace('Follow ', '').replace('Subscribe to ', '')} isn't connected yet.`)
+                    }
+                  }}
                   className="flex items-center justify-center w-9 h-9 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-md"
                   style={{ background: 'rgba(255,255,255,0.08)' }}
                   onMouseEnter={(e) => {
@@ -342,7 +372,12 @@ export default function Footer() {
             <FooterHeading>Company</FooterHeading>
             <ul className="space-y-1">
               {COMPANY_LINKS.map((link) => (
-                <FooterLink key={link.href} href={link.href}>
+                <FooterLink
+                  key={link.href}
+                  href={link.href}
+                  built={false}
+                  onUnbuilt={() => setNoticeMessage(`${link.label} page isn't built yet.`)}
+                >
                   {link.label}
                 </FooterLink>
               ))}
@@ -379,7 +414,12 @@ export default function Footer() {
               <FooterHeading>Support</FooterHeading>
               <ul className="space-y-1">
                 {SUPPORT_LINKS.map((link) => (
-                  <FooterLink key={link.href + link.label} href={link.href}>
+                  <FooterLink
+                    key={link.href + link.label}
+                    href={link.href}
+                    built={false}
+                    onUnbuilt={() => setNoticeMessage(`${link.label} page isn't built yet.`)}
+                  >
                     {link.label}
                   </FooterLink>
                 ))}
@@ -389,7 +429,12 @@ export default function Footer() {
               <FooterHeading>Legal</FooterHeading>
               <ul className="space-y-1">
                 {LEGAL_LINKS.map((link) => (
-                  <FooterLink key={link.href + link.label} href={link.href}>
+                  <FooterLink
+                    key={link.href + link.label}
+                    href={link.href}
+                    built={false}
+                    onUnbuilt={() => setNoticeMessage(`${link.label} page isn't built yet.`)}
+                  >
                     {link.label}
                   </FooterLink>
                 ))}
@@ -419,6 +464,22 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Lightweight notice for not-yet-built pages/links */}
+      {noticeMessage && (
+        <div className="fixed inset-0 bg-black/60 z-[60] flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 text-center">
+            <p className="text-sm text-gray-600 mb-5">{noticeMessage}</p>
+            <button
+              onClick={() => setNoticeMessage(null)}
+              className="w-full py-2.5 rounded-xl font-semibold text-sm text-white"
+              style={{ background: '#0A1628' }}
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
     </footer>
   )
 }
