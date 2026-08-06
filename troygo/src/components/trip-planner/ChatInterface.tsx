@@ -231,6 +231,103 @@ export default function ChatInterface({ tripDetails, initialMessage }: ChatInter
     sendMessage(suggestion);
   };
 
+  // ── Voice input — same tap-to-toggle continuous-recognition pattern
+  // proven on the dashboard/order-page mic (see reference_voice_dictation_pattern) ──
+  const [isRecording, setIsRecording] = useState(false);
+  const [noticeMessage, setNoticeMessage] = useState<string | null>(null);
+  const recognitionRef = useRef<any>(null);
+  const recordingRef = useRef(false);
+  const toggleModeRef = useRef(false);
+  const isPressedRef = useRef(false);
+  const pressStartRef = useRef(0);
+  const baseValueRef = useRef('');
+  const inputValueRef = useRef('');
+  useEffect(() => {
+    inputValueRef.current = inputValue;
+  }, [inputValue]);
+
+  const createRecognition = useCallback(() => {
+    const SpeechRecognition =
+      (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if (!SpeechRecognition) return null;
+    const r = new SpeechRecognition();
+    r.continuous = true;
+    r.interimResults = false;
+    r.lang = 'en-AU';
+
+    r.addEventListener('result', (e: any) => {
+      let transcript = '';
+      for (let i = 0; i < e.results.length; i++) {
+        transcript += e.results[i][0].transcript;
+      }
+      const base = baseValueRef.current;
+      const prefix = base && !base.endsWith(' ') ? base + ' ' : base;
+      setInputValue(prefix + transcript);
+    });
+
+    r.addEventListener('error', (e: any) => {
+      if (e.error !== 'no-speech' && e.error !== 'aborted') stopRecording();
+    });
+
+    r.addEventListener('end', () => {
+      if (recordingRef.current) {
+        baseValueRef.current = inputValueRef.current;
+        const next = createRecognition();
+        recognitionRef.current = next;
+        next?.start();
+      }
+    });
+
+    return r;
+  }, []);
+
+  const startRecording = useCallback(() => {
+    if (recordingRef.current) return;
+    recordingRef.current = true;
+    setIsRecording(true);
+    baseValueRef.current = inputValue;
+    const r = createRecognition();
+    recognitionRef.current = r;
+    r?.start();
+  }, [createRecognition, inputValue]);
+
+  const stopRecording = useCallback(() => {
+    if (!recordingRef.current) return;
+    recordingRef.current = false;
+    toggleModeRef.current = false;
+    setIsRecording(false);
+    recognitionRef.current?.stop();
+  }, []);
+
+  const MIC_TAP_THRESHOLD_MS = 300;
+
+  const handleMicPressStart = () => {
+    if (isPressedRef.current) return;
+    isPressedRef.current = true;
+
+    if (recordingRef.current && toggleModeRef.current) {
+      stopRecording();
+      return;
+    }
+    if (recordingRef.current) return;
+
+    pressStartRef.current = Date.now();
+    startRecording();
+  };
+
+  const handleMicPressEnd = () => {
+    if (!isPressedRef.current) return;
+    isPressedRef.current = false;
+
+    if (!recordingRef.current || toggleModeRef.current) return;
+
+    if (Date.now() - pressStartRef.current < MIC_TAP_THRESHOLD_MS) {
+      toggleModeRef.current = true; // quick tap — keep recording until tapped again
+    } else {
+      stopRecording(); // genuine hold — stop on release
+    }
+  };
+
   return (
     <>
       {/* Keyframe animations injected once */}
@@ -366,6 +463,7 @@ export default function ChatInterface({ tripDetails, initialMessage }: ChatInter
               {/* Attach */}
               <button
                 type="button"
+                onClick={() => setNoticeMessage("Attaching files isn't built yet — describe what you need in the chat instead.")}
                 className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-xl transition-colors hover:bg-gray-100"
                 style={{ color: '#9ca3af' }}
                 aria-label="Attach file"
@@ -394,11 +492,17 @@ export default function ChatInterface({ tripDetails, initialMessage }: ChatInter
                 }}
               />
 
-              {/* Voice */}
+              {/* Voice — hold to record, or tap once and tap again to stop */}
               <button
                 type="button"
+                onMouseDown={handleMicPressStart}
+                onMouseUp={handleMicPressEnd}
+                onMouseLeave={handleMicPressEnd}
+                onTouchStart={(e) => { e.preventDefault(); handleMicPressStart(); }}
+                onTouchEnd={handleMicPressEnd}
+                onTouchCancel={handleMicPressEnd}
                 className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-xl transition-colors hover:bg-gray-100"
-                style={{ color: '#9ca3af' }}
+                style={isRecording ? { color: '#fff', background: '#ef4444' } : { color: '#9ca3af' }}
                 aria-label="Voice input"
               >
                 <Mic className="w-4 h-4" />
@@ -435,6 +539,22 @@ export default function ChatInterface({ tripDetails, initialMessage }: ChatInter
           onClose={() => setIsPanelOpen(false)}
         />
       </div>
+
+      {/* Lightweight notice for not-yet-built actions */}
+      {noticeMessage && (
+        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 text-center">
+            <p className="text-sm text-gray-600 mb-5">{noticeMessage}</p>
+            <button
+              onClick={() => setNoticeMessage(null)}
+              className="w-full py-2.5 rounded-xl font-semibold text-sm text-white"
+              style={{ background: '#0A1628' }}
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

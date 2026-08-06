@@ -191,6 +191,18 @@ export default function ItineraryPanel({
   onClose,
 }: ItineraryPanelProps) {
   const [activeDay, setActiveDay] = useState(1);
+  const [saved, setSaved] = useState(false);
+  const [noticeMessage, setNoticeMessage] = useState<string | null>(null);
+
+  const handleShare = () => {
+    const summary = `My ${itinerary.days.length}-day trip to ${destination}, planned with TRoyGO AI.`;
+    const shareData = { title: 'My TRoyGO Trip', text: summary, url: window.location.href };
+    if (navigator.share) {
+      navigator.share(shareData).catch(() => {});
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+    }
+  };
 
   const destination = useMemo(
     () => tripDetails?.destinations?.join(', ') ?? 'Your Destination',
@@ -497,6 +509,7 @@ export default function ItineraryPanel({
         >
           {/* Book button */}
           <button
+            onClick={() => setNoticeMessage("Booking a full AI-planned itinerary directly isn't built yet — book individual flights, hotels, or packages from their own pages for now.")}
             className="w-full py-3 rounded-2xl text-sm font-bold flex items-center justify-center gap-2 transition-all hover:opacity-90 active:scale-[0.98]"
             style={{
               background: 'linear-gradient(135deg, #FFD700, #E6C200)',
@@ -511,17 +524,19 @@ export default function ItineraryPanel({
           {/* Save + Share */}
           <div className="flex gap-2">
             <button
+              onClick={() => setSaved((v) => !v)}
               className="flex-1 py-2.5 rounded-2xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-80"
               style={{
-                background: '#fff',
+                background: saved ? 'rgba(0,180,216,0.1)' : '#fff',
                 color: '#0A1628',
                 border: '1.5px solid rgba(0,180,216,0.3)',
               }}
             >
-              <Bookmark className="w-4 h-4" style={{ color: '#00B4D8' }} />
-              Save Trip
+              <Bookmark className="w-4 h-4" style={{ color: '#00B4D8', fill: saved ? '#00B4D8' : 'none' }} />
+              {saved ? 'Saved' : 'Save Trip'}
             </button>
             <button
+              onClick={handleShare}
               className="flex-1 py-2.5 rounded-2xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-80"
               style={{
                 background: '#fff',
@@ -535,6 +550,22 @@ export default function ItineraryPanel({
           </div>
         </div>
       </div>
+
+      {/* Lightweight notice for not-yet-built actions */}
+      {noticeMessage && (
+        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 text-center">
+            <p className="text-sm text-gray-600 mb-5">{noticeMessage}</p>
+            <button
+              onClick={() => setNoticeMessage(null)}
+              className="w-full py-2.5 rounded-xl font-semibold text-sm text-white"
+              style={{ background: '#0A1628' }}
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
