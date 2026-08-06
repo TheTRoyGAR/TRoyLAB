@@ -10,9 +10,11 @@ import Link from 'next/link'
 // actual data, so selecting any option here would have shown zero results.
 const REGION_OPTIONS = ['Caribbean', 'Mediterranean', 'Alaska', 'Asia', 'Europe', 'Expedition', 'Transatlantic']
 const LINE_OPTIONS = [
-  'Azamara Club Cruises', 'Celebrity Cruises', 'Celestyal Cruises', 'Cunard',
-  'Disney Cruise Line', 'Lindblad Expeditions', 'MSC Cruises', 'Norwegian Cruise Line',
-  'Regent Seven Seas', 'Royal Caribbean', 'Silversea Cruises', 'Viking Ocean Cruises',
+  'Azamara Club Cruises', 'Carnival Cruise Line', 'Celebrity Cruises', 'Celestyal Cruises',
+  'Costa Cruises', 'Cunard', 'Disney Cruise Line', 'Holland America Line',
+  'Lindblad Expeditions', 'MSC Cruises', 'Norwegian Cruise Line', 'Oceania Cruises',
+  'Ponant', 'Princess Cruises', 'Regent Seven Seas', 'Royal Caribbean',
+  'Seabourn Cruise Line', 'Silversea Cruises', 'Viking Ocean Cruises', 'Virgin Voyages',
 ]
 
 export default function CruisesPage() {
