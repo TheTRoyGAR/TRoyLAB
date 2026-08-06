@@ -1,4 +1,4 @@
 1:"$Sreact.fragment"
 2:I[39756,["/TRoyLAB/_next/static/chunks/15vta0mnzqrbb.js","/TRoyLAB/_next/static/chunks/0n4z.7yu76je-.js"],"default"]
 3:I[37457,["/TRoyLAB/_next/static/chunks/15vta0mnzqrbb.js","/TRoyLAB/_next/static/chunks/0n4z.7yu76je-.js"],"default"]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"0kGlTw0yroy7mWUhqvDZR"}
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"w-RupQyffbuIRtuz3ODga"}
