@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
 3:I[97367,["/TRoyLAB/_next/static/chunks/15vta0mnzqrbb.js","/TRoyLAB/_next/static/chunks/0n4z.7yu76je-.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":["$L2",[["$","script","script-0",{"src":"/TRoyLAB/_next/static/chunks/0v_4egl7ol63l.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"bDs5Hk_Zx-L-nS3ED0-YH"}
+0:{"rsc":["$","$1","c",{"children":["$L2",[["$","script","script-0",{"src":"/TRoyLAB/_next/static/chunks/076f1~~oamz4f.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"hm0Z0BzbW2rEsZJ31bhEs"}
 5:null
 2:E{"digest":"NEXT_HTTP_ERROR_FALLBACK;404"}
