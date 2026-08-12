@@ -1,0 +1,4 @@
+name = "troygo-flight-proxy"
+main = "index.js"
+compatibility_date = "2026-08-12"
+account_id = "7f9d6ab3d14d37e9fc6f4cec7527a94a"

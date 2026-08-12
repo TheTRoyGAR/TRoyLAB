@@ -1,0 +1,6 @@
+# TRoyGO agency backend (repo root, sibling to troygo/)
+.env
+agency/core/.memory_store/
+__pycache__/
+*.egg-info/
+.venv/
