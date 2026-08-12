@@ -1,0 +1,841 @@
+{
+  "timestamp": "20260812T030517Z",
+  "raw_output": "I now have sufficient verified data from multiple real source pages to compile the JSON array. Let me compile the confirmed deals:\n\n1. **Delta Vacations \u2013 Paradisus Cancun** (delta.com) \u2013 $300 instant savings, book by Aug 31, 2026\n2. **Delta Vacations \u2013 Royalton Antigua** (delta.com) \u2013 $200 instant savings + up to 25% off\n3. **Tripmasters \u2013 Prague-Vienna-Budapest by Train** (tripmasters.com) \u2013 from $1,269/pp\n4. **Tripmasters \u2013 Tokyo-Kyoto-Osaka by Train** (tripmasters.com) \u2013 from $1,689/pp\n5. **Gate1 Travel \u2013 16 Day Gems of Southeast Asia** (gate1travel.com) \u2013 from $5,289/pp air & land\n6. **Gate1 Travel \u2013 9 Day Central Thailand** (gate1travel.com) \u2013 from $1,609/pp air & land\n7. **Sandals Jamaica \u2013 Great Jamaica Comeback Sale** (sandals.com) \u2013 from $159 PP/PN\n8. **Exoticca \u2013 A Taste of Japan: Tokyo, Kyoto & Osaka** (exoticca.com) \u2013 from $2,049, was $5,129 (60% off)\n9. **Tripmasters \u2013 Bangkok and Phuket by Air** (tripmasters.com) \u2013 from $1,049/pp\n10. **HawaiiTours.com \u2013 Oahu Vacation Package** (hawaiitours.com) \u2013 from $1,780/pp\n\n[{\"name\":\"Paradisus Cancun All-Inclusive Flight & Hotel Package \u2013 $300 Instant Savings\",\"destination\":\"Cancun\",\"countries\":[\"Mexico\"],\"duration\":7,\"price\":300,\"originalPrice\":300,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":true,\"guide\":false},\"highlights\":[\"$300 instant savings per room per stay reflected in package price\",\"All-inclusive resort experience at Paradisus Cancun\",\"Book by August 31, 2026 for travel through October 31, 2026\",\"Save up to $500 additional with SkyMiles promo code SMSUMMER26\",\"Minimum 4-night stay required\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"beach\",\"description\":\"Delta Vacations is offering $300 in instant savings on a flight and hotel package to the Paradisus Cancun, a 4.5-star all-inclusive resort in Cancun, Mexico. Book by August 31, 2026 for travel through October 31, 2026, and SkyMiles members can stack up to $500 in additional savings with promo code SMSUMMER26.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrival in Cancun\",\"description\":\"Fly into Cancun International Airport and transfer to the Paradisus Cancun all-inclusive resort. Check in and enjoy the resort amenities.\"},{\"day\":2,\"title\":\"Beach & Resort Day\",\"description\":\"Spend the day relaxing on the white-sand beach, enjoying the pools and included meals and drinks at the all-inclusive resort.\"},{\"day\":3,\"title\":\"Cancun Exploration\",\"description\":\"Explore the Hotel Zone (Zona Hotelera) or take an optional excursion to nearby Mayan ruins or cenotes.\"},{\"day\":4,\"title\":\"Water Activities\",\"description\":\"Enjoy snorkeling, water sports, or a catamaran cruise available at or near the resort.\"},{\"day\":5,\"title\":\"Leisure & Spa\",\"description\":\"Relax with spa services or enjoy the resort's entertainment and dining options.\"},{\"day\":6,\"title\":\"Final Beach Day\",\"description\":\"Make the most of your last full day at the resort's beach and pools.\"},{\"day\":7,\"title\":\"Departure\",\"description\":\"Check out and transfer to Cancun International Airport for your return flight.\"}],\"sourceUrl\":\"https://www.delta.com/us/en/delta-vacations/offers-deals\"},{\"name\":\"Royalton Antigua Flight & Hotel Package \u2013 Up to 25% Off + $200 Instant Savings\",\"destination\":\"Antigua\",\"countries\":[\"Antigua and Barbuda\"],\"duration\":7,\"price\":200,\"originalPrice\":200,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":true,\"guide\":false},\"highlights\":[\"Up to 25% off rooms for travel through January 1, 2027\",\"$200 instant savings per room per stay\",\"Book by August 31, 2026\",\"Minimum 4-night stay required\",\"All-inclusive resort in Antigua\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"beach\",\"description\":\"Delta Vacations is advertising up to 25% off rooms plus $200 in instant savings on a flight and hotel package to the Royalton Antigua, a 4-star all-inclusive resort. Book by August 31, 2026 for travel through January 1, 2027.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrival in Antigua\",\"description\":\"Fly into V.C. Bird International Airport and transfer to the Royalton Antigua all-inclusive resort.\"},{\"day\":2,\"title\":\"Beach Day\",\"description\":\"Enjoy the resort's beach, pools, and all-inclusive food and beverages.\"},{\"day\":3,\"title\":\"Island Exploration\",\"description\":\"Explore Antigua's 365 beaches or visit Nelson's Dockyard, a UNESCO World Heritage Site.\"},{\"day\":4,\"title\":\"Water Sports & Activities\",\"description\":\"Take advantage of included water sports or optional excursions such as sailing or snorkeling.\"},{\"day\":5,\"title\":\"Relaxation Day\",\"description\":\"Enjoy spa services or relax by the pool with unlimited food and drinks.\"},{\"day\":6,\"title\":\"Local Culture\",\"description\":\"Visit St. John's, Antigua's capital, for local shopping and cultural sights.\"},{\"day\":7,\"title\":\"Departure\",\"description\":\"Check out and transfer to V.C. Bird International Airport for your return flight.\"}],\"sourceUrl\":\"https://www.delta.com/us/en/delta-vacations/offers-deals\"},{\"name\":\"Prague \u2013 Vienna \u2013 Budapest by Train\",\"destination\":\"Prague, Vienna, Budapest\",\"countries\":[\"Czech Republic\",\"Austria\",\"Hungary\"],\"duration\":10,\"price\":1269,\"originalPrice\":1269,\"rating\":4.7,\"reviewCount\":1951,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":false,\"guide\":false},\"highlights\":[\"Travel the famous Central European 'Golden Triangle' by train\",\"3 nights each in Prague, Vienna, and Budapest\",\"Customizable hotels and length of stay in each city\",\"Rated 4.7/5 by 1,951 Tripmasters customers\",\"Prices are per person based on double occupancy including flights and hotels\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"cultural\",\"description\":\"Tripmasters offers a fully customizable 9-night package visiting Prague, Vienna, and Budapest by train, starting from $1,269 per person including round-trip flights and hotel accommodations. The package features 3 nights in each city and is rated 4.7 out of 5 by nearly 2,000 customers.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrive in Prague\",\"description\":\"Fly into Prague and check into your hotel. Explore the historic city center at leisure.\"},{\"day\":2,\"title\":\"Prague Sightseeing\",\"description\":\"Visit Prague's Old Town Square, the Astronomical Clock, and Charles Bridge.\"},{\"day\":3,\"title\":\"Prague Castle & Mala Strana\",\"description\":\"Explore Prague Castle, St. Vitus Cathedral, and the charming Mala Strana neighborhood.\"},{\"day\":4,\"title\":\"Train to Vienna\",\"description\":\"Board the train to Vienna, Austria's imperial capital. Check in and explore the Ringstrasse.\"},{\"day\":5,\"title\":\"Vienna Highlights\",\"description\":\"Visit the Sch\u00f6nbrunn Palace, the Vienna State Opera, and enjoy Viennese coffee culture.\"},{\"day\":6,\"title\":\"Vienna Museums & Parks\",\"description\":\"Explore the Kunsthistorisches Museum and stroll through the city's elegant parks.\"},{\"day\":7,\"title\":\"Train to Budapest\",\"description\":\"Take the train to Budapest. Check in and enjoy views of the Danube from Buda Castle Hill.\"},{\"day\":8,\"title\":\"Budapest Sightseeing\",\"description\":\"Visit the Hungarian Parliament Building, Fisherman's Bastion, and Heroes' Square.\"},{\"day\":9,\"title\":\"Budapest Baths & Ruin Bars\",\"description\":\"Relax in one of Budapest's famous thermal baths and explore the city's vibrant nightlife.\"},{\"day\":10,\"title\":\"Departure\",\"description\":\"Transfer to Budapest airport for your return flight home.\"}],\"sourceUrl\":\"https://www.tripmasters.com/europe/?srsltid=AfmBOorC2BjtmjZ32QvntVSdQqcWH0g_7_BBeRDQTLw4Hnp6o5Ay-8nc\"},{\"name\":\"Tokyo \u2013 Kyoto \u2013 Osaka by Train (Japan Golden Route)\",\"destination\":\"Tokyo, Kyoto, Osaka\",\"countries\":[\"Japan\"],\"duration\":10,\"price\":1689,\"originalPrice\":1689,\"rating\":4.6,\"reviewCount\":456,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":false,\"guide\":false},\"highlights\":[\"Travel Japan's famous 'Golden Route' by high-speed Shinkansen train\",\"3 nights each in Tokyo, Kyoto, and Osaka\",\"Explore Michelin-starred food scene in Tokyo, UNESCO shrines in Kyoto, and Dotonbori in Osaka\",\"Rated 4.6/5 by 456 Tripmasters customers\",\"Fully flexible and customizable itinerary\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"cultural\",\"description\":\"Tripmasters offers a 9-night Japan 'Golden Route' package starting from $1,689 per person, including flights into Tokyo and out of Osaka, plus hotels and Shinkansen train tickets between cities. Travelers can personalize hotels and length of stay in each city.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrive in Tokyo\",\"description\":\"Fly into Tokyo (Narita or Haneda). Transfer to your hotel and explore the Shinjuku or Shibuya neighborhood.\"},{\"day\":2,\"title\":\"Tokyo Highlights\",\"description\":\"Visit Shibuya Crossing, Harajuku, and the Meiji Shrine. Enjoy Tokyo's world-class dining scene.\"},{\"day\":3,\"title\":\"Tokyo Day Trip or Ginza\",\"description\":\"Explore the Tsukiji Outer Market, Asakusa's Senso-ji Temple, or luxury shopping in Ginza.\"},{\"day\":4,\"title\":\"Shinkansen to Kyoto\",\"description\":\"Board the bullet train to Kyoto. Check in and visit the Fushimi Inari Shrine or Gion district.\"},{\"day\":5,\"title\":\"Kyoto Temples & Gardens\",\"description\":\"Visit Kinkaku-ji (Golden Pavilion), Arashiyama Bamboo Grove, and the Tenryu-ji garden.\"},{\"day\":6,\"title\":\"Kyoto UNESCO Heritage Sites\",\"description\":\"Explore Nijo Castle, Kiyomizudera Temple, and the traditional Higashiyama district.\"},{\"day\":7,\"title\":\"Shinkansen to Osaka\",\"description\":\"Travel by bullet train to Osaka. Visit Osaka Castle and explore the Dotonbori entertainment district.\"},{\"day\":8,\"title\":\"Osaka Food & Culture\",\"description\":\"Explore the Kuromon Ichiba Market, try takoyaki and okonomiyaki, and visit the Osaka Aquarium Kaiyukan.\"},{\"day\":9,\"title\":\"Day Trip from Osaka\",\"description\":\"Optional day trip to Nara to see the famous deer park and Todai-ji Temple.\"},{\"day\":10,\"title\":\"Departure from Osaka\",\"description\":\"Transfer to Kansai International Airport for your return flight home.\"}],\"sourceUrl\":\"https://www.tripmasters.com/asia/?srsltid=AfmBOopX4sj_tUzu4nOIkiwp4h6IiV7TEM9fSSHAmvRw9M0clrfhtgtK\"},{\"name\":\"16 Day Gems of Southeast Asia \u2013 Small Group Escorted Tour\",\"destination\":\"Phnom Penh, Siem Reap, Bangkok, Luang Prabang, Hanoi, Halong Bay\",\"countries\":[\"Cambodia\",\"Thailand\",\"Laos\",\"Vietnam\"],\"duration\":16,\"price\":5289,\"originalPrice\":5289,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":true,\"meals\":true,\"guide\":true},\"highlights\":[\"Small groups of maximum 22 travelers guaranteed\",\"Visit Angkor Wat, the Grand Palace Bangkok, and UNESCO-listed Luang Prabang\",\"Cruise Halong Bay on a traditional junk boat\",\"31 meals included: 14 breakfasts, 10 lunches, 7 dinners\",\"All intra-flights between countries included\"],\"departureDates\":[\"2026-09-17\",\"2026-10-08\",\"2026-10-22\",\"2026-11-07\",\"2026-11-19\",\"2026-12-03\",\"2026-12-10\",\"2027-01-03\",\"2027-02-04\",\"2027-03-06\",\"2027-05-06\"],\"maxGroupSize\":22,\"difficulty\":\"moderate\",\"category\":\"cultural\",\"description\":\"Gate 1 Travel's 16-day small-group escorted tour covers Cambodia, Thailand, Laos, and Vietnam including Angkor Wat, Bangkok's Grand Palace, UNESCO Luang Prabang, and a Halong Bay junk cruise. Priced from $5,289 per person air and land (from $3,979 land only), with 31 meals, all intra-flights, and a maximum group size of 22.\",\"itinerary\":[{\"day\":1,\"title\":\"Depart for Cambodia\",\"description\":\"Depart from your home gateway for Phnom Penh, Cambodia.\"},{\"day\":2,\"title\":\"Arrive in Phnom Penh\",\"description\":\"Arrive in Phnom Penh, Cambodia's capital on the Mekong River. Transfer to hotel and rest.\"},{\"day\":3,\"title\":\"Royal Palace & Killing Fields\",\"description\":\"Visit the Royal Palace complex with the Silver Pagoda, the National Museum, and the Killing Fields memorial. Meet a cultural historian.\"},{\"day\":4,\"title\":\"Flight to Siem Reap\",\"description\":\"Fly to Siem Reap, gateway to Angkor. Enjoy dinner with an Apsara dance performance.\"},{\"day\":5,\"title\":\"Angkor Wat & Angkor Thom\",\"description\":\"Explore the architectural masterpieces of Angkor Thom, Bayon Temple with its 172 stone faces, and the stunning Angkor Wat.\"},{\"day\":6,\"title\":\"Ox Cart, Tonle Sap & Flight to Bangkok\",\"description\":\"Ride an ox cart through rice fields, cruise Tonle Sap Lake, then fly to Bangkok, Thailand.\"},{\"day\":7,\"title\":\"Bangkok Grand Palace & Temples\",\"description\":\"Visit the Grand Palace, Temple of the Emerald Buddha (Wat Phra Kaew), and the giant Reclining Buddha at Wat Po.\"},{\"day\":8,\"title\":\"Floating Market & Amphawa\",\"description\":\"Explore the Damnoen Saduak Floating Market and visit the Amphawa Chaipattana Nurak community project.\"},{\"day\":9,\"title\":\"Flight to Luang Prabang\",\"description\":\"Fly to Luang Prabang, a UNESCO World Heritage Site. Visit Wat Xieng Thong, the Royal Palace Museum, and participate in a Baci Ceremony.\"},{\"day\":10,\"title\":\"Almsgiving, Mekong Cruise & Pak Ou Caves\",\"description\":\"Participate in the sacred almsgiving ceremony, cruise the Mekong River, and visit the Pak Ou Buddha Caves.\"},{\"day\":11,\"title\":\"Flight to Hanoi\",\"description\":\"Visit Kuang Si Waterfall and the Whiskey Village before flying to Hanoi, Vietnam.\"},{\"day\":12,\"title\":\"Halong Bay Cruise\",\"description\":\"Drive to Halong Bay and embark on a luxury junk cruise past limestone karsts, grottos, and hidden caves. Overnight on board.\"},{\"day\":13,\"title\":\"Return to Hanoi & Water Puppets\",\"description\":\"Watch sunrise on Halong Bay, explore Surprise Cave, then return to Hanoi for the Water Puppet Show and a home-hosted dinner.\"},{\"day\":14,\"title\":\"Hanoi Highlights & Cooking Class\",\"description\":\"Visit the Ho Chi Minh complex, take a private Vietnamese cooking class, and ride a cyclo through the Old Quarter.\"},{\"day\":15,\"title\":\"Red River Delta Excursion\",\"description\":\"Explore the countryside of the Red River Delta, visit Chuong Village known for traditional conical hat-making.\"},{\"day\":16,\"title\":\"Depart Vietnam\",\"description\":\"Transfer to Hanoi airport for your return flight home.\"}],\"sourceUrl\":\"https://www.gate1travel.com/tour/small-groups-southasia-16dgsas27.aspx?Brand=DISCOVER\"},{\"name\":\"9 Day Central Thailand with River Kwai \u2013 Classic Escorted Tour\",\"destination\":\"Bangkok, Kanchanaburi, Ayutthaya\",\"countries\":[\"Thailand\"],\"duration\":9,\"price\":1609,\"originalPrice\":1609,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":true,\"meals\":true,\"guide\":true},\"highlights\":[\"4 nights Bangkok, 2 nights Kanchanaburi, 1 night Ayutthaya\",\"Visit the historic Bridge on the River Kwai\",\"Explore Bangkok's Grand Palace and ancient Ayutthaya temples\",\"Classic escorted tour style with English-speaking tour manager\",\"Season: August 2026 through May 2027\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"cultural\",\"description\":\"Gate 1 Travel offers a 9-day classic escorted tour of Central Thailand starting from $1,609 per person (air and land), covering Bangkok, the River Kwai in Kanchanaburi, and the ancient capital of Ayutthaya. The tour runs from August 2026 through May 2027.\",\"itinerary\":[{\"day\":1,\"title\":\"Depart for Thailand\",\"description\":\"Depart from your home gateway for Bangkok, Thailand.\"},{\"day\":2,\"title\":\"Arrive Bangkok\",\"description\":\"Arrive in Bangkok and transfer to your hotel. Orientation meeting with your tour manager.\"},{\"day\":3,\"title\":\"Bangkok Temples & Grand Palace\",\"description\":\"Visit the Grand Palace, Temple of the Emerald Buddha, and Wat Po with the giant Reclining Buddha.\"},{\"day\":4,\"title\":\"Bangkok Markets & City Tour\",\"description\":\"Explore local markets and other Bangkok highlights with your tour manager.\"},{\"day\":5,\"title\":\"Travel to Kanchanaburi\",\"description\":\"Journey to Kanchanaburi and visit the famous Bridge on the River Kwai and the Thailand-Burma Railway.\"},{\"day\":6,\"title\":\"Kanchanaburi Exploration\",\"description\":\"Visit the JEATH War Museum and explore the scenic River Kwai area.\"},{\"day\":7,\"title\":\"Ayutthaya \u2013 Ancient Capital\",\"description\":\"Travel to Ayutthaya, the ancient capital of Thailand, and tour its UNESCO-listed temple ruins.\"},{\"day\":8,\"title\":\"Return to Bangkok\",\"description\":\"Return to Bangkok for final shopping and leisure time.\"},{\"day\":9,\"title\":\"Departure\",\"description\":\"Transfer to Bangkok's Suvarnabhumi Airport for your return flight home.\"}],\"sourceUrl\":\"https://www.gate1travel.com/asia-pacific/southeast-asia\"},{\"name\":\"The Great Jamaica Comeback Sale \u2013 Sandals All-Inclusive Jamaica\",\"destination\":\"Jamaica\",\"countries\":[\"Jamaica\"],\"duration\":7,\"price\":1113,\"originalPrice\":1113,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":false,\"hotel\":true,\"transfers\":false,\"meals\":true,\"guide\":false},\"highlights\":[\"Up to $1,500 Instant Credit + up to $350 Air Credit\",\"Free Jamaican Adventure included with 5+ night stays (e.g., bamboo river rafting or catamaran cruise)\",\"Rates from $159 per person per night at Sandals Ochi up to $417 PP/PN at Sandals Montego Bay\",\"Seven Jamaica resorts available including newly reimagined properties\",\"Adults-only all-inclusive Caribbean resort experience\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"honeymoon\",\"description\":\"Sandals Resorts is running 'The Great Jamaica Comeback Sale,' offering up to $1,500 Instant Credit plus up to $350 Air Credit and a Free Jamaican Adventure (such as bamboo river rafting or a catamaran cruise to waterfalls) when booking 5 nights or longer. Rates start from $159 per person per night at Sandals Ochi.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrive in Jamaica\",\"description\":\"Arrive at Montego Bay or Kingston airport and transfer to your chosen Sandals resort. Check in and enjoy your welcome amenities.\"},{\"day\":2,\"title\":\"Beach & Pool Day\",\"description\":\"Relax on Jamaica's white-sand beaches, enjoy unlimited food and drinks, and explore the resort's water sports.\"},{\"day\":3,\"title\":\"Free Jamaican Adventure\",\"description\":\"Enjoy your complimentary Jamaican Adventure\u2014bamboo river rafting on the Martha Brae or Great River, or a catamaran cruise to Dunn's River Falls or YS Falls.\"},{\"day\":4,\"title\":\"Explore the Island\",\"description\":\"Take an optional excursion to explore local Jamaican culture, cuisine, and natural beauty.\"},{\"day\":5,\"title\":\"Spa & Leisure\",\"description\":\"Indulge in spa treatments (using your Instant Credit) or enjoy the resort's pools, restaurants, and entertainment.\"},{\"day\":6,\"title\":\"Water Sports & Sunset\",\"description\":\"Try scuba diving, snorkeling, or sailing, then enjoy a romantic sunset dinner at one of the resort's restaurants.\"},{\"day\":7,\"title\":\"Departure\",\"description\":\"Check out and transfer to the airport for your return flight.\"}],\"sourceUrl\":\"https://www.sandals.com/sale/\"},{\"name\":\"A Taste of Japan: Tokyo, Kyoto & Osaka \u2013 Flash Sale 60% Off\",\"destination\":\"Tokyo, Kyoto, Osaka\",\"countries\":[\"Japan\"],\"duration\":9,\"price\":2049,\"originalPrice\":5129,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":true,\"meals\":false,\"guide\":true},\"highlights\":[\"60% off flash sale: was $5,129 now from $2,049 per person\",\"Includes flights, hotels, guided tours, and transfers\",\"Visit Shibuya Crossing in Tokyo, Gion's geisha district in Kyoto, and Osaka\",\"Partially or fully guided tour with local expert guides\",\"Up to $500 cashback promotion available until August 30\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"cultural\",\"description\":\"Exoticca is running a flash sale on its 9-day Japan package covering Tokyo, Kyoto, and Osaka, with the price slashed 60% from $5,129 to $2,049 per person. The package includes flights, hotels, guided tours, and transfers, with an additional up to $500 cashback promotion available until August 30.\",\"itinerary\":[{\"day\":1,\"title\":\"Depart for Tokyo\",\"description\":\"Depart from your home city for Tokyo, Japan.\"},{\"day\":2,\"title\":\"Arrive in Tokyo\",\"description\":\"Arrive in Tokyo and transfer to your hotel. Evening orientation and leisure time in Shinjuku or Shibuya.\"},{\"day\":3,\"title\":\"Tokyo City Tour\",\"description\":\"Guided tour of Tokyo including Shibuya Crossing, Harajuku, and the Meiji Shrine.\"},{\"day\":4,\"title\":\"Tokyo Free Day\",\"description\":\"Explore Tokyo at leisure\u2014visit Asakusa's Senso-ji Temple, Akihabara, or the teamLab digital art museums.\"},{\"day\":5,\"title\":\"Travel to Kyoto\",\"description\":\"Transfer to Kyoto, Japan's cultural heart. Visit Gion's geisha district and Nishiki Market.\"},{\"day\":6,\"title\":\"Kyoto Temples & Shrines\",\"description\":\"Guided tour of Kyoto's UNESCO World Heritage Sites including Kinkaku-ji, Fushimi Inari Shrine, and Arashiyama Bamboo Grove.\"},{\"day\":7,\"title\":\"Travel to Osaka\",\"description\":\"Transfer to Osaka. Explore Dotonbori, the city's famous entertainment and food district.\"},{\"day\":8,\"title\":\"Osaka Highlights\",\"description\":\"Visit Osaka Castle and explore the Kuromon Ichiba Market. Optional day trip to Nara.\"},{\"day\":9,\"title\":\"Departure\",\"description\":\"Transfer to Kansai International Airport for your return flight home.\"}],\"sourceUrl\":\"https://www.exoticca.com/us/asia\"},{\"name\":\"Bangkok and Phuket by Air \u2013 Thailand Vacation Package\",\"destination\":\"Bangkok and Phuket\",\"countries\":[\"Thailand\"],\"duration\":7,\"price\":1049,\"originalPrice\":1049,\"rating\":4.6,\"reviewCount\":264,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":false,\"guide\":false},\"highlights\":[\"6 nights: 3 in Bangkok, 3 in Phuket\",\"Includes round-trip international flights and inter-city flight Bangkok to Phuket\",\"Rated 4.6/5 by 264 Tripmasters customers\",\"Explore Bangkok's floating markets, nightlife, and Phuket's beaches\",\"Fully customizable hotels and length of stay\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"beach\",\"description\":\"Tripmasters offers a 6-night Thailand package combining Bangkok and Phuket starting from $1,049 per person, including international round-trip flights, an inter-city flight from Bangkok to Phuket, and hotel accommodations. Rated 4.6/5 by 264 customers.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrive in Bangkok\",\"description\":\"Fly into Bangkok's Suvarnabhumi Airport and transfer to your hotel in the city center.\"},{\"day\":2,\"title\":\"Bangkok Temples & Grand Palace\",\"description\":\"Visit the Grand Palace, Temple of the Emerald Buddha, and Wat Pho with its giant Reclining Buddha.\"},{\"day\":3,\"title\":\"Bangkok Markets & Nightlife\",\"description\":\"Explore the Damnoen Saduak Floating Market and enjoy Bangkok's legendary nightlife in Sukhumvit.\"},{\"day\":4,\"title\":\"Fly to Phuket\",\"description\":\"Take your included flight from Bangkok to Phuket, the 'Pearl of the South.' Check in and enjoy the beach.\"},{\"day\":5,\"title\":\"Phuket Beach Day\",\"description\":\"Relax on Patong, Kata, or Karon Beach. Enjoy the crystal-clear Andaman Sea waters.\"},{\"day\":6,\"title\":\"Island Excursion\",\"description\":\"Take an optional boat tour to Phang Nga Bay to see the famous limestone karsts and emerald waters.\"},{\"day\":7,\"title\":\"Departure\",\"description\":\"Transfer to Phuket International Airport for your return flight home.\"}],\"sourceUrl\":\"https://www.tripmasters.com/asia/?srsltid=AfmBOopX4sj_tUzu4nOIkiwp4h6IiV7TEM9fSSHAmvRw9M0clrfhtgtK\"},{\"name\":\"Oahu All-Inclusive Hawaii Vacation Package\",\"destination\":\"Oahu, Hawaii\",\"countries\":[\"United States\"],\"duration\":5,\"price\":1780,\"originalPrice\":1780,\"rating\":4.5,\"reviewCount\":479,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":true,\"meals\":false,\"guide\":true},\"highlights\":[\"Includes round-trip flights, beachfront hotel, private airport transportation, and a local guide\",\"Waikiki Beach, Pearl Harbor, and North Shore sightseeing\",\"Major cultural entertainment and large productions included\",\"Daily concierge service throughout your stay\",\"Cancellation insurance included with bookings of 4 or more nights\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"beach\",\"description\":\"HawaiiTours.com offers an all-inclusive Oahu vacation package starting from $1,780 per person, including round-trip flights, a beachfront resort in Waikiki or Ko Olina, private airport transfers, a local guide, and premium activities including Pearl Harbor and North Shore tours. The site reports a 5/5 rating from 479 reviews.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrive in Oahu\",\"description\":\"Fly into Honolulu International Airport. Your private transfer will take you to your beachfront resort in Waikiki or Ko Olina. Meet your local concierge.\"},{\"day\":2,\"title\":\"Pearl Harbor & Historic Oahu\",\"description\":\"Guided tour of Pearl Harbor, the USS Arizona Memorial, and the World War II Valor in the Pacific National Monument.\"},{\"day\":3,\"title\":\"Waikiki & Diamond Head\",\"description\":\"Explore Waikiki Beach, hike Diamond Head Crater for panoramic views, and enjoy Honolulu's dining and shopping.\"},{\"day\":4,\"title\":\"North Shore Adventure\",\"description\":\"Tour Oahu's famous North Shore, see the Banzai Pipeline surf break, and visit the Polynesian Cultural Center.\"},{\"day\":5,\"title\":\"Departure\",\"description\":\"Enjoy a final morning in Oahu before your private transfer to Honolulu airport for your return flight.\"}],\"sourceUrl\":\"https://www.hawaiitours.com/all-inclusive-hawaii-vacations/\"}]",
+  "candidate_count": 10,
+  "validated_count": 10,
+  "dropped": [],
+  "packages": [
+    {
+      "id": 1,
+      "name": "Paradisus Cancun All-Inclusive Flight & Hotel Package \u2013 $300 Instant Savings",
+      "slug": "paradisus-cancun-all-inclusive-flight-hotel-package-300-instant-savings",
+      "destination": "Cancun",
+      "countries": [
+        "Mexico"
+      ],
+      "duration": 7,
+      "price": 300.0,
+      "originalPrice": 300.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-violet-500 to-purple-700",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": true,
+        "guide": false
+      },
+      "highlights": [
+        "$300 instant savings per room per stay reflected in package price",
+        "All-inclusive resort experience at Paradisus Cancun",
+        "Book by August 31, 2026 for travel through October 31, 2026",
+        "Save up to $500 additional with SkyMiles promo code SMSUMMER26",
+        "Minimum 4-night stay required"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "beach",
+      "description": "Delta Vacations is offering $300 in instant savings on a flight and hotel package to the Paradisus Cancun, a 4.5-star all-inclusive resort in Cancun, Mexico. Book by August 31, 2026 for travel through October 31, 2026, and SkyMiles members can stack up to $500 in additional savings with promo code SMSUMMER26.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Cancun",
+          "description": "Fly into Cancun International Airport and transfer to the Paradisus Cancun all-inclusive resort. Check in and enjoy the resort amenities."
+        },
+        {
+          "day": 2,
+          "title": "Beach & Resort Day",
+          "description": "Spend the day relaxing on the white-sand beach, enjoying the pools and included meals and drinks at the all-inclusive resort."
+        },
+        {
+          "day": 3,
+          "title": "Cancun Exploration",
+          "description": "Explore the Hotel Zone (Zona Hotelera) or take an optional excursion to nearby Mayan ruins or cenotes."
+        },
+        {
+          "day": 4,
+          "title": "Water Activities",
+          "description": "Enjoy snorkeling, water sports, or a catamaran cruise available at or near the resort."
+        },
+        {
+          "day": 5,
+          "title": "Leisure & Spa",
+          "description": "Relax with spa services or enjoy the resort's entertainment and dining options."
+        },
+        {
+          "day": 6,
+          "title": "Final Beach Day",
+          "description": "Make the most of your last full day at the resort's beach and pools."
+        },
+        {
+          "day": 7,
+          "title": "Departure",
+          "description": "Check out and transfer to Cancun International Airport for your return flight."
+        }
+      ],
+      "sourceUrl": "https://www.delta.com/us/en/delta-vacations/offers-deals"
+    },
+    {
+      "id": 2,
+      "name": "Royalton Antigua Flight & Hotel Package \u2013 Up to 25% Off + $200 Instant Savings",
+      "slug": "royalton-antigua-flight-hotel-package-up-to-25-off-200-instant-savings",
+      "destination": "Antigua",
+      "countries": [
+        "Antigua and Barbuda"
+      ],
+      "duration": 7,
+      "price": 200.0,
+      "originalPrice": 200.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-pink-500 to-rose-600",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": true,
+        "guide": false
+      },
+      "highlights": [
+        "Up to 25% off rooms for travel through January 1, 2027",
+        "$200 instant savings per room per stay",
+        "Book by August 31, 2026",
+        "Minimum 4-night stay required",
+        "All-inclusive resort in Antigua"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "beach",
+      "description": "Delta Vacations is advertising up to 25% off rooms plus $200 in instant savings on a flight and hotel package to the Royalton Antigua, a 4-star all-inclusive resort. Book by August 31, 2026 for travel through January 1, 2027.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Antigua",
+          "description": "Fly into V.C. Bird International Airport and transfer to the Royalton Antigua all-inclusive resort."
+        },
+        {
+          "day": 2,
+          "title": "Beach Day",
+          "description": "Enjoy the resort's beach, pools, and all-inclusive food and beverages."
+        },
+        {
+          "day": 3,
+          "title": "Island Exploration",
+          "description": "Explore Antigua's 365 beaches or visit Nelson's Dockyard, a UNESCO World Heritage Site."
+        },
+        {
+          "day": 4,
+          "title": "Water Sports & Activities",
+          "description": "Take advantage of included water sports or optional excursions such as sailing or snorkeling."
+        },
+        {
+          "day": 5,
+          "title": "Relaxation Day",
+          "description": "Enjoy spa services or relax by the pool with unlimited food and drinks."
+        },
+        {
+          "day": 6,
+          "title": "Local Culture",
+          "description": "Visit St. John's, Antigua's capital, for local shopping and cultural sights."
+        },
+        {
+          "day": 7,
+          "title": "Departure",
+          "description": "Check out and transfer to V.C. Bird International Airport for your return flight."
+        }
+      ],
+      "sourceUrl": "https://www.delta.com/us/en/delta-vacations/offers-deals"
+    },
+    {
+      "id": 3,
+      "name": "Prague \u2013 Vienna \u2013 Budapest by Train",
+      "slug": "prague-vienna-budapest-by-train",
+      "destination": "Prague, Vienna, Budapest",
+      "countries": [
+        "Czech Republic",
+        "Austria",
+        "Hungary"
+      ],
+      "duration": 10,
+      "price": 1269.0,
+      "originalPrice": 1269.0,
+      "currency": "USD",
+      "rating": 4.7,
+      "reviewCount": 1951,
+      "imageGradient": "from-red-400 to-pink-600",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": false,
+        "guide": false
+      },
+      "highlights": [
+        "Travel the famous Central European 'Golden Triangle' by train",
+        "3 nights each in Prague, Vienna, and Budapest",
+        "Customizable hotels and length of stay in each city",
+        "Rated 4.7/5 by 1,951 Tripmasters customers",
+        "Prices are per person based on double occupancy including flights and hotels"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "cultural",
+      "description": "Tripmasters offers a fully customizable 9-night package visiting Prague, Vienna, and Budapest by train, starting from $1,269 per person including round-trip flights and hotel accommodations. The package features 3 nights in each city and is rated 4.7 out of 5 by nearly 2,000 customers.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive in Prague",
+          "description": "Fly into Prague and check into your hotel. Explore the historic city center at leisure."
+        },
+        {
+          "day": 2,
+          "title": "Prague Sightseeing",
+          "description": "Visit Prague's Old Town Square, the Astronomical Clock, and Charles Bridge."
+        },
+        {
+          "day": 3,
+          "title": "Prague Castle & Mala Strana",
+          "description": "Explore Prague Castle, St. Vitus Cathedral, and the charming Mala Strana neighborhood."
+        },
+        {
+          "day": 4,
+          "title": "Train to Vienna",
+          "description": "Board the train to Vienna, Austria's imperial capital. Check in and explore the Ringstrasse."
+        },
+        {
+          "day": 5,
+          "title": "Vienna Highlights",
+          "description": "Visit the Sch\u00f6nbrunn Palace, the Vienna State Opera, and enjoy Viennese coffee culture."
+        },
+        {
+          "day": 6,
+          "title": "Vienna Museums & Parks",
+          "description": "Explore the Kunsthistorisches Museum and stroll through the city's elegant parks."
+        },
+        {
+          "day": 7,
+          "title": "Train to Budapest",
+          "description": "Take the train to Budapest. Check in and enjoy views of the Danube from Buda Castle Hill."
+        },
+        {
+          "day": 8,
+          "title": "Budapest Sightseeing",
+          "description": "Visit the Hungarian Parliament Building, Fisherman's Bastion, and Heroes' Square."
+        },
+        {
+          "day": 9,
+          "title": "Budapest Baths & Ruin Bars",
+          "description": "Relax in one of Budapest's famous thermal baths and explore the city's vibrant nightlife."
+        },
+        {
+          "day": 10,
+          "title": "Departure",
+          "description": "Transfer to Budapest airport for your return flight home."
+        }
+      ],
+      "sourceUrl": "https://www.tripmasters.com/europe/?srsltid=AfmBOorC2BjtmjZ32QvntVSdQqcWH0g_7_BBeRDQTLw4Hnp6o5Ay-8nc"
+    },
+    {
+      "id": 4,
+      "name": "Tokyo \u2013 Kyoto \u2013 Osaka by Train (Japan Golden Route)",
+      "slug": "tokyo-kyoto-osaka-by-train-japan-golden-route",
+      "destination": "Tokyo, Kyoto, Osaka",
+      "countries": [
+        "Japan"
+      ],
+      "duration": 10,
+      "price": 1689.0,
+      "originalPrice": 1689.0,
+      "currency": "USD",
+      "rating": 4.6,
+      "reviewCount": 456,
+      "imageGradient": "from-green-500 to-emerald-700",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": false,
+        "guide": false
+      },
+      "highlights": [
+        "Travel Japan's famous 'Golden Route' by high-speed Shinkansen train",
+        "3 nights each in Tokyo, Kyoto, and Osaka",
+        "Explore Michelin-starred food scene in Tokyo, UNESCO shrines in Kyoto, and Dotonbori in Osaka",
+        "Rated 4.6/5 by 456 Tripmasters customers",
+        "Fully flexible and customizable itinerary"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "cultural",
+      "description": "Tripmasters offers a 9-night Japan 'Golden Route' package starting from $1,689 per person, including flights into Tokyo and out of Osaka, plus hotels and Shinkansen train tickets between cities. Travelers can personalize hotels and length of stay in each city.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive in Tokyo",
+          "description": "Fly into Tokyo (Narita or Haneda). Transfer to your hotel and explore the Shinjuku or Shibuya neighborhood."
+        },
+        {
+          "day": 2,
+          "title": "Tokyo Highlights",
+          "description": "Visit Shibuya Crossing, Harajuku, and the Meiji Shrine. Enjoy Tokyo's world-class dining scene."
+        },
+        {
+          "day": 3,
+          "title": "Tokyo Day Trip or Ginza",
+          "description": "Explore the Tsukiji Outer Market, Asakusa's Senso-ji Temple, or luxury shopping in Ginza."
+        },
+        {
+          "day": 4,
+          "title": "Shinkansen to Kyoto",
+          "description": "Board the bullet train to Kyoto. Check in and visit the Fushimi Inari Shrine or Gion district."
+        },
+        {
+          "day": 5,
+          "title": "Kyoto Temples & Gardens",
+          "description": "Visit Kinkaku-ji (Golden Pavilion), Arashiyama Bamboo Grove, and the Tenryu-ji garden."
+        },
+        {
+          "day": 6,
+          "title": "Kyoto UNESCO Heritage Sites",
+          "description": "Explore Nijo Castle, Kiyomizudera Temple, and the traditional Higashiyama district."
+        },
+        {
+          "day": 7,
+          "title": "Shinkansen to Osaka",
+          "description": "Travel by bullet train to Osaka. Visit Osaka Castle and explore the Dotonbori entertainment district."
+        },
+        {
+          "day": 8,
+          "title": "Osaka Food & Culture",
+          "description": "Explore the Kuromon Ichiba Market, try takoyaki and okonomiyaki, and visit the Osaka Aquarium Kaiyukan."
+        },
+        {
+          "day": 9,
+          "title": "Day Trip from Osaka",
+          "description": "Optional day trip to Nara to see the famous deer park and Todai-ji Temple."
+        },
+        {
+          "day": 10,
+          "title": "Departure from Osaka",
+          "description": "Transfer to Kansai International Airport for your return flight home."
+        }
+      ],
+      "sourceUrl": "https://www.tripmasters.com/asia/?srsltid=AfmBOopX4sj_tUzu4nOIkiwp4h6IiV7TEM9fSSHAmvRw9M0clrfhtgtK"
+    },
+    {
+      "id": 5,
+      "name": "16 Day Gems of Southeast Asia \u2013 Small Group Escorted Tour",
+      "slug": "16-day-gems-of-southeast-asia-small-group-escorted-tour",
+      "destination": "Phnom Penh, Siem Reap, Bangkok, Luang Prabang, Hanoi, Halong Bay",
+      "countries": [
+        "Cambodia",
+        "Thailand",
+        "Laos",
+        "Vietnam"
+      ],
+      "duration": 16,
+      "price": 5289.0,
+      "originalPrice": 5289.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-cyan-400 to-blue-600",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": true,
+        "meals": true,
+        "guide": true
+      },
+      "highlights": [
+        "Small groups of maximum 22 travelers guaranteed",
+        "Visit Angkor Wat, the Grand Palace Bangkok, and UNESCO-listed Luang Prabang",
+        "Cruise Halong Bay on a traditional junk boat",
+        "31 meals included: 14 breakfasts, 10 lunches, 7 dinners",
+        "All intra-flights between countries included"
+      ],
+      "departureDates": [
+        "2026-09-17",
+        "2026-10-08",
+        "2026-10-22",
+        "2026-11-07",
+        "2026-11-19",
+        "2026-12-03",
+        "2026-12-10",
+        "2027-01-03",
+        "2027-02-04",
+        "2027-03-06",
+        "2027-05-06"
+      ],
+      "maxGroupSize": 22,
+      "difficulty": "moderate",
+      "category": "cultural",
+      "description": "Gate 1 Travel's 16-day small-group escorted tour covers Cambodia, Thailand, Laos, and Vietnam including Angkor Wat, Bangkok's Grand Palace, UNESCO Luang Prabang, and a Halong Bay junk cruise. Priced from $5,289 per person air and land (from $3,979 land only), with 31 meals, all intra-flights, and a maximum group size of 22.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Depart for Cambodia",
+          "description": "Depart from your home gateway for Phnom Penh, Cambodia."
+        },
+        {
+          "day": 2,
+          "title": "Arrive in Phnom Penh",
+          "description": "Arrive in Phnom Penh, Cambodia's capital on the Mekong River. Transfer to hotel and rest."
+        },
+        {
+          "day": 3,
+          "title": "Royal Palace & Killing Fields",
+          "description": "Visit the Royal Palace complex with the Silver Pagoda, the National Museum, and the Killing Fields memorial. Meet a cultural historian."
+        },
+        {
+          "day": 4,
+          "title": "Flight to Siem Reap",
+          "description": "Fly to Siem Reap, gateway to Angkor. Enjoy dinner with an Apsara dance performance."
+        },
+        {
+          "day": 5,
+          "title": "Angkor Wat & Angkor Thom",
+          "description": "Explore the architectural masterpieces of Angkor Thom, Bayon Temple with its 172 stone faces, and the stunning Angkor Wat."
+        },
+        {
+          "day": 6,
+          "title": "Ox Cart, Tonle Sap & Flight to Bangkok",
+          "description": "Ride an ox cart through rice fields, cruise Tonle Sap Lake, then fly to Bangkok, Thailand."
+        },
+        {
+          "day": 7,
+          "title": "Bangkok Grand Palace & Temples",
+          "description": "Visit the Grand Palace, Temple of the Emerald Buddha (Wat Phra Kaew), and the giant Reclining Buddha at Wat Po."
+        },
+        {
+          "day": 8,
+          "title": "Floating Market & Amphawa",
+          "description": "Explore the Damnoen Saduak Floating Market and visit the Amphawa Chaipattana Nurak community project."
+        },
+        {
+          "day": 9,
+          "title": "Flight to Luang Prabang",
+          "description": "Fly to Luang Prabang, a UNESCO World Heritage Site. Visit Wat Xieng Thong, the Royal Palace Museum, and participate in a Baci Ceremony."
+        },
+        {
+          "day": 10,
+          "title": "Almsgiving, Mekong Cruise & Pak Ou Caves",
+          "description": "Participate in the sacred almsgiving ceremony, cruise the Mekong River, and visit the Pak Ou Buddha Caves."
+        },
+        {
+          "day": 11,
+          "title": "Flight to Hanoi",
+          "description": "Visit Kuang Si Waterfall and the Whiskey Village before flying to Hanoi, Vietnam."
+        },
+        {
+          "day": 12,
+          "title": "Halong Bay Cruise",
+          "description": "Drive to Halong Bay and embark on a luxury junk cruise past limestone karsts, grottos, and hidden caves. Overnight on board."
+        },
+        {
+          "day": 13,
+          "title": "Return to Hanoi & Water Puppets",
+          "description": "Watch sunrise on Halong Bay, explore Surprise Cave, then return to Hanoi for the Water Puppet Show and a home-hosted dinner."
+        },
+        {
+          "day": 14,
+          "title": "Hanoi Highlights & Cooking Class",
+          "description": "Visit the Ho Chi Minh complex, take a private Vietnamese cooking class, and ride a cyclo through the Old Quarter."
+        },
+        {
+          "day": 15,
+          "title": "Red River Delta Excursion",
+          "description": "Explore the countryside of the Red River Delta, visit Chuong Village known for traditional conical hat-making."
+        },
+        {
+          "day": 16,
+          "title": "Depart Vietnam",
+          "description": "Transfer to Hanoi airport for your return flight home."
+        }
+      ],
+      "sourceUrl": "https://www.gate1travel.com/tour/small-groups-southasia-16dgsas27.aspx?Brand=DISCOVER"
+    },
+    {
+      "id": 6,
+      "name": "9 Day Central Thailand with River Kwai \u2013 Classic Escorted Tour",
+      "slug": "9-day-central-thailand-with-river-kwai-classic-escorted-tour",
+      "destination": "Bangkok, Kanchanaburi, Ayutthaya",
+      "countries": [
+        "Thailand"
+      ],
+      "duration": 9,
+      "price": 1609.0,
+      "originalPrice": 1609.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-amber-500 to-orange-700",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": true,
+        "meals": true,
+        "guide": true
+      },
+      "highlights": [
+        "4 nights Bangkok, 2 nights Kanchanaburi, 1 night Ayutthaya",
+        "Visit the historic Bridge on the River Kwai",
+        "Explore Bangkok's Grand Palace and ancient Ayutthaya temples",
+        "Classic escorted tour style with English-speaking tour manager",
+        "Season: August 2026 through May 2027"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "cultural",
+      "description": "Gate 1 Travel offers a 9-day classic escorted tour of Central Thailand starting from $1,609 per person (air and land), covering Bangkok, the River Kwai in Kanchanaburi, and the ancient capital of Ayutthaya. The tour runs from August 2026 through May 2027.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Depart for Thailand",
+          "description": "Depart from your home gateway for Bangkok, Thailand."
+        },
+        {
+          "day": 2,
+          "title": "Arrive Bangkok",
+          "description": "Arrive in Bangkok and transfer to your hotel. Orientation meeting with your tour manager."
+        },
+        {
+          "day": 3,
+          "title": "Bangkok Temples & Grand Palace",
+          "description": "Visit the Grand Palace, Temple of the Emerald Buddha, and Wat Po with the giant Reclining Buddha."
+        },
+        {
+          "day": 4,
+          "title": "Bangkok Markets & City Tour",
+          "description": "Explore local markets and other Bangkok highlights with your tour manager."
+        },
+        {
+          "day": 5,
+          "title": "Travel to Kanchanaburi",
+          "description": "Journey to Kanchanaburi and visit the famous Bridge on the River Kwai and the Thailand-Burma Railway."
+        },
+        {
+          "day": 6,
+          "title": "Kanchanaburi Exploration",
+          "description": "Visit the JEATH War Museum and explore the scenic River Kwai area."
+        },
+        {
+          "day": 7,
+          "title": "Ayutthaya \u2013 Ancient Capital",
+          "description": "Travel to Ayutthaya, the ancient capital of Thailand, and tour its UNESCO-listed temple ruins."
+        },
+        {
+          "day": 8,
+          "title": "Return to Bangkok",
+          "description": "Return to Bangkok for final shopping and leisure time."
+        },
+        {
+          "day": 9,
+          "title": "Departure",
+          "description": "Transfer to Bangkok's Suvarnabhumi Airport for your return flight home."
+        }
+      ],
+      "sourceUrl": "https://www.gate1travel.com/asia-pacific/southeast-asia"
+    },
+    {
+      "id": 7,
+      "name": "The Great Jamaica Comeback Sale \u2013 Sandals All-Inclusive Jamaica",
+      "slug": "the-great-jamaica-comeback-sale-sandals-all-inclusive-jamaica",
+      "destination": "Jamaica",
+      "countries": [
+        "Jamaica"
+      ],
+      "duration": 7,
+      "price": 1113.0,
+      "originalPrice": 1113.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-blue-400 to-indigo-600",
+      "includes": {
+        "flights": false,
+        "hotel": true,
+        "transfers": false,
+        "meals": true,
+        "guide": false
+      },
+      "highlights": [
+        "Up to $1,500 Instant Credit + up to $350 Air Credit",
+        "Free Jamaican Adventure included with 5+ night stays (e.g., bamboo river rafting or catamaran cruise)",
+        "Rates from $159 per person per night at Sandals Ochi up to $417 PP/PN at Sandals Montego Bay",
+        "Seven Jamaica resorts available including newly reimagined properties",
+        "Adults-only all-inclusive Caribbean resort experience"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "honeymoon",
+      "description": "Sandals Resorts is running 'The Great Jamaica Comeback Sale,' offering up to $1,500 Instant Credit plus up to $350 Air Credit and a Free Jamaican Adventure (such as bamboo river rafting or a catamaran cruise to waterfalls) when booking 5 nights or longer. Rates start from $159 per person per night at Sandals Ochi.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive in Jamaica",
+          "description": "Arrive at Montego Bay or Kingston airport and transfer to your chosen Sandals resort. Check in and enjoy your welcome amenities."
+        },
+        {
+          "day": 2,
+          "title": "Beach & Pool Day",
+          "description": "Relax on Jamaica's white-sand beaches, enjoy unlimited food and drinks, and explore the resort's water sports."
+        },
+        {
+          "day": 3,
+          "title": "Free Jamaican Adventure",
+          "description": "Enjoy your complimentary Jamaican Adventure\u2014bamboo river rafting on the Martha Brae or Great River, or a catamaran cruise to Dunn's River Falls or YS Falls."
+        },
+        {
+          "day": 4,
+          "title": "Explore the Island",
+          "description": "Take an optional excursion to explore local Jamaican culture, cuisine, and natural beauty."
+        },
+        {
+          "day": 5,
+          "title": "Spa & Leisure",
+          "description": "Indulge in spa treatments (using your Instant Credit) or enjoy the resort's pools, restaurants, and entertainment."
+        },
+        {
+          "day": 6,
+          "title": "Water Sports & Sunset",
+          "description": "Try scuba diving, snorkeling, or sailing, then enjoy a romantic sunset dinner at one of the resort's restaurants."
+        },
+        {
+          "day": 7,
+          "title": "Departure",
+          "description": "Check out and transfer to the airport for your return flight."
+        }
+      ],
+      "sourceUrl": "https://www.sandals.com/sale/"
+    },
+    {
+      "id": 8,
+      "name": "A Taste of Japan: Tokyo, Kyoto & Osaka \u2013 Flash Sale 60% Off",
+      "slug": "a-taste-of-japan-tokyo-kyoto-osaka-flash-sale-60-off",
+      "destination": "Tokyo, Kyoto, Osaka",
+      "countries": [
+        "Japan"
+      ],
+      "duration": 9,
+      "price": 2049.0,
+      "originalPrice": 5129.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-yellow-400 to-amber-600",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": true,
+        "meals": false,
+        "guide": true
+      },
+      "highlights": [
+        "60% off flash sale: was $5,129 now from $2,049 per person",
+        "Includes flights, hotels, guided tours, and transfers",
+        "Visit Shibuya Crossing in Tokyo, Gion's geisha district in Kyoto, and Osaka",
+        "Partially or fully guided tour with local expert guides",
+        "Up to $500 cashback promotion available until August 30"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "cultural",
+      "description": "Exoticca is running a flash sale on its 9-day Japan package covering Tokyo, Kyoto, and Osaka, with the price slashed 60% from $5,129 to $2,049 per person. The package includes flights, hotels, guided tours, and transfers, with an additional up to $500 cashback promotion available until August 30.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Depart for Tokyo",
+          "description": "Depart from your home city for Tokyo, Japan."
+        },
+        {
+          "day": 2,
+          "title": "Arrive in Tokyo",
+          "description": "Arrive in Tokyo and transfer to your hotel. Evening orientation and leisure time in Shinjuku or Shibuya."
+        },
+        {
+          "day": 3,
+          "title": "Tokyo City Tour",
+          "description": "Guided tour of Tokyo including Shibuya Crossing, Harajuku, and the Meiji Shrine."
+        },
+        {
+          "day": 4,
+          "title": "Tokyo Free Day",
+          "description": "Explore Tokyo at leisure\u2014visit Asakusa's Senso-ji Temple, Akihabara, or the teamLab digital art museums."
+        },
+        {
+          "day": 5,
+          "title": "Travel to Kyoto",
+          "description": "Transfer to Kyoto, Japan's cultural heart. Visit Gion's geisha district and Nishiki Market."
+        },
+        {
+          "day": 6,
+          "title": "Kyoto Temples & Shrines",
+          "description": "Guided tour of Kyoto's UNESCO World Heritage Sites including Kinkaku-ji, Fushimi Inari Shrine, and Arashiyama Bamboo Grove."
+        },
+        {
+          "day": 7,
+          "title": "Travel to Osaka",
+          "description": "Transfer to Osaka. Explore Dotonbori, the city's famous entertainment and food district."
+        },
+        {
+          "day": 8,
+          "title": "Osaka Highlights",
+          "description": "Visit Osaka Castle and explore the Kuromon Ichiba Market. Optional day trip to Nara."
+        },
+        {
+          "day": 9,
+          "title": "Departure",
+          "description": "Transfer to Kansai International Airport for your return flight home."
+        }
+      ],
+      "sourceUrl": "https://www.exoticca.com/us/asia"
+    },
+    {
+      "id": 9,
+      "name": "Bangkok and Phuket by Air \u2013 Thailand Vacation Package",
+      "slug": "bangkok-and-phuket-by-air-thailand-vacation-package",
+      "destination": "Bangkok and Phuket",
+      "countries": [
+        "Thailand"
+      ],
+      "duration": 7,
+      "price": 1049.0,
+      "originalPrice": 1049.0,
+      "currency": "USD",
+      "rating": 4.6,
+      "reviewCount": 264,
+      "imageGradient": "from-orange-500 to-red-700",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": false,
+        "guide": false
+      },
+      "highlights": [
+        "6 nights: 3 in Bangkok, 3 in Phuket",
+        "Includes round-trip international flights and inter-city flight Bangkok to Phuket",
+        "Rated 4.6/5 by 264 Tripmasters customers",
+        "Explore Bangkok's floating markets, nightlife, and Phuket's beaches",
+        "Fully customizable hotels and length of stay"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "beach",
+      "description": "Tripmasters offers a 6-night Thailand package combining Bangkok and Phuket starting from $1,049 per person, including international round-trip flights, an inter-city flight from Bangkok to Phuket, and hotel accommodations. Rated 4.6/5 by 264 customers.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive in Bangkok",
+          "description": "Fly into Bangkok's Suvarnabhumi Airport and transfer to your hotel in the city center."
+        },
+        {
+          "day": 2,
+          "title": "Bangkok Temples & Grand Palace",
+          "description": "Visit the Grand Palace, Temple of the Emerald Buddha, and Wat Pho with its giant Reclining Buddha."
+        },
+        {
+          "day": 3,
+          "title": "Bangkok Markets & Nightlife",
+          "description": "Explore the Damnoen Saduak Floating Market and enjoy Bangkok's legendary nightlife in Sukhumvit."
+        },
+        {
+          "day": 4,
+          "title": "Fly to Phuket",
+          "description": "Take your included flight from Bangkok to Phuket, the 'Pearl of the South.' Check in and enjoy the beach."
+        },
+        {
+          "day": 5,
+          "title": "Phuket Beach Day",
+          "description": "Relax on Patong, Kata, or Karon Beach. Enjoy the crystal-clear Andaman Sea waters."
+        },
+        {
+          "day": 6,
+          "title": "Island Excursion",
+          "description": "Take an optional boat tour to Phang Nga Bay to see the famous limestone karsts and emerald waters."
+        },
+        {
+          "day": 7,
+          "title": "Departure",
+          "description": "Transfer to Phuket International Airport for your return flight home."
+        }
+      ],
+      "sourceUrl": "https://www.tripmasters.com/asia/?srsltid=AfmBOopX4sj_tUzu4nOIkiwp4h6IiV7TEM9fSSHAmvRw9M0clrfhtgtK"
+    },
+    {
+      "id": 10,
+      "name": "Oahu All-Inclusive Hawaii Vacation Package",
+      "slug": "oahu-all-inclusive-hawaii-vacation-package",
+      "destination": "Oahu, Hawaii",
+      "countries": [
+        "United States"
+      ],
+      "duration": 5,
+      "price": 1780.0,
+      "originalPrice": 1780.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 479,
+      "imageGradient": "from-teal-400 to-green-600",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": true,
+        "meals": false,
+        "guide": true
+      },
+      "highlights": [
+        "Includes round-trip flights, beachfront hotel, private airport transportation, and a local guide",
+        "Waikiki Beach, Pearl Harbor, and North Shore sightseeing",
+        "Major cultural entertainment and large productions included",
+        "Daily concierge service throughout your stay",
+        "Cancellation insurance included with bookings of 4 or more nights"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "beach",
+      "description": "HawaiiTours.com offers an all-inclusive Oahu vacation package starting from $1,780 per person, including round-trip flights, a beachfront resort in Waikiki or Ko Olina, private airport transfers, a local guide, and premium activities including Pearl Harbor and North Shore tours. The site reports a 5/5 rating from 479 reviews.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive in Oahu",
+          "description": "Fly into Honolulu International Airport. Your private transfer will take you to your beachfront resort in Waikiki or Ko Olina. Meet your local concierge."
+        },
+        {
+          "day": 2,
+          "title": "Pearl Harbor & Historic Oahu",
+          "description": "Guided tour of Pearl Harbor, the USS Arizona Memorial, and the World War II Valor in the Pacific National Monument."
+        },
+        {
+          "day": 3,
+          "title": "Waikiki & Diamond Head",
+          "description": "Explore Waikiki Beach, hike Diamond Head Crater for panoramic views, and enjoy Honolulu's dining and shopping."
+        },
+        {
+          "day": 4,
+          "title": "North Shore Adventure",
+          "description": "Tour Oahu's famous North Shore, see the Banzai Pipeline surf break, and visit the Polynesian Cultural Center."
+        },
+        {
+          "day": 5,
+          "title": "Departure",
+          "description": "Enjoy a final morning in Oahu before your private transfer to Honolulu airport for your return flight."
+        }
+      ],
+      "sourceUrl": "https://www.hawaiitours.com/all-inclusive-hawaii-vacations/"
+    }
+  ]
+}

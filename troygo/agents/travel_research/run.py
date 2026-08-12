@@ -33,6 +33,17 @@ def strip_code_fences(text: str) -> str:
     return match.group(1) if match else text
 
 
+def extract_json_array(text: str) -> str:
+    """The agent sometimes prepends a prose summary before the JSON array
+    despite being told not to. Fall back to slicing out the first top-level
+    [...] block rather than failing the whole run over a chatty preamble."""
+    start = text.find("[")
+    end = text.rfind("]")
+    if start == -1 or end == -1 or end < start:
+        return text
+    return text[start : end + 1]
+
+
 def main() -> int:
     if not os.getenv("ANTHROPIC_API_KEY") or not os.getenv("SERPER_API_KEY"):
         print("ERROR: ANTHROPIC_API_KEY and SERPER_API_KEY must both be set in .env", file=sys.stderr)
@@ -44,11 +55,17 @@ def main() -> int:
     cleaned = strip_code_fences(raw_output)
     try:
         raw_items = json.loads(cleaned)
-    except json.JSONDecodeError as e:
-        print(f"ERROR: could not parse crew output as JSON: {e}", file=sys.stderr)
-        print("--- raw output ---", file=sys.stderr)
-        print(raw_output, file=sys.stderr)
-        return 1
+    except json.JSONDecodeError:
+        # The agent sometimes adds a prose summary before the array despite
+        # being told not to — retry against just the [...] slice before
+        # giving up entirely.
+        try:
+            raw_items = json.loads(extract_json_array(cleaned))
+        except json.JSONDecodeError as e:
+            print(f"ERROR: could not parse crew output as JSON: {e}", file=sys.stderr)
+            print("--- raw output ---", file=sys.stderr)
+            print(raw_output, file=sys.stderr)
+            return 1
 
     if not isinstance(raw_items, list):
         print("ERROR: expected a JSON array from the crew, got something else", file=sys.stderr)
