@@ -22,7 +22,7 @@ import MainLayout from '@/components/layout/MainLayout'
 type CarType = 'Economy' | 'Compact' | 'SUV' | 'Luxury' | 'Van'
 type Transmission = 'Automatic' | 'Manual'
 
-interface CarRental {
+export interface CarRental {
   id: string
   name: string
   model: string
@@ -43,7 +43,7 @@ interface CarRental {
 }
 
 /* ─── Mock car data ───────────────────────────────────────────────────────── */
-const carRentals: CarRental[] = [
+export const carRentals: CarRental[] = [
   {
     id: 'CAR001',
     name: 'Toyota Corolla',

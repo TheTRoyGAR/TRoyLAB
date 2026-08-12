@@ -22,6 +22,7 @@ interface NavItem {
   label: string;
   href: string;
   icon: React.ElementType;
+  built?: boolean;
 }
 
 const navItems: NavItem[] = [
@@ -32,7 +33,7 @@ const navItems: NavItem[] = [
   { label: 'Sales Pipeline', href: '/dashboard/sales', icon: TrendingUp },
   { label: 'Emails', href: '/dashboard/emails', icon: Mail },
   { label: 'Workflows', href: '/dashboard/workflows', icon: Zap },
-  { label: 'Settings', href: '/dashboard/settings', icon: Settings },
+  { label: 'Settings', href: '/dashboard/settings', icon: Settings, built: false },
 ];
 
 interface DashboardLayoutProps {
@@ -41,6 +42,7 @@ interface DashboardLayoutProps {
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const [collapsed, setCollapsed] = useState(false);
+  const [noticeMessage, setNoticeMessage] = useState<string | null>(null);
   const pathname = usePathname();
 
   const isActive = (href: string) => {
@@ -91,18 +93,8 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           {navItems.map((item) => {
             const Icon = item.icon;
             const active = isActive(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                title={collapsed ? item.label : undefined}
-                className="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-150 group relative"
-                style={{
-                  background: active ? 'rgba(0,180,216,0.15)' : 'transparent',
-                  borderLeft: active ? '3px solid #00B4D8' : '3px solid transparent',
-                  color: active ? '#00B4D8' : '#9ca3af',
-                }}
-              >
+            const content = (
+              <>
                 <Icon
                   size={18}
                   className="flex-shrink-0"
@@ -124,6 +116,36 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                     {item.label}
                   </div>
                 )}
+              </>
+            );
+            const sharedStyle = {
+              background: active ? 'rgba(0,180,216,0.15)' : 'transparent',
+              borderLeft: active ? '3px solid #00B4D8' : '3px solid transparent',
+              color: active ? '#00B4D8' : '#9ca3af',
+            };
+            if (item.built === false) {
+              return (
+                <button
+                  key={item.href}
+                  type="button"
+                  title={collapsed ? item.label : undefined}
+                  onClick={() => setNoticeMessage(`${item.label} isn't built yet — coming soon.`)}
+                  className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-150 group relative text-left"
+                  style={sharedStyle}
+                >
+                  {content}
+                </button>
+              );
+            }
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                title={collapsed ? item.label : undefined}
+                className="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-150 group relative"
+                style={sharedStyle}
+              >
+                {content}
               </Link>
             );
           })}
@@ -203,6 +225,21 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           {children}
         </div>
       </main>
+
+      {noticeMessage && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
+          <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-xl">
+            <p className="text-sm text-gray-600 mb-5">{noticeMessage}</p>
+            <button
+              onClick={() => setNoticeMessage(null)}
+              className="w-full py-2.5 rounded-xl font-semibold text-sm"
+              style={{ background: '#0A1628', color: '#FFD700' }}
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

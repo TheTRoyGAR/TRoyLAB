@@ -28,11 +28,13 @@ import {
   Mail,
   AlertCircle,
   Package,
+  Ship,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { sampleFlights } from '@/lib/data/flights'
 import { sampleHotels } from '@/lib/data/hotels'
-import { travelPackages } from '@/lib/data/packages'
+import { travelPackages, cruises } from '@/lib/data/packages'
+import { carRentals } from '@/app/cars/page'
 import BookingSteps, { type StepId } from '@/components/booking/BookingSteps'
 import MainLayout from '@/components/layout/MainLayout'
 
@@ -110,6 +112,34 @@ function getBookingItem(type: string | null, id: string | null, cls: string | nu
       subtitle: p.countries.join(', '),
       date: p.departureDates[0] ?? null,
       icon: Package,
+    }
+  }
+  if (type === 'car') {
+    const c = carRentals.find((x) => x.id === id)
+    if (!c) return null
+    return {
+      type: 'car' as const,
+      data: c,
+      cabin: null,
+      price: c.pricePerDay,
+      label: `${c.name} (${c.model})`,
+      subtitle: `${c.type} · ${c.supplier}`,
+      date: null,
+      icon: Car,
+    }
+  }
+  if (type === 'cruise') {
+    const cr = cruises.find((x) => String(x.id) === id)
+    if (!cr) return null
+    return {
+      type: 'cruise' as const,
+      data: cr,
+      cabin: null,
+      price: cr.price,
+      label: cr.name,
+      subtitle: `${cr.ship} · ${cr.cruiseLine}`,
+      date: null,
+      icon: Ship,
     }
   }
   // Default: sample flight for demo
