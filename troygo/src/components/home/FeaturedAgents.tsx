@@ -2,8 +2,10 @@
 
 import Link from 'next/link';
 import { Star, MapPin, Briefcase, Globe, ArrowRight } from 'lucide-react';
+import { localAgents } from '@/lib/data/agents';
 
 interface Agent {
+  id: number;
   name: string;
   initials: string;
   avatarGradient: string;
@@ -18,63 +20,37 @@ interface Agent {
   badge?: string;
 }
 
-const agents: Agent[] = [
-  {
-    name: 'Maria Santos',
-    initials: 'MS',
-    avatarGradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-    specialty: 'Southeast Asia Specialist',
-    location: 'Manila',
-    country: 'Philippines',
-    rating: 4.97,
-    reviews: 312,
-    yearsExperience: 12,
-    toursCompleted: 847,
-    languages: ['English', 'Tagalog', 'Thai'],
-    badge: 'Top Expert',
-  },
-  {
-    name: 'James Wilson',
-    initials: 'JW',
-    avatarGradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-    specialty: 'European Tours',
-    location: 'London',
-    country: 'United Kingdom',
-    rating: 4.95,
-    reviews: 489,
-    yearsExperience: 15,
-    toursCompleted: 1203,
-    languages: ['English', 'French', 'Italian'],
-    badge: 'Platinum Agent',
-  },
-  {
-    name: 'Aisha Patel',
-    initials: 'AP',
-    avatarGradient: 'linear-gradient(135deg, #ffd200 0%, #f7971e 100%)',
-    specialty: 'Luxury Travel',
-    location: 'Dubai',
-    country: 'UAE',
-    rating: 4.99,
-    reviews: 267,
-    yearsExperience: 10,
-    toursCompleted: 634,
-    languages: ['English', 'Arabic', 'Hindi'],
-    badge: 'Luxury Expert',
-  },
-  {
-    name: 'Carlos Rivera',
-    initials: 'CR',
-    avatarGradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    specialty: 'Latin America Adventures',
-    location: 'Mexico City',
-    country: 'Mexico',
-    rating: 4.93,
-    reviews: 378,
-    yearsExperience: 9,
-    toursCompleted: 721,
-    languages: ['English', 'Spanish', 'Portuguese'],
-  },
+// A small rotating palette — purely decorative (avatar background), not a
+// factual claim, so it's fine to assign round-robin rather than pull from
+// real data (which has no per-agent color field).
+const AVATAR_GRADIENTS = [
+  'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+  'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+  'linear-gradient(135deg, #ffd200 0%, #f7971e 100%)',
+  'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
 ];
+
+// Sourced from the real localAgents data (top-rated 4), each linking to
+// their actual /agents/[id] profile — never a name/profile invented just
+// for the homepage.
+const agents: Agent[] = [...localAgents]
+  .sort((a, b) => b.rating - a.rating)
+  .slice(0, 4)
+  .map((a, i) => ({
+    id: a.id,
+    name: a.name,
+    initials: a.avatar,
+    avatarGradient: AVATAR_GRADIENTS[i % AVATAR_GRADIENTS.length],
+    specialty: a.specialty[0] ?? a.agency,
+    location: a.location.city,
+    country: a.location.country,
+    rating: a.rating,
+    reviews: a.reviewCount,
+    yearsExperience: a.yearsExperience,
+    toursCompleted: a.toursOffered,
+    languages: a.languages,
+    badge: a.certifications[0],
+  }));
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -178,7 +154,7 @@ function AgentCard({ agent }: { agent: Agent }) {
 
         {/* CTA */}
         <Link
-          href="/agents"
+          href={`/agents/${agent.id}`}
           className="w-full flex items-center justify-center gap-2 border-2 border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628] hover:text-white font-semibold py-2.5 rounded-xl transition-all duration-200 text-sm group/btn"
         >
           View Profile
@@ -221,7 +197,7 @@ export default function FeaturedAgents() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {agents.map((agent) => (
-            <AgentCard key={agent.name} agent={agent} />
+            <AgentCard key={agent.id} agent={agent} />
           ))}
         </div>
 

@@ -6,6 +6,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# Windows' console defaults stdout to cp1252, which can't encode characters
+# agent output sometimes contains (✅, emoji, curly quotes, etc.) — this
+# crashed real runs with UnicodeEncodeError after the crew had already done
+# real, costly work, right at the final print(). Force UTF-8 unconditionally
+# rather than relying on PYTHONIOENCODING being set by whoever invokes this.
+if sys.stdout.encoding != "utf-8":
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
 from agency.core.agency import TRoyGOAgency
 from agency.core.memory import shared_memory
 

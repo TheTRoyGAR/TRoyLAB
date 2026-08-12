@@ -535,78 +535,6 @@
   },
   {
     "id": 7,
-    "name": "The Great Jamaica Comeback Sale \u2013 Sandals All-Inclusive Jamaica",
-    "slug": "the-great-jamaica-comeback-sale-sandals-all-inclusive-jamaica",
-    "destination": "Jamaica",
-    "countries": [
-      "Jamaica"
-    ],
-    "duration": 7,
-    "price": 1113.0,
-    "originalPrice": 1113.0,
-    "currency": "USD",
-    "rating": 4.5,
-    "reviewCount": 0,
-    "imageGradient": "from-blue-400 to-indigo-600",
-    "includes": {
-      "flights": false,
-      "hotel": true,
-      "transfers": false,
-      "meals": true,
-      "guide": false
-    },
-    "highlights": [
-      "Up to $1,500 Instant Credit + up to $350 Air Credit",
-      "Free Jamaican Adventure included with 5+ night stays (e.g., bamboo river rafting or catamaran cruise)",
-      "Rates from $159 per person per night at Sandals Ochi up to $417 PP/PN at Sandals Montego Bay",
-      "Seven Jamaica resorts available including newly reimagined properties",
-      "Adults-only all-inclusive Caribbean resort experience"
-    ],
-    "departureDates": [],
-    "maxGroupSize": 12,
-    "difficulty": "easy",
-    "category": "honeymoon",
-    "description": "Sandals Resorts is running 'The Great Jamaica Comeback Sale,' offering up to $1,500 Instant Credit plus up to $350 Air Credit and a Free Jamaican Adventure (such as bamboo river rafting or a catamaran cruise to waterfalls) when booking 5 nights or longer. Rates start from $159 per person per night at Sandals Ochi.",
-    "itinerary": [
-      {
-        "day": 1,
-        "title": "Arrive in Jamaica",
-        "description": "Arrive at Montego Bay or Kingston airport and transfer to your chosen Sandals resort. Check in and enjoy your welcome amenities."
-      },
-      {
-        "day": 2,
-        "title": "Beach & Pool Day",
-        "description": "Relax on Jamaica's white-sand beaches, enjoy unlimited food and drinks, and explore the resort's water sports."
-      },
-      {
-        "day": 3,
-        "title": "Free Jamaican Adventure",
-        "description": "Enjoy your complimentary Jamaican Adventure\u2014bamboo river rafting on the Martha Brae or Great River, or a catamaran cruise to Dunn's River Falls or YS Falls."
-      },
-      {
-        "day": 4,
-        "title": "Explore the Island",
-        "description": "Take an optional excursion to explore local Jamaican culture, cuisine, and natural beauty."
-      },
-      {
-        "day": 5,
-        "title": "Spa & Leisure",
-        "description": "Indulge in spa treatments (using your Instant Credit) or enjoy the resort's pools, restaurants, and entertainment."
-      },
-      {
-        "day": 6,
-        "title": "Water Sports & Sunset",
-        "description": "Try scuba diving, snorkeling, or sailing, then enjoy a romantic sunset dinner at one of the resort's restaurants."
-      },
-      {
-        "day": 7,
-        "title": "Departure",
-        "description": "Check out and transfer to the airport for your return flight."
-      }
-    ]
-  },
-  {
-    "id": 8,
     "name": "A Taste of Japan: Tokyo, Kyoto & Osaka \u2013 Flash Sale 60% Off",
     "slug": "a-taste-of-japan-tokyo-kyoto-osaka-flash-sale-60-off",
     "destination": "Tokyo, Kyoto, Osaka",
@@ -688,7 +616,7 @@
     ]
   },
   {
-    "id": 9,
+    "id": 8,
     "name": "Bangkok and Phuket by Air \u2013 Thailand Vacation Package",
     "slug": "bangkok-and-phuket-by-air-thailand-vacation-package",
     "destination": "Bangkok and Phuket",
@@ -760,7 +688,7 @@
     ]
   },
   {
-    "id": 10,
+    "id": 9,
     "name": "Oahu All-Inclusive Hawaii Vacation Package",
     "slug": "oahu-all-inclusive-hawaii-vacation-package",
     "destination": "Oahu, Hawaii",

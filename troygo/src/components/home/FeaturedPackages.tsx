@@ -3,91 +3,39 @@
 import Link from 'next/link';
 import { ArrowRight, Star, Clock, MapPin, Plane, Hotel, Car, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useRef } from 'react';
+import { travelPackages } from '@/lib/data/packages';
 
 interface Package {
   id: number;
   name: string;
-  // Matches a real slug in src/lib/data/packages.ts -> links straight to
-  // that package's detail page. Omitted where no matching package exists
-  // yet, so the card falls back to the general listing instead of a
-  // fabricated/broken link.
-  slug?: string;
+  slug: string;
   duration: string;
   destinations: string[];
   pricePerPerson: number;
   originalPrice: number;
   gradient: string;
-  accentColor: string;
   rating: number;
   reviews: number;
-  tag?: string;
-  tagColor?: string;
   description: string;
 }
 
-const packages: Package[] = [
-  {
-    id: 1,
-    name: 'Europe Grand Tour',
-    slug: 'europe-grand-tour',
-    duration: '14 Days',
-    destinations: ['Paris', 'Rome', 'Barcelona', 'Amsterdam'],
-    pricePerPerson: 2499,
-    originalPrice: 3199,
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    accentColor: '#667eea',
-    rating: 4.9,
-    reviews: 1284,
-    tag: 'Best Seller',
-    tagColor: '#FFD700',
-    description: 'An unforgettable journey through Europe\'s most iconic cities, rich history, and vibrant cultures.',
-  },
-  {
-    id: 2,
-    name: 'Bali Paradise Escape',
-    slug: 'bali-paradise-escape',
-    duration: '7 Days',
-    destinations: ['Ubud', 'Seminyak', 'Uluwatu'],
-    pricePerPerson: 1299,
-    originalPrice: 1699,
-    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-    accentColor: '#f5576c',
-    rating: 4.8,
-    reviews: 937,
-    tag: 'Top Rated',
-    tagColor: '#00B4D8',
-    description: 'Immerse yourself in Bali\'s lush rice terraces, sacred temples, and world-class beach clubs.',
-  },
-  {
-    id: 3,
-    name: 'Japan Cultural Journey',
-    slug: 'japan-cultural-journey',
-    duration: '10 Days',
-    destinations: ['Tokyo', 'Kyoto', 'Osaka', 'Hiroshima'],
-    pricePerPerson: 3199,
-    originalPrice: 3999,
-    gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-    accentColor: '#fa709a',
-    rating: 4.9,
-    reviews: 762,
-    tag: 'Editor\'s Pick',
-    tagColor: '#FFD700',
-    description: 'From neon-lit Tokyo streets to serene Kyoto temples — experience Japan\'s past and future.',
-  },
-  {
-    id: 4,
-    name: 'Caribbean Cruise Adventure',
-    duration: '8 Days',
-    destinations: ['Nassau', 'St. Thomas', 'St. Maarten', 'Cozumel'],
-    pricePerPerson: 1899,
-    originalPrice: 2399,
-    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-    accentColor: '#4facfe',
-    rating: 4.7,
-    reviews: 1103,
-    description: 'Sail the crystal-blue Caribbean, exploring pristine beaches and vibrant island cultures.',
-  },
-];
+// Sourced from the real, currently-live travelPackages (research-agent
+// data, or the fallback set if that's empty) — never hardcoded here, so
+// this never drifts out of sync with what /packages actually serves and
+// can never link to a slug that doesn't exist.
+const packages: Package[] = travelPackages.slice(0, 4).map((p) => ({
+  id: p.id,
+  name: p.name,
+  slug: p.slug,
+  duration: `${p.duration} Day${p.duration === 1 ? '' : 's'}`,
+  destinations: p.countries,
+  pricePerPerson: p.price,
+  originalPrice: p.originalPrice,
+  gradient: p.imageGradient,
+  rating: p.rating,
+  reviews: p.reviewCount,
+  description: p.description,
+}));
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -112,26 +60,11 @@ function PackageCard({ pkg }: { pkg: Package }) {
   return (
     <div className="flex-none w-[320px] sm:w-[360px] bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden border border-gray-100 group">
       {/* Image / gradient banner */}
-      <div
-        className="relative h-48 overflow-hidden"
-        style={{ background: pkg.gradient }}
-      >
+      <div className={`relative h-48 overflow-hidden bg-gradient-to-br ${pkg.gradient}`}>
         {/* Decorative circles */}
         <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-white/10" />
         <div className="absolute -bottom-4 -left-4 w-24 h-24 rounded-full bg-white/10" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/10" />
-
-        {/* Tag */}
-        {pkg.tag && (
-          <div className="absolute top-4 left-4 z-10">
-            <span
-              className="text-xs font-bold px-3 py-1 rounded-full"
-              style={{ background: pkg.tagColor, color: '#0A1628' }}
-            >
-              {pkg.tag}
-            </span>
-          </div>
-        )}
 
         {/* Savings badge */}
         <div className="absolute top-4 right-4 z-10">
@@ -209,7 +142,7 @@ function PackageCard({ pkg }: { pkg: Package }) {
 
         {/* CTA */}
         <Link
-          href={pkg.slug ? `/packages/${pkg.slug}` : '/packages'}
+          href={`/packages/${pkg.slug}`}
           className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#00B4D8] to-[#0096B5] hover:from-[#0096B5] hover:to-[#007A94] text-white font-bold py-2.5 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-[#00B4D8]/30 hover:gap-3"
         >
           View Deal
