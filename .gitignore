@@ -4,3 +4,5 @@ agency/core/.memory_store/
 __pycache__/
 *.egg-info/
 .venv/
+
+dashboard/.wrangler/
