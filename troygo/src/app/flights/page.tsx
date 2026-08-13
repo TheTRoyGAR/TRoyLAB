@@ -522,7 +522,7 @@ function FilterSidebar({
 function FlightsContent() {
   const params = useSearchParams()
 
-  const [from, setFrom] = useState(params.get('from') ?? 'New York')
+  const [from, setFrom] = useState(params.get('from') ?? '')
   const [to, setTo] = useState(params.get('to') ?? '')
   const [date, setDate] = useState(params.get('date') ?? '2026-06-15')
   const [returnDate, setReturnDate] = useState(params.get('return') ?? '')

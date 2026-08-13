@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { travelPackages } from '@/lib/data/packages'
 import PackageCard from '@/components/packages/PackageCard'
 import PackageFilters, { PackageFilterState } from '@/components/packages/PackageFilters'
@@ -16,7 +17,9 @@ const SORT_OPTIONS = [
 
 const PER_PAGE = 9
 
-export default function PackagesPage() {
+function PackagesContent() {
+  const params = useSearchParams()
+  const [destinationQuery, setDestinationQuery] = useState(params.get('to') ?? '')
   const [sort, setSort] = useState('recommended')
   const [filters, setFilters] = useState<PackageFilterState>({
     priceMin: 0,
@@ -30,6 +33,16 @@ export default function PackagesPage() {
 
   const filtered = useMemo(() => {
     let list = [...travelPackages]
+
+    // destination text search (from the homepage search bar, or typed here)
+    if (destinationQuery.trim()) {
+      const q = destinationQuery.trim().toLowerCase()
+      list = list.filter((p) =>
+        p.destination.toLowerCase().includes(q) ||
+        p.name.toLowerCase().includes(q) ||
+        p.countries.some((c) => c.toLowerCase().includes(q))
+      )
+    }
 
     // price
     list = list.filter((p) => p.price >= filters.priceMin && p.price <= filters.priceMax)
@@ -81,7 +94,7 @@ export default function PackagesPage() {
     }
 
     return list
-  }, [filters, sort])
+  }, [filters, sort, destinationQuery])
 
   const totalPages = Math.ceil(filtered.length / PER_PAGE)
   const paged = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE)
@@ -140,6 +153,18 @@ export default function PackagesPage() {
         <div className="flex items-center justify-between mb-6">
           <p className="text-sm text-gray-500">
             <span className="font-bold text-[#0A1628]">{filtered.length}</span> packages found
+            {destinationQuery.trim() && (
+              <>
+                {' '}for &ldquo;{destinationQuery.trim()}&rdquo;{' '}
+                <button
+                  type="button"
+                  onClick={() => setDestinationQuery('')}
+                  className="text-[#00B4D8] hover:underline font-semibold"
+                >
+                  Clear
+                </button>
+              </>
+            )}
           </p>
           <div className="relative">
             <select
@@ -210,5 +235,13 @@ export default function PackagesPage() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function PackagesPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-gray-400">Loading…</div>}>
+      <PackagesContent />
+    </Suspense>
   )
 }

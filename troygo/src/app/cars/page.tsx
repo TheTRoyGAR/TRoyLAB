@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import {
   Car,
@@ -348,13 +349,14 @@ function CarCard({ car, pickupDate, returnDate }: { car: CarRental; pickupDate: 
 }
 
 /* ─── Page ────────────────────────────────────────────────────────────────── */
-export default function CarsPage() {
-  const [pickupLocation, setPickupLocation] = useState('')
-  const [returnLocation, setReturnLocation] = useState('')
-  const [pickupDate, setPickupDate] = useState('2026-06-20')
-  const [pickupTime, setPickupTime] = useState('10:00')
-  const [returnDate, setReturnDate] = useState('2026-06-25')
-  const [returnTime, setReturnTime] = useState('10:00')
+function CarsContent() {
+  const params = useSearchParams()
+  const [pickupLocation, setPickupLocation] = useState(params.get('pickup') ?? '')
+  const [returnLocation, setReturnLocation] = useState(params.get('dropoff') ?? '')
+  const [pickupDate, setPickupDate] = useState(params.get('pickupDate') || '2026-06-20')
+  const [pickupTime, setPickupTime] = useState(params.get('pickupTime') || '10:00')
+  const [returnDate, setReturnDate] = useState(params.get('returnDate') || '2026-06-25')
+  const [returnTime, setReturnTime] = useState(params.get('returnTime') || '10:00')
   const [sameReturn, setSameReturn] = useState(true)
 
   // Filters
@@ -618,5 +620,13 @@ export default function CarsPage() {
         </div>
       </div>
     </MainLayout>
+  )
+}
+
+export default function CarsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-gray-400">Loading…</div>}>
+      <CarsContent />
+    </Suspense>
   )
 }

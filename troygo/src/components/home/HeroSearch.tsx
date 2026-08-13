@@ -71,12 +71,29 @@ function InputField({
   );
 }
 
-function SearchButton({ label = 'Search', tab }: { label?: string; tab: Tab }) {
+function SearchButton({
+  label = 'Search',
+  tab,
+  params,
+}: {
+  label?: string;
+  tab: Tab;
+  // Only non-empty values are included in the URL — the destination page
+  // treats a missing param as "no filter" rather than a fake default.
+  params: Record<string, string>;
+}) {
   const router = useRouter();
   return (
     <button
       type="button"
-      onClick={() => router.push(`/${tab}`)}
+      onClick={() => {
+        const query = new URLSearchParams();
+        for (const [key, value] of Object.entries(params)) {
+          if (value.trim()) query.set(key, value.trim());
+        }
+        const qs = query.toString();
+        router.push(qs ? `/${tab}?${qs}` : `/${tab}`);
+      }}
       className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#00B4D8] to-[#0096c7] hover:from-[#0096c7] hover:to-[#0077b6] text-white font-bold px-8 py-3 rounded-xl shadow-lg shadow-[#00B4D8]/30 transition-all duration-200 hover:shadow-[#00B4D8]/50 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
     >
       <Search className="w-4 h-4" />
@@ -149,7 +166,11 @@ function FlightsForm() {
           onChange={setPassengers}
           className="flex-1 max-w-xs"
         />
-        <SearchButton label="Search Flights" tab="flights" />
+        <SearchButton
+          label="Search Flights"
+          tab="flights"
+          params={{ from: origin, to: destination, departure, returnDate, passengers }}
+        />
       </div>
     </div>
   );
@@ -197,7 +218,11 @@ function HotelsForm() {
         />
       </div>
       <div className="flex justify-end">
-        <SearchButton label="Search Hotels" tab="hotels" />
+        <SearchButton
+          label="Search Hotels"
+          tab="hotels"
+          params={{ destination, checkin, checkout, guests }}
+        />
       </div>
     </div>
   );
@@ -266,7 +291,11 @@ function CarsForm() {
             onChange={setReturnTime}
           />
         </div>
-        <SearchButton label="Search Cars" tab="cars" />
+        <SearchButton
+          label="Search Cars"
+          tab="cars"
+          params={{ pickup, dropoff, pickupDate, pickupTime, returnDate, returnTime }}
+        />
       </div>
     </div>
   );
@@ -322,7 +351,11 @@ function PackagesForm() {
           onChange={setTravelers}
           className="flex-1 max-w-xs"
         />
-        <SearchButton label="Search Packages" tab="packages" />
+        <SearchButton
+          label="Search Packages"
+          tab="packages"
+          params={{ from, to, departure, returnDate, travelers }}
+        />
       </div>
     </div>
   );
@@ -378,7 +411,11 @@ function CruisesForm() {
           onChange={setPassengers}
           className="flex-1 max-w-xs"
         />
-        <SearchButton label="Search Cruises" tab="cruises" />
+        <SearchButton
+          label="Search Cruises"
+          tab="cruises"
+          params={{ port, region, dateFrom, dateTo, passengers }}
+        />
       </div>
     </div>
   );

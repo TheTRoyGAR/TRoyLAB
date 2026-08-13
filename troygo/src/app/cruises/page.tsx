@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { cruises } from '@/lib/data/packages'
 import { Star, Ship, MapPin, Clock, ChevronDown, Heart, Anchor } from 'lucide-react'
 import Link from 'next/link'
@@ -17,8 +18,9 @@ const LINE_OPTIONS = [
   'Seabourn Cruise Line', 'Silversea Cruises', 'Viking Ocean Cruises', 'Virgin Voyages',
 ]
 
-export default function CruisesPage() {
-  const [selectedRegion, setSelectedRegion] = useState('')
+function CruisesContent() {
+  const params = useSearchParams()
+  const [selectedRegion, setSelectedRegion] = useState(params.get('region') ?? '')
   const [selectedLine, setSelectedLine] = useState('')
   const [maxPrice, setMaxPrice] = useState(20000)
   const [maxDuration, setMaxDuration] = useState(21)
@@ -232,5 +234,13 @@ export default function CruisesPage() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function CruisesPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-gray-400">Loading…</div>}>
+      <CruisesContent />
+    </Suspense>
   )
 }

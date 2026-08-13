@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import {
   Hotel,
@@ -402,10 +403,11 @@ function FilterSidebar({
 }
 
 /* ─── Page ────────────────────────────────────────────────────────────────── */
-export default function HotelsPage() {
-  const [destination, setDestination] = useState('')
-  const [checkIn, setCheckIn] = useState('2026-06-20')
-  const [checkOut, setCheckOut] = useState('2026-06-25')
+function HotelsContent() {
+  const params = useSearchParams()
+  const [destination, setDestination] = useState(params.get('destination') ?? '')
+  const [checkIn, setCheckIn] = useState(params.get('checkin') || '2026-06-20')
+  const [checkOut, setCheckOut] = useState(params.get('checkout') || '2026-06-25')
   const [guests, setGuests] = useState(2)
   const [rooms, setRooms] = useState(1)
 
@@ -573,5 +575,13 @@ export default function HotelsPage() {
         </div>
       </div>
     </MainLayout>
+  )
+}
+
+export default function HotelsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-gray-400">Loading…</div>}>
+      <HotelsContent />
+    </Suspense>
   )
 }
