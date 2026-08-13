@@ -1,0 +1,7 @@
+tunnel: a6cf93e2-746e-44c1-8583-9168f7154513
+credentials-file: C:\Users\ertan\.cloudflared\a6cf93e2-746e-44c1-8583-9168f7154513.json
+
+ingress:
+  - hostname: backend.troytravelagency.com
+    service: http://localhost:8001
+  - service: http_status:404
