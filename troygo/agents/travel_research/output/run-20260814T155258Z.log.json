@@ -1,0 +1,921 @@
+{
+  "timestamp": "20260814T155258Z",
+  "raw_output": "I now have enough confirmed data to build the JSON array. Let me compile the verified deals from the sources I've successfully scraped:\n\n1. **Delta Vacations** \u2013 Paradisus Cancun (confirmed on delta.com deals page)\n2. **Delta Vacations** \u2013 Royalton Antigua (confirmed on delta.com deals page)\n3. **Delta Vacations** \u2013 Zoetry Agua Punta Cana (confirmed on delta.com deals page)\n4. **Delta Vacations** \u2013 Villa Marquis Paris (confirmed on delta.com deals page)\n5. **Tripmasters** \u2013 Prague-Vienna-Budapest by Train (confirmed on tripmasters.com)\n6. **Tripmasters** \u2013 Tokyo-Kyoto-Osaka by Train (confirmed on tripmasters.com)\n7. **Tripmasters** \u2013 Bangkok-Kuala Lumpur-Bali (confirmed on tripmasters.com)\n8. **Sandals** \u2013 Jamaica Comeback Sale (confirmed on sandals.com/sale)\n9. **Virgin Voyages** \u2013 70% off 2nd Sailor + Balcony Upgrade (confirmed on virginvoyages.com)\n10. **Royal Caribbean** \u2013 Caribbean cruise deals (confirmed on royalcaribbean.com)\n11. **Tripmasters** \u2013 Magical Ireland Self Drive (confirmed on tripmasters.com)\n12. **Cond\u00e9 Nast Traveler** \u2013 Trafalgar Best of Italy tour deal (confirmed on cntraveler.com)\n\n[{\"name\":\"Paradisus Cancun All-Inclusive Delta Vacations Package\",\"destination\":\"Cancun\",\"countries\":[\"Mexico\"],\"duration\":5,\"price\":1200,\"originalPrice\":1500,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":true,\"guide\":false},\"highlights\":[\"$300 in instant savings per room per stay\",\"All-inclusive resort with beachfront access\",\"Save up to $500 additional with SkyMiles promo code SMSUMMER26\",\"Book by August 31 2026 for travel through October 31 2026\",\"Earn Delta SkyMiles on your vacation package\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"beach\",\"description\":\"Delta Vacations is offering $300 in instant savings at the 4.5-star Paradisus Cancun all-inclusive resort, with the ability to stack up to $500 off using promo code SMSUMMER26 for SkyMiles members. Book by August 31, 2026 for travel through October 31, 2026.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrival in Cancun\",\"description\":\"Fly into Cancun on Delta Air Lines and check in to the Paradisus Cancun resort. Settle into your all-inclusive accommodations and enjoy dinner and evening entertainment.\"},{\"day\":2,\"title\":\"Beach & Resort Amenities\",\"description\":\"Spend the day enjoying the resort's beachfront pools, water sports, and included meals and drinks at multiple restaurants and bars.\"},{\"day\":3,\"title\":\"Explore the Hotel Zone\",\"description\":\"Venture into Cancun's famous Hotel Zone for shopping, local dining, and nightlife, or relax with a spa treatment at the resort.\"},{\"day\":4,\"title\":\"Optional Excursion Day\",\"description\":\"Take an optional excursion to nearby Isla Mujeres or Chichen Itza, or enjoy another full day at the resort's all-inclusive amenities.\"},{\"day\":5,\"title\":\"Departure\",\"description\":\"Enjoy a final breakfast at the resort before checking out and transferring to Cancun International Airport for your return flight.\"}],\"sourceUrl\":\"https://www.delta.com/us/en/delta-vacations/offers-deals\"},{\"name\":\"Royalton Antigua Delta Vacations \u2013 Up to 25% Off + $200 Instant Savings\",\"destination\":\"Antigua\",\"countries\":[\"Antigua and Barbuda\"],\"duration\":5,\"price\":1400,\"originalPrice\":1800,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":true,\"guide\":false},\"highlights\":[\"Up to 25% off rooms for travel through January 1 2027\",\"$200 in instant savings per room per stay\",\"Minimum 4-night stay required\",\"Book by August 31 2026\",\"Combinable with SkyMiles promo code SMSUMMER26 for up to $400 total savings\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"beach\",\"description\":\"Delta Vacations is offering up to 25% off rooms plus $200 in instant savings at the 4-star Royalton Antigua resort, with the deepest discount available for travel by January 1, 2027. Book by August 31, 2026.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrival in Antigua\",\"description\":\"Fly into V.C. Bird International Airport and transfer to the Royalton Antigua resort. Check in and enjoy a welcome dinner at one of the resort's dining venues.\"},{\"day\":2,\"title\":\"Beach & Water Sports\",\"description\":\"Enjoy Antigua's famous white-sand beaches and the resort's water sports facilities, including snorkeling and kayaking.\"},{\"day\":3,\"title\":\"Island Exploration\",\"description\":\"Explore Antigua's historic English Harbour and Nelson's Dockyard, or join a sailing excursion around the island.\"},{\"day\":4,\"title\":\"Resort & Spa Day\",\"description\":\"Relax at the resort pool, enjoy included meals and beverages, or indulge in a spa treatment.\"},{\"day\":5,\"title\":\"Departure\",\"description\":\"Enjoy a final morning at the resort before checking out and transferring to the airport for your return flight.\"}],\"sourceUrl\":\"https://www.delta.com/us/en/delta-vacations/offers-deals\"},{\"name\":\"Zoetry Agua Punta Cana \u2013 Up to 68% Off Rooms\",\"destination\":\"Punta Cana\",\"countries\":[\"Dominican Republic\"],\"duration\":5,\"price\":900,\"originalPrice\":2647,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":true,\"guide\":false},\"highlights\":[\"Up to 68% off rooms for travel November 1 through December 23 2026\",\"Free room upgrade included\",\"Resort coupons for spa services wine and romantic dinners\",\"Book by August 31 2026 for travel through December 31 2026\",\"5-star luxury all-inclusive resort\"],\"departureDates\":[\"2026-11-01\",\"2026-11-15\",\"2026-12-01\",\"2026-12-15\"],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"honeymoon\",\"description\":\"Delta Vacations is featuring up to 68% off rooms at the 5-star Zoetry Agua Punta Cana, a luxury all-inclusive adult resort in the Dominican Republic, with a free room upgrade and resort coupons for spa and dining. Book by August 31, 2026 for travel through December 31, 2026.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrival in Punta Cana\",\"description\":\"Arrive at Punta Cana International Airport and check in to the Zoetry Agua resort. Enjoy a welcome amenity and dinner at the resort.\"},{\"day\":2,\"title\":\"Beach & Wellness\",\"description\":\"Spend the day on the resort's pristine beach, enjoy water sports, and take advantage of the included spa amenities.\"},{\"day\":3,\"title\":\"Culinary Experiences\",\"description\":\"Dine at the resort's gourmet restaurants and use your included resort coupons for wine or a romantic dinner experience.\"},{\"day\":4,\"title\":\"Leisure & Spa\",\"description\":\"Enjoy a spa treatment using your resort coupons, relax by the pool, and explore the resort's wellness offerings.\"},{\"day\":5,\"title\":\"Departure\",\"description\":\"Enjoy a final breakfast before checking out and transferring to Punta Cana International Airport for your return flight.\"}],\"sourceUrl\":\"https://www.delta.com/us/en/delta-vacations/offers-deals\"},{\"name\":\"Villa Marquis Paris \u2013 Seine River Cruise & Food Credit\",\"destination\":\"Paris\",\"countries\":[\"France\"],\"duration\":4,\"price\":1800,\"originalPrice\":1800,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":false,\"guide\":false},\"highlights\":[\"\u20ac75 food and beverage credit per room per stay\",\"One Seine River Cruise ticket per person included\",\"5-star hotel near the Eiffel Tower\",\"Minimum 3-night stay required\",\"Book by August 30 2026 for travel through March 31 2027\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"honeymoon\",\"description\":\"Delta Vacations is offering a package at the 5-star Villa Marquis, A Member of Meli\u00e3 Collection Tour Eiffel in Paris, including a \u20ac75 food and beverage credit and complimentary Seine River Cruise tickets per person. Book by August 30, 2026 for travel through March 31, 2027.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrival in Paris\",\"description\":\"Fly into Paris Charles de Gaulle Airport and check in to the Villa Marquis hotel near the Eiffel Tower. Enjoy dinner using your food and beverage credit.\"},{\"day\":2,\"title\":\"Iconic Paris Landmarks\",\"description\":\"Visit the Eiffel Tower, the Louvre Museum, and the Champs-\u00c9lys\u00e9es. Enjoy lunch at a nearby caf\u00e9.\"},{\"day\":3,\"title\":\"Seine River Cruise\",\"description\":\"Take your included Seine River Cruise to see Paris's iconic landmarks from the water, then explore Montmartre and the Sacr\u00e9-C\u0153ur Basilica.\"},{\"day\":4,\"title\":\"Departure\",\"description\":\"Enjoy a final morning in Paris before checking out and transferring to the airport for your return flight.\"}],\"sourceUrl\":\"https://www.delta.com/us/en/delta-vacations/offers-deals\"},{\"name\":\"Prague \u2013 Vienna \u2013 Budapest by Train\",\"destination\":\"Central Europe\",\"countries\":[\"Czech Republic\",\"Austria\",\"Hungary\"],\"duration\":10,\"price\":1269,\"originalPrice\":1269,\"rating\":4.7,\"reviewCount\":1951,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":false,\"guide\":false},\"highlights\":[\"Flights into Prague and out of Budapest included\",\"Train travel between all three cities included\",\"3 nights each in Prague Vienna and Budapest\",\"Fully flexible and customizable itinerary\",\"Rated 4.7 out of 5 by over 1951 customer reviews\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"cultural\",\"description\":\"Tripmasters offers this popular multi-city European package visiting Prague, Vienna, and Budapest with high-speed train connections between cities, flights, and hotels included from $1,269 per person based on double occupancy. The itinerary is fully customizable.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrival in Prague\",\"description\":\"Fly into Prague and check in to your hotel. Explore the Old Town Square and Charles Bridge in the evening.\"},{\"day\":2,\"title\":\"Prague Sightseeing\",\"description\":\"Visit Prague Castle, St. Vitus Cathedral, and the historic Jewish Quarter. Enjoy local Czech cuisine for dinner.\"},{\"day\":3,\"title\":\"More of Prague\",\"description\":\"Explore the Lesser Town and enjoy a final evening in Prague before your train journey.\"},{\"day\":4,\"title\":\"Train to Vienna\",\"description\":\"Board the train to Vienna and check in to your hotel. Take an evening stroll along the Ringstrasse.\"},{\"day\":5,\"title\":\"Vienna Highlights\",\"description\":\"Visit the Sch\u00f6nbrunn Palace, the Vienna State Opera, and enjoy Viennese coffee house culture.\"},{\"day\":6,\"title\":\"More of Vienna\",\"description\":\"Explore the Belvedere Palace, the Naschmarkt, and enjoy local Viennese cuisine.\"},{\"day\":7,\"title\":\"Train to Budapest\",\"description\":\"Board the train to Budapest and check in to your hotel. Enjoy an evening view of the illuminated Parliament building.\"},{\"day\":8,\"title\":\"Budapest Highlights\",\"description\":\"Visit Buda Castle, the Fisherman's Bastion, and the Hungarian Parliament Building.\"},{\"day\":9,\"title\":\"Budapest Leisure\",\"description\":\"Relax at a traditional Hungarian thermal bath, explore the ruin bars of the Jewish Quarter, and enjoy local cuisine.\"},{\"day\":10,\"title\":\"Departure from Budapest\",\"description\":\"Enjoy a final morning in Budapest before transferring to the airport for your return flight.\"}],\"sourceUrl\":\"https://www.tripmasters.com/europe/?srsltid\"},{\"name\":\"Magical Ireland Self Drive (Dublin \u2013 Cork \u2013 Killarney \u2013 Galway \u2013 Limerick)\",\"destination\":\"Ireland\",\"countries\":[\"Ireland\"],\"duration\":10,\"price\":1549,\"originalPrice\":1549,\"rating\":4.5,\"reviewCount\":534,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":false,\"guide\":false},\"highlights\":[\"Flights into Dublin and out of Shannon included\",\"7-day rental car included for self-drive exploration\",\"Visits to Blarney Castle Ring of Kerry and Cliffs of Moher\",\"Hotels in Dublin Cork Killarney Galway and Limerick\",\"Fully flexible and customizable itinerary\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"moderate\",\"category\":\"cultural\",\"description\":\"Tripmasters offers this fan-favorite Ireland self-drive package from $1,549 per person, including flights, a 7-day rental car, and hotels across five Irish cities. Travelers explore Blarney Castle, the Ring of Kerry, the Cliffs of Moher, and more at their own pace.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrival in Dublin\",\"description\":\"Fly into Dublin Airport and check in to your hotel. Spend the evening exploring Temple Bar and the city's vibrant pub culture.\"},{\"day\":2,\"title\":\"Dublin City\",\"description\":\"Visit Trinity College and the Book of Kells, Dublin Castle, and the Guinness Storehouse.\"},{\"day\":3,\"title\":\"Dublin to Cork\",\"description\":\"Pick up your rental car and drive south to Cork, stopping at Blarney Castle along the way to kiss the Blarney Stone.\"},{\"day\":4,\"title\":\"Cork to Killarney\",\"description\":\"Drive to Killarney, stopping at the Drombeg Stone Circle. Visit Muckross House and Gardens upon arrival.\"},{\"day\":5,\"title\":\"Ring of Kerry\",\"description\":\"Drive the famous Ring of Kerry loop, taking in breathtaking coastal and mountain scenery.\"},{\"day\":6,\"title\":\"Killarney to Galway\",\"description\":\"Drive north to Galway, stopping at the Cliffs of Moher for stunning Atlantic Ocean views.\"},{\"day\":7,\"title\":\"Galway & Connemara\",\"description\":\"Explore Galway's Latin Quarter and take a day trip into the wild Connemara landscape.\"},{\"day\":8,\"title\":\"Galway to Limerick\",\"description\":\"Drive south to Limerick, stopping at Bunratty Castle along the way.\"},{\"day\":9,\"title\":\"Limerick Exploration\",\"description\":\"Explore King John's Castle and the Hunt Museum in Limerick's revitalized city center.\"},{\"day\":10,\"title\":\"Departure from Shannon\",\"description\":\"Drive to Shannon Airport for your return flight home.\"}],\"sourceUrl\":\"https://www.tripmasters.com/europe/?srsltid\"},{\"name\":\"Tokyo \u2013 Kyoto \u2013 Osaka by Train Japan Package\",\"destination\":\"Japan\",\"countries\":[\"Japan\"],\"duration\":10,\"price\":1649,\"originalPrice\":1649,\"rating\":4.6,\"reviewCount\":456,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":false,\"guide\":false},\"highlights\":[\"Flights into Tokyo and out of Osaka included\",\"High-speed Shinkansen train tickets between cities included\",\"3 nights each in Tokyo Kyoto and Osaka\",\"Explore the Golden Route of Japan\",\"Rated 4.6 out of 5 by 456 customer reviews\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"moderate\",\"category\":\"cultural\",\"description\":\"Tripmasters offers Japan's most popular Golden Route package from $1,649 per person, covering Tokyo, Kyoto, and Osaka with flights and Shinkansen bullet train tickets included. Travelers can customize hotels, stay lengths, and add guided experiences.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrival in Tokyo\",\"description\":\"Fly into Tokyo Narita or Haneda Airport and check in to your hotel. Explore the Shinjuku neighborhood in the evening.\"},{\"day\":2,\"title\":\"Tokyo Highlights\",\"description\":\"Visit Senso-ji Temple in Asakusa, the Akihabara electronics district, and enjoy dinner in the Ginza area.\"},{\"day\":3,\"title\":\"Tokyo Exploration\",\"description\":\"Explore the Harajuku and Shibuya neighborhoods, visit the Meiji Shrine, and enjoy the view from the Tokyo Skytree.\"},{\"day\":4,\"title\":\"Train to Kyoto\",\"description\":\"Board the Shinkansen bullet train to Kyoto. Check in to your hotel and explore the Gion district in the evening.\"},{\"day\":5,\"title\":\"Kyoto Temples & Shrines\",\"description\":\"Visit Fushimi Inari Shrine, Kinkaku-ji (Golden Pavilion), and the Arashiyama bamboo grove.\"},{\"day\":6,\"title\":\"More of Kyoto\",\"description\":\"Explore the Higashiyama district's traditional streets, visit Kiyomizu-dera Temple, and enjoy a tea ceremony experience.\"},{\"day\":7,\"title\":\"Train to Osaka\",\"description\":\"Board the Shinkansen to Osaka. Check in to your hotel and explore the vibrant Dotonbori district.\"},{\"day\":8,\"title\":\"Osaka Highlights\",\"description\":\"Visit Osaka Castle, explore the Kuromon Ichiba Market, and enjoy Osaka's famous street food scene.\"},{\"day\":9,\"title\":\"Day Trip Option\",\"description\":\"Take an optional day trip to Nara to see the famous deer park and Todai-ji Temple, or explore more of Osaka.\"},{\"day\":10,\"title\":\"Departure from Osaka\",\"description\":\"Enjoy a final morning in Osaka before transferring to Kansai International Airport for your return flight.\"}],\"sourceUrl\":\"https://www.tripmasters.com/asia/japan/vacations?srsltid\"},{\"name\":\"Bangkok \u2013 Kuala Lumpur \u2013 Bali Beaches Southeast Asia Package\",\"destination\":\"Southeast Asia\",\"countries\":[\"Thailand\",\"Malaysia\",\"Indonesia\"],\"duration\":9,\"price\":1734,\"originalPrice\":1734,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":true,\"meals\":false,\"guide\":false},\"highlights\":[\"Flights between Bangkok Kuala Lumpur Bali and Ubud included\",\"Hotel transfers between Bali Ubud and beach area included\",\"Visit iconic Petronas Twin Towers in Kuala Lumpur\",\"Explore Buddhist temples and floating markets in Bangkok\",\"Discover Bali's cultural heart in Ubud and beautiful beaches\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"moderate\",\"category\":\"cultural\",\"description\":\"Tripmasters offers this three-country Southeast Asia package from $1,734 per person, covering Bangkok, Kuala Lumpur, Ubud, and Bali's beaches with flights and hotel transfers between cities included. The itinerary is fully customizable.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrival in Bangkok\",\"description\":\"Fly into Bangkok's Suvarnabhumi Airport and check in to your hotel. Explore the vibrant street food scene in the evening.\"},{\"day\":2,\"title\":\"Bangkok Temples & Markets\",\"description\":\"Visit the Grand Palace, Wat Pho, and Wat Arun temples. Explore the famous floating markets.\"},{\"day\":3,\"title\":\"Flight to Kuala Lumpur\",\"description\":\"Fly to Kuala Lumpur and check in to your hotel. Visit the iconic Petronas Twin Towers in the evening.\"},{\"day\":4,\"title\":\"Kuala Lumpur Exploration\",\"description\":\"Explore the Batu Caves, Petaling Street flea market, and enjoy Malaysian cuisine at local restaurants.\"},{\"day\":5,\"title\":\"Flight to Bali \u2013 Ubud\",\"description\":\"Fly to Bali and transfer to Ubud, Bali's cultural heart in the cool mountains. Explore local temples and art galleries.\"},{\"day\":6,\"title\":\"Ubud Culture & Nature\",\"description\":\"Visit the Sacred Monkey Forest, Tegallalang Rice Terraces, and local craft markets.\"},{\"day\":7,\"title\":\"Transfer to Bali Beaches\",\"description\":\"Transfer from Ubud to Bali's famous beach areas including Kuta, Seminyak, or Nusa Dua.\"},{\"day\":8,\"title\":\"Bali Beach Day\",\"description\":\"Enjoy Bali's stunning beaches, water sports, and vibrant beach club scene. Visit the Tanah Lot temple at sunset.\"},{\"day\":9,\"title\":\"Departure from Bali\",\"description\":\"Enjoy a final morning in Bali before transferring to Ngurah Rai International Airport for your return flight.\"}],\"sourceUrl\":\"https://www.tripmasters.com/asia/best_of_southeast_asia/multicountry/vacations?srsltid=AfmBOoog29iTnr2WBguL0n57OBrwX9KR92zWiLkFlJVH9PVfE_ThCSVm\"},{\"name\":\"The Great Jamaica Comeback Sale \u2013 Sandals Negril All-Inclusive\",\"destination\":\"Negril\",\"countries\":[\"Jamaica\"],\"duration\":7,\"price\":1491,\"originalPrice\":1491,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":false,\"hotel\":true,\"transfers\":false,\"meals\":true,\"guide\":false},\"highlights\":[\"From $213 per person per night at Sandals Negril\",\"Up to $1500 Instant Credit plus up to $350 Air Credit\",\"Free Jamaican Adventure included for stays of 5 nights or longer\",\"Bamboo River Rafting excursion on the Great River included\",\"All-inclusive with unlimited food drinks and activities\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"beach\",\"description\":\"Sandals Resorts' Great Jamaica Comeback Sale offers stays from $213 per person per night at Sandals Negril, with up to $1,500 instant credit, up to $350 in air credit, and a complimentary Jamaican Adventure including Bamboo River Rafting for stays of 5 nights or more.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrival in Negril\",\"description\":\"Arrive at Sangster International Airport in Montego Bay and transfer to Sandals Negril on Jamaica's famous Seven Mile Beach. Enjoy a welcome dinner.\"},{\"day\":2,\"title\":\"Seven Mile Beach\",\"description\":\"Spend the day on Negril's iconic Seven Mile Beach, enjoying the resort's water sports, pools, and unlimited food and beverages.\"},{\"day\":3,\"title\":\"Water Sports & Snorkeling\",\"description\":\"Take advantage of the resort's included water sports including snorkeling, kayaking, and glass-bottom boat rides.\"},{\"day\":4,\"title\":\"Bamboo River Rafting\",\"description\":\"Enjoy your complimentary Jamaican Adventure \u2013 a guided bamboo river rafting experience on the Great River through tropical surroundings.\"},{\"day\":5,\"title\":\"Negril Cliffs & Sunset\",\"description\":\"Visit Negril's famous limestone cliffs at Rick's Caf\u00e9 and enjoy cliff diving and a spectacular Caribbean sunset.\"},{\"day\":6,\"title\":\"Resort Leisure Day\",\"description\":\"Relax at the resort, enjoy a spa treatment, dine at multiple restaurants, and enjoy evening entertainment.\"},{\"day\":7,\"title\":\"Departure\",\"description\":\"Enjoy a final breakfast on the beach before checking out and transferring to the airport for your return flight.\"}],\"sourceUrl\":\"https://www.sandals.com/sale/\"},{\"name\":\"Virgin Voyages \u2013 Free Balcony Upgrade + 70% Off 2nd Sailor\",\"destination\":\"Caribbean\",\"countries\":[\"United States\",\"Bahamas\",\"Mexico\",\"Various Caribbean Islands\"],\"duration\":5,\"price\":700,\"originalPrice\":1400,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":false,\"hotel\":false,\"transfers\":false,\"meals\":true,\"guide\":false},\"highlights\":[\"70% off second Sailor on eligible sailings\",\"Free balcony cabin upgrade included\",\"Book by August 31 2026 for voyages through October 2028\",\"Includes all dining onboard specialty restaurants and bars\",\"Adults-only fleet with Caribbean Europe and North America itineraries\"],\"departureDates\":[\"2026-08-01\",\"2026-09-01\",\"2026-10-01\",\"2026-11-01\"],\"maxGroupSize\":2,\"difficulty\":\"easy\",\"category\":\"luxury\",\"description\":\"Virgin Voyages is offering a free balcony upgrade plus 70% off the second Sailor on eligible Sea Terrace cabins when booked by August 31, 2026, for voyages departing August 1, 2026 through October 2028. The adults-only cruise line includes all dining and entertainment in the fare.\",\"itinerary\":[{\"day\":1,\"title\":\"Embarkation Day\",\"description\":\"Board your Virgin Voyages ship at the home port and explore the ship's restaurants, bars, and entertainment venues. Sail away in the evening.\"},{\"day\":2,\"title\":\"Day at Sea\",\"description\":\"Enjoy the ship's amenities including specialty restaurants, spa, fitness center, pool, and evening entertainment shows.\"},{\"day\":3,\"title\":\"Port of Call\",\"description\":\"Arrive at a Caribbean port such as Bimini or a Mexican Riviera destination. Enjoy shore excursions or explore independently.\"},{\"day\":4,\"title\":\"Second Port or Sea Day\",\"description\":\"Visit another Caribbean destination or enjoy a relaxing sea day with onboard activities and dining.\"},{\"day\":5,\"title\":\"Disembarkation\",\"description\":\"Return to the home port and disembark after a final breakfast onboard.\"}],\"sourceUrl\":\"https://www.virginvoyages.com/cruise-deals/cruise-rooms-balcony-upgrade\"},{\"name\":\"Royal Caribbean Caribbean Cruise \u2013 Up to $900 Off + 3rd & 4th Guests Sail Free\",\"destination\":\"Caribbean\",\"countries\":[\"United States\",\"Bahamas\",\"Dominican Republic\",\"Mexico\",\"Various Caribbean Islands\"],\"duration\":7,\"price\":1153,\"originalPrice\":1800,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":false,\"hotel\":false,\"transfers\":false,\"meals\":false,\"guide\":false},\"highlights\":[\"Up to $900 off cruise fares on select sailings\",\"3rd and 4th guests sail free on select itineraries\",\"Western Caribbean and Perfect Day itineraries from $1153 per person\",\"Eastern Caribbean sailings on Icon of the Seas from Miami\",\"Short Bahamas getaways starting from $307 per person\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"family\",\"description\":\"Royal Caribbean's current sale offers up to $900 off plus 3rd and 4th guests sail free on select Caribbean sailings, with 7-night Western Caribbean and Perfect Day itineraries aboard Icon of the Seas starting from $1,153 per person and short 4-night Bahamas getaways from $307 per person.\",\"itinerary\":[{\"day\":1,\"title\":\"Embarkation in Miami\",\"description\":\"Board your Royal Caribbean ship in Miami and explore the world-class onboard amenities including dining venues, pools, and entertainment.\"},{\"day\":2,\"title\":\"Day at Sea\",\"description\":\"Enjoy the ship's attractions including waterslides, rock climbing walls, specialty dining, and Broadway-style shows.\"},{\"day\":3,\"title\":\"Caribbean Port of Call\",\"description\":\"Arrive at a Western Caribbean destination such as Costa Maya or Cozumel, Mexico. Enjoy beach excursions or explore local culture.\"},{\"day\":4,\"title\":\"Second Caribbean Port\",\"description\":\"Visit another Caribbean port such as Roatan, Honduras, or Georgetown, Grand Cayman, for snorkeling or cultural tours.\"},{\"day\":5,\"title\":\"Perfect Day at CocoCay\",\"description\":\"Spend the day at Royal Caribbean's exclusive private island, Perfect Day CocoCay, with beaches, waterslides, and complimentary amenities.\"},{\"day\":6,\"title\":\"Day at Sea\",\"description\":\"Enjoy a relaxing sea day with spa treatments, specialty dining, and evening entertainment.\"},{\"day\":7,\"title\":\"Return to Miami & Disembarkation\",\"description\":\"Return to Miami and disembark after a final breakfast onboard.\"}],\"sourceUrl\":\"https://www.royalcaribbean.com/cruise-deals\"},{\"name\":\"Trafalgar Best of Italy Summer Tour \u2013 Up to $569 Off\",\"destination\":\"Italy\",\"countries\":[\"Italy\"],\"duration\":10,\"price\":2431,\"originalPrice\":3000,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":false,\"hotel\":true,\"transfers\":true,\"meals\":true,\"guide\":true},\"highlights\":[\"Up to $569 off per couple as part of Trafalgar's summer sale\",\"Visits to Rome Florence Venice Milan and Lake Como included\",\"Accommodations transportation and select meals included\",\"Local expert guides throughout the tour\",\"$300 flight credit available toward airfare\"],\"departureDates\":[],\"maxGroupSize\":40,\"difficulty\":\"easy\",\"category\":\"cultural\",\"description\":\"Trafalgar's Best of Italy tour is featured in their summer sale with up to $569 off per booking for two, covering Rome, Venice, Milan, Lake Como, and Florence with accommodations, transportation, select meals, and local guides included. A $300 flight credit is also available.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrival in Rome\",\"description\":\"Arrive in Rome and meet your Trafalgar guide. Check in to your hotel and enjoy a welcome dinner with the group.\"},{\"day\":2,\"title\":\"Rome Highlights\",\"description\":\"Visit the Colosseum, Roman Forum, Vatican Museums, and the Sistine Chapel with your local expert guide.\"},{\"day\":3,\"title\":\"Rome to Florence\",\"description\":\"Travel by coach to Florence, stopping at scenic Tuscan countryside along the way. Explore the Uffizi Gallery and Piazzale Michelangelo.\"},{\"day\":4,\"title\":\"Florence Exploration\",\"description\":\"Visit the Florence Cathedral, Ponte Vecchio, and the Accademia Gallery to see Michelangelo's David.\"},{\"day\":5,\"title\":\"Florence to Venice\",\"description\":\"Travel to Venice by coach or train. Arrive and take a water taxi to your hotel. Enjoy a gondola ride in the evening.\"},{\"day\":6,\"title\":\"Venice Discovery\",\"description\":\"Explore St. Mark's Square, the Doge's Palace, and the Rialto Bridge. Enjoy a local seafood dinner.\"},{\"day\":7,\"title\":\"Venice to Milan\",\"description\":\"Travel to Milan and check in to your hotel. Explore the Galleria Vittorio Emanuele II and the Duomo di Milano.\"},{\"day\":8,\"title\":\"Milan & Lake Como\",\"description\":\"Take a scenic excursion to Lake Como and enjoy the stunning lakeside villages and mountain views.\"},{\"day\":9,\"title\":\"Milan Leisure\",\"description\":\"Explore Milan's fashion district, visit the Santa Maria delle Grazie to see Leonardo da Vinci's Last Supper (pre-booking required), and enjoy farewell dinner.\"},{\"day\":10,\"title\":\"Departure\",\"description\":\"Transfer to Milan Malpensa Airport for your return flight home.\"}],\"sourceUrl\":\"https://www.cntraveler.com/story/best-travel-deals-july-2026\"}]",
+  "candidate_count": 12,
+  "validated_count": 12,
+  "dropped": [],
+  "packages": [
+    {
+      "id": 1,
+      "name": "Paradisus Cancun All-Inclusive Delta Vacations Package",
+      "slug": "paradisus-cancun-all-inclusive-delta-vacations-package",
+      "destination": "Cancun",
+      "countries": [
+        "Mexico"
+      ],
+      "duration": 5,
+      "price": 1200.0,
+      "originalPrice": 1500.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-violet-500 to-purple-700",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": true,
+        "guide": false
+      },
+      "highlights": [
+        "$300 in instant savings per room per stay",
+        "All-inclusive resort with beachfront access",
+        "Save up to $500 additional with SkyMiles promo code SMSUMMER26",
+        "Book by August 31 2026 for travel through October 31 2026",
+        "Earn Delta SkyMiles on your vacation package"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "beach",
+      "description": "Delta Vacations is offering $300 in instant savings at the 4.5-star Paradisus Cancun all-inclusive resort, with the ability to stack up to $500 off using promo code SMSUMMER26 for SkyMiles members. Book by August 31, 2026 for travel through October 31, 2026.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Cancun",
+          "description": "Fly into Cancun on Delta Air Lines and check in to the Paradisus Cancun resort. Settle into your all-inclusive accommodations and enjoy dinner and evening entertainment."
+        },
+        {
+          "day": 2,
+          "title": "Beach & Resort Amenities",
+          "description": "Spend the day enjoying the resort's beachfront pools, water sports, and included meals and drinks at multiple restaurants and bars."
+        },
+        {
+          "day": 3,
+          "title": "Explore the Hotel Zone",
+          "description": "Venture into Cancun's famous Hotel Zone for shopping, local dining, and nightlife, or relax with a spa treatment at the resort."
+        },
+        {
+          "day": 4,
+          "title": "Optional Excursion Day",
+          "description": "Take an optional excursion to nearby Isla Mujeres or Chichen Itza, or enjoy another full day at the resort's all-inclusive amenities."
+        },
+        {
+          "day": 5,
+          "title": "Departure",
+          "description": "Enjoy a final breakfast at the resort before checking out and transferring to Cancun International Airport for your return flight."
+        }
+      ],
+      "sourceUrl": "https://www.delta.com/us/en/delta-vacations/offers-deals"
+    },
+    {
+      "id": 2,
+      "name": "Royalton Antigua Delta Vacations \u2013 Up to 25% Off + $200 Instant Savings",
+      "slug": "royalton-antigua-delta-vacations-up-to-25-off-200-instant-savings",
+      "destination": "Antigua",
+      "countries": [
+        "Antigua and Barbuda"
+      ],
+      "duration": 5,
+      "price": 1400.0,
+      "originalPrice": 1800.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-pink-500 to-rose-600",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": true,
+        "guide": false
+      },
+      "highlights": [
+        "Up to 25% off rooms for travel through January 1 2027",
+        "$200 in instant savings per room per stay",
+        "Minimum 4-night stay required",
+        "Book by August 31 2026",
+        "Combinable with SkyMiles promo code SMSUMMER26 for up to $400 total savings"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "beach",
+      "description": "Delta Vacations is offering up to 25% off rooms plus $200 in instant savings at the 4-star Royalton Antigua resort, with the deepest discount available for travel by January 1, 2027. Book by August 31, 2026.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Antigua",
+          "description": "Fly into V.C. Bird International Airport and transfer to the Royalton Antigua resort. Check in and enjoy a welcome dinner at one of the resort's dining venues."
+        },
+        {
+          "day": 2,
+          "title": "Beach & Water Sports",
+          "description": "Enjoy Antigua's famous white-sand beaches and the resort's water sports facilities, including snorkeling and kayaking."
+        },
+        {
+          "day": 3,
+          "title": "Island Exploration",
+          "description": "Explore Antigua's historic English Harbour and Nelson's Dockyard, or join a sailing excursion around the island."
+        },
+        {
+          "day": 4,
+          "title": "Resort & Spa Day",
+          "description": "Relax at the resort pool, enjoy included meals and beverages, or indulge in a spa treatment."
+        },
+        {
+          "day": 5,
+          "title": "Departure",
+          "description": "Enjoy a final morning at the resort before checking out and transferring to the airport for your return flight."
+        }
+      ],
+      "sourceUrl": "https://www.delta.com/us/en/delta-vacations/offers-deals"
+    },
+    {
+      "id": 3,
+      "name": "Zoetry Agua Punta Cana \u2013 Up to 68% Off Rooms",
+      "slug": "zoetry-agua-punta-cana-up-to-68-off-rooms",
+      "destination": "Punta Cana",
+      "countries": [
+        "Dominican Republic"
+      ],
+      "duration": 5,
+      "price": 900.0,
+      "originalPrice": 2647.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-red-400 to-pink-600",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": true,
+        "guide": false
+      },
+      "highlights": [
+        "Up to 68% off rooms for travel November 1 through December 23 2026",
+        "Free room upgrade included",
+        "Resort coupons for spa services wine and romantic dinners",
+        "Book by August 31 2026 for travel through December 31 2026",
+        "5-star luxury all-inclusive resort"
+      ],
+      "departureDates": [
+        "2026-11-01",
+        "2026-11-15",
+        "2026-12-01",
+        "2026-12-15"
+      ],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "honeymoon",
+      "description": "Delta Vacations is featuring up to 68% off rooms at the 5-star Zoetry Agua Punta Cana, a luxury all-inclusive adult resort in the Dominican Republic, with a free room upgrade and resort coupons for spa and dining. Book by August 31, 2026 for travel through December 31, 2026.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Punta Cana",
+          "description": "Arrive at Punta Cana International Airport and check in to the Zoetry Agua resort. Enjoy a welcome amenity and dinner at the resort."
+        },
+        {
+          "day": 2,
+          "title": "Beach & Wellness",
+          "description": "Spend the day on the resort's pristine beach, enjoy water sports, and take advantage of the included spa amenities."
+        },
+        {
+          "day": 3,
+          "title": "Culinary Experiences",
+          "description": "Dine at the resort's gourmet restaurants and use your included resort coupons for wine or a romantic dinner experience."
+        },
+        {
+          "day": 4,
+          "title": "Leisure & Spa",
+          "description": "Enjoy a spa treatment using your resort coupons, relax by the pool, and explore the resort's wellness offerings."
+        },
+        {
+          "day": 5,
+          "title": "Departure",
+          "description": "Enjoy a final breakfast before checking out and transferring to Punta Cana International Airport for your return flight."
+        }
+      ],
+      "sourceUrl": "https://www.delta.com/us/en/delta-vacations/offers-deals"
+    },
+    {
+      "id": 4,
+      "name": "Villa Marquis Paris \u2013 Seine River Cruise & Food Credit",
+      "slug": "villa-marquis-paris-seine-river-cruise-food-credit",
+      "destination": "Paris",
+      "countries": [
+        "France"
+      ],
+      "duration": 4,
+      "price": 1800.0,
+      "originalPrice": 1800.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-green-500 to-emerald-700",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": false,
+        "guide": false
+      },
+      "highlights": [
+        "\u20ac75 food and beverage credit per room per stay",
+        "One Seine River Cruise ticket per person included",
+        "5-star hotel near the Eiffel Tower",
+        "Minimum 3-night stay required",
+        "Book by August 30 2026 for travel through March 31 2027"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "honeymoon",
+      "description": "Delta Vacations is offering a package at the 5-star Villa Marquis, A Member of Meli\u00e3 Collection Tour Eiffel in Paris, including a \u20ac75 food and beverage credit and complimentary Seine River Cruise tickets per person. Book by August 30, 2026 for travel through March 31, 2027.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Paris",
+          "description": "Fly into Paris Charles de Gaulle Airport and check in to the Villa Marquis hotel near the Eiffel Tower. Enjoy dinner using your food and beverage credit."
+        },
+        {
+          "day": 2,
+          "title": "Iconic Paris Landmarks",
+          "description": "Visit the Eiffel Tower, the Louvre Museum, and the Champs-\u00c9lys\u00e9es. Enjoy lunch at a nearby caf\u00e9."
+        },
+        {
+          "day": 3,
+          "title": "Seine River Cruise",
+          "description": "Take your included Seine River Cruise to see Paris's iconic landmarks from the water, then explore Montmartre and the Sacr\u00e9-C\u0153ur Basilica."
+        },
+        {
+          "day": 4,
+          "title": "Departure",
+          "description": "Enjoy a final morning in Paris before checking out and transferring to the airport for your return flight."
+        }
+      ],
+      "sourceUrl": "https://www.delta.com/us/en/delta-vacations/offers-deals"
+    },
+    {
+      "id": 5,
+      "name": "Prague \u2013 Vienna \u2013 Budapest by Train",
+      "slug": "prague-vienna-budapest-by-train",
+      "destination": "Central Europe",
+      "countries": [
+        "Czech Republic",
+        "Austria",
+        "Hungary"
+      ],
+      "duration": 10,
+      "price": 1269.0,
+      "originalPrice": 1269.0,
+      "currency": "USD",
+      "rating": 4.7,
+      "reviewCount": 1951,
+      "imageGradient": "from-cyan-400 to-blue-600",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": false,
+        "guide": false
+      },
+      "highlights": [
+        "Flights into Prague and out of Budapest included",
+        "Train travel between all three cities included",
+        "3 nights each in Prague Vienna and Budapest",
+        "Fully flexible and customizable itinerary",
+        "Rated 4.7 out of 5 by over 1951 customer reviews"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "cultural",
+      "description": "Tripmasters offers this popular multi-city European package visiting Prague, Vienna, and Budapest with high-speed train connections between cities, flights, and hotels included from $1,269 per person based on double occupancy. The itinerary is fully customizable.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Prague",
+          "description": "Fly into Prague and check in to your hotel. Explore the Old Town Square and Charles Bridge in the evening."
+        },
+        {
+          "day": 2,
+          "title": "Prague Sightseeing",
+          "description": "Visit Prague Castle, St. Vitus Cathedral, and the historic Jewish Quarter. Enjoy local Czech cuisine for dinner."
+        },
+        {
+          "day": 3,
+          "title": "More of Prague",
+          "description": "Explore the Lesser Town and enjoy a final evening in Prague before your train journey."
+        },
+        {
+          "day": 4,
+          "title": "Train to Vienna",
+          "description": "Board the train to Vienna and check in to your hotel. Take an evening stroll along the Ringstrasse."
+        },
+        {
+          "day": 5,
+          "title": "Vienna Highlights",
+          "description": "Visit the Sch\u00f6nbrunn Palace, the Vienna State Opera, and enjoy Viennese coffee house culture."
+        },
+        {
+          "day": 6,
+          "title": "More of Vienna",
+          "description": "Explore the Belvedere Palace, the Naschmarkt, and enjoy local Viennese cuisine."
+        },
+        {
+          "day": 7,
+          "title": "Train to Budapest",
+          "description": "Board the train to Budapest and check in to your hotel. Enjoy an evening view of the illuminated Parliament building."
+        },
+        {
+          "day": 8,
+          "title": "Budapest Highlights",
+          "description": "Visit Buda Castle, the Fisherman's Bastion, and the Hungarian Parliament Building."
+        },
+        {
+          "day": 9,
+          "title": "Budapest Leisure",
+          "description": "Relax at a traditional Hungarian thermal bath, explore the ruin bars of the Jewish Quarter, and enjoy local cuisine."
+        },
+        {
+          "day": 10,
+          "title": "Departure from Budapest",
+          "description": "Enjoy a final morning in Budapest before transferring to the airport for your return flight."
+        }
+      ],
+      "sourceUrl": "https://www.tripmasters.com/europe/?srsltid"
+    },
+    {
+      "id": 6,
+      "name": "Magical Ireland Self Drive (Dublin \u2013 Cork \u2013 Killarney \u2013 Galway \u2013 Limerick)",
+      "slug": "magical-ireland-self-drive-dublin-cork-killarney-galway-limerick",
+      "destination": "Ireland",
+      "countries": [
+        "Ireland"
+      ],
+      "duration": 10,
+      "price": 1549.0,
+      "originalPrice": 1549.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 534,
+      "imageGradient": "from-amber-500 to-orange-700",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": false,
+        "guide": false
+      },
+      "highlights": [
+        "Flights into Dublin and out of Shannon included",
+        "7-day rental car included for self-drive exploration",
+        "Visits to Blarney Castle Ring of Kerry and Cliffs of Moher",
+        "Hotels in Dublin Cork Killarney Galway and Limerick",
+        "Fully flexible and customizable itinerary"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "moderate",
+      "category": "cultural",
+      "description": "Tripmasters offers this fan-favorite Ireland self-drive package from $1,549 per person, including flights, a 7-day rental car, and hotels across five Irish cities. Travelers explore Blarney Castle, the Ring of Kerry, the Cliffs of Moher, and more at their own pace.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Dublin",
+          "description": "Fly into Dublin Airport and check in to your hotel. Spend the evening exploring Temple Bar and the city's vibrant pub culture."
+        },
+        {
+          "day": 2,
+          "title": "Dublin City",
+          "description": "Visit Trinity College and the Book of Kells, Dublin Castle, and the Guinness Storehouse."
+        },
+        {
+          "day": 3,
+          "title": "Dublin to Cork",
+          "description": "Pick up your rental car and drive south to Cork, stopping at Blarney Castle along the way to kiss the Blarney Stone."
+        },
+        {
+          "day": 4,
+          "title": "Cork to Killarney",
+          "description": "Drive to Killarney, stopping at the Drombeg Stone Circle. Visit Muckross House and Gardens upon arrival."
+        },
+        {
+          "day": 5,
+          "title": "Ring of Kerry",
+          "description": "Drive the famous Ring of Kerry loop, taking in breathtaking coastal and mountain scenery."
+        },
+        {
+          "day": 6,
+          "title": "Killarney to Galway",
+          "description": "Drive north to Galway, stopping at the Cliffs of Moher for stunning Atlantic Ocean views."
+        },
+        {
+          "day": 7,
+          "title": "Galway & Connemara",
+          "description": "Explore Galway's Latin Quarter and take a day trip into the wild Connemara landscape."
+        },
+        {
+          "day": 8,
+          "title": "Galway to Limerick",
+          "description": "Drive south to Limerick, stopping at Bunratty Castle along the way."
+        },
+        {
+          "day": 9,
+          "title": "Limerick Exploration",
+          "description": "Explore King John's Castle and the Hunt Museum in Limerick's revitalized city center."
+        },
+        {
+          "day": 10,
+          "title": "Departure from Shannon",
+          "description": "Drive to Shannon Airport for your return flight home."
+        }
+      ],
+      "sourceUrl": "https://www.tripmasters.com/europe/?srsltid"
+    },
+    {
+      "id": 7,
+      "name": "Tokyo \u2013 Kyoto \u2013 Osaka by Train Japan Package",
+      "slug": "tokyo-kyoto-osaka-by-train-japan-package",
+      "destination": "Japan",
+      "countries": [
+        "Japan"
+      ],
+      "duration": 10,
+      "price": 1649.0,
+      "originalPrice": 1649.0,
+      "currency": "USD",
+      "rating": 4.6,
+      "reviewCount": 456,
+      "imageGradient": "from-blue-400 to-indigo-600",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": false,
+        "guide": false
+      },
+      "highlights": [
+        "Flights into Tokyo and out of Osaka included",
+        "High-speed Shinkansen train tickets between cities included",
+        "3 nights each in Tokyo Kyoto and Osaka",
+        "Explore the Golden Route of Japan",
+        "Rated 4.6 out of 5 by 456 customer reviews"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "moderate",
+      "category": "cultural",
+      "description": "Tripmasters offers Japan's most popular Golden Route package from $1,649 per person, covering Tokyo, Kyoto, and Osaka with flights and Shinkansen bullet train tickets included. Travelers can customize hotels, stay lengths, and add guided experiences.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Tokyo",
+          "description": "Fly into Tokyo Narita or Haneda Airport and check in to your hotel. Explore the Shinjuku neighborhood in the evening."
+        },
+        {
+          "day": 2,
+          "title": "Tokyo Highlights",
+          "description": "Visit Senso-ji Temple in Asakusa, the Akihabara electronics district, and enjoy dinner in the Ginza area."
+        },
+        {
+          "day": 3,
+          "title": "Tokyo Exploration",
+          "description": "Explore the Harajuku and Shibuya neighborhoods, visit the Meiji Shrine, and enjoy the view from the Tokyo Skytree."
+        },
+        {
+          "day": 4,
+          "title": "Train to Kyoto",
+          "description": "Board the Shinkansen bullet train to Kyoto. Check in to your hotel and explore the Gion district in the evening."
+        },
+        {
+          "day": 5,
+          "title": "Kyoto Temples & Shrines",
+          "description": "Visit Fushimi Inari Shrine, Kinkaku-ji (Golden Pavilion), and the Arashiyama bamboo grove."
+        },
+        {
+          "day": 6,
+          "title": "More of Kyoto",
+          "description": "Explore the Higashiyama district's traditional streets, visit Kiyomizu-dera Temple, and enjoy a tea ceremony experience."
+        },
+        {
+          "day": 7,
+          "title": "Train to Osaka",
+          "description": "Board the Shinkansen to Osaka. Check in to your hotel and explore the vibrant Dotonbori district."
+        },
+        {
+          "day": 8,
+          "title": "Osaka Highlights",
+          "description": "Visit Osaka Castle, explore the Kuromon Ichiba Market, and enjoy Osaka's famous street food scene."
+        },
+        {
+          "day": 9,
+          "title": "Day Trip Option",
+          "description": "Take an optional day trip to Nara to see the famous deer park and Todai-ji Temple, or explore more of Osaka."
+        },
+        {
+          "day": 10,
+          "title": "Departure from Osaka",
+          "description": "Enjoy a final morning in Osaka before transferring to Kansai International Airport for your return flight."
+        }
+      ],
+      "sourceUrl": "https://www.tripmasters.com/asia/japan/vacations?srsltid"
+    },
+    {
+      "id": 8,
+      "name": "Bangkok \u2013 Kuala Lumpur \u2013 Bali Beaches Southeast Asia Package",
+      "slug": "bangkok-kuala-lumpur-bali-beaches-southeast-asia-package",
+      "destination": "Southeast Asia",
+      "countries": [
+        "Thailand",
+        "Malaysia",
+        "Indonesia"
+      ],
+      "duration": 9,
+      "price": 1734.0,
+      "originalPrice": 1734.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-yellow-400 to-amber-600",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": true,
+        "meals": false,
+        "guide": false
+      },
+      "highlights": [
+        "Flights between Bangkok Kuala Lumpur Bali and Ubud included",
+        "Hotel transfers between Bali Ubud and beach area included",
+        "Visit iconic Petronas Twin Towers in Kuala Lumpur",
+        "Explore Buddhist temples and floating markets in Bangkok",
+        "Discover Bali's cultural heart in Ubud and beautiful beaches"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "moderate",
+      "category": "cultural",
+      "description": "Tripmasters offers this three-country Southeast Asia package from $1,734 per person, covering Bangkok, Kuala Lumpur, Ubud, and Bali's beaches with flights and hotel transfers between cities included. The itinerary is fully customizable.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Bangkok",
+          "description": "Fly into Bangkok's Suvarnabhumi Airport and check in to your hotel. Explore the vibrant street food scene in the evening."
+        },
+        {
+          "day": 2,
+          "title": "Bangkok Temples & Markets",
+          "description": "Visit the Grand Palace, Wat Pho, and Wat Arun temples. Explore the famous floating markets."
+        },
+        {
+          "day": 3,
+          "title": "Flight to Kuala Lumpur",
+          "description": "Fly to Kuala Lumpur and check in to your hotel. Visit the iconic Petronas Twin Towers in the evening."
+        },
+        {
+          "day": 4,
+          "title": "Kuala Lumpur Exploration",
+          "description": "Explore the Batu Caves, Petaling Street flea market, and enjoy Malaysian cuisine at local restaurants."
+        },
+        {
+          "day": 5,
+          "title": "Flight to Bali \u2013 Ubud",
+          "description": "Fly to Bali and transfer to Ubud, Bali's cultural heart in the cool mountains. Explore local temples and art galleries."
+        },
+        {
+          "day": 6,
+          "title": "Ubud Culture & Nature",
+          "description": "Visit the Sacred Monkey Forest, Tegallalang Rice Terraces, and local craft markets."
+        },
+        {
+          "day": 7,
+          "title": "Transfer to Bali Beaches",
+          "description": "Transfer from Ubud to Bali's famous beach areas including Kuta, Seminyak, or Nusa Dua."
+        },
+        {
+          "day": 8,
+          "title": "Bali Beach Day",
+          "description": "Enjoy Bali's stunning beaches, water sports, and vibrant beach club scene. Visit the Tanah Lot temple at sunset."
+        },
+        {
+          "day": 9,
+          "title": "Departure from Bali",
+          "description": "Enjoy a final morning in Bali before transferring to Ngurah Rai International Airport for your return flight."
+        }
+      ],
+      "sourceUrl": "https://www.tripmasters.com/asia/best_of_southeast_asia/multicountry/vacations?srsltid=AfmBOoog29iTnr2WBguL0n57OBrwX9KR92zWiLkFlJVH9PVfE_ThCSVm"
+    },
+    {
+      "id": 9,
+      "name": "The Great Jamaica Comeback Sale \u2013 Sandals Negril All-Inclusive",
+      "slug": "the-great-jamaica-comeback-sale-sandals-negril-all-inclusive",
+      "destination": "Negril",
+      "countries": [
+        "Jamaica"
+      ],
+      "duration": 7,
+      "price": 1491.0,
+      "originalPrice": 1491.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-orange-500 to-red-700",
+      "includes": {
+        "flights": false,
+        "hotel": true,
+        "transfers": false,
+        "meals": true,
+        "guide": false
+      },
+      "highlights": [
+        "From $213 per person per night at Sandals Negril",
+        "Up to $1500 Instant Credit plus up to $350 Air Credit",
+        "Free Jamaican Adventure included for stays of 5 nights or longer",
+        "Bamboo River Rafting excursion on the Great River included",
+        "All-inclusive with unlimited food drinks and activities"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "beach",
+      "description": "Sandals Resorts' Great Jamaica Comeback Sale offers stays from $213 per person per night at Sandals Negril, with up to $1,500 instant credit, up to $350 in air credit, and a complimentary Jamaican Adventure including Bamboo River Rafting for stays of 5 nights or more.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Negril",
+          "description": "Arrive at Sangster International Airport in Montego Bay and transfer to Sandals Negril on Jamaica's famous Seven Mile Beach. Enjoy a welcome dinner."
+        },
+        {
+          "day": 2,
+          "title": "Seven Mile Beach",
+          "description": "Spend the day on Negril's iconic Seven Mile Beach, enjoying the resort's water sports, pools, and unlimited food and beverages."
+        },
+        {
+          "day": 3,
+          "title": "Water Sports & Snorkeling",
+          "description": "Take advantage of the resort's included water sports including snorkeling, kayaking, and glass-bottom boat rides."
+        },
+        {
+          "day": 4,
+          "title": "Bamboo River Rafting",
+          "description": "Enjoy your complimentary Jamaican Adventure \u2013 a guided bamboo river rafting experience on the Great River through tropical surroundings."
+        },
+        {
+          "day": 5,
+          "title": "Negril Cliffs & Sunset",
+          "description": "Visit Negril's famous limestone cliffs at Rick's Caf\u00e9 and enjoy cliff diving and a spectacular Caribbean sunset."
+        },
+        {
+          "day": 6,
+          "title": "Resort Leisure Day",
+          "description": "Relax at the resort, enjoy a spa treatment, dine at multiple restaurants, and enjoy evening entertainment."
+        },
+        {
+          "day": 7,
+          "title": "Departure",
+          "description": "Enjoy a final breakfast on the beach before checking out and transferring to the airport for your return flight."
+        }
+      ],
+      "sourceUrl": "https://www.sandals.com/sale/"
+    },
+    {
+      "id": 10,
+      "name": "Virgin Voyages \u2013 Free Balcony Upgrade + 70% Off 2nd Sailor",
+      "slug": "virgin-voyages-free-balcony-upgrade-70-off-2nd-sailor",
+      "destination": "Caribbean",
+      "countries": [
+        "United States",
+        "Bahamas",
+        "Mexico",
+        "Various Caribbean Islands"
+      ],
+      "duration": 5,
+      "price": 700.0,
+      "originalPrice": 1400.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-teal-400 to-green-600",
+      "includes": {
+        "flights": false,
+        "hotel": false,
+        "transfers": false,
+        "meals": true,
+        "guide": false
+      },
+      "highlights": [
+        "70% off second Sailor on eligible sailings",
+        "Free balcony cabin upgrade included",
+        "Book by August 31 2026 for voyages through October 2028",
+        "Includes all dining onboard specialty restaurants and bars",
+        "Adults-only fleet with Caribbean Europe and North America itineraries"
+      ],
+      "departureDates": [
+        "2026-08-01",
+        "2026-09-01",
+        "2026-10-01",
+        "2026-11-01"
+      ],
+      "maxGroupSize": 2,
+      "difficulty": "easy",
+      "category": "luxury",
+      "description": "Virgin Voyages is offering a free balcony upgrade plus 70% off the second Sailor on eligible Sea Terrace cabins when booked by August 31, 2026, for voyages departing August 1, 2026 through October 2028. The adults-only cruise line includes all dining and entertainment in the fare.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Embarkation Day",
+          "description": "Board your Virgin Voyages ship at the home port and explore the ship's restaurants, bars, and entertainment venues. Sail away in the evening."
+        },
+        {
+          "day": 2,
+          "title": "Day at Sea",
+          "description": "Enjoy the ship's amenities including specialty restaurants, spa, fitness center, pool, and evening entertainment shows."
+        },
+        {
+          "day": 3,
+          "title": "Port of Call",
+          "description": "Arrive at a Caribbean port such as Bimini or a Mexican Riviera destination. Enjoy shore excursions or explore independently."
+        },
+        {
+          "day": 4,
+          "title": "Second Port or Sea Day",
+          "description": "Visit another Caribbean destination or enjoy a relaxing sea day with onboard activities and dining."
+        },
+        {
+          "day": 5,
+          "title": "Disembarkation",
+          "description": "Return to the home port and disembark after a final breakfast onboard."
+        }
+      ],
+      "sourceUrl": "https://www.virginvoyages.com/cruise-deals/cruise-rooms-balcony-upgrade"
+    },
+    {
+      "id": 11,
+      "name": "Royal Caribbean Caribbean Cruise \u2013 Up to $900 Off + 3rd & 4th Guests Sail Free",
+      "slug": "royal-caribbean-caribbean-cruise-up-to-900-off-3rd-4th-guests-sail-free",
+      "destination": "Caribbean",
+      "countries": [
+        "United States",
+        "Bahamas",
+        "Dominican Republic",
+        "Mexico",
+        "Various Caribbean Islands"
+      ],
+      "duration": 7,
+      "price": 1153.0,
+      "originalPrice": 1800.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-yellow-300 to-orange-500",
+      "includes": {
+        "flights": false,
+        "hotel": false,
+        "transfers": false,
+        "meals": false,
+        "guide": false
+      },
+      "highlights": [
+        "Up to $900 off cruise fares on select sailings",
+        "3rd and 4th guests sail free on select itineraries",
+        "Western Caribbean and Perfect Day itineraries from $1153 per person",
+        "Eastern Caribbean sailings on Icon of the Seas from Miami",
+        "Short Bahamas getaways starting from $307 per person"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "family",
+      "description": "Royal Caribbean's current sale offers up to $900 off plus 3rd and 4th guests sail free on select Caribbean sailings, with 7-night Western Caribbean and Perfect Day itineraries aboard Icon of the Seas starting from $1,153 per person and short 4-night Bahamas getaways from $307 per person.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Embarkation in Miami",
+          "description": "Board your Royal Caribbean ship in Miami and explore the world-class onboard amenities including dining venues, pools, and entertainment."
+        },
+        {
+          "day": 2,
+          "title": "Day at Sea",
+          "description": "Enjoy the ship's attractions including waterslides, rock climbing walls, specialty dining, and Broadway-style shows."
+        },
+        {
+          "day": 3,
+          "title": "Caribbean Port of Call",
+          "description": "Arrive at a Western Caribbean destination such as Costa Maya or Cozumel, Mexico. Enjoy beach excursions or explore local culture."
+        },
+        {
+          "day": 4,
+          "title": "Second Caribbean Port",
+          "description": "Visit another Caribbean port such as Roatan, Honduras, or Georgetown, Grand Cayman, for snorkeling or cultural tours."
+        },
+        {
+          "day": 5,
+          "title": "Perfect Day at CocoCay",
+          "description": "Spend the day at Royal Caribbean's exclusive private island, Perfect Day CocoCay, with beaches, waterslides, and complimentary amenities."
+        },
+        {
+          "day": 6,
+          "title": "Day at Sea",
+          "description": "Enjoy a relaxing sea day with spa treatments, specialty dining, and evening entertainment."
+        },
+        {
+          "day": 7,
+          "title": "Return to Miami & Disembarkation",
+          "description": "Return to Miami and disembark after a final breakfast onboard."
+        }
+      ],
+      "sourceUrl": "https://www.royalcaribbean.com/cruise-deals"
+    },
+    {
+      "id": 12,
+      "name": "Trafalgar Best of Italy Summer Tour \u2013 Up to $569 Off",
+      "slug": "trafalgar-best-of-italy-summer-tour-up-to-569-off",
+      "destination": "Italy",
+      "countries": [
+        "Italy"
+      ],
+      "duration": 10,
+      "price": 2431.0,
+      "originalPrice": 3000.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-slate-400 to-blue-700",
+      "includes": {
+        "flights": false,
+        "hotel": true,
+        "transfers": true,
+        "meals": true,
+        "guide": true
+      },
+      "highlights": [
+        "Up to $569 off per couple as part of Trafalgar's summer sale",
+        "Visits to Rome Florence Venice Milan and Lake Como included",
+        "Accommodations transportation and select meals included",
+        "Local expert guides throughout the tour",
+        "$300 flight credit available toward airfare"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 40,
+      "difficulty": "easy",
+      "category": "cultural",
+      "description": "Trafalgar's Best of Italy tour is featured in their summer sale with up to $569 off per booking for two, covering Rome, Venice, Milan, Lake Como, and Florence with accommodations, transportation, select meals, and local guides included. A $300 flight credit is also available.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Rome",
+          "description": "Arrive in Rome and meet your Trafalgar guide. Check in to your hotel and enjoy a welcome dinner with the group."
+        },
+        {
+          "day": 2,
+          "title": "Rome Highlights",
+          "description": "Visit the Colosseum, Roman Forum, Vatican Museums, and the Sistine Chapel with your local expert guide."
+        },
+        {
+          "day": 3,
+          "title": "Rome to Florence",
+          "description": "Travel by coach to Florence, stopping at scenic Tuscan countryside along the way. Explore the Uffizi Gallery and Piazzale Michelangelo."
+        },
+        {
+          "day": 4,
+          "title": "Florence Exploration",
+          "description": "Visit the Florence Cathedral, Ponte Vecchio, and the Accademia Gallery to see Michelangelo's David."
+        },
+        {
+          "day": 5,
+          "title": "Florence to Venice",
+          "description": "Travel to Venice by coach or train. Arrive and take a water taxi to your hotel. Enjoy a gondola ride in the evening."
+        },
+        {
+          "day": 6,
+          "title": "Venice Discovery",
+          "description": "Explore St. Mark's Square, the Doge's Palace, and the Rialto Bridge. Enjoy a local seafood dinner."
+        },
+        {
+          "day": 7,
+          "title": "Venice to Milan",
+          "description": "Travel to Milan and check in to your hotel. Explore the Galleria Vittorio Emanuele II and the Duomo di Milano."
+        },
+        {
+          "day": 8,
+          "title": "Milan & Lake Como",
+          "description": "Take a scenic excursion to Lake Como and enjoy the stunning lakeside villages and mountain views."
+        },
+        {
+          "day": 9,
+          "title": "Milan Leisure",
+          "description": "Explore Milan's fashion district, visit the Santa Maria delle Grazie to see Leonardo da Vinci's Last Supper (pre-booking required), and enjoy farewell dinner."
+        },
+        {
+          "day": 10,
+          "title": "Departure",
+          "description": "Transfer to Milan Malpensa Airport for your return flight home."
+        }
+      ],
+      "sourceUrl": "https://www.cntraveler.com/story/best-travel-deals-july-2026"
+    }
+  ]
+}

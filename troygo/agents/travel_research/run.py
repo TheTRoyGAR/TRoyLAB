@@ -19,6 +19,17 @@ from pydantic import ValidationError
 
 load_dotenv()
 
+# Windows' console defaults stdout to cp1252, which can't encode characters
+# real scraped content commonly contains (star ratings like ★, emoji, curly
+# quotes). CrewAI's own verbose logging prints scraped tool output directly,
+# so a single ★ in a real review snippet crashes the whole run with
+# UnicodeEncodeError after real, costly API calls already happened. Same fix
+# already applied to the department server's main.py — belongs here too,
+# not just relied on via a PYTHONIOENCODING env var at invocation time.
+if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
 from crew import run as run_crew  # noqa: E402  (must follow load_dotenv())
 from schema import GRADIENT_PALETTE, ResearchedPackage, TravelPackage, slugify  # noqa: E402
 
