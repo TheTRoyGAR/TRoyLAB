@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Darwin Bus Schedule — by TRoyGR</title>
+<style>
+:root {
+  --bg: #0a1628;
+  --surface: #0f1f38;
+  --border: #1e3358;
+  --accent: #00b4d8;
+  --accent-dim: #0d7a94;
+  --gold: #ffd700;
+  --text: #e8eef5;
+  --text-muted: #6b7f9c;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: "Inter", "Helvetica Neue", sans-serif; min-height: 100vh; }
+header { border-bottom: 1px solid var(--border); padding: 20px 24px; position: sticky; top: 0; background: var(--bg); z-index: 10; }
+.header-inner { max-width: 900px; margin: 0 auto; }
+.logo { font-size: 22px; font-weight: 700; color: var(--gold); }
+.subtitle { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+.banner {
+  max-width: 900px; margin: 16px auto 0; padding: 12px 16px;
+  background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent);
+  border-radius: 6px; font-size: 12.5px; color: var(--text-muted); line-height: 1.6;
+}
+.banner strong { color: var(--text); }
+main { max-width: 900px; margin: 0 auto; padding: 20px 24px 60px; }
+.search-box {
+  width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  color: var(--text); padding: 14px 16px; font-size: 15px; font-family: inherit; outline: none; margin-bottom: 20px;
+}
+.search-box:focus { border-color: var(--accent-dim); }
+.route-list { display: flex; flex-direction: column; gap: 8px; }
+.route-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px;
+  cursor: pointer; transition: border-color 0.15s;
+}
+.route-card:hover { border-color: var(--accent-dim); }
+.route-top { display: flex; align-items: center; gap: 12px; }
+.route-num {
+  background: var(--accent); color: var(--bg); font-weight: 700; font-size: 13px;
+  padding: 4px 10px; border-radius: 999px; flex-shrink: 0; min-width: 28px; text-align: center;
+}
+.route-name { font-size: 14px; flex: 1; }
+.route-meta { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+.route-detail { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.route-detail.open { display: block; }
+.stop-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.stop-row:last-child { border-bottom: none; }
+.stop-name { color: var(--text); }
+.stop-times { color: var(--accent); font-size: 11.5px; font-family: monospace; }
+.empty { text-align: center; padding: 40px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="logo">Darwin Bus Schedule</div>
+    <div class="subtitle">A TRoyGR™ build — real routes &amp; real scheduled times, Northern Territory Government open data</div>
+  </div>
+</header>
+<div class="banner">
+  <strong>This shows real scheduled times, not live vehicle positions.</strong> NT Government publishes real static timetable data publicly, but keeps live GPS tracking private to their own official NT Bus Tracker app. This tool demonstrates what's possible with the public data — a live version would need NT Government's cooperation to grant real-time API access.
+</div>
+<main>
+  <input type="text" class="search-box" id="search" placeholder="Search by route number or destination (e.g. 4, Casuarina, Palmerston)…" />
+  <div class="route-list" id="route-list"></div>
+</main>
+
+<script>
+let routes = [];
+
+fetch('routes.json')
+  .then(r => r.json())
+  .then(data => {
+    routes = data;
+    render(routes);
+  })
+  .catch(() => {
+    document.getElementById('route-list').innerHTML = '<p class="empty">Could not load route data.</p>';
+  });
+
+function escapeHtml(str) {
+  return String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+function formatTime(t) {
+  // GTFS times can exceed 24:00 for late-night trips - normalize for display
+  const [h, m] = t.split(':').map(Number);
+  const hour = h % 24;
+  const period = hour >= 12 ? 'PM' : 'AM';
+  const displayHour = hour % 12 === 0 ? 12 : hour % 12;
+  return `${displayHour}:${String(m).padStart(2, '0')} ${period}`;
+}
+
+function render(list) {
+  const container = document.getElementById('route-list');
+  if (list.length === 0) {
+    container.innerHTML = '<p class="empty">No routes match your search.</p>';
+    return;
+  }
+  container.innerHTML = list.map((r, i) => `
+    <div class="route-card" data-idx="${i}">
+      <div class="route-top">
+        <span class="route-num">${escapeHtml(r.shortName)}</span>
+        <span class="route-name">${escapeHtml(r.longName)}</span>
+      </div>
+      <div class="route-meta">${r.stopCount} real stops on this route</div>
+      <div class="route-detail" id="detail-${i}">
+        ${r.stops.slice(0, 15).map(s => `
+          <div class="stop-row">
+            <span class="stop-name">${escapeHtml(s.name)}</span>
+            <span class="stop-times">${s.times.slice(0, 4).map(formatTime).join(' · ')}${s.totalDepartures > 4 ? ` (+${s.totalDepartures - 4} more)` : ''}</span>
+          </div>
+        `).join('')}
+        ${r.stops.length > 15 ? `<div class="route-meta" style="margin-top:8px;">+ ${r.stops.length - 15} more real stops on this route</div>` : ''}
+      </div>
+    </div>
+  `).join('');
+
+  container.querySelectorAll('.route-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const idx = card.dataset.idx;
+      document.getElementById(`detail-${idx}`).classList.toggle('open');
+    });
+  });
+}
+
+document.getElementById('search').addEventListener('input', (e) => {
+  const q = e.target.value.trim().toLowerCase();
+  if (!q) { render(routes); return; }
+  const filtered = routes.filter(r =>
+    r.shortName.toLowerCase().includes(q) ||
+    r.longName.toLowerCase().includes(q) ||
+    r.stops.some(s => s.name.toLowerCase().includes(q))
+  );
+  render(filtered);
+});
+</script>
+</body>
+</html>

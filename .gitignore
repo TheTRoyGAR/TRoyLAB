@@ -6,3 +6,6 @@ __pycache__/
 .venv/
 
 dashboard/.wrangler/
+bus-tracker/gtfs-data/*.txt
+bus-tracker/gtfs-data/*.zip
+bus-tracker/.wrangler/
