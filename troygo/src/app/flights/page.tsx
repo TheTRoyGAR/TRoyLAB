@@ -8,7 +8,6 @@ import {
   ArrowRight,
   ArrowLeftRight,
   Clock,
-  Users,
   ChevronDown,
   Filter,
   SortAsc,
@@ -24,6 +23,7 @@ import {
 import { cn } from '@/lib/utils'
 import AirportAutocomplete from '@/components/flights/AirportAutocomplete'
 import TripAddOns from '@/components/flights/TripAddOns'
+import PassengerPicker from '@/components/flights/PassengerPicker'
 import { sampleFlights, type Flight } from '@/lib/data/flights'
 import MainLayout from '@/components/layout/MainLayout'
 import LiveFlightTracker from '@/components/flights/LiveFlightTracker'
@@ -212,7 +212,7 @@ type FlightLeg = { id: string; from: string; to: string; date: string }
 function SearchBar({
   from, setFrom, to, setTo,
   date, setDate, returnDate, setReturnDate,
-  passengers, setPassengers, cabinClass, setCabinClass,
+  adults, childCount, setPassengerCounts, cabinClass, setCabinClass,
   extraLegs, onAddLeg, onRemoveLeg, onUpdateLeg,
   onSearch,
 }: {
@@ -220,7 +220,7 @@ function SearchBar({
   to: string; setTo: (v: string) => void
   date: string; setDate: (v: string) => void
   returnDate: string; setReturnDate: (v: string) => void
-  passengers: number; setPassengers: (v: number) => void
+  adults: number; childCount: number; setPassengerCounts: (adults: number, childCount: number) => void
   cabinClass: CabinClass; setCabinClass: (v: CabinClass) => void
   extraLegs: FlightLeg[]
   onAddLeg: () => void
@@ -277,17 +277,8 @@ function SearchBar({
         {/* Passengers */}
         <div>
           <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Passengers</label>
-          <div className="flex items-center gap-2 mt-1">
-            <Users className="h-4 w-4 text-slate-400 shrink-0" />
-            <select
-              className="w-full text-sm font-semibold text-navy outline-none bg-transparent"
-              value={passengers}
-              onChange={(e) => setPassengers(Number(e.target.value))}
-            >
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-                <option key={n} value={n}>{n} Passenger{n > 1 ? 's' : ''}</option>
-              ))}
-            </select>
+          <div className="mt-1">
+            <PassengerPicker adults={adults} childCount={childCount} onChange={setPassengerCounts} />
           </div>
         </div>
 
@@ -528,7 +519,10 @@ function FlightsContent() {
   const [to, setTo] = useState(params.get('to') ?? '')
   const [date, setDate] = useState(params.get('date') ?? '2026-06-15')
   const [returnDate, setReturnDate] = useState(params.get('return') ?? '')
-  const [passengers, setPassengers] = useState(Number(params.get('passengers') ?? 1))
+  const [adults, setAdults] = useState(Number(params.get('adults') ?? params.get('passengers') ?? 1))
+  const [childCount, setChildCount] = useState(Number(params.get('children') ?? 0))
+  const passengers = adults + childCount
+  const setPassengerCounts = (a: number, c: number) => { setAdults(a); setChildCount(c) }
   const [cabinClass, setCabinClass] = useState<CabinClass>((params.get('class') as CabinClass) ?? 'economy')
 
   const [extraLegs, setExtraLegs] = useState<FlightLeg[]>([])
@@ -688,7 +682,7 @@ function FlightsContent() {
               to={to} setTo={setTo}
               date={date} setDate={setDate}
               returnDate={returnDate} setReturnDate={setReturnDate}
-              passengers={passengers} setPassengers={setPassengers}
+              adults={adults} childCount={childCount} setPassengerCounts={setPassengerCounts}
               cabinClass={cabinClass} setCabinClass={setCabinClass}
               extraLegs={extraLegs} onAddLeg={addLeg} onRemoveLeg={removeLeg} onUpdateLeg={updateLeg}
               onSearch={() => document.getElementById('flight-results')?.scrollIntoView({ behavior: 'smooth' })}
