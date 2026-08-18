@@ -1,4 +1,9 @@
-export const dynamic = 'force-static'
+// NOT force-static: this route reads a real query string (?query=) on every
+// request, which static rendering evaluates without the actual request URL —
+// that was silently breaking search param reading (always saw query=null).
+// The other routes here (ai-planner, flights/search) read POST bodies
+// instead, which isn't affected by this the same way.
+export const dynamic = 'force-dynamic'
 
 // Real destination photos via Unsplash. Follows Unsplash's API guidelines:
 // hotlink their image URLs directly (never download/rehost), trigger their
