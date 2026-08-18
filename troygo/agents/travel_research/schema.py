@@ -177,6 +177,67 @@ class ResearchedHotel(BaseModel):
     sourceUrl: HttpUrl
 
 
+class ResearchedCarRental(BaseModel):
+    """What the LLM is asked to produce for one real car rental listing.
+    id/gradient are deliberately NOT here — assigned deterministically after
+    validation, same reasoning as the other Researched* models above."""
+
+    name: str
+    model: str
+    type: Literal["Economy", "Compact", "SUV", "Luxury", "Van"]
+    transmission: Literal["Automatic", "Manual"]
+    seats: int = Field(gt=0)
+    bags: int = Field(ge=0)
+    doors: int = Field(gt=0)
+    ac: bool
+    pricePerDay: float = Field(gt=0)
+    supplier: str
+    supplierLogo: str = Field(description="1-2 letter abbreviation of the supplier name")
+    features: list[str]
+    pickupLocations: list[str]
+    fuelPolicy: str
+    mileage: str
+    sourceUrl: HttpUrl
+
+
+class CarRental(BaseModel):
+    """Exact mirror of the TypeScript CarRental interface in
+    ../../src/app/cars/page.tsx (now src/lib/data/cars.ts). Written to
+    cars-live.json (sourceUrl stripped — see run_cars.py)."""
+
+    id: str
+    name: str
+    model: str
+    type: Literal["Economy", "Compact", "SUV", "Luxury", "Van"]
+    transmission: Literal["Automatic", "Manual"]
+    seats: int
+    bags: int
+    doors: int
+    ac: bool
+    pricePerDay: float
+    supplier: str
+    supplierLogo: str
+    gradient: str
+    features: list[str]
+    pickupLocations: list[str]
+    fuelPolicy: str
+    mileage: str
+
+
+CAR_GRADIENT_PALETTE = [
+    "from-slate-600 via-gray-500 to-zinc-600",
+    "from-blue-700 via-blue-600 to-indigo-700",
+    "from-red-700 via-rose-600 to-pink-700",
+    "from-zinc-700 via-stone-600 to-neutral-700",
+    "from-emerald-700 via-green-600 to-teal-700",
+    "from-yellow-600 via-amber-500 to-orange-600",
+    "from-indigo-700 via-violet-600 to-purple-700",
+    "from-cyan-700 via-sky-600 to-blue-700",
+    "from-teal-700 via-emerald-600 to-green-700",
+    "from-slate-700 via-gray-600 to-slate-800",
+]
+
+
 class Hotel(BaseModel):
     """Exact mirror of the TypeScript Hotel interface in
     ../../src/lib/data/hotels.ts. This is what gets written to

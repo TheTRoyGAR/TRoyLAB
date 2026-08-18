@@ -1,0 +1,270 @@
+[
+  {
+    "id": "CAR001",
+    "name": "Chevrolet Spark",
+    "model": "2025",
+    "type": "Economy",
+    "transmission": "Automatic",
+    "seats": 4,
+    "bags": 2,
+    "doors": 4,
+    "ac": true,
+    "pricePerDay": 42.0,
+    "supplier": "Hertz",
+    "supplierLogo": "H",
+    "gradient": "from-slate-600 via-gray-500 to-zinc-600",
+    "features": [
+      "Compact size for easy city parking",
+      "Fuel-efficient",
+      "Air conditioning",
+      "Ideal for solo or couple travel"
+    ],
+    "pickupLocations": [
+      "Airport",
+      "Downtown"
+    ],
+    "fuelPolicy": "Full-to-Full",
+    "mileage": "Unlimited"
+  },
+  {
+    "id": "CAR002",
+    "name": "Nissan Rogue",
+    "model": "2025",
+    "type": "SUV",
+    "transmission": "Automatic",
+    "seats": 5,
+    "bags": 3,
+    "doors": 4,
+    "ac": true,
+    "pricePerDay": 46.0,
+    "supplier": "Hertz",
+    "supplierLogo": "H",
+    "gradient": "from-blue-700 via-blue-600 to-indigo-700",
+    "features": [
+      "SUV with extra cargo space",
+      "All-wheel drive capability",
+      "Bluetooth connectivity",
+      "Ideal for families or groups"
+    ],
+    "pickupLocations": [
+      "Airport",
+      "Downtown"
+    ],
+    "fuelPolicy": "Full-to-Full",
+    "mileage": "Unlimited"
+  },
+  {
+    "id": "CAR003",
+    "name": "Chrysler Pacifica",
+    "model": "2025",
+    "type": "Van",
+    "transmission": "Automatic",
+    "seats": 7,
+    "bags": 5,
+    "doors": 4,
+    "ac": true,
+    "pricePerDay": 63.0,
+    "supplier": "Hertz",
+    "supplierLogo": "H",
+    "gradient": "from-red-700 via-rose-600 to-pink-700",
+    "features": [
+      "Minivan with seating for up to 7",
+      "Large cargo area",
+      "Stow-and-go seating",
+      "Perfect for group travel"
+    ],
+    "pickupLocations": [
+      "Airport",
+      "Downtown"
+    ],
+    "fuelPolicy": "Full-to-Full",
+    "mileage": "Unlimited"
+  },
+  {
+    "id": "CAR004",
+    "name": "Kia Soul",
+    "model": "2025",
+    "type": "Economy",
+    "transmission": "Automatic",
+    "seats": 5,
+    "bags": 2,
+    "doors": 4,
+    "ac": true,
+    "pricePerDay": 19.0,
+    "supplier": "Avis",
+    "supplierLogo": "AV",
+    "gradient": "from-zinc-700 via-stone-600 to-neutral-700",
+    "features": [
+      "Affordable economy vehicle",
+      "Fuel-efficient",
+      "Easy to park",
+      "Comfortable interior"
+    ],
+    "pickupLocations": [
+      "Airport",
+      "Downtown"
+    ],
+    "fuelPolicy": "Full-to-Full",
+    "mileage": "Unlimited"
+  },
+  {
+    "id": "CAR005",
+    "name": "Toyota Corolla",
+    "model": "2025",
+    "type": "Compact",
+    "transmission": "Automatic",
+    "seats": 5,
+    "bags": 3,
+    "doors": 4,
+    "ac": true,
+    "pricePerDay": 23.0,
+    "supplier": "Avis",
+    "supplierLogo": "AV",
+    "gradient": "from-emerald-700 via-green-600 to-teal-700",
+    "features": [
+      "Reliable compact sedan",
+      "Great fuel economy",
+      "Bluetooth audio",
+      "Comfortable for city and highway driving"
+    ],
+    "pickupLocations": [
+      "Airport",
+      "Downtown"
+    ],
+    "fuelPolicy": "Full-to-Full",
+    "mileage": "Unlimited"
+  },
+  {
+    "id": "CAR006",
+    "name": "Chrysler Pacifica",
+    "model": "2025",
+    "type": "Van",
+    "transmission": "Automatic",
+    "seats": 7,
+    "bags": 5,
+    "doors": 4,
+    "ac": true,
+    "pricePerDay": 53.0,
+    "supplier": "Avis",
+    "supplierLogo": "AV",
+    "gradient": "from-yellow-600 via-amber-500 to-orange-600",
+    "features": [
+      "7-passenger minivan",
+      "Spacious interior",
+      "Stow-and-go seating",
+      "Ideal for families"
+    ],
+    "pickupLocations": [
+      "Airport",
+      "Downtown"
+    ],
+    "fuelPolicy": "Full-to-Full",
+    "mileage": "Unlimited"
+  },
+  {
+    "id": "CAR007",
+    "name": "BMW X5",
+    "model": "2025",
+    "type": "SUV",
+    "transmission": "Automatic",
+    "seats": 5,
+    "bags": 5,
+    "doors": 4,
+    "ac": true,
+    "pricePerDay": 59.0,
+    "supplier": "National",
+    "supplierLogo": "N",
+    "gradient": "from-indigo-700 via-violet-600 to-purple-700",
+    "features": [
+      "Luxury SUV",
+      "Premium interior",
+      "Advanced safety features",
+      "Ideal for business or leisure travel"
+    ],
+    "pickupLocations": [
+      "Airport"
+    ],
+    "fuelPolicy": "Full-to-Full",
+    "mileage": "Unlimited"
+  },
+  {
+    "id": "CAR008",
+    "name": "Nissan Maxima",
+    "model": "2025",
+    "type": "Luxury",
+    "transmission": "Automatic",
+    "seats": 5,
+    "bags": 5,
+    "doors": 4,
+    "ac": true,
+    "pricePerDay": 58.0,
+    "supplier": "National",
+    "supplierLogo": "N",
+    "gradient": "from-cyan-700 via-sky-600 to-blue-700",
+    "features": [
+      "Luxury sedan",
+      "V6 engine",
+      "Premium sound system",
+      "Spacious cabin"
+    ],
+    "pickupLocations": [
+      "Airport"
+    ],
+    "fuelPolicy": "Full-to-Full",
+    "mileage": "Unlimited"
+  },
+  {
+    "id": "CAR009",
+    "name": "Toyota Corolla",
+    "model": "2025",
+    "type": "Compact",
+    "transmission": "Automatic",
+    "seats": 5,
+    "bags": 3,
+    "doors": 4,
+    "ac": true,
+    "pricePerDay": 58.0,
+    "supplier": "Enterprise",
+    "supplierLogo": "E",
+    "gradient": "from-teal-700 via-emerald-600 to-green-700",
+    "features": [
+      "Reliable compact car",
+      "Fuel-efficient",
+      "Bluetooth connectivity",
+      "Comfortable for city and highway driving"
+    ],
+    "pickupLocations": [
+      "Airport",
+      "Downtown"
+    ],
+    "fuelPolicy": "Full-to-Full",
+    "mileage": "Unlimited"
+  },
+  {
+    "id": "CAR010",
+    "name": "Chrysler Pacifica",
+    "model": "2025",
+    "type": "Van",
+    "transmission": "Automatic",
+    "seats": 7,
+    "bags": 5,
+    "doors": 4,
+    "ac": true,
+    "pricePerDay": 62.0,
+    "supplier": "Enterprise",
+    "supplierLogo": "E",
+    "gradient": "from-slate-700 via-gray-600 to-slate-800",
+    "features": [
+      "7-passenger minivan",
+      "Stow-and-go seating",
+      "Large cargo capacity",
+      "Ideal for group travel"
+    ],
+    "pickupLocations": [
+      "Airport",
+      "Downtown"
+    ],
+    "fuelPolicy": "Full-to-Full",
+    "mileage": "Unlimited"
+  }
+]

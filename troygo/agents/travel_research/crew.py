@@ -192,3 +192,95 @@ def run_hotels() -> str:
     crew = Crew(agents=[agent], tasks=[task], process=Process.sequential, verbose=True)
     result = crew.kickoff()
     return str(result)
+
+
+# ── CARS ──────────────────────────────────────────────────────────────────
+
+CAR_RESEARCHER_BACKSTORY = (
+    "You are a car rental deals researcher for TRoyGO, a real travel agency. "
+    "Your only job is finding genuinely real, currently-listed rental cars "
+    "and their actual current daily rates by searching the live web — never "
+    "inventing one. A listing or price you cannot verify by actually "
+    "visiting its source page does not belong in your output."
+)
+
+CAR_TASK_DESCRIPTION = """\
+Find 8 to 10 real, currently-listed rental cars by searching the web. Cover
+a mix of car types (Economy, Compact, SUV, Luxury, Van) and real rental
+suppliers (Hertz, Avis, Enterprise, Sixt, Budget, National, Europcar, etc.)
+— for example run separate searches like:
+- "Hertz car rental prices [major city] 2026"
+- "Enterprise SUV rental daily rate"
+- "Sixt luxury car rental current prices"
+- "budget car rental deals [popular destination]"
+
+For every candidate listing:
+1. Search for it, find a real source page (the rental supplier's own site,
+   or a real car rental comparison/booking platform).
+2. Actually open that page with the scrape tool and confirm the car model,
+   daily price, and supplier are really stated there — not just implied by
+   a search snippet.
+3. If you cannot confirm it on a real page, drop it. Do not include it.
+
+For each CONFIRMED listing, produce one JSON object with these exact fields:
+
+- name (string): the car make and model as it actually appears (e.g.
+  "Toyota Corolla")
+- model (string): model year if stated, e.g. "2025"; otherwise a reasonable
+  current year
+- type ("Economy" | "Compact" | "SUV" | "Luxury" | "Van"): pick the single
+  best fit based on how the source describes it
+- transmission ("Automatic" | "Manual"): as stated; if unknown, "Automatic"
+  is a reasonable default
+- seats (integer): real seat count for that model
+- bags (integer): real luggage capacity if stated; otherwise a reasonable
+  estimate for that car type
+- doors (integer): real door count for that model
+- ac (boolean): true unless the source specifically says otherwise
+- pricePerDay (number, USD): the actual current daily rate found on the
+  source. Never invent this number.
+- supplier (string): the real rental company name
+- supplierLogo (string): a 1-2 letter abbreviation of the supplier name
+  (e.g. "H" for Hertz, "EP" for Europcar)
+- features (array of strings, 2-4 items): real features mentioned on the
+  source — do not invent one that wasn't mentioned
+- pickupLocations (array of strings, 1-3 items): real pickup location types
+  if stated (e.g. "Airport", "Downtown"); otherwise "Airport" is a
+  reasonable default
+- fuelPolicy (string): as stated on the source; if unknown, "Full-to-Full"
+  is the industry-standard default
+- mileage (string): as stated on the source (e.g. "Unlimited", "200
+  miles/day"); if unknown, "Unlimited" is a reasonable default
+- sourceUrl (string, required): the exact URL you scraped to confirm this
+  listing. This is mandatory — never include a listing without one.
+
+Return ONLY a JSON array of these objects, nothing else — no markdown code
+fences, no commentary before or after.
+"""
+
+
+def build_car_agent() -> Agent:
+    return Agent(
+        role="Car Rental Deals Researcher",
+        goal="Find real, currently-listed rental cars with real current daily rates via live web search — never invent one.",
+        backstory=CAR_RESEARCHER_BACKSTORY,
+        llm=get_llm("sonnet"),
+        tools=[search, scrape],
+        verbose=True,
+    )
+
+
+def build_car_task(agent: Agent) -> Task:
+    return Task(
+        description=CAR_TASK_DESCRIPTION,
+        expected_output="A JSON array of real car rental objects, each with a verified sourceUrl.",
+        agent=agent,
+    )
+
+
+def run_cars() -> str:
+    agent = build_car_agent()
+    task = build_car_task(agent)
+    crew = Crew(agents=[agent], tasks=[task], process=Process.sequential, verbose=True)
+    result = crew.kickoff()
+    return str(result)

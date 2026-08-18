@@ -12,7 +12,7 @@
 
 param(
     [switch]$SkipResearch,
-    [string[]]$Categories = @("packages", "hotels")
+    [string[]]$Categories = @("packages", "hotels", "cars")
 )
 
 $ErrorActionPreference = "Stop"
@@ -24,10 +24,12 @@ $repoRoot = Join-Path $troygoDir ".." | Resolve-Path
 $scriptByCategory = @{
     packages = "run.py"
     hotels   = "run_hotels.py"
+    cars     = "run_cars.py"
 }
 $dataFileByCategory = @{
     packages = "troygo/src/lib/data/packages-live.json"
     hotels   = "troygo/src/lib/data/hotels-live.json"
+    cars     = "troygo/src/lib/data/cars-live.json"
 }
 
 function Step($msg) {

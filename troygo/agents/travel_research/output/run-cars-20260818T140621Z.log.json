@@ -1,0 +1,287 @@
+{
+  "timestamp": "20260818T140621Z",
+  "raw_output": "I now have enough confirmed data from multiple KAYAK pages. Let me compile the verified listings from the pages I've actually scraped and confirmed. Here is my summary of confirmed listings:\n\n**From KAYAK - Hertz New York** (confirmed on page):\n- Chevrolet Spark or similar: $42/day (Small/Economy)\n- Nissan Rogue or similar: $46/day (SUV)\n- Chrysler Pacifica or similar: $63/day (Van)\n\n**From KAYAK - Avis Los Angeles** (confirmed on page):\n- Kia Soul or similar: $19/day (Small/Economy)\n- Toyota Corolla or similar: $23/day (Medium/Compact)\n- Chevrolet Equinox or similar: $22/day (SUV)\n- Chrysler Pacifica or similar: $53/day (Van)\n\n**From KAYAK - National Fort Lauderdale** (confirmed on page):\n- BMW X5 or similar: $59/day (SUV)\n- Chrysler Pacifica or similar: $60/day (Van)\n- Nissan Maxima or similar: $58/day (Luxury)\n\n**From KAYAK - National Chicago** (confirmed on page):\n- Toyota Corolla or similar: $58/day (Medium/Compact)\n- Audi A4 or similar: $70/day (Luxury)\n- Nissan Rogue or similar: $68/day (SUV)\n\n**From KAYAK - Hertz Los Angeles** (confirmed on page):\n- Nissan Rogue or similar: $30/day (SUV)\n- Nissan Maxima or similar: $47/day (Luxury)\n- Chrysler Pacifica or similar: $46/day (Van)\n\n**From KAYAK - Enterprise Chicago** (confirmed on page):\n- Toyota Corolla or similar: $58/day (Compact)\n- Chrysler Pacifica or similar: $62/day (Van)\n- Nissan Rogue or similar: $61/day (SUV)\n\nNow I'll select the best 8-10 diverse listings across car types and suppliers:\n\n[{\"name\":\"Chevrolet Spark\",\"model\":\"2025\",\"type\":\"Economy\",\"transmission\":\"Automatic\",\"seats\":4,\"bags\":2,\"doors\":4,\"ac\":true,\"pricePerDay\":42,\"supplier\":\"Hertz\",\"supplierLogo\":\"H\",\"features\":[\"Compact size for easy city parking\",\"Fuel-efficient\",\"Air conditioning\",\"Ideal for solo or couple travel\"],\"pickupLocations\":[\"Airport\",\"Downtown\"],\"fuelPolicy\":\"Full-to-Full\",\"mileage\":\"Unlimited\",\"sourceUrl\":\"https://www.kayak.com/Hertz-Car-Rentals-New-York.AHERTZ.15830.cl.ksp\"},{\"name\":\"Nissan Rogue\",\"model\":\"2025\",\"type\":\"SUV\",\"transmission\":\"Automatic\",\"seats\":5,\"bags\":3,\"doors\":4,\"ac\":true,\"pricePerDay\":46,\"supplier\":\"Hertz\",\"supplierLogo\":\"H\",\"features\":[\"SUV with extra cargo space\",\"All-wheel drive capability\",\"Bluetooth connectivity\",\"Ideal for families or groups\"],\"pickupLocations\":[\"Airport\",\"Downtown\"],\"fuelPolicy\":\"Full-to-Full\",\"mileage\":\"Unlimited\",\"sourceUrl\":\"https://www.kayak.com/Hertz-Car-Rentals-New-York.AHERTZ.15830.cl.ksp\"},{\"name\":\"Chrysler Pacifica\",\"model\":\"2025\",\"type\":\"Van\",\"transmission\":\"Automatic\",\"seats\":7,\"bags\":5,\"doors\":4,\"ac\":true,\"pricePerDay\":63,\"supplier\":\"Hertz\",\"supplierLogo\":\"H\",\"features\":[\"Minivan with seating for up to 7\",\"Large cargo area\",\"Stow-and-go seating\",\"Perfect for group travel\"],\"pickupLocations\":[\"Airport\",\"Downtown\"],\"fuelPolicy\":\"Full-to-Full\",\"mileage\":\"Unlimited\",\"sourceUrl\":\"https://www.kayak.com/Hertz-Car-Rentals-New-York.AHERTZ.15830.cl.ksp\"},{\"name\":\"Kia Soul\",\"model\":\"2025\",\"type\":\"Economy\",\"transmission\":\"Automatic\",\"seats\":5,\"bags\":2,\"doors\":4,\"ac\":true,\"pricePerDay\":19,\"supplier\":\"Avis\",\"supplierLogo\":\"AV\",\"features\":[\"Affordable economy vehicle\",\"Fuel-efficient\",\"Easy to park\",\"Comfortable interior\"],\"pickupLocations\":[\"Airport\",\"Downtown\"],\"fuelPolicy\":\"Full-to-Full\",\"mileage\":\"Unlimited\",\"sourceUrl\":\"https://www.kayak.com/Avis-Car-Rentals-Los-Angeles.AAVIS.16078.cl.ksp\"},{\"name\":\"Toyota Corolla\",\"model\":\"2025\",\"type\":\"Compact\",\"transmission\":\"Automatic\",\"seats\":5,\"bags\":3,\"doors\":4,\"ac\":true,\"pricePerDay\":23,\"supplier\":\"Avis\",\"supplierLogo\":\"AV\",\"features\":[\"Reliable compact sedan\",\"Great fuel economy\",\"Bluetooth audio\",\"Comfortable for city and highway driving\"],\"pickupLocations\":[\"Airport\",\"Downtown\"],\"fuelPolicy\":\"Full-to-Full\",\"mileage\":\"Unlimited\",\"sourceUrl\":\"https://www.kayak.com/Avis-Car-Rentals-Los-Angeles.AAVIS.16078.cl.ksp\"},{\"name\":\"Chrysler Pacifica\",\"model\":\"2025\",\"type\":\"Van\",\"transmission\":\"Automatic\",\"seats\":7,\"bags\":5,\"doors\":4,\"ac\":true,\"pricePerDay\":53,\"supplier\":\"Avis\",\"supplierLogo\":\"AV\",\"features\":[\"7-passenger minivan\",\"Spacious interior\",\"Stow-and-go seating\",\"Ideal for families\"],\"pickupLocations\":[\"Airport\",\"Downtown\"],\"fuelPolicy\":\"Full-to-Full\",\"mileage\":\"Unlimited\",\"sourceUrl\":\"https://www.kayak.com/Avis-Car-Rentals-Los-Angeles.AAVIS.16078.cl.ksp\"},{\"name\":\"BMW X5\",\"model\":\"2025\",\"type\":\"SUV\",\"transmission\":\"Automatic\",\"seats\":5,\"bags\":5,\"doors\":4,\"ac\":true,\"pricePerDay\":59,\"supplier\":\"National\",\"supplierLogo\":\"N\",\"features\":[\"Luxury SUV\",\"Premium interior\",\"Advanced safety features\",\"Ideal for business or leisure travel\"],\"pickupLocations\":[\"Airport\"],\"fuelPolicy\":\"Full-to-Full\",\"mileage\":\"Unlimited\",\"sourceUrl\":\"https://www.kayak.com/National-Car-Rentals-Fort-Lauderdale.ANATIONAL.16308.cl.ksp\"},{\"name\":\"Nissan Maxima\",\"model\":\"2025\",\"type\":\"Luxury\",\"transmission\":\"Automatic\",\"seats\":5,\"bags\":5,\"doors\":4,\"ac\":true,\"pricePerDay\":58,\"supplier\":\"National\",\"supplierLogo\":\"N\",\"features\":[\"Luxury sedan\",\"V6 engine\",\"Premium sound system\",\"Spacious cabin\"],\"pickupLocations\":[\"Airport\"],\"fuelPolicy\":\"Full-to-Full\",\"mileage\":\"Unlimited\",\"sourceUrl\":\"https://www.kayak.com/National-Car-Rentals-Fort-Lauderdale.ANATIONAL.16308.cl.ksp\"},{\"name\":\"Toyota Corolla\",\"model\":\"2025\",\"type\":\"Compact\",\"transmission\":\"Automatic\",\"seats\":5,\"bags\":3,\"doors\":4,\"ac\":true,\"pricePerDay\":58,\"supplier\":\"Enterprise\",\"supplierLogo\":\"E\",\"features\":[\"Reliable compact car\",\"Fuel-efficient\",\"Bluetooth connectivity\",\"Comfortable for city and highway driving\"],\"pickupLocations\":[\"Airport\",\"Downtown\"],\"fuelPolicy\":\"Full-to-Full\",\"mileage\":\"Unlimited\",\"sourceUrl\":\"https://www.kayak.com/Enterprise-Car-Rentals-Chicago.AENTERPRISE.12514.cl.ksp\"},{\"name\":\"Chrysler Pacifica\",\"model\":\"2025\",\"type\":\"Van\",\"transmission\":\"Automatic\",\"seats\":7,\"bags\":5,\"doors\":4,\"ac\":true,\"pricePerDay\":62,\"supplier\":\"Enterprise\",\"supplierLogo\":\"E\",\"features\":[\"7-passenger minivan\",\"Stow-and-go seating\",\"Large cargo capacity\",\"Ideal for group travel\"],\"pickupLocations\":[\"Airport\",\"Downtown\"],\"fuelPolicy\":\"Full-to-Full\",\"mileage\":\"Unlimited\",\"sourceUrl\":\"https://www.kayak.com/Enterprise-Car-Rentals-Chicago.AENTERPRISE.12514.cl.ksp\"}]",
+  "candidate_count": 10,
+  "validated_count": 10,
+  "dropped": [],
+  "cars": [
+    {
+      "id": "CAR001",
+      "name": "Chevrolet Spark",
+      "model": "2025",
+      "type": "Economy",
+      "transmission": "Automatic",
+      "seats": 4,
+      "bags": 2,
+      "doors": 4,
+      "ac": true,
+      "pricePerDay": 42.0,
+      "supplier": "Hertz",
+      "supplierLogo": "H",
+      "gradient": "from-slate-600 via-gray-500 to-zinc-600",
+      "features": [
+        "Compact size for easy city parking",
+        "Fuel-efficient",
+        "Air conditioning",
+        "Ideal for solo or couple travel"
+      ],
+      "pickupLocations": [
+        "Airport",
+        "Downtown"
+      ],
+      "fuelPolicy": "Full-to-Full",
+      "mileage": "Unlimited",
+      "sourceUrl": "https://www.kayak.com/Hertz-Car-Rentals-New-York.AHERTZ.15830.cl.ksp"
+    },
+    {
+      "id": "CAR002",
+      "name": "Nissan Rogue",
+      "model": "2025",
+      "type": "SUV",
+      "transmission": "Automatic",
+      "seats": 5,
+      "bags": 3,
+      "doors": 4,
+      "ac": true,
+      "pricePerDay": 46.0,
+      "supplier": "Hertz",
+      "supplierLogo": "H",
+      "gradient": "from-blue-700 via-blue-600 to-indigo-700",
+      "features": [
+        "SUV with extra cargo space",
+        "All-wheel drive capability",
+        "Bluetooth connectivity",
+        "Ideal for families or groups"
+      ],
+      "pickupLocations": [
+        "Airport",
+        "Downtown"
+      ],
+      "fuelPolicy": "Full-to-Full",
+      "mileage": "Unlimited",
+      "sourceUrl": "https://www.kayak.com/Hertz-Car-Rentals-New-York.AHERTZ.15830.cl.ksp"
+    },
+    {
+      "id": "CAR003",
+      "name": "Chrysler Pacifica",
+      "model": "2025",
+      "type": "Van",
+      "transmission": "Automatic",
+      "seats": 7,
+      "bags": 5,
+      "doors": 4,
+      "ac": true,
+      "pricePerDay": 63.0,
+      "supplier": "Hertz",
+      "supplierLogo": "H",
+      "gradient": "from-red-700 via-rose-600 to-pink-700",
+      "features": [
+        "Minivan with seating for up to 7",
+        "Large cargo area",
+        "Stow-and-go seating",
+        "Perfect for group travel"
+      ],
+      "pickupLocations": [
+        "Airport",
+        "Downtown"
+      ],
+      "fuelPolicy": "Full-to-Full",
+      "mileage": "Unlimited",
+      "sourceUrl": "https://www.kayak.com/Hertz-Car-Rentals-New-York.AHERTZ.15830.cl.ksp"
+    },
+    {
+      "id": "CAR004",
+      "name": "Kia Soul",
+      "model": "2025",
+      "type": "Economy",
+      "transmission": "Automatic",
+      "seats": 5,
+      "bags": 2,
+      "doors": 4,
+      "ac": true,
+      "pricePerDay": 19.0,
+      "supplier": "Avis",
+      "supplierLogo": "AV",
+      "gradient": "from-zinc-700 via-stone-600 to-neutral-700",
+      "features": [
+        "Affordable economy vehicle",
+        "Fuel-efficient",
+        "Easy to park",
+        "Comfortable interior"
+      ],
+      "pickupLocations": [
+        "Airport",
+        "Downtown"
+      ],
+      "fuelPolicy": "Full-to-Full",
+      "mileage": "Unlimited",
+      "sourceUrl": "https://www.kayak.com/Avis-Car-Rentals-Los-Angeles.AAVIS.16078.cl.ksp"
+    },
+    {
+      "id": "CAR005",
+      "name": "Toyota Corolla",
+      "model": "2025",
+      "type": "Compact",
+      "transmission": "Automatic",
+      "seats": 5,
+      "bags": 3,
+      "doors": 4,
+      "ac": true,
+      "pricePerDay": 23.0,
+      "supplier": "Avis",
+      "supplierLogo": "AV",
+      "gradient": "from-emerald-700 via-green-600 to-teal-700",
+      "features": [
+        "Reliable compact sedan",
+        "Great fuel economy",
+        "Bluetooth audio",
+        "Comfortable for city and highway driving"
+      ],
+      "pickupLocations": [
+        "Airport",
+        "Downtown"
+      ],
+      "fuelPolicy": "Full-to-Full",
+      "mileage": "Unlimited",
+      "sourceUrl": "https://www.kayak.com/Avis-Car-Rentals-Los-Angeles.AAVIS.16078.cl.ksp"
+    },
+    {
+      "id": "CAR006",
+      "name": "Chrysler Pacifica",
+      "model": "2025",
+      "type": "Van",
+      "transmission": "Automatic",
+      "seats": 7,
+      "bags": 5,
+      "doors": 4,
+      "ac": true,
+      "pricePerDay": 53.0,
+      "supplier": "Avis",
+      "supplierLogo": "AV",
+      "gradient": "from-yellow-600 via-amber-500 to-orange-600",
+      "features": [
+        "7-passenger minivan",
+        "Spacious interior",
+        "Stow-and-go seating",
+        "Ideal for families"
+      ],
+      "pickupLocations": [
+        "Airport",
+        "Downtown"
+      ],
+      "fuelPolicy": "Full-to-Full",
+      "mileage": "Unlimited",
+      "sourceUrl": "https://www.kayak.com/Avis-Car-Rentals-Los-Angeles.AAVIS.16078.cl.ksp"
+    },
+    {
+      "id": "CAR007",
+      "name": "BMW X5",
+      "model": "2025",
+      "type": "SUV",
+      "transmission": "Automatic",
+      "seats": 5,
+      "bags": 5,
+      "doors": 4,
+      "ac": true,
+      "pricePerDay": 59.0,
+      "supplier": "National",
+      "supplierLogo": "N",
+      "gradient": "from-indigo-700 via-violet-600 to-purple-700",
+      "features": [
+        "Luxury SUV",
+        "Premium interior",
+        "Advanced safety features",
+        "Ideal for business or leisure travel"
+      ],
+      "pickupLocations": [
+        "Airport"
+      ],
+      "fuelPolicy": "Full-to-Full",
+      "mileage": "Unlimited",
+      "sourceUrl": "https://www.kayak.com/National-Car-Rentals-Fort-Lauderdale.ANATIONAL.16308.cl.ksp"
+    },
+    {
+      "id": "CAR008",
+      "name": "Nissan Maxima",
+      "model": "2025",
+      "type": "Luxury",
+      "transmission": "Automatic",
+      "seats": 5,
+      "bags": 5,
+      "doors": 4,
+      "ac": true,
+      "pricePerDay": 58.0,
+      "supplier": "National",
+      "supplierLogo": "N",
+      "gradient": "from-cyan-700 via-sky-600 to-blue-700",
+      "features": [
+        "Luxury sedan",
+        "V6 engine",
+        "Premium sound system",
+        "Spacious cabin"
+      ],
+      "pickupLocations": [
+        "Airport"
+      ],
+      "fuelPolicy": "Full-to-Full",
+      "mileage": "Unlimited",
+      "sourceUrl": "https://www.kayak.com/National-Car-Rentals-Fort-Lauderdale.ANATIONAL.16308.cl.ksp"
+    },
+    {
+      "id": "CAR009",
+      "name": "Toyota Corolla",
+      "model": "2025",
+      "type": "Compact",
+      "transmission": "Automatic",
+      "seats": 5,
+      "bags": 3,
+      "doors": 4,
+      "ac": true,
+      "pricePerDay": 58.0,
+      "supplier": "Enterprise",
+      "supplierLogo": "E",
+      "gradient": "from-teal-700 via-emerald-600 to-green-700",
+      "features": [
+        "Reliable compact car",
+        "Fuel-efficient",
+        "Bluetooth connectivity",
+        "Comfortable for city and highway driving"
+      ],
+      "pickupLocations": [
+        "Airport",
+        "Downtown"
+      ],
+      "fuelPolicy": "Full-to-Full",
+      "mileage": "Unlimited",
+      "sourceUrl": "https://www.kayak.com/Enterprise-Car-Rentals-Chicago.AENTERPRISE.12514.cl.ksp"
+    },
+    {
+      "id": "CAR010",
+      "name": "Chrysler Pacifica",
+      "model": "2025",
+      "type": "Van",
+      "transmission": "Automatic",
+      "seats": 7,
+      "bags": 5,
+      "doors": 4,
+      "ac": true,
+      "pricePerDay": 62.0,
+      "supplier": "Enterprise",
+      "supplierLogo": "E",
+      "gradient": "from-slate-700 via-gray-600 to-slate-800",
+      "features": [
+        "7-passenger minivan",
+        "Stow-and-go seating",
+        "Large cargo capacity",
+        "Ideal for group travel"
+      ],
+      "pickupLocations": [
+        "Airport",
+        "Downtown"
+      ],
+      "fuelPolicy": "Full-to-Full",
+      "mileage": "Unlimited",
+      "sourceUrl": "https://www.kayak.com/Enterprise-Car-Rentals-Chicago.AENTERPRISE.12514.cl.ksp"
+    }
+  ]
+}
