@@ -2,7 +2,8 @@ export const dynamic = 'force-dynamic'
 
 const DUFFEL_API_KEY = process.env.DUFFEL_API_KEY
 
-interface DuffelAirport {
+interface DuffelPlace {
+  type: 'airport' | 'city'
   iata_code: string | null
   name: string
   city_name: string | null
@@ -38,8 +39,13 @@ export async function GET(request: Request) {
   }
 
   try {
+    // Duffel's /air/airports endpoint has no free-text search (only
+    // iata_country_code filtering) — it silently ignored a "name" query
+    // param and always returned the same default alphabetical page, which
+    // is why every typed city returned identical results. /places/suggestions
+    // is Duffel's real text-search endpoint for this.
     const res = await fetch(
-      `https://api.duffel.com/air/airports?name=${encodeURIComponent(query)}&limit=8`,
+      `https://api.duffel.com/places/suggestions?query=${encodeURIComponent(query)}`,
       {
         headers: {
           Authorization: `Bearer ${DUFFEL_API_KEY}`,
@@ -55,13 +61,14 @@ export async function GET(request: Request) {
     }
 
     const data = await res.json()
-    const airports: AirportResult[] = ((data.data ?? []) as DuffelAirport[])
-      .filter((a) => a.iata_code)
-      .map((a) => ({
-        code: a.iata_code as string,
-        name: a.name,
-        city: a.city_name ?? a.name,
-        country: a.iata_country_code ?? '',
+    const airports: AirportResult[] = ((data.data ?? []) as DuffelPlace[])
+      .filter((p) => p.iata_code)
+      .slice(0, 8)
+      .map((p) => ({
+        code: p.iata_code as string,
+        name: p.name,
+        city: p.city_name ?? p.name,
+        country: p.iata_country_code ?? '',
       }))
 
     cache.set(cacheKey, airports)
