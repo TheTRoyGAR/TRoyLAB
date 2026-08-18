@@ -98,3 +98,97 @@ def run() -> str:
     crew = Crew(agents=[agent], tasks=[task], process=Process.sequential, verbose=True)
     result = crew.kickoff()
     return str(result)
+
+
+# ── HOTELS ────────────────────────────────────────────────────────────────
+
+HOTEL_RESEARCHER_BACKSTORY = (
+    "You are a hotel deals researcher for TRoyGO, a real travel agency. "
+    "Your only job is finding genuinely real, currently-bookable hotels and "
+    "their actual current rates by searching the live web — never inventing "
+    "one. A hotel or price you cannot verify by actually visiting its source "
+    "page does not belong in your output. Fewer real hotels is always better "
+    "than more invented ones."
+)
+
+HOTEL_TASK_DESCRIPTION = """\
+Find 8 to 12 real, currently-bookable hotels by searching the web. Cover a
+mix of destinations, star ratings, and hotel types (not all luxury, not all
+one city) — for example run separate searches like:
+- "best hotels [major city] 2026 current rates"
+- "top rated boutique hotels [region]"
+- "budget hostels [popular backpacker destination]"
+- "luxury resorts [beach destination] current prices"
+
+For every candidate hotel:
+1. Search for it, find a real source page (the hotel's own site, a real
+   booking platform, or a real hotel review/ranking article).
+2. Actually open that page with the scrape tool and confirm the location,
+   price, star rating, and amenities are really stated there — not just
+   implied by a search snippet.
+3. If you cannot confirm it on a real page, drop it. Do not include it.
+
+For each CONFIRMED hotel, produce one JSON object with these exact fields:
+
+- name (string): the hotel's real name as it actually appears
+- location (object: city, country, address): real location as stated on the
+  source. If the exact street address isn't given, use the city/area name.
+- stars (3, 4, or 5): as stated on the source, or a reasonable judgment call
+  based on how the hotel is described
+- rating (number, 0-10): the real review score if the source states one
+  (many review sites use 0-10); if only a 5-star scale is given, convert
+  (multiply by 2); if no rating exists, use 8.5 as a neutral placeholder
+- reviewCount (integer): real count if stated; otherwise 0
+- pricePerNight (number, USD): the actual current nightly rate found on the
+  source. Never invent this number.
+- originalPrice (number, USD): the "before discount" rate if the source
+  states one; otherwise repeat pricePerNight (no invented markup)
+- roomTypes (array of {name, price, capacity, bedType}, 2-3 items): real
+  room options as described on the source — do not invent a room type that
+  wasn't mentioned
+- amenities (array of strings): real amenities listed on the source
+- description (string, 1-2 sentences): summarize what the source actually
+  says about the hotel
+- nearbyAttractions (array of strings, 2-4 items): real nearby
+  landmarks/attractions if the source mentions the location clearly enough
+  to name them accurately; otherwise a shorter list is fine
+- checkInTime / checkOutTime (string, e.g. "15:00"): as stated on the
+  source; if unknown, use "15:00" / "11:00" as reasonable defaults
+- cancellationPolicy ("Free cancellation" | "Non-refundable" | "24h
+  cancellation"): as stated on the source; if unknown, use "Free
+  cancellation" as a neutral default
+- type ("hotel" | "resort" | "hostel" | "boutique"): pick the single best
+  fit based on how the source describes it
+- sourceUrl (string, required): the exact URL you scraped to confirm this
+  hotel. This is mandatory — never include a hotel without one.
+
+Return ONLY a JSON array of these objects, nothing else — no markdown code
+fences, no commentary before or after.
+"""
+
+
+def build_hotel_agent() -> Agent:
+    return Agent(
+        role="Hotel Deals Researcher",
+        goal="Find real, currently-bookable hotels with real current rates via live web search — never invent one.",
+        backstory=HOTEL_RESEARCHER_BACKSTORY,
+        llm=get_llm("sonnet"),
+        tools=[search, scrape],
+        verbose=True,
+    )
+
+
+def build_hotel_task(agent: Agent) -> Task:
+    return Task(
+        description=HOTEL_TASK_DESCRIPTION,
+        expected_output="A JSON array of real hotel objects, each with a verified sourceUrl.",
+        agent=agent,
+    )
+
+
+def run_hotels() -> str:
+    agent = build_hotel_agent()
+    task = build_hotel_task(agent)
+    crew = Crew(agents=[agent], tasks=[task], process=Process.sequential, verbose=True)
+    result = crew.kickoff()
+    return str(result)

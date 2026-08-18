@@ -1,3 +1,5 @@
+import liveData from './hotels-live.json'
+
 export interface RoomType {
   name: string;
   price: number;
@@ -29,7 +31,7 @@ export interface Hotel {
   type: 'hotel' | 'resort' | 'hostel' | 'boutique';
 }
 
-export const sampleHotels: Hotel[] = [
+const fallbackHotels: Hotel[] = [
   {
     id: "HTL001",
     name: "The Langham London",
@@ -375,3 +377,12 @@ export const sampleHotels: Hotel[] = [
     type: "resort",
   },
 ];
+
+// Real, web-sourced hotels from the research agent take over once they
+// exist. Until the agent has run successfully at least once, hotels-live.json
+// is `[]` and the site falls back to the array above — this can never blank
+// out the live site with an empty hotel list. Same pattern as packages.ts.
+const liveHotels = liveData as Hotel[]
+
+export const sampleHotels: Hotel[] =
+  liveHotels.length > 0 ? liveHotels : fallbackHotels

@@ -113,3 +113,89 @@ class TravelPackage(BaseModel):
     category: Literal["adventure", "luxury", "family", "cultural", "honeymoon", "beach"]
     description: str
     itinerary: list[ItineraryDay]
+
+
+# ── HOTELS ────────────────────────────────────────────────────────────────
+
+# Copied verbatim from the existing (fake) entries in
+# ../../src/lib/data/hotels.ts — known-good Tailwind gradient classes.
+# Same reasoning as GRADIENT_PALETTE above: never let the LLM invent one.
+HOTEL_GRADIENT_PALETTE = [
+    "from-blue-900 via-indigo-800 to-purple-900",
+    "from-red-900 via-rose-800 to-pink-900",
+    "from-cyan-800 via-teal-700 to-emerald-800",
+    "from-yellow-700 via-amber-600 to-orange-700",
+    "from-slate-700 via-gray-600 to-zinc-700",
+    "from-amber-800 via-yellow-700 to-lime-800",
+    "from-green-800 via-emerald-700 to-teal-800",
+    "from-orange-800 via-amber-700 to-yellow-800",
+    "from-sky-600 via-cyan-500 to-teal-600",
+    "from-zinc-700 via-stone-600 to-neutral-700",
+    "from-red-700 via-rose-600 to-pink-700",
+    "from-violet-800 via-purple-700 to-indigo-800",
+    "from-rose-800 via-pink-700 to-fuchsia-800",
+    "from-indigo-800 via-blue-700 to-sky-800",
+    "from-lime-800 via-green-700 to-emerald-800",
+]
+
+
+class RoomType(BaseModel):
+    name: str
+    price: float = Field(gt=0)
+    capacity: int = Field(gt=0)
+    bedType: str
+
+
+class HotelLocation(BaseModel):
+    city: str
+    country: str
+    address: str
+
+
+class ResearchedHotel(BaseModel):
+    """What the LLM is asked to produce for one real hotel. id/images
+    (gradient) are deliberately NOT here — assigned deterministically after
+    validation, same reasoning as ResearchedPackage above."""
+
+    name: str
+    location: HotelLocation
+    stars: Literal[3, 4, 5]
+    rating: float = Field(ge=0, le=10)
+    reviewCount: int = Field(ge=0)
+    pricePerNight: float = Field(gt=0)
+    originalPrice: float = Field(gt=0)
+    roomTypes: list[RoomType]
+    amenities: list[str]
+    description: str
+    nearbyAttractions: list[str]
+    checkInTime: str
+    checkOutTime: str
+    cancellationPolicy: Literal["Free cancellation", "Non-refundable", "24h cancellation"]
+    type: Literal["hotel", "resort", "hostel", "boutique"]
+    # Required — same "strongest signal of fabrication" reasoning as
+    # ResearchedPackage.sourceUrl.
+    sourceUrl: HttpUrl
+
+
+class Hotel(BaseModel):
+    """Exact mirror of the TypeScript Hotel interface in
+    ../../src/lib/data/hotels.ts. This is what gets written to
+    hotels-live.json (sourceUrl is stripped — see run_hotels.py)."""
+
+    id: str
+    name: str
+    location: HotelLocation
+    stars: Literal[3, 4, 5]
+    rating: float
+    reviewCount: int
+    pricePerNight: float
+    originalPrice: float
+    roomTypes: list[RoomType]
+    amenities: list[str]
+    images: str
+    description: str
+    nearbyAttractions: list[str]
+    checkInTime: str
+    checkOutTime: str
+    cancellationPolicy: Literal["Free cancellation", "Non-refundable", "24h cancellation"]
+    type: Literal["hotel", "resort", "hostel", "boutique"]

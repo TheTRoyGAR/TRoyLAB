@@ -1,0 +1,499 @@
+[
+  {
+    "id": "HTL001",
+    "name": "Casablanca Hotel by Library Hotel Collection",
+    "location": {
+      "city": "New York City",
+      "country": "United States",
+      "address": "147 West 43rd Street, New York, NY 10036"
+    },
+    "stars": 4,
+    "rating": 9.3,
+    "reviewCount": 1308,
+    "pricePerNight": 292.0,
+    "originalPrice": 292.0,
+    "roomTypes": [
+      {
+        "name": "Petite Queen Room",
+        "price": 236.0,
+        "capacity": 2,
+        "bedType": "Queen"
+      },
+      {
+        "name": "Deluxe Room",
+        "price": 292.0,
+        "capacity": 2,
+        "bedType": "Queen"
+      },
+      {
+        "name": "Mini Suite",
+        "price": 353.0,
+        "capacity": 4,
+        "bedType": "King + Sofabed"
+      }
+    ],
+    "amenities": [
+      "Continental breakfast daily in Rick's Cafe",
+      "24-hour refreshments (coffee, tea, snacks, fruit)",
+      "High-speed wireless internet",
+      "In-room bottled water",
+      "Digital access to the New York Times",
+      "Concierge services 24 hours",
+      "Luggage storage",
+      "Double-pane windows",
+      "Hair dryer, bathrobes, slippers",
+      "Iron and ironing board",
+      "Flat-screen TV with 45 premium channels"
+    ],
+    "images": "from-blue-900 via-indigo-800 to-purple-900",
+    "description": "An intimate boutique hotel in the heart of Times Square's Broadway Theatre District, inspired by the film 'Casablanca,' offering Moroccan-style guestrooms and generous included amenities such as daily breakfast and all-day refreshments at Rick's Cafe. Rated #13 hotel in the US by TripAdvisor Travelers' Choice Awards.",
+    "nearbyAttractions": [
+      "Times Square",
+      "Broadway Theater District",
+      "Central Park",
+      "Rockefeller Center"
+    ],
+    "checkInTime": "15:00",
+    "checkOutTime": "11:00",
+    "cancellationPolicy": "Free cancellation",
+    "type": "boutique"
+  },
+  {
+    "id": "HTL002",
+    "name": "Romer Hell's Kitchen",
+    "location": {
+      "city": "New York City",
+      "country": "United States",
+      "address": "851 Eighth Ave, New York City, New York 10019"
+    },
+    "stars": 4,
+    "rating": 8.7,
+    "reviewCount": 5214,
+    "pricePerNight": 162.0,
+    "originalPrice": 162.0,
+    "roomTypes": [
+      {
+        "name": "Deluxe King",
+        "price": 159.0,
+        "capacity": 2,
+        "bedType": "King"
+      },
+      {
+        "name": "Deluxe Two Queen Beds",
+        "price": 199.0,
+        "capacity": 4,
+        "bedType": "2 Queens"
+      },
+      {
+        "name": "One Bedroom King Suite",
+        "price": 259.0,
+        "capacity": 4,
+        "bedType": "King"
+      }
+    ],
+    "amenities": [
+      "Neighborhood Caf\u00e9 (all-day coffee and bites)",
+      "So & So's piano bar and restaurant",
+      "Fitness center",
+      "Free Wi-Fi",
+      "Pet-friendly",
+      "Local artwork in rooms",
+      "Seating area in every room",
+      "\u00c0 la carte breakfast available",
+      "Concierge with neighborhood recommendations",
+      "Parking packages available"
+    ],
+    "images": "from-red-900 via-rose-800 to-pink-900",
+    "description": "A stylish neighborhood hotel in Hell's Kitchen, Manhattan, just west of Broadway and a short walk from Times Square, designed to reflect the eclectic character of the area with pre-war inspired d\u00e9cor, local artwork, and a plush piano bar. Offers rooms ranging from 300 to 650 sq ft.",
+    "nearbyAttractions": [
+      "Times Square",
+      "Broadway Theaters",
+      "Hudson River Waterfront",
+      "Central Park"
+    ],
+    "checkInTime": "15:00",
+    "checkOutTime": "11:00",
+    "cancellationPolicy": "Free cancellation",
+    "type": "hotel"
+  },
+  {
+    "id": "HTL003",
+    "name": "Le Pigalle, a Member of Design Hotels",
+    "location": {
+      "city": "Paris",
+      "country": "France",
+      "address": "9 Rue Frochot, 75009 Paris, France"
+    },
+    "stars": 4,
+    "rating": 8.6,
+    "reviewCount": 893,
+    "pricePerNight": 213.0,
+    "originalPrice": 213.0,
+    "roomTypes": [
+      {
+        "name": "Standard Room",
+        "price": 213.0,
+        "capacity": 2,
+        "bedType": "Double"
+      },
+      {
+        "name": "Queen Room",
+        "price": 286.0,
+        "capacity": 2,
+        "bedType": "Queen"
+      },
+      {
+        "name": "King Room",
+        "price": 345.0,
+        "capacity": 2,
+        "bedType": "King"
+      }
+    ],
+    "amenities": [
+      "Free Wi-Fi",
+      "24-hour reception",
+      "Restaurant on site",
+      "Bar/lounge",
+      "Room service",
+      "Air conditioning",
+      "Daily housekeeping",
+      "Concierge service",
+      "Pet friendly",
+      "Elevator",
+      "Vinyl library",
+      "Newspaper/book kiosk",
+      "Secure parking"
+    ],
+    "images": "from-cyan-800 via-teal-700 to-emerald-800",
+    "description": "A vibrant 40-room boutique hotel in the heart of the Pigalle neighborhood, designed by FESTEN Architecture and deeply rooted in the local artistic community, with custom-furnished rooms, a neighborhood caf\u00e9, bar, and restaurant run by local characters. Described as a 'neighborhood hotel' and member of Design Hotels.",
+    "nearbyAttractions": [
+      "Moulin Rouge (0.3 mi)",
+      "Montmartre and Sacr\u00e9-C\u0153ur Basilica (0.5 mi)",
+      "Op\u00e9ra Garnier (0.7 mi)",
+      "Louvre Museum (1.4 mi)"
+    ],
+    "checkInTime": "15:00",
+    "checkOutTime": "12:00",
+    "cancellationPolicy": "Free cancellation",
+    "type": "boutique"
+  },
+  {
+    "id": "HTL004",
+    "name": "HOSHINOYA Tokyo",
+    "location": {
+      "city": "Tokyo",
+      "country": "Japan",
+      "address": "1-9-1 Otemachi, Chiyoda-ku, Tokyo 100-0004"
+    },
+    "stars": 5,
+    "rating": 9.2,
+    "reviewCount": 268,
+    "pricePerNight": 422.0,
+    "originalPrice": 422.0,
+    "roomTypes": [
+      {
+        "name": "Deluxe Room (Sakura / Twin)",
+        "price": 422.0,
+        "capacity": 2,
+        "bedType": "Twin"
+      },
+      {
+        "name": "Deluxe Room (Yuri / King)",
+        "price": 816.0,
+        "capacity": 2,
+        "bedType": "King"
+      },
+      {
+        "name": "Kiku Executive Triple Room",
+        "price": 761.0,
+        "capacity": 3,
+        "bedType": "3 Single beds"
+      }
+    ],
+    "amenities": [
+      "Rooftop open-air onsen (hot springs)",
+      "3 restaurants",
+      "Caf\u00e9/lounge",
+      "Spa and massage",
+      "Free Wi-Fi",
+      "Private ochanoma (traditional lounge) per floor",
+      "Tatami-matted corridors",
+      "Kimonos/yukatas provided",
+      "Private gardens",
+      "24-hour front desk",
+      "Meeting rooms",
+      "In-room breakfast service",
+      "Gift shop",
+      "Library"
+    ],
+    "images": "from-yellow-700 via-amber-600 to-orange-700",
+    "description": "A high-rise luxury ryokan in the Otemachi business district of Tokyo, where every floor operates as a private inn with six rooms and a traditional central lounge, offering rooftop hot springs, tatami-matted rooms, and in-room dining blending French and Japanese cuisine. Described as 'a high-rise ryokan deeply rooted in Tokyo's feudal past.'",
+    "nearbyAttractions": [
+      "Imperial Palace (Kokyo) (0.7 mi)",
+      "Akihabara Electric Town (0.9 mi)",
+      "Ginza shopping district (1.2 mi)",
+      "Tokyo Station (10-minute walk)"
+    ],
+    "checkInTime": "15:00",
+    "checkOutTime": "12:00",
+    "cancellationPolicy": "Free cancellation",
+    "type": "boutique"
+  },
+  {
+    "id": "HTL005",
+    "name": "The St. Regis Bali Resort",
+    "location": {
+      "city": "Nusa Dua",
+      "country": "Indonesia",
+      "address": "Kawasan Pariwisata, Nusa Dua, Lot S6, South Kuta 80363, Bali"
+    },
+    "stars": 5,
+    "rating": 9.7,
+    "reviewCount": 534,
+    "pricePerNight": 505.0,
+    "originalPrice": 505.0,
+    "roomTypes": [
+      {
+        "name": "Standard King Room",
+        "price": 505.0,
+        "capacity": 2,
+        "bedType": "King"
+      },
+      {
+        "name": "Double Room (2 Queens)",
+        "price": 558.0,
+        "capacity": 4,
+        "bedType": "2 Queens"
+      },
+      {
+        "name": "Double Room (2 Doubles)",
+        "price": 752.0,
+        "capacity": 4,
+        "bedType": "2 Doubles"
+      }
+    ],
+    "amenities": [
+      "Private beach",
+      "Outdoor pool and kids pool",
+      "Jacuzzi and sauna",
+      "Full-service spa",
+      "Fitness center",
+      "Kayuputi Restaurant",
+      "Vista Bar",
+      "24-hour room service",
+      "Free Wi-Fi",
+      "Kids club and babysitting",
+      "Free shuttle service",
+      "Free parking",
+      "Scuba diving and canoeing",
+      "Butler service",
+      "Airport shuttle",
+      "Valet parking",
+      "Water sports facilities"
+    ],
+    "images": "from-slate-700 via-gray-600 to-zinc-700",
+    "description": "An award-winning 5-star beachfront resort in Nusa Dua with 123 air-conditioned rooms, a private beach, multiple pools, a world-class spa, and fine dining at Kayuputi Restaurant \u2014 consistently rated among the best luxury resorts in Bali. Rated 9.7/10 Wonderful on KAYAK from 534 verified reviews.",
+    "nearbyAttractions": [
+      "Bali Collection Shopping Centre (0.8 mi)",
+      "Nusa Dua Beach (1.3 mi)",
+      "Garuda Wisnu Kencana Cultural Park (4 mi)",
+      "Jimbaran Beach (4.8 mi)"
+    ],
+    "checkInTime": "15:00",
+    "checkOutTime": "12:00",
+    "cancellationPolicy": "Free cancellation",
+    "type": "resort"
+  },
+  {
+    "id": "HTL006",
+    "name": "Hassler Roma",
+    "location": {
+      "city": "Rome",
+      "country": "Italy",
+      "address": "Piazza della Trinit\u00e0 dei Monti, 6, 00187 Roma, Italia"
+    },
+    "stars": 5,
+    "rating": 9.6,
+    "reviewCount": 606,
+    "pricePerNight": 393.0,
+    "originalPrice": 393.0,
+    "roomTypes": [
+      {
+        "name": "Deluxe Room",
+        "price": 176.0,
+        "capacity": 2,
+        "bedType": "King or Twin"
+      },
+      {
+        "name": "Grand Deluxe Room",
+        "price": 393.0,
+        "capacity": 3,
+        "bedType": "King"
+      },
+      {
+        "name": "Junior Suite",
+        "price": 761.0,
+        "capacity": 2,
+        "bedType": "King"
+      }
+    ],
+    "amenities": [
+      "Michelin-starred Im\u00e0go restaurant",
+      "Salone Eva & Palm Court restaurant",
+      "Carmen's Bar",
+      "7th Floor Terrace with panoramic views",
+      "Full-service spa (Amorvero SPA)",
+      "Fitness center",
+      "Free Wi-Fi",
+      "Valet parking",
+      "24-hour room service",
+      "Concierge",
+      "Business center",
+      "Meeting rooms",
+      "Marble bathrooms",
+      "Minibar",
+      "Air conditioning"
+    ],
+    "images": "from-amber-800 via-yellow-700 to-lime-800",
+    "description": "A quintessential 5-star luxury hotel atop the Spanish Steps in Rome, offering 82 individually decorated rooms and suites with panoramic terraces overlooking the Eternal City's rooftops, a Michelin-starred restaurant, and a full-service spa. Rated 9.6/10 Wonderful on KAYAK from 606 verified reviews.",
+    "nearbyAttractions": [
+      "Spanish Steps (64 yards)",
+      "Trevi Fountain (0.3 mi)",
+      "Pantheon (0.6 mi)",
+      "Colosseum (1.2 mi)"
+    ],
+    "checkInTime": "14:00",
+    "checkOutTime": "12:00",
+    "cancellationPolicy": "Free cancellation",
+    "type": "hotel"
+  },
+  {
+    "id": "HTL007",
+    "name": "One&Only Cape Town",
+    "location": {
+      "city": "Cape Town",
+      "country": "South Africa",
+      "address": "Dock Road, V&A Waterfront, Cape Town, Western Cape"
+    },
+    "stars": 5,
+    "rating": 9.1,
+    "reviewCount": 574,
+    "pricePerNight": 877.0,
+    "originalPrice": 877.0,
+    "roomTypes": [
+      {
+        "name": "Double Room",
+        "price": 877.0,
+        "capacity": 2,
+        "bedType": "Double"
+      },
+      {
+        "name": "Premier Room (2 Queen Beds)",
+        "price": 1031.0,
+        "capacity": 4,
+        "bedType": "2 Queens"
+      },
+      {
+        "name": "King Room",
+        "price": 1006.0,
+        "capacity": 2,
+        "bedType": "King"
+      }
+    ],
+    "amenities": [
+      "Outdoor infinity pool",
+      "Full-service spa (12 treatment rooms, sauna, steam room, ice fountain)",
+      "Nobu restaurant (Japanese/international)",
+      "Reuben's restaurant (South American)",
+      "Lounge bar",
+      "Free Wi-Fi",
+      "Free parking and valet parking",
+      "Fitness center and fitness classes",
+      "Kids club and babysitting",
+      "Pilates classes",
+      "Miniature golf",
+      "Concierge",
+      "24-hour room service",
+      "Private balcony in rooms",
+      "Pillow menu and luxury linen",
+      "Rain shower",
+      "Minibar"
+    ],
+    "images": "from-green-800 via-emerald-700 to-teal-800",
+    "description": "A 5-star luxury waterfront resort on the V&A Waterfront with Table Mountain as its stunning backdrop, offering elegant rooms with private balconies, a lush infinity pool, world-class spa, and dining at Nobu and Reuben's restaurants. Rated 9.1/10 Wonderful on KAYAK from 574 verified reviews.",
+    "nearbyAttractions": [
+      "Victoria & Alfred Waterfront (0.3 mi)",
+      "Cape Town Stadium (0.5 mi)",
+      "Table Mountain (3.8 mi)",
+      "Long Street (1 mi)"
+    ],
+    "checkInTime": "14:00",
+    "checkOutTime": "11:00",
+    "cancellationPolicy": "Free cancellation",
+    "type": "resort"
+  },
+  {
+    "id": "HTL008",
+    "name": "Here Hostel",
+    "location": {
+      "city": "Bangkok",
+      "country": "Thailand",
+      "address": "196-3-8 Soi Damnoen Klang Tai, Ratchadamnoen Rd., Bovornnivet, Phranakorn, Bangkok"
+    },
+    "stars": 3,
+    "rating": 9.2,
+    "reviewCount": 3746,
+    "pricePerNight": 15.0,
+    "originalPrice": 15.0,
+    "roomTypes": [
+      {
+        "name": "Mixed Dormitory",
+        "price": 10.0,
+        "capacity": 8,
+        "bedType": "Bunk bed (with curtain)"
+      },
+      {
+        "name": "Female-Only Dormitory",
+        "price": 12.0,
+        "capacity": 6,
+        "bedType": "Bunk bed (with curtain)"
+      },
+      {
+        "name": "Private Room",
+        "price": 25.0,
+        "capacity": 2,
+        "bedType": "Double"
+      }
+    ],
+    "amenities": [
+      "Free Wi-Fi",
+      "THERE BAR & GARDEN (outdoor garden bar)",
+      "Pool",
+      "Caf\u00e9",
+      "24-hour reception",
+      "Luggage storage (free for 30 days)",
+      "Bicycle parking",
+      "Tours/travel desk",
+      "Housekeeping",
+      "Book exchange",
+      "Board games",
+      "Air conditioning in all rooms",
+      "Lockers for each guest",
+      "Signature lobby slide",
+      "Yoga deck",
+      "Organized events (pub crawl, live music, pub quiz)"
+    ],
+    "images": "from-orange-800 via-amber-700 to-yellow-800",
+    "description": "A highly social hostel in a nearly 100-year-old renovated building in Bangkok's Old Town, a short walk from Khao San Road and the Grand Palace, featuring a signature lobby slide, garden pool bar, and a lively events calendar that earned it a TripAdvisor Certificate of Excellence. Rated 9.2 Superb by Hostelworld from 3,746 reviews.",
+    "nearbyAttractions": [
+      "Khao San Road (10-minute walk)",
+      "Grand Palace",
+      "Wat Pho",
+      "Golden Mount (Wat Saket)"
+    ],
+    "checkInTime": "14:00",
+    "checkOutTime": "12:00",
+    "cancellationPolicy": "24h cancellation",
+    "type": "hostel"
+  }
+]
