@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { Heart, Star, Plane, Building2, Utensils, Users, Clock, MapPin } from 'lucide-react'
 import { useState } from 'react'
+import { useDestinationPhoto } from '@/hooks/useDestinationPhoto'
 
 interface TravelPackage {
   id: string
@@ -43,6 +44,7 @@ const CATEGORY_COLORS: Record<string, string> = {
 
 export default function PackageCard({ pkg }: { pkg: TravelPackage }) {
   const [saved, setSaved] = useState(false)
+  const photo = useDestinationPhoto(pkg.destination)
   const discount = pkg.originalPrice
     ? Math.round(((pkg.originalPrice - pkg.price) / pkg.originalPrice) * 100)
     : 0
@@ -54,7 +56,10 @@ export default function PackageCard({ pkg }: { pkg: TravelPackage }) {
       className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col sm:flex-row"
     >
       {/* Image area */}
-      <div className={`relative w-full sm:w-64 h-48 sm:h-auto shrink-0 bg-gradient-to-br ${pkg.images} overflow-hidden`}>
+      <div
+        className={`relative w-full sm:w-64 h-48 sm:h-auto shrink-0 overflow-hidden ${photo ? '' : `bg-gradient-to-br ${pkg.images}`}`}
+        style={photo ? { backgroundImage: `url(${photo.url})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
+      >
         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors" />
 
         {/* Category badge */}
@@ -83,6 +88,18 @@ export default function PackageCard({ pkg }: { pkg: TravelPackage }) {
           <span className="absolute bottom-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
             -{discount}%
           </span>
+        )}
+
+        {/* Required Unsplash attribution — button, not <a>, since the whole
+            card is already a Link and anchors can't nest inside anchors */}
+        {photo && (
+          <button
+            type="button"
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(photo.unsplashUrl, '_blank', 'noopener,noreferrer'); }}
+            className="absolute bottom-1 right-2 text-[9px] text-white/60 hover:text-white/90 transition-colors bg-transparent border-0 cursor-pointer"
+          >
+            Photo: {photo.photographerName} / Unsplash
+          </button>
         )}
       </div>
 

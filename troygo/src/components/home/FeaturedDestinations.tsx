@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ArrowRight, TrendingUp } from 'lucide-react';
+import { useDestinationPhoto } from '@/hooks/useDestinationPhoto';
 
 interface Destination {
   name: string;
@@ -13,14 +13,6 @@ interface Destination {
   gradient: string;
   tag?: string;
   patternColor: string;
-}
-
-interface UnsplashPhoto {
-  url: string;
-  photographerName: string;
-  photographerUrl: string;
-  unsplashUrl: string;
-  altDescription: string;
 }
 
 // Real destinations pulled from the current live package data
@@ -83,23 +75,6 @@ const destinations: Destination[] = [
     patternColor: 'rgba(0,0,0,0.08)',
   },
 ];
-
-function useDestinationPhoto(query: string): UnsplashPhoto | null {
-  const [photo, setPhoto] = useState<UnsplashPhoto | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    fetch(`/api/photos/search?query=${encodeURIComponent(query)}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (!cancelled && data.photo) setPhoto(data.photo);
-      })
-      .catch(() => {});
-    return () => { cancelled = true; };
-  }, [query]);
-
-  return photo;
-}
 
 function DestinationCard({ dest }: { dest: Destination }) {
   const photo = useDestinationPhoto(dest.photoQuery);
