@@ -12,49 +12,55 @@ interface Destination {
   patternColor: string;
 }
 
+// Real destinations pulled from the current live package data
+// (src/lib/data/packages-live.json, refreshed by the research agent — see
+// agents/travel_research/). Kept in sync manually for now since this
+// component can't import server-refreshed JSON without becoming a client
+// data-fetch; if the research agent's destination mix changes significantly,
+// update this list to match so "Explore" never leads to an empty results page.
 const destinations: Destination[] = [
   {
     name: 'Paris',
     country: 'France',
-    price: 699,
+    price: 1800,
     gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     tag: 'Most Loved',
     patternColor: 'rgba(255,255,255,0.06)',
   },
   {
-    name: 'Bali',
-    country: 'Indonesia',
-    price: 849,
+    name: 'Southeast Asia',
+    country: 'Thailand, Malaysia & Indonesia',
+    price: 1734,
     gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     tag: 'Trending',
     patternColor: 'rgba(255,255,255,0.06)',
   },
   {
-    name: 'New York',
-    country: 'United States',
-    price: 549,
+    name: 'Cancun',
+    country: 'Mexico',
+    price: 1200,
     gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     patternColor: 'rgba(255,255,255,0.06)',
   },
   {
-    name: 'Tokyo',
+    name: 'Japan',
     country: 'Japan',
-    price: 1099,
+    price: 1649,
     gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
     tag: 'Editor\'s Pick',
     patternColor: 'rgba(255,255,255,0.06)',
   },
   {
-    name: 'Santorini',
-    country: 'Greece',
-    price: 929,
+    name: 'Antigua',
+    country: 'Antigua and Barbuda',
+    price: 1400,
     gradient: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)',
     patternColor: 'rgba(255,255,255,0.06)',
   },
   {
-    name: 'Dubai',
-    country: 'UAE',
-    price: 799,
+    name: 'Italy',
+    country: 'Italy',
+    price: 2431,
     gradient: 'linear-gradient(135deg, #ffd200 0%, #f7971e 100%)',
     tag: 'Luxury',
     patternColor: 'rgba(0,0,0,0.08)',
@@ -64,7 +70,7 @@ const destinations: Destination[] = [
 function DestinationCard({ dest }: { dest: Destination }) {
   return (
     <Link
-      href="/packages"
+      href={`/packages?to=${encodeURIComponent(dest.name)}`}
       className="group relative block rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
       style={{ background: dest.gradient, minHeight: 220 }}
     >
