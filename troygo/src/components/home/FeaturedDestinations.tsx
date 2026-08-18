@@ -1,15 +1,26 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 
 interface Destination {
   name: string;
   country: string;
   price: number;
+  photoQuery: string;
   gradient: string;
   tag?: string;
   patternColor: string;
+}
+
+interface UnsplashPhoto {
+  url: string;
+  photographerName: string;
+  photographerUrl: string;
+  unsplashUrl: string;
+  altDescription: string;
 }
 
 // Real destinations pulled from the current live package data
@@ -23,6 +34,7 @@ const destinations: Destination[] = [
     name: 'Paris',
     country: 'France',
     price: 1800,
+    photoQuery: 'Paris France Eiffel Tower',
     gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     tag: 'Most Loved',
     patternColor: 'rgba(255,255,255,0.06)',
@@ -31,6 +43,7 @@ const destinations: Destination[] = [
     name: 'Southeast Asia',
     country: 'Thailand, Malaysia & Indonesia',
     price: 1734,
+    photoQuery: 'Bali Indonesia beach temple',
     gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     tag: 'Trending',
     patternColor: 'rgba(255,255,255,0.06)',
@@ -39,6 +52,7 @@ const destinations: Destination[] = [
     name: 'Cancun',
     country: 'Mexico',
     price: 1200,
+    photoQuery: 'Cancun Mexico beach resort',
     gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     patternColor: 'rgba(255,255,255,0.06)',
   },
@@ -46,6 +60,7 @@ const destinations: Destination[] = [
     name: 'Japan',
     country: 'Japan',
     price: 1649,
+    photoQuery: 'Tokyo Kyoto Japan travel',
     gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
     tag: 'Editor\'s Pick',
     patternColor: 'rgba(255,255,255,0.06)',
@@ -54,6 +69,7 @@ const destinations: Destination[] = [
     name: 'Antigua',
     country: 'Antigua and Barbuda',
     price: 1400,
+    photoQuery: 'Antigua Caribbean beach',
     gradient: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)',
     patternColor: 'rgba(255,255,255,0.06)',
   },
@@ -61,28 +77,64 @@ const destinations: Destination[] = [
     name: 'Italy',
     country: 'Italy',
     price: 2431,
+    photoQuery: 'Italy Tuscany travel landscape',
     gradient: 'linear-gradient(135deg, #ffd200 0%, #f7971e 100%)',
     tag: 'Luxury',
     patternColor: 'rgba(0,0,0,0.08)',
   },
 ];
 
+function useDestinationPhoto(query: string): UnsplashPhoto | null {
+  const [photo, setPhoto] = useState<UnsplashPhoto | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`/api/photos/search?query=${encodeURIComponent(query)}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (!cancelled && data.photo) setPhoto(data.photo);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, [query]);
+
+  return photo;
+}
+
 function DestinationCard({ dest }: { dest: Destination }) {
+  const photo = useDestinationPhoto(dest.photoQuery);
+  const router = useRouter();
+  const href = `/packages?to=${encodeURIComponent(dest.name)}`;
+
   return (
-    <Link
-      href={`/packages?to=${encodeURIComponent(dest.name)}`}
+    <div
+      role="link"
+      tabIndex={0}
+      onClick={() => router.push(href)}
+      onKeyDown={(e) => { if (e.key === 'Enter') router.push(href); }}
       className="group relative block rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-      style={{ background: dest.gradient, minHeight: 220 }}
+      style={{
+        background: photo
+          ? `linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.15) 55%), url(${photo.url})`
+          : dest.gradient,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: 220,
+      }}
     >
-      {/* Decorative circles */}
-      <div
-        className="absolute -top-8 -right-8 w-32 h-32 rounded-full"
-        style={{ background: dest.patternColor }}
-      />
-      <div
-        className="absolute -bottom-4 -left-4 w-24 h-24 rounded-full"
-        style={{ background: dest.patternColor }}
-      />
+      {/* Decorative circles — only shown while the real photo is still loading */}
+      {!photo && (
+        <>
+          <div
+            className="absolute -top-8 -right-8 w-32 h-32 rounded-full"
+            style={{ background: dest.patternColor }}
+          />
+          <div
+            className="absolute -bottom-4 -left-4 w-24 h-24 rounded-full"
+            style={{ background: dest.patternColor }}
+          />
+        </>
+      )}
 
       {/* Tag badge */}
       {dest.tag && (
@@ -112,9 +164,34 @@ function DestinationCard({ dest }: { dest: Destination }) {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </span>
           </div>
+          {/* Required Unsplash attribution — only shown once a real photo has loaded */}
+          {photo && (
+            <p className="mt-2 text-[10px] text-white/50">
+              Photo by{' '}
+              <a
+                href={photo.photographerUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="underline hover:text-white/80 transition-colors"
+              >
+                {photo.photographerName}
+              </a>{' '}
+              on{' '}
+              <a
+                href={photo.unsplashUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="underline hover:text-white/80 transition-colors"
+              >
+                Unsplash
+              </a>
+            </p>
+          )}
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 
