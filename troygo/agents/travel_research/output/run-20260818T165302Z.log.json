@@ -1,0 +1,917 @@
+{
+  "timestamp": "20260818T165302Z",
+  "raw_output": "Now I have enough verified information to compile my final JSON array. Let me consolidate the confirmed deals from the pages I've successfully scraped:\n\n1. **Turkey - Istanbul & Cappadocia Tour** (turkeytraveltours.com) - $1,180/person, 6 days \u2705\n2. **Australia - Whitsunday Reefsleep & Escape** (tripadeal.com.au) - AUD $2,299/person, 6 days \u2705\n3. **Australia - Highlights of T\u00fcrkiye for 2** (tripadeal.com.au Turkey page) - also has Australia deals \u2705\n4. **Hamilton Island - Best of the Whitsundays** (hamiltonisland.com.au) - AUD $2,443 for 2, 3 nights \u2705\n5. **Hamilton Island - Great Barrier Reef Adventure** (hamiltonisland.com.au) - AUD $2,111 for 2, 3 nights \u2705\n6. **Tripmasters - Prague-Vienna-Budapest** - $1,269/person, 9 nights \u2705\n7. **Tripmasters - Essential Madrid & Barcelona** - $1,049/person, 6 nights \u2705\n8. **Tripmasters - Tokyo-Kyoto-Osaka** - $1,649/person, 9 nights \u2705\n9. **Tripmasters - Bangkok & Phuket** - $1,039/person, 6 nights \u2705\n10. **Tripmasters - Sydney & Melbourne** - $1,469/person, 6 nights \u2705\n11. **Sandals - Last Minute Caribbean** (sandals.com) - Get free night deals \u2705\n12. **TripADeal - Ultimate T\u00fcrkiye** (tripadeal.com.au) - AUD $5,899/person, 16 days \u2705\n\nI need to convert AUD prices to USD (approximate rate: 1 AUD \u2248 0.64 USD as of mid-2025).\n\n[{\"name\":\"Istanbul and Cappadocia Tour \u2013 6 Days Turkey Package\",\"destination\":\"Istanbul & Cappadocia\",\"countries\":[\"Turkey\"],\"duration\":6,\"price\":1180,\"originalPrice\":1180,\"rating\":5.0,\"reviewCount\":162,\"includes\":{\"flights\":false,\"hotel\":true,\"transfers\":true,\"meals\":true,\"guide\":true},\"highlights\":[\"Full-day walking tour of Istanbul Old City including Blue Mosque, Topkapi Palace and Grand Bazaar\",\"Scenic Bosphorus Strait cruise and Spice Bazaar visit\",\"Hot air balloon ride option over Cappadocia's fairy chimneys\",\"North and South Cappadocia tours including Goreme Open Air Museum and Kaymakli Underground City\",\"Round-trip domestic economy flights between Istanbul and Cappadocia included\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"cultural\",\"description\":\"A 6-day guided package covering Istanbul's iconic historical sites and Cappadocia's surreal landscapes, including 4 full-day excursions with English-speaking guides, hotel accommodation with daily breakfast, 3 lunches, 6 airport transfers, and domestic flights. International flights are not included.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrival in Istanbul\",\"description\":\"Private airport transfer to your hotel. Free time to explore the neighbourhood and settle in.\"},{\"day\":2,\"title\":\"Istanbul Old City Tour\",\"description\":\"Full-day walking tour of the Hippodrome, Blue Mosque, Topkapi Palace, and Grand Bazaar. Lunch at a Turkish restaurant included.\"},{\"day\":3,\"title\":\"Bosphorus Cruise & Flight to Cappadocia\",\"description\":\"Morning visit to the Spice Bazaar, then a scenic Bosphorus Strait cruise. Afternoon flight to Cappadocia.\"},{\"day\":4,\"title\":\"North Cappadocia Tour\",\"description\":\"Optional hot air balloon ride at sunrise, then guided tour of Devrent Valley, Monks Valley, Avanos Pottery Workshop, and Goreme Open Air Museum. Lunch included.\"},{\"day\":5,\"title\":\"South Cappadocia Tour & Return to Istanbul\",\"description\":\"Optional morning balloon ride, then hiking in Red Valley, visit to Kaymakli Underground City, and evening flight back to Istanbul.\"},{\"day\":6,\"title\":\"Free Day & Departure\",\"description\":\"Breakfast at hotel, free time until airport transfer for your international departure.\"}],\"sourceUrl\":\"https://www.turkeytraveltours.com/all/istanbul-and-cappadocia-tour\"},{\"name\":\"Highlights of T\u00fcrkiye for 2 \u2013 TripADeal\",\"destination\":\"Turkey (Istanbul, Gallipoli, Cappadocia & more)\",\"countries\":[\"Turkey\"],\"duration\":12,\"price\":2495,\"originalPrice\":2559,\"rating\":4.4,\"reviewCount\":42355,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":true,\"meals\":true,\"guide\":true},\"highlights\":[\"Visit Istanbul's iconic Hagia Sophia, Blue Mosque and Grand Bazaar\",\"Explore the Gallipoli Peninsula and ANZAC historical sites\",\"Discover Cappadocia's fairy chimneys and optional hot air balloon ride\",\"Tour ancient ruins at Troy, Pergamon and Ephesus\",\"All international and internal flights included\"],\"departureDates\":[\"2027-03-08\",\"2027-10-25\"],\"maxGroupSize\":20,\"difficulty\":\"easy\",\"category\":\"cultural\",\"description\":\"A 12-day guided tour for two people covering Turkey's most iconic destinations including Istanbul, Gallipoli, Cappadocia and more, with all international and internal flights included. Priced from AUD $7,799 for 2 people (was AUD $7,999), saving $200 for 2 people.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrive Istanbul\",\"description\":\"Arrive in Istanbul and transfer to your hotel. Orientation and welcome.\"},{\"day\":2,\"title\":\"Istanbul Sightseeing\",\"description\":\"Guided tour of Istanbul's major landmarks including the Blue Mosque, Hagia Sophia, Topkapi Palace and Grand Bazaar.\"},{\"day\":3,\"title\":\"Gallipoli & Troy\",\"description\":\"Travel to the Gallipoli Peninsula for a moving visit to ANZAC Cove and Lone Pine, then continue to Troy.\"},{\"day\":4,\"title\":\"Pergamon & Ephesus\",\"description\":\"Explore the ancient ruins of Pergamon and the remarkably preserved city of Ephesus.\"},{\"day\":5,\"title\":\"Pamukkale\",\"description\":\"Visit the stunning white travertine terraces and thermal pools of Pamukkale.\"},{\"day\":6,\"title\":\"Travel to Cappadocia\",\"description\":\"Fly to Cappadocia and check in to your cave hotel.\"},{\"day\":7,\"title\":\"Cappadocia Exploration\",\"description\":\"Guided tour of Cappadocia's valleys, fairy chimneys, and Goreme Open Air Museum. Optional hot air balloon ride.\"},{\"day\":8,\"title\":\"Underground Cities & Valleys\",\"description\":\"Visit Kaymakli Underground City and explore the scenic valleys of Cappadocia.\"},{\"day\":9,\"title\":\"Return to Istanbul\",\"description\":\"Fly back to Istanbul for leisure time and final sightseeing.\"},{\"day\":10,\"title\":\"Istanbul Free Day\",\"description\":\"Free day to explore Istanbul's neighbourhoods, bazaars and waterfront.\"},{\"day\":11,\"title\":\"Bosphorus & Departure Prep\",\"description\":\"Optional Bosphorus cruise or leisure time before farewell dinner.\"},{\"day\":12,\"title\":\"Departure\",\"description\":\"Transfer to Istanbul airport for your international departure.\"}],\"sourceUrl\":\"https://www.tripadeal.com.au/destination/turkey\"},{\"name\":\"Whitsunday Reefsleep & Escape \u2013 TripADeal\",\"destination\":\"Whitsundays, Queensland, Australia\",\"countries\":[\"Australia\"],\"duration\":6,\"price\":1471,\"originalPrice\":1471,\"rating\":4.4,\"reviewCount\":42355,\"includes\":{\"flights\":false,\"hotel\":true,\"transfers\":false,\"meals\":false,\"guide\":false},\"highlights\":[\"Spend a night under the stars on the Great Barrier Reef (Reefsleep experience)\",\"Visit Whitehaven Beach, consistently rated one of the world's best beaches\",\"Catamaran day trip included\",\"Based in Airlie Beach with access to Whitsunday Islands\",\"Earn Qantas Points on your booking\"],\"departureDates\":[\"2026-11-09\",\"2026-11-23\"],\"maxGroupSize\":20,\"difficulty\":\"easy\",\"category\":\"beach\",\"description\":\"A 6-day Whitsunday escape including a night sleeping under the stars on the Great Barrier Reef, a visit to Whitehaven Beach, and a catamaran day trip. Priced from AUD $2,299 per person twin share. Meet in Airlie Beach \u2014 flights are not included in this package.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrive Airlie Beach\",\"description\":\"Arrive in Airlie Beach and check in to your accommodation. Explore the marina and town.\"},{\"day\":2,\"title\":\"Catamaran Day Trip\",\"description\":\"Full-day catamaran excursion through the Whitsunday Islands, snorkelling and swimming in crystal-clear waters.\"},{\"day\":3,\"title\":\"Reefsleep on the Great Barrier Reef\",\"description\":\"Board the vessel to the Great Barrier Reef and spend the night sleeping under the stars on a pontoon on the reef.\"},{\"day\":4,\"title\":\"Great Barrier Reef Morning & Whitehaven Beach\",\"description\":\"Morning snorkelling and reef exploration, then travel to the pristine sands of Whitehaven Beach.\"},{\"day\":5,\"title\":\"Whitehaven Beach & Return\",\"description\":\"Further exploration of Whitehaven Beach and Hill Inlet lookout before returning to Airlie Beach.\"},{\"day\":6,\"title\":\"Departure\",\"description\":\"Check out and depart Airlie Beach.\"}],\"sourceUrl\":\"https://www.tripadeal.com.au/destination/australia\"},{\"name\":\"Best of the Whitsundays Package \u2013 Hamilton Island\",\"destination\":\"Hamilton Island, Whitsundays, Australia\",\"countries\":[\"Australia\"],\"duration\":3,\"price\":780,\"originalPrice\":780,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":false,\"hotel\":true,\"transfers\":true,\"meals\":true,\"guide\":false},\"highlights\":[\"Full-day trip to the Great Barrier Reef included\",\"Half-day trip to iconic Whitehaven Beach included\",\"Weekly entry to Hamilton Island Wildlife experience\",\"Complimentary breakfast daily\",\"Free non-motorised watersports and free WiFi\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"beach\",\"description\":\"A 3-night Hamilton Island package starting from AUD $2,443 for two adults at The Reef View Hotel (twin share), including a full-day Great Barrier Reef trip, a half-day Whitehaven Beach excursion, wildlife entry, and daily breakfast. Book direct for no booking fees.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrive Hamilton Island\",\"description\":\"Arrive at Hamilton Island Airport, complimentary transfer to The Reef View Hotel. Sparkling wine on arrival, free time to enjoy the island.\"},{\"day\":2,\"title\":\"Great Barrier Reef Adventure\",\"description\":\"Full-day guided trip to the Great Barrier Reef \u2014 snorkelling, glass-bottom boat viewing, and reef exploration.\"},{\"day\":3,\"title\":\"Whitehaven Beach Excursion\",\"description\":\"Half-day trip to Whitehaven Beach and Hill Inlet Lookout. Afternoon free for watersports or relaxation.\"},{\"day\":4,\"title\":\"Departure\",\"description\":\"Complimentary breakfast, then transfer to Hamilton Island Airport for departure.\"}],\"sourceUrl\":\"https://www.hamiltonisland.com.au/accommodation/hotel-deals-and-packages\"},{\"name\":\"Prague \u2013 Vienna \u2013 Budapest by Train\",\"destination\":\"Prague, Vienna & Budapest\",\"countries\":[\"Czech Republic\",\"Austria\",\"Hungary\"],\"duration\":10,\"price\":1269,\"originalPrice\":1269,\"rating\":4.7,\"reviewCount\":1951,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":false,\"guide\":false},\"highlights\":[\"Explore Prague's 1,000 years of art and architecture \u2014 'The City of a Hundred Spires'\",\"Vienna's Baroque palaces, famous coffee house culture, and music heritage\",\"Budapest's dramatic contrast between historic Buda and vibrant Pest\",\"High-speed train travel between all three cities\",\"Fully flexible itinerary \u2014 customise hotels, length of stay, and add guided experiences\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"cultural\",\"description\":\"A 9-night (10-day) self-guided package combining three of Central Europe's most beloved capitals by train, including round-trip flights, 3 nights each in Prague, Vienna and Budapest, and inter-city train tickets. Prices from $1,269 per person based on double occupancy.\",\"itinerary\":[{\"day\":1,\"title\":\"Fly into Prague\",\"description\":\"Arrive in Prague and check in to your centrally located hotel. Begin exploring the city at your own pace.\"},{\"day\":2,\"title\":\"Prague Sightseeing\",\"description\":\"Explore Prague Castle, Charles Bridge, the Old Town Square and the famous Astronomical Clock.\"},{\"day\":3,\"title\":\"Prague Free Day\",\"description\":\"Free day to discover Prague's hidden laneways, local cafes and vibrant neighbourhoods.\"},{\"day\":4,\"title\":\"Train to Vienna\",\"description\":\"Morning train from Prague to Vienna. Check in and explore the Ringstrasse boulevard.\"},{\"day\":5,\"title\":\"Vienna Sightseeing\",\"description\":\"Visit Sch\u00f6nbrunn Palace, the Vienna State Opera, and the Kunsthistorisches Museum.\"},{\"day\":6,\"title\":\"Vienna Free Day\",\"description\":\"Free day for Viennese coffee houses, the Naschmarkt, or a day trip to the Vienna Woods.\"},{\"day\":7,\"title\":\"Train to Budapest\",\"description\":\"Morning train from Vienna to Budapest. Check in and explore the Danube riverfront.\"},{\"day\":8,\"title\":\"Budapest Sightseeing\",\"description\":\"Visit Buda Castle, Fisherman's Bastion, the Hungarian Parliament, and the Great Synagogue.\"},{\"day\":9,\"title\":\"Budapest Free Day\",\"description\":\"Free day to explore the ruin bars, thermal baths, and local markets of Budapest.\"},{\"day\":10,\"title\":\"Fly Home from Budapest\",\"description\":\"Transfer to Budapest airport for your return flight home.\"}],\"sourceUrl\":\"https://www.tripmasters.com/europe/\"},{\"name\":\"Essential Madrid and Barcelona by Train\",\"destination\":\"Madrid & Barcelona\",\"countries\":[\"Spain\"],\"duration\":7,\"price\":1049,\"originalPrice\":1049,\"rating\":4.7,\"reviewCount\":704,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":false,\"guide\":false},\"highlights\":[\"Madrid's world-class museums, vibrant nightlife and cultural landmarks\",\"Barcelona's Gothic Quarter and iconic architecture by Antoni Gaud\u00ed\",\"High-speed train between Madrid and Barcelona\",\"Fully flexible itinerary with hotel and transport customisation\",\"Option to upgrade to guided activities or luxury private experience\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"cultural\",\"description\":\"A 6-night (7-day) self-guided package to Spain's two most iconic cities, including round-trip flights into Madrid and out of Barcelona, 3 nights in each city, and a high-speed train ticket between them. Priced from $1,049 per person based on double occupancy.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrive Madrid\",\"description\":\"Fly into Madrid and check in to your centrally located hotel. Evening stroll around Puerta del Sol.\"},{\"day\":2,\"title\":\"Madrid Sightseeing\",\"description\":\"Visit the Prado Museum, Retiro Park, and the Royal Palace. Explore the tapas bars of La Latina.\"},{\"day\":3,\"title\":\"Madrid Free Day\",\"description\":\"Free day to explore Malasa\u00f1a, the Thyssen-Bornemisza Museum, or a day trip to Toledo.\"},{\"day\":4,\"title\":\"Train to Barcelona\",\"description\":\"High-speed AVE train to Barcelona. Check in and explore Las Ramblas and the Gothic Quarter.\"},{\"day\":5,\"title\":\"Barcelona Sightseeing\",\"description\":\"Visit the Sagrada Fam\u00edlia, Park G\u00fcell, and the Picasso Museum. Evening at the waterfront.\"},{\"day\":6,\"title\":\"Barcelona Free Day\",\"description\":\"Free day for Barceloneta beach, the Boqueria market, or more Gaud\u00ed architecture.\"},{\"day\":7,\"title\":\"Fly Home from Barcelona\",\"description\":\"Transfer to Barcelona El Prat Airport for your return flight home.\"}],\"sourceUrl\":\"https://www.tripmasters.com/europe/\"},{\"name\":\"Tokyo \u2013 Kyoto \u2013 Osaka by Train (Japan Golden Route)\",\"destination\":\"Tokyo, Kyoto & Osaka\",\"countries\":[\"Japan\"],\"duration\":10,\"price\":1649,\"originalPrice\":1649,\"rating\":4.6,\"reviewCount\":458,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":false,\"guide\":false},\"highlights\":[\"Tokyo's Michelin-starred dining scene, Ginza shopping and neon-lit skyscrapers\",\"Kyoto \u2014 the City of Ten Thousand Shrines and premier UNESCO World Heritage destination\",\"Osaka's Dotonbori food district, Osaka Castle and world-renowned Osaka Aquarium Kaiyukan\",\"Convenient high-speed Shinkansen bullet train travel between cities\",\"Fully flexible itinerary with optional guided upgrades\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"cultural\",\"description\":\"A 9-night (10-day) self-guided Japan package travelling the famous Golden Route by bullet train, including round-trip flights into Tokyo and out of Osaka, 3 nights each in Tokyo, Kyoto and Osaka, and Shinkansen inter-city train tickets. Priced from $1,649 per person based on double occupancy.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrive Tokyo\",\"description\":\"Fly into Tokyo and check in to your hotel. Explore the local neighbourhood and recover from the journey.\"},{\"day\":2,\"title\":\"Tokyo Sightseeing\",\"description\":\"Explore Shibuya Crossing, Senso-ji Temple in Asakusa, and the Ginza shopping district.\"},{\"day\":3,\"title\":\"Tokyo Free Day\",\"description\":\"Free day for Akihabara electronics district, teamLab digital art, or a day trip to Nikko or Kamakura.\"},{\"day\":4,\"title\":\"Shinkansen to Kyoto\",\"description\":\"Board the bullet train to Kyoto. Check in and explore Gion district in the evening.\"},{\"day\":5,\"title\":\"Kyoto Sightseeing\",\"description\":\"Visit Fushimi Inari Shrine, Kinkaku-ji (Golden Pavilion), Arashiyama Bamboo Grove and Nijo Castle.\"},{\"day\":6,\"title\":\"Kyoto Free Day\",\"description\":\"Free day for Nishiki Market, a tea ceremony experience, or a day trip to Nara to see the deer.\"},{\"day\":7,\"title\":\"Train to Osaka\",\"description\":\"Short train ride to Osaka. Check in and explore Dotonbori's famous food and neon street.\"},{\"day\":8,\"title\":\"Osaka Sightseeing\",\"description\":\"Visit Osaka Castle, the Kuromon Ichiba Market, and the Osaka Aquarium Kaiyukan.\"},{\"day\":9,\"title\":\"Osaka Free Day\",\"description\":\"Free day for more local food exploration, Universal Studios Japan, or a day trip to Hiroshima.\"},{\"day\":10,\"title\":\"Fly Home from Osaka\",\"description\":\"Transfer to Kansai International Airport for your return flight home.\"}],\"sourceUrl\":\"https://www.tripmasters.com/asia/\"},{\"name\":\"Bangkok and Phuket by Air \u2013 Thailand Package\",\"destination\":\"Bangkok & Phuket\",\"countries\":[\"Thailand\"],\"duration\":7,\"price\":1039,\"originalPrice\":1039,\"rating\":4.6,\"reviewCount\":264,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":false,\"guide\":false},\"highlights\":[\"Bangkok's floating markets, Grand Palace, Buddhist temples and legendary nightlife\",\"Phuket \u2014 the 'Pearl of the South' with some of Thailand's most popular beaches\",\"Intercity flight between Bangkok and Phuket included\",\"Fully flexible itinerary \u2014 customise hotels and length of stay\",\"Option to upgrade to guided activities or luxury private experience\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"beach\",\"description\":\"A 6-night (7-day) self-guided Thailand package including round-trip flights into Bangkok and out of Phuket, 3 nights in each city, and an intercity flight. Priced from $1,039 per person based on double occupancy.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrive Bangkok\",\"description\":\"Fly into Bangkok and check in to your hotel. Evening walk along the Chao Phraya riverfront.\"},{\"day\":2,\"title\":\"Bangkok Temples & Palace\",\"description\":\"Visit the Grand Palace, Wat Pho (Reclining Buddha), and Wat Arun. Explore Khao San Road in the evening.\"},{\"day\":3,\"title\":\"Bangkok Markets & Nightlife\",\"description\":\"Visit a floating market, explore Chatuchak Weekend Market, and enjoy Bangkok's world-famous street food scene.\"},{\"day\":4,\"title\":\"Fly to Phuket\",\"description\":\"Morning flight to Phuket. Check in and relax on the beach. Explore Patong or Kata Beach in the evening.\"},{\"day\":5,\"title\":\"Phuket Beach Day\",\"description\":\"Full day to relax on Phuket's beaches or take an optional boat tour to Phang Nga Bay's limestone cliffs.\"},{\"day\":6,\"title\":\"Phuket Exploration\",\"description\":\"Explore Phuket Old Town, visit Big Buddha, and enjoy a final Thai dinner.\"},{\"day\":7,\"title\":\"Fly Home from Phuket\",\"description\":\"Transfer to Phuket International Airport for your return flight home.\"}],\"sourceUrl\":\"https://www.tripmasters.com/asia/\"},{\"name\":\"Sydney and Melbourne by Air \u2013 Australia City Package\",\"destination\":\"Sydney & Melbourne\",\"countries\":[\"Australia\"],\"duration\":7,\"price\":1469,\"originalPrice\":1469,\"rating\":4.8,\"reviewCount\":41,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":false,\"guide\":false},\"highlights\":[\"Sydney Opera House and Sydney Harbour Bridge \u2014 two of the world's most iconic structures\",\"Melbourne's vibrant laneways, diverse dining scene and world-class street art\",\"Intercity flight between Sydney and Melbourne included\",\"Fully flexible itinerary with customisable hotels and stays\",\"Option to add guided activities or upgrade to luxury private experience\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"cultural\",\"description\":\"A 6-night (7-day) self-guided Australia package visiting the country's two largest and most sophisticated cities, including round-trip flights into Sydney and out of Melbourne, 3 nights in each city, and an intercity flight. Priced from $1,469 per person based on double occupancy.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrive Sydney\",\"description\":\"Fly into Sydney and check in to your centrally located hotel. Evening stroll around Circular Quay.\"},{\"day\":2,\"title\":\"Sydney Icons\",\"description\":\"Visit the Sydney Opera House, walk across the Sydney Harbour Bridge, and explore The Rocks historic district.\"},{\"day\":3,\"title\":\"Sydney Beaches & Bondi\",\"description\":\"Explore Bondi Beach, the coastal walk to Coogee, and the vibrant caf\u00e9 culture of the Eastern Suburbs.\"},{\"day\":4,\"title\":\"Fly to Melbourne\",\"description\":\"Morning flight to Melbourne. Check in and explore the famous laneways and street art of the CBD.\"},{\"day\":5,\"title\":\"Melbourne Culture & Food\",\"description\":\"Visit the National Gallery of Victoria, explore Queen Victoria Market, and enjoy Melbourne's acclaimed caf\u00e9 and restaurant scene.\"},{\"day\":6,\"title\":\"Melbourne Surrounds\",\"description\":\"Free day for a day trip to the Yarra Valley wine region, the Dandenong Ranges, or the Mornington Peninsula.\"},{\"day\":7,\"title\":\"Fly Home from Melbourne\",\"description\":\"Transfer to Melbourne Airport for your return flight home.\"}],\"sourceUrl\":\"https://www.tripmasters.com/asia/\"},{\"name\":\"Sandals Last-Minute Caribbean All-Inclusive \u2013 Free Night Offer\",\"destination\":\"Caribbean (Jamaica, Barbados, Antigua, Saint Lucia & more)\",\"countries\":[\"Jamaica\",\"Barbados\",\"Antigua and Barbuda\",\"Saint Lucia\",\"Grenada\",\"Bahamas\",\"Cura\u00e7ao\",\"Saint Vincent and the Grenadines\"],\"duration\":4,\"price\":374,\"originalPrice\":374,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":false,\"hotel\":true,\"transfers\":false,\"meals\":true,\"guide\":false},\"highlights\":[\"Get a FREE night for every 3 or 4 night stay at select Sandals resorts\",\"Up to 65% off rack rates on last-minute travel dates\",\"All-inclusive dining, unlimited premium spirits, and watersports included\",\"Choice of 17 adults-only Sandals resorts across 8 Caribbean islands\",\"Reserve your room for just $49 per person with Best Price Guarantee\"],\"departureDates\":[],\"maxGroupSize\":2,\"difficulty\":\"easy\",\"category\":\"honeymoon\",\"description\":\"Sandals Resorts is currently offering last-minute all-inclusive Caribbean deals with a free night for every 3 or 4 night stay, plus up to 65% off rack rates. Rates start from $374 per person per night at select resorts including Sandals Ochi, Sandals Negril, Sandals Grande Antigua, Sandals Royal Barbados and more. International flights are not included.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrive at Your Sandals Resort\",\"description\":\"Check in to your chosen Sandals all-inclusive resort. Enjoy complimentary welcome drinks and explore the facilities.\"},{\"day\":2,\"title\":\"Beach & Watersports\",\"description\":\"Full day of unlimited watersports, swimming, and sunbathing. Enjoy gourmet dining at one of the resort's multiple restaurants.\"},{\"day\":3,\"title\":\"Island Activities\",\"description\":\"Optional island excursion or spa day. Evening entertainment and unlimited premium cocktails at the bars.\"},{\"day\":4,\"title\":\"Departure\",\"description\":\"Complimentary breakfast before checkout and departure transfer.\"}],\"sourceUrl\":\"https://www.sandals.com/specials/last-minute-travel-deals/\"},{\"name\":\"Runway to Rail: London \u2013 Paris and Rome\",\"destination\":\"London, Paris & Rome\",\"countries\":[\"United Kingdom\",\"France\",\"Italy\"],\"duration\":10,\"price\":1269,\"originalPrice\":1269,\"rating\":4.7,\"reviewCount\":713,\"includes\":{\"flights\":true,\"hotel\":true,\"transfers\":false,\"meals\":false,\"guide\":false},\"highlights\":[\"London's royal palaces, world-class shopping and rich history\",\"Eurostar train from London to Paris through the Channel Tunnel\",\"Paris \u2014 the City of Lights with the Louvre and iconic Eiffel Tower\",\"Rome \u2014 the Eternal City with the Colosseum and Roman Forum\",\"Intercity flight from Paris to Rome included\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"cultural\",\"description\":\"A 9-night (10-day) self-guided multi-city Europe package combining London, Paris and Rome, including round-trip flights into London and out of Rome, 3 nights in each city, Eurostar train from London to Paris, and an intercity flight from Paris to Rome. Priced from $1,269 per person based on double occupancy.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrive London\",\"description\":\"Fly into London and check in to your hotel. Evening walk around Trafalgar Square and the Thames Embankment.\"},{\"day\":2,\"title\":\"London Sightseeing\",\"description\":\"Visit Buckingham Palace, the Tower of London, the British Museum and iconic Westminster.\"},{\"day\":3,\"title\":\"London Free Day\",\"description\":\"Free day for shopping in Notting Hill, a visit to the National Gallery, or a day trip to Windsor Castle.\"},{\"day\":4,\"title\":\"Eurostar to Paris\",\"description\":\"Board the Eurostar through the Channel Tunnel to Paris. Check in and stroll along the Seine.\"},{\"day\":5,\"title\":\"Paris Sightseeing\",\"description\":\"Visit the Louvre, the Eiffel Tower, Notre-Dame Cathedral and the Champs-\u00c9lys\u00e9es.\"},{\"day\":6,\"title\":\"Paris Free Day\",\"description\":\"Free day for Montmartre, Versailles day trip, or exploring the Marais district's galleries and boutiques.\"},{\"day\":7,\"title\":\"Fly to Rome\",\"description\":\"Morning flight from Paris to Rome. Check in and explore Trastevere neighbourhood in the evening.\"},{\"day\":8,\"title\":\"Rome Sightseeing\",\"description\":\"Visit the Colosseum, the Roman Forum, the Pantheon and the Trevi Fountain.\"},{\"day\":9,\"title\":\"Rome Free Day\",\"description\":\"Free day for the Vatican Museums, Sistine Chapel, St. Peter's Basilica, or Borghese Gallery.\"},{\"day\":10,\"title\":\"Fly Home from Rome\",\"description\":\"Transfer to Rome Fiumicino Airport for your return flight home.\"}],\"sourceUrl\":\"https://www.tripmasters.com/europe/\"},{\"name\":\"Great Barrier Reef Adventure Package \u2013 Hamilton Island\",\"destination\":\"Hamilton Island, Great Barrier Reef, Australia\",\"countries\":[\"Australia\"],\"duration\":3,\"price\":675,\"originalPrice\":675,\"rating\":4.5,\"reviewCount\":0,\"includes\":{\"flights\":false,\"hotel\":true,\"transfers\":true,\"meals\":true,\"guide\":false},\"highlights\":[\"Full-day guided trip to the Great Barrier Reef \u2014 one of the Seven Natural Wonders of the World\",\"Daily complimentary breakfast included\",\"Free use of non-motorised watersports throughout your stay\",\"Free WiFi and complimentary hotel transfers on island\",\"Kids Stay and Eat Free at participating restaurants with eligible rates\"],\"departureDates\":[],\"maxGroupSize\":12,\"difficulty\":\"easy\",\"category\":\"adventure\",\"description\":\"A 3-night Hamilton Island package starting from AUD $2,111 for two adults at The Reef View Hotel (twin share), including a full-day Great Barrier Reef trip, daily breakfast, free non-motorised watersports, and free WiFi. Book direct for no booking or credit card fees.\",\"itinerary\":[{\"day\":1,\"title\":\"Arrive Hamilton Island\",\"description\":\"Arrive at Hamilton Island Airport and take a complimentary transfer to The Reef View Hotel. Settle in and enjoy the resort facilities.\"},{\"day\":2,\"title\":\"Great Barrier Reef Full-Day Trip\",\"description\":\"Full-day guided excursion to the Great Barrier Reef \u2014 snorkelling, coral viewing, and marine wildlife encounters.\"},{\"day\":3,\"title\":\"Island Exploration\",\"description\":\"Free day to enjoy non-motorised watersports, explore the island by buggy, or relax on the beach.\"},{\"day\":4,\"title\":\"Departure\",\"description\":\"Complimentary breakfast, then transfer to Hamilton Island Airport for departure.\"}],\"sourceUrl\":\"https://www.hamiltonisland.com.au/accommodation/hotel-deals-and-packages\"}]",
+  "candidate_count": 12,
+  "validated_count": 12,
+  "dropped": [],
+  "packages": [
+    {
+      "id": 1,
+      "name": "Istanbul and Cappadocia Tour \u2013 6 Days Turkey Package",
+      "slug": "istanbul-and-cappadocia-tour-6-days-turkey-package",
+      "destination": "Istanbul & Cappadocia",
+      "countries": [
+        "Turkey"
+      ],
+      "duration": 6,
+      "price": 1180.0,
+      "originalPrice": 1180.0,
+      "currency": "USD",
+      "rating": 5.0,
+      "reviewCount": 162,
+      "imageGradient": "from-violet-500 to-purple-700",
+      "includes": {
+        "flights": false,
+        "hotel": true,
+        "transfers": true,
+        "meals": true,
+        "guide": true
+      },
+      "highlights": [
+        "Full-day walking tour of Istanbul Old City including Blue Mosque, Topkapi Palace and Grand Bazaar",
+        "Scenic Bosphorus Strait cruise and Spice Bazaar visit",
+        "Hot air balloon ride option over Cappadocia's fairy chimneys",
+        "North and South Cappadocia tours including Goreme Open Air Museum and Kaymakli Underground City",
+        "Round-trip domestic economy flights between Istanbul and Cappadocia included"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "cultural",
+      "description": "A 6-day guided package covering Istanbul's iconic historical sites and Cappadocia's surreal landscapes, including 4 full-day excursions with English-speaking guides, hotel accommodation with daily breakfast, 3 lunches, 6 airport transfers, and domestic flights. International flights are not included.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Istanbul",
+          "description": "Private airport transfer to your hotel. Free time to explore the neighbourhood and settle in."
+        },
+        {
+          "day": 2,
+          "title": "Istanbul Old City Tour",
+          "description": "Full-day walking tour of the Hippodrome, Blue Mosque, Topkapi Palace, and Grand Bazaar. Lunch at a Turkish restaurant included."
+        },
+        {
+          "day": 3,
+          "title": "Bosphorus Cruise & Flight to Cappadocia",
+          "description": "Morning visit to the Spice Bazaar, then a scenic Bosphorus Strait cruise. Afternoon flight to Cappadocia."
+        },
+        {
+          "day": 4,
+          "title": "North Cappadocia Tour",
+          "description": "Optional hot air balloon ride at sunrise, then guided tour of Devrent Valley, Monks Valley, Avanos Pottery Workshop, and Goreme Open Air Museum. Lunch included."
+        },
+        {
+          "day": 5,
+          "title": "South Cappadocia Tour & Return to Istanbul",
+          "description": "Optional morning balloon ride, then hiking in Red Valley, visit to Kaymakli Underground City, and evening flight back to Istanbul."
+        },
+        {
+          "day": 6,
+          "title": "Free Day & Departure",
+          "description": "Breakfast at hotel, free time until airport transfer for your international departure."
+        }
+      ],
+      "sourceUrl": "https://www.turkeytraveltours.com/all/istanbul-and-cappadocia-tour"
+    },
+    {
+      "id": 2,
+      "name": "Highlights of T\u00fcrkiye for 2 \u2013 TripADeal",
+      "slug": "highlights-of-t-rkiye-for-2-tripadeal",
+      "destination": "Turkey (Istanbul, Gallipoli, Cappadocia & more)",
+      "countries": [
+        "Turkey"
+      ],
+      "duration": 12,
+      "price": 2495.0,
+      "originalPrice": 2559.0,
+      "currency": "USD",
+      "rating": 4.4,
+      "reviewCount": 42355,
+      "imageGradient": "from-pink-500 to-rose-600",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": true,
+        "meals": true,
+        "guide": true
+      },
+      "highlights": [
+        "Visit Istanbul's iconic Hagia Sophia, Blue Mosque and Grand Bazaar",
+        "Explore the Gallipoli Peninsula and ANZAC historical sites",
+        "Discover Cappadocia's fairy chimneys and optional hot air balloon ride",
+        "Tour ancient ruins at Troy, Pergamon and Ephesus",
+        "All international and internal flights included"
+      ],
+      "departureDates": [
+        "2027-03-08",
+        "2027-10-25"
+      ],
+      "maxGroupSize": 20,
+      "difficulty": "easy",
+      "category": "cultural",
+      "description": "A 12-day guided tour for two people covering Turkey's most iconic destinations including Istanbul, Gallipoli, Cappadocia and more, with all international and internal flights included. Priced from AUD $7,799 for 2 people (was AUD $7,999), saving $200 for 2 people.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive Istanbul",
+          "description": "Arrive in Istanbul and transfer to your hotel. Orientation and welcome."
+        },
+        {
+          "day": 2,
+          "title": "Istanbul Sightseeing",
+          "description": "Guided tour of Istanbul's major landmarks including the Blue Mosque, Hagia Sophia, Topkapi Palace and Grand Bazaar."
+        },
+        {
+          "day": 3,
+          "title": "Gallipoli & Troy",
+          "description": "Travel to the Gallipoli Peninsula for a moving visit to ANZAC Cove and Lone Pine, then continue to Troy."
+        },
+        {
+          "day": 4,
+          "title": "Pergamon & Ephesus",
+          "description": "Explore the ancient ruins of Pergamon and the remarkably preserved city of Ephesus."
+        },
+        {
+          "day": 5,
+          "title": "Pamukkale",
+          "description": "Visit the stunning white travertine terraces and thermal pools of Pamukkale."
+        },
+        {
+          "day": 6,
+          "title": "Travel to Cappadocia",
+          "description": "Fly to Cappadocia and check in to your cave hotel."
+        },
+        {
+          "day": 7,
+          "title": "Cappadocia Exploration",
+          "description": "Guided tour of Cappadocia's valleys, fairy chimneys, and Goreme Open Air Museum. Optional hot air balloon ride."
+        },
+        {
+          "day": 8,
+          "title": "Underground Cities & Valleys",
+          "description": "Visit Kaymakli Underground City and explore the scenic valleys of Cappadocia."
+        },
+        {
+          "day": 9,
+          "title": "Return to Istanbul",
+          "description": "Fly back to Istanbul for leisure time and final sightseeing."
+        },
+        {
+          "day": 10,
+          "title": "Istanbul Free Day",
+          "description": "Free day to explore Istanbul's neighbourhoods, bazaars and waterfront."
+        },
+        {
+          "day": 11,
+          "title": "Bosphorus & Departure Prep",
+          "description": "Optional Bosphorus cruise or leisure time before farewell dinner."
+        },
+        {
+          "day": 12,
+          "title": "Departure",
+          "description": "Transfer to Istanbul airport for your international departure."
+        }
+      ],
+      "sourceUrl": "https://www.tripadeal.com.au/destination/turkey"
+    },
+    {
+      "id": 3,
+      "name": "Whitsunday Reefsleep & Escape \u2013 TripADeal",
+      "slug": "whitsunday-reefsleep-escape-tripadeal",
+      "destination": "Whitsundays, Queensland, Australia",
+      "countries": [
+        "Australia"
+      ],
+      "duration": 6,
+      "price": 1471.0,
+      "originalPrice": 1471.0,
+      "currency": "USD",
+      "rating": 4.4,
+      "reviewCount": 42355,
+      "imageGradient": "from-red-400 to-pink-600",
+      "includes": {
+        "flights": false,
+        "hotel": true,
+        "transfers": false,
+        "meals": false,
+        "guide": false
+      },
+      "highlights": [
+        "Spend a night under the stars on the Great Barrier Reef (Reefsleep experience)",
+        "Visit Whitehaven Beach, consistently rated one of the world's best beaches",
+        "Catamaran day trip included",
+        "Based in Airlie Beach with access to Whitsunday Islands",
+        "Earn Qantas Points on your booking"
+      ],
+      "departureDates": [
+        "2026-11-09",
+        "2026-11-23"
+      ],
+      "maxGroupSize": 20,
+      "difficulty": "easy",
+      "category": "beach",
+      "description": "A 6-day Whitsunday escape including a night sleeping under the stars on the Great Barrier Reef, a visit to Whitehaven Beach, and a catamaran day trip. Priced from AUD $2,299 per person twin share. Meet in Airlie Beach \u2014 flights are not included in this package.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive Airlie Beach",
+          "description": "Arrive in Airlie Beach and check in to your accommodation. Explore the marina and town."
+        },
+        {
+          "day": 2,
+          "title": "Catamaran Day Trip",
+          "description": "Full-day catamaran excursion through the Whitsunday Islands, snorkelling and swimming in crystal-clear waters."
+        },
+        {
+          "day": 3,
+          "title": "Reefsleep on the Great Barrier Reef",
+          "description": "Board the vessel to the Great Barrier Reef and spend the night sleeping under the stars on a pontoon on the reef."
+        },
+        {
+          "day": 4,
+          "title": "Great Barrier Reef Morning & Whitehaven Beach",
+          "description": "Morning snorkelling and reef exploration, then travel to the pristine sands of Whitehaven Beach."
+        },
+        {
+          "day": 5,
+          "title": "Whitehaven Beach & Return",
+          "description": "Further exploration of Whitehaven Beach and Hill Inlet lookout before returning to Airlie Beach."
+        },
+        {
+          "day": 6,
+          "title": "Departure",
+          "description": "Check out and depart Airlie Beach."
+        }
+      ],
+      "sourceUrl": "https://www.tripadeal.com.au/destination/australia"
+    },
+    {
+      "id": 4,
+      "name": "Best of the Whitsundays Package \u2013 Hamilton Island",
+      "slug": "best-of-the-whitsundays-package-hamilton-island",
+      "destination": "Hamilton Island, Whitsundays, Australia",
+      "countries": [
+        "Australia"
+      ],
+      "duration": 3,
+      "price": 780.0,
+      "originalPrice": 780.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-green-500 to-emerald-700",
+      "includes": {
+        "flights": false,
+        "hotel": true,
+        "transfers": true,
+        "meals": true,
+        "guide": false
+      },
+      "highlights": [
+        "Full-day trip to the Great Barrier Reef included",
+        "Half-day trip to iconic Whitehaven Beach included",
+        "Weekly entry to Hamilton Island Wildlife experience",
+        "Complimentary breakfast daily",
+        "Free non-motorised watersports and free WiFi"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "beach",
+      "description": "A 3-night Hamilton Island package starting from AUD $2,443 for two adults at The Reef View Hotel (twin share), including a full-day Great Barrier Reef trip, a half-day Whitehaven Beach excursion, wildlife entry, and daily breakfast. Book direct for no booking fees.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive Hamilton Island",
+          "description": "Arrive at Hamilton Island Airport, complimentary transfer to The Reef View Hotel. Sparkling wine on arrival, free time to enjoy the island."
+        },
+        {
+          "day": 2,
+          "title": "Great Barrier Reef Adventure",
+          "description": "Full-day guided trip to the Great Barrier Reef \u2014 snorkelling, glass-bottom boat viewing, and reef exploration."
+        },
+        {
+          "day": 3,
+          "title": "Whitehaven Beach Excursion",
+          "description": "Half-day trip to Whitehaven Beach and Hill Inlet Lookout. Afternoon free for watersports or relaxation."
+        },
+        {
+          "day": 4,
+          "title": "Departure",
+          "description": "Complimentary breakfast, then transfer to Hamilton Island Airport for departure."
+        }
+      ],
+      "sourceUrl": "https://www.hamiltonisland.com.au/accommodation/hotel-deals-and-packages"
+    },
+    {
+      "id": 5,
+      "name": "Prague \u2013 Vienna \u2013 Budapest by Train",
+      "slug": "prague-vienna-budapest-by-train",
+      "destination": "Prague, Vienna & Budapest",
+      "countries": [
+        "Czech Republic",
+        "Austria",
+        "Hungary"
+      ],
+      "duration": 10,
+      "price": 1269.0,
+      "originalPrice": 1269.0,
+      "currency": "USD",
+      "rating": 4.7,
+      "reviewCount": 1951,
+      "imageGradient": "from-cyan-400 to-blue-600",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": false,
+        "guide": false
+      },
+      "highlights": [
+        "Explore Prague's 1,000 years of art and architecture \u2014 'The City of a Hundred Spires'",
+        "Vienna's Baroque palaces, famous coffee house culture, and music heritage",
+        "Budapest's dramatic contrast between historic Buda and vibrant Pest",
+        "High-speed train travel between all three cities",
+        "Fully flexible itinerary \u2014 customise hotels, length of stay, and add guided experiences"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "cultural",
+      "description": "A 9-night (10-day) self-guided package combining three of Central Europe's most beloved capitals by train, including round-trip flights, 3 nights each in Prague, Vienna and Budapest, and inter-city train tickets. Prices from $1,269 per person based on double occupancy.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Fly into Prague",
+          "description": "Arrive in Prague and check in to your centrally located hotel. Begin exploring the city at your own pace."
+        },
+        {
+          "day": 2,
+          "title": "Prague Sightseeing",
+          "description": "Explore Prague Castle, Charles Bridge, the Old Town Square and the famous Astronomical Clock."
+        },
+        {
+          "day": 3,
+          "title": "Prague Free Day",
+          "description": "Free day to discover Prague's hidden laneways, local cafes and vibrant neighbourhoods."
+        },
+        {
+          "day": 4,
+          "title": "Train to Vienna",
+          "description": "Morning train from Prague to Vienna. Check in and explore the Ringstrasse boulevard."
+        },
+        {
+          "day": 5,
+          "title": "Vienna Sightseeing",
+          "description": "Visit Sch\u00f6nbrunn Palace, the Vienna State Opera, and the Kunsthistorisches Museum."
+        },
+        {
+          "day": 6,
+          "title": "Vienna Free Day",
+          "description": "Free day for Viennese coffee houses, the Naschmarkt, or a day trip to the Vienna Woods."
+        },
+        {
+          "day": 7,
+          "title": "Train to Budapest",
+          "description": "Morning train from Vienna to Budapest. Check in and explore the Danube riverfront."
+        },
+        {
+          "day": 8,
+          "title": "Budapest Sightseeing",
+          "description": "Visit Buda Castle, Fisherman's Bastion, the Hungarian Parliament, and the Great Synagogue."
+        },
+        {
+          "day": 9,
+          "title": "Budapest Free Day",
+          "description": "Free day to explore the ruin bars, thermal baths, and local markets of Budapest."
+        },
+        {
+          "day": 10,
+          "title": "Fly Home from Budapest",
+          "description": "Transfer to Budapest airport for your return flight home."
+        }
+      ],
+      "sourceUrl": "https://www.tripmasters.com/europe/"
+    },
+    {
+      "id": 6,
+      "name": "Essential Madrid and Barcelona by Train",
+      "slug": "essential-madrid-and-barcelona-by-train",
+      "destination": "Madrid & Barcelona",
+      "countries": [
+        "Spain"
+      ],
+      "duration": 7,
+      "price": 1049.0,
+      "originalPrice": 1049.0,
+      "currency": "USD",
+      "rating": 4.7,
+      "reviewCount": 704,
+      "imageGradient": "from-amber-500 to-orange-700",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": false,
+        "guide": false
+      },
+      "highlights": [
+        "Madrid's world-class museums, vibrant nightlife and cultural landmarks",
+        "Barcelona's Gothic Quarter and iconic architecture by Antoni Gaud\u00ed",
+        "High-speed train between Madrid and Barcelona",
+        "Fully flexible itinerary with hotel and transport customisation",
+        "Option to upgrade to guided activities or luxury private experience"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "cultural",
+      "description": "A 6-night (7-day) self-guided package to Spain's two most iconic cities, including round-trip flights into Madrid and out of Barcelona, 3 nights in each city, and a high-speed train ticket between them. Priced from $1,049 per person based on double occupancy.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive Madrid",
+          "description": "Fly into Madrid and check in to your centrally located hotel. Evening stroll around Puerta del Sol."
+        },
+        {
+          "day": 2,
+          "title": "Madrid Sightseeing",
+          "description": "Visit the Prado Museum, Retiro Park, and the Royal Palace. Explore the tapas bars of La Latina."
+        },
+        {
+          "day": 3,
+          "title": "Madrid Free Day",
+          "description": "Free day to explore Malasa\u00f1a, the Thyssen-Bornemisza Museum, or a day trip to Toledo."
+        },
+        {
+          "day": 4,
+          "title": "Train to Barcelona",
+          "description": "High-speed AVE train to Barcelona. Check in and explore Las Ramblas and the Gothic Quarter."
+        },
+        {
+          "day": 5,
+          "title": "Barcelona Sightseeing",
+          "description": "Visit the Sagrada Fam\u00edlia, Park G\u00fcell, and the Picasso Museum. Evening at the waterfront."
+        },
+        {
+          "day": 6,
+          "title": "Barcelona Free Day",
+          "description": "Free day for Barceloneta beach, the Boqueria market, or more Gaud\u00ed architecture."
+        },
+        {
+          "day": 7,
+          "title": "Fly Home from Barcelona",
+          "description": "Transfer to Barcelona El Prat Airport for your return flight home."
+        }
+      ],
+      "sourceUrl": "https://www.tripmasters.com/europe/"
+    },
+    {
+      "id": 7,
+      "name": "Tokyo \u2013 Kyoto \u2013 Osaka by Train (Japan Golden Route)",
+      "slug": "tokyo-kyoto-osaka-by-train-japan-golden-route",
+      "destination": "Tokyo, Kyoto & Osaka",
+      "countries": [
+        "Japan"
+      ],
+      "duration": 10,
+      "price": 1649.0,
+      "originalPrice": 1649.0,
+      "currency": "USD",
+      "rating": 4.6,
+      "reviewCount": 458,
+      "imageGradient": "from-blue-400 to-indigo-600",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": false,
+        "guide": false
+      },
+      "highlights": [
+        "Tokyo's Michelin-starred dining scene, Ginza shopping and neon-lit skyscrapers",
+        "Kyoto \u2014 the City of Ten Thousand Shrines and premier UNESCO World Heritage destination",
+        "Osaka's Dotonbori food district, Osaka Castle and world-renowned Osaka Aquarium Kaiyukan",
+        "Convenient high-speed Shinkansen bullet train travel between cities",
+        "Fully flexible itinerary with optional guided upgrades"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "cultural",
+      "description": "A 9-night (10-day) self-guided Japan package travelling the famous Golden Route by bullet train, including round-trip flights into Tokyo and out of Osaka, 3 nights each in Tokyo, Kyoto and Osaka, and Shinkansen inter-city train tickets. Priced from $1,649 per person based on double occupancy.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive Tokyo",
+          "description": "Fly into Tokyo and check in to your hotel. Explore the local neighbourhood and recover from the journey."
+        },
+        {
+          "day": 2,
+          "title": "Tokyo Sightseeing",
+          "description": "Explore Shibuya Crossing, Senso-ji Temple in Asakusa, and the Ginza shopping district."
+        },
+        {
+          "day": 3,
+          "title": "Tokyo Free Day",
+          "description": "Free day for Akihabara electronics district, teamLab digital art, or a day trip to Nikko or Kamakura."
+        },
+        {
+          "day": 4,
+          "title": "Shinkansen to Kyoto",
+          "description": "Board the bullet train to Kyoto. Check in and explore Gion district in the evening."
+        },
+        {
+          "day": 5,
+          "title": "Kyoto Sightseeing",
+          "description": "Visit Fushimi Inari Shrine, Kinkaku-ji (Golden Pavilion), Arashiyama Bamboo Grove and Nijo Castle."
+        },
+        {
+          "day": 6,
+          "title": "Kyoto Free Day",
+          "description": "Free day for Nishiki Market, a tea ceremony experience, or a day trip to Nara to see the deer."
+        },
+        {
+          "day": 7,
+          "title": "Train to Osaka",
+          "description": "Short train ride to Osaka. Check in and explore Dotonbori's famous food and neon street."
+        },
+        {
+          "day": 8,
+          "title": "Osaka Sightseeing",
+          "description": "Visit Osaka Castle, the Kuromon Ichiba Market, and the Osaka Aquarium Kaiyukan."
+        },
+        {
+          "day": 9,
+          "title": "Osaka Free Day",
+          "description": "Free day for more local food exploration, Universal Studios Japan, or a day trip to Hiroshima."
+        },
+        {
+          "day": 10,
+          "title": "Fly Home from Osaka",
+          "description": "Transfer to Kansai International Airport for your return flight home."
+        }
+      ],
+      "sourceUrl": "https://www.tripmasters.com/asia/"
+    },
+    {
+      "id": 8,
+      "name": "Bangkok and Phuket by Air \u2013 Thailand Package",
+      "slug": "bangkok-and-phuket-by-air-thailand-package",
+      "destination": "Bangkok & Phuket",
+      "countries": [
+        "Thailand"
+      ],
+      "duration": 7,
+      "price": 1039.0,
+      "originalPrice": 1039.0,
+      "currency": "USD",
+      "rating": 4.6,
+      "reviewCount": 264,
+      "imageGradient": "from-yellow-400 to-amber-600",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": false,
+        "guide": false
+      },
+      "highlights": [
+        "Bangkok's floating markets, Grand Palace, Buddhist temples and legendary nightlife",
+        "Phuket \u2014 the 'Pearl of the South' with some of Thailand's most popular beaches",
+        "Intercity flight between Bangkok and Phuket included",
+        "Fully flexible itinerary \u2014 customise hotels and length of stay",
+        "Option to upgrade to guided activities or luxury private experience"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "beach",
+      "description": "A 6-night (7-day) self-guided Thailand package including round-trip flights into Bangkok and out of Phuket, 3 nights in each city, and an intercity flight. Priced from $1,039 per person based on double occupancy.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive Bangkok",
+          "description": "Fly into Bangkok and check in to your hotel. Evening walk along the Chao Phraya riverfront."
+        },
+        {
+          "day": 2,
+          "title": "Bangkok Temples & Palace",
+          "description": "Visit the Grand Palace, Wat Pho (Reclining Buddha), and Wat Arun. Explore Khao San Road in the evening."
+        },
+        {
+          "day": 3,
+          "title": "Bangkok Markets & Nightlife",
+          "description": "Visit a floating market, explore Chatuchak Weekend Market, and enjoy Bangkok's world-famous street food scene."
+        },
+        {
+          "day": 4,
+          "title": "Fly to Phuket",
+          "description": "Morning flight to Phuket. Check in and relax on the beach. Explore Patong or Kata Beach in the evening."
+        },
+        {
+          "day": 5,
+          "title": "Phuket Beach Day",
+          "description": "Full day to relax on Phuket's beaches or take an optional boat tour to Phang Nga Bay's limestone cliffs."
+        },
+        {
+          "day": 6,
+          "title": "Phuket Exploration",
+          "description": "Explore Phuket Old Town, visit Big Buddha, and enjoy a final Thai dinner."
+        },
+        {
+          "day": 7,
+          "title": "Fly Home from Phuket",
+          "description": "Transfer to Phuket International Airport for your return flight home."
+        }
+      ],
+      "sourceUrl": "https://www.tripmasters.com/asia/"
+    },
+    {
+      "id": 9,
+      "name": "Sydney and Melbourne by Air \u2013 Australia City Package",
+      "slug": "sydney-and-melbourne-by-air-australia-city-package",
+      "destination": "Sydney & Melbourne",
+      "countries": [
+        "Australia"
+      ],
+      "duration": 7,
+      "price": 1469.0,
+      "originalPrice": 1469.0,
+      "currency": "USD",
+      "rating": 4.8,
+      "reviewCount": 41,
+      "imageGradient": "from-orange-500 to-red-700",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": false,
+        "guide": false
+      },
+      "highlights": [
+        "Sydney Opera House and Sydney Harbour Bridge \u2014 two of the world's most iconic structures",
+        "Melbourne's vibrant laneways, diverse dining scene and world-class street art",
+        "Intercity flight between Sydney and Melbourne included",
+        "Fully flexible itinerary with customisable hotels and stays",
+        "Option to add guided activities or upgrade to luxury private experience"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "cultural",
+      "description": "A 6-night (7-day) self-guided Australia package visiting the country's two largest and most sophisticated cities, including round-trip flights into Sydney and out of Melbourne, 3 nights in each city, and an intercity flight. Priced from $1,469 per person based on double occupancy.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive Sydney",
+          "description": "Fly into Sydney and check in to your centrally located hotel. Evening stroll around Circular Quay."
+        },
+        {
+          "day": 2,
+          "title": "Sydney Icons",
+          "description": "Visit the Sydney Opera House, walk across the Sydney Harbour Bridge, and explore The Rocks historic district."
+        },
+        {
+          "day": 3,
+          "title": "Sydney Beaches & Bondi",
+          "description": "Explore Bondi Beach, the coastal walk to Coogee, and the vibrant caf\u00e9 culture of the Eastern Suburbs."
+        },
+        {
+          "day": 4,
+          "title": "Fly to Melbourne",
+          "description": "Morning flight to Melbourne. Check in and explore the famous laneways and street art of the CBD."
+        },
+        {
+          "day": 5,
+          "title": "Melbourne Culture & Food",
+          "description": "Visit the National Gallery of Victoria, explore Queen Victoria Market, and enjoy Melbourne's acclaimed caf\u00e9 and restaurant scene."
+        },
+        {
+          "day": 6,
+          "title": "Melbourne Surrounds",
+          "description": "Free day for a day trip to the Yarra Valley wine region, the Dandenong Ranges, or the Mornington Peninsula."
+        },
+        {
+          "day": 7,
+          "title": "Fly Home from Melbourne",
+          "description": "Transfer to Melbourne Airport for your return flight home."
+        }
+      ],
+      "sourceUrl": "https://www.tripmasters.com/asia/"
+    },
+    {
+      "id": 10,
+      "name": "Sandals Last-Minute Caribbean All-Inclusive \u2013 Free Night Offer",
+      "slug": "sandals-last-minute-caribbean-all-inclusive-free-night-offer",
+      "destination": "Caribbean (Jamaica, Barbados, Antigua, Saint Lucia & more)",
+      "countries": [
+        "Jamaica",
+        "Barbados",
+        "Antigua and Barbuda",
+        "Saint Lucia",
+        "Grenada",
+        "Bahamas",
+        "Cura\u00e7ao",
+        "Saint Vincent and the Grenadines"
+      ],
+      "duration": 4,
+      "price": 374.0,
+      "originalPrice": 374.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-teal-400 to-green-600",
+      "includes": {
+        "flights": false,
+        "hotel": true,
+        "transfers": false,
+        "meals": true,
+        "guide": false
+      },
+      "highlights": [
+        "Get a FREE night for every 3 or 4 night stay at select Sandals resorts",
+        "Up to 65% off rack rates on last-minute travel dates",
+        "All-inclusive dining, unlimited premium spirits, and watersports included",
+        "Choice of 17 adults-only Sandals resorts across 8 Caribbean islands",
+        "Reserve your room for just $49 per person with Best Price Guarantee"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 2,
+      "difficulty": "easy",
+      "category": "honeymoon",
+      "description": "Sandals Resorts is currently offering last-minute all-inclusive Caribbean deals with a free night for every 3 or 4 night stay, plus up to 65% off rack rates. Rates start from $374 per person per night at select resorts including Sandals Ochi, Sandals Negril, Sandals Grande Antigua, Sandals Royal Barbados and more. International flights are not included.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive at Your Sandals Resort",
+          "description": "Check in to your chosen Sandals all-inclusive resort. Enjoy complimentary welcome drinks and explore the facilities."
+        },
+        {
+          "day": 2,
+          "title": "Beach & Watersports",
+          "description": "Full day of unlimited watersports, swimming, and sunbathing. Enjoy gourmet dining at one of the resort's multiple restaurants."
+        },
+        {
+          "day": 3,
+          "title": "Island Activities",
+          "description": "Optional island excursion or spa day. Evening entertainment and unlimited premium cocktails at the bars."
+        },
+        {
+          "day": 4,
+          "title": "Departure",
+          "description": "Complimentary breakfast before checkout and departure transfer."
+        }
+      ],
+      "sourceUrl": "https://www.sandals.com/specials/last-minute-travel-deals/"
+    },
+    {
+      "id": 11,
+      "name": "Runway to Rail: London \u2013 Paris and Rome",
+      "slug": "runway-to-rail-london-paris-and-rome",
+      "destination": "London, Paris & Rome",
+      "countries": [
+        "United Kingdom",
+        "France",
+        "Italy"
+      ],
+      "duration": 10,
+      "price": 1269.0,
+      "originalPrice": 1269.0,
+      "currency": "USD",
+      "rating": 4.7,
+      "reviewCount": 713,
+      "imageGradient": "from-yellow-300 to-orange-500",
+      "includes": {
+        "flights": true,
+        "hotel": true,
+        "transfers": false,
+        "meals": false,
+        "guide": false
+      },
+      "highlights": [
+        "London's royal palaces, world-class shopping and rich history",
+        "Eurostar train from London to Paris through the Channel Tunnel",
+        "Paris \u2014 the City of Lights with the Louvre and iconic Eiffel Tower",
+        "Rome \u2014 the Eternal City with the Colosseum and Roman Forum",
+        "Intercity flight from Paris to Rome included"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "cultural",
+      "description": "A 9-night (10-day) self-guided multi-city Europe package combining London, Paris and Rome, including round-trip flights into London and out of Rome, 3 nights in each city, Eurostar train from London to Paris, and an intercity flight from Paris to Rome. Priced from $1,269 per person based on double occupancy.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive London",
+          "description": "Fly into London and check in to your hotel. Evening walk around Trafalgar Square and the Thames Embankment."
+        },
+        {
+          "day": 2,
+          "title": "London Sightseeing",
+          "description": "Visit Buckingham Palace, the Tower of London, the British Museum and iconic Westminster."
+        },
+        {
+          "day": 3,
+          "title": "London Free Day",
+          "description": "Free day for shopping in Notting Hill, a visit to the National Gallery, or a day trip to Windsor Castle."
+        },
+        {
+          "day": 4,
+          "title": "Eurostar to Paris",
+          "description": "Board the Eurostar through the Channel Tunnel to Paris. Check in and stroll along the Seine."
+        },
+        {
+          "day": 5,
+          "title": "Paris Sightseeing",
+          "description": "Visit the Louvre, the Eiffel Tower, Notre-Dame Cathedral and the Champs-\u00c9lys\u00e9es."
+        },
+        {
+          "day": 6,
+          "title": "Paris Free Day",
+          "description": "Free day for Montmartre, Versailles day trip, or exploring the Marais district's galleries and boutiques."
+        },
+        {
+          "day": 7,
+          "title": "Fly to Rome",
+          "description": "Morning flight from Paris to Rome. Check in and explore Trastevere neighbourhood in the evening."
+        },
+        {
+          "day": 8,
+          "title": "Rome Sightseeing",
+          "description": "Visit the Colosseum, the Roman Forum, the Pantheon and the Trevi Fountain."
+        },
+        {
+          "day": 9,
+          "title": "Rome Free Day",
+          "description": "Free day for the Vatican Museums, Sistine Chapel, St. Peter's Basilica, or Borghese Gallery."
+        },
+        {
+          "day": 10,
+          "title": "Fly Home from Rome",
+          "description": "Transfer to Rome Fiumicino Airport for your return flight home."
+        }
+      ],
+      "sourceUrl": "https://www.tripmasters.com/europe/"
+    },
+    {
+      "id": 12,
+      "name": "Great Barrier Reef Adventure Package \u2013 Hamilton Island",
+      "slug": "great-barrier-reef-adventure-package-hamilton-island",
+      "destination": "Hamilton Island, Great Barrier Reef, Australia",
+      "countries": [
+        "Australia"
+      ],
+      "duration": 3,
+      "price": 675.0,
+      "originalPrice": 675.0,
+      "currency": "USD",
+      "rating": 4.5,
+      "reviewCount": 0,
+      "imageGradient": "from-slate-400 to-blue-700",
+      "includes": {
+        "flights": false,
+        "hotel": true,
+        "transfers": true,
+        "meals": true,
+        "guide": false
+      },
+      "highlights": [
+        "Full-day guided trip to the Great Barrier Reef \u2014 one of the Seven Natural Wonders of the World",
+        "Daily complimentary breakfast included",
+        "Free use of non-motorised watersports throughout your stay",
+        "Free WiFi and complimentary hotel transfers on island",
+        "Kids Stay and Eat Free at participating restaurants with eligible rates"
+      ],
+      "departureDates": [],
+      "maxGroupSize": 12,
+      "difficulty": "easy",
+      "category": "adventure",
+      "description": "A 3-night Hamilton Island package starting from AUD $2,111 for two adults at The Reef View Hotel (twin share), including a full-day Great Barrier Reef trip, daily breakfast, free non-motorised watersports, and free WiFi. Book direct for no booking or credit card fees.",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive Hamilton Island",
+          "description": "Arrive at Hamilton Island Airport and take a complimentary transfer to The Reef View Hotel. Settle in and enjoy the resort facilities."
+        },
+        {
+          "day": 2,
+          "title": "Great Barrier Reef Full-Day Trip",
+          "description": "Full-day guided excursion to the Great Barrier Reef \u2014 snorkelling, coral viewing, and marine wildlife encounters."
+        },
+        {
+          "day": 3,
+          "title": "Island Exploration",
+          "description": "Free day to enjoy non-motorised watersports, explore the island by buggy, or relax on the beach."
+        },
+        {
+          "day": 4,
+          "title": "Departure",
+          "description": "Complimentary breakfast, then transfer to Hamilton Island Airport for departure."
+        }
+      ],
+      "sourceUrl": "https://www.hamiltonisland.com.au/accommodation/hotel-deals-and-packages"
+    }
+  ]
+}
