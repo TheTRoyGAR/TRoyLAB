@@ -894,5 +894,1002 @@
         "description": "Complimentary breakfast, then transfer to Hamilton Island Airport for departure."
       }
     ]
+  },
+  {
+    "id": 13,
+    "name": "3 Days Cappadocia Package (From Istanbul)",
+    "slug": "3-days-cappadocia-package-from-istanbul",
+    "destination": "Cappadocia",
+    "countries": [
+      "Turkey"
+    ],
+    "duration": 3,
+    "price": 565.0,
+    "originalPrice": 565.0,
+    "currency": "USD",
+    "rating": 4.8,
+    "reviewCount": 5784,
+    "imageGradient": "from-rose-400 to-pink-600",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Hot air balloon ride option over fairy chimneys at sunrise",
+      "Goreme Open Air Museum and Zelve Open Air Museum",
+      "Fairy chimneys of Pasabag (Monks Valley) and Devrent Valley",
+      "Kaymakli Underground City exploration",
+      "Cave hotel accommodation with breakfast included"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 8,
+    "difficulty": "easy",
+    "category": "cultural",
+    "description": "A 3-day Cappadocia package departing daily from Istanbul via early-morning domestic flight, including 2 nights in a deluxe cave hotel with breakfast, roundtrip flights, airport transfers, skip-the-line museum tickets, and a licensed English-speaking guide covering Goreme, Pasabag, Devrent Valley, Rose Valley, Uchisar Castle, Ihlara Valley, and an underground city.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Fly to Cappadocia & Northern Tour",
+        "description": "Early morning pickup from Istanbul hotel, 6:55 AM flight to Cappadocia. Tour begins around 9:00 AM covering Goreme Esentepe panorama, Zelve Open Air Museum, Pasabag (Monks Valley), Devrent Valley, Avanos pottery workshop, and Love Valley. Overnight at cave hotel."
+      },
+      {
+        "day": 2,
+        "title": "Optional Balloon & Rose Valley Hike",
+        "description": "Optional hot air balloon ride at sunrise (additional cost). Afternoon guided hike through Rose Valley, Red Valley, Cavusin Village, Pigeon Valley, and Uchisar Castle panorama. Overnight at cave hotel."
+      },
+      {
+        "day": 3,
+        "title": "Southern Cappadocia & Return Flight",
+        "description": "Tour of Ihlara Valley, Goreme Panorama, Kaymakli Underground City, Nar Lake viewpoint, and an Onyx workshop. Transfer to airport for evening flight back to Istanbul with hotel drop-off."
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "16 Days Istanbul Gallipoli Troy Pergamum Ephesus Pamukkale Fethiye Blue Cruise Antalya Konya and Cappadocia Tour",
+    "slug": "16-days-istanbul-gallipoli-troy-pergamum-ephesus-pamukkale-fethiye-blue-cruise-antalya-konya-and-cappadocia-tour",
+    "destination": "Turkey \u2013 Troy, Gallipoli, Aegean & Anatolia",
+    "countries": [
+      "Turkey"
+    ],
+    "duration": 16,
+    "price": 3355.0,
+    "originalPrice": 3355.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-green-400 to-teal-600",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Ancient city of Troy including Trojan Horse, Apollo Temple, and Roman Theater",
+      "Gallipoli WWI memorials and ANZAC Cove",
+      "Ephesus Ancient City with Celsus Library and Hadrian Temple",
+      "4-night Blue Cruise through Fethiye, Butterfly Valley, Oludeniz, and Kekova",
+      "Cappadocia fairy chimneys, underground city, and cave hotel stay"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 18,
+    "difficulty": "moderate",
+    "category": "cultural",
+    "description": "A comprehensive 16-day guided group tour of Turkey (max 18 people) covering Istanbul, Gallipoli, the ancient city of Troy, Pergamum, Ephesus, Pamukkale, a 4-night Blue Cruise from Fethiye, Antalya, Konya's Mevlana Museum, and Cappadocia. Includes hotels with breakfast, lunches on tour days, domestic flights, entrance fees, and an English-speaking guide.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival in Istanbul",
+        "description": "Airport pickup and transfer to hotel. Free time to explore."
+      },
+      {
+        "day": 2,
+        "title": "Free Day in Istanbul",
+        "description": "Open buffet breakfast. Free day to explore Istanbul's Old City independently or join an optional guided city tour."
+      },
+      {
+        "day": 3,
+        "title": "Gallipoli Tour",
+        "description": "Drive to Gallipoli to visit WWI memorials including ANZAC Cove, Lone Pine, and Chunuk Bair. Lunch included. Ferry to Canakkale and overnight."
+      },
+      {
+        "day": 4,
+        "title": "Troy and Pergamum",
+        "description": "Morning tour of Troy ancient city (10 layers of civilizations, Trojan Horse, Apollo Temple). Drive to Pergamum with its ancient library and Zeus Altar. Lunch included. Overnight in Kusadasi/Selcuk."
+      },
+      {
+        "day": 5,
+        "title": "Ephesus Tour",
+        "description": "Visit the Artemis Temple, Ephesus Ancient City, Hadrian Temple, Celsus Library, and House of Virgin Mary. Lunch included."
+      },
+      {
+        "day": 6,
+        "title": "Pamukkale Tour",
+        "description": "Visit Pamukkale's travertine terraces and Hierapolis Ancient City (UNESCO World Heritage). Optional Cleopatra Swimming Pool. Transfer to Fethiye."
+      },
+      {
+        "day": 7,
+        "title": "Blue Cruise Day 1 \u2013 Fethiye to Butterfly Valley",
+        "description": "Board gulet at Fethiye harbour. Sail to Samanlik Bay, Butterfly Valley, and Oludeniz (Blue Lagoon). Dinner on board."
+      },
+      {
+        "day": 8,
+        "title": "Blue Cruise Day 2 \u2013 Kas & Kekova",
+        "description": "Sail to Kas fishing village (Antiphellos ruins, Lycian rock tombs) and Kekova with submerged city ruins. Dinner on board."
+      },
+      {
+        "day": 9,
+        "title": "Blue Cruise Day 3 \u2013 Kekova & Simena",
+        "description": "Visit Sunken City of Kekova and Simena village with Ottoman castle and ancient tombs. Dinner on board."
+      },
+      {
+        "day": 10,
+        "title": "Blue Cruise Day 4 \u2013 Disembark & Antalya",
+        "description": "Morning cruise past Pirates Cave to Andriace Harbour. Disembark and transfer to Antalya by bus."
+      },
+      {
+        "day": 11,
+        "title": "Antalya Free Day",
+        "description": "Free day to explore Antalya's Old City (Kaleici), Roman harbour, and beaches independently."
+      },
+      {
+        "day": 12,
+        "title": "Antalya to Cappadocia via Konya",
+        "description": "Drive to Konya, visit the Mevlana Museum (Whirling Dervishes). Continue 3 hours to Cappadocia. Overnight in cave hotel."
+      },
+      {
+        "day": 13,
+        "title": "Northern Cappadocia Tour",
+        "description": "Visit Goreme Panorama, Open Air Museum, Ortahisar, Pasabag (Fairy Chimney Valley), Devrent Valley, Avanos pottery workshops, and Love Valley. Lunch included."
+      },
+      {
+        "day": 14,
+        "title": "Southern Cappadocia Tour & Flight to Istanbul",
+        "description": "Visit Uchisar Castle, Red and Rose Valley rock churches, Cavusin village, Kaymakli Underground City, and Pigeon Valley. Evening flight to Istanbul."
+      },
+      {
+        "day": 15,
+        "title": "Free Day in Istanbul",
+        "description": "Free day to explore Istanbul. Optional Bosphorus cruise or Turkish dinner cruise available."
+      },
+      {
+        "day": 16,
+        "title": "Departure from Istanbul",
+        "description": "Transfer to Istanbul airport according to flight time. End of tour services."
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Best of Turkey Tour \u2013 10 Days Small Group",
+    "slug": "best-of-turkey-tour-10-days-small-group",
+    "destination": "Istanbul, Cappadocia, Pamukkale, Ephesus, Ankara",
+    "countries": [
+      "Turkey"
+    ],
+    "duration": 10,
+    "price": 1790.0,
+    "originalPrice": 1790.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-orange-400 to-pink-600",
+    "includes": {
+      "flights": false,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Istanbul's Grand Bazaar, Blue Mosque, and Topkapi Palace",
+      "Cappadocia fairy chimneys and cave hotel stay",
+      "Pamukkale's white travertine terraces (UNESCO World Heritage)",
+      "Ephesus ancient ruins and Celsus Library",
+      "Ankara and Konya cultural sites"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 28,
+    "difficulty": "easy",
+    "category": "cultural",
+    "description": "A 10-day/9-night small group guided tour (max 28 travelers) departing every Friday from Istanbul, covering Istanbul, Ankara, Cappadocia, Pamukkale, Kusadasi, and Canakkale. Includes hotels with breakfast, guided tours, and transfers. Airfare to Turkey not included.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival in Istanbul",
+        "description": "Arrive in Istanbul and transfer to hotel. Welcome orientation and free time to explore."
+      },
+      {
+        "day": 2,
+        "title": "Istanbul Sightseeing",
+        "description": "Guided tour of Istanbul's Old City including the Blue Mosque, Hagia Sophia, Topkapi Palace, and Grand Bazaar."
+      },
+      {
+        "day": 3,
+        "title": "Istanbul to Ankara",
+        "description": "Drive to Ankara, visit Ataturk Mausoleum (Anitkabir) and the Museum of Anatolian Civilizations."
+      },
+      {
+        "day": 4,
+        "title": "Ankara to Cappadocia",
+        "description": "Travel to Cappadocia, stopping at Tuz Golu (Salt Lake). Check in to cave hotel in Goreme or Urgup."
+      },
+      {
+        "day": 5,
+        "title": "Cappadocia Full Day Tour",
+        "description": "Visit Goreme Open Air Museum, fairy chimneys of Pasabag, Devrent Valley, Avanos pottery town, and Kaymakli Underground City."
+      },
+      {
+        "day": 6,
+        "title": "Cappadocia to Konya & Pamukkale",
+        "description": "Morning visit to Uchisar Castle and Rose Valley. Drive via Konya (Mevlana Museum) to Pamukkale. Check in to hotel."
+      },
+      {
+        "day": 7,
+        "title": "Pamukkale & Hierapolis",
+        "description": "Walk on the white travertine terraces of Pamukkale and explore Hierapolis Ancient City (UNESCO). Optional Cleopatra Pool swim."
+      },
+      {
+        "day": 8,
+        "title": "Ephesus & Kusadasi",
+        "description": "Visit the Artemis Temple, Ephesus Ancient City with Celsus Library and Great Theater, and the House of Virgin Mary. Overnight in Kusadasi."
+      },
+      {
+        "day": 9,
+        "title": "Kusadasi to Canakkale",
+        "description": "Drive north along the Aegean coast to Canakkale, stopping at key archaeological or scenic sites en route."
+      },
+      {
+        "day": 10,
+        "title": "Return to Istanbul & Departure",
+        "description": "Morning drive back to Istanbul. Transfer to airport for departure flights."
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Top End Highlights \u2013 Darwin, Kakadu, Litchfield & Nitmiluk 6-Day Tour",
+    "slug": "top-end-highlights-darwin-kakadu-litchfield-nitmiluk-6-day-tour",
+    "destination": "Darwin, Kakadu, Litchfield & Nitmiluk (Katherine) National Parks",
+    "countries": [
+      "Australia"
+    ],
+    "duration": 6,
+    "price": 1978.0,
+    "originalPrice": 2155.0,
+    "currency": "USD",
+    "rating": 4.4,
+    "reviewCount": 217,
+    "imageGradient": "from-sky-400 to-blue-500",
+    "includes": {
+      "flights": false,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Yellow Water Billabong cruise in Kakadu National Park (UNESCO World Heritage)",
+      "Nitmiluk (Katherine) Gorge river cruise with Jawoyn Aboriginal cultural insights",
+      "Ancient Aboriginal rock art at Burrungkuy (Nourlangie) and Ubirr",
+      "Litchfield National Park waterfalls including Florence and Wangi Falls",
+      "Katherine Hot Springs swim and Katherine Outback Experience"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 12,
+    "difficulty": "moderate",
+    "category": "adventure",
+    "description": "AAT Kings' 6-day guided tour from Darwin returning to Darwin, visiting Litchfield, Kakadu, and Nitmiluk National Parks. Includes 5 nights accommodation, 5 breakfasts, 2 dinners, expert Travel Director, and immersive MAKE TRAVEL MATTER\u00ae experiences with Indigenous communities. Currently discounted from AUD $3,345 to from AUD $3,077 per person (approx. USD $1,978 at current rates).",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Darwin Departure & Litchfield National Park",
+        "description": "Depart Darwin and enter Litchfield National Park. Visit spectacular waterfalls including Florence Falls and Wangi Falls with swimming opportunities. Overnight near Litchfield."
+      },
+      {
+        "day": 2,
+        "title": "Kakadu National Park \u2013 Rock Art & Wetlands",
+        "description": "Travel into Kakadu National Park. Visit the Ubirr rock art site with ancient Aboriginal paintings. Cruise Yellow Water Billabong to spot saltwater crocodiles and birdlife. Overnight in Kakadu."
+      },
+      {
+        "day": 3,
+        "title": "Kakadu \u2013 Nourlangie & Cultural Experiences",
+        "description": "Explore Burrungkuy (Nourlangie) rock art site with climb to the lookout for panoramic views. Learn about Bininj/Mungguy culture from local guides. Overnight in Kakadu."
+      },
+      {
+        "day": 4,
+        "title": "Kakadu to Katherine",
+        "description": "Depart Kakadu and travel south to Katherine. Visit the Katherine Outback Experience and relax in Katherine Hot Springs. Overnight in Katherine."
+      },
+      {
+        "day": 5,
+        "title": "Nitmiluk (Katherine) Gorge Cruise",
+        "description": "Morning river cruise through the dramatic sandstone gorges of Nitmiluk National Park, guided by Jawoyn Traditional Owners sharing Dreamtime stories. Overnight in Katherine area."
+      },
+      {
+        "day": 6,
+        "title": "Return to Darwin",
+        "description": "Drive back to Darwin with scenic stops along the way. Arrive Darwin for afternoon/evening departure flights."
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Darwin, Kakadu & Katherine 7-Night Adventure Package",
+    "slug": "darwin-kakadu-katherine-7-night-adventure-package",
+    "destination": "Darwin, Kakadu National Park, Nitmiluk & Litchfield",
+    "countries": [
+      "Australia"
+    ],
+    "duration": 8,
+    "price": 1259.0,
+    "originalPrice": 1273.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-blue-500 to-indigo-700",
+    "includes": {
+      "flights": false,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "5-day/4-night fully inclusive Kakadu, Litchfield & Katherine camping tour",
+      "Crocodile-filled river cruises in Kakadu wetlands",
+      "Ancient Aboriginal rock art sites at Ubirr and Nourlangie",
+      "Swimming in natural pools at Litchfield National Park (Wangi and Florence Falls)",
+      "3 nights Darwin hostel accommodation included"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 12,
+    "difficulty": "moderate",
+    "category": "adventure",
+    "description": "An 8-day Top End adventure package from Happy Travels combining 3 nights in Darwin hostel accommodation with a 5-day/4-night fully inclusive guided camping tour through Kakadu National Park, Nitmiluk (Katherine) Gorge, and Litchfield National Park. Priced from AUD $1,959 (approx. USD $1,259) per person.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrive Darwin",
+        "description": "Arrive in Darwin and check into hostel accommodation. Explore Darwin's waterfront and markets."
+      },
+      {
+        "day": 2,
+        "title": "Darwin Orientation",
+        "description": "Free day in Darwin to explore the city, Museum and Art Gallery of the Northern Territory, and Mindil Beach Sunset Market."
+      },
+      {
+        "day": 3,
+        "title": "Depart Darwin \u2013 Kakadu Day 1",
+        "description": "Join guided camping tour. Drive to Kakadu National Park, visit Ubirr rock art site and Yellow Water wetlands. Set up camp for the night."
+      },
+      {
+        "day": 4,
+        "title": "Kakadu Day 2 \u2013 Nourlangie & Wildlife",
+        "description": "Explore Burrungkuy (Nourlangie) rock art and scenic lookout. Afternoon wildlife cruise on Kakadu's billabongs. Camp overnight."
+      },
+      {
+        "day": 5,
+        "title": "Katherine Gorge",
+        "description": "Travel to Katherine. Afternoon cruise through Nitmiluk Gorge with Indigenous cultural commentary. Camp overnight near Katherine."
+      },
+      {
+        "day": 6,
+        "title": "Litchfield National Park",
+        "description": "Drive to Litchfield National Park. Visit magnetic termite mounds, swim at Wangi Falls and Florence Falls. Camp overnight."
+      },
+      {
+        "day": 7,
+        "title": "Return to Darwin",
+        "description": "Return to Darwin and check back into hostel accommodation. Free evening to explore."
+      },
+      {
+        "day": 8,
+        "title": "Departure Day",
+        "description": "Check out of Darwin hostel and transfer to Darwin Airport for departure flights."
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "9 Day Central Thailand with River Kwai",
+    "slug": "9-day-central-thailand-with-river-kwai",
+    "destination": "Bangkok, Kanchanaburi & Ayutthaya, Thailand",
+    "countries": [
+      "Thailand"
+    ],
+    "duration": 9,
+    "price": 1609.0,
+    "originalPrice": 1609.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-cyan-300 to-teal-500",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "River Kwai Bridge and WWII Death Railway in Kanchanaburi",
+      "Bangkok temples and Grand Palace",
+      "Ancient capital of Ayutthaya (UNESCO World Heritage Site)",
+      "Expert local tour director throughout",
+      "Classic escorted group tour with guaranteed departures"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 40,
+    "difficulty": "easy",
+    "category": "cultural",
+    "description": "Gate 1 Travel's 9-day classic escorted tour of Central Thailand covering 4 nights Bangkok, 2 nights Kanchanaburi (River Kwai), and 1 night Ayutthaya. Air & land price from $1,609 per person includes roundtrip international airfare, hotels, guided tours, most meals, and transfers. Season: August 2026 \u2013 May 2027.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Depart for Bangkok",
+        "description": "Overnight international flight to Bangkok, Thailand."
+      },
+      {
+        "day": 2,
+        "title": "Arrive Bangkok",
+        "description": "Arrive in Bangkok and transfer to hotel. Welcome dinner with the group."
+      },
+      {
+        "day": 3,
+        "title": "Bangkok Sightseeing",
+        "description": "Guided tour of Bangkok's Grand Palace, Wat Phra Kaew (Temple of the Emerald Buddha), Wat Pho, and a scenic river cruise on the Chao Phraya."
+      },
+      {
+        "day": 4,
+        "title": "Bangkok Free Day",
+        "description": "Free day to explore Bangkok's markets, temples, and neighbourhoods at your own pace. Optional excursions available."
+      },
+      {
+        "day": 5,
+        "title": "Bangkok to Kanchanaburi",
+        "description": "Drive to Kanchanaburi. Visit the Bridge on the River Kwai, Death Railway Museum, and Allied War Cemetery. Overnight in Kanchanaburi."
+      },
+      {
+        "day": 6,
+        "title": "Kanchanaburi \u2013 Death Railway & Nature",
+        "description": "Ride a section of the historic Death Railway through scenic countryside. Visit Erawan National Park waterfalls (optional). Overnight in Kanchanaburi."
+      },
+      {
+        "day": 7,
+        "title": "Kanchanaburi to Ayutthaya",
+        "description": "Drive to Ayutthaya, Thailand's ancient capital. Guided tour of the historic temple ruins (UNESCO World Heritage Site). Overnight in Ayutthaya."
+      },
+      {
+        "day": 8,
+        "title": "Ayutthaya to Bangkok",
+        "description": "Morning visit to more Ayutthaya ruins. Return to Bangkok for farewell dinner and last evening in the city."
+      },
+      {
+        "day": 9,
+        "title": "Depart Bangkok",
+        "description": "Transfer to Bangkok airport for return international flight home."
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Barcelona and Rome by Air \u2013 European City Combo",
+    "slug": "barcelona-and-rome-by-air-european-city-combo",
+    "destination": "Barcelona & Rome",
+    "countries": [
+      "Spain",
+      "Italy"
+    ],
+    "duration": 6,
+    "price": 979.0,
+    "originalPrice": 979.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 400,
+    "imageGradient": "from-lime-400 to-green-600",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": false,
+      "meals": false,
+      "guide": false
+    },
+    "highlights": [
+      "3 nights in Barcelona including Gaudi architecture and Gothic Quarter",
+      "Intercity flight from Barcelona to Rome included",
+      "3 nights in Rome near Colosseum, Vatican, and Roman Forum",
+      "Fully customizable dates and hotel choices",
+      "All air taxes and fuel surcharges included in price"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 2,
+    "difficulty": "easy",
+    "category": "cultural",
+    "description": "Tripmasters' customizable independent vacation package combining 3 nights in Barcelona and 3 nights in Rome, with a flight from Barcelona to Rome included. Priced from $979 per person (based on double occupancy) including all air taxes and fuel surcharges. Dates and hotels are fully flexible.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrive Barcelona",
+        "description": "International flight into Barcelona. Check in to hotel. Free afternoon to explore Las Ramblas and the Gothic Quarter."
+      },
+      {
+        "day": 2,
+        "title": "Barcelona Sightseeing",
+        "description": "Explore Gaudi's masterpieces: Sagrada Familia, Park Guell, and Casa Batllo. Stroll through the vibrant Barceloneta beach area."
+      },
+      {
+        "day": 3,
+        "title": "Barcelona Free Day",
+        "description": "Free day in Barcelona. Optional day trips to Montserrat or Sitges, or explore El Born and Montjuic on your own."
+      },
+      {
+        "day": 4,
+        "title": "Fly Barcelona to Rome",
+        "description": "Morning flight from Barcelona to Rome. Check in to hotel. Afternoon walk through Trastevere neighbourhood."
+      },
+      {
+        "day": 5,
+        "title": "Rome Sightseeing",
+        "description": "Visit the Colosseum, Roman Forum, and Palatine Hill. Afternoon at the Vatican Museums and Sistine Chapel (booking recommended)."
+      },
+      {
+        "day": 6,
+        "title": "Rome & Departure",
+        "description": "Morning visit to the Trevi Fountain and Spanish Steps. Transfer to Rome airport for return international flight home."
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Express Turkey Tour \u2013 8 Days Small Group (Istanbul, Cappadocia, Pamukkale, Ephesus)",
+    "slug": "express-turkey-tour-8-days-small-group-istanbul-cappadocia-pamukkale-ephesus",
+    "destination": "Istanbul, Cappadocia, Konya, Pamukkale, Ephesus",
+    "countries": [
+      "Turkey"
+    ],
+    "duration": 8,
+    "price": 1660.0,
+    "originalPrice": 1660.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-sky-300 to-blue-500",
+    "includes": {
+      "flights": false,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Istanbul's Blue Mosque, Hagia Sophia, and Grand Bazaar",
+      "Cappadocia fairy chimneys and cave hotel accommodation",
+      "Pamukkale's cotton-white travertine terraces (UNESCO World Heritage)",
+      "Ephesus ancient ruins with Celsus Library",
+      "Extra small group (max 10 travelers) with 3 guaranteed weekly departures"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 10,
+    "difficulty": "easy",
+    "category": "cultural",
+    "description": "Anatolia Tours' best-selling 8-day/7-night extra small group tour (max 10 travelers) covering all major Turkish highlights: Istanbul, Cappadocia, Konya, Pamukkale, and Ephesus. Guaranteed departures three times per week from Istanbul. Priced from $1,660 per person land-only, including hotels, breakfasts, guided tours, and transfers.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrive Istanbul",
+        "description": "Arrive in Istanbul and transfer to hotel. Free evening to explore Sultanahmet district."
+      },
+      {
+        "day": 2,
+        "title": "Istanbul Guided Tour",
+        "description": "Guided tour of Blue Mosque, Hagia Sophia, Topkapi Palace, Grand Bazaar, and Spice Market."
+      },
+      {
+        "day": 3,
+        "title": "Istanbul to Cappadocia",
+        "description": "Domestic flight to Cappadocia. Check in to cave hotel. Afternoon orientation walk through Goreme."
+      },
+      {
+        "day": 4,
+        "title": "Cappadocia Full Day",
+        "description": "Visit Goreme Open Air Museum, Pasabag fairy chimneys, Devrent Valley, Avanos pottery workshops, and Kaymakli Underground City. Optional hot air balloon at sunrise."
+      },
+      {
+        "day": 5,
+        "title": "Cappadocia to Konya & Pamukkale",
+        "description": "Morning visit to Uchisar Castle. Drive via Konya (Mevlana Museum \u2013 Whirling Dervishes) to Pamukkale. Overnight in Pamukkale."
+      },
+      {
+        "day": 6,
+        "title": "Pamukkale & Hierapolis",
+        "description": "Walk on the white travertine terraces and explore Hierapolis Ancient City. Optional Cleopatra Pool swim."
+      },
+      {
+        "day": 7,
+        "title": "Ephesus & Return to Istanbul",
+        "description": "Morning guided tour of Ephesus Ancient City (Celsus Library, Great Theater) and House of Virgin Mary. Domestic flight back to Istanbul."
+      },
+      {
+        "day": 8,
+        "title": "Departure from Istanbul",
+        "description": "Transfer to Istanbul airport for international departure flights."
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "13 Day Classic Thailand Tour",
+    "slug": "13-day-classic-thailand-tour",
+    "destination": "Bangkok, Ayutthaya, Sukhothai, Chiang Rai & Chiang Mai",
+    "countries": [
+      "Thailand"
+    ],
+    "duration": 13,
+    "price": 2239.0,
+    "originalPrice": 2239.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-cyan-400 to-teal-600",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Bangkok Grand Palace, Wat Pho, and Chao Phraya river cruise",
+      "Ayutthaya ancient temple ruins (UNESCO World Heritage)",
+      "Sukhothai Historical Park \u2013 Thailand's first capital",
+      "Chiang Rai's White Temple (Wat Rong Khun) and Golden Triangle",
+      "Chiang Mai temples, elephant sanctuary, and night bazaar"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 40,
+    "difficulty": "easy",
+    "category": "cultural",
+    "description": "Gate 1 Travel's 13-day classic escorted tour of Thailand covering Bangkok (4 nights), Ayutthaya (1 night), Sukhothai (1 night), Chiang Rai (2 nights), and Chiang Mai (3 nights). Air & land price from $2,239 per person includes roundtrip international airfare, hotels, guided tours, most meals, and transfers. Season: August 2026 \u2013 May 2027.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Depart for Bangkok",
+        "description": "Overnight international flight to Bangkok."
+      },
+      {
+        "day": 2,
+        "title": "Arrive Bangkok",
+        "description": "Arrive in Bangkok, transfer to hotel. Welcome dinner."
+      },
+      {
+        "day": 3,
+        "title": "Bangkok City Tour",
+        "description": "Guided tour of Grand Palace, Wat Phra Kaew, Wat Pho, and Chao Phraya river cruise."
+      },
+      {
+        "day": 4,
+        "title": "Bangkok Exploration",
+        "description": "Visit Wat Arun, the floating markets, and Jim Thompson's House. Afternoon at leisure."
+      },
+      {
+        "day": 5,
+        "title": "Bangkok to Ayutthaya",
+        "description": "Drive to Ayutthaya. Guided tour of ancient temple ruins including Wat Mahathat and Wat Phra Si Sanphet."
+      },
+      {
+        "day": 6,
+        "title": "Ayutthaya to Sukhothai",
+        "description": "Morning tour of Ayutthaya's remaining ruins. Drive north to Sukhothai Historical Park."
+      },
+      {
+        "day": 7,
+        "title": "Sukhothai to Chiang Rai",
+        "description": "Explore Sukhothai's ancient temples. Afternoon flight or drive north to Chiang Rai."
+      },
+      {
+        "day": 8,
+        "title": "Chiang Rai Highlights",
+        "description": "Visit the White Temple (Wat Rong Khun), Blue Temple, and Black House Museum."
+      },
+      {
+        "day": 9,
+        "title": "Golden Triangle & Chiang Mai",
+        "description": "Morning trip to the Golden Triangle (Thailand, Laos, Myanmar border). Afternoon drive to Chiang Mai."
+      },
+      {
+        "day": 10,
+        "title": "Chiang Mai City Tour",
+        "description": "Guided tour of Chiang Mai's old city walls, Wat Chedi Luang, Wat Phra Singh, and Doi Suthep temple."
+      },
+      {
+        "day": 11,
+        "title": "Chiang Mai \u2013 Elephant Sanctuary",
+        "description": "Half-day visit to an ethical elephant sanctuary. Afternoon at Chiang Mai's famous Sunday Walking Street or Night Bazaar."
+      },
+      {
+        "day": 12,
+        "title": "Chiang Mai Free Day & Farewell",
+        "description": "Free morning for last-minute shopping or cooking class. Farewell dinner with the group."
+      },
+      {
+        "day": 13,
+        "title": "Depart Chiang Mai",
+        "description": "Transfer to Chiang Mai airport for return international flights home."
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Barcelona and Rome by Air \u2013 9-Night Paris Add-On (Paris\u2013Barcelona\u2013Rome)",
+    "slug": "barcelona-and-rome-by-air-9-night-paris-add-on-paris-barcelona-rome",
+    "destination": "Paris, Barcelona & Rome",
+    "countries": [
+      "France",
+      "Spain",
+      "Italy"
+    ],
+    "duration": 9,
+    "price": 1239.0,
+    "originalPrice": 1239.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 162,
+    "imageGradient": "from-slate-400 to-blue-600",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": false,
+      "meals": false,
+      "guide": false
+    },
+    "highlights": [
+      "3 nights in Paris with Eiffel Tower, Louvre, and Montmartre",
+      "Intercity flights Paris\u2013Barcelona and Barcelona\u2013Rome included",
+      "3 nights in Barcelona with Gaudi architecture and Gothic Quarter",
+      "3 nights in Rome near Vatican, Colosseum, and Trevi Fountain",
+      "Fully customizable itinerary with choice of departure city and dates"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 2,
+    "difficulty": "easy",
+    "category": "cultural",
+    "description": "Tripmasters' 9-night independent vacation package visiting Paris, Barcelona, and Rome with intercity flights included. Priced from $1,239 per person (double occupancy) including all air taxes and fuel surcharges. Fully flexible dates and hotel selection.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrive Paris",
+        "description": "International flight into Paris. Check in to hotel. Evening stroll along the Seine."
+      },
+      {
+        "day": 2,
+        "title": "Paris Highlights",
+        "description": "Visit the Eiffel Tower, Louvre Museum, and Notre-Dame Cathedral area. Evening in Montmartre."
+      },
+      {
+        "day": 3,
+        "title": "Paris Free Day",
+        "description": "Free day for the Palace of Versailles day trip, Mus\u00e9e d'Orsay, or exploring Marais neighbourhood."
+      },
+      {
+        "day": 4,
+        "title": "Fly Paris to Barcelona",
+        "description": "Morning flight to Barcelona. Check in to hotel. Afternoon walk along La Rambla."
+      },
+      {
+        "day": 5,
+        "title": "Barcelona Gaudi & Gothic Quarter",
+        "description": "Visit Sagrada Familia, Park Guell, and the medieval Gothic Quarter. Evening tapas in El Born."
+      },
+      {
+        "day": 6,
+        "title": "Barcelona Free Day",
+        "description": "Free day to visit Picasso Museum, Barceloneta Beach, or take a day trip to Montserrat."
+      },
+      {
+        "day": 7,
+        "title": "Fly Barcelona to Rome",
+        "description": "Morning flight to Rome. Check in to hotel. Afternoon visit to Trastevere neighbourhood."
+      },
+      {
+        "day": 8,
+        "title": "Rome \u2013 Vatican & Ancient Sites",
+        "description": "Visit Vatican Museums, Sistine Chapel, St. Peter's Basilica. Afternoon at the Colosseum and Roman Forum."
+      },
+      {
+        "day": 9,
+        "title": "Rome & Departure",
+        "description": "Morning at Trevi Fountain and Pantheon. Transfer to Rome airport for return international flight."
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "10 Days Istanbul, Ephesus, Pamukkale, Antalya, Konya and Cappadocia Tour",
+    "slug": "10-days-istanbul-ephesus-pamukkale-antalya-konya-and-cappadocia-tour",
+    "destination": "Istanbul, Ephesus, Pamukkale, Antalya, Konya & Cappadocia",
+    "countries": [
+      "Turkey"
+    ],
+    "duration": 10,
+    "price": 2330.0,
+    "originalPrice": 2330.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-indigo-500 to-purple-700",
+    "includes": {
+      "flights": false,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Istanbul's Hagia Sophia, Blue Mosque, and Topkapi Palace",
+      "Ephesus Ancient City \u2013 one of the best-preserved Roman cities in the world",
+      "Pamukkale's white calcium terraces and Hierapolis ruins (UNESCO)",
+      "Antalya's Roman harbour and old city (Kaleici)",
+      "Cappadocia underground cities and cave hotel stay"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 18,
+    "difficulty": "easy",
+    "category": "cultural",
+    "description": "ToursTurkey.com's 10-day/9-night guided group tour (max 18 people) covering Istanbul, Ephesus, Pamukkale, Antalya, Konya, and Cappadocia. Priced from USD $2,330 per person including hotels with breakfast, lunches on tour days, guided excursions, and transfers. Airfare not included. Operated since 1999 with TripAdvisor Certificate of Excellence.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrive Istanbul",
+        "description": "Airport pickup and hotel transfer. Free afternoon to explore Sultanahmet."
+      },
+      {
+        "day": 2,
+        "title": "Istanbul Guided Tour",
+        "description": "Visit Hagia Sophia, Blue Mosque, Topkapi Palace, Grand Bazaar, and Spice Market."
+      },
+      {
+        "day": 3,
+        "title": "Istanbul to Ephesus",
+        "description": "Drive or fly to Kusadasi/Selcuk. Guided tour of Ephesus Ancient City, Celsus Library, and House of Virgin Mary. Overnight in Kusadasi."
+      },
+      {
+        "day": 4,
+        "title": "Pamukkale",
+        "description": "Visit Pamukkale's white travertine terraces and Hierapolis Ancient City. Optional Cleopatra Pool swim. Overnight in Pamukkale."
+      },
+      {
+        "day": 5,
+        "title": "Pamukkale to Antalya",
+        "description": "Drive to Antalya along the Mediterranean coast. Visit Antalya's Roman harbour and Kaleici old city. Overnight in Antalya."
+      },
+      {
+        "day": 6,
+        "title": "Antalya Leisure & Local Sights",
+        "description": "Morning visit to Antalya Museum or Perge ancient ruins. Afternoon leisure time on the Mediterranean coast."
+      },
+      {
+        "day": 7,
+        "title": "Antalya to Cappadocia via Konya",
+        "description": "Drive north to Konya, visit Mevlana Museum (Whirling Dervishes). Continue to Cappadocia. Check in to cave hotel."
+      },
+      {
+        "day": 8,
+        "title": "Northern Cappadocia Tour",
+        "description": "Visit Goreme Open Air Museum, Pasabag fairy chimneys, Devrent Valley, Avanos pottery workshops, and Love Valley. Lunch included."
+      },
+      {
+        "day": 9,
+        "title": "Southern Cappadocia & Istanbul Flight",
+        "description": "Visit Uchisar Castle, Rose Valley, Kaymakli Underground City, and Pigeon Valley. Evening domestic flight to Istanbul."
+      },
+      {
+        "day": 10,
+        "title": "Departure from Istanbul",
+        "description": "Transfer to Istanbul airport for international departure."
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "12 Day Classic Vietnam Tour",
+    "slug": "12-day-classic-vietnam-tour",
+    "destination": "Ho Chi Minh City, Hoi An, Hue, Halong Bay & Hanoi",
+    "countries": [
+      "Vietnam"
+    ],
+    "duration": 12,
+    "price": 2329.0,
+    "originalPrice": 2329.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-amber-400 to-orange-600",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Ho Chi Minh City (Saigon) \u2013 Cu Chi Tunnels and War Remnants Museum",
+      "Hoi An Ancient Town lantern-lit streets (UNESCO World Heritage)",
+      "Hue Imperial Citadel and royal tombs",
+      "Halong Bay overnight cruise among limestone karsts (UNESCO World Heritage)",
+      "Hanoi Old Quarter, Hoan Kiem Lake, and Ho Chi Minh Mausoleum"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 40,
+    "difficulty": "easy",
+    "category": "cultural",
+    "description": "Gate 1 Travel's 12-day classic escorted tour of Vietnam covering Ho Chi Minh City (3 nights), Hoi An (2 nights), Hue (2 nights), Halong Bay cruise (1 night), and Hanoi (2 nights). Air & land price from $2,329 per person includes roundtrip international airfare, hotels, guided tours, most meals, and transfers. Season: July 2026 \u2013 May 2027.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Depart for Ho Chi Minh City",
+        "description": "Overnight international flight to Ho Chi Minh City (Saigon), Vietnam."
+      },
+      {
+        "day": 2,
+        "title": "Arrive Ho Chi Minh City",
+        "description": "Arrive and transfer to hotel. Welcome dinner and orientation."
+      },
+      {
+        "day": 3,
+        "title": "Ho Chi Minh City Tour",
+        "description": "Visit the War Remnants Museum, Reunification Palace, Notre-Dame Cathedral, and Ben Thanh Market."
+      },
+      {
+        "day": 4,
+        "title": "Cu Chi Tunnels & Departure to Hoi An",
+        "description": "Morning tour of the Cu Chi Tunnels. Afternoon domestic flight to Da Nang and transfer to Hoi An."
+      },
+      {
+        "day": 5,
+        "title": "Hoi An Ancient Town",
+        "description": "Guided walking tour of Hoi An's UNESCO-listed Ancient Town. Visit the Japanese Covered Bridge, Assembly Halls, and local tailor shops."
+      },
+      {
+        "day": 6,
+        "title": "Hoi An to Hue",
+        "description": "Scenic drive over Hai Van Pass to Hue. Visit the Imperial Citadel and Thien Mu Pagoda."
+      },
+      {
+        "day": 7,
+        "title": "Hue Royal Tombs & Cuisine",
+        "description": "Visit royal tombs of Minh Mang and Tu Duc. Enjoy a traditional Hue royal cuisine dinner."
+      },
+      {
+        "day": 8,
+        "title": "Fly to Hanoi",
+        "description": "Morning domestic flight to Hanoi. Afternoon guided tour of the Old Quarter, Hoan Kiem Lake, and Ngoc Son Temple."
+      },
+      {
+        "day": 9,
+        "title": "Hanoi Highlights",
+        "description": "Visit Ho Chi Minh Mausoleum, One Pillar Pagoda, Temple of Literature, and the Vietnam Museum of Ethnology."
+      },
+      {
+        "day": 10,
+        "title": "Halong Bay Cruise \u2013 Day 1",
+        "description": "Drive to Halong Bay and board overnight cruise. Sail through limestone karsts, visit caves, and kayak in sheltered bays."
+      },
+      {
+        "day": 11,
+        "title": "Halong Bay Cruise \u2013 Day 2 & Return Hanoi",
+        "description": "Morning activities on the bay (Tai Chi, cooking class). Disembark and return to Hanoi. Farewell dinner."
+      },
+      {
+        "day": 12,
+        "title": "Depart Hanoi",
+        "description": "Transfer to Noi Bai International Airport for return international flight home."
+      }
+    ]
   }
 ]

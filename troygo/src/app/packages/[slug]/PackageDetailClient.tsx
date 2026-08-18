@@ -9,6 +9,7 @@ import {
   ArrowLeft, Calendar, Share2, Heart
 } from 'lucide-react'
 import { format } from 'date-fns'
+import PackageMap from '@/components/maps/PackageMap'
 
 const TABS = ['Overview', 'Itinerary', 'Inclusions', 'Reviews', 'Booking'] as const
 type Tab = typeof TABS[number]
@@ -117,13 +118,8 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
                     ))}
                   </ul>
                 </div>
-                {/* Map placeholder */}
-                <div
-                  className="w-full h-52 rounded-2xl flex items-center justify-center text-white/70 font-medium"
-                  style={{ background: 'linear-gradient(135deg, #0A1628 0%, #102444 100%)' }}
-                >
-                  🗺 Interactive Map · {pkg.countries.join(' → ')}
-                </div>
+                {/* Interactive route map — real coordinates via free Nominatim geocoding */}
+                <PackageMap destination={pkg.destination} countries={pkg.countries} />
               </div>
             )}
 
