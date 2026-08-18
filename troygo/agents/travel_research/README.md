@@ -24,7 +24,7 @@ This searches the web for real current deals, validates the results, and writes:
 
 ## Full pipeline (research → rebuild → deploy)
 
-Run `run_and_deploy.ps1` from this folder — it runs the agent, rebuilds the static site, and pushes the fresh build to the `gh-pages` branch. See that script's comments for the exact steps.
+Run `run_and_deploy.ps1` from this folder — it runs the agent and pushes the updated data to `main`. Vercel auto-deploys from there (troytravelagency.com is a Vercel domain as of 2026-08-18, not GitHub Pages). See that script's comments for the exact steps.
 
 ## Why a `sourceUrl` field
 
