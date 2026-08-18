@@ -6,8 +6,9 @@ export async function generateStaticParams() {
   return travelPackages.map((pkg) => ({ slug: pkg.slug }))
 }
 
-export default function PackageDetailPage({ params }: { params: { slug: string } }) {
-  const pkg = travelPackages.find((p) => p.slug === params.slug)
+export default async function PackageDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const pkg = travelPackages.find((p) => p.slug === slug)
   if (!pkg) notFound()
   return <PackageDetailClient pkg={pkg!} />
 }

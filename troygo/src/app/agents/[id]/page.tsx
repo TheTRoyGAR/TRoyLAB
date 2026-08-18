@@ -7,6 +7,7 @@ export async function generateStaticParams() {
   return [...agentParams, ...guideParams]
 }
 
-export default function AgentProfilePage({ params }: { params: { id: string } }) {
-  return <AgentProfileClient id={params.id} />
+export default async function AgentProfilePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  return <AgentProfileClient id={id} />
 }
