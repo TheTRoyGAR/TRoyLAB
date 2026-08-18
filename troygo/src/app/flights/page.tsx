@@ -22,6 +22,8 @@ import {
   AlertCircle,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import AirportAutocomplete from '@/components/flights/AirportAutocomplete'
+import TripAddOns from '@/components/flights/TripAddOns'
 import { sampleFlights, type Flight } from '@/lib/data/flights'
 import MainLayout from '@/components/layout/MainLayout'
 import LiveFlightTracker from '@/components/flights/LiveFlightTracker'
@@ -234,10 +236,10 @@ function SearchBar({
           <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">From</label>
           <div className="flex items-center gap-2 mt-1">
             <Plane className="h-4 w-4 text-teal shrink-0" style={{ color: '#00B4D8' }} />
-            <input
+            <AirportAutocomplete
               className="w-full text-sm font-semibold text-navy outline-none bg-transparent"
               value={from}
-              onChange={(e) => setFrom(e.target.value)}
+              onChange={setFrom}
               placeholder="City or airport"
             />
           </div>
@@ -249,10 +251,10 @@ function SearchBar({
             <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">To</label>
             <div className="flex items-center gap-2 mt-1">
               <Plane className="h-4 w-4 rotate-90 shrink-0" style={{ color: '#00B4D8' }} />
-              <input
+              <AirportAutocomplete
                 className="w-full text-sm font-semibold text-navy outline-none bg-transparent"
                 value={to}
-                onChange={(e) => setTo(e.target.value)}
+                onChange={setTo}
                 placeholder="City or airport"
               />
             </div>
@@ -314,10 +316,10 @@ function SearchBar({
                 <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">From</label>
                 <div className="flex items-center gap-2 mt-1">
                   <Plane className="h-4 w-4 text-teal shrink-0" style={{ color: '#00B4D8' }} />
-                  <input
+                  <AirportAutocomplete
                     className="w-full text-sm font-semibold text-navy outline-none bg-transparent"
                     value={leg.from}
-                    onChange={(e) => onUpdateLeg(leg.id, { from: e.target.value })}
+                    onChange={(v) => onUpdateLeg(leg.id, { from: v })}
                     placeholder="City or airport"
                   />
                 </div>
@@ -326,10 +328,10 @@ function SearchBar({
                 <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">To (leg {i + 2})</label>
                 <div className="flex items-center gap-2 mt-1">
                   <Plane className="h-4 w-4 rotate-90 shrink-0" style={{ color: '#00B4D8' }} />
-                  <input
+                  <AirportAutocomplete
                     className="w-full text-sm font-semibold text-navy outline-none bg-transparent"
                     value={leg.to}
-                    onChange={(e) => onUpdateLeg(leg.id, { to: e.target.value })}
+                    onChange={(v) => onUpdateLeg(leg.id, { to: v })}
                     placeholder="City or airport"
                   />
                 </div>
@@ -817,6 +819,19 @@ function FlightsContent() {
               )}
             </div>
           </div>
+
+          {/* Cross-sell: real hotels/cars/tours for the searched destination,
+              or a Trip Planner CTA if we don't have any yet — only once
+              there's an actual destination and results to react to. */}
+          {!legResults && sorted.length > 0 && (
+            <div className="mt-10">
+              <TripAddOns
+                cityName={sorted[0].to.city}
+                departureDate={date}
+                returnDate={returnDate}
+              />
+            </div>
+          )}
         </div>
       </div>
     </MainLayout>
