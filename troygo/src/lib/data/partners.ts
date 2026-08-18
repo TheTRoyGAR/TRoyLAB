@@ -58,4 +58,44 @@ export const trustedPartners: TrustedPartner[] = [
       'Destination management company operating across strategically selected Turkish destinations, delivering event and travel ground-handling solutions.',
     website: 'https://dmcturkey.org/',
   },
+  {
+    name: 'Explore Anatolia',
+    country: 'Turkey',
+    destinationsCovered: ['Troy', 'Aegean Coast', 'Ephesus', 'Pamukkale', 'Anatolia'],
+    description:
+      'Turkey tour operator specialising in private and custom itineraries across Anatolia and the Aegean coast, including Troy, Ephesus, and Pamukkale.',
+    website: 'https://exploreanatolia.com/',
+  },
+  {
+    name: 'On The Go Tours',
+    country: 'Turkey',
+    destinationsCovered: ['Troy', 'Gallipoli', 'Aegean Coast'],
+    description:
+      'Established tour operator running dedicated Troy tours along the Aegean coast, combining the ancient city with nearby historic and coastal sites.',
+    website: 'https://www.onthegotours.com/Turkey/Best-Places-To-Visit/Troy',
+  },
+  {
+    name: 'The Other Tour',
+    country: 'Turkey',
+    destinationsCovered: ['Istanbul', 'Troy', 'Aegean Coast'],
+    description:
+      'Full-service Turkey tour operator and DMC covering historic sites across Istanbul, Troy, and the Aegean region.',
+    website: 'https://theothertour.com/troy/',
+  },
+  {
+    name: 'APT Luxury Travel',
+    country: 'Australia',
+    destinationsCovered: ['Darwin', 'Kakadu', 'Litchfield', 'Northern Territory'],
+    description:
+      'Long-established Australian small-group luxury tour operator running dedicated Northern Territory itineraries covering Darwin, Kakadu, and Litchfield National Parks.',
+    website: 'https://www.aptouring.com/en-us/tours/australia/northern-territory',
+  },
+  {
+    name: 'Intrepid Travel',
+    country: 'Australia',
+    destinationsCovered: ['Darwin', 'Kakadu', 'Litchfield', 'Nitmiluk', 'Northern Territory'],
+    description:
+      'Well-known adventure tour operator running small-group Darwin and Top End trips with local and First Nations guides through Kakadu, Litchfield, and Nitmiluk.',
+    website: 'https://www.intrepidtravel.com/us/australia/darwin',
+  },
 ];

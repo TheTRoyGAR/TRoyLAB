@@ -115,11 +115,30 @@ def main() -> int:
         print("(The site will keep serving its last-known-good data either way, thanks to the fallback in packages.ts.)", file=sys.stderr)
         return 1
 
-    final_packages: list[TravelPackage] = []
-    for i, p in enumerate(validated, start=1):
-        final_packages.append(
+    # Grow the catalog rather than replace it — load whatever's already
+    # live and merge new real finds in, skipping anything that's already
+    # there by name (case-insensitive). This is deliberately different from
+    # the original "each run replaces the list" design: the CEO explicitly
+    # wants coverage to keep growing (new regions/destinations added over
+    # successive runs), not reset every time.
+    existing: list[dict] = []
+    if LIVE_JSON_PATH.exists():
+        try:
+            existing = json.loads(LIVE_JSON_PATH.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            existing = []
+    existing_names = {e["name"].strip().lower() for e in existing}
+
+    new_packages: list[TravelPackage] = []
+    new_validated: list[ResearchedPackage] = []
+    next_id = max((e.get("id", 0) for e in existing), default=0) + 1
+    for p in validated:
+        if p.name.strip().lower() in existing_names:
+            continue
+        new_validated.append(p)
+        new_packages.append(
             TravelPackage(
-                id=i,
+                id=next_id,
                 name=p.name,
                 slug=slugify(p.name),
                 destination=p.destination,
@@ -129,7 +148,7 @@ def main() -> int:
                 originalPrice=p.originalPrice,
                 rating=round(min(5.0, max(0.0, p.rating)), 2),
                 reviewCount=p.reviewCount,
-                imageGradient=GRADIENT_PALETTE[(i - 1) % len(GRADIENT_PALETTE)],
+                imageGradient=GRADIENT_PALETTE[(next_id - 1) % len(GRADIENT_PALETTE)],
                 includes=p.includes,
                 highlights=p.highlights,
                 departureDates=p.departureDates,
@@ -140,11 +159,12 @@ def main() -> int:
                 itinerary=p.itinerary,
             )
         )
+        next_id += 1
 
-    live_json = [pkg.model_dump(mode="json") for pkg in final_packages]
+    final_packages = existing + [pkg.model_dump(mode="json") for pkg in new_packages]
     LIVE_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
-    LIVE_JSON_PATH.write_text(json.dumps(live_json, indent=2), encoding="utf-8")
-    print(f"Wrote {len(final_packages)} real packages to {LIVE_JSON_PATH.resolve()}")
+    LIVE_JSON_PATH.write_text(json.dumps(final_packages, indent=2), encoding="utf-8")
+    print(f"Added {len(new_packages)} new real packages ({len(validated) - len(new_packages)} were already in the catalog); {len(final_packages)} total now in {LIVE_JSON_PATH.resolve()}")
 
     OUTPUT_DIR.mkdir(exist_ok=True)
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
@@ -159,7 +179,7 @@ def main() -> int:
                 "dropped": [{"name": d["item"].get("name") if isinstance(d["item"], dict) else None, "error": d["error"]} for d in dropped],
                 "packages": [
                     {**pkg.model_dump(mode="json"), "sourceUrl": str(src.sourceUrl)}
-                    for pkg, src in zip(final_packages, validated)
+                    for pkg, src in zip(new_packages, new_validated)
                 ],
             },
             indent=2,

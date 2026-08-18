@@ -21,13 +21,15 @@ same region) — for example run separate searches like:
 - "current flight and hotel package deals 2026"
 - "best all-inclusive vacation deals this month"
 - "travel deals Europe" / "travel deals Asia" / "travel deals Caribbean"
-- "travel deals Australia" / "Sydney Melbourne holiday package deals"
-- "travel deals Turkey" / "Istanbul Cappadocia holiday package deals"
+- "Darwin Northern Territory tour packages Kakadu Litchfield deals"
+- "Troy ancient city Turkey tour package" / "Aegean coast Turkey tour deals"
+- "Anatolia Turkey tour package" / "Istanbul Cappadocia holiday package deals"
 - "limited time travel campaign discount"
 
-Australia and Turkey must each be represented by at least one real,
-verified deal in the final results — search specifically for both rather
-than treating them as optional alongside the other regions.
+Darwin/Northern Territory and Turkey's Troy/Aegean/Anatolia region must
+each be represented by at least one real, verified deal in the final
+results — search specifically for both rather than treating them as
+optional alongside the other regions.
 
 For every candidate deal:
 1. Search for it, find a real source page (a travel site, airline, hotel
