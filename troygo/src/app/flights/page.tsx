@@ -595,10 +595,67 @@ function FlightsContent() {
     })
   }
 
-  const filtered = useMemo(
-    () => filterByLeg(from, to),
-    [from, to, stops, priceRange, airlines, departureTimes, maxDuration, cabinClass]
-  )
+  // Real live search: when from/to look like actual IATA airport codes
+  // (e.g. "SYD", "MEL") and a date is set, fetch real current flights from
+  // Duffel instead of filtering the static sample data. Free-text city
+  // names (e.g. "New York") keep using the local sample data below, since
+  // Duffel's API needs exact codes, not fuzzy city names.
+  const [liveFlights, setLiveFlights] = useState<Flight[] | null>(null)
+  const [liveLoading, setLiveLoading] = useState(false)
+  const [liveError, setLiveError] = useState<string | null>(null)
+
+  function looksLikeIataCode(s: string): boolean {
+    return /^[A-Za-z]{3}$/.test(s.trim())
+  }
+
+  useEffect(() => {
+    if (!looksLikeIataCode(from) || !looksLikeIataCode(to) || !date) {
+      setLiveFlights(null)
+      setLiveError(null)
+      return
+    }
+    let cancelled = false
+    setLiveLoading(true)
+    setLiveError(null)
+    fetch('/api/flights/search', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ origin: from, destination: to, departureDate: date, passengers, cabinClass }),
+    })
+      .then(async (res) => {
+        if (cancelled) return
+        const body = await res.json()
+        if (!res.ok) {
+          setLiveError(body.error || 'Flight search failed')
+          setLiveFlights(null)
+          return
+        }
+        setLiveFlights(body.flights as Flight[])
+      })
+      .catch((err) => {
+        if (!cancelled) {
+          setLiveError(err instanceof Error ? err.message : 'Flight search failed')
+          setLiveFlights(null)
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setLiveLoading(false)
+      })
+    return () => { cancelled = true }
+  }, [from, to, date, passengers, cabinClass])
+
+  const filtered = useMemo(() => {
+    if (liveFlights) {
+      return liveFlights.filter((f) => {
+        if (!stops.has(f.stops)) return false
+        const price = f.price[cabinClass]
+        if (price < priceRange[0] || price > priceRange[1]) return false
+        if (departureTimes.size > 0 && !departureTimes.has(getDepartureSlot(f.departure))) return false
+        return true
+      })
+    }
+    return filterByLeg(from, to)
+  }, [liveFlights, from, to, stops, priceRange, airlines, departureTimes, maxDuration, cabinClass])
 
   const sorted = useMemo(() => sortResults(filtered), [filtered, sortMode, cabinClass])
 
@@ -655,6 +712,22 @@ function FlightsContent() {
 
             {/* Results */}
             <div id="flight-results" className="flex-1 min-w-0">
+              {/* Live search status */}
+              {liveLoading && (
+                <div className="mb-3 text-sm font-medium text-cyan-700 bg-cyan-50 border border-cyan-200 rounded-lg px-3 py-2">
+                  Searching real live flights for {from.toUpperCase()} → {to.toUpperCase()}...
+                </div>
+              )}
+              {liveError && (
+                <div className="mb-3 text-sm font-medium text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
+                  Live flight search unavailable ({liveError}) — showing sample data instead.
+                </div>
+              )}
+              {liveFlights && !liveLoading && !liveError && (
+                <div className="mb-3 text-sm font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg px-3 py-2">
+                  Real live flight search results (sandbox mode — Duffel API)
+                </div>
+              )}
               {/* Sort bar */}
               <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
                 <p className="text-sm text-slate-500">
