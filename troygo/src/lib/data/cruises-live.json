@@ -1,0 +1,690 @@
+[
+  {
+    "id": 1,
+    "name": "4-Night Bahamas & Perfect Day Cruise from Miami",
+    "ship": "Wonder of the Seas",
+    "cruiseLine": "Royal Caribbean",
+    "itinerary": [
+      {
+        "port": "Miami, Florida",
+        "country": "United States",
+        "arrivalTime": "embarkation",
+        "departureTime": "4:30 PM",
+        "highlights": [
+          "South Beach",
+          "Wynwood Art District",
+          "Vizcaya Museum & Gardens"
+        ]
+      },
+      {
+        "port": "Perfect Day CocoCay",
+        "country": "Bahamas",
+        "arrivalTime": "7:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Thrill Waterpark",
+          "Largest freshwater pool in the Bahamas",
+          "Overwater Cabanas"
+        ]
+      },
+      {
+        "port": "Nassau",
+        "country": "Bahamas",
+        "arrivalTime": "7:30 AM",
+        "departureTime": "5:30 PM",
+        "highlights": [
+          "Royal Beach Club Paradise Island",
+          "Colonial fortresses",
+          "Swimming with stingrays"
+        ]
+      },
+      {
+        "port": "Miami, Florida",
+        "country": "United States",
+        "arrivalTime": "6:30 AM",
+        "departureTime": "disembarkation",
+        "highlights": []
+      }
+    ],
+    "duration": 4,
+    "price": 398.0,
+    "originalPrice": 559.0,
+    "cabinTypes": [
+      {
+        "name": "Interior",
+        "price": 398.0,
+        "description": "Classic interior stateroom, affordable way to cruise in comfort"
+      },
+      {
+        "name": "Oceanview",
+        "price": 458.0,
+        "description": "Picture window with ocean views"
+      },
+      {
+        "name": "Balcony",
+        "price": 468.0,
+        "description": "Private balcony \u2014 currently priced at same level as oceanview, rare alignment"
+      },
+      {
+        "name": "Suite",
+        "price": 1140.0,
+        "description": "Spacious suite with premium amenities and priority boarding"
+      }
+    ],
+    "rating": 4.5,
+    "reviewCount": 0,
+    "departurePort": "Miami, Florida",
+    "includes": [
+      "All onboard meals",
+      "Entertainment and shows",
+      "Access to ship amenities and facilities",
+      "Water, juice, coffee and tea"
+    ],
+    "amenities": [
+      "AquaTheater",
+      "FlowRider surf simulator",
+      "Ice skating rink",
+      "Multiple pools and hot tubs",
+      "Vitality Spa",
+      "Casino",
+      "Multiple dining venues",
+      "WonderPlayscape"
+    ],
+    "imageGradient": "from-blue-400 to-indigo-600",
+    "category": "Caribbean",
+    "description": "A 4-night roundtrip sailing from Miami aboard the world-class Oasis-class Wonder of the Seas, visiting Royal Caribbean's award-winning private island Perfect Day CocoCay and Nassau, Bahamas. Pricing on balcony cabins is currently aligned with oceanview rates, making upgrades unusually accessible."
+  },
+  {
+    "id": 2,
+    "name": "7-Day Caribbean Round-trip Galveston: Harvest Caye, Cozumel & Roatan",
+    "ship": "Norwegian Viva",
+    "cruiseLine": "Norwegian Cruise Line",
+    "itinerary": [
+      {
+        "port": "Galveston, Texas",
+        "country": "United States",
+        "arrivalTime": "embarkation",
+        "departureTime": "4:00 PM",
+        "highlights": []
+      },
+      {
+        "port": "Cozumel",
+        "country": "Mexico",
+        "arrivalTime": "7:30 AM",
+        "departureTime": "4:30 PM",
+        "highlights": [
+          "Mayan ruins",
+          "Coral reef snorkeling",
+          "Mesoamerican Barrier Reef"
+        ]
+      },
+      {
+        "port": "Harvest Caye",
+        "country": "Belize",
+        "arrivalTime": "10:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Barrier Reef Snorkel",
+          "Mayan Ruins & Spice Farm",
+          "Placencia Lagoon wildlife"
+        ]
+      },
+      {
+        "port": "Roatan",
+        "country": "Honduras",
+        "arrivalTime": "7:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Flighthouse Zipline",
+          "Coral reef diving",
+          "West Bay Beach"
+        ]
+      },
+      {
+        "port": "Costa Maya",
+        "country": "Mexico",
+        "arrivalTime": "7:00 AM",
+        "departureTime": "1:00 PM",
+        "highlights": [
+          "Mayan ruins at Chacchoben",
+          "Lagoon kayaking",
+          "Local artisan markets"
+        ]
+      },
+      {
+        "port": "Galveston, Texas",
+        "country": "United States",
+        "arrivalTime": "7:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": []
+      }
+    ],
+    "duration": 7,
+    "price": 679.0,
+    "originalPrice": 998.0,
+    "cabinTypes": [
+      {
+        "name": "Interior",
+        "price": 679.0,
+        "description": "Classic inside stateroom, great value for Freestyle cruising"
+      },
+      {
+        "name": "Oceanview",
+        "price": 799.0,
+        "description": "Stateroom with ocean-view window"
+      },
+      {
+        "name": "Balcony",
+        "price": 999.0,
+        "description": "Private balcony stateroom"
+      },
+      {
+        "name": "The Haven Suite",
+        "price": 1769.0,
+        "description": "Exclusive Haven by Norwegian suite with premium amenities and dedicated concierge"
+      }
+    ],
+    "rating": 4.5,
+    "reviewCount": 0,
+    "departurePort": "Galveston, Texas",
+    "includes": [
+      "Breakfast, lunch, and dinner",
+      "Water, juice, coffee and tea",
+      "Shows and entertainment",
+      "Ship amenities and facilities"
+    ],
+    "amenities": [
+      "Hudson's restaurant",
+      "Palomar Viva restaurant",
+      "Surfside Cafe",
+      "Waterslides",
+      "Ropes course",
+      "Casino",
+      "Syd Norman's Pour House",
+      "The Haven private complex"
+    ],
+    "imageGradient": "from-cyan-400 to-blue-600",
+    "category": "Caribbean",
+    "description": "A 7-night roundtrip Caribbean cruise from Galveston aboard Norwegian Viva, visiting Cozumel, Harvest Caye (Belize), Roatan (Honduras), and Costa Maya \u2014 all with Norwegian's signature Freestyle no-schedule dining and entertainment approach. Taxes, fees and port expenses are included in the listed fare."
+  },
+  {
+    "id": 3,
+    "name": "7-Night Western Mediterranean Cruise from Barcelona",
+    "ship": "MSC World Europa",
+    "cruiseLine": "MSC Cruises",
+    "itinerary": [
+      {
+        "port": "Barcelona",
+        "country": "Spain",
+        "arrivalTime": "embarkation",
+        "departureTime": "6:00 PM",
+        "highlights": [
+          "Sagrada Fam\u00edlia",
+          "Las Ramblas",
+          "Gothic Quarter"
+        ]
+      },
+      {
+        "port": "Marseille",
+        "country": "France",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "6:00 PM",
+        "highlights": [
+          "Calanques National Park",
+          "Old Port (Vieux-Port)",
+          "Ch\u00e2teau d'If"
+        ]
+      },
+      {
+        "port": "Portofino (Genoa)",
+        "country": "Italy",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Portofino harbor village",
+          "Pesto tasting",
+          "Castello Brown"
+        ]
+      },
+      {
+        "port": "Naples",
+        "country": "Italy",
+        "arrivalTime": "1:00 PM",
+        "departureTime": "8:00 PM",
+        "highlights": [
+          "Pompeii ruins",
+          "Amalfi Coast excursions",
+          "Neapolitan pizza"
+        ]
+      },
+      {
+        "port": "Messina (Sicily)",
+        "country": "Italy",
+        "arrivalTime": "9:00 AM",
+        "departureTime": "6:00 PM",
+        "highlights": [
+          "Mount Etna",
+          "Taormina Greek Theatre",
+          "Strait of Messina views"
+        ]
+      },
+      {
+        "port": "Valletta",
+        "country": "Malta",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "St. John's Co-Cathedral",
+          "Valletta UNESCO Old Town",
+          "Megalithic Temples"
+        ]
+      },
+      {
+        "port": "Barcelona",
+        "country": "Spain",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": []
+      }
+    ],
+    "duration": 7,
+    "price": 1066.0,
+    "originalPrice": 1066.0,
+    "cabinTypes": [
+      {
+        "name": "Interior",
+        "price": 1066.0,
+        "description": "Classic interior stateroom on the world-class MSC World Europa"
+      },
+      {
+        "name": "Balcony",
+        "price": 1456.0,
+        "description": "Private balcony stateroom with Mediterranean sea views"
+      },
+      {
+        "name": "Suite",
+        "price": 3947.0,
+        "description": "Spacious suite with premium amenities and priority service"
+      }
+    ],
+    "rating": 4.5,
+    "reviewCount": 127,
+    "departurePort": "Barcelona, Spain",
+    "includes": [
+      "All onboard meals",
+      "Entertainment and shows",
+      "Access to ship facilities",
+      "Taxes and port fees"
+    ],
+    "amenities": [
+      "Bumper car track",
+      "Waterslide",
+      "Spa",
+      "13 jacuzzis",
+      "Multiple pools",
+      "Casino",
+      "Multiple specialty restaurants",
+      "World-class theater"
+    ],
+    "imageGradient": "from-teal-400 to-green-600",
+    "category": "Mediterranean",
+    "description": "A 7-night roundtrip Western Mediterranean cruise departing Barcelona aboard the MSC World Europa, one of the world's largest cruise ships (5,200+ guests), visiting Marseille, Portofino, Naples, Messina, and Valletta. Prices include all meals, entertainment, taxes, and fees."
+  },
+  {
+    "id": 4,
+    "name": "7-Night Alaska Explorer Cruise from Seattle",
+    "ship": "Eurodam",
+    "cruiseLine": "Holland America Line",
+    "itinerary": [
+      {
+        "port": "Seattle, Washington",
+        "country": "United States",
+        "arrivalTime": "embarkation",
+        "departureTime": "3:00 PM",
+        "highlights": [
+          "Pike Place Market",
+          "Space Needle",
+          "Chihuly Garden and Glass"
+        ]
+      },
+      {
+        "port": "Juneau, Alaska",
+        "country": "United States",
+        "arrivalTime": "12:30 PM",
+        "departureTime": "10:00 PM",
+        "highlights": [
+          "Mendenhall Glacier",
+          "Mount Roberts Tramway",
+          "Tracy Arm Fjord excursions"
+        ]
+      },
+      {
+        "port": "Glacier Bay National Park (Scenic Cruising)",
+        "country": "United States",
+        "arrivalTime": "7:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Tidewater glacier viewing",
+          "Calving ice",
+          "National Park Ranger narration"
+        ]
+      },
+      {
+        "port": "Icy Strait Point, Alaska",
+        "country": "United States",
+        "arrivalTime": "6:00 PM",
+        "departureTime": "10:00 PM",
+        "highlights": [
+          "World's largest ZipRider",
+          "Brown bear viewing",
+          "Hoonah cultural experiences"
+        ]
+      },
+      {
+        "port": "Sitka, Alaska",
+        "country": "United States",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Sitka National Historical Park",
+          "Alaska Raptor Center",
+          "Russian Orthodox Cathedral"
+        ]
+      },
+      {
+        "port": "Ketchikan, Alaska",
+        "country": "United States",
+        "arrivalTime": "6:30 AM",
+        "departureTime": "1:00 PM",
+        "highlights": [
+          "Totem poles",
+          "Creek Street boardwalk",
+          "Misty Fjords excursions"
+        ]
+      },
+      {
+        "port": "Victoria, British Columbia",
+        "country": "Canada",
+        "arrivalTime": "8:00 PM",
+        "departureTime": "11:59 PM",
+        "highlights": [
+          "Butchart Gardens",
+          "Inner Harbour",
+          "Royal BC Museum"
+        ]
+      },
+      {
+        "port": "Seattle, Washington",
+        "country": "United States",
+        "arrivalTime": "7:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": []
+      }
+    ],
+    "duration": 7,
+    "price": 1119.0,
+    "originalPrice": 1119.0,
+    "cabinTypes": [
+      {
+        "name": "Inside",
+        "price": 1119.0,
+        "description": "Classic interior stateroom with queen-size bed, couch and desk; 24-hour complimentary room service"
+      }
+    ],
+    "rating": 4.5,
+    "reviewCount": 0,
+    "departurePort": "Seattle, Washington",
+    "includes": [
+      "Breakfast, lunch, and dinner",
+      "Water, juice, coffee and tea",
+      "Shows and entertainment",
+      "Ship amenities and facilities",
+      "Taxes and port fees"
+    ],
+    "amenities": [
+      "Greenhouse Spa & Salon",
+      "Fitness Center",
+      "Pinnacle Grill",
+      "Tamarind Asian restaurant",
+      "World Stage entertainment venue",
+      "Billboard Onboard live music",
+      "Multiple pools and 6 hot tubs",
+      "Casino"
+    ],
+    "imageGradient": "from-sky-400 to-blue-500",
+    "category": "Alaska",
+    "description": "A 7-night roundtrip Alaska Explorer cruise from Seattle aboard Holland America's Eurodam, featuring Glacier Bay National Park scenic cruising with National Park Rangers, plus port calls in Juneau, Icy Strait Point, Sitka, Ketchikan, and Victoria, BC. Price includes all meals, entertainment, taxes, and port fees."
+  },
+  {
+    "id": 5,
+    "name": "8-Day Eastern Caribbean Cruise from Manhattan",
+    "ship": "Carnival Venezia",
+    "cruiseLine": "Carnival Cruise Line",
+    "itinerary": [
+      {
+        "port": "Manhattan, New York City",
+        "country": "United States",
+        "arrivalTime": "embarkation",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Statue of Liberty",
+          "Times Square",
+          "Brooklyn Bridge"
+        ]
+      },
+      {
+        "port": "Celebration Key",
+        "country": "Bahamas",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Private beach club",
+          "Water sports",
+          "Carnival's exclusive Bahamian destination"
+        ]
+      },
+      {
+        "port": "Half Moon Cay (Little San Salvador Island)",
+        "country": "Bahamas",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Private island beach",
+          "Snorkeling",
+          "Stingray encounters"
+        ]
+      },
+      {
+        "port": "Grand Turk",
+        "country": "Turks and Caicos",
+        "arrivalTime": "10:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Jack's Shack beach bar",
+          "Governor's Beach",
+          "Turks and Caicos National Museum"
+        ]
+      },
+      {
+        "port": "Manhattan, New York City",
+        "country": "United States",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": []
+      }
+    ],
+    "duration": 8,
+    "price": 814.0,
+    "originalPrice": 844.0,
+    "cabinTypes": [
+      {
+        "name": "Interior",
+        "price": 814.0,
+        "description": "Classic interior stateroom with dedicated attendant and Italian-style touches"
+      },
+      {
+        "name": "Oceanview",
+        "price": 1044.0,
+        "description": "Ocean-view stateroom with picture window"
+      },
+      {
+        "name": "Balcony",
+        "price": 1254.0,
+        "description": "Balcony stateroom for sea-breeze relaxation"
+      },
+      {
+        "name": "Suite",
+        "price": 2459.0,
+        "description": "Ocean Suite with walk-in closet, whirlpool tub, and large balcony; priority boarding included"
+      }
+    ],
+    "rating": 4.5,
+    "reviewCount": 0,
+    "departurePort": "Manhattan, New York City",
+    "includes": [
+      "Breakfast, lunch, and dinner",
+      "Water, juice, coffee and tea",
+      "Shows and entertainment (Playlist Productions, Teatro Rosso)",
+      "Ship amenities and facilities"
+    ],
+    "amenities": [
+      "Piazza San Marco atrium",
+      "WaterWorks waterpark",
+      "Cloud 9 Spa",
+      "Serenity Adult-Only Retreat",
+      "SportSquare ropes course",
+      "Teatro Rosso theater",
+      "Gondola Lounge",
+      "Terrazza Carnevale private deck (Terrazza stateroom guests)"
+    ],
+    "imageGradient": "from-indigo-500 to-purple-700",
+    "category": "Caribbean",
+    "description": "An 8-night roundtrip Eastern Caribbean cruise from Manhattan aboard Carnival Venezia \u2014 Carnival's 'Fun Italian Style' ship \u2014 visiting Celebration Key, Half Moon Cay, and Grand Turk. The Venice-inspired ship features Italian-themed dining, bars, and entertainment alongside classic Carnival fun."
+  },
+  {
+    "id": 6,
+    "name": "Rhine Getaway \u2014 Amsterdam to Basel",
+    "ship": "Viking Longship (Rhine fleet)",
+    "cruiseLine": "Viking River Cruises",
+    "itinerary": [
+      {
+        "port": "Amsterdam",
+        "country": "Netherlands",
+        "arrivalTime": "embarkation",
+        "departureTime": "",
+        "highlights": [
+          "Canal network",
+          "Rijksmuseum",
+          "Anne Frank House"
+        ]
+      },
+      {
+        "port": "Kinderdijk",
+        "country": "Netherlands",
+        "arrivalTime": "",
+        "departureTime": "",
+        "highlights": [
+          "UNESCO-listed working windmills",
+          "Dutch countryside",
+          "Dike walking paths"
+        ]
+      },
+      {
+        "port": "Cologne",
+        "country": "Germany",
+        "arrivalTime": "",
+        "departureTime": "",
+        "highlights": [
+          "Gothic Cologne Cathedral (UNESCO)",
+          "Old Town stroll",
+          "Chocolate Museum"
+        ]
+      },
+      {
+        "port": "Koblenz & R\u00fcdesheim",
+        "country": "Germany",
+        "arrivalTime": "",
+        "departureTime": "",
+        "highlights": [
+          "German Corner (Deutsches Eck)",
+          "Drosselgasse pedestrian lane",
+          "Middle Rhine UNESCO scenic sailing past hilltop castles"
+        ]
+      },
+      {
+        "port": "Strasbourg",
+        "country": "France",
+        "arrivalTime": "",
+        "departureTime": "",
+        "highlights": [
+          "Strasbourg Cathedral",
+          "Alsatian cuisine",
+          "Petite France quarter"
+        ]
+      },
+      {
+        "port": "Breisach",
+        "country": "Germany",
+        "arrivalTime": "",
+        "departureTime": "",
+        "highlights": [
+          "Black Forest region",
+          "Breisach Cathedral",
+          "Alsatian wine villages"
+        ]
+      },
+      {
+        "port": "Basel",
+        "country": "Switzerland",
+        "arrivalTime": "",
+        "departureTime": "disembarkation",
+        "highlights": [
+          "Basel Art Museum",
+          "Rhine promenade",
+          "Swiss Old Town"
+        ]
+      }
+    ],
+    "duration": 7,
+    "price": 1999.0,
+    "originalPrice": 2799.0,
+    "cabinTypes": [
+      {
+        "name": "Standard Stateroom",
+        "price": 1999.0,
+        "description": "River-view stateroom with queen-size Viking Explorer Bed, heated bathroom floor, premium Freyja toiletries, and individual climate control"
+      },
+      {
+        "name": "Veranda Stateroom",
+        "price": 2499.0,
+        "description": "Stateroom with French balcony (floor-to-ceiling sliding glass doors) and river views"
+      }
+    ],
+    "rating": 4.5,
+    "reviewCount": 0,
+    "departurePort": "Amsterdam, Netherlands",
+    "includes": [
+      "One complimentary shore excursion in every port of call",
+      "All onboard meals featuring regional specialties",
+      "Beer, wine & soft drinks with onboard lunch & dinner",
+      "Free Wi-Fi onboard",
+      "Port taxes & fees",
+      "Onboard gratuities",
+      "Visits to UNESCO World Heritage Sites",
+      "Enrichment lectures & Destination Performances"
+    ],
+    "amenities": [
+      "Sun deck with panoramic views",
+      "Lounge with full bar",
+      "Fitness room",
+      "Library",
+      "Aquavit Terrace (al fresco dining)",
+      "Heated bathroom floors in staterooms",
+      "40-42 inch flat-screen Sony TV with Movies On Demand",
+      "Individual climate control in all staterooms"
+    ],
+    "imageGradient": "from-cyan-300 to-teal-500",
+    "category": "River",
+    "description": "An 8-day Rhine River cruise from Amsterdam to Basel sailing through 4 countries \u2014 the Netherlands, Germany, France, and Switzerland \u2014 aboard a Viking Longship. The itinerary includes UNESCO World Heritage sites, guided tours in every port, and all meals and drinks with lunch and dinner included in the fare."
+  }
+]

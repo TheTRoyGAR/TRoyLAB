@@ -284,3 +284,96 @@ def run_cars() -> str:
     crew = Crew(agents=[agent], tasks=[task], process=Process.sequential, verbose=True)
     result = crew.kickoff()
     return str(result)
+
+
+# ── CRUISES ───────────────────────────────────────────────────────────────
+
+CRUISE_RESEARCHER_BACKSTORY = (
+    "You are a cruise deals researcher for TRoyGO, a real travel agency. "
+    "Your only job is finding genuinely real, currently-sold cruise itineraries "
+    "and their actual current prices by searching the live web — never "
+    "inventing one. A cruise or price you cannot verify by actually visiting "
+    "its source page does not belong in your output."
+)
+
+CRUISE_TASK_DESCRIPTION = """\
+Find 6 to 10 real, currently-sold cruise itineraries by searching the web.
+Cover a mix of cruise lines and regions (not all the same line or region) —
+for example run separate searches like:
+- "Royal Caribbean cruise deals 2026 current prices"
+- "MSC Cruises Mediterranean itinerary prices"
+- "Norwegian Cruise Line Caribbean current deals"
+- "luxury cruise line current itinerary prices"
+- "river cruise Europe current prices"
+
+For every candidate cruise:
+1. Search for it, find a real source page (the cruise line's own site, or a
+   real cruise booking/comparison platform).
+2. Actually open that page with the scrape tool and confirm the ship,
+   itinerary ports, and cabin prices are really stated there — not just
+   implied by a search snippet.
+3. If you cannot confirm it on a real page, drop it. Do not include it.
+
+For each CONFIRMED cruise, produce one JSON object with these exact fields:
+
+- name (string): the cruise/itinerary name as it actually appears, or a
+  clear descriptive name if the source doesn't give one
+- ship (string): the real ship name
+- cruiseLine (string): the real cruise line name
+- itinerary (array of {port, country, arrivalTime, departureTime,
+  highlights}, 3-8 stops): real ports of call as listed on the source. Use
+  "embarkation"/"disembarkation" for arrivalTime/departureTime on the first
+  and last stops. highlights should be 1-3 real attractions per port if
+  known, otherwise an empty array — do not invent one.
+- duration (integer, nights): as stated on the source
+- price (number, USD): the actual current lowest cabin price found on the
+  source. Never invent this number.
+- originalPrice (number, USD): the "before discount" price if the source
+  states one; otherwise repeat price (no invented markup)
+- cabinTypes (array of {name, price, description}, 2-4 items): real cabin
+  categories and prices as listed on the source — do not invent one
+- rating (number, 0-5): if the source doesn't give one, use 4.5 as a
+  neutral placeholder, do not fabricate a specific decimal
+- reviewCount (integer): if unknown, use 0
+- departurePort (string): the real embarkation port/city
+- includes (array of strings, 3-6 items): what's real stated as included
+  (meals, entertainment, etc.)
+- amenities (array of strings, 3-8 items): real onboard amenities mentioned
+  on the source
+- category (string): a short descriptor of the cruise region/style (e.g.
+  "Mediterranean", "Caribbean", "Expedition", "River")
+- description (string, 1-2 sentences): summarize what the source actually
+  says about the cruise
+- sourceUrl (string, required): the exact URL you scraped to confirm this
+  cruise. This is mandatory — never include a cruise without one.
+
+Return ONLY a JSON array of these objects, nothing else — no markdown code
+fences, no commentary before or after.
+"""
+
+
+def build_cruise_agent() -> Agent:
+    return Agent(
+        role="Cruise Deals Researcher",
+        goal="Find real, currently-sold cruise itineraries with real current prices via live web search — never invent one.",
+        backstory=CRUISE_RESEARCHER_BACKSTORY,
+        llm=get_llm("sonnet"),
+        tools=[search, scrape],
+        verbose=True,
+    )
+
+
+def build_cruise_task(agent: Agent) -> Task:
+    return Task(
+        description=CRUISE_TASK_DESCRIPTION,
+        expected_output="A JSON array of real cruise objects, each with a verified sourceUrl.",
+        agent=agent,
+    )
+
+
+def run_cruises() -> str:
+    agent = build_cruise_agent()
+    task = build_cruise_task(agent)
+    crew = Crew(agents=[agent], tasks=[task], process=Process.sequential, verbose=True)
+    result = crew.kickoff()
+    return str(result)

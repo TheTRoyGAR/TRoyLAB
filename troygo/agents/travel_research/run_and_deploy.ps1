@@ -12,7 +12,7 @@
 
 param(
     [switch]$SkipResearch,
-    [string[]]$Categories = @("packages", "hotels", "cars")
+    [string[]]$Categories = @("packages", "hotels", "cars", "cruises")
 )
 
 $ErrorActionPreference = "Stop"
@@ -25,11 +25,13 @@ $scriptByCategory = @{
     packages = "run.py"
     hotels   = "run_hotels.py"
     cars     = "run_cars.py"
+    cruises  = "run_cruises.py"
 }
 $dataFileByCategory = @{
     packages = "troygo/src/lib/data/packages-live.json"
     hotels   = "troygo/src/lib/data/hotels-live.json"
     cars     = "troygo/src/lib/data/cars-live.json"
+    cruises  = "troygo/src/lib/data/cruises-live.json"
 }
 
 function Step($msg) {

@@ -238,6 +238,83 @@ CAR_GRADIENT_PALETTE = [
 ]
 
 
+# ── CRUISES ───────────────────────────────────────────────────────────────
+
+CRUISE_GRADIENT_PALETTE = [
+    "from-blue-400 to-indigo-600",
+    "from-cyan-400 to-blue-600",
+    "from-teal-400 to-green-600",
+    "from-sky-400 to-blue-500",
+    "from-indigo-500 to-purple-700",
+    "from-cyan-300 to-teal-500",
+    "from-blue-500 to-indigo-700",
+    "from-sky-300 to-blue-500",
+    "from-slate-400 to-blue-700",
+    "from-blue-300 to-cyan-500",
+]
+
+
+class CabinType(BaseModel):
+    name: str
+    price: float = Field(gt=0)
+    description: str
+
+
+class PortStop(BaseModel):
+    port: str
+    country: str
+    arrivalTime: str
+    departureTime: str
+    highlights: list[str]
+
+
+class ResearchedCruise(BaseModel):
+    """What the LLM is asked to produce for one real cruise. id/imageGradient
+    are deliberately NOT here — assigned deterministically after validation,
+    same reasoning as the other Researched* models above."""
+
+    name: str
+    ship: str
+    cruiseLine: str
+    itinerary: list[PortStop]
+    duration: int = Field(gt=0, description="nights")
+    price: float = Field(gt=0, description="USD per cabin, cheapest cabin")
+    originalPrice: float = Field(gt=0)
+    cabinTypes: list[CabinType]
+    rating: float = Field(ge=0, le=5)
+    reviewCount: int = Field(ge=0)
+    departurePort: str
+    includes: list[str]
+    amenities: list[str]
+    category: str
+    description: str
+    sourceUrl: HttpUrl
+
+
+class Cruise(BaseModel):
+    """Exact mirror of the TypeScript Cruise interface in
+    ../../src/lib/data/packages.ts. Written to cruises-live.json (sourceUrl
+    stripped — see run_cruises.py)."""
+
+    id: int
+    name: str
+    ship: str
+    cruiseLine: str
+    itinerary: list[PortStop]
+    duration: int
+    price: float
+    originalPrice: float
+    cabinTypes: list[CabinType]
+    rating: float
+    reviewCount: int
+    departurePort: str
+    includes: list[str]
+    amenities: list[str]
+    imageGradient: str
+    category: str
+    description: str
+
+
 class Hotel(BaseModel):
     """Exact mirror of the TypeScript Hotel interface in
     ../../src/lib/data/hotels.ts. This is what gets written to

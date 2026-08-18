@@ -1,6 +1,7 @@
 // ─── TRoyGO™ Travel Packages & Cruises Mock Data ─────────────────────────────
 
 import liveData from './packages-live.json'
+import cruisesLiveData from './cruises-live.json'
 
 export type PackageCategory =
   | 'adventure'
@@ -899,7 +900,7 @@ export const travelPackages: TravelPackage[] =
 
 // ─── Cruises (12) ─────────────────────────────────────────────────────────────
 
-export const cruises: Cruise[] = [
+const fallbackCruises: Cruise[] = [
   {
     id: 1,
     name: 'Mediterranean Dream Voyage',
@@ -1547,3 +1548,12 @@ export const cruises: Cruise[] = [
     amenities: ['Icebreaker capability to 87°N', 'Blue Eye underwater lounge', 'Spa & heated pool', 'Science center', 'French-flagged luxury'],
   },
 ]
+
+// Real, web-sourced cruises from the research agent take over once they
+// exist. Until the agent has run successfully at least once, cruises-live.json
+// is `[]` and the site falls back to the array above — this can never blank
+// out the live site with an empty cruise list. Same pattern as travelPackages.
+const liveCruises = cruisesLiveData as Cruise[]
+
+export const cruises: Cruise[] =
+  liveCruises.length > 0 ? liveCruises : fallbackCruises
