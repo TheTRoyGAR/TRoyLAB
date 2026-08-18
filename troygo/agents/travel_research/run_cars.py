@@ -54,10 +54,10 @@ def main() -> int:
 
     cleaned = strip_code_fences(raw_output)
     try:
-        raw_items = json.loads(cleaned)
+        raw_items = json.loads(cleaned, strict=False)
     except json.JSONDecodeError:
         try:
-            raw_items = json.loads(extract_json_array(cleaned))
+            raw_items = json.loads(extract_json_array(cleaned), strict=False)
         except json.JSONDecodeError as e:
             print(f"ERROR: could not parse crew output as JSON: {e}", file=sys.stderr)
             print("--- raw output ---", file=sys.stderr)

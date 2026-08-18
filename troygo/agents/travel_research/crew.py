@@ -15,13 +15,19 @@ RESEARCHER_BACKSTORY = (
 )
 
 TASK_DESCRIPTION = """\
-Find 8 to 12 real, currently-advertised travel deals or vacation packages by
+Find 9 to 12 real, currently-advertised travel deals or vacation packages by
 searching the web. Cover a mix of destinations and deal types (not all the
 same region) — for example run separate searches like:
 - "current flight and hotel package deals 2026"
 - "best all-inclusive vacation deals this month"
 - "travel deals Europe" / "travel deals Asia" / "travel deals Caribbean"
+- "travel deals Australia" / "Sydney Melbourne holiday package deals"
+- "travel deals Turkey" / "Istanbul Cappadocia holiday package deals"
 - "limited time travel campaign discount"
+
+Australia and Turkey must each be represented by at least one real,
+verified deal in the final results — search specifically for both rather
+than treating them as optional alongside the other regions.
 
 For every candidate deal:
 1. Search for it, find a real source page (a travel site, airline, hotel

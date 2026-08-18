@@ -64,14 +64,21 @@ def main() -> int:
     raw_output = run_crew()
 
     cleaned = strip_code_fences(raw_output)
+    # strict=False: the agent occasionally emits an unescaped literal newline
+    # inside a string value (e.g. a highlight description that wraps mid-
+    # string) — real Anthropic API output, not malformed on purpose, but
+    # Python's default strict JSON parser rejects raw control characters
+    # inside strings. This is the standard, safe way to accept that specific
+    # real-world LLM-output quirk without loosening anything else about
+    # validation (Pydantic still rejects genuinely wrong data afterward).
     try:
-        raw_items = json.loads(cleaned)
+        raw_items = json.loads(cleaned, strict=False)
     except json.JSONDecodeError:
         # The agent sometimes adds a prose summary before the array despite
         # being told not to — retry against just the [...] slice before
         # giving up entirely.
         try:
-            raw_items = json.loads(extract_json_array(cleaned))
+            raw_items = json.loads(extract_json_array(cleaned), strict=False)
         except json.JSONDecodeError as e:
             print(f"ERROR: could not parse crew output as JSON: {e}", file=sys.stderr)
             print("--- raw output ---", file=sys.stderr)
