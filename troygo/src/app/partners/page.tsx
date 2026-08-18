@@ -29,6 +29,10 @@ export default function PartnersPage() {
             Independent, real ground operators and destination management companies TRoyGO™ works with
             for local expertise — not our own staff, but vetted specialists on the ground.
           </p>
+          <p className="text-white/50 max-w-2xl mx-auto text-sm mt-3">
+            TRoyGO™ is Darwin, Northern Territory based — the Top End operators below aren't just
+            another researched region for us, they're our own backyard.
+          </p>
         </div>
 
         <div className="max-w-5xl mx-auto px-4 py-14 space-y-14">

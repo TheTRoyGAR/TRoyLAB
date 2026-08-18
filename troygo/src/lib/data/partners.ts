@@ -98,4 +98,36 @@ export const trustedPartners: TrustedPartner[] = [
       'Well-known adventure tour operator running small-group Darwin and Top End trips with local and First Nations guides through Kakadu, Litchfield, and Nitmiluk.',
     website: 'https://www.intrepidtravel.com/us/australia/darwin',
   },
+  {
+    name: 'Territory Expeditions',
+    country: 'Australia',
+    destinationsCovered: ['Kakadu', 'Litchfield', 'Koolpin Gorge', 'Northern Territory'],
+    description:
+      'Top-rated local Darwin-based operator running dedicated Kakadu, Litchfield, and Koolpin Gorge tours, holding special-access permits for environmentally and culturally sensitive Top End sites.',
+    website: 'https://territoryexpeditions.com.au/',
+  },
+  {
+    name: 'Kakadu Tours and Travel',
+    country: 'Australia',
+    destinationsCovered: ['Kakadu', 'Jabiru', 'Arnhem Land', 'Northern Territory'],
+    description:
+      'Local operator based in Jabiru, inside Kakadu National Park, running multi-day camping tours, accommodated tours, small-group luxury tours, and private charters departing Darwin.',
+    website: 'https://www.kakadutoursandtravel.com.au/',
+  },
+  {
+    name: 'Kakadu Adventure Tours',
+    country: 'Australia',
+    destinationsCovered: ['Darwin', 'Kakadu', 'Arnhem Land', 'Litchfield', 'Northern Territory'],
+    description:
+      'Darwin-based Top End specialist and licensed travel agent with 25+ years of local experience, running safari and camping tours across Kakadu, Arnhem Land, and Litchfield.',
+    website: 'http://www.kakaduadventuretours.com/',
+  },
+  {
+    name: 'Tourism Top End',
+    country: 'Australia',
+    destinationsCovered: ['Darwin', 'Top End', 'Northern Territory'],
+    description:
+      'Regional Top End booking agency offering free reservation services for tours, attractions, accommodation, and vehicle hire across the wider Top End region.',
+    website: 'https://www.tourismtopend.com.au/',
+  },
 ];
