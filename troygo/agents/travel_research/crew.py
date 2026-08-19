@@ -127,6 +127,13 @@ one city) — for example run separate searches like:
 - "top rated boutique hotels [region]"
 - "budget hostels [popular backpacker destination]"
 - "luxury resorts [beach destination] current prices"
+- "best hotels Sydney Australia current rates"
+- "best hotels Darwin Northern Territory current rates"
+- "best hotels Istanbul Cappadocia Turkey current rates"
+
+At least one real Sydney hotel and one real Darwin hotel should be included
+in the results if you can confirm them — the site currently has zero
+Australian hotels despite already offering flights and tours there.
 
 For every candidate hotel:
 1. Search for it, find a real source page (the hotel's own site, a real
@@ -221,6 +228,11 @@ suppliers (Hertz, Avis, Enterprise, Sixt, Budget, National, Europcar, etc.)
 - "Enterprise SUV rental daily rate"
 - "Sixt luxury car rental current prices"
 - "budget car rental deals [popular destination]"
+- "car rental Sydney Australia current rates"
+- "car rental Darwin Northern Territory current rates"
+
+At least one real Sydney rental and one real Darwin rental should be
+included if you can confirm them.
 
 For every candidate listing:
 1. Search for it, find a real source page (the rental supplier's own site,
@@ -252,9 +264,11 @@ For each CONFIRMED listing, produce one JSON object with these exact fields:
   (e.g. "H" for Hertz, "EP" for Europcar)
 - features (array of strings, 2-4 items): real features mentioned on the
   source — do not invent one that wasn't mentioned
-- pickupLocations (array of strings, 1-3 items): real pickup location types
-  if stated (e.g. "Airport", "Downtown"); otherwise "Airport" is a
-  reasonable default
+- pickupLocations (array of strings, 1-3 items): the real city name plus
+  location type, e.g. "Sydney Airport", "Sydney Downtown" — always include
+  the actual city, never a bare generic label like "Airport" on its own
+  (the site matches these against searched destination cities, so a bare
+  "Airport" can never match anything)
 - fuelPolicy (string): as stated on the source; if unknown, "Full-to-Full"
   is the industry-standard default
 - mileage (string): as stated on the source (e.g. "Unlimited", "200

@@ -1,0 +1,650 @@
+{
+  "timestamp": "20260818T235841Z",
+  "raw_output": "I now have enough confirmed data for 9 solid hotels across diverse destinations, star ratings, and types. Let me compile the final JSON array using only verified data from the pages I actually scraped.\n\n[\n  {\n    \"name\": \"Park Hyatt Sydney\",\n    \"location\": {\n      \"city\": \"Sydney\",\n      \"country\": \"Australia\",\n      \"address\": \"7 Hickson Road, The Rocks, Sydney, NSW 2000\"\n    },\n    \"stars\": 5,\n    \"rating\": 9.2,\n    \"reviewCount\": 594,\n    \"pricePerNight\": 248,\n    \"originalPrice\": 248,\n    \"roomTypes\": [\n      {\n        \"name\": \"King Room\",\n        \"price\": 248,\n        \"capacity\": 2,\n        \"bedType\": \"King\"\n      },\n      {\n        \"name\": \"Harbour Suite\",\n        \"price\": 665,\n        \"capacity\": 2,\n        \"bedType\": \"King\"\n      },\n      {\n        \"name\": \"Opera Suite\",\n        \"price\": 1068,\n        \"capacity\": 2,\n        \"bedType\": \"King\"\n      }\n    ],\n    \"amenities\": [\n      \"Outdoor rooftop pool\",\n      \"Fitness center\",\n      \"Restaurant\",\n      \"Bar/Lounge\",\n      \"Room service\",\n      \"Free Wi-Fi\",\n      \"Tea/coffee maker\",\n      \"Nespresso machine\",\n      \"Valet parking\",\n      \"Business center\",\n      \"24-hour butler service\",\n      \"Spa\",\n      \"Sauna\",\n      \"Concierge\"\n    ],\n    \"description\": \"A 5-star hotel in The Rocks, directly across from the Sydney Opera House, featuring 155 elegantly appointed guest rooms and suites with floor-to-ceiling harbour views, a rooftop pool, and 24-hour butler service. It has hosted celebrities and dignitaries since 1990 and is consistently rated among Sydney's finest luxury stays.\",\n    \"nearbyAttractions\": [\n      \"Sydney Harbour Bridge (0.3 mi)\",\n      \"Circular Quay (0.4 mi)\",\n      \"Sydney Opera House (0.4 mi)\",\n      \"The Rocks Markets\"\n    ],\n    \"checkInTime\": \"15:00\",\n    \"checkOutTime\": \"11:00\",\n    \"cancellationPolicy\": \"Free cancellation\",\n    \"type\": \"hotel\",\n    \"sourceUrl\": \"https://www.kayak.com/Sydney-Hotels-Park-Hyatt-Sydney.659956.ksp\"\n  },\n  {\n    \"name\": \"Shangri-La Sydney\",\n    \"location\": {\n      \"city\": \"Sydney\",\n      \"country\": \"Australia\",\n      \"address\": \"176 Cumberland Street, The Rocks, Sydney, NSW 2000\"\n    },\n    \"stars\": 5,\n    \"rating\": 8.7,\n    \"reviewCount\": 6865,\n    \"pricePerNight\": 305,\n    \"originalPrice\": 305,\n    \"roomTypes\": [\n      {\n        \"name\": \"Deluxe Room\",\n        \"price\": 305,\n        \"capacity\": 2,\n        \"bedType\": \"King\"\n      },\n      {\n        \"name\": \"Executive Room\",\n        \"price\": 399,\n        \"capacity\": 2,\n        \"bedType\": \"King or Twin\"\n      },\n      {\n        \"name\": \"Horizon Club Premier Sydney Harbour Room\",\n        \"price\": 531,\n        \"capacity\": 2,\n        \"bedType\": \"King\"\n      }\n    ],\n    \"amenities\": [\n      \"Indoor swimming pool\",\n      \"Fitness center / Health Club\",\n      \"CHI Spa\",\n      \"Three restaurants and one bar\",\n      \"Free Wi-Fi\",\n      \"Jacuzzi\",\n      \"Sun deck\",\n      \"Room service\",\n      \"Valet parking\",\n      \"Business center\",\n      \"Concierge\",\n      \"Executive lounge\",\n      \"Panoramic harbour views\"\n    ],\n    \"description\": \"A landmark 5-star luxury hotel in The Rocks with 565 spacious guest rooms and suites boasting the largest windows of any harbour-facing hotel in Sydney, offering 270-degree views spanning the Opera House, Harbour Bridge, Blue Mountains, and Pacific Ocean. Home to three restaurants, CHI Spa, and an expansive Health Club with indoor pool.\",\n    \"nearbyAttractions\": [\n      \"Circular Quay (0.3 mi)\",\n      \"Sydney Opera House (0.6 mi)\",\n      \"Sydney Harbour Bridge (0.7 mi)\",\n      \"Darling Harbour (1 mi)\"\n    ],\n    \"checkInTime\": \"15:00\",\n    \"checkOutTime\": \"11:00\",\n    \"cancellationPolicy\": \"Free cancellation\",\n    \"type\": \"hotel\",\n    \"sourceUrl\": \"https://www.kayak.com/Sydney-Hotels-Shangri-La-Sydney.12238.ksp\"\n  },\n  {\n    \"name\": \"Hilton Darwin\",\n    \"location\": {\n      \"city\": \"Darwin\",\n      \"country\": \"Australia\",\n      \"address\": \"32 Mitchell Street, Darwin, NT 0800\"\n    },\n    \"stars\": 5,\n    \"rating\": 8.7,\n    \"reviewCount\": 1065,\n    \"pricePerNight\": 101,\n    \"originalPrice\": 101,\n    \"roomTypes\": [\n      {\n        \"name\": \"Double Room\",\n        \"price\": 101,\n        \"capacity\": 2,\n        \"bedType\": \"Double\"\n      },\n      {\n        \"name\": \"King Room\",\n        \"price\": 142,\n        \"capacity\": 2,\n        \"bedType\": \"King\"\n      },\n      {\n        \"name\": \"Standard Room\",\n        \"price\": 163,\n        \"capacity\": 2,\n        \"bedType\": \"2 Double Beds\"\n      }\n    ],\n    \"amenities\": [\n      \"Rooftop pool\",\n      \"Rooftop terrace\",\n      \"Outdoor tennis courts\",\n      \"Sauna\",\n      \"Fitness center\",\n      \"Mitchell's Grill restaurant\",\n      \"Mitchell Bar\",\n      \"Free Wi-Fi\",\n      \"24-hour room service\",\n      \"Executive lounge\",\n      \"Kids pool\",\n      \"Kitchenette with refrigerator and microwave\",\n      \"Valet parking\",\n      \"Business center\",\n      \"Concierge\"\n    ],\n    \"description\": \"A 5-star full-service hotel in Darwin's CBD on Mitchell Street, featuring a rooftop pool and terrace, outdoor tennis courts, and elegant rooms with kitchenettes and jet tubs. Located within walking distance of Darwin Entertainment Centre, Government House, and the Darwin Waterfront precinct.\",\n    \"nearbyAttractions\": [\n      \"Crocosaurus Cove (391 yd)\",\n      \"Darwin Entertainment Centre (0.4 mi)\",\n      \"Darwin Waterfront (0.5 mi)\",\n      \"SKYCITY Casino (1.4 mi)\"\n    ],\n    \"checkInTime\": \"15:00\",\n    \"checkOutTime\": \"12:00\",\n    \"cancellationPolicy\": \"Free cancellation\",\n    \"type\": \"hotel\",\n    \"sourceUrl\": \"https://www.kayak.com/Darwin-Hotels-Hilton-Darwin.46676.ksp\"\n  },\n  {\n    \"name\": \"Vibe Hotel Darwin Waterfront\",\n    \"location\": {\n      \"city\": \"Darwin\",\n      \"country\": \"Australia\",\n      \"address\": \"7 Kitchener Drive, Darwin, NT 0800\"\n    },\n    \"stars\": 4,\n    \"rating\": 8.2,\n    \"reviewCount\": 602,\n    \"pricePerNight\": 136,\n    \"originalPrice\": 136,\n    \"roomTypes\": [\n      {\n        \"name\": \"Guest Room King or Twin\",\n        \"price\": 136,\n        \"capacity\": 2,\n        \"bedType\": \"King or Twin\"\n      },\n      {\n        \"name\": \"Guest Room King or Twin with View\",\n        \"price\": 160,\n        \"capacity\": 2,\n        \"bedType\": \"King or Twin\"\n      },\n      {\n        \"name\": \"Guest Room King or Twin and Single\",\n        \"price\": 180,\n        \"capacity\": 3,\n        \"bedType\": \"King or Twin + Single\"\n      }\n    ],\n    \"amenities\": [\n      \"Outdoor pool\",\n      \"Gym\",\n      \"On-site spa\",\n      \"Curve Restaurant and Bar\",\n      \"Free Wi-Fi\",\n      \"24-hour reception\",\n      \"Luggage storage\",\n      \"Room service\",\n      \"Conference facilities\",\n      \"Wedding facilities\",\n      \"On-site parking ($19/day)\",\n      \"In-room safe\",\n      \"Work desk\",\n      \"Tea and coffee amenities\",\n      \"Iron and ironing board\",\n      \"32-inch LCD TV with Chromecast\"\n    ],\n    \"description\": \"A 4-star hotel perfectly positioned in Darwin's waterfront entertainment and dining precinct, featuring 121 well-appointed guest rooms with optional water views, an outdoor pool, gym, on-site spa, and Curve Restaurant serving Australian produce from 6:30am daily. A short stroll to the Darwin Waterfront Lagoon and Deckchair Cinema.\",\n    \"nearbyAttractions\": [\n      \"Darwin City Waterfront (0.06 km)\",\n      \"Wave Pool / Beach Lagoon (0.26 km)\",\n      \"Outdoor Deckchair Cinema (0.70 km)\",\n      \"Crocosaurus Cove (1.30 km)\"\n    ],\n    \"checkInTime\": \"15:00\",\n    \"checkOutTime\": \"11:00\",\n    \"cancellationPolicy\": \"Free cancellation\",\n    \"type\": \"hotel\",\n    \"sourceUrl\": \"https://tfehotels.com/en/hotels/vibe-hotels/darwin-waterfront/\"\n  },\n  {\n    \"name\": \"Argos in Cappadocia\",\n    \"location\": {\n      \"city\": \"U\u00e7hisar\",\n      \"country\": \"Turkey\",\n      \"address\": \"Kayaba\u015f\u0131 Street 23, U\u00e7hisar 50240, Nev\u015fehir\"\n    },\n    \"stars\": 5,\n    \"rating\": 9.6,\n    \"reviewCount\": 444,\n    \"pricePerNight\": 454,\n    \"originalPrice\": 454,\n    \"roomTypes\": [\n      {\n        \"name\": \"Standard Room\",\n        \"price\": 454,\n        \"capacity\": 2,\n        \"bedType\": \"Double or Twin\"\n      },\n      {\n        \"name\": \"Deluxe Room\",\n        \"price\": 648,\n        \"capacity\": 2,\n        \"bedType\": \"Double or Twin\"\n      },\n      {\n        \"name\": \"Cave Splendid Suite\",\n        \"price\": 1257,\n        \"capacity\": 2,\n        \"bedType\": \"Double\"\n      }\n    ],\n    \"amenities\": [\n      \"Infinity pool\",\n      \"Indoor pool\",\n      \"Cave spa with pool\",\n      \"Argos Gym\",\n      \"Two restaurants (Nahita and Seki)\",\n      \"Wine cellar and underground wine tasting\",\n      \"Free Wi-Fi\",\n      \"Free parking\",\n      \"Valet parking\",\n      \"Hammam (Turkish bath)\",\n      \"Steam room\",\n      \"Sauna\",\n      \"Fireplace in select rooms\",\n      \"Jacuzzi suites\",\n      \"Private pool suites\",\n      \"Room service\",\n      \"Concierge\",\n      \"Eco-tourism and bicycle rental\",\n      \"Cooking classes\",\n      \"Horse riding\"\n    ],\n    \"description\": \"Restored from the ancient remains of a 9th-century monastery, Argos in Cappadocia features 71 unique hand-chiselled cave and stone rooms spread across nine mansions descending the hillside of historic U\u00e7hisar Village. A Forbes Travel Guide-rated property offering fine dining with farm-to-table cuisine, an ethereal cave spa pool, and breathtaking valley views.\",\n    \"nearbyAttractions\": [\n      \"U\u00e7hisar Castle (166 yd)\",\n      \"Pigeon Valley (0.7 mi)\",\n      \"G\u00f6reme Open Air Museum\",\n      \"Hot air balloon launch sites\"\n    ],\n    \"checkInTime\": \"15:00\",\n    \"checkOutTime\": \"12:00\",\n    \"cancellationPolicy\": \"Free cancellation\",\n    \"type\": \"boutique\",\n    \"sourceUrl\": \"https://www.kayak.com/Uchisar-Hotels-Argos-In-Cappadocia.340509.ksp\"\n  },\n  {\n    \"name\": \"Anantara Kihavah Maldives Villas\",\n    \"location\": {\n      \"city\": \"Kihavah Huravalhi\",\n      \"country\": \"Maldives\",\n      \"address\": \"Kihavah Huravalhi Island, Baa Atoll, Uthuru 20215\"\n    },\n    \"stars\": 5,\n    \"rating\": 9.6,\n    \"reviewCount\": 250,\n    \"pricePerNight\": 1224,\n    \"originalPrice\": 1224,\n    \"roomTypes\": [\n      {\n        \"name\": \"Beach Pool Villa\",\n        \"price\": 1224,\n        \"capacity\": 2,\n        \"bedType\": \"King\"\n      },\n      {\n        \"name\": \"Over Water Pool Villa\",\n        \"price\": 2463,\n        \"capacity\": 2,\n        \"bedType\": \"King\"\n      },\n      {\n        \"name\": \"Two-Bedroom Over Water Pool Residence\",\n        \"price\": 4146,\n        \"capacity\": 4,\n        \"bedType\": \"King + Twin\"\n      }\n    ],\n    \"amenities\": [\n      \"Private infinity pools in each villa\",\n      \"Butler service\",\n      \"Anantara Over Water Spa\",\n      \"Fitness centre\",\n      \"Multiple restaurants (Sea underwater restaurant, FIRE Japanese)\",\n      \"Bar/Lounge\",\n      \"Free Wi-Fi\",\n      \"All-inclusive meal plan available\",\n      \"Snorkelling equipment (complimentary)\",\n      \"Kayaks (complimentary)\",\n      \"Bicycles (complimentary)\",\n      \"Scuba diving\",\n      \"Kids' club\",\n      \"Sauna\",\n      \"Plunge pool\",\n      \"24-hour room service\",\n      \"Airport shuttle (seaplane)\"\n    ],\n    \"description\": \"An ultra-luxury 5-star private island resort in Baa Atoll featuring overwater and beach villas each with private infinity pools and butler service. Home to the world-renowned underwater restaurant 'Sea', a Japanese restaurant 'FIRE', and the Anantara Overwater Spa, set amid a UNESCO Biosphere Reserve with exceptional snorkelling and marine life.\",\n    \"nearbyAttractions\": [\n      \"Baa Atoll UNESCO Biosphere Reserve\",\n      \"Hanifaru Bay (manta ray aggregation site)\",\n      \"Dharavandhoo Island (10.8 mi by seaplane)\",\n      \"Local fishing villages\"\n    ],\n    \"checkInTime\": \"14:00\",\n    \"checkOutTime\": \"12:00\",\n    \"cancellationPolicy\": \"Free cancellation\",\n    \"type\": \"resort\",\n    \"sourceUrl\": \"https://www.kayak.com/Kihavah-Huravalhi-Hotels-Anantara-Kihavah-Maldives-Villas.366847.ksp\"\n  },\n  {\n    \"name\": \"citizenM New York Times Square\",\n    \"location\": {\n      \"city\": \"New York City\",\n      \"country\": \"United States\",\n      \"address\": \"218 West 50th Street, New York, NY 10019\"\n    },\n    \"stars\": 4,\n    \"rating\": 8.9,\n    \"reviewCount\": 6975,\n    \"pricePerNight\": 137,\n    \"originalPrice\": 137,\n    \"roomTypes\": [\n      {\n        \"name\": \"King Room\",\n        \"price\": 137,\n        \"capacity\": 2,\n        \"bedType\": \"King\"\n      },\n      {\n        \"name\": \"Standard Room\",\n        \"price\": 176,\n        \"capacity\": 2,\n        \"bedType\": \"King\"\n      },\n      {\n        \"name\": \"Superior Room\",\n        \"price\": 185,\n        \"capacity\": 2,\n        \"bedType\": \"King\"\n      }\n    ],\n    \"amenities\": [\n      \"Free Wi-Fi\",\n      \"24-hour fitness center\",\n      \"Restaurant\",\n      \"Rooftop bar\",\n      \"Snack bar/pantry (24hr)\",\n      \"Business center\",\n      \"Self check-in/check-out\",\n      \"Smart TV with wireless streaming\",\n      \"Rain shower\",\n      \"Blackout drapes\",\n      \"Ambient mood lighting\",\n      \"Soundproof rooms\",\n      \"Macs available for guest use\",\n      \"Free printing\",\n      \"Gift shop\",\n      \"Safety deposit box\"\n    ],\n    \"description\": \"A stylish 4-star boutique-concept hotel in Midtown Manhattan with 230 compact, smartly designed rooms featuring XL king beds, wall-to-wall blackout drapes, rain showers, and tablet-controlled room settings. Steps from Times Square, Broadway theaters, and MoMA, with a lively rooftop bar and expansive communal living room areas.\",\n    \"nearbyAttractions\": [\n      \"Times Square (302 yd)\",\n      \"Broadway Theatre District (173 yd)\",\n      \"Rockefeller Center (0.4 mi)\",\n      \"Museum of Modern Art / MoMA (0.4 mi)\"\n    ],\n    \"checkInTime\": \"14:00\",\n    \"checkOutTime\": \"11:00\",\n    \"cancellationPolicy\": \"Free cancellation\",\n    \"type\": \"boutique\",\n    \"sourceUrl\": \"https://www.kayak.com/New-York-Hotels-citizenM-New-York-Times-Square.754414.ksp\"\n  },\n  {\n    \"name\": \"Hotel Casa Bonay & Spa\",\n    \"location\": {\n      \"city\": \"Barcelona\",\n      \"country\": \"Spain\",\n      \"address\": \"Gran Via de Les Corts Catalanes, 700, 08010 Barcelona\"\n    },\n    \"stars\": 4,\n    \"rating\": 9.0,\n    \"reviewCount\": 1550,\n    \"pricePerNight\": 152,\n    \"originalPrice\": 152,\n    \"roomTypes\": [\n      {\n        \"name\": \"Double Room\",\n        \"price\": 152,\n        \"capacity\": 2,\n        \"bedType\": \"Double\"\n      },\n      {\n        \"name\": \"Deluxe Room\",\n        \"price\": 239,\n        \"capacity\": 2,\n        \"bedType\": \"Double\"\n      },\n      {\n        \"name\": \"Courtyard Terrace Suite\",\n        \"price\": 351,\n        \"capacity\": 2,\n        \"bedType\": \"Double\"\n      }\n    ],\n    \"amenities\": [\n      \"Two rooftop terraces (private sun deck and public Chiringuito beach shack bar)\",\n      \"Spa and sauna\",\n      \"Free Wi-Fi\",\n      \"Restaurant (King Kong Lady)\",\n      \"Bodega Bonay wine bar\",\n      \"Satan's Coffee Corner\",\n      \"El Chiringuito rooftop bar\",\n      \"Free bicycle rental\",\n      \"Concierge\",\n      \"Pet-friendly\",\n      \"Live entertainment\",\n      \"Business center\",\n      \"Airport shuttle (surcharge)\",\n      \"Malin + Goetz signature toiletries\",\n      \"Smart TV with streaming\",\n      \"Room service\"\n    ],\n    \"description\": \"An independent 4-star boutique hotel housed in an 1856 building in Barcelona's Eixample district, steps from Passeig de Gr\u00e0cia and a 10-minute walk from Sagrada Fam\u00edlia, featuring artisan-designed rooms, two rooftop terraces, a wine bar, and multiple in-house dining concepts. Rooms include luxury linens, Malin + Goetz toiletries, and locally made snacks.\",\n    \"nearbyAttractions\": [\n      \"Sagrada Fam\u00edlia (0.7 mi)\",\n      \"Passeig de Gr\u00e0cia (0.6 mi)\",\n      \"Museu Picasso Barcelona (0.7 mi)\",\n      \"Palau de la M\u00fasica Catalana (0.4 mi)\"\n    ],\n    \"checkInTime\": \"15:00\",\n    \"checkOutTime\": \"12:00\",\n    \"cancellationPolicy\": \"Free cancellation\",\n    \"type\": \"boutique\",\n    \"sourceUrl\": \"https://www.kayak.com/Barcelona-Hotels-Hotel-Casa-Bonay.2452940.ksp\"\n  },\n  {\n    \"name\": \"Luk Hostel\",\n    \"location\": {\n      \"city\": \"Bangkok\",\n      \"country\": \"Thailand\",\n      \"address\": \"382-384-386 Vanich 1 Road, Chakkrawat, Samphanthawong, Bangkok\"\n    },\n    \"stars\": 3,\n    \"rating\": 8.3,\n    \"reviewCount\": 1209,\n    \"pricePerNight\": 14,\n    \"originalPrice\": 14,\n    \"roomTypes\": [\n      {\n        \"name\": \"Mixed Dorm (6-bed)\",\n        \"price\": 14,\n        \"capacity\": 1,\n        \"bedType\": \"Bunk Bed\"\n      },\n      {\n        \"name\": \"Female-Only Dorm\",\n        \"price\": 16,\n        \"capacity\": 1,\n        \"bedType\": \"Bunk Bed\"\n      },\n      {\n        \"name\": \"Private Room\",\n        \"price\": 37,\n        \"capacity\": 2,\n        \"bedType\": \"Double\"\n      }\n    ],\n    \"amenities\": [\n      \"Free Wi-Fi\",\n      \"Air-conditioned co-working space\",\n      \"Rooftop terrace\",\n      \"In-house caf\u00e9 (Thai tea soft serve)\",\n      \"Free egg sandwiches and filtered water 24/7\",\n      \"Kitchen access\",\n      \"Laundry machines\",\n      \"Luggage storage\",\n      \"24-hour reception\",\n      \"Free walking tours\",\n      \"Group hangout events\",\n      \"5 minutes to MRT\"\n    ],\n    \"description\": \"A highly-rated budget hostel in the heart of Bangkok's vibrant Chinatown and historic Old City, offering stylish pod-style dorms and private rooms with modern design, a rooftop terrace, and a co-working space. Known for its free egg sandwiches, excellent staff, and central location steps from street food markets and 5 minutes from the MRT.\",\n    \"nearbyAttractions\": [\n      \"Chinatown / Yaowarat Road (steps away)\",\n      \"Wat Traimit (Golden Buddha Temple)\",\n      \"Songwat Road historic quarter\",\n      \"Chao Phraya River piers\"\n    ],\n    \"checkInTime\": \"13:00\",\n    \"checkOutTime\": \"11:00\",\n    \"cancellationPolicy\": \"24h cancellation\",\n    \"type\": \"hostel\",\n    \"sourceUrl\": \"https://www.hostelworld.com/hostels/p/293905/luk-hostel/\"\n  },\n  {\n    \"name\": \"Once Again Hostel\",\n    \"location\": {\n      \"city\": \"Bangkok\",\n      \"country\": \"Thailand\",\n      \"address\": \"22 Soi Samranrat, Mahachai Road, Phranakhon District, Bangkok\"\n    },\n    \"stars\": 3,\n    \"rating\": 9.4,\n    \"reviewCount\": 4516,\n    \"pricePerNight\": 16,\n    \"originalPrice\": 16,\n    \"roomTypes\": [\n      {\n        \"name\": \"Mixed Dorm\",\n        \"price\": 16,\n        \"capacity\": 1,\n        \"bedType\": \"Bunk Bed with blackout curtain\"\n      },\n      {\n        \"name\": \"Female-Only Dorm\",\n        \"price\": 17,\n        \"capacity\": 1,\n        \"bedType\": \"Bunk Bed with blackout curtain\"\n      },\n      {\n        \"name\": \"Deluxe Dorm\",\n        \"price\": 19,\n        \"capacity\": 1,\n        \"bedType\": \"Bunk Bed with private locker\"\n      }\n    ],\n    \"amenities\": [\n      \"Free Wi-Fi\",\n      \"Rooftop terrace with city views\",\n      \"Free egg sandwiches (complimentary breakfast)\",\n      \"Luggage storage\",\n      \"24-hour reception\",\n      \"ATM on-site\",\n      \"Tours and travel desk\",\n      \"Free city maps\",\n      \"Free city tour\",\n      \"Cultural activities and local walks\",\n      \"Private lockers\",\n      \"Blackout curtains on beds\"\n    ],\n    \"description\": \"A superb-rated hostel in Bangkok's Old Town (Phranakhon District), just 0.2 km from the city centre and steps from iconic temples like Wat Saket and Khaosan Road, offering pod-style dorms with blackout curtains and private lockers, a rooftop terrace with stunning views, and complimentary egg sandwiches. Rated 9.4/10 by over 4,500 travellers on Hostelworld.\",\n    \"nearbyAttractions\": [\n      \"Wat Saket (Golden Mount Temple)\",\n      \"Khaosan Road (backpacker hub)\",\n      \"Grand Palace\",\n      \"Wat Pho (Temple of the Reclining Buddha)\"\n    ],\n    \"checkInTime\": \"13:00\",\n    \"checkOutTime\": \"11:00\",\n    \"cancellationPolicy\": \"Free cancellation\",\n    \"type\": \"hostel\",\n    \"sourceUrl\": \"https://www.hostelworld.com/hostels/p/102790/once-again-hostel/\"\n  }\n]",
+  "candidate_count": 10,
+  "validated_count": 10,
+  "dropped": [],
+  "hotels": [
+    {
+      "id": "HTL009",
+      "name": "Park Hyatt Sydney",
+      "location": {
+        "city": "Sydney",
+        "country": "Australia",
+        "address": "7 Hickson Road, The Rocks, Sydney, NSW 2000"
+      },
+      "stars": 5,
+      "rating": 9.2,
+      "reviewCount": 594,
+      "pricePerNight": 248.0,
+      "originalPrice": 248.0,
+      "roomTypes": [
+        {
+          "name": "King Room",
+          "price": 248.0,
+          "capacity": 2,
+          "bedType": "King"
+        },
+        {
+          "name": "Harbour Suite",
+          "price": 665.0,
+          "capacity": 2,
+          "bedType": "King"
+        },
+        {
+          "name": "Opera Suite",
+          "price": 1068.0,
+          "capacity": 2,
+          "bedType": "King"
+        }
+      ],
+      "amenities": [
+        "Outdoor rooftop pool",
+        "Fitness center",
+        "Restaurant",
+        "Bar/Lounge",
+        "Room service",
+        "Free Wi-Fi",
+        "Tea/coffee maker",
+        "Nespresso machine",
+        "Valet parking",
+        "Business center",
+        "24-hour butler service",
+        "Spa",
+        "Sauna",
+        "Concierge"
+      ],
+      "images": "from-sky-600 via-cyan-500 to-teal-600",
+      "description": "A 5-star hotel in The Rocks, directly across from the Sydney Opera House, featuring 155 elegantly appointed guest rooms and suites with floor-to-ceiling harbour views, a rooftop pool, and 24-hour butler service. It has hosted celebrities and dignitaries since 1990 and is consistently rated among Sydney's finest luxury stays.",
+      "nearbyAttractions": [
+        "Sydney Harbour Bridge (0.3 mi)",
+        "Circular Quay (0.4 mi)",
+        "Sydney Opera House (0.4 mi)",
+        "The Rocks Markets"
+      ],
+      "checkInTime": "15:00",
+      "checkOutTime": "11:00",
+      "cancellationPolicy": "Free cancellation",
+      "type": "hotel",
+      "sourceUrl": "https://www.kayak.com/Sydney-Hotels-Park-Hyatt-Sydney.659956.ksp"
+    },
+    {
+      "id": "HTL010",
+      "name": "Shangri-La Sydney",
+      "location": {
+        "city": "Sydney",
+        "country": "Australia",
+        "address": "176 Cumberland Street, The Rocks, Sydney, NSW 2000"
+      },
+      "stars": 5,
+      "rating": 8.7,
+      "reviewCount": 6865,
+      "pricePerNight": 305.0,
+      "originalPrice": 305.0,
+      "roomTypes": [
+        {
+          "name": "Deluxe Room",
+          "price": 305.0,
+          "capacity": 2,
+          "bedType": "King"
+        },
+        {
+          "name": "Executive Room",
+          "price": 399.0,
+          "capacity": 2,
+          "bedType": "King or Twin"
+        },
+        {
+          "name": "Horizon Club Premier Sydney Harbour Room",
+          "price": 531.0,
+          "capacity": 2,
+          "bedType": "King"
+        }
+      ],
+      "amenities": [
+        "Indoor swimming pool",
+        "Fitness center / Health Club",
+        "CHI Spa",
+        "Three restaurants and one bar",
+        "Free Wi-Fi",
+        "Jacuzzi",
+        "Sun deck",
+        "Room service",
+        "Valet parking",
+        "Business center",
+        "Concierge",
+        "Executive lounge",
+        "Panoramic harbour views"
+      ],
+      "images": "from-zinc-700 via-stone-600 to-neutral-700",
+      "description": "A landmark 5-star luxury hotel in The Rocks with 565 spacious guest rooms and suites boasting the largest windows of any harbour-facing hotel in Sydney, offering 270-degree views spanning the Opera House, Harbour Bridge, Blue Mountains, and Pacific Ocean. Home to three restaurants, CHI Spa, and an expansive Health Club with indoor pool.",
+      "nearbyAttractions": [
+        "Circular Quay (0.3 mi)",
+        "Sydney Opera House (0.6 mi)",
+        "Sydney Harbour Bridge (0.7 mi)",
+        "Darling Harbour (1 mi)"
+      ],
+      "checkInTime": "15:00",
+      "checkOutTime": "11:00",
+      "cancellationPolicy": "Free cancellation",
+      "type": "hotel",
+      "sourceUrl": "https://www.kayak.com/Sydney-Hotels-Shangri-La-Sydney.12238.ksp"
+    },
+    {
+      "id": "HTL011",
+      "name": "Hilton Darwin",
+      "location": {
+        "city": "Darwin",
+        "country": "Australia",
+        "address": "32 Mitchell Street, Darwin, NT 0800"
+      },
+      "stars": 5,
+      "rating": 8.7,
+      "reviewCount": 1065,
+      "pricePerNight": 101.0,
+      "originalPrice": 101.0,
+      "roomTypes": [
+        {
+          "name": "Double Room",
+          "price": 101.0,
+          "capacity": 2,
+          "bedType": "Double"
+        },
+        {
+          "name": "King Room",
+          "price": 142.0,
+          "capacity": 2,
+          "bedType": "King"
+        },
+        {
+          "name": "Standard Room",
+          "price": 163.0,
+          "capacity": 2,
+          "bedType": "2 Double Beds"
+        }
+      ],
+      "amenities": [
+        "Rooftop pool",
+        "Rooftop terrace",
+        "Outdoor tennis courts",
+        "Sauna",
+        "Fitness center",
+        "Mitchell's Grill restaurant",
+        "Mitchell Bar",
+        "Free Wi-Fi",
+        "24-hour room service",
+        "Executive lounge",
+        "Kids pool",
+        "Kitchenette with refrigerator and microwave",
+        "Valet parking",
+        "Business center",
+        "Concierge"
+      ],
+      "images": "from-red-700 via-rose-600 to-pink-700",
+      "description": "A 5-star full-service hotel in Darwin's CBD on Mitchell Street, featuring a rooftop pool and terrace, outdoor tennis courts, and elegant rooms with kitchenettes and jet tubs. Located within walking distance of Darwin Entertainment Centre, Government House, and the Darwin Waterfront precinct.",
+      "nearbyAttractions": [
+        "Crocosaurus Cove (391 yd)",
+        "Darwin Entertainment Centre (0.4 mi)",
+        "Darwin Waterfront (0.5 mi)",
+        "SKYCITY Casino (1.4 mi)"
+      ],
+      "checkInTime": "15:00",
+      "checkOutTime": "12:00",
+      "cancellationPolicy": "Free cancellation",
+      "type": "hotel",
+      "sourceUrl": "https://www.kayak.com/Darwin-Hotels-Hilton-Darwin.46676.ksp"
+    },
+    {
+      "id": "HTL012",
+      "name": "Vibe Hotel Darwin Waterfront",
+      "location": {
+        "city": "Darwin",
+        "country": "Australia",
+        "address": "7 Kitchener Drive, Darwin, NT 0800"
+      },
+      "stars": 4,
+      "rating": 8.2,
+      "reviewCount": 602,
+      "pricePerNight": 136.0,
+      "originalPrice": 136.0,
+      "roomTypes": [
+        {
+          "name": "Guest Room King or Twin",
+          "price": 136.0,
+          "capacity": 2,
+          "bedType": "King or Twin"
+        },
+        {
+          "name": "Guest Room King or Twin with View",
+          "price": 160.0,
+          "capacity": 2,
+          "bedType": "King or Twin"
+        },
+        {
+          "name": "Guest Room King or Twin and Single",
+          "price": 180.0,
+          "capacity": 3,
+          "bedType": "King or Twin + Single"
+        }
+      ],
+      "amenities": [
+        "Outdoor pool",
+        "Gym",
+        "On-site spa",
+        "Curve Restaurant and Bar",
+        "Free Wi-Fi",
+        "24-hour reception",
+        "Luggage storage",
+        "Room service",
+        "Conference facilities",
+        "Wedding facilities",
+        "On-site parking ($19/day)",
+        "In-room safe",
+        "Work desk",
+        "Tea and coffee amenities",
+        "Iron and ironing board",
+        "32-inch LCD TV with Chromecast"
+      ],
+      "images": "from-violet-800 via-purple-700 to-indigo-800",
+      "description": "A 4-star hotel perfectly positioned in Darwin's waterfront entertainment and dining precinct, featuring 121 well-appointed guest rooms with optional water views, an outdoor pool, gym, on-site spa, and Curve Restaurant serving Australian produce from 6:30am daily. A short stroll to the Darwin Waterfront Lagoon and Deckchair Cinema.",
+      "nearbyAttractions": [
+        "Darwin City Waterfront (0.06 km)",
+        "Wave Pool / Beach Lagoon (0.26 km)",
+        "Outdoor Deckchair Cinema (0.70 km)",
+        "Crocosaurus Cove (1.30 km)"
+      ],
+      "checkInTime": "15:00",
+      "checkOutTime": "11:00",
+      "cancellationPolicy": "Free cancellation",
+      "type": "hotel",
+      "sourceUrl": "https://tfehotels.com/en/hotels/vibe-hotels/darwin-waterfront/"
+    },
+    {
+      "id": "HTL013",
+      "name": "Argos in Cappadocia",
+      "location": {
+        "city": "U\u00e7hisar",
+        "country": "Turkey",
+        "address": "Kayaba\u015f\u0131 Street 23, U\u00e7hisar 50240, Nev\u015fehir"
+      },
+      "stars": 5,
+      "rating": 9.6,
+      "reviewCount": 444,
+      "pricePerNight": 454.0,
+      "originalPrice": 454.0,
+      "roomTypes": [
+        {
+          "name": "Standard Room",
+          "price": 454.0,
+          "capacity": 2,
+          "bedType": "Double or Twin"
+        },
+        {
+          "name": "Deluxe Room",
+          "price": 648.0,
+          "capacity": 2,
+          "bedType": "Double or Twin"
+        },
+        {
+          "name": "Cave Splendid Suite",
+          "price": 1257.0,
+          "capacity": 2,
+          "bedType": "Double"
+        }
+      ],
+      "amenities": [
+        "Infinity pool",
+        "Indoor pool",
+        "Cave spa with pool",
+        "Argos Gym",
+        "Two restaurants (Nahita and Seki)",
+        "Wine cellar and underground wine tasting",
+        "Free Wi-Fi",
+        "Free parking",
+        "Valet parking",
+        "Hammam (Turkish bath)",
+        "Steam room",
+        "Sauna",
+        "Fireplace in select rooms",
+        "Jacuzzi suites",
+        "Private pool suites",
+        "Room service",
+        "Concierge",
+        "Eco-tourism and bicycle rental",
+        "Cooking classes",
+        "Horse riding"
+      ],
+      "images": "from-rose-800 via-pink-700 to-fuchsia-800",
+      "description": "Restored from the ancient remains of a 9th-century monastery, Argos in Cappadocia features 71 unique hand-chiselled cave and stone rooms spread across nine mansions descending the hillside of historic U\u00e7hisar Village. A Forbes Travel Guide-rated property offering fine dining with farm-to-table cuisine, an ethereal cave spa pool, and breathtaking valley views.",
+      "nearbyAttractions": [
+        "U\u00e7hisar Castle (166 yd)",
+        "Pigeon Valley (0.7 mi)",
+        "G\u00f6reme Open Air Museum",
+        "Hot air balloon launch sites"
+      ],
+      "checkInTime": "15:00",
+      "checkOutTime": "12:00",
+      "cancellationPolicy": "Free cancellation",
+      "type": "boutique",
+      "sourceUrl": "https://www.kayak.com/Uchisar-Hotels-Argos-In-Cappadocia.340509.ksp"
+    },
+    {
+      "id": "HTL014",
+      "name": "Anantara Kihavah Maldives Villas",
+      "location": {
+        "city": "Kihavah Huravalhi",
+        "country": "Maldives",
+        "address": "Kihavah Huravalhi Island, Baa Atoll, Uthuru 20215"
+      },
+      "stars": 5,
+      "rating": 9.6,
+      "reviewCount": 250,
+      "pricePerNight": 1224.0,
+      "originalPrice": 1224.0,
+      "roomTypes": [
+        {
+          "name": "Beach Pool Villa",
+          "price": 1224.0,
+          "capacity": 2,
+          "bedType": "King"
+        },
+        {
+          "name": "Over Water Pool Villa",
+          "price": 2463.0,
+          "capacity": 2,
+          "bedType": "King"
+        },
+        {
+          "name": "Two-Bedroom Over Water Pool Residence",
+          "price": 4146.0,
+          "capacity": 4,
+          "bedType": "King + Twin"
+        }
+      ],
+      "amenities": [
+        "Private infinity pools in each villa",
+        "Butler service",
+        "Anantara Over Water Spa",
+        "Fitness centre",
+        "Multiple restaurants (Sea underwater restaurant, FIRE Japanese)",
+        "Bar/Lounge",
+        "Free Wi-Fi",
+        "All-inclusive meal plan available",
+        "Snorkelling equipment (complimentary)",
+        "Kayaks (complimentary)",
+        "Bicycles (complimentary)",
+        "Scuba diving",
+        "Kids' club",
+        "Sauna",
+        "Plunge pool",
+        "24-hour room service",
+        "Airport shuttle (seaplane)"
+      ],
+      "images": "from-indigo-800 via-blue-700 to-sky-800",
+      "description": "An ultra-luxury 5-star private island resort in Baa Atoll featuring overwater and beach villas each with private infinity pools and butler service. Home to the world-renowned underwater restaurant 'Sea', a Japanese restaurant 'FIRE', and the Anantara Overwater Spa, set amid a UNESCO Biosphere Reserve with exceptional snorkelling and marine life.",
+      "nearbyAttractions": [
+        "Baa Atoll UNESCO Biosphere Reserve",
+        "Hanifaru Bay (manta ray aggregation site)",
+        "Dharavandhoo Island (10.8 mi by seaplane)",
+        "Local fishing villages"
+      ],
+      "checkInTime": "14:00",
+      "checkOutTime": "12:00",
+      "cancellationPolicy": "Free cancellation",
+      "type": "resort",
+      "sourceUrl": "https://www.kayak.com/Kihavah-Huravalhi-Hotels-Anantara-Kihavah-Maldives-Villas.366847.ksp"
+    },
+    {
+      "id": "HTL015",
+      "name": "citizenM New York Times Square",
+      "location": {
+        "city": "New York City",
+        "country": "United States",
+        "address": "218 West 50th Street, New York, NY 10019"
+      },
+      "stars": 4,
+      "rating": 8.9,
+      "reviewCount": 6975,
+      "pricePerNight": 137.0,
+      "originalPrice": 137.0,
+      "roomTypes": [
+        {
+          "name": "King Room",
+          "price": 137.0,
+          "capacity": 2,
+          "bedType": "King"
+        },
+        {
+          "name": "Standard Room",
+          "price": 176.0,
+          "capacity": 2,
+          "bedType": "King"
+        },
+        {
+          "name": "Superior Room",
+          "price": 185.0,
+          "capacity": 2,
+          "bedType": "King"
+        }
+      ],
+      "amenities": [
+        "Free Wi-Fi",
+        "24-hour fitness center",
+        "Restaurant",
+        "Rooftop bar",
+        "Snack bar/pantry (24hr)",
+        "Business center",
+        "Self check-in/check-out",
+        "Smart TV with wireless streaming",
+        "Rain shower",
+        "Blackout drapes",
+        "Ambient mood lighting",
+        "Soundproof rooms",
+        "Macs available for guest use",
+        "Free printing",
+        "Gift shop",
+        "Safety deposit box"
+      ],
+      "images": "from-lime-800 via-green-700 to-emerald-800",
+      "description": "A stylish 4-star boutique-concept hotel in Midtown Manhattan with 230 compact, smartly designed rooms featuring XL king beds, wall-to-wall blackout drapes, rain showers, and tablet-controlled room settings. Steps from Times Square, Broadway theaters, and MoMA, with a lively rooftop bar and expansive communal living room areas.",
+      "nearbyAttractions": [
+        "Times Square (302 yd)",
+        "Broadway Theatre District (173 yd)",
+        "Rockefeller Center (0.4 mi)",
+        "Museum of Modern Art / MoMA (0.4 mi)"
+      ],
+      "checkInTime": "14:00",
+      "checkOutTime": "11:00",
+      "cancellationPolicy": "Free cancellation",
+      "type": "boutique",
+      "sourceUrl": "https://www.kayak.com/New-York-Hotels-citizenM-New-York-Times-Square.754414.ksp"
+    },
+    {
+      "id": "HTL016",
+      "name": "Hotel Casa Bonay & Spa",
+      "location": {
+        "city": "Barcelona",
+        "country": "Spain",
+        "address": "Gran Via de Les Corts Catalanes, 700, 08010 Barcelona"
+      },
+      "stars": 4,
+      "rating": 9.0,
+      "reviewCount": 1550,
+      "pricePerNight": 152.0,
+      "originalPrice": 152.0,
+      "roomTypes": [
+        {
+          "name": "Double Room",
+          "price": 152.0,
+          "capacity": 2,
+          "bedType": "Double"
+        },
+        {
+          "name": "Deluxe Room",
+          "price": 239.0,
+          "capacity": 2,
+          "bedType": "Double"
+        },
+        {
+          "name": "Courtyard Terrace Suite",
+          "price": 351.0,
+          "capacity": 2,
+          "bedType": "Double"
+        }
+      ],
+      "amenities": [
+        "Two rooftop terraces (private sun deck and public Chiringuito beach shack bar)",
+        "Spa and sauna",
+        "Free Wi-Fi",
+        "Restaurant (King Kong Lady)",
+        "Bodega Bonay wine bar",
+        "Satan's Coffee Corner",
+        "El Chiringuito rooftop bar",
+        "Free bicycle rental",
+        "Concierge",
+        "Pet-friendly",
+        "Live entertainment",
+        "Business center",
+        "Airport shuttle (surcharge)",
+        "Malin + Goetz signature toiletries",
+        "Smart TV with streaming",
+        "Room service"
+      ],
+      "images": "from-blue-900 via-indigo-800 to-purple-900",
+      "description": "An independent 4-star boutique hotel housed in an 1856 building in Barcelona's Eixample district, steps from Passeig de Gr\u00e0cia and a 10-minute walk from Sagrada Fam\u00edlia, featuring artisan-designed rooms, two rooftop terraces, a wine bar, and multiple in-house dining concepts. Rooms include luxury linens, Malin + Goetz toiletries, and locally made snacks.",
+      "nearbyAttractions": [
+        "Sagrada Fam\u00edlia (0.7 mi)",
+        "Passeig de Gr\u00e0cia (0.6 mi)",
+        "Museu Picasso Barcelona (0.7 mi)",
+        "Palau de la M\u00fasica Catalana (0.4 mi)"
+      ],
+      "checkInTime": "15:00",
+      "checkOutTime": "12:00",
+      "cancellationPolicy": "Free cancellation",
+      "type": "boutique",
+      "sourceUrl": "https://www.kayak.com/Barcelona-Hotels-Hotel-Casa-Bonay.2452940.ksp"
+    },
+    {
+      "id": "HTL017",
+      "name": "Luk Hostel",
+      "location": {
+        "city": "Bangkok",
+        "country": "Thailand",
+        "address": "382-384-386 Vanich 1 Road, Chakkrawat, Samphanthawong, Bangkok"
+      },
+      "stars": 3,
+      "rating": 8.3,
+      "reviewCount": 1209,
+      "pricePerNight": 14.0,
+      "originalPrice": 14.0,
+      "roomTypes": [
+        {
+          "name": "Mixed Dorm (6-bed)",
+          "price": 14.0,
+          "capacity": 1,
+          "bedType": "Bunk Bed"
+        },
+        {
+          "name": "Female-Only Dorm",
+          "price": 16.0,
+          "capacity": 1,
+          "bedType": "Bunk Bed"
+        },
+        {
+          "name": "Private Room",
+          "price": 37.0,
+          "capacity": 2,
+          "bedType": "Double"
+        }
+      ],
+      "amenities": [
+        "Free Wi-Fi",
+        "Air-conditioned co-working space",
+        "Rooftop terrace",
+        "In-house caf\u00e9 (Thai tea soft serve)",
+        "Free egg sandwiches and filtered water 24/7",
+        "Kitchen access",
+        "Laundry machines",
+        "Luggage storage",
+        "24-hour reception",
+        "Free walking tours",
+        "Group hangout events",
+        "5 minutes to MRT"
+      ],
+      "images": "from-red-900 via-rose-800 to-pink-900",
+      "description": "A highly-rated budget hostel in the heart of Bangkok's vibrant Chinatown and historic Old City, offering stylish pod-style dorms and private rooms with modern design, a rooftop terrace, and a co-working space. Known for its free egg sandwiches, excellent staff, and central location steps from street food markets and 5 minutes from the MRT.",
+      "nearbyAttractions": [
+        "Chinatown / Yaowarat Road (steps away)",
+        "Wat Traimit (Golden Buddha Temple)",
+        "Songwat Road historic quarter",
+        "Chao Phraya River piers"
+      ],
+      "checkInTime": "13:00",
+      "checkOutTime": "11:00",
+      "cancellationPolicy": "24h cancellation",
+      "type": "hostel",
+      "sourceUrl": "https://www.hostelworld.com/hostels/p/293905/luk-hostel/"
+    },
+    {
+      "id": "HTL018",
+      "name": "Once Again Hostel",
+      "location": {
+        "city": "Bangkok",
+        "country": "Thailand",
+        "address": "22 Soi Samranrat, Mahachai Road, Phranakhon District, Bangkok"
+      },
+      "stars": 3,
+      "rating": 9.4,
+      "reviewCount": 4516,
+      "pricePerNight": 16.0,
+      "originalPrice": 16.0,
+      "roomTypes": [
+        {
+          "name": "Mixed Dorm",
+          "price": 16.0,
+          "capacity": 1,
+          "bedType": "Bunk Bed with blackout curtain"
+        },
+        {
+          "name": "Female-Only Dorm",
+          "price": 17.0,
+          "capacity": 1,
+          "bedType": "Bunk Bed with blackout curtain"
+        },
+        {
+          "name": "Deluxe Dorm",
+          "price": 19.0,
+          "capacity": 1,
+          "bedType": "Bunk Bed with private locker"
+        }
+      ],
+      "amenities": [
+        "Free Wi-Fi",
+        "Rooftop terrace with city views",
+        "Free egg sandwiches (complimentary breakfast)",
+        "Luggage storage",
+        "24-hour reception",
+        "ATM on-site",
+        "Tours and travel desk",
+        "Free city maps",
+        "Free city tour",
+        "Cultural activities and local walks",
+        "Private lockers",
+        "Blackout curtains on beds"
+      ],
+      "images": "from-cyan-800 via-teal-700 to-emerald-800",
+      "description": "A superb-rated hostel in Bangkok's Old Town (Phranakhon District), just 0.2 km from the city centre and steps from iconic temples like Wat Saket and Khaosan Road, offering pod-style dorms with blackout curtains and private lockers, a rooftop terrace with stunning views, and complimentary egg sandwiches. Rated 9.4/10 by over 4,500 travellers on Hostelworld.",
+      "nearbyAttractions": [
+        "Wat Saket (Golden Mount Temple)",
+        "Khaosan Road (backpacker hub)",
+        "Grand Palace",
+        "Wat Pho (Temple of the Reclining Buddha)"
+      ],
+      "checkInTime": "13:00",
+      "checkOutTime": "11:00",
+      "cancellationPolicy": "Free cancellation",
+      "type": "hostel",
+      "sourceUrl": "https://www.hostelworld.com/hostels/p/102790/once-again-hostel/"
+    }
+  ]
+}

@@ -2,8 +2,10 @@
   - ../../src/lib/data/cars-live.json    (consumed by the Next.js site)
   - output/run-cars-<timestamp>.log.json (audit trail: raw output + sources)
 
-Each run REPLACES the live car list with a fresh set of currently-real
-listings/rates. Re-run this periodically to refresh.
+Each run GROWS the live car list, merging new real finds in and skipping
+anything already there by name (case-insensitive) — matches the additive
+pattern in run.py (packages), so coverage keeps expanding across runs
+instead of resetting.
 """
 
 import json
@@ -37,11 +39,26 @@ def strip_code_fences(text: str) -> str:
 
 
 def extract_json_array(text: str) -> str:
-    start = text.find("[")
+    """Walk backward from the LAST "]" and bracket-match to find its "[" —
+    isolates the model's real final array even when its reasoning left
+    earlier draft/incomplete JSON-looking fragments beforehand (a real car
+    rental run did this: several partial arrays, one literally truncated
+    with "...]" mid-reasoning, before the actual complete final answer)."""
+    text = text.strip()
     end = text.rfind("]")
-    if start == -1 or end == -1 or end < start:
+    if end == -1:
         return text
-    return text[start : end + 1]
+    depth = 0
+    i = end
+    while i >= 0:
+        if text[i] == "]":
+            depth += 1
+        elif text[i] == "[":
+            depth -= 1
+            if depth == 0:
+                return text[i : end + 1]
+        i -= 1
+    return text
 
 
 def main() -> int:
@@ -91,11 +108,33 @@ def main() -> int:
         print("(The site will keep serving its last-known-good data either way, thanks to the fallback in cars.ts.)", file=sys.stderr)
         return 1
 
-    final_cars: list[CarRental] = []
-    for i, c in enumerate(validated, start=1):
-        final_cars.append(
+    # Grow the catalog rather than replace it — same additive pattern as
+    # run.py (packages): load whatever's already live, skip anything
+    # already there by name (case-insensitive), and continue the id
+    # sequence from the highest existing CARnnn number.
+    existing: list[dict] = []
+    if LIVE_JSON_PATH.exists():
+        try:
+            existing = json.loads(LIVE_JSON_PATH.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            existing = []
+    existing_names = {e["name"].strip().lower() for e in existing}
+
+    def existing_id_number(car: dict) -> int:
+        match = re.match(r"CAR(\d+)$", car.get("id", ""))
+        return int(match.group(1)) if match else 0
+
+    next_id = max((existing_id_number(e) for e in existing), default=0) + 1
+
+    new_cars: list[CarRental] = []
+    new_validated: list[ResearchedCarRental] = []
+    for c in validated:
+        if c.name.strip().lower() in existing_names:
+            continue
+        new_validated.append(c)
+        new_cars.append(
             CarRental(
-                id=f"CAR{i:03d}",
+                id=f"CAR{next_id:03d}",
                 name=c.name,
                 model=c.model,
                 type=c.type,
@@ -107,18 +146,19 @@ def main() -> int:
                 pricePerDay=c.pricePerDay,
                 supplier=c.supplier,
                 supplierLogo=c.supplierLogo,
-                gradient=CAR_GRADIENT_PALETTE[(i - 1) % len(CAR_GRADIENT_PALETTE)],
+                gradient=CAR_GRADIENT_PALETTE[(next_id - 1) % len(CAR_GRADIENT_PALETTE)],
                 features=c.features,
                 pickupLocations=c.pickupLocations,
                 fuelPolicy=c.fuelPolicy,
                 mileage=c.mileage,
             )
         )
+        next_id += 1
 
-    live_json = [c.model_dump(mode="json") for c in final_cars]
+    final_cars = existing + [c.model_dump(mode="json") for c in new_cars]
     LIVE_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
-    LIVE_JSON_PATH.write_text(json.dumps(live_json, indent=2), encoding="utf-8")
-    print(f"Wrote {len(final_cars)} real car rentals to {LIVE_JSON_PATH.resolve()}")
+    LIVE_JSON_PATH.write_text(json.dumps(final_cars, indent=2), encoding="utf-8")
+    print(f"Added {len(new_cars)} new real cars ({len(validated) - len(new_cars)} were already in the catalog); {len(final_cars)} total now in {LIVE_JSON_PATH.resolve()}")
 
     OUTPUT_DIR.mkdir(exist_ok=True)
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
@@ -133,7 +173,7 @@ def main() -> int:
                 "dropped": [{"name": d["item"].get("name") if isinstance(d["item"], dict) else None, "error": d["error"]} for d in dropped],
                 "cars": [
                     {**c.model_dump(mode="json"), "sourceUrl": str(src.sourceUrl)}
-                    for c, src in zip(final_cars, validated)
+                    for c, src in zip(new_cars, new_validated)
                 ],
             },
             indent=2,

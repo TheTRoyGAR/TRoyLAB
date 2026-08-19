@@ -45,14 +45,29 @@ def strip_code_fences(text: str) -> str:
 
 
 def extract_json_array(text: str) -> str:
-    """The agent sometimes prepends a prose summary before the JSON array
-    despite being told not to. Fall back to slicing out the first top-level
-    [...] block rather than failing the whole run over a chatty preamble."""
-    start = text.find("[")
+    """The agent sometimes reasons out loud with several draft/incomplete
+    JSON-looking fragments before its real final array (seen for real: a
+    car-rental run left partial arrays literally ending in "...]" mid-
+    reasoning before the actual answer). Naively spanning from the first
+    "[" to the last "]" swallows all of that into one invalid blob. Instead,
+    walk backward from the LAST "]" and bracket-match to find its
+    corresponding "[" — that always isolates the real final array, since
+    it's whatever the model wrote last."""
+    text = text.strip()
     end = text.rfind("]")
-    if start == -1 or end == -1 or end < start:
+    if end == -1:
         return text
-    return text[start : end + 1]
+    depth = 0
+    i = end
+    while i >= 0:
+        if text[i] == "]":
+            depth += 1
+        elif text[i] == "[":
+            depth -= 1
+            if depth == 0:
+                return text[i : end + 1]
+        i -= 1
+    return text
 
 
 def main() -> int:

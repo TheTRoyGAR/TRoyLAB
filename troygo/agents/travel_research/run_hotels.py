@@ -2,9 +2,10 @@
   - ../../src/lib/data/hotels-live.json    (consumed by the Next.js site)
   - output/run-hotels-<timestamp>.log.json (audit trail: raw output + sources)
 
-Each run REPLACES the live hotel list with a fresh set of currently-real
-hotels/rates — old runs aren't accumulated, since a rate that was current a
-month ago usually isn't anymore. Re-run this periodically to refresh.
+Each run GROWS the live hotel list, merging new real finds in and skipping
+anything already there by name (case-insensitive) — matches the additive
+pattern in run.py (packages), so coverage keeps expanding across runs
+instead of resetting.
 """
 
 import json
@@ -40,14 +41,26 @@ def strip_code_fences(text: str) -> str:
 
 
 def extract_json_array(text: str) -> str:
-    """The agent sometimes prepends a prose summary before the JSON array
-    despite being told not to. Fall back to slicing out the first top-level
-    [...] block rather than failing the whole run over a chatty preamble."""
-    start = text.find("[")
+    """Walk backward from the LAST "]" and bracket-match to find its "[" —
+    isolates the model's real final array even when its reasoning left
+    earlier draft/incomplete JSON-looking fragments beforehand (a real car
+    rental run did this: several partial arrays, one literally truncated
+    with "...]" mid-reasoning, before the actual complete final answer)."""
+    text = text.strip()
     end = text.rfind("]")
-    if start == -1 or end == -1 or end < start:
+    if end == -1:
         return text
-    return text[start : end + 1]
+    depth = 0
+    i = end
+    while i >= 0:
+        if text[i] == "]":
+            depth += 1
+        elif text[i] == "[":
+            depth -= 1
+            if depth == 0:
+                return text[i : end + 1]
+        i -= 1
+    return text
 
 
 def main() -> int:
@@ -97,11 +110,29 @@ def main() -> int:
         print("(The site will keep serving its last-known-good data either way, thanks to the fallback in hotels.ts.)", file=sys.stderr)
         return 1
 
-    final_hotels: list[Hotel] = []
-    for i, h in enumerate(validated, start=1):
-        final_hotels.append(
+    existing: list[dict] = []
+    if LIVE_JSON_PATH.exists():
+        try:
+            existing = json.loads(LIVE_JSON_PATH.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            existing = []
+    existing_names = {e["name"].strip().lower() for e in existing}
+
+    def existing_id_number(hotel: dict) -> int:
+        match = re.match(r"HTL(\d+)$", hotel.get("id", ""))
+        return int(match.group(1)) if match else 0
+
+    next_id = max((existing_id_number(e) for e in existing), default=0) + 1
+
+    new_hotels: list[Hotel] = []
+    new_validated: list[ResearchedHotel] = []
+    for h in validated:
+        if h.name.strip().lower() in existing_names:
+            continue
+        new_validated.append(h)
+        new_hotels.append(
             Hotel(
-                id=f"HTL{i:03d}",
+                id=f"HTL{next_id:03d}",
                 name=h.name,
                 location=h.location,
                 stars=h.stars,
@@ -111,7 +142,7 @@ def main() -> int:
                 originalPrice=h.originalPrice,
                 roomTypes=h.roomTypes,
                 amenities=h.amenities,
-                images=HOTEL_GRADIENT_PALETTE[(i - 1) % len(HOTEL_GRADIENT_PALETTE)],
+                images=HOTEL_GRADIENT_PALETTE[(next_id - 1) % len(HOTEL_GRADIENT_PALETTE)],
                 description=h.description,
                 nearbyAttractions=h.nearbyAttractions,
                 checkInTime=h.checkInTime,
@@ -120,11 +151,12 @@ def main() -> int:
                 type=h.type,
             )
         )
+        next_id += 1
 
-    live_json = [h.model_dump(mode="json") for h in final_hotels]
+    final_hotels = existing + [h.model_dump(mode="json") for h in new_hotels]
     LIVE_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
-    LIVE_JSON_PATH.write_text(json.dumps(live_json, indent=2), encoding="utf-8")
-    print(f"Wrote {len(final_hotels)} real hotels to {LIVE_JSON_PATH.resolve()}")
+    LIVE_JSON_PATH.write_text(json.dumps(final_hotels, indent=2), encoding="utf-8")
+    print(f"Added {len(new_hotels)} new real hotels ({len(validated) - len(new_hotels)} were already in the catalog); {len(final_hotels)} total now in {LIVE_JSON_PATH.resolve()}")
 
     OUTPUT_DIR.mkdir(exist_ok=True)
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
@@ -139,7 +171,7 @@ def main() -> int:
                 "dropped": [{"name": d["item"].get("name") if isinstance(d["item"], dict) else None, "error": d["error"]} for d in dropped],
                 "hotels": [
                     {**h.model_dump(mode="json"), "sourceUrl": str(src.sourceUrl)}
-                    for h, src in zip(final_hotels, validated)
+                    for h, src in zip(new_hotels, new_validated)
                 ],
             },
             indent=2,
