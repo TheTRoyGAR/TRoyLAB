@@ -1,0 +1,76 @@
+name: Travel Research Agents
+
+# Runs TRoyGO's real research agents (packages, hotels, cars, cruises) on a
+# schedule so the catalog keeps growing on its own — no manual trigger
+# needed. Each script does real web searches (Serper) + real LLM calls
+# (Anthropic) and only writes confirmed, sourced listings; see
+# troygo/agents/travel_research/README.md for the full design.
+#
+# Needs two repo secrets (Settings -> Secrets and variables -> Actions):
+#   ANTHROPIC_API_KEY
+#   SERPER_API_KEY
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # 02:00 UTC daily
+  workflow_dispatch: {}   # manual "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: troygo/agents/travel_research
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -e .
+
+      - name: Research packages
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
+        run: python run.py
+
+      - name: Research hotels
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
+        run: python run_hotels.py
+
+      - name: Research cars
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
+        run: python run_cars.py
+
+      - name: Research cruises
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
+        run: python run_cruises.py
+
+      - name: Commit and push real results
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          git config user.name "TRoyGO Research Agent"
+          git config user.email "agent@troyaiagent.com"
+          git add troygo/src/lib/data/*-live.json troygo/src/lib/data/agent-activity.json troygo/agents/travel_research/output/
+          if git diff --cached --quiet; then
+            echo "No new real listings found this run — nothing to commit."
+          else
+            git commit -m "Automated research run: refresh real travel data"
+            git push
+          fi
