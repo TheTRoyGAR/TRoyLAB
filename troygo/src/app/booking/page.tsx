@@ -925,8 +925,8 @@ function StepConfirmationPending({
       {/* Contact */}
       <div className="bg-navy rounded-2xl p-5 text-center" style={{ background: '#0A1628' }}>
         <p className="text-white/70 text-sm mb-1">Questions? Contact us directly:</p>
-        <a href="mailto:troytravelagency@gmail.com" className="font-bold text-white text-sm hover:underline" style={{ color: '#00B4D8' }}>
-          troytravelagency@gmail.com
+        <a href="mailto:agency@troytravelagency.com" className="font-bold text-white text-sm hover:underline" style={{ color: '#00B4D8' }}>
+          agency@troytravelagency.com
         </a>
       </div>
 

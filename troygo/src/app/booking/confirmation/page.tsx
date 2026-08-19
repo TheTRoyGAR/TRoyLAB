@@ -95,8 +95,8 @@ function ConfirmationContent() {
           <div className="flex items-center gap-2 text-sm text-gray-600">
             <Mail className="h-4 w-4 text-[#00B4D8]" />
             <span>Questions? Email us: </span>
-            <a href="mailto:troytravelagency@gmail.com" className="text-[#00B4D8] font-semibold hover:underline">
-              troytravelagency@gmail.com
+            <a href="mailto:agency@troytravelagency.com" className="text-[#00B4D8] font-semibold hover:underline">
+              agency@troytravelagency.com
             </a>
           </div>
           <div className="sm:ml-auto flex gap-2">
