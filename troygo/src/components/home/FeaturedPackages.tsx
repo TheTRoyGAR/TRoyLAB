@@ -4,11 +4,13 @@ import Link from 'next/link';
 import { ArrowRight, Star, Clock, MapPin, Plane, Hotel, Car, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useRef } from 'react';
 import { travelPackages } from '@/lib/data/packages';
+import { useDestinationPhoto } from '@/hooks/useDestinationPhoto';
 
 interface Package {
   id: number;
   name: string;
   slug: string;
+  destination: string;
   duration: string;
   destinations: string[];
   pricePerPerson: number;
@@ -27,6 +29,7 @@ const packages: Package[] = travelPackages.slice(0, 4).map((p) => ({
   id: p.id,
   name: p.name,
   slug: p.slug,
+  destination: p.destination,
   duration: `${p.duration} Day${p.duration === 1 ? '' : 's'}`,
   destinations: p.countries,
   pricePerPerson: p.price,
@@ -56,15 +59,24 @@ function StarRating({ rating }: { rating: number }) {
 function PackageCard({ pkg }: { pkg: Package }) {
   const savings = pkg.originalPrice - pkg.pricePerPerson;
   const savingsPct = Math.round((savings / pkg.originalPrice) * 100);
+  const photo = useDestinationPhoto(pkg.destination);
 
   return (
     <div className="flex-none w-[320px] sm:w-[360px] bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden border border-gray-100 group">
-      {/* Image / gradient banner */}
-      <div className={`relative h-48 overflow-hidden bg-gradient-to-br ${pkg.gradient}`}>
-        {/* Decorative circles */}
-        <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-white/10" />
-        <div className="absolute -bottom-4 -left-4 w-24 h-24 rounded-full bg-white/10" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/10" />
+      {/* Image banner — real photo once loaded, gradient fallback until then */}
+      <div
+        className={`relative h-48 overflow-hidden ${photo ? '' : `bg-gradient-to-br ${pkg.gradient}`}`}
+        style={photo ? { backgroundImage: `url(${photo.url})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
+      >
+        <div className="absolute inset-0 bg-black/10" />
+        {/* Decorative circles — only while the real photo is still loading */}
+        {!photo && (
+          <>
+            <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-white/10" />
+            <div className="absolute -bottom-4 -left-4 w-24 h-24 rounded-full bg-white/10" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/10" />
+          </>
+        )}
 
         {/* Savings badge */}
         <div className="absolute top-4 right-4 z-10">
@@ -84,6 +96,20 @@ function PackageCard({ pkg }: { pkg: Package }) {
           <MapPin className="w-3 h-3" />
           <span>{pkg.destinations.length} destinations</span>
         </div>
+
+        {/* Required Unsplash attribution — safe as a real link here since
+            this banner isn't nested inside the card's own <Link> */}
+        {photo && (
+          <a
+            href={photo.unsplashUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="absolute top-1 left-2 text-[9px] text-white/50 hover:text-white/80 transition-colors z-10"
+          >
+            Photo: {photo.photographerName} / Unsplash
+          </a>
+        )}
       </div>
 
       {/* Card body */}
