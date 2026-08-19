@@ -1891,5 +1891,861 @@
         "description": "Transfer to Noi Bai International Airport for return international flight home."
       }
     ]
+  },
+  {
+    "id": 25,
+    "name": "Top End Highlights \u2013 Darwin, Kakadu, Litchfield & Nitmiluk",
+    "slug": "top-end-highlights-darwin-kakadu-litchfield-nitmiluk",
+    "destination": "Darwin & Northern Territory",
+    "countries": [
+      "Australia"
+    ],
+    "duration": 6,
+    "price": 2456.0,
+    "originalPrice": 2670.0,
+    "currency": "USD",
+    "rating": 4.4,
+    "reviewCount": 217,
+    "imageGradient": "from-sky-400 to-blue-600",
+    "includes": {
+      "flights": false,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Cruise on Yellow Water Billabong in Kakadu National Park",
+      "Explore Burrungkuy (Nourlangie) and Ubirr Aboriginal Rock Art Sites",
+      "Cruise through Nitmiluk (Katherine) Gorge and learn about the Jawoyn people",
+      "Swim in Katherine Hot Springs",
+      "Discover Florence and Wangi Falls in Litchfield National Park"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 20,
+    "difficulty": "moderate",
+    "category": "adventure",
+    "description": "This 6-day guided journey from Darwin takes in Kakadu, Litchfield, and Nitmiluk National Parks, featuring Yellow Water Billabong cruises, ancient Aboriginal rock art, and Katherine Gorge. Currently discounted from $2,670 to $2,456 per person (land only, flights not included).",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrive Darwin",
+        "description": "Arrive in Darwin and check in to your hotel. Orientation briefing with your Travel Director."
+      },
+      {
+        "day": 2,
+        "title": "Darwin to Kakadu \u2013 Ubirr Rock Art",
+        "description": "Drive into Kakadu National Park and visit the Ubirr Rock Art site, featuring ancient Aboriginal paintings, and enjoy panoramic views from Nadab Lookout."
+      },
+      {
+        "day": 3,
+        "title": "Kakadu \u2013 Yellow Water Billabong Cruise",
+        "description": "Take the award-winning Yellow Water Billabong cruise, spotting saltwater crocodiles, colourful birdlife, and dramatic wetland scenery. Visit Burrungkuy (Nourlangie) rock art site."
+      },
+      {
+        "day": 4,
+        "title": "Kakadu to Nitmiluk (Katherine) Gorge",
+        "description": "Travel from Kakadu to Katherine, stopping at the Katherine Outback Experience. Arrive at Nitmiluk National Park and take a dip in the Katherine Hot Springs."
+      },
+      {
+        "day": 5,
+        "title": "Nitmiluk Gorge Cruise & Litchfield",
+        "description": "Cruise through the spectacular Nitmiluk (Katherine) Gorge carved through ancient sandstone, then travel to Litchfield National Park."
+      },
+      {
+        "day": 6,
+        "title": "Litchfield National Park & Return to Darwin",
+        "description": "Explore Litchfield National Park including Florence and Wangi Falls before returning to Darwin for departure."
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "13 Day Turkish Treasures \u2013 Troy, Aegean Coast & Cappadocia",
+    "slug": "13-day-turkish-treasures-troy-aegean-coast-cappadocia",
+    "destination": "Istanbul, Troy, Kusadasi, Cappadocia & Ankara",
+    "countries": [
+      "Turkey"
+    ],
+    "duration": 13,
+    "price": 2149.0,
+    "originalPrice": 2149.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-yellow-400 to-green-600",
+    "includes": {
+      "flights": false,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Tour the 4,000-year-old classical city of Troy, immortalized in Homer's Iliad",
+      "Visit Hagia Sophia, the Hippodrome, and Istanbul's Spice Market",
+      "Explore Pergamum and the ancient Roman healing centre of Asclepieion",
+      "View thermal pools at Pamukkale's UNESCO-listed 'Cotton Castle' (Hierapolis)",
+      "Hot air balloon ride option over Cappadocia's fairy chimneys (optional)"
+    ],
+    "departureDates": [
+      "2026-08-24",
+      "2026-09-01",
+      "2026-09-14",
+      "2026-10-01",
+      "2026-11-02",
+      "2026-12-07"
+    ],
+    "maxGroupSize": 40,
+    "difficulty": "moderate",
+    "category": "cultural",
+    "description": "Gate 1 Travel's classic 13-day escorted tour covers Istanbul, the ancient city of Troy (Canakkale), Pergamum, Kusadasi, Pamukkale, Konya, Cappadocia, and Ankara, with 21 meals and an English-speaking tour manager throughout. Land only from $2,149 per person; air & land from $3,239 per person.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Depart for Turkey",
+        "description": "Fly from your home city toward Istanbul."
+      },
+      {
+        "day": 2,
+        "title": "Arrive Istanbul",
+        "description": "Arrive in Istanbul and transfer to your hotel. Evening orientation meeting with your Tour Manager."
+      },
+      {
+        "day": 3,
+        "title": "Istanbul City Tour",
+        "description": "Visit Hagia Sophia (UNESCO World Heritage Site), the Serefiye Underground Cistern, the Hippodrome, and the Spice Market."
+      },
+      {
+        "day": 4,
+        "title": "Troy & Canakkale",
+        "description": "Drive to Canakkale, stopping at the 4,000-year-old ruins of Troy \u2013 the legendary site of the Trojan War from Homer's Iliad. Overnight in Canakkale."
+      },
+      {
+        "day": 5,
+        "title": "Pergamum & Kusadasi",
+        "description": "Visit the ancient kingdom of Pergamum and the Asclepieion healing temple, then continue to Kusadasi on the Aegean coast."
+      },
+      {
+        "day": 6,
+        "title": "Kusadasi \u2013 Optional Ephesus Tour",
+        "description": "Day at leisure in Kusadasi, with an optional full-day excursion to Ephesus and the House of the Virgin Mary."
+      },
+      {
+        "day": 7,
+        "title": "Pamukkale",
+        "description": "Visit the UNESCO-listed Hierapolis Necropolis and the spectacular white thermal terraces of Pamukkale ('Cotton Castle')."
+      },
+      {
+        "day": 8,
+        "title": "Konya \u2013 Mausoleum of Mevlana",
+        "description": "Travel to Konya, home of the Whirling Dervishes, and visit the Mausoleum of Mevlana Celaleddin Rumi."
+      },
+      {
+        "day": 9,
+        "title": "Cappadocia via Sultanhan Caravanserai",
+        "description": "Drive to Cappadocia, stopping at the 13th-century Sultanhan Caravanserai and enjoying a home-hosted lunch with a local family."
+      },
+      {
+        "day": 10,
+        "title": "Full Day Cappadocia",
+        "description": "Optional hot air balloon ride over the fairy chimneys, followed by visits to Goreme Open-Air Museum and the Ozkonak Underground City."
+      },
+      {
+        "day": 11,
+        "title": "Ankara \u2013 Ataturk's Mausoleum",
+        "description": "Travel to Ankara and visit the Anatolian Civilizations Museum and the Mausoleum of Kemal Ataturk."
+      },
+      {
+        "day": 12,
+        "title": "Return to Istanbul",
+        "description": "Return to Istanbul for a final evening; optional Bosphorus Cruise and Grand Bazaar visit."
+      },
+      {
+        "day": 13,
+        "title": "Depart Turkey",
+        "description": "Transfer to the airport for your return flight home."
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Treasures of Anatolia \u2013 Turkey 12-Day Tour (Troy, Cappadocia, Ephesus)",
+    "slug": "treasures-of-anatolia-turkey-12-day-tour-troy-cappadocia-ephesus",
+    "destination": "Istanbul, Troy, Cappadocia, Ephesus & Pamukkale",
+    "countries": [
+      "Turkey"
+    ],
+    "duration": 12,
+    "price": 1699.0,
+    "originalPrice": 2619.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 66,
+    "imageGradient": "from-red-500 to-rose-700",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": true,
+      "meals": false,
+      "guide": true
+    },
+    "highlights": [
+      "Visit Troy (\u00c7anakkale) \u2013 UNESCO World Heritage archaeological site",
+      "Explore Cappadocia's Goreme Valley and fairy chimney rock formations",
+      "Tour the ancient ruins of Ephesus (\u00c9feso) and Pergamon",
+      "Soak in the thermal terraces of Pamukkale",
+      "Discover Istanbul's Grand Bazaar, Hagia Sophia area, and Bosphorus"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 12,
+    "difficulty": "moderate",
+    "category": "cultural",
+    "description": "Exoticca's best-selling 12-day Turkey tour includes flights, hotels, and guided tours covering Istanbul, Troy, Cappadocia, Ephesus, Pergamon, Pamukkale, and Izmir \u2014 currently 35% off, from $1,699 per person (was $2,619). Up to $500 cashback promotion also active until August 31.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Fly to Istanbul",
+        "description": "Depart from your home city and fly to Istanbul, Turkey."
+      },
+      {
+        "day": 2,
+        "title": "Istanbul Arrival & Orientation",
+        "description": "Arrive in Istanbul and transfer to your hotel. Meet your guide and begin exploring the city."
+      },
+      {
+        "day": 3,
+        "title": "Istanbul Sightseeing",
+        "description": "Visit Istanbul's iconic landmarks including the Hagia Sophia area, Grand Bazaar, and Bosphorus waterfront."
+      },
+      {
+        "day": 4,
+        "title": "Troy & \u00c7anakkale",
+        "description": "Travel to \u00c7anakkale and visit the legendary ruins of Troy, a UNESCO World Heritage Site immortalized in Homer's Iliad."
+      },
+      {
+        "day": 5,
+        "title": "Pergamon & Izmir",
+        "description": "Explore the ancient city of Pergamon and continue to Izmir on the Aegean coast."
+      },
+      {
+        "day": 6,
+        "title": "Ephesus (\u00c9feso)",
+        "description": "Tour the magnificent ruins of Ephesus, including the Library of Celsus and the Great Theatre."
+      },
+      {
+        "day": 7,
+        "title": "Pamukkale",
+        "description": "Visit the dazzling white calcium terraces and thermal pools of Pamukkale and the ruins of Hierapolis."
+      },
+      {
+        "day": 8,
+        "title": "Konya & Cappadocia",
+        "description": "Travel through Konya toward Cappadocia, visiting Seljuk-era monuments along the way."
+      },
+      {
+        "day": 9,
+        "title": "Cappadocia Exploration",
+        "description": "Explore Cappadocia's Goreme Open-Air Museum, underground cities, and the spectacular fairy chimney landscape."
+      },
+      {
+        "day": 10,
+        "title": "Cappadocia \u2013 Optional Balloon Ride",
+        "description": "Optional hot air balloon flight at sunrise over the Cappadocian landscape, followed by free time to explore."
+      },
+      {
+        "day": 11,
+        "title": "Ankara",
+        "description": "Visit the capital Ankara, including the Museum of Anatolian Civilizations and Ataturk's Mausoleum."
+      },
+      {
+        "day": 12,
+        "title": "Return to Istanbul & Fly Home",
+        "description": "Return to Istanbul for your departure flight back home."
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "A Taste of Japan: Tokyo, Kyoto & Osaka (9 Days)",
+    "slug": "a-taste-of-japan-tokyo-kyoto-osaka-9-days",
+    "destination": "Tokyo, Kyoto & Osaka",
+    "countries": [
+      "Japan"
+    ],
+    "duration": 9,
+    "price": 1899.0,
+    "originalPrice": 2719.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 24000,
+    "imageGradient": "from-orange-400 to-red-600",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": false,
+      "meals": false,
+      "guide": false
+    },
+    "highlights": [
+      "Guided walking tour of Shibuya district including Shibuya Crossing and Meiji Shrine",
+      "Guided evening walk through Gion geisha district in Kyoto",
+      "Ride the iconic Shinkansen (bullet train) between cities",
+      "Optional day trip to Mount Fuji and Lake Kawaguchi",
+      "Explore Osaka's D\u014dtonbori entertainment and food district"
+    ],
+    "departureDates": [
+      "2026-07-01",
+      "2026-07-08",
+      "2026-07-15",
+      "2026-07-22",
+      "2026-07-29",
+      "2026-08-05",
+      "2026-08-12",
+      "2026-08-19",
+      "2026-08-26"
+    ],
+    "maxGroupSize": 12,
+    "difficulty": "easy",
+    "category": "cultural",
+    "description": "Exoticca's best-selling self-guided Japan package covers Tokyo, Kyoto, and Osaka over 9 days, including international flights, 7 nights in hotels, bullet train transfers between cities, and two included guided walking tours (Shibuya and Gion). Currently 30% off at $1,899 per person (was $2,719).",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Depart for Japan",
+        "description": "Fly from your home city in the US to Tokyo, Japan."
+      },
+      {
+        "day": 2,
+        "title": "Arrive Tokyo",
+        "description": "Arrive at Tokyo Airport and meet an Exoticca representative who will assist with your transfer to the hotel."
+      },
+      {
+        "day": 3,
+        "title": "Tokyo \u2013 Shibuya Walking Tour",
+        "description": "Explore Tokyo at your own pace in the morning, then join a guided walking tour of Shibuya, including Shibuya Crossing, Meiji Shrine, and Hachiko Statue."
+      },
+      {
+        "day": 4,
+        "title": "Tokyo \u2013 Free Day / Optional Mount Fuji",
+        "description": "Full free day in Tokyo. Optional excursion to Mount Fuji's 5th Station and Lake Kawaguchi."
+      },
+      {
+        "day": 5,
+        "title": "Tokyo to Kyoto by Shinkansen",
+        "description": "Board the bullet train to Kyoto, Japan's ancient capital. Afternoon at leisure to explore temples and traditional streets."
+      },
+      {
+        "day": 6,
+        "title": "Kyoto \u2013 Gion Geisha District Walk",
+        "description": "Morning free time in Kyoto. Evening guided walking tour of the Gion geisha district and Yasaka Shrine."
+      },
+      {
+        "day": 7,
+        "title": "Kyoto \u2013 Free Day / Optional Nara Tour",
+        "description": "Free day in Kyoto. Optional full-day tour to Kinkaku-ji (Golden Pavilion), Fushimi Inari, and Nara Park."
+      },
+      {
+        "day": 8,
+        "title": "Kyoto to Osaka by Shinkansen",
+        "description": "Short bullet train ride to Osaka. Afternoon free to explore Osaka's D\u014dtonbori district and castle area."
+      },
+      {
+        "day": 9,
+        "title": "Osaka \u2013 Fly Home",
+        "description": "Transfer to Osaka airport for your return flight to the US."
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Prague \u2013 Vienna \u2013 Budapest by Train (9 Nights)",
+    "slug": "prague-vienna-budapest-by-train-9-nights",
+    "destination": "Prague, Vienna & Budapest",
+    "countries": [
+      "Czech Republic",
+      "Austria",
+      "Hungary"
+    ],
+    "duration": 10,
+    "price": 1269.0,
+    "originalPrice": 1269.0,
+    "currency": "USD",
+    "rating": 4.7,
+    "reviewCount": 1951,
+    "imageGradient": "from-yellow-300 to-red-500",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": false,
+      "meals": false,
+      "guide": false
+    },
+    "highlights": [
+      "Explore Prague, the 'City of a Hundred Spires', with 1,000 years of art and architecture",
+      "Discover Vienna's Baroque palaces, coffee houses, and musical heritage",
+      "Visit Budapest's dramatic Castle Hill and vibrant Pest riverside",
+      "Travel between cities by inter-city train",
+      "Fully flexible itinerary \u2013 customize hotels, transportation, and length of stay"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 2,
+    "difficulty": "easy",
+    "category": "cultural",
+    "description": "Tripmasters' most popular European multi-city package combines Prague, Vienna, and Budapest with train travel between cities, round-trip flights, and 3 nights in each city \u2013 from $1,269 per person based on double occupancy. Rated 4.7/5 by 1,951 customers.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Fly to Prague",
+        "description": "Fly from your home city to Prague, Czech Republic, and check in to your hotel."
+      },
+      {
+        "day": 2,
+        "title": "Prague Exploration",
+        "description": "Explore Prague's Old Town, Charles Bridge, Prague Castle, and vibrant caf\u00e9 culture."
+      },
+      {
+        "day": 3,
+        "title": "Prague \u2013 Free Day",
+        "description": "Second free day in Prague to discover museums, galleries, and local neighborhoods at your own pace."
+      },
+      {
+        "day": 4,
+        "title": "Train to Vienna",
+        "description": "Board the inter-city train from Prague to Vienna, Austria's imperial capital."
+      },
+      {
+        "day": 5,
+        "title": "Vienna Sightseeing",
+        "description": "Explore Vienna's Baroque palaces, the Ringstrasse, Sch\u00f6nbrunn, and the famous Viennese coffee house scene."
+      },
+      {
+        "day": 6,
+        "title": "Vienna \u2013 Free Day",
+        "description": "Second free day in Vienna \u2013 visit world-class museums, attend a concert, or stroll the Prater park."
+      },
+      {
+        "day": 7,
+        "title": "Train to Budapest",
+        "description": "Travel by train from Vienna to Budapest, Hungary, and check in to your hotel."
+      },
+      {
+        "day": 8,
+        "title": "Budapest \u2013 Buda Side",
+        "description": "Explore Buda's Castle Hill, Matthias Church, and Fisherman's Bastion with panoramic views over the Danube."
+      },
+      {
+        "day": 9,
+        "title": "Budapest \u2013 Pest Side",
+        "description": "Discover Pest's vibrant ruin bars, the Great Market Hall, and the iconic Parliament building on the riverbank."
+      },
+      {
+        "day": 10,
+        "title": "Fly Home from Budapest",
+        "description": "Transfer to Budapest airport for your return flight home."
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Essential Madrid and Barcelona by Train (6 Nights)",
+    "slug": "essential-madrid-and-barcelona-by-train-6-nights",
+    "destination": "Madrid & Barcelona",
+    "countries": [
+      "Spain"
+    ],
+    "duration": 7,
+    "price": 1049.0,
+    "originalPrice": 1049.0,
+    "currency": "USD",
+    "rating": 4.7,
+    "reviewCount": 704,
+    "imageGradient": "from-blue-300 to-cyan-500",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": false,
+      "meals": false,
+      "guide": false
+    },
+    "highlights": [
+      "Explore Madrid's world-class museums and vibrant nightlife scene",
+      "Discover Barcelona's Gothic Quarter and Antoni Gaud\u00ed's iconic architecture",
+      "Travel between cities by high-speed train",
+      "3 nights in each city with flexible, customizable itinerary",
+      "Fully flexible \u2013 personalize hotels, transportation, and length of stay"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 2,
+    "difficulty": "easy",
+    "category": "cultural",
+    "description": "Tripmasters' popular Spain package pairs Madrid and Barcelona with a high-speed train connection between them, round-trip flights, and 3 hotel nights in each city \u2013 from $1,049 per person. Rated 4.7/5 by 704 customers.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Fly to Madrid",
+        "description": "Fly from your home city to Madrid, Spain, and check in to your centrally located hotel."
+      },
+      {
+        "day": 2,
+        "title": "Madrid Sightseeing",
+        "description": "Explore the Prado Museum, Retiro Park, Puerta del Sol, and Madrid's famous tapas bars."
+      },
+      {
+        "day": 3,
+        "title": "Madrid \u2013 Free Day",
+        "description": "Second free day in Madrid for independent exploration of neighborhoods, markets, and galleries."
+      },
+      {
+        "day": 4,
+        "title": "High-Speed Train to Barcelona",
+        "description": "Board the AVE high-speed train from Madrid to Barcelona and check in to your hotel."
+      },
+      {
+        "day": 5,
+        "title": "Barcelona \u2013 Gaud\u00ed & Gothic Quarter",
+        "description": "Visit Gaud\u00ed's Sagrada Fam\u00edlia, Park G\u00fcell, and explore the atmospheric Gothic Quarter."
+      },
+      {
+        "day": 6,
+        "title": "Barcelona \u2013 Free Day",
+        "description": "Second free day in Barcelona \u2013 relax on the beach, browse La Boqueria market, or visit the Picasso Museum."
+      },
+      {
+        "day": 7,
+        "title": "Fly Home from Barcelona",
+        "description": "Transfer to Barcelona airport for your return flight home."
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Sandals Jamaica \u2013 Great Jamaica Comeback Sale (All-Inclusive Adults-Only)",
+    "slug": "sandals-jamaica-great-jamaica-comeback-sale-all-inclusive-adults-only",
+    "destination": "Jamaica",
+    "countries": [
+      "Jamaica"
+    ],
+    "duration": 7,
+    "price": 1463.0,
+    "originalPrice": 1463.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-violet-500 to-purple-700",
+    "includes": {
+      "flights": false,
+      "hotel": true,
+      "transfers": false,
+      "meals": true,
+      "guide": false
+    },
+    "highlights": [
+      "All-inclusive resort stay with unlimited food, premium drinks, and entertainment",
+      "Free Jamaican Adventure experience with 5+ night bookings (e.g. bamboo river rafting or catamaran cruise to YS Falls)",
+      "Choose from 7 Jamaica resorts including Sandals Negril, Ochi, Dunn's River, and Royal Plantation",
+      "Unlimited water sports and green fees at nearby golf courses",
+      "Up to $1,500 Instant Credit plus up to $350 Air Credit available on qualifying bookings"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 2,
+    "difficulty": "easy",
+    "category": "beach",
+    "description": "Sandals' Great Jamaica Comeback Sale offers all-inclusive adults-only resort stays across 7 Jamaica properties, starting from $209 per person per night (e.g. Sandals Ochi). Book 5+ nights and receive a free Jamaican Adventure experience. A $100 discount is also available when booking online.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrive Jamaica & Check In",
+        "description": "Arrive at your chosen Sandals Jamaica resort and begin your all-inclusive experience with welcome drinks and a resort orientation."
+      },
+      {
+        "day": 2,
+        "title": "Beach, Pool & Water Sports",
+        "description": "Enjoy unlimited water sports, swimming pools, and beachfront relaxation \u2013 all included in your stay."
+      },
+      {
+        "day": 3,
+        "title": "Explore the Resort & Dining",
+        "description": "Sample multiple gourmet restaurants on property, enjoy premium spirits at the bars, and take part in evening entertainment."
+      },
+      {
+        "day": 4,
+        "title": "Free Jamaican Adventure Excursion",
+        "description": "Enjoy your complimentary Jamaican Adventure experience \u2013 options include bamboo river rafting on the Martha Brae, a catamaran cruise to YS Falls, or Dunn's River Falls."
+      },
+      {
+        "day": 5,
+        "title": "Leisure Day",
+        "description": "Relax on Jamaica's famous beaches, enjoy a spa treatment, or take part in optional golf at a nearby course."
+      },
+      {
+        "day": 6,
+        "title": "Final Evening Celebrations",
+        "description": "Enjoy a farewell dinner at one of the resort's signature restaurants and evening entertainment."
+      },
+      {
+        "day": 7,
+        "title": "Check Out & Depart",
+        "description": "Check out of your Sandals resort and transfer to the airport for your departure flight."
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Magnificent Turkey with Troy \u2013 10-Day Guided Package (Greca)",
+    "slug": "magnificent-turkey-with-troy-10-day-guided-package-greca",
+    "destination": "Istanbul, Troy, Cappadocia, Ephesus, Pergamon & Pamukkale",
+    "countries": [
+      "Turkey"
+    ],
+    "duration": 10,
+    "price": 1215.0,
+    "originalPrice": 1338.0,
+    "currency": "USD",
+    "rating": 4.8,
+    "reviewCount": 24,
+    "imageGradient": "from-pink-500 to-rose-600",
+    "includes": {
+      "flights": false,
+      "hotel": true,
+      "transfers": true,
+      "meals": false,
+      "guide": true
+    },
+    "highlights": [
+      "Guaranteed weekly departures from Istanbul (Tuesdays & Wednesdays) year-round",
+      "Visit Troy (\u00c7anakkale), Pergamon, and Ephesus on the Aegean coast",
+      "Explore Cappadocia's Goreme Valley and fairy chimneys",
+      "See the thermal terraces of Pamukkale (Hierapolis)",
+      "Free cancellation up to 60 days before arrival; book now and pay in up to 12 installments"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 20,
+    "difficulty": "moderate",
+    "category": "cultural",
+    "description": "Greca's 10-day 'Magnificent Turkey' guided tour departs guaranteed every Tuesday and Wednesday from Istanbul, covering Troy, Pergamon, Ephesus, Pamukkale, Cappadocia, and Izmir with an official English-speaking guide. Currently 10% off \u2013 from EUR 1,115.86 (approx. $1,215 USD) per person.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrive Istanbul",
+        "description": "Arrive in Istanbul and transfer to your hotel. Meet your guide for an orientation briefing."
+      },
+      {
+        "day": 2,
+        "title": "Istanbul Sightseeing",
+        "description": "Guided tour of Istanbul's major landmarks including the historic Sultanahmet area, Grand Bazaar, and Bosphorus waterfront."
+      },
+      {
+        "day": 3,
+        "title": "Troy & \u00c7anakkale",
+        "description": "Travel to \u00c7anakkale and visit the legendary ruins of Troy (UNESCO World Heritage Site), including the famous Trojan Horse replica."
+      },
+      {
+        "day": 4,
+        "title": "Pergamon & Aegean Coast",
+        "description": "Explore the ancient acropolis of Pergamon and travel along the Aegean coastline toward Izmir."
+      },
+      {
+        "day": 5,
+        "title": "Ephesus (\u00c9feso)",
+        "description": "Tour the remarkably preserved ruins of Ephesus, including the Library of Celsus, the Great Theatre, and the Temple of Hadrian."
+      },
+      {
+        "day": 6,
+        "title": "Pamukkale \u2013 Cotton Castle",
+        "description": "Visit the stunning white calcium carbonate terraces of Pamukkale and the ruins of ancient Hierapolis."
+      },
+      {
+        "day": 7,
+        "title": "Konya & Cappadocia",
+        "description": "Travel through Konya toward Cappadocia, with a stop at a Seljuk-era caravanserai."
+      },
+      {
+        "day": 8,
+        "title": "Cappadocia \u2013 Goreme Valley",
+        "description": "Explore Cappadocia's fairy chimneys, underground cities, and the Goreme Open-Air Museum."
+      },
+      {
+        "day": 9,
+        "title": "Cappadocia \u2013 Ankara",
+        "description": "Optional hot air balloon ride at sunrise, then travel to Ankara and visit Ataturk's Mausoleum."
+      },
+      {
+        "day": 10,
+        "title": "Return to Istanbul & Depart",
+        "description": "Return to Istanbul for your departure flight or onward travel."
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Runway to Rail: London \u2013 Paris and Rome (9 Nights)",
+    "slug": "runway-to-rail-london-paris-and-rome-9-nights",
+    "destination": "London, Paris & Rome",
+    "countries": [
+      "United Kingdom",
+      "France",
+      "Italy"
+    ],
+    "duration": 10,
+    "price": 1269.0,
+    "originalPrice": 1269.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 713,
+    "imageGradient": "from-red-400 to-pink-600",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": false,
+      "meals": false,
+      "guide": false
+    },
+    "highlights": [
+      "Explore London's Royal Palace, rich history, and world-class shopping",
+      "Travel by Eurostar train from London to Paris through the Channel Tunnel",
+      "Discover Paris's Louvre, Eiffel Tower area, and romantic City of Lights atmosphere",
+      "Fly from Paris to Rome and explore the Colosseum and Roman Forum",
+      "3 nights in each city with a fully flexible, customizable itinerary"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 2,
+    "difficulty": "easy",
+    "category": "cultural",
+    "description": "Tripmasters' three-city European classic combines London, Paris, and Rome with Eurostar train travel and an inter-city flight, plus round-trip flights and 3 hotel nights in each destination \u2013 from $1,269 per person. Rated 4.5/5 by 713 customers.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Fly to London",
+        "description": "Fly from your home city to London, England, and check in to your hotel."
+      },
+      {
+        "day": 2,
+        "title": "London Sightseeing",
+        "description": "Explore Buckingham Palace, the Tower of London, Westminster, and London's famous shopping districts."
+      },
+      {
+        "day": 3,
+        "title": "London \u2013 Free Day",
+        "description": "Second free day in London to visit museums, take a Thames river cruise, or explore local neighborhoods."
+      },
+      {
+        "day": 4,
+        "title": "Eurostar to Paris",
+        "description": "Board the Eurostar train from London St Pancras to Paris Gare du Nord through the Channel Tunnel."
+      },
+      {
+        "day": 5,
+        "title": "Paris Sightseeing",
+        "description": "Visit the Louvre, stroll along the Champs-\u00c9lys\u00e9es, and enjoy the romantic atmosphere of the City of Lights."
+      },
+      {
+        "day": 6,
+        "title": "Paris \u2013 Free Day",
+        "description": "Second free day in Paris \u2013 visit Versailles, Montmartre, or simply enjoy Parisian caf\u00e9 culture."
+      },
+      {
+        "day": 7,
+        "title": "Fly Paris to Rome",
+        "description": "Board your inter-city flight from Paris to Rome, Italy, and check in to your hotel."
+      },
+      {
+        "day": 8,
+        "title": "Rome Sightseeing",
+        "description": "Explore the Colosseum, Roman Forum, Trevi Fountain, and Vatican area."
+      },
+      {
+        "day": 9,
+        "title": "Rome \u2013 Free Day",
+        "description": "Final free day in Rome to visit the Borghese Gallery, Trastevere neighborhood, or enjoy Italian cuisine."
+      },
+      {
+        "day": 10,
+        "title": "Fly Home from Rome",
+        "description": "Transfer to Rome airport for your return flight home."
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Gate 1 Travel 9 Day Essential Turkey \u2013 Istanbul, Cappadocia & Ankara",
+    "slug": "gate-1-travel-9-day-essential-turkey-istanbul-cappadocia-ankara",
+    "destination": "Istanbul, Cappadocia & Ankara",
+    "countries": [
+      "Turkey"
+    ],
+    "duration": 9,
+    "price": 1699.0,
+    "originalPrice": 1699.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-green-500 to-emerald-700",
+    "includes": {
+      "flights": false,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Explore Istanbul's Hagia Sophia (UNESCO World Heritage Site) and the Hippodrome",
+      "Discover the fairy chimney rock formations of Cappadocia",
+      "Optional hot air balloon ride over the Cappadocian landscape",
+      "Visit the Mausoleum of Kemal Ataturk in Ankara",
+      "4 nights Istanbul, 2 nights Cappadocia, 1 night Ankara \u2013 value-style escorted tour"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 40,
+    "difficulty": "moderate",
+    "category": "cultural",
+    "description": "Gate 1 Travel's 9 Day Essential Turkey tour is their value-priced escorted package covering Istanbul (4 nights), Cappadocia (2 nights), and Ankara (1 night) with an English-speaking tour manager throughout. Land only from $1,699 per person; air & land from $2,629 per person. Book by Oct 8, 2026 to save.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Depart for Turkey",
+        "description": "Fly from your home city toward Istanbul, Turkey."
+      },
+      {
+        "day": 2,
+        "title": "Arrive Istanbul",
+        "description": "Arrive in Istanbul and transfer to your hotel. Evening orientation meeting with your Tour Manager."
+      },
+      {
+        "day": 3,
+        "title": "Istanbul City Tour",
+        "description": "Morning guided tour of Istanbul including Hagia Sophia (UNESCO World Heritage Site), the Hippodrome, and the Spice Market."
+      },
+      {
+        "day": 4,
+        "title": "Istanbul \u2013 Second Day",
+        "description": "Further exploration of Istanbul including the Sultanahmet district, Topkapi Palace area, and Bosphorus views."
+      },
+      {
+        "day": 5,
+        "title": "Istanbul \u2013 Free Day",
+        "description": "Day at leisure in Istanbul or optional excursion to the Princes' Islands or Asian side."
+      },
+      {
+        "day": 6,
+        "title": "Fly to Cappadocia",
+        "description": "Fly to Cappadocia (Nevsehir) and check in to your hotel in the fairy chimney landscape."
+      },
+      {
+        "day": 7,
+        "title": "Cappadocia Exploration",
+        "description": "Optional early morning hot air balloon ride, followed by visits to the Goreme Open-Air Museum and underground cities."
+      },
+      {
+        "day": 8,
+        "title": "Cappadocia to Ankara",
+        "description": "Travel to Ankara, Turkey's capital. Visit the Mausoleum of Kemal Ataturk and the Anatolian Civilizations Museum."
+      },
+      {
+        "day": 9,
+        "title": "Fly Home from Ankara or Istanbul",
+        "description": "Transfer to the airport for your return flight home."
+      }
+    ]
   }
 ]

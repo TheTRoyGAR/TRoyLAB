@@ -1,9 +1,29 @@
 [
   {
+    "timestamp": "2026-08-19T13:18:26.662450+00:00",
+    "category": "packages",
+    "addedCount": 10,
+    "addedNames": [
+      "Top End Highlights \u2013 Darwin, Kakadu, Litchfield & Nitmiluk",
+      "13 Day Turkish Treasures \u2013 Troy, Aegean Coast & Cappadocia",
+      "Treasures of Anatolia \u2013 Turkey 12-Day Tour (Troy, Cappadocia, Ephesus)",
+      "A Taste of Japan: Tokyo, Kyoto & Osaka (9 Days)",
+      "Prague \u2013 Vienna \u2013 Budapest by Train (9 Nights)"
+    ],
+    "alreadyExisted": 0,
+    "totalNow": 34
+  },
+  {
     "timestamp": "2026-08-19T00:03:00+00:00",
     "category": "cars",
     "addedCount": 7,
-    "addedNames": ["Hyundai i30", "Toyota RAV4", "Suzuki Swift", "Nissan Qashqai", "Mazda CX-5"],
+    "addedNames": [
+      "Hyundai i30",
+      "Toyota RAV4",
+      "Suzuki Swift",
+      "Nissan Qashqai",
+      "Mazda CX-5"
+    ],
     "alreadyExisted": 3,
     "totalNow": 17
   },
@@ -11,7 +31,13 @@
     "timestamp": "2026-08-18T23:58:41+00:00",
     "category": "hotels",
     "addedCount": 10,
-    "addedNames": ["Park Hyatt Sydney", "Shangri-La Sydney", "Hilton Darwin", "Vibe Hotel Darwin Waterfront", "Museum Hotel Cappadocia"],
+    "addedNames": [
+      "Park Hyatt Sydney",
+      "Shangri-La Sydney",
+      "Hilton Darwin",
+      "Vibe Hotel Darwin Waterfront",
+      "Museum Hotel Cappadocia"
+    ],
     "alreadyExisted": 0,
     "totalNow": 18
   },
@@ -19,7 +45,11 @@
     "timestamp": "2026-08-18T18:06:08+00:00",
     "category": "packages",
     "addedCount": 12,
-    "addedNames": ["Turkey – Troy, Gallipoli, Aegean & Anatolia", "Darwin, Kakadu National Park, Nitmiluk & Litchfield", "Istanbul, Cappadocia, Pamukkale, Ephesus, Ankara"],
+    "addedNames": [
+      "Turkey \u2013 Troy, Gallipoli, Aegean & Anatolia",
+      "Darwin, Kakadu National Park, Nitmiluk & Litchfield",
+      "Istanbul, Cappadocia, Pamukkale, Ephesus, Ankara"
+    ],
     "alreadyExisted": 0,
     "totalNow": 24
   }

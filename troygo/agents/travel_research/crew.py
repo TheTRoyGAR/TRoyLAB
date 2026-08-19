@@ -24,12 +24,22 @@ same region) — for example run separate searches like:
 - "Darwin Northern Territory tour packages Kakadu Litchfield deals"
 - "Troy ancient city Turkey tour package" / "Aegean coast Turkey tour deals"
 - "Anatolia Turkey tour package" / "Istanbul Cappadocia holiday package deals"
+- "Big Sky Montana travel package deals" / "Okinawa Japan tour package deals"
+- "Sardinia Italy vacation package deals" / "Madeira Portugal travel deals"
+- "Bangkok Thailand tour package deals" / "New Zealand travel package deals"
 - "limited time travel campaign discount"
 
 Darwin/Northern Territory and Turkey's Troy/Aegean/Anatolia region must
 each be represented by at least one real, verified deal in the final
 results — search specifically for both rather than treating them as
 optional alongside the other regions.
+
+Also specifically search for deals in these currently-trending destinations
+(per real 2026 travel industry data — Big Sky, Okinawa, and Sardinia are this
+year's fastest-rising searches; Madeira, Bangkok, and New Zealand are the
+current top trending/most-booked destinations globally): Big Sky Montana,
+Okinawa Japan, Sardinia Italy, Madeira, Bangkok, New Zealand. At least one of
+these six should be represented if a real, verifiable deal can be found.
 
 For every candidate deal:
 1. Search for it, find a real source page (a travel site, airline, hotel
