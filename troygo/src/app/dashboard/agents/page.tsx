@@ -1,8 +1,9 @@
 'use client'
 
+import { useState } from 'react'
 import DashboardLayout from '@/components/dashboard/DashboardLayout'
 import activityData from '@/lib/data/agent-activity.json'
-import { Bot, Building2, Car, Ship, MapPinned, Clock, ExternalLink } from 'lucide-react'
+import { Bot, Building2, Car, Ship, MapPinned, Clock, ExternalLink, Play, Loader2, CheckCircle2, AlertCircle } from 'lucide-react'
 
 interface ActivityEntry {
   timestamp: string
@@ -29,6 +30,8 @@ function timeAgo(iso: string): string {
   return `${days} day${days > 1 ? 's' : ''} ago`
 }
 
+type TriggerState = 'idle' | 'loading' | 'success' | 'error'
+
 export default function AgentsPage() {
   const activity = activityData as ActivityEntry[]
   const latestByCategory = new Map<string, ActivityEntry>()
@@ -37,10 +40,31 @@ export default function AgentsPage() {
   }
   const totalAddedAllTime = activity.reduce((sum, e) => sum + e.addedCount, 0)
 
+  const [triggerState, setTriggerState] = useState<TriggerState>('idle')
+  const [triggerError, setTriggerError] = useState<string | null>(null)
+
+  async function runNow() {
+    setTriggerState('loading')
+    setTriggerError(null)
+    try {
+      const res = await fetch('/api/agents/trigger', { method: 'POST' })
+      const body = await res.json()
+      if (!res.ok) {
+        setTriggerState('error')
+        setTriggerError(body.error || 'Could not start the run')
+        return
+      }
+      setTriggerState('success')
+    } catch (err) {
+      setTriggerState('error')
+      setTriggerError(err instanceof Error ? err.message : 'Could not start the run')
+    }
+  }
+
   return (
     <DashboardLayout>
       <div className="p-6 max-w-5xl mx-auto">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-6 gap-4 flex-wrap">
           <div>
             <h1 className="text-2xl font-black text-[#0A1628] flex items-center gap-2">
               <Bot className="h-6 w-6" style={{ color: '#00B4D8' }} />
@@ -50,6 +74,32 @@ export default function AgentsPage() {
               Real background agents that search the live web for genuine travel deals — every
               entry here is a real run, not a demo.
             </p>
+          </div>
+
+          <div className="flex flex-col items-end gap-1.5">
+            <button
+              onClick={runNow}
+              disabled={triggerState === 'loading'}
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white disabled:opacity-60"
+              style={{ background: '#00B4D8' }}
+            >
+              {triggerState === 'loading' ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <Play className="h-4 w-4" />
+              )}
+              Run Now
+            </button>
+            {triggerState === 'success' && (
+              <p className="text-xs text-green-600 flex items-center gap-1">
+                <CheckCircle2 className="h-3.5 w-3.5" /> Started — new results in a few minutes
+              </p>
+            )}
+            {triggerState === 'error' && (
+              <p className="text-xs text-red-500 flex items-center gap-1 max-w-xs text-right">
+                <AlertCircle className="h-3.5 w-3.5 shrink-0" /> {triggerError}
+              </p>
+            )}
           </div>
         </div>
 
