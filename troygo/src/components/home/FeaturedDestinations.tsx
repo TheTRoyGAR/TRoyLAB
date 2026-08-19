@@ -187,7 +187,7 @@ export default function FeaturedDestinations() {
               Top Destinations
             </h2>
             <p className="text-gray-500 mt-2 max-w-md">
-              Handpicked by our travel experts — the world's most captivating places waiting for you.
+              Handpicked by our travel experts — the world&apos;s most captivating places waiting for you.
             </p>
           </div>
           <Link

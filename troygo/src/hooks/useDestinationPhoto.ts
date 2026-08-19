@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import photoCacheData from '@/lib/data/photo-cache.json';
 
 export interface UnsplashPhoto {
   url: string;
@@ -10,6 +11,25 @@ export interface UnsplashPhoto {
   unsplashUrl: string;
   altDescription: string;
 }
+
+// Research-agent-generated destination strings are often messy —
+// "Turkey (Istanbul, Gallipoli, Cappadocia & more)" — and Unsplash's search
+// returns nothing for long punctuation-heavy queries like that even though
+// a plain "Turkey" works fine. Strip parentheticals and keep just the
+// primary place name before any comma/ampersand.
+export function simplifyForPhotoSearch(destination: string): string {
+  return destination
+    .replace(/\([^)]*\)/g, '')
+    .split(/[,&]/)[0]
+    .trim();
+}
+
+// Pre-resolved real photos (built by scripts/backfill-photo-cache.mjs,
+// hitting the same live Unsplash search this hook falls back to) — keeps
+// the same destination showing the same photo across page loads instead of
+// re-searching Unsplash live every time, which could surface a different
+// top result on each request.
+const staticCache = photoCacheData as Record<string, UnsplashPhoto | null>;
 
 // Simple in-memory cache shared across every card on the page, keyed by
 // search query — without this, a listing page with 12+ cards would fire
@@ -41,21 +61,37 @@ async function fetchPhoto(query: string): Promise<UnsplashPhoto | null> {
   return promise;
 }
 
-export function useDestinationPhoto(query: string): UnsplashPhoto | null {
-  const [photo, setPhoto] = useState<UnsplashPhoto | null>(photoCache.get(query) ?? null);
+function resolveFromCache(rawQuery: string, query: string): UnsplashPhoto | null | undefined {
+  if (staticCache[rawQuery] !== undefined) return staticCache[rawQuery];
+  if (staticCache[query] !== undefined) return staticCache[query];
+  if (photoCache.has(query)) return photoCache.get(query) ?? null;
+  return undefined;
+}
+
+export function useDestinationPhoto(rawQuery: string): UnsplashPhoto | null {
+  const query = simplifyForPhotoSearch(rawQuery || '');
+  const [state, setState] = useState<{ rawQuery: string; photo: UnsplashPhoto | null }>({
+    rawQuery,
+    photo: resolveFromCache(rawQuery, query) ?? null,
+  });
+
+  // Query changed since last render — resync from any cache synchronously
+  // during render (React's recommended pattern for adjusting state from
+  // props) rather than via an effect, which would call setState directly
+  // in the effect body for the cache-hit case.
+  if (state.rawQuery !== rawQuery) {
+    setState({ rawQuery, photo: resolveFromCache(rawQuery, query) ?? null });
+  }
 
   useEffect(() => {
     if (!query) return;
-    if (photoCache.has(query)) {
-      setPhoto(photoCache.get(query) ?? null);
-      return;
-    }
+    if (resolveFromCache(rawQuery, query) !== undefined) return;
     let cancelled = false;
     fetchPhoto(query).then((p) => {
-      if (!cancelled) setPhoto(p);
+      if (!cancelled) setState({ rawQuery, photo: p });
     });
     return () => { cancelled = true; };
-  }, [query]);
+  }, [rawQuery, query]);
 
-  return photo;
+  return state.photo;
 }
