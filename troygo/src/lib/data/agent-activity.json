@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "2026-08-19T00:03:00+00:00",
+    "category": "cars",
+    "addedCount": 7,
+    "addedNames": ["Hyundai i30", "Toyota RAV4", "Suzuki Swift", "Nissan Qashqai", "Mazda CX-5"],
+    "alreadyExisted": 3,
+    "totalNow": 17
+  },
+  {
+    "timestamp": "2026-08-18T23:58:41+00:00",
+    "category": "hotels",
+    "addedCount": 10,
+    "addedNames": ["Park Hyatt Sydney", "Shangri-La Sydney", "Hilton Darwin", "Vibe Hotel Darwin Waterfront", "Museum Hotel Cappadocia"],
+    "alreadyExisted": 0,
+    "totalNow": 18
+  },
+  {
+    "timestamp": "2026-08-18T18:06:08+00:00",
+    "category": "packages",
+    "addedCount": 12,
+    "addedNames": ["Turkey – Troy, Gallipoli, Aegean & Anatolia", "Darwin, Kakadu National Park, Nitmiluk & Litchfield", "Istanbul, Cappadocia, Pamukkale, Ephesus, Ankara"],
+    "alreadyExisted": 0,
+    "totalNow": 24
+  }
+]

@@ -31,6 +31,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stderr.reconfigure(encoding="utf-8")
 
 from crew import run as run_crew  # noqa: E402  (must follow load_dotenv())
+from activity_log import record_run  # noqa: E402
 from schema import GRADIENT_PALETTE, ResearchedPackage, TravelPackage, slugify  # noqa: E402
 
 HERE = Path(__file__).parent
@@ -180,6 +181,7 @@ def main() -> int:
     LIVE_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
     LIVE_JSON_PATH.write_text(json.dumps(final_packages, indent=2), encoding="utf-8")
     print(f"Added {len(new_packages)} new real packages ({len(validated) - len(new_packages)} were already in the catalog); {len(final_packages)} total now in {LIVE_JSON_PATH.resolve()}")
+    record_run("packages", [p.name for p in new_packages], len(validated) - len(new_packages), len(final_packages))
 
     OUTPUT_DIR.mkdir(exist_ok=True)
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")

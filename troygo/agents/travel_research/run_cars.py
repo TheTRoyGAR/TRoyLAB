@@ -25,6 +25,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stderr.reconfigure(encoding="utf-8")
 
 from crew import run_cars as run_crew  # noqa: E402  (must follow load_dotenv())
+from activity_log import record_run  # noqa: E402
 from schema import CAR_GRADIENT_PALETTE, ResearchedCarRental, CarRental  # noqa: E402
 
 HERE = Path(__file__).parent
@@ -159,6 +160,7 @@ def main() -> int:
     LIVE_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
     LIVE_JSON_PATH.write_text(json.dumps(final_cars, indent=2), encoding="utf-8")
     print(f"Added {len(new_cars)} new real cars ({len(validated) - len(new_cars)} were already in the catalog); {len(final_cars)} total now in {LIVE_JSON_PATH.resolve()}")
+    record_run("cars", [c.name for c in new_cars], len(validated) - len(new_cars), len(final_cars))
 
     OUTPUT_DIR.mkdir(exist_ok=True)
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")

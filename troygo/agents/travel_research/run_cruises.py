@@ -2,8 +2,10 @@
   - ../../src/lib/data/cruises-live.json    (consumed by the Next.js site)
   - output/run-cruises-<timestamp>.log.json (audit trail: raw output + sources)
 
-Each run REPLACES the live cruise list with a fresh set of currently-real
-itineraries/prices. Re-run this periodically to refresh.
+Each run GROWS the live cruise list, merging new real finds in and skipping
+anything already there by name (case-insensitive) — matches the additive
+pattern in run.py (packages), so coverage keeps expanding across runs
+instead of resetting.
 """
 
 import json
@@ -23,6 +25,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stderr.reconfigure(encoding="utf-8")
 
 from crew import run_cruises as run_crew  # noqa: E402  (must follow load_dotenv())
+from activity_log import record_run  # noqa: E402
 from schema import CRUISE_GRADIENT_PALETTE, ResearchedCruise, Cruise  # noqa: E402
 
 HERE = Path(__file__).parent
@@ -37,11 +40,26 @@ def strip_code_fences(text: str) -> str:
 
 
 def extract_json_array(text: str) -> str:
-    start = text.find("[")
+    """Walk backward from the LAST "]" and bracket-match to find its "[" —
+    isolates the model's real final array even when its reasoning left
+    earlier draft/incomplete JSON-looking fragments beforehand (a real car
+    rental run did this: several partial arrays, one literally truncated
+    with "...]" mid-reasoning, before the actual complete final answer)."""
+    text = text.strip()
     end = text.rfind("]")
-    if start == -1 or end == -1 or end < start:
+    if end == -1:
         return text
-    return text[start : end + 1]
+    depth = 0
+    i = end
+    while i >= 0:
+        if text[i] == "]":
+            depth += 1
+        elif text[i] == "[":
+            depth -= 1
+            if depth == 0:
+                return text[i : end + 1]
+        i -= 1
+    return text
 
 
 def main() -> int:
@@ -91,11 +109,24 @@ def main() -> int:
         print("(The site will keep serving its last-known-good data either way, thanks to the fallback in packages.ts.)", file=sys.stderr)
         return 1
 
-    final_cruises: list[Cruise] = []
-    for i, c in enumerate(validated, start=1):
-        final_cruises.append(
+    existing: list[dict] = []
+    if LIVE_JSON_PATH.exists():
+        try:
+            existing = json.loads(LIVE_JSON_PATH.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            existing = []
+    existing_names = {e["name"].strip().lower() for e in existing}
+    next_id = max((e.get("id", 0) for e in existing), default=0) + 1
+
+    new_cruises: list[Cruise] = []
+    new_validated: list[ResearchedCruise] = []
+    for c in validated:
+        if c.name.strip().lower() in existing_names:
+            continue
+        new_validated.append(c)
+        new_cruises.append(
             Cruise(
-                id=i,
+                id=next_id,
                 name=c.name,
                 ship=c.ship,
                 cruiseLine=c.cruiseLine,
@@ -109,16 +140,18 @@ def main() -> int:
                 departurePort=c.departurePort,
                 includes=c.includes,
                 amenities=c.amenities,
-                imageGradient=CRUISE_GRADIENT_PALETTE[(i - 1) % len(CRUISE_GRADIENT_PALETTE)],
+                imageGradient=CRUISE_GRADIENT_PALETTE[(next_id - 1) % len(CRUISE_GRADIENT_PALETTE)],
                 category=c.category,
                 description=c.description,
             )
         )
+        next_id += 1
 
-    live_json = [c.model_dump(mode="json") for c in final_cruises]
+    final_cruises = existing + [c.model_dump(mode="json") for c in new_cruises]
     LIVE_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
-    LIVE_JSON_PATH.write_text(json.dumps(live_json, indent=2), encoding="utf-8")
-    print(f"Wrote {len(final_cruises)} real cruises to {LIVE_JSON_PATH.resolve()}")
+    LIVE_JSON_PATH.write_text(json.dumps(final_cruises, indent=2), encoding="utf-8")
+    print(f"Added {len(new_cruises)} new real cruises ({len(validated) - len(new_cruises)} were already in the catalog); {len(final_cruises)} total now in {LIVE_JSON_PATH.resolve()}")
+    record_run("cruises", [c.name for c in new_cruises], len(validated) - len(new_cruises), len(final_cruises))
 
     OUTPUT_DIR.mkdir(exist_ok=True)
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
@@ -133,7 +166,7 @@ def main() -> int:
                 "dropped": [{"name": d["item"].get("name") if isinstance(d["item"], dict) else None, "error": d["error"]} for d in dropped],
                 "cruises": [
                     {**c.model_dump(mode="json"), "sourceUrl": str(src.sourceUrl)}
-                    for c, src in zip(final_cruises, validated)
+                    for c, src in zip(new_cruises, new_validated)
                 ],
             },
             indent=2,

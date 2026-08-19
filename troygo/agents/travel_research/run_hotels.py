@@ -27,6 +27,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stderr.reconfigure(encoding="utf-8")
 
 from crew import run_hotels as run_crew  # noqa: E402  (must follow load_dotenv())
+from activity_log import record_run  # noqa: E402
 from schema import HOTEL_GRADIENT_PALETTE, ResearchedHotel, Hotel  # noqa: E402
 
 HERE = Path(__file__).parent
@@ -157,6 +158,7 @@ def main() -> int:
     LIVE_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
     LIVE_JSON_PATH.write_text(json.dumps(final_hotels, indent=2), encoding="utf-8")
     print(f"Added {len(new_hotels)} new real hotels ({len(validated) - len(new_hotels)} were already in the catalog); {len(final_hotels)} total now in {LIVE_JSON_PATH.resolve()}")
+    record_run("hotels", [h.name for h in new_hotels], len(validated) - len(new_hotels), len(final_hotels))
 
     OUTPUT_DIR.mkdir(exist_ok=True)
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")

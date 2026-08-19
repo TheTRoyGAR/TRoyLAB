@@ -16,6 +16,7 @@ import {
   Globe,
   UserCircle,
   Briefcase,
+  Bot,
 } from 'lucide-react';
 
 interface NavItem {
@@ -33,6 +34,7 @@ const navItems: NavItem[] = [
   { label: 'Sales Pipeline', href: '/dashboard/sales', icon: TrendingUp },
   { label: 'Emails', href: '/dashboard/emails', icon: Mail },
   { label: 'Workflows', href: '/dashboard/workflows', icon: Zap },
+  { label: 'Research Agents', href: '/dashboard/agents', icon: Bot },
   { label: 'Settings', href: '/dashboard/settings', icon: Settings, built: false },
 ];
 
