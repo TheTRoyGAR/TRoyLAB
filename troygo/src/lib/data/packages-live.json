@@ -2747,5 +2747,780 @@
         "description": "Transfer to the airport for your return flight home."
       }
     ]
+  },
+  {
+    "id": 35,
+    "name": "Darwin, Litchfield and Kakadu Escape",
+    "slug": "darwin-litchfield-and-kakadu-escape",
+    "destination": "Darwin, Northern Territory",
+    "countries": [
+      "Australia"
+    ],
+    "duration": 6,
+    "price": 1329.0,
+    "originalPrice": 1648.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-cyan-400 to-blue-600",
+    "includes": {
+      "flights": false,
+      "hotel": true,
+      "transfers": false,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Litchfield National Park Waterfalls sightseeing tour including lunch",
+      "Kakadu National Park Explorer tour with experienced driver guide",
+      "Yellow Water Billabong cruise with wildlife and scenery",
+      "Aboriginal rock art at World Heritage-listed Ubirr",
+      "Dinner vouchers redeemable at Wharf One waterfront restaurant"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 12,
+    "difficulty": "easy",
+    "category": "adventure",
+    "description": "A 5-night package based in Darwin covering both Litchfield and Kakadu National Parks, including guided sightseeing tours with lunch, Aboriginal cultural experiences, and restaurant dining vouchers. On sale until 31 August 2026 for travel until 31 March 2027.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrive Darwin",
+        "description": "Check in to your chosen Darwin hotel (DoubleTree by Hilton, Vibe Hotel, Palms City Resort, or Hilton Darwin). Explore the Darwin waterfront at leisure."
+      },
+      {
+        "day": 2,
+        "title": "Litchfield National Park Waterfalls Tour",
+        "description": "Full-day guided coach tour through Litchfield National Park. Visit Termite Mounds, Florence Falls, Tolmer Falls, and Wangi Falls. Lunch included at Litchfield Caf\u00e9."
+      },
+      {
+        "day": 3,
+        "title": "Darwin City Exploration",
+        "description": "Free day to explore Darwin's markets, waterfront precinct, and dining scene. Use your restaurant vouchers at Wharf One, The Precinct, or Dock One Bar."
+      },
+      {
+        "day": 4,
+        "title": "Kakadu National Park Explorer",
+        "description": "Full-day guided tour of Kakadu National Park \u2014 the largest national park in Australia. See ancient Aboriginal rock art sites and diverse wildlife. Lunch included."
+      },
+      {
+        "day": 5,
+        "title": "Yellow Water Billabong & Ubirr",
+        "description": "Cruise the famous Yellow Water Billabong for wildlife sightings, and visit Ubirr for 50,000-year-old Aboriginal rock art in the World Heritage area."
+      },
+      {
+        "day": 6,
+        "title": "Depart Darwin",
+        "description": "Late checkout (to 1 PM where applicable) and depart Darwin."
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "name": "13 Day Turkish Treasures \u2013 Istanbul, Troy, Cappadocia & More",
+    "slug": "13-day-turkish-treasures-istanbul-troy-cappadocia-more",
+    "destination": "Istanbul / Troy / Cappadocia / Aegean Coast",
+    "countries": [
+      "Turkey"
+    ],
+    "duration": 13,
+    "price": 3239.0,
+    "originalPrice": 3239.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-amber-500 to-orange-700",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Tour the 4,000-year-old classical city of Troy, immortalized in Homer's Iliad",
+      "Explore Pergamum's Hellenistic acropolis and the Roman healing centre Asclepieion",
+      "Visit UNESCO World Heritage thermal pools at Pamukkale's 'Cotton Castle'",
+      "Hot air balloon ride option over Cappadocia's fairy chimney rock formations",
+      "Home-hosted lunch with a local family in Sultanhan"
+    ],
+    "departureDates": [
+      "2026-08-31",
+      "2026-09-01",
+      "2026-09-07",
+      "2026-09-14",
+      "2026-09-21",
+      "2026-09-28",
+      "2026-10-01",
+      "2026-10-05",
+      "2026-10-12",
+      "2026-10-19",
+      "2026-10-26",
+      "2026-11-02",
+      "2026-11-09",
+      "2026-12-07"
+    ],
+    "maxGroupSize": 40,
+    "difficulty": "moderate",
+    "category": "cultural",
+    "description": "A classic 13-day escorted tour from Gate 1 Travel covering Istanbul, the ancient city of Troy, Pergamum, Kusadasi, Pamukkale, Konya, Cappadocia, and Ankara, with round-trip flights from New York, 11 nights first-class hotels, and 21 meals included. Book by Oct 8, 2026 to save.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Depart for Turkey",
+        "description": "Depart from your US gateway city on overnight flight to Istanbul."
+      },
+      {
+        "day": 2,
+        "title": "Arrive Istanbul",
+        "description": "Arrive in Istanbul and transfer to your first-class hotel. Orientation meeting with Tour Manager in the evening."
+      },
+      {
+        "day": 3,
+        "title": "City Tour of Istanbul",
+        "description": "Visit St. Sophia (UNESCO), the Serefiye Underground Cistern, the Hippodrome, and the Spice Market. Evening at leisure."
+      },
+      {
+        "day": 4,
+        "title": "Troy & Canakkale",
+        "description": "Drive to the 4,000-year-old legendary city of Troy, then continue to Canakkale for overnight stay."
+      },
+      {
+        "day": 5,
+        "title": "Pergamum & Kusadasi",
+        "description": "Visit the Hellenistic acropolis of Pergamum and the Asclepieion healing temple, then drive to Kusadasi on the Aegean coast."
+      },
+      {
+        "day": 6,
+        "title": "Kusadasi / Optional Ephesus",
+        "description": "Free day in Kusadasi or join optional full-day Ephesus tour including the Temple of Artemis and House of the Virgin Mary."
+      },
+      {
+        "day": 7,
+        "title": "Pamukkale",
+        "description": "Drive to Pamukkale and visit the UNESCO World Heritage Hierapolis Necropolis and dazzling white thermal terraces."
+      },
+      {
+        "day": 8,
+        "title": "Konya & Mausoleum of Mevlana",
+        "description": "Travel to Konya and visit the Mausoleum of Mevlana, home of the Whirling Dervishes tradition."
+      },
+      {
+        "day": 9,
+        "title": "Cappadocia via Sultanhan Caravanserai",
+        "description": "Drive to Cappadocia via the 13th-century Sultanhan Caravanserai. Home-hosted lunch with a local family en route."
+      },
+      {
+        "day": 10,
+        "title": "Full Day Cappadocia",
+        "description": "Optional early-morning hot air balloon ride over fairy chimneys. Visit the Goreme Open-Air Museum and Ozkonak Underground City."
+      },
+      {
+        "day": 11,
+        "title": "Ankara",
+        "description": "Drive to Ankara; visit the Anatolian Civilizations Museum and the Mausoleum of Kemal Ataturk."
+      },
+      {
+        "day": 12,
+        "title": "Return to Istanbul",
+        "description": "Drive back to Istanbul. Optional Bosphorus cruise and Grand Bazaar visit. Farewell dinner."
+      },
+      {
+        "day": 13,
+        "title": "Depart Turkey",
+        "description": "Transfer to airport for return flight home."
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "name": "13 Day Classic Portugal & Madeira \u2013 Porto, Lisbon & Funchal",
+    "slug": "13-day-classic-portugal-madeira-porto-lisbon-funchal",
+    "destination": "Porto / Lisbon / Funchal, Madeira",
+    "countries": [
+      "Portugal"
+    ],
+    "duration": 13,
+    "price": 3749.0,
+    "originalPrice": 4499.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-blue-400 to-indigo-600",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Port wine tasting in Porto and visit to the ornate Stock Exchange",
+      "UNESCO World Heritage Convent of Christ in Tomar",
+      "Tour Lisbon's Jeronimos Monastery, resting place of Vasco da Gama",
+      "Stand on the glass-floor viewing platform at Cabo Girao cliff in Madeira",
+      "Stroll through Monte Palace Gardens in Funchal"
+    ],
+    "departureDates": [
+      "2027-04-05",
+      "2027-04-12",
+      "2027-04-26",
+      "2027-05-03"
+    ],
+    "maxGroupSize": 40,
+    "difficulty": "easy",
+    "category": "cultural",
+    "description": "Gate 1 Travel's 13-day escorted tour covering Porto, Tomar, Evora, Lisbon, and Funchal (Madeira), with round-trip flights from New York, 11 nights accommodations, 16 meals, and an intra-flight from Lisbon to Funchal. Save $750 per person with code DLCPMV750 when booked by August 24, 2026.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Depart for Portugal",
+        "description": "Fly from New York to Porto, Portugal."
+      },
+      {
+        "day": 2,
+        "title": "Arrive Porto",
+        "description": "Arrive in Porto and transfer to hotel. Evening orientation."
+      },
+      {
+        "day": 3,
+        "title": "Porto City Tour",
+        "description": "Visit the Stock Exchange with its gilded Arabian Hall, enjoy a port wine tasting, and explore the historic Ribeira district."
+      },
+      {
+        "day": 4,
+        "title": "Coimbra & Tomar",
+        "description": "Visit Coimbra University, one of Europe's oldest, then continue to Tomar and the UNESCO Convent of Christ."
+      },
+      {
+        "day": 5,
+        "title": "Evora",
+        "description": "Explore Evora, a UNESCO World Heritage city, including the unique Ossuary Chapel and Roman temple ruins."
+      },
+      {
+        "day": 6,
+        "title": "Fatima & Lisbon",
+        "description": "Stop at the Basilica of Our Lady of the Rosary in Fatima, then drive to Lisbon."
+      },
+      {
+        "day": 7,
+        "title": "Lisbon City Tour",
+        "description": "Tour Lisbon's Jeronimos Monastery and the Tower of Belem, both UNESCO World Heritage Sites."
+      },
+      {
+        "day": 8,
+        "title": "Lisbon at Leisure",
+        "description": "Free day in Lisbon to explore the Alfama district, tram rides, and local cuisine."
+      },
+      {
+        "day": 9,
+        "title": "Fly to Funchal, Madeira",
+        "description": "Intra-flight from Lisbon to Funchal. Afternoon arrival and check-in to Madeira hotel."
+      },
+      {
+        "day": 10,
+        "title": "Funchal & Monte Palace Gardens",
+        "description": "Explore Funchal's old town and visit the Monte Palace Tropical Garden with its diverse flora."
+      },
+      {
+        "day": 11,
+        "title": "Cabo Girao & Western Madeira",
+        "description": "Visit Cabo Girao, one of Europe's highest sea cliffs, with its glass-floor viewing platform."
+      },
+      {
+        "day": 12,
+        "title": "Madeira at Leisure",
+        "description": "Free day to explore Funchal's markets, seafront promenade, and local restaurants."
+      },
+      {
+        "day": 13,
+        "title": "Depart Funchal",
+        "description": "Transfer to Funchal airport for return flight to New York."
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Onsen & Okinawa Heritage Tour",
+    "slug": "onsen-okinawa-heritage-tour",
+    "destination": "Okinawa / Gifu / Takayama / Nagoya",
+    "countries": [
+      "Japan"
+    ],
+    "duration": 11,
+    "price": 3990.0,
+    "originalPrice": 3990.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-yellow-400 to-amber-600",
+    "includes": {
+      "flights": false,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Soak in natural onsen hot springs in Takayama",
+      "Explore UNESCO World Heritage snow village of Shirakawago",
+      "Visit Okinawa's Churaumi Aquarium and Shuri Castle",
+      "Reflect at Okinawa Peace Memorial Park and Himeyuri Museum",
+      "Hands-on Ryukyuan dyeing and cultural experiences in Okinawa"
+    ],
+    "departureDates": [
+      "2026-02-17"
+    ],
+    "maxGroupSize": 30,
+    "difficulty": "easy",
+    "category": "cultural",
+    "description": "An 11-day H.I.S. USA guided tour departing February 17, 2026, combining the mountain onsen culture of Gifu and Takayama with the subtropical island heritage of Okinawa. Includes 10 nights accommodation, 27 meals, WiFi router rental, and a bilingual tour leader from Honolulu.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrive Nagoya",
+        "description": "Arrive at Chubu Centrair International Airport and transfer to hotel. Welcome bento dinner."
+      },
+      {
+        "day": 2,
+        "title": "Gifu & Mino \u2013 Seki & Kimono Experience",
+        "description": "Visit historic sword-making town of Seki, try on a traditional uchikake kimono, and stroll through the lantern-lined streets of Mino. Evening onsen."
+      },
+      {
+        "day": 3,
+        "title": "Takayama Morning Market & Shirakawago",
+        "description": "Browse Takayama's lively morning market, then visit the UNESCO World Heritage thatched-roof village of Shirakawago."
+      },
+      {
+        "day": 4,
+        "title": "Gujo Hachiman & Gozaisho Ropeway",
+        "description": "Watch traditional dance in Gujo Hachiman and enjoy panoramic snowy views from the Gozaisho Ropeway. Evening Nabana no Sato winter lights."
+      },
+      {
+        "day": 5,
+        "title": "Nagoya \u2013 Atsuta Shrine & Nagoya Castle",
+        "description": "Explore Atsuta Jingu Shrine, Nagoya Castle grounds, and bustling shopping streets of Osu and Sakae."
+      },
+      {
+        "day": 6,
+        "title": "Tokoname Pottery Path & Fly to Okinawa",
+        "description": "Follow Tokoname's ceramic-lined pottery path, then fly south to Okinawa. Relaxing dinner in Naha."
+      },
+      {
+        "day": 7,
+        "title": "Okinawa Peace Memorial & American Village",
+        "description": "Visit the Okinawa Peace Memorial Park, Himeyuri Museum, and Former Navy Underground HQ. Free time at American Village."
+      },
+      {
+        "day": 8,
+        "title": "Ryukyu Village, Churaumi Aquarium & Manzamo",
+        "description": "Experience Ryukyu culture at Ryukyu Village, marvel at Churaumi Aquarium, and take in ocean views at Manzamo cliffs."
+      },
+      {
+        "day": 9,
+        "title": "Ryukyuan Dyeing, Shuri Castle & Okinawa World",
+        "description": "Try traditional Ryukyuan dyeing, tour the royal Shuri Castle, and explore Okinawa World's limestone caves."
+      },
+      {
+        "day": 10,
+        "title": "Free Day in Okinawa",
+        "description": "Unscheduled day to relax by the pool, shop for souvenirs, or stroll along the Okinawa coast at your own pace."
+      },
+      {
+        "day": 11,
+        "title": "Depart Okinawa",
+        "description": "Check out and fly to Nagoya, then connect to your international departure flight."
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Sardinia Fly and Drive \u2013 5 Nights Independent Vacation Package",
+    "slug": "sardinia-fly-and-drive-5-nights-independent-vacation-package",
+    "destination": "Sardinia (Cagliari & Emerald Coast)",
+    "countries": [
+      "Italy"
+    ],
+    "duration": 6,
+    "price": 882.0,
+    "originalPrice": 882.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-orange-500 to-red-700",
+    "includes": {
+      "flights": false,
+      "hotel": true,
+      "transfers": false,
+      "meals": true,
+      "guide": false
+    },
+    "highlights": [
+      "5-night stay at Palazzo Doglio 5-star hotel in Cagliari",
+      "6-day Category C car rental for independent exploration",
+      "Visit UNESCO World Heritage Nuragic megalithic sites near Barumini",
+      "Explore Porto Cervo and the celebrity-studded Emerald Coast",
+      "Day trip to La Maddalena Archipelago National Park and Spiaggia Rosa"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 2,
+    "difficulty": "easy",
+    "category": "beach",
+    "description": "Central Holidays' independent Fly and Drive Sardinia package includes 5 nights hotel accommodation with daily buffet breakfast and a 6-day car rental, starting from $882 per person based on double occupancy. Explore Cagliari's historic fortification, the Emerald Coast, and La Maddalena National Park at your own pace.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrive Cagliari \u2013 Pick Up Rental Car",
+        "description": "Arrive at Cagliari airport, pick up your rental car, and check in to your hotel. Begin discovering the island of Sardinia."
+      },
+      {
+        "day": 2,
+        "title": "Cagliari City Exploration",
+        "description": "Explore Cagliari's 13th-century fortification, Terrazza Umberto I with views of the Gulf of Angels, San Saturno Basilica, and the Basilica of Our Lady of Bonaria. Breakfast included."
+      },
+      {
+        "day": 3,
+        "title": "Barumini & Drive to Emerald Coast",
+        "description": "Visit the UNESCO World Heritage Nuragic megalithic sites near Barumini, then drive approximately 196 miles north to Porto Cervo on the Emerald Coast. Breakfast included."
+      },
+      {
+        "day": 4,
+        "title": "Emerald Coast at Leisure",
+        "description": "Free day in Porto Cervo \u2014 explore the famous Piazzetta, boutiques, and stunning turquoise waters of the Emerald Coast. Breakfast included."
+      },
+      {
+        "day": 5,
+        "title": "La Maddalena Archipelago National Park",
+        "description": "Take a short sea crossing to La Maddalena National Park, a geomarine protected area with 60 islands and 115 miles of coastline, including the famous Spiaggia Rosa. Breakfast included."
+      },
+      {
+        "day": 6,
+        "title": "Depart Sardinia",
+        "description": "Drop off rental car and depart from Sardinia, or extend your stay."
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Big Sky Family Adventure \u2013 5 Nights with Yellowstone, Rafting, Horseback & Zipline",
+    "slug": "big-sky-family-adventure-5-nights-with-yellowstone-rafting-horseback-zipline",
+    "destination": "Big Sky, Montana",
+    "countries": [
+      "United States"
+    ],
+    "duration": 6,
+    "price": 1618.0,
+    "originalPrice": 1618.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-teal-400 to-green-600",
+    "includes": {
+      "flights": false,
+      "hotel": true,
+      "transfers": false,
+      "meals": false,
+      "guide": true
+    },
+    "highlights": [
+      "Full-day guided Yellowstone Lower Loop Tour including Old Faithful and Grand Canyon of the Yellowstone",
+      "Half-day whitewater rafting on the Gallatin River including House Rock and Mad Mile rapids",
+      "2-hour guided horseback ride through the Gallatin Range foothills",
+      "Classic Zipline Canopy Tour with 3 full zips crossing the Gallatin River",
+      "5 nights in Cowboy Heaven 2-bedroom cabin with private hot tub and mountain views"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 4,
+    "difficulty": "moderate",
+    "category": "adventure",
+    "description": "AllTrips' Big Sky Family Adventure package includes 5 nights in a Cowboy Heaven mountain cabin plus four guided activities \u2014 a full-day Yellowstone tour, half-day Gallatin River whitewater rafting, a 2-hour horseback ride, and a zipline canopy tour \u2014 starting from $1,618 per person (quad occupancy). Available mid-May through September.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrive Big Sky",
+        "description": "Check in to your Cowboy Heaven 2-bedroom cabin with private hot tub and stunning mountain views. Explore the resort area at leisure."
+      },
+      {
+        "day": 2,
+        "title": "Full-Day Yellowstone Lower Loop Tour",
+        "description": "Guided day trip to Yellowstone National Park: geyser country, Old Faithful, Yellowstone Lake, Hayden Valley wildlife, and the Grand Canyon of the Yellowstone with Upper and Lower Falls."
+      },
+      {
+        "day": 3,
+        "title": "Gallatin River Whitewater Rafting",
+        "description": "Half-day whitewater rafting on the Gallatin River through the lower canyon, including big rapids such as House Rock and the continuous Mad Mile. All equipment included."
+      },
+      {
+        "day": 4,
+        "title": "Horseback Riding in the Gallatin Range",
+        "description": "2-hour guided horseback ride into the foothills of the Gallatin Range with views of the canyon and surrounding peaks. Guide stops twice for scenic photos."
+      },
+      {
+        "day": 5,
+        "title": "Classic Zipline Canopy Tour",
+        "description": "Fully guided zipline tour with 3 full zips and 3 sky bridges, two of which cross the beautiful Gallatin River. Explore Big Sky Resort area for additional activities."
+      },
+      {
+        "day": 6,
+        "title": "Depart Big Sky",
+        "description": "Check out of cabin and depart Big Sky, Montana."
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Bangkok \u2013 Chiang Mai \u2013 Phuket by Air",
+    "slug": "bangkok-chiang-mai-phuket-by-air",
+    "destination": "Bangkok / Chiang Mai / Phuket",
+    "countries": [
+      "Thailand"
+    ],
+    "duration": 10,
+    "price": 1349.0,
+    "originalPrice": 1349.0,
+    "currency": "USD",
+    "rating": 4.7,
+    "reviewCount": 424,
+    "imageGradient": "from-yellow-300 to-orange-500",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": false,
+      "meals": false,
+      "guide": false
+    },
+    "highlights": [
+      "Explore Bangkok's Grand Palace, Wat Arun, and Damnoen Saduak Floating Market",
+      "Immerse in Lanna culture at ancient mountaintop temples in Chiang Mai, including Wat Phra That Doi Suthep",
+      "Browse Chiang Mai's famous Sunday Night Market for authentic street food and local crafts",
+      "Relax on pristine Patong or Kata Beach in Phuket",
+      "Boat tour to the limestone cliffs of Phang Nga Bay in turquoise waters"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 12,
+    "difficulty": "easy",
+    "category": "cultural",
+    "description": "Tripmasters' #1 bestselling Thailand package covers 9 nights across Bangkok (3 nights), Chiang Mai (3 nights), and Phuket (3 nights) with intercity flights included, from $1,349 per person based on double occupancy. Fully flexible and customizable.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrive Bangkok",
+        "description": "Arrive in Bangkok and check in to your hotel. Evening orientation in the vibrant capital city."
+      },
+      {
+        "day": 2,
+        "title": "Bangkok Temples & Markets",
+        "description": "Visit the Grand Palace, Wat Pho, and Wat Arun. Explore the Damnoen Saduak Floating Market and local street food scene."
+      },
+      {
+        "day": 3,
+        "title": "Bangkok at Leisure",
+        "description": "Free day in Bangkok to explore Siam Paragon shopping, Sukhumvit nightlife, or optional day trips."
+      },
+      {
+        "day": 4,
+        "title": "Fly to Chiang Mai",
+        "description": "Morning flight to Chiang Mai. Check in and explore the old city moat and surrounding temples."
+      },
+      {
+        "day": 5,
+        "title": "Chiang Mai Cultural Highlights",
+        "description": "Visit Wat Phra That Doi Suthep mountaintop temple. Explore the historic old city and local night bazaar for street food and crafts."
+      },
+      {
+        "day": 6,
+        "title": "Chiang Mai \u2013 Elephant Sanctuary & Markets",
+        "description": "Optional visit to an elephant rescue sanctuary. Browse the famous Sunday Night Market for authentic local products."
+      },
+      {
+        "day": 7,
+        "title": "Fly to Phuket",
+        "description": "Morning flight to Phuket, Thailand's largest island. Check in and head to the beach."
+      },
+      {
+        "day": 8,
+        "title": "Phuket Beaches",
+        "description": "Relax on Patong or Kata Beach. Explore Phuket Town's Sino-Portuguese architecture and local cuisine."
+      },
+      {
+        "day": 9,
+        "title": "Phang Nga Bay Boat Tour",
+        "description": "Optional full-day boat tour to the stunning limestone cliffs and sea caves of Phang Nga Bay."
+      },
+      {
+        "day": 10,
+        "title": "Depart Phuket",
+        "description": "Transfer to Phuket airport for departure flight home."
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Auckland \u2013 Rotorua \u2013 Queenstown by Air",
+    "slug": "auckland-rotorua-queenstown-by-air",
+    "destination": "Auckland / Rotorua / Queenstown",
+    "countries": [
+      "New Zealand"
+    ],
+    "duration": 10,
+    "price": 1869.0,
+    "originalPrice": 1869.0,
+    "currency": "USD",
+    "rating": 4.3,
+    "reviewCount": 18,
+    "imageGradient": "from-slate-400 to-blue-700",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": false,
+      "meals": false,
+      "guide": false
+    },
+    "highlights": [
+      "Explore Auckland's beaches, sailing harbours, and multicultural food scene",
+      "Experience Rotorua's geothermal paradise with bubbling mud pools and hot springs",
+      "Fly to Queenstown, the adventure capital of the world, for bungy jumping and snow sports",
+      "Intercity flights between all three cities included",
+      "Flexible hotel choices across Auckland, Rotorua, and Queenstown"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 12,
+    "difficulty": "easy",
+    "category": "adventure",
+    "description": "Tripmasters' top-rated New Zealand package covers 9 nights across Auckland (3 nights), Rotorua (3 nights), and Queenstown (3 nights) with all intercity flights included, from $1,869 per person based on double occupancy. Fully flexible and customizable.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrive Auckland",
+        "description": "Arrive in Auckland, New Zealand's largest city and multicultural hub. Check in and explore the waterfront."
+      },
+      {
+        "day": 2,
+        "title": "Auckland City Exploration",
+        "description": "Discover Auckland's volcanic cones, beautiful beaches, and vibrant dining scene. Optional harbour sailing or wine valley day trip."
+      },
+      {
+        "day": 3,
+        "title": "Auckland at Leisure",
+        "description": "Free day in Auckland for shopping, museum visits, or a day trip to the Coromandel Peninsula or Waiheke Island."
+      },
+      {
+        "day": 4,
+        "title": "Fly to Rotorua",
+        "description": "Morning flight to Rotorua. Arrive in New Zealand's geothermal heartland and Maori cultural centre."
+      },
+      {
+        "day": 5,
+        "title": "Rotorua Geothermal & Maori Culture",
+        "description": "Visit Rotorua's steaming geothermal parks with bubbling mud pools and geysers. Experience a traditional Maori cultural performance and hangi feast."
+      },
+      {
+        "day": 6,
+        "title": "Rotorua at Leisure",
+        "description": "Free day to explore Rotorua's lakes, forests, and adventure activities such as luge or white-water rafting."
+      },
+      {
+        "day": 7,
+        "title": "Fly to Queenstown",
+        "description": "Morning flight to Queenstown, surrounded by the Remarkables mountain range. Check in and explore the lakefront town."
+      },
+      {
+        "day": 8,
+        "title": "Queenstown Adventure Activities",
+        "description": "Choose from world-famous bungy jumping, jet boating, skydiving, or scenic gondola rides over Queenstown."
+      },
+      {
+        "day": 9,
+        "title": "Milford Sound or Wine Valley Day Trip",
+        "description": "Optional full-day excursion to the breathtaking Milford Sound fjord, or a wine tasting tour in the Central Otago wine region."
+      },
+      {
+        "day": 10,
+        "title": "Depart Queenstown",
+        "description": "Transfer to Queenstown airport for departure flight home."
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "name": "9 Day Essential Turkey \u2013 Istanbul & Cappadocia",
+    "slug": "9-day-essential-turkey-istanbul-cappadocia",
+    "destination": "Istanbul / Cappadocia / Ankara",
+    "countries": [
+      "Turkey"
+    ],
+    "duration": 9,
+    "price": 2629.0,
+    "originalPrice": 2629.0,
+    "currency": "USD",
+    "rating": 4.5,
+    "reviewCount": 0,
+    "imageGradient": "from-rose-400 to-pink-600",
+    "includes": {
+      "flights": true,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Explore Istanbul's iconic Hagia Sophia, Blue Mosque, and Grand Bazaar",
+      "Bosphorus cruise between Europe and Asia",
+      "Discover Cappadocia's fairy chimney rock formations and cave churches",
+      "Optional hot air balloon ride over Cappadocia at sunrise",
+      "Visit Ankara's Anatolian Civilizations Museum and Ataturk Mausoleum"
+    ],
+    "departureDates": [],
+    "maxGroupSize": 40,
+    "difficulty": "moderate",
+    "category": "cultural",
+    "description": "Gate 1 Travel's value-priced 9-day escorted tour covering Istanbul (4 nights), Cappadocia (2 nights), and Ankara (1 night), with round-trip flights, first-class hotels, and guided sightseeing included. Book by October 8, 2026 to save on this popular Anatolia itinerary.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Depart for Turkey",
+        "description": "Overnight flight from your US gateway city to Istanbul."
+      },
+      {
+        "day": 2,
+        "title": "Arrive Istanbul",
+        "description": "Arrive and transfer to first-class Istanbul hotel. Evening orientation meeting."
+      },
+      {
+        "day": 3,
+        "title": "Istanbul \u2013 Sultanahmet & Spice Market",
+        "description": "Guided tour of Hagia Sophia (UNESCO), the Hippodrome, the Serefiye Cistern, and the Spice Market."
+      },
+      {
+        "day": 4,
+        "title": "Istanbul \u2013 Bosphorus & Grand Bazaar",
+        "description": "Cruise the Bosphorus Strait between Europe and Asia. Visit the Grand Bazaar with over 4,000 shops."
+      },
+      {
+        "day": 5,
+        "title": "Fly to Cappadocia",
+        "description": "Fly to Cappadocia (Nevsehir). Check in to cave hotel and explore the surreal lunar landscape."
+      },
+      {
+        "day": 6,
+        "title": "Cappadocia \u2013 Goreme Open Air Museum",
+        "description": "Optional early hot air balloon ride at sunrise. Visit Goreme Open-Air Museum's rock-cut churches and Ozkonak Underground City."
+      },
+      {
+        "day": 7,
+        "title": "Drive to Ankara",
+        "description": "Drive to Ankara, Turkey's capital. Visit the Anatolian Civilizations Museum and the Mausoleum of Kemal Ataturk."
+      },
+      {
+        "day": 8,
+        "title": "Return to Istanbul",
+        "description": "Drive back to Istanbul. Farewell dinner with tour group."
+      },
+      {
+        "day": 9,
+        "title": "Depart Turkey",
+        "description": "Transfer to Istanbul airport for return flight home."
+      }
+    ]
   }
 ]
