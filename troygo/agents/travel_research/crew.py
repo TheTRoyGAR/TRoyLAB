@@ -329,14 +329,31 @@ CRUISE_RESEARCHER_BACKSTORY = (
 )
 
 CRUISE_TASK_DESCRIPTION = """\
-Find 6 to 10 real, currently-sold cruise itineraries by searching the web.
-Cover a mix of cruise lines and regions (not all the same line or region) —
-for example run separate searches like:
+Find 8 to 12 real, currently-sold cruise itineraries by searching the web.
+Cover a genuine spread across these real cruise lines and tiers — do not
+default to just 2-3 of them, aim for coverage across every tier below over
+the course of a run:
+
+Mainstream & Family: Carnival Cruise Line, Royal Caribbean, Norwegian
+Cruise Line, Disney Cruise Line, MSC Cruises
+Premium: Celebrity Cruises, Princess Cruises, Holland America Line
+Adults-Only & Niche: Virgin Voyages, Cunard Line
+Luxury & Expedition: Silversea, Regent Seven Seas, HX Expeditions, Coral
+Expeditions
+
+Run separate searches per line, for example:
+- "Carnival Cruise Line current deals prices 2026"
 - "Royal Caribbean cruise deals 2026 current prices"
-- "MSC Cruises Mediterranean itinerary prices"
 - "Norwegian Cruise Line Caribbean current deals"
-- "luxury cruise line current itinerary prices"
-- "river cruise Europe current prices"
+- "Disney Cruise Line current itinerary prices"
+- "MSC Cruises Mediterranean itinerary prices"
+- "Celebrity Cruises current itinerary prices"
+- "Princess Cruises current deals"
+- "Holland America Line current itinerary prices"
+- "Virgin Voyages current prices"
+- "Cunard Line current voyage prices"
+- "Silversea OR Regent Seven Seas current itinerary prices"
+- "HX Expeditions OR Coral Expeditions current prices"
 
 For every candidate cruise:
 1. Search for it, find a real source page (the cruise line's own site, or a

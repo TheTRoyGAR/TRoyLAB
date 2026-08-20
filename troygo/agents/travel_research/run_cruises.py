@@ -27,6 +27,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
 from crew import run_cruises as run_crew  # noqa: E402  (must follow load_dotenv())
 from activity_log import record_run  # noqa: E402
 from schema import CRUISE_GRADIENT_PALETTE, ResearchedCruise, Cruise  # noqa: E402
+from pricing import apply_markup  # noqa: E402
 
 HERE = Path(__file__).parent
 LIVE_JSON_PATH = HERE / ".." / ".." / "src" / "lib" / "data" / "cruises-live.json"
@@ -115,13 +116,33 @@ def main() -> int:
             existing = json.loads(LIVE_JSON_PATH.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
             existing = []
-    existing_names = {e["name"].strip().lower() for e in existing}
+    existing_by_name = {e["name"].strip().lower(): e for e in existing}
     next_id = max((e.get("id", 0) for e in existing), default=0) + 1
 
     new_cruises: list[Cruise] = []
     new_validated: list[ResearchedCruise] = []
+    updated_names: list[str] = []
     for c in validated:
-        if c.name.strip().lower() in existing_names:
+        key = c.name.strip().lower()
+        sell_price = apply_markup(c.price, c.cruiseLine)
+        sell_original = apply_markup(c.originalPrice, c.cruiseLine)
+        sell_cabins = [
+            {"name": cab.name, "price": apply_markup(cab.price, c.cruiseLine), "description": cab.description}
+            for cab in c.cabinTypes
+        ]
+        if key in existing_by_name:
+            # Same cruise found again — refresh it in place so real price/
+            # campaign changes at the source actually reach the site,
+            # instead of being silently skipped forever after first find.
+            entry = existing_by_name[key]
+            if entry["price"] != sell_price or entry["originalPrice"] != sell_original:
+                updated_names.append(c.name)
+            entry["price"] = sell_price
+            entry["originalPrice"] = sell_original
+            entry["cabinTypes"] = sell_cabins
+            entry["rating"] = round(min(5.0, max(0.0, c.rating)), 2)
+            entry["reviewCount"] = c.reviewCount
+            entry["description"] = c.description
             continue
         new_validated.append(c)
         new_cruises.append(
@@ -132,9 +153,9 @@ def main() -> int:
                 cruiseLine=c.cruiseLine,
                 itinerary=c.itinerary,
                 duration=c.duration,
-                price=c.price,
-                originalPrice=c.originalPrice,
-                cabinTypes=c.cabinTypes,
+                price=sell_price,
+                originalPrice=sell_original,
+                cabinTypes=sell_cabins,
                 rating=round(min(5.0, max(0.0, c.rating)), 2),
                 reviewCount=c.reviewCount,
                 departurePort=c.departurePort,
@@ -147,10 +168,10 @@ def main() -> int:
         )
         next_id += 1
 
-    final_cruises = existing + [c.model_dump(mode="json") for c in new_cruises]
+    final_cruises = list(existing_by_name.values()) + [c.model_dump(mode="json") for c in new_cruises]
     LIVE_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
     LIVE_JSON_PATH.write_text(json.dumps(final_cruises, indent=2), encoding="utf-8")
-    print(f"Added {len(new_cruises)} new real cruises ({len(validated) - len(new_cruises)} were already in the catalog); {len(final_cruises)} total now in {LIVE_JSON_PATH.resolve()}")
+    print(f"Added {len(new_cruises)} new real cruises, refreshed price on {len(updated_names)} existing ones; {len(final_cruises)} total now in {LIVE_JSON_PATH.resolve()}")
     record_run("cruises", [c.name for c in new_cruises], len(validated) - len(new_cruises), len(final_cruises))
 
     OUTPUT_DIR.mkdir(exist_ok=True)
