@@ -6,9 +6,15 @@ name: Travel Research Agents
 # (Anthropic) and only writes confirmed, sourced listings; see
 # troygo/agents/travel_research/README.md for the full design.
 #
-# Needs two repo secrets (Settings -> Secrets and variables -> Actions):
+# Needs these repo secrets (Settings -> Secrets and variables -> Actions):
 #   ANTHROPIC_API_KEY
 #   SERPER_API_KEY
+#   BACKEND_API_KEY   (optional — lets the cruise run ask TRoyAI's Finance
+#                      department to set real markup/campaign flags instead
+#                      of the static fallback table; only works when
+#                      backend.troyaiagent.com is actually reachable, i.e.
+#                      TRoy's laptop backend+tunnel are running — safe either
+#                      way, falls back automatically if not)
 
 on:
   schedule:
@@ -60,6 +66,8 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
+          BACKEND_API_KEY: ${{ secrets.BACKEND_API_KEY }}
+          BACKEND_URL: https://backend.troyaiagent.com
         run: python run_cruises.py
 
       - name: Commit and push real results
