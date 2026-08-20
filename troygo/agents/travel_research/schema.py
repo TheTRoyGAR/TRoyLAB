@@ -284,6 +284,7 @@ class ResearchedCruise(BaseModel):
     rating: float = Field(ge=0, le=5)
     reviewCount: int = Field(ge=0)
     departurePort: str
+    departureDates: list[str] = Field(default_factory=list)
     includes: list[str]
     amenities: list[str]
     category: str
@@ -308,6 +309,7 @@ class Cruise(BaseModel):
     rating: float
     reviewCount: int
     departurePort: str
+    departureDates: list[str]
     includes: list[str]
     amenities: list[str]
     imageGradient: str

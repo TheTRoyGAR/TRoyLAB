@@ -329,10 +329,15 @@ CRUISE_RESEARCHER_BACKSTORY = (
 )
 
 CRUISE_TASK_DESCRIPTION = """\
-Find 10 to 14 real, currently-sold cruise itineraries by searching the web.
-Cover a genuine spread across these real cruise lines and tiers — do not
-default to just 2-3 of them, aim for coverage across every tier below over
-the course of a run:
+Find as many real, currently-sold cruise itineraries as you can confirm this
+run (aim for 20-30, more if you can genuinely confirm them) by searching the
+web. TRoyGO wants FULL coverage of the cruise industry, not a curated
+subset — cover every cruise line you can find real current pricing for, not
+just the ones named below. Treat the list below as a guaranteed-minimum
+floor, not a ceiling: do not default to just 2-3 of them, aim for coverage
+across every tier below AND actively search for real lines beyond this list
+(e.g. run a search like "list of major cruise lines 2026" first, then
+research ones not already covered):
 
 Mainstream & Family: Carnival Cruise Line, Royal Caribbean, Norwegian
 Cruise Line, Disney Cruise Line, MSC Cruises
@@ -400,6 +405,11 @@ For each CONFIRMED cruise, produce one JSON object with these exact fields:
   neutral placeholder, do not fabricate a specific decimal
 - reviewCount (integer): if unknown, use 0
 - departurePort (string): the real embarkation port/city
+- departureDates (array of strings, 1-6 items, YYYY-MM-DD): real upcoming
+  sail dates as listed on the source. If the source only gives a recurring
+  pattern (e.g. "every Saturday") describe that as a single string in the
+  array instead of inventing specific dates. Never fabricate a specific
+  date that isn't actually on the source.
 - includes (array of strings, 3-6 items): what's real stated as included
   (meals, entertainment, etc.)
 - amenities (array of strings, 3-8 items): real onboard amenities mentioned

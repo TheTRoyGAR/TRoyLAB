@@ -69,6 +69,7 @@ export interface Cruise {
   rating: number
   reviewCount: number
   departurePort: string
+  departureDates?: string[] // optional — absent on fallback demo entries, always present on real live data
   includes: string[]
   amenities: string[]
   imageGradient: string

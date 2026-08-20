@@ -165,6 +165,7 @@ def main() -> int:
             entry["rating"] = round(min(5.0, max(0.0, c.rating)), 2)
             entry["reviewCount"] = c.reviewCount
             entry["description"] = c.description
+            entry["departureDates"] = c.departureDates
             continue
         new_validated.append(c)
         new_cruises.append(
@@ -181,6 +182,7 @@ def main() -> int:
                 rating=round(min(5.0, max(0.0, c.rating)), 2),
                 reviewCount=c.reviewCount,
                 departurePort=c.departurePort,
+                departureDates=c.departureDates,
                 includes=c.includes,
                 amenities=c.amenities,
                 imageGradient=CRUISE_GRADIENT_PALETTE[(next_id - 1) % len(CRUISE_GRADIENT_PALETTE)],
