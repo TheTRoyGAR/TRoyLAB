@@ -329,7 +329,7 @@ CRUISE_RESEARCHER_BACKSTORY = (
 )
 
 CRUISE_TASK_DESCRIPTION = """\
-Find 8 to 12 real, currently-sold cruise itineraries by searching the web.
+Find 10 to 14 real, currently-sold cruise itineraries by searching the web.
 Cover a genuine spread across these real cruise lines and tiers — do not
 default to just 2-3 of them, aim for coverage across every tier below over
 the course of a run:
@@ -354,6 +354,21 @@ Run separate searches per line, for example:
 - "Cunard Line current voyage prices"
 - "Silversea OR Regent Seven Seas current itinerary prices"
 - "HX Expeditions OR Coral Expeditions current prices"
+
+ALSO specifically search for real cruises that transit the Dardanelles
+Strait and/or Bosphorus (Istanbul), including ones that continue into the
+Black Sea to ports like Odessa, Constanta, Varna, Sochi or Batumi — this is
+a real, high-demand route TRoy has direct travel-agent experience with.
+Include at least 1-2 of these if any real, currently-sold ones can be
+confirmed. Example searches:
+- "Istanbul Bosphorus cruise itinerary current prices"
+- "Black Sea cruise 2026 Istanbul Odessa Constanta current prices"
+- "Cunard OR MSC OR Celebrity Black Sea Istanbul cruise itinerary"
+- "Dardanelles Bosphorus Black Sea cruise current deals"
+Note: due to the Russia-Ukraine war, most Black Sea itineraries have been
+suspended by major lines for years — if you cannot find a real, currently
+operating one, say so and do not force an entry. Never invent a Black Sea
+sailing that isn't actually confirmed live on a real source page.
 
 For every candidate cruise:
 1. Search for it, find a real source page (the cruise line's own site, or a
