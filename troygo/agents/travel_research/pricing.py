@@ -47,3 +47,12 @@ def markup_rate(cruise_line: str) -> float:
 
 def apply_markup(amount: float, cruise_line: str) -> float:
     return round(amount * (1 + markup_rate(cruise_line)), 2)
+
+
+def apply_dynamic_markup(amount: float, markup_percent: float) -> float:
+    """Same idea as apply_markup, but the % comes from Finance's live
+    PRICE_REVIEW decision instead of the static table above. Clamped to the
+    same 5-25% band Finance is instructed to stay within, in case of a bad
+    LLM response."""
+    pct = max(5.0, min(25.0, markup_percent))
+    return round(amount * (1 + pct / 100), 2)

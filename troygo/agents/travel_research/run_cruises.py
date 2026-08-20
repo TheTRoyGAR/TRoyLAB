@@ -27,7 +27,8 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
 from crew import run_cruises as run_crew  # noqa: E402  (must follow load_dotenv())
 from activity_log import record_run  # noqa: E402
 from schema import CRUISE_GRADIENT_PALETTE, ResearchedCruise, Cruise  # noqa: E402
-from pricing import apply_markup  # noqa: E402
+from pricing import apply_markup, apply_dynamic_markup  # noqa: E402
+from finance_review import fetch_price_review  # noqa: E402
 
 HERE = Path(__file__).parent
 LIVE_JSON_PATH = HERE / ".." / ".." / "src" / "lib" / "data" / "cruises-live.json"
@@ -119,17 +120,38 @@ def main() -> int:
     existing_by_name = {e["name"].strip().lower(): e for e in existing}
     next_id = max((e.get("id", 0) for e in existing), default=0) + 1
 
+    print("Asking Finance to review pricing on this batch (falls back to the static markup table if unavailable)...")
+    price_decisions = fetch_price_review(
+        [{"name": c.name, "category": c.cruiseLine, "basePrice": c.price} for c in validated]
+    )
+    print(f"Finance returned decisions for {len(price_decisions)}/{len(validated)} items.")
+
     new_cruises: list[Cruise] = []
     new_validated: list[ResearchedCruise] = []
     updated_names: list[str] = []
+    campaign_flagged: list[str] = []
     for c in validated:
         key = c.name.strip().lower()
-        sell_price = apply_markup(c.price, c.cruiseLine)
-        sell_original = apply_markup(c.originalPrice, c.cruiseLine)
-        sell_cabins = [
-            {"name": cab.name, "price": apply_markup(cab.price, c.cruiseLine), "description": cab.description}
-            for cab in c.cabinTypes
-        ]
+        decision = price_decisions.get(key)
+        if decision:
+            markup_source = "finance"
+            sell_price = apply_dynamic_markup(c.price, decision["markupPercent"])
+            sell_original = apply_dynamic_markup(c.originalPrice, decision["markupPercent"])
+            sell_cabins = [
+                {"name": cab.name, "price": apply_dynamic_markup(cab.price, decision["markupPercent"]), "description": cab.description}
+                for cab in c.cabinTypes
+            ]
+            if decision.get("campaignFlag"):
+                campaign_flagged.append(c.name)
+        else:
+            markup_source = "static fallback"
+            sell_price = apply_markup(c.price, c.cruiseLine)
+            sell_original = apply_markup(c.originalPrice, c.cruiseLine)
+            sell_cabins = [
+                {"name": cab.name, "price": apply_markup(cab.price, c.cruiseLine), "description": cab.description}
+                for cab in c.cabinTypes
+            ]
+        print(f"  {c.name}: cost ${c.price} -> sell ${sell_price} ({markup_source})")
         if key in existing_by_name:
             # Same cruise found again — refresh it in place so real price/
             # campaign changes at the source actually reach the site,
@@ -172,6 +194,8 @@ def main() -> int:
     LIVE_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
     LIVE_JSON_PATH.write_text(json.dumps(final_cruises, indent=2), encoding="utf-8")
     print(f"Added {len(new_cruises)} new real cruises, refreshed price on {len(updated_names)} existing ones; {len(final_cruises)} total now in {LIVE_JSON_PATH.resolve()}")
+    if campaign_flagged:
+        print(f"Finance flagged {len(campaign_flagged)} as campaign-worthy this run: {', '.join(campaign_flagged)}")
     record_run("cruises", [c.name for c in new_cruises], len(validated) - len(new_cruises), len(final_cruises))
 
     OUTPUT_DIR.mkdir(exist_ok=True)
