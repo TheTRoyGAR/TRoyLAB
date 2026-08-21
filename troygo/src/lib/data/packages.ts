@@ -72,6 +72,7 @@ export interface Cruise {
   departureDates?: string[] // optional — absent on fallback demo entries, always present on real live data
   includes: string[]
   amenities: string[]
+  imageUrl?: string | null // real ship photo found via search, when the research agent found one — falls back to imageGradient otherwise
   imageGradient: string
   category: string
   description: string

@@ -17,6 +17,7 @@ import {
   X,
   Compass,
   ShieldCheck,
+  PartyPopper,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -47,6 +48,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Cars',        href: '/cars',          icon: Car,    description: 'Car rentals at top destinations'     },
   { label: 'Packages',    href: '/packages',      icon: Package,description: 'All-inclusive vacation bundles'      },
   { label: 'Cruises',     href: '/cruises',       icon: Ship,   description: 'Sail the world in style'            },
+  { label: 'Group Cruises', href: '/group-cruises', icon: PartyPopper, description: 'Weddings, reunions, corporate retreats' },
   { label: 'Trips',       href: '/trip-planner',  icon: Map,    description: 'AI-powered trip planning'           },
   { label: 'Agents',      href: '/agents',        icon: Users,  description: 'Connect with travel experts'        },
   { label: 'Partners',    href: '/partners',      icon: ShieldCheck, description: 'Trusted local ground operators' },

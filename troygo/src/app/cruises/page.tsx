@@ -5,18 +5,15 @@ import { useSearchParams } from 'next/navigation'
 import { cruises } from '@/lib/data/packages'
 import { Star, Ship, MapPin, Clock, ChevronDown, Heart, Anchor } from 'lucide-react'
 import Link from 'next/link'
+import MainLayout from '@/components/layout/MainLayout'
 
-// Matches the real `category`/`cruiseLine` values in lib/data/packages.ts —
-// these used to be fictional placeholder names that matched nothing in the
-// actual data, so selecting any option here would have shown zero results.
+// Matches the real `category` values in lib/data/packages.ts — these used
+// to be fictional placeholder names that matched nothing in the actual
+// data, so selecting any option here would have shown zero results.
+// Cruise line options are no longer a static guess-list (see
+// linesWithCounts below) — they're derived from the real cruises actually
+// in the catalog, so an option is never shown unless it has real results.
 const REGION_OPTIONS = ['Caribbean', 'Mediterranean', 'Alaska', 'Asia', 'Europe', 'Expedition', 'Transatlantic']
-const LINE_OPTIONS = [
-  'Azamara Club Cruises', 'Carnival Cruise Line', 'Celebrity Cruises', 'Celestyal Cruises',
-  'Costa Cruises', 'Cunard', 'Disney Cruise Line', 'Holland America Line',
-  'Lindblad Expeditions', 'MSC Cruises', 'Norwegian Cruise Line', 'Oceania Cruises',
-  'Ponant', 'Princess Cruises', 'Regent Seven Seas', 'Royal Caribbean',
-  'Seabourn Cruise Line', 'Silversea Cruises', 'Viking Ocean Cruises', 'Virgin Voyages',
-]
 
 function CruisesContent() {
   const params = useSearchParams()
@@ -26,6 +23,15 @@ function CruisesContent() {
   const [maxDuration, setMaxDuration] = useState(21)
   const [sort, setSort] = useState('recommended')
   const [saved, setSaved] = useState<Set<number>>(new Set())
+
+  // Derived from the real cruises actually in the data, not a static guess
+  // list — so every option shown is guaranteed to return real results, and
+  // new lines the research agent finds show up here automatically.
+  const linesWithCounts = useMemo(() => {
+    const counts = new Map<string, number>()
+    for (const c of cruises) counts.set(c.cruiseLine, (counts.get(c.cruiseLine) ?? 0) + 1)
+    return [...counts.entries()].sort((a, b) => b[1] - a[1])
+  }, [])
 
   const filtered = useMemo(() => {
     let list = [...cruises]
@@ -50,6 +56,7 @@ function CruisesContent() {
   }
 
   return (
+    <MainLayout>
     <main className="min-h-screen bg-gray-50">
       {/* Hero */}
       <div
@@ -68,6 +75,34 @@ function CruisesContent() {
           <p className="text-white/70 max-w-2xl mx-auto text-lg">
             Discover handpicked cruise itineraries from the Caribbean to Antarctica — luxury cabins, world-class dining, unforgettable destinations.
           </p>
+        </div>
+      </div>
+
+      {/* Browse by Cruise Line */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        <h2 className="text-sm font-bold text-[#0A1628] uppercase tracking-wider mb-4">Browse by Cruise Line</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+          <button
+            onClick={() => setSelectedLine('')}
+            className={`rounded-xl border p-3 text-left transition-all ${
+              selectedLine === '' ? 'border-[#00B4D8] bg-[#00B4D8]/10' : 'border-gray-200 bg-white hover:border-[#00B4D8]/40'
+            }`}
+          >
+            <p className="font-bold text-sm text-[#0A1628]">All Lines</p>
+            <p className="text-xs text-gray-400">{cruises.length} cruises</p>
+          </button>
+          {linesWithCounts.map(([line, count]) => (
+            <button
+              key={line}
+              onClick={() => setSelectedLine(selectedLine === line ? '' : line)}
+              className={`rounded-xl border p-3 text-left transition-all ${
+                selectedLine === line ? 'border-[#00B4D8] bg-[#00B4D8]/10' : 'border-gray-200 bg-white hover:border-[#00B4D8]/40'
+              }`}
+            >
+              <p className="font-bold text-sm text-[#0A1628] truncate">{line}</p>
+              <p className="text-xs text-gray-400">{count} cruise{count === 1 ? '' : 's'}</p>
+            </button>
+          ))}
         </div>
       </div>
 
@@ -121,7 +156,7 @@ function CruisesContent() {
                     className="w-full appearance-none px-3 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#00B4D8]/40"
                   >
                     <option value="">All Lines</option>
-                    {LINE_OPTIONS.map((l) => <option key={l} value={l}>{l}</option>)}
+                    {linesWithCounts.map(([l]) => <option key={l} value={l}>{l}</option>)}
                   </select>
                   <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
                 </div>
@@ -154,8 +189,11 @@ function CruisesContent() {
             <div className="space-y-4">
               {filtered.map((cruise) => (
                 <div key={cruise.id} className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col sm:flex-row">
-                  {/* Image */}
-                  <div className={`relative w-full sm:w-64 h-48 sm:h-auto shrink-0 bg-gradient-to-br ${cruise.imageGradient}`}>
+                  {/* Image — real ship photo when the research agent found one, gradient fallback otherwise */}
+                  <div
+                    className={`relative w-full sm:w-64 h-48 sm:h-auto shrink-0 ${cruise.imageUrl ? 'bg-gray-200 bg-cover bg-center' : `bg-gradient-to-br ${cruise.imageGradient}`}`}
+                    style={cruise.imageUrl ? { backgroundImage: `url(${cruise.imageUrl})` } : undefined}
+                  >
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors" />
                     <span className="absolute top-3 left-3 text-xs font-bold text-white bg-[#0A1628]/70 px-2.5 py-1 rounded-full">
                       {cruise.cruiseLine}
@@ -234,6 +272,7 @@ function CruisesContent() {
         </div>
       </div>
     </main>
+    </MainLayout>
   )
 }
 

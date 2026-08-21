@@ -289,6 +289,10 @@ class ResearchedCruise(BaseModel):
     amenities: list[str]
     category: str
     description: str
+    imageUrl: HttpUrl | None = Field(
+        default=None,
+        description="The real ship/cruise photo URL as it actually appears on sourceUrl, if any. Never a stock photo or invented URL.",
+    )
     sourceUrl: HttpUrl
 
 
@@ -312,6 +316,7 @@ class Cruise(BaseModel):
     departureDates: list[str]
     includes: list[str]
     amenities: list[str]
+    imageUrl: str | None
     imageGradient: str
     category: str
     description: str

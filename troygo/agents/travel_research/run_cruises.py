@@ -166,6 +166,7 @@ def main() -> int:
             entry["reviewCount"] = c.reviewCount
             entry["description"] = c.description
             entry["departureDates"] = c.departureDates
+            entry["imageUrl"] = str(c.imageUrl) if c.imageUrl else entry.get("imageUrl")
             continue
         new_validated.append(c)
         new_cruises.append(
@@ -185,6 +186,7 @@ def main() -> int:
                 departureDates=c.departureDates,
                 includes=c.includes,
                 amenities=c.amenities,
+                imageUrl=str(c.imageUrl) if c.imageUrl else None,
                 imageGradient=CRUISE_GRADIENT_PALETTE[(next_id - 1) % len(CRUISE_GRADIENT_PALETTE)],
                 category=c.category,
                 description=c.description,

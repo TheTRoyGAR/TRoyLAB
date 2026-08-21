@@ -6,6 +6,7 @@ import { travelPackages } from '@/lib/data/packages'
 import PackageCard from '@/components/packages/PackageCard'
 import PackageFilters, { PackageFilterState } from '@/components/packages/PackageFilters'
 import { ChevronDown, Package } from 'lucide-react'
+import MainLayout from '@/components/layout/MainLayout'
 
 const SORT_OPTIONS = [
   { value: 'recommended', label: 'Recommended' },
@@ -128,6 +129,7 @@ function PackagesContent() {
   })
 
   return (
+    <MainLayout>
     <main className="min-h-screen bg-gray-50">
       {/* Hero banner */}
       <div
@@ -235,6 +237,7 @@ function PackagesContent() {
         </div>
       </div>
     </main>
+    </MainLayout>
   )
 }
 

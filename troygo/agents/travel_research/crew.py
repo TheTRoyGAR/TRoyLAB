@@ -328,53 +328,25 @@ CRUISE_RESEARCHER_BACKSTORY = (
     "its source page does not belong in your output."
 )
 
-CRUISE_TASK_DESCRIPTION = """\
-Find as many real, currently-sold cruise itineraries as you can confirm this
-run (aim for 20-30, more if you can genuinely confirm them) by searching the
-web. TRoyGO wants FULL coverage of the cruise industry, not a curated
-subset — cover every cruise line you can find real current pricing for, not
-just the ones named below. Treat the list below as a guaranteed-minimum
-floor, not a ceiling: do not default to just 2-3 of them, aim for coverage
-across every tier below AND actively search for real lines beyond this list
-(e.g. run a search like "list of major cruise lines 2026" first, then
-research ones not already covered):
+# Real industry segmentation (mainstream/premium/luxury/expedition/river —
+# confirmed via live research 2026-08-21) plus a dedicated Bosphorus/Black
+# Sea group per TRoy's real travel-agent background with that route. Each
+# tier is researched as its OWN small, bounded task (see run_cruises() below)
+# instead of one giant task — a single task covering all lines took too many
+# search/scrape steps and tripped CrewAI's internal "force final answer"
+# safety timeout (a real, reproduced crash: "This model does not support
+# assistant message prefill"). Splitting by tier fixes that as a side effect
+# of just being a smaller job per run.
+CRUISE_LINE_TIERS: dict[str, list[str]] = {
+    "Mainstream & Family": ["Carnival Cruise Line", "Royal Caribbean International", "Norwegian Cruise Line", "Disney Cruise Line", "MSC Cruises"],
+    "Premium": ["Celebrity Cruises", "Princess Cruises", "Holland America Line"],
+    "Luxury (Ocean)": ["Regent Seven Seas Cruises", "Seabourn", "Silversea Cruises", "Cunard Line", "Explora Journeys", "Viking Ocean Cruises", "Windstar Cruises"],
+    "Expedition": ["Silversea Expeditions", "HX Expeditions", "Coral Expeditions", "Ponant", "Lindblad Expeditions"],
+    "River": ["Viking River Cruises", "Uniworld", "Scenic Luxury Cruises", "Emerald Cruises"],
+    "Bosphorus & Black Sea": ["Cunard Line", "MSC Cruises", "Celebrity Cruises", "Silversea Cruises"],
+}
 
-Mainstream & Family: Carnival Cruise Line, Royal Caribbean, Norwegian
-Cruise Line, Disney Cruise Line, MSC Cruises
-Premium: Celebrity Cruises, Princess Cruises, Holland America Line
-Adults-Only & Niche: Virgin Voyages, Cunard Line
-Luxury & Expedition: Silversea, Regent Seven Seas, HX Expeditions, Coral
-Expeditions
-
-Run separate searches per line, for example:
-- "Carnival Cruise Line current deals prices 2026"
-- "Royal Caribbean cruise deals 2026 current prices"
-- "Norwegian Cruise Line Caribbean current deals"
-- "Disney Cruise Line current itinerary prices"
-- "MSC Cruises Mediterranean itinerary prices"
-- "Celebrity Cruises current itinerary prices"
-- "Princess Cruises current deals"
-- "Holland America Line current itinerary prices"
-- "Virgin Voyages current prices"
-- "Cunard Line current voyage prices"
-- "Silversea OR Regent Seven Seas current itinerary prices"
-- "HX Expeditions OR Coral Expeditions current prices"
-
-ALSO specifically search for real cruises that transit the Dardanelles
-Strait and/or Bosphorus (Istanbul), including ones that continue into the
-Black Sea to ports like Odessa, Constanta, Varna, Sochi or Batumi — this is
-a real, high-demand route TRoy has direct travel-agent experience with.
-Include at least 1-2 of these if any real, currently-sold ones can be
-confirmed. Example searches:
-- "Istanbul Bosphorus cruise itinerary current prices"
-- "Black Sea cruise 2026 Istanbul Odessa Constanta current prices"
-- "Cunard OR MSC OR Celebrity Black Sea Istanbul cruise itinerary"
-- "Dardanelles Bosphorus Black Sea cruise current deals"
-Note: due to the Russia-Ukraine war, most Black Sea itineraries have been
-suspended by major lines for years — if you cannot find a real, currently
-operating one, say so and do not force an entry. Never invent a Black Sea
-sailing that isn't actually confirmed live on a real source page.
-
+CRUISE_FIELD_SPEC = """\
 For every candidate cruise:
 1. Search for it, find a real source page (the cruise line's own site, or a
    real cruise booking/comparison platform).
@@ -382,6 +354,14 @@ For every candidate cruise:
    itinerary ports, and cabin prices are really stated there — not just
    implied by a search snippet.
 3. If you cannot confirm it on a real page, drop it. Do not include it.
+4. Separately, search for a real photo of this ship (e.g. "[ship name]
+   photo" or "[cruise line] [ship name]") — this is a broader search, not
+   limited to the price-confirmation page above. TRoyGO resells this
+   cruise line's real product, so using their real ship photo to sell it
+   is standard travel-industry practice. Only use a real image URL you
+   actually found via search — never invent or guess an image URL, and
+   never fabricate one that looks plausible but wasn't actually returned
+   by a real search result.
 
 For each CONFIRMED cruise, produce one JSON object with these exact fields:
 
@@ -418,12 +398,44 @@ For each CONFIRMED cruise, produce one JSON object with these exact fields:
   "Mediterranean", "Caribbean", "Expedition", "River")
 - description (string, 1-2 sentences): summarize what the source actually
   says about the cruise
+- imageUrl (string, optional): a real photo URL of this ship, found via a
+  real search (see step 4 above). Omit this field entirely if you couldn't
+  find a real one — never invent a plausible-looking image URL.
 - sourceUrl (string, required): the exact URL you scraped to confirm this
   cruise. This is mandatory — never include a cruise without one.
 
 Return ONLY a JSON array of these objects, nothing else — no markdown code
 fences, no commentary before or after.
 """
+
+
+def _cruise_task_description_for_tier(tier: str, lines: list[str]) -> str:
+    line_list = ", ".join(lines)
+    intro = (
+        f"Find 3 to 5 real, currently-sold cruise itineraries from the "
+        f"\"{tier}\" segment by searching the web. Only research these "
+        f"lines this run: {line_list}. Run a separate search per line, e.g. "
+        f"\"[line name] current deals prices 2026\".\n\n"
+    )
+    if tier == "Bosphorus & Black Sea":
+        intro = (
+            "Find real cruises that transit the Dardanelles Strait and/or "
+            "Bosphorus (Istanbul), including any that continue into the "
+            "Black Sea to ports like Odessa, Constanta, Varna, Sochi or "
+            "Batumi — this is a real, high-demand route TRoy has direct "
+            "travel-agent experience with. Check these lines: "
+            f"{line_list}. Example searches: \"Istanbul Bosphorus cruise "
+            "itinerary current prices\", \"Black Sea cruise 2026 Istanbul "
+            "Odessa Constanta current prices\". Note: due to the "
+            "Russia-Ukraine war, most Black Sea itineraries have been "
+            "suspended by major lines for years — if you cannot find a "
+            "real, currently operating one, return an empty array and say "
+            "so. Never invent a Black Sea sailing that isn't actually "
+            "confirmed live on a real source page. A Bosphorus-only "
+            "transit (no Black Sea) that's real and confirmed is fine to "
+            "include.\n\n"
+        )
+    return intro + CRUISE_FIELD_SPEC
 
 
 def build_cruise_agent() -> Agent:
@@ -437,17 +449,65 @@ def build_cruise_agent() -> Agent:
     )
 
 
-def build_cruise_task(agent: Agent) -> Task:
+def build_cruise_task(agent: Agent, tier: str, lines: list[str]) -> Task:
     return Task(
-        description=CRUISE_TASK_DESCRIPTION,
-        expected_output="A JSON array of real cruise objects, each with a verified sourceUrl.",
+        description=_cruise_task_description_for_tier(tier, lines),
+        expected_output="A JSON array of real cruise objects, each with a verified sourceUrl (empty array [] is fine if nothing real could be confirmed).",
         agent=agent,
     )
 
 
+def _strip_code_fences(text: str) -> str:
+    text = text.strip()
+    if text.startswith("```"):
+        lines = text.split("\n")
+        text = "\n".join(lines[1:-1]) if len(lines) > 2 else text
+    return text.strip()
+
+
+def _extract_json_array(text: str) -> str:
+    text = text.strip()
+    end = text.rfind("]")
+    if end == -1:
+        return text
+    depth = 0
+    i = end
+    while i >= 0:
+        if text[i] == "]":
+            depth += 1
+        elif text[i] == "[":
+            depth -= 1
+            if depth == 0:
+                return text[i : end + 1]
+        i -= 1
+    return text
+
+
 def run_cruises() -> str:
+    """Runs one small, bounded task per real cruise-line tier instead of one
+    giant task — avoids CrewAI's internal 'force final answer' timeout that
+    a single all-lines task was tripping (too many search/scrape steps for
+    one task). Merges each tier's real, confirmed cruises into one combined
+    JSON array, same shape run_cruises.py already expects."""
+    import json
+
     agent = build_cruise_agent()
-    task = build_cruise_task(agent)
-    crew = Crew(agents=[agent], tasks=[task], process=Process.sequential, verbose=True)
-    result = crew.kickoff()
-    return str(result)
+    combined: list = []
+    for tier, lines in CRUISE_LINE_TIERS.items():
+        task = build_cruise_task(agent, tier, lines)
+        crew = Crew(agents=[agent], tasks=[task], process=Process.sequential, verbose=True)
+        try:
+            raw = str(crew.kickoff())
+            cleaned = _strip_code_fences(raw)
+            try:
+                items = json.loads(cleaned)
+            except json.JSONDecodeError:
+                items = json.loads(_extract_json_array(cleaned))
+            if isinstance(items, list):
+                combined.extend(items)
+                print(f"  [{tier}] {len(items)} real cruise(s) found")
+            else:
+                print(f"  [{tier}] WARNING: unexpected output shape, skipped")
+        except Exception as e:
+            print(f"  [{tier}] WARNING: tier run failed ({e}), skipping this tier this run")
+    return json.dumps(combined)
