@@ -1,12 +1,10 @@
-export const dynamic = 'force-static'
-
 import { NextRequest, NextResponse } from 'next/server'
-
-// In-memory store for demo purposes
-const bookingStatuses: Record<string, { status: string; ownerNotes?: string; approvedAt?: string }> = {}
+import { sql, ensureSchema } from '@/lib/db'
 
 export async function POST(request: NextRequest) {
   try {
+    await ensureSchema()
+
     const body = await request.json() as {
       bookingId: string
       ownerApproved: boolean
@@ -22,14 +20,24 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    if (ownerApproved) {
-      bookingStatuses[bookingId] = {
-        status: 'confirmed',
-        ownerNotes,
-        approvedAt: new Date().toISOString(),
-      }
+    const existing = await sql`SELECT booking_ref FROM bookings WHERE booking_ref = ${bookingId}`
+    if (existing.length === 0) {
+      return NextResponse.json(
+        { success: false, message: `Booking ${bookingId} not found.` },
+        { status: 404 }
+      )
+    }
 
-      // Simulate trigger: confirmation email to customer
+    const newStatus = ownerApproved ? 'confirmed' : 'declined'
+    const approvedAt = new Date().toISOString()
+
+    await sql`
+      UPDATE bookings
+      SET status = ${newStatus}, owner_notes = ${ownerNotes ?? null}, approved_at = ${approvedAt}
+      WHERE booking_ref = ${bookingId}
+    `
+
+    if (ownerApproved) {
       console.log(`[TRoyGO™ CRM] ✅ OWNER APPROVED booking ${bookingId}`)
       console.log(`[TRoyGO™ EMAIL] Sending booking confirmation email to customer...`)
       console.log(`[TRoyGO™ EMAIL] Sending payment deposit link...`)
@@ -41,7 +49,7 @@ export async function POST(request: NextRequest) {
         booking: {
           id: bookingId,
           status: 'confirmed',
-          approvedAt: bookingStatuses[bookingId].approvedAt,
+          approvedAt,
           ownerNotes: ownerNotes ?? null,
           nextSteps: [
             'Confirmation email sent to customer',
@@ -52,13 +60,6 @@ export async function POST(request: NextRequest) {
         },
       })
     } else {
-      bookingStatuses[bookingId] = {
-        status: 'declined',
-        ownerNotes,
-        approvedAt: new Date().toISOString(),
-      }
-
-      // Simulate trigger: decline notification
       console.log(`[TRoyGO™ CRM] ❌ OWNER DECLINED booking ${bookingId}`)
       console.log(`[TRoyGO™ EMAIL] Sending decline/alternative options email to customer...`)
 
@@ -68,7 +69,7 @@ export async function POST(request: NextRequest) {
         booking: {
           id: bookingId,
           status: 'declined',
-          declinedAt: bookingStatuses[bookingId].approvedAt,
+          declinedAt: approvedAt,
           ownerNotes: ownerNotes ?? null,
         },
       })
@@ -83,13 +84,29 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url)
-  const bookingId = searchParams.get('bookingId')
+  try {
+    await ensureSchema()
 
-  if (!bookingId) {
-    return NextResponse.json({ success: false, message: 'bookingId required' }, { status: 400 })
+    const { searchParams } = new URL(request.url)
+    const bookingId = searchParams.get('bookingId')
+
+    if (!bookingId) {
+      return NextResponse.json({ success: false, message: 'bookingId required' }, { status: 400 })
+    }
+
+    const rows = await sql`SELECT status, owner_notes, approved_at FROM bookings WHERE booking_ref = ${bookingId}`
+
+    if (rows.length === 0) {
+      return NextResponse.json({ success: true, booking: { id: bookingId, status: 'pending_owner_review' } })
+    }
+
+    const b = rows[0]
+    return NextResponse.json({
+      success: true,
+      booking: { id: bookingId, status: b.status, ownerNotes: b.owner_notes, approvedAt: b.approved_at },
+    })
+  } catch (error) {
+    console.error('[TRoyGO™ API] Booking status lookup error:', error)
+    return NextResponse.json({ success: false, message: 'Internal server error' }, { status: 500 })
   }
-
-  const status = bookingStatuses[bookingId] ?? { status: 'pending_owner_review' }
-  return NextResponse.json({ success: true, booking: { id: bookingId, ...status } })
 }
