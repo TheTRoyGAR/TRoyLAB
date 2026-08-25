@@ -1,12 +1,34 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+const ADMIN_HOST = 'dashboard.troytravelagency.com'
+const PROTECTED_API_PATHS = new Set(['/api/partners/apply', '/api/bookings/confirm'])
+
 // Protects the owner-only dashboard and internal admin APIs with real HTTP
 // Basic Auth. ADMIN_USERNAME/ADMIN_PASSWORD are real secrets set in Vercel
 // project env vars — never committed to the repo.
+//
+// The dashboard is served only on dashboard.troytravelagency.com (its root
+// path maps to /dashboard internally). Visiting /dashboard directly on the
+// main public domain is blocked outright — it's not a real page there.
+// Every other request (the public site, bookings, partner submissions) is
+// untouched by this middleware.
 export function middleware(req: NextRequest) {
+  const host = req.headers.get('host') ?? ''
+  const isAdminHost = host === ADMIN_HOST || host.startsWith(`${ADMIN_HOST}:`)
+  const { pathname } = req.nextUrl
+
   // Partner applications (POST) must stay public — only the admin listing
   // (GET, used by the review dashboard) needs to be locked down.
-  if (req.nextUrl.pathname === '/api/partners/apply' && req.method === 'POST') {
+  const isProtectedApi =
+    PROTECTED_API_PATHS.has(pathname) && !(pathname === '/api/partners/apply' && req.method === 'POST')
+
+  // /dashboard doesn't exist on the public-facing domain at all.
+  if (!isAdminHost && pathname.startsWith('/dashboard')) {
+    return new NextResponse('Not found.', { status: 404 })
+  }
+
+  // Nothing else on this request needs protecting — let it through untouched.
+  if (!isAdminHost && !isProtectedApi) {
     return NextResponse.next()
   }
 
@@ -20,24 +42,33 @@ export function middleware(req: NextRequest) {
   }
 
   const authHeader = req.headers.get('authorization')
+  let authorized = false
 
   if (authHeader?.startsWith('Basic ')) {
     const decoded = Buffer.from(authHeader.slice(6), 'base64').toString('utf-8')
     const separatorIndex = decoded.indexOf(':')
     const suppliedUser = decoded.slice(0, separatorIndex)
     const suppliedPass = decoded.slice(separatorIndex + 1)
-
-    if (suppliedUser === user && suppliedPass === pass) {
-      return NextResponse.next()
-    }
+    authorized = suppliedUser === user && suppliedPass === pass
   }
 
-  return new NextResponse('Authentication required.', {
-    status: 401,
-    headers: { 'WWW-Authenticate': 'Basic realm="TRoyGO Admin"' },
-  })
+  if (!authorized) {
+    return new NextResponse('Authentication required.', {
+      status: 401,
+      headers: { 'WWW-Authenticate': 'Basic realm="TRoyGO Admin"' },
+    })
+  }
+
+  // On the admin subdomain, map its root (and every non-API path) into /dashboard/*.
+  if (isAdminHost && !pathname.startsWith('/dashboard') && !pathname.startsWith('/api')) {
+    const url = req.nextUrl.clone()
+    url.pathname = `/dashboard${pathname === '/' ? '' : pathname}`
+    return NextResponse.rewrite(url)
+  }
+
+  return NextResponse.next()
 }
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/api/partners/apply', '/api/bookings/confirm'],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
 }
