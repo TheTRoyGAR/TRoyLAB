@@ -107,6 +107,15 @@ export const trustedPartners: TrustedPartner[] = [
     website: 'https://territoryexpeditions.com.au/',
   },
   {
+    name: 'Katherine Helicopters',
+    country: 'Australia',
+    destinationsCovered: ['Katherine', 'Katherine Gorge', 'Northern Territory'],
+    description:
+      'Katherine-based helicopter tour operator running scenic flights over Katherine Gorge, heli-fishing trips, and tailor-made Top End experiences. Operates two Bell helicopters, up to 6 passengers.',
+    accreditations: ['AOC CASA.TAAOC.0977', 'QTAB Member', 'Tourism Council of Australia', 'Tourism Top End Listed'],
+    website: 'https://www.katherinehelicopters.com/',
+  },
+  {
     name: 'Kakadu Tours and Travel',
     country: 'Australia',
     destinationsCovered: ['Kakadu', 'Jabiru', 'Arnhem Land', 'Northern Territory'],
@@ -129,5 +138,13 @@ export const trustedPartners: TrustedPartner[] = [
     description:
       'Regional Top End booking agency offering free reservation services for tours, attractions, accommodation, and vehicle hire across the wider Top End region.',
     website: 'https://www.tourismtopend.com.au/',
+  },
+  {
+    name: 'Go Türkiye (Official Tourism Board)',
+    country: 'Turkey',
+    destinationsCovered: ['Turkey-wide'],
+    description:
+      "Türkiye's official government travel guide and tourism promotion platform (Ministry of Culture and Tourism) — not a commercial agency. Publishes curated destination guides, 1-14 day themed itineraries, cultural/sporting event listings, and sustainable travel content covering the whole country.",
+    website: 'https://goturkiye.com/',
   },
 ];

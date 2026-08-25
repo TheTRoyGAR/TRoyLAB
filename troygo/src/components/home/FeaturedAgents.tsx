@@ -218,7 +218,7 @@ export default function FeaturedAgents() {
             <p className="text-white/60 text-sm">Join TRoyGO™ and reach thousands of travelers worldwide.</p>
           </div>
           <Link
-            href="/agents"
+            href="/partners#become-a-partner"
             className="flex items-center gap-2 bg-gradient-to-r from-[#FFD700] to-[#E6C200] hover:from-[#FFE033] hover:to-[#FFD700] text-[#0A1628] font-bold px-7 py-3 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-yellow-500/30 whitespace-nowrap"
           >
             Become an Expert
