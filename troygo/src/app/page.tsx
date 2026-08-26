@@ -1,3 +1,4 @@
+import MainLayout from '@/components/layout/MainLayout';
 import HeroSection from '@/components/home/HeroSection';
 import FeaturedDestinations from '@/components/home/FeaturedDestinations';
 import FeaturedPackages from '@/components/home/FeaturedPackages';
@@ -7,24 +8,26 @@ import Testimonials from '@/components/home/Testimonials';
 
 export default function Home() {
   return (
-    <main className="flex flex-col flex-1 w-full overflow-x-hidden">
-      {/* Hero with embedded search widget */}
-      <HeroSection />
+    <MainLayout>
+      <div className="flex flex-col flex-1 w-full overflow-x-hidden">
+        {/* Hero with embedded search widget */}
+        <HeroSection />
 
-      {/* Top destinations grid */}
-      <FeaturedDestinations />
+        {/* Top destinations grid */}
+        <FeaturedDestinations />
 
-      {/* Handpicked packages horizontal scroll */}
-      <FeaturedPackages />
+        {/* Handpicked packages horizontal scroll */}
+        <FeaturedPackages />
 
-      {/* AI trip planner promo split-layout */}
-      <AIPlannerPromo />
+        {/* AI trip planner promo split-layout */}
+        <AIPlannerPromo />
 
-      {/* Travel expert agents */}
-      <FeaturedAgents />
+        {/* Travel expert agents */}
+        <FeaturedAgents />
 
-      {/* Customer testimonials carousel */}
-      <Testimonials />
-    </main>
+        {/* Customer testimonials carousel */}
+        <Testimonials />
+      </div>
+    </MainLayout>
   );
 }
