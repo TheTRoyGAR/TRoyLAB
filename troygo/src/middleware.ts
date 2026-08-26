@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 const ADMIN_HOST = 'dashboard.troytravelagency.com'
-const PROTECTED_API_PATHS = new Set(['/api/partners/apply', '/api/bookings/confirm'])
+const PROTECTED_API_PATHS = new Set(['/api/partners/apply', '/api/bookings/confirm', '/api/settings'])
 
 // Protects the owner-only dashboard and internal admin APIs with real HTTP
 // Basic Auth. ADMIN_USERNAME/ADMIN_PASSWORD are real secrets set in Vercel

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { sql, ensureSchema } from '@/lib/db'
+import { sql, ensureSchema, getSetting } from '@/lib/db'
 
 /* ─── Types ───────────────────────────────────────────────────────────────── */
 interface TravelerInfo {
@@ -83,8 +83,9 @@ export async function POST(req: NextRequest) {
 
     // Simulate sending notification email to Troy
     // In production this would use SendGrid, Resend, Nodemailer, etc.
+    const notificationEmail = await getSetting('notification_email')
     const notificationPayload = {
-      to: 'troytravelagency@gmail.com',
+      to: notificationEmail,
       subject: `New Booking Inquiry: ${bookingRef}`,
       body: [
         `New booking inquiry received!`,

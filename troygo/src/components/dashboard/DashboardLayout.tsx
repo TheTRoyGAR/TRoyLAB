@@ -35,7 +35,7 @@ const navItems: NavItem[] = [
   { label: 'Emails', href: '/dashboard/emails', icon: Mail },
   { label: 'Workflows', href: '/dashboard/workflows', icon: Zap },
   { label: 'Research Agents', href: '/dashboard/agents', icon: Bot },
-  { label: 'Settings', href: '/dashboard/settings', icon: Settings, built: false },
+  { label: 'Settings', href: '/dashboard/settings', icon: Settings },
 ];
 
 interface DashboardLayoutProps {
