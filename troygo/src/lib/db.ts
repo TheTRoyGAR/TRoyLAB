@@ -47,6 +47,12 @@ export function ensureSchema(): Promise<void> {
         )
       `
       await sql`
+        CREATE TABLE IF NOT EXISTS newsletter_subscribers (
+          email TEXT PRIMARY KEY,
+          subscribed_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        )
+      `
+      await sql`
         CREATE TABLE IF NOT EXISTS settings (
           key TEXT PRIMARY KEY,
           value TEXT NOT NULL,

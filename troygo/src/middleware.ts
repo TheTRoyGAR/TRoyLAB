@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 const ADMIN_HOST = 'dashboard.troytravelagency.com'
-const PROTECTED_API_PATHS = new Set(['/api/partners/apply', '/api/bookings/confirm', '/api/settings'])
+const PROTECTED_API_PATHS = new Set(['/api/partners/apply', '/api/bookings/confirm', '/api/settings', '/api/newsletter'])
 
 // Protects the owner-only dashboard and internal admin APIs with real HTTP
 // Basic Auth. ADMIN_USERNAME/ADMIN_PASSWORD are real secrets set in Vercel
@@ -17,10 +17,11 @@ export function middleware(req: NextRequest) {
   const isAdminHost = host === ADMIN_HOST || host.startsWith(`${ADMIN_HOST}:`)
   const { pathname } = req.nextUrl
 
-  // Partner applications (POST) must stay public — only the admin listing
-  // (GET, used by the review dashboard) needs to be locked down.
-  const isProtectedApi =
-    PROTECTED_API_PATHS.has(pathname) && !(pathname === '/api/partners/apply' && req.method === 'POST')
+  // Partner applications and newsletter signups (POST) must stay public —
+  // only their admin listings (GET, used by the review dashboard) are locked down.
+  const isPublicPost =
+    (pathname === '/api/partners/apply' || pathname === '/api/newsletter') && req.method === 'POST'
+  const isProtectedApi = PROTECTED_API_PATHS.has(pathname) && !isPublicPost
 
   // /dashboard doesn't exist on the public-facing domain at all.
   if (!isAdminHost && pathname.startsWith('/dashboard')) {

@@ -196,16 +196,28 @@ export default function Footer() {
   const [submitting, setSubmitting] = useState(false)
   const [noticeMessage, setNoticeMessage] = useState<string | null>(null)
 
-  function handleNewsletter(e: React.FormEvent<HTMLFormElement>) {
+  async function handleNewsletter(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (!email.trim()) return
     setSubmitting(true)
-    /* Simulate subscription – replace with real API call */
-    setTimeout(() => {
-      toast.success(`You're subscribed! Welcome aboard, traveller.`)
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      const data = await res.json()
+      if (!res.ok || !data.success) {
+        toast.error(data.error ?? 'Failed to subscribe. Please try again.')
+        return
+      }
+      toast.success(data.message)
       setEmail('')
+    } catch {
+      toast.error('Network error. Please try again.')
+    } finally {
       setSubmitting(false)
-    }, 800)
+    }
   }
 
   return (
@@ -327,11 +339,13 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="h-4 w-4 shrink-0" style={{ color: '#00B4D8' }} />
-                <span>+1 (800) TROY-GO1</span>
+                <a href="tel:+61422781807" className="hover:text-white transition-colors">
+                  +61 422 781 807
+                </a>
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 shrink-0 mt-0.5" style={{ color: '#00B4D8' }} />
-                <span>123 Global Plaza, Suite 800, New York, NY 10001</span>
+                <span>University Drive North, Brinkin NT 0810, Australia</span>
               </li>
             </ul>
 
