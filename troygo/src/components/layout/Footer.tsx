@@ -454,7 +454,7 @@ export default function Footer() {
             <p>
               © 2025{' '}
               <span className="text-white/60 font-medium">TRoy Travel Agency™</span>
-              . All rights reserved.
+              . All rights reserved. ABN 30 302 098 137
             </p>
             <p className="flex items-center gap-1.5">
               <Globe className="h-3 w-3" style={{ color: '#00B4D8' }} />
