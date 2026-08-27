@@ -116,6 +116,15 @@ export const trustedPartners: TrustedPartner[] = [
     website: 'https://www.katherinehelicopters.com/',
   },
   {
+    name: 'Airborne Solutions',
+    country: 'Australia',
+    destinationsCovered: ['Darwin', 'Litchfield', 'Kakadu', 'Winnellie', 'Northern Territory'],
+    description:
+      "Northern Territory's helicopter specialist, led by Managing Director Clinton Brisk (30+ years flying experience). Runs scenic flights, heli pub crawls, heli fishing, Litchfield and Kakadu tours, plus aerial services (mining/exploration, aerial firefighting, filming, survey work).",
+    accreditations: ['TripAdvisor Travelers’ Choice'],
+    website: 'https://airbornesolutions.com.au/',
+  },
+  {
     name: 'Kakadu Tours and Travel',
     country: 'Australia',
     destinationsCovered: ['Kakadu', 'Jabiru', 'Arnhem Land', 'Northern Territory'],
