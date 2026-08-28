@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { CheckCircle2, Clock, Mail, ArrowRight, Map, Share2 } from 'lucide-react'
+import MainLayout from '@/components/layout/MainLayout'
 
 function ConfirmationContent() {
   const searchParams = useSearchParams()
@@ -14,6 +15,7 @@ function ConfirmationContent() {
   const isConfirmed = status === 'confirmed'
 
   return (
+    <MainLayout>
     <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4 py-16">
       {/* Banner */}
       <div
@@ -144,6 +146,7 @@ function ConfirmationContent() {
         <span className="text-[#0A1628] font-medium">@TRoy Travel Agency™</span> on all socials
       </p>
     </main>
+    </MainLayout>
   )
 }
 

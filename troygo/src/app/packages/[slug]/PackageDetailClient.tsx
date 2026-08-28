@@ -10,6 +10,7 @@ import {
 } from 'lucide-react'
 import { format } from 'date-fns'
 import PackageMap from '@/components/maps/PackageMap'
+import MainLayout from '@/components/layout/MainLayout'
 
 const TABS = ['Overview', 'Itinerary', 'Inclusions', 'Reviews', 'Booking'] as const
 type Tab = typeof TABS[number]
@@ -30,6 +31,7 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
   const totalPrice = pkg.price * travelers
 
   return (
+    <MainLayout>
     <main className="min-h-screen bg-gray-50">
       {/* Back nav */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2">
@@ -338,5 +340,6 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
         </div>
       </div>
     </main>
+    </MainLayout>
   )
 }

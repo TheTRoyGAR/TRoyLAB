@@ -8,6 +8,7 @@ import {
   ArrowLeft, Star, MapPin, Globe, ShieldCheck, Mail,
   Clock, Users, Award, MessageSquare, Calendar
 } from 'lucide-react'
+import MainLayout from '@/components/layout/MainLayout'
 
 const AVATAR_COLORS = [
   'from-violet-500 to-purple-700',
@@ -43,6 +44,7 @@ function AgentProfileContent({ numId }: { numId: number }) {
   }
 
   return (
+    <MainLayout>
     <main className="min-h-screen bg-gray-50">
       {/* Back */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2">
@@ -258,6 +260,7 @@ function AgentProfileContent({ numId }: { numId: number }) {
         </div>
       </div>
     </main>
+    </MainLayout>
   )
 }
 

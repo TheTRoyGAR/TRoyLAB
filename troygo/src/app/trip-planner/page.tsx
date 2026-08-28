@@ -4,6 +4,7 @@ import { Suspense, useState, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
 import TripSetupForm, { type TripDetails } from '@/components/trip-planner/TripSetupForm';
 import ChatInterface from '@/components/trip-planner/ChatInterface';
+import MainLayout from '@/components/layout/MainLayout';
 
 function buildInitialMessage(details: TripDetails): string {
   const parts: string[] = [];
@@ -64,8 +65,10 @@ function TripPlannerContent() {
 
 export default function TripPlannerPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-gray-400">Loading…</div>}>
-      <TripPlannerContent />
-    </Suspense>
+    <MainLayout>
+      <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-gray-400">Loading…</div>}>
+        <TripPlannerContent />
+      </Suspense>
+    </MainLayout>
   );
 }

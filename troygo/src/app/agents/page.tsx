@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react'
 import { localAgents, travelGuides } from '@/lib/data/agents'
 import AgentCard from '@/components/agents/AgentCard'
 import { Search, Users, ShieldCheck } from 'lucide-react'
+import MainLayout from '@/components/layout/MainLayout'
 
 type TabType = 'agents' | 'guides'
 
@@ -51,6 +52,7 @@ export default function AgentsPage() {
   const activeList = tab === 'agents' ? filteredAgents : filteredGuides
 
   return (
+    <MainLayout>
     <main className="min-h-screen bg-gray-50">
       {/* Hero */}
       <div
@@ -193,5 +195,6 @@ export default function AgentsPage() {
         )}
       </div>
     </main>
+    </MainLayout>
   )
 }
