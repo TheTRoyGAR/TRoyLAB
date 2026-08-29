@@ -268,6 +268,7 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="TRoyGO™"
+              draggable={false}
               width={40}
               height={40}
               className="rounded-full transition-opacity group-hover:opacity-90"

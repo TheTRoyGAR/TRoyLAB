@@ -293,6 +293,7 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt="TRoyGO™"
+                draggable={false}
                 width={36}
                 height={36}
                 className="rounded-full transition-opacity group-hover:opacity-90"
