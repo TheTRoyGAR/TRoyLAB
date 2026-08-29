@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
@@ -261,24 +262,34 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex flex-col leading-none group shrink-0"
+            className="flex items-center gap-2.5 leading-none group shrink-0"
             aria-label="TRoyGO™ — TRoy Travel Agency™ home"
           >
-            <span
-              className="text-2xl font-black tracking-tight transition-opacity group-hover:opacity-90"
-              style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
-                color: '#FFD700',
-                letterSpacing: '-0.02em',
-              }}
-            >
-              TRoyGO™
-            </span>
-            <span
-              className="text-[9px] font-semibold uppercase tracking-widest transition-opacity group-hover:opacity-90"
-              style={{ color: '#00B4D8', letterSpacing: '0.18em' }}
-            >
-              TRoy Travel Agency™
+            <Image
+              src="/logo.png"
+              alt="TRoyGO™"
+              width={40}
+              height={40}
+              className="rounded-full transition-opacity group-hover:opacity-90"
+              priority
+            />
+            <span className="flex flex-col leading-none">
+              <span
+                className="text-2xl font-black tracking-tight transition-opacity group-hover:opacity-90"
+                style={{
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  color: '#FFD700',
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                TRoyGO™
+              </span>
+              <span
+                className="text-[9px] font-semibold uppercase tracking-widest transition-opacity group-hover:opacity-90"
+                style={{ color: '#00B4D8', letterSpacing: '0.18em' }}
+              >
+                TRoy Travel Agency™
+              </span>
             </span>
           </Link>
 

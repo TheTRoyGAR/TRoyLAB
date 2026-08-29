@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   Plane,
@@ -288,7 +289,14 @@ export default function Footer() {
           {/* Brand column — spans 2 cols on lg */}
           <div className="lg:col-span-2">
             {/* Logo */}
-            <Link href="/" aria-label="TRoyGO™ — home" className="inline-block group mb-5">
+            <Link href="/" aria-label="TRoyGO™ — home" className="inline-flex items-center gap-2.5 group mb-5">
+              <Image
+                src="/logo.png"
+                alt="TRoyGO™"
+                width={36}
+                height={36}
+                className="rounded-full transition-opacity group-hover:opacity-90"
+              />
               <div className="flex flex-col leading-none">
                 <span
                   className="text-3xl font-black tracking-tight group-hover:opacity-90 transition-opacity"
