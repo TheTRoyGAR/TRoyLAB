@@ -82,7 +82,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.ico",
+    apple: "/icons/icon-192.png",
   },
+  manifest: "/manifest.json",
+};
+
+export const viewport = {
+  themeColor: "#0A1628",
 };
 
 export default function RootLayout({
