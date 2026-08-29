@@ -149,6 +149,15 @@ export const trustedPartners: TrustedPartner[] = [
     website: 'https://www.tourismtopend.com.au/',
   },
   {
+    name: "TravelShop Turkey & Murti's Tours",
+    country: 'Turkey',
+    destinationsCovered: ['Istanbul', 'Cappadocia', 'Ephesus', 'Pamukkale', 'Bodrum', 'Fethiye', 'Antalya', 'Kuşadası', 'Turkey-wide (81 cities)'],
+    description:
+      "TURSAB-licensed Turkish tour operator and DMC founded 2005 in Bodrum, based in Istanbul since 2008, led by founder/CEO Murtaza Kalender. Offers 1000+ tours, 2000 hotels, 500 villas, and 200 yacht cruises across Turkey, plus destination management, wedding planning, and MICE/Congress organisation. TripAdvisor Travelers' Choice 2026, 4.8/5 (607 reviews).",
+    accreditations: ['TURSAB', 'ASTA', 'USTOA', 'ETOA', 'TAAI', 'ATOAI', "TripAdvisor Travelers' Choice 2026"],
+    website: 'https://travelshopturkey.com/',
+  },
+  {
     name: 'Go Türkiye (Official Tourism Board)',
     country: 'Turkey',
     destinationsCovered: ['Turkey-wide'],
