@@ -19,7 +19,7 @@ class CTODepartment:
 
     def __init__(self):
         llm_opus = get_llm("opus")
-        llm = get_llm("sonnet")
+        llm = get_llm("haiku")
 
         self.cto_head = Agent(
             role="Head of TRoyGO CTO",

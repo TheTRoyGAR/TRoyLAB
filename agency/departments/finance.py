@@ -26,7 +26,7 @@ class FinanceDepartment:
     """
 
     def __init__(self):
-        llm = get_llm("sonnet")
+        llm = get_llm("haiku")
 
         self.finance_head = Agent(
             role="Head of TRoyGO Finance",

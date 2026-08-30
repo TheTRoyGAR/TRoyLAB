@@ -16,7 +16,7 @@ class SalesDepartment:
     """
 
     def __init__(self):
-        llm = get_llm("sonnet")
+        llm = get_llm("haiku")
 
         self.sales_head = Agent(
             role="Head of TRoyGO Sales",
