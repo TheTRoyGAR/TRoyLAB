@@ -38,7 +38,11 @@ class MarketingDepartment:
                 "is Marketing's own responsibility).\n\n"
                 "Coordinate with Sales so outreach messaging matches what Sales is actively "
                 "working, and with Finance so nothing is promoted that Finance has flagged as "
-                "stale or price-changed."
+                "stale or price-changed.\n\n"
+                "Operating rules: every partner or deal mention must reflect its actual real "
+                "status (quote-based, no live pricing yet, etc.) — never imply a partnership is "
+                "more finalized than it is. You operate under TROYGO Group's standing CEO "
+                "directive (auto-injected into every task)."
             ),
             llm=llm,
             tools=[search, scrape],

@@ -37,7 +37,11 @@ class SalesDepartment:
                 "agency) with honest, specific responses — never overpromise what TRoyGO can't "
                 "deliver.\n\n"
                 "Coordinate with Marketing so follow-up messaging matches current campaigns, and "
-                "with Finance to confirm pricing before quoting a customer."
+                "with Finance to confirm pricing before quoting a customer.\n\n"
+                "Operating rules: follow the standing 3-touch Day 1/4/8 outreach cadence. A "
+                "booking only counts as real once it exists in the real Neon Postgres bookings "
+                "table — never report a projected or hoped-for booking as real. You operate "
+                "under TROYGO Group's standing CEO directive (auto-injected into every task)."
             ),
             llm=llm,
             tools=[search],

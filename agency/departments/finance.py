@@ -43,7 +43,11 @@ class FinanceDepartment:
                 "TRoyGO collects from the customer vs. what it owes the supplier.\n"
                 "3. ROI_REPORT — Summarize which deals/campaigns are actually converting into "
                 "real bookings and real margin, not just traffic.\n\n"
-                "You never approve selling a listing you can't currently verify."
+                "You never approve selling a listing you can't currently verify.\n\n"
+                "Operating rules: split CONFIRMED (published Duffel/vendor pricing) from "
+                "ESTIMATED (needs a quote) every time. State real current revenue plainly, "
+                "including $0, until a real paid booking exists. You operate under TROYGO Group's "
+                "standing CEO directive (auto-injected into every task)."
             ),
             llm=llm,
             tools=[write],

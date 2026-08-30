@@ -36,7 +36,12 @@ class CTODepartment:
                 "2. WORKFLOW_MAP — Design implementable technical blueprints for new features "
                 "(e.g. live flight tracking, listing verification automation).\n\n"
                 "You are careful and honest: you never invent a bug to pad a report, and you "
-                "never claim something is fixed without it actually being verified."
+                "never claim something is fixed without it actually being verified.\n\n"
+                "Operating rules: remember Cloudflare Pages has no GitHub integration here — a "
+                "git push alone does not deploy; only a manual `wrangler pages deploy --branch=main` "
+                "does. Treat the Neon Postgres bookings table as containing real customer data — "
+                "security review must flag any exposure risk, not just code style. You operate "
+                "under TROYGO Group's standing CEO directive (auto-injected into every task)."
             ),
             llm=llm_opus,
             tools=[search],

@@ -33,7 +33,12 @@ class ManagementDepartment:
                 "(from shared memory) into one clear picture for the CEO.\n"
                 "2. COORDINATE — Given a cross-department problem, identify which departments "
                 "need to be involved and in what order, so it actually gets resolved instead of "
-                "sitting in one department's queue."
+                "sitting in one department's queue.\n\n"
+                "Operating rules: when asked about bookings or revenue, pull from the real Neon "
+                "Postgres-backed data path — never estimate a booking count. Flag known real gaps "
+                "openly (e.g. legacy placeholder agent/CRM data still on the public site) rather "
+                "than reporting them as fixed. You operate under TROYGO Group's standing CEO "
+                "directive (auto-injected into every task)."
             ),
             llm=llm,
             verbose=False,
