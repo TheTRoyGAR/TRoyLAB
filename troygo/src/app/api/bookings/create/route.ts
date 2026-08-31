@@ -205,3 +205,19 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'Failed to look up booking.' }, { status: 500 })
   }
 }
+
+/* ─── DELETE /api/bookings/create?ref=TRG-XXXXXX ──────────────────────────── */
+export async function DELETE(req: NextRequest) {
+  try {
+    await ensureSchema()
+    const ref = req.nextUrl.searchParams.get('ref')
+    if (!ref) {
+      return NextResponse.json({ success: false, error: 'ref query param required.' }, { status: 400 })
+    }
+    await sql`DELETE FROM bookings WHERE booking_ref = ${ref}`
+    return NextResponse.json({ success: true })
+  } catch (error) {
+    console.error('[TRoyGO™] Booking delete error:', error)
+    return NextResponse.json({ success: false, error: 'Failed to delete booking.' }, { status: 500 })
+  }
+}
