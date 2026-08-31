@@ -40,6 +40,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   cultural: 'bg-blue-600',
   honeymoon: 'bg-pink-600',
   beach: 'bg-cyan-600',
+  heritage: 'bg-red-800',
 }
 
 export default function PackageCard({ pkg }: { pkg: TravelPackage }) {

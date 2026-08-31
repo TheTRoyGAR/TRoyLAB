@@ -35,6 +35,7 @@ const CATEGORY_OPTIONS = [
   { value: 'cultural', label: 'Cultural' },
   { value: 'honeymoon', label: 'Honeymoon' },
   { value: 'beach', label: 'Beach' },
+  { value: 'heritage', label: 'WW1 Heritage' },
 ]
 
 const INCLUDE_OPTIONS = [

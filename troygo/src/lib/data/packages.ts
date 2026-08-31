@@ -10,6 +10,7 @@ export type PackageCategory =
   | 'cultural'
   | 'honeymoon'
   | 'beach'
+  | 'heritage'
 
 export type PackageDifficulty = 'easy' | 'moderate' | 'challenging'
 
