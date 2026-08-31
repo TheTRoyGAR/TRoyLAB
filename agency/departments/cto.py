@@ -207,7 +207,7 @@ class CTODepartment:
 
     def deploy_plan(self, what: str) -> str:
         task = Task(
-            description=f"Create a deployment plan and real commands for: {what}. Target: Cloudflare/GitHub Pages.",
+            description=f"{recall_context(what)}Create a deployment plan and real commands for: {what}. Target: Cloudflare/GitHub Pages.",
             expected_output="Step-by-step deployment commands with verification steps.",
             agent=self.devops,
         )

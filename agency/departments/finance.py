@@ -125,6 +125,7 @@ class FinanceDepartment:
 
         task = Task(
             description=(
+                f"{recall_context('verify listings')}"
                 f"VERIFY_LISTINGS: For each real listing below, open its source URL with the "
                 f"scrape tool and confirm whether the price/deal shown still matches what "
                 f"TRoyGO's site currently displays. If a source is UNKNOWN, say so — do not "
@@ -200,6 +201,7 @@ class FinanceDepartment:
     def roi_report(self, period: str = "this week") -> str:
         task = Task(
             description=(
+                f"{recall_context(period)}"
                 f"ROI_REPORT: Summarize TRoyGO's real deal/campaign performance for {period}, "
                 "using whatever real campaign and booking context is available in shared memory."
             ),
