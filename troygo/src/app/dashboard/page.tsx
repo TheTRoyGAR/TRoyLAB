@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import {
   LineChart,
@@ -31,32 +31,37 @@ import {
   UserPlus,
 } from 'lucide-react';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
-import { bookings, contacts, leads, getContactName } from '@/lib/data/crm';
-import { format } from 'date-fns';
+import { format, subMonths, startOfMonth } from 'date-fns';
 
-// ─── Mock revenue data ───────────────────────────────────────────────────────
-const revenueData = [
-  { month: 'Jun', revenue: 42000 },
-  { month: 'Jul', revenue: 58000 },
-  { month: 'Aug', revenue: 71000 },
-  { month: 'Sep', revenue: 53000 },
-  { month: 'Oct', revenue: 65000 },
-  { month: 'Nov', revenue: 48000 },
-  { month: 'Dec', revenue: 92000 },
-  { month: 'Jan', revenue: 38000 },
-  { month: 'Feb', revenue: 55000 },
-  { month: 'Mar', revenue: 67000 },
-  { month: 'Apr', revenue: 74000 },
-  { month: 'May', revenue: 89000 },
-];
+// Real types (matches /api/bookings and /api/leads - real Postgres data,
+// no fabricated demo bookings/leads/revenue).
+interface RealBooking {
+  bookingRef: string;
+  status: string;
+  requiresOwnerApproval: boolean;
+  type: string;
+  itemId: string;
+  travelers: { firstName?: string; lastName?: string }[];
+  totalAmount: number;
+  leadTravelerName: string;
+  leadTravelerEmail: string;
+  createdAt: string;
+}
 
-const destinationData = [
-  { name: 'Maldives', value: 32, color: '#00B4D8' },
-  { name: 'Japan', value: 22, color: '#FFD700' },
-  { name: 'Bali', value: 18, color: '#10b981' },
-  { name: 'Europe', value: 15, color: '#8b5cf6' },
-  { name: 'Other', value: 13, color: '#6b7280' },
-];
+interface RealLead {
+  id: string;
+  stage: string;
+}
+
+const CONFIRMED_STATUSES = ['confirmed', 'deposit_paid', 'fully_paid'];
+const TYPE_COLORS: Record<string, string> = {
+  flight: '#00B4D8',
+  hotel: '#FFD700',
+  package: '#10b981',
+  cruise: '#8b5cf6',
+  car: '#f97316',
+};
+const FALLBACK_COLORS = ['#00B4D8', '#FFD700', '#10b981', '#8b5cf6', '#f97316', '#6b7280'];
 
 // ─── Status helpers ──────────────────────────────────────────────────────────
 const statusConfig: Record<string, { label: string; bg: string; color: string }> = {
@@ -65,6 +70,7 @@ const statusConfig: Record<string, { label: string; bg: string; color: string }>
   confirmed:    { label: 'Confirmed',    bg: '#d1fae5', color: '#065f46' },
   deposit_paid: { label: 'Deposit Paid', bg: '#dbeafe', color: '#1e40af' },
   fully_paid:   { label: 'Fully Paid',   bg: '#f0fdf4', color: '#14532d' },
+  declined:     { label: 'Declined',     bg: '#fee2e2', color: '#991b1b' },
   cancelled:    { label: 'Cancelled',    bg: '#fee2e2', color: '#991b1b' },
 };
 
@@ -84,14 +90,14 @@ function StatusBadge({ status }: { status: string }) {
 interface KPICardProps {
   title: string;
   value: string;
-  change: number;
+  change: number | null;
   icon: React.ElementType;
   iconBg: string;
   iconColor: string;
 }
 
 function KPICard({ title, value, change, icon: Icon, iconBg, iconColor }: KPICardProps) {
-  const positive = change >= 0;
+  const positive = (change ?? 0) >= 0;
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-5 flex items-start gap-4 shadow-sm">
       <div className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center" style={{ background: iconBg }}>
@@ -101,18 +107,24 @@ function KPICard({ title, value, change, icon: Icon, iconBg, iconColor }: KPICar
         <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">{title}</p>
         <p className="text-2xl font-bold mt-0.5" style={{ color: '#0A1628' }}>{value}</p>
         <div className="flex items-center gap-1 mt-1">
-          {positive ? (
-            <TrendingUp size={13} className="text-emerald-500" />
+          {change == null ? (
+            <span className="text-xs text-gray-400">no prior month to compare</span>
           ) : (
-            <TrendingDown size={13} className="text-red-500" />
+            <>
+              {positive ? (
+                <TrendingUp size={13} className="text-emerald-500" />
+              ) : (
+                <TrendingDown size={13} className="text-red-500" />
+              )}
+              <span
+                className="text-xs font-semibold"
+                style={{ color: positive ? '#10b981' : '#ef4444' }}
+              >
+                {positive ? '+' : ''}{change}%
+              </span>
+              <span className="text-xs text-gray-400">vs last month</span>
+            </>
           )}
-          <span
-            className="text-xs font-semibold"
-            style={{ color: positive ? '#10b981' : '#ef4444' }}
-          >
-            {positive ? '+' : ''}{change}%
-          </span>
-          <span className="text-xs text-gray-400">vs last month</span>
         </div>
       </div>
     </div>
@@ -122,23 +134,47 @@ function KPICard({ title, value, change, icon: Icon, iconBg, iconColor }: KPICar
 // ─── Main Dashboard ──────────────────────────────────────────────────────────
 export default function DashboardPage() {
   const router = useRouter();
-  const [approvalResults, setApprovalResults] = useState<Record<string, 'approved' | 'declined'>>({});
+  const [bookings, setBookings] = useState<RealBooking[]>([]);
+  const [leads, setLeads] = useState<RealLead[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [approvalPending, setApprovalPending] = useState<Set<string>>(new Set());
 
-  // Derived data
+  const load = useCallback(async () => {
+    setLoading(true);
+    setLoadError(null);
+    try {
+      const [bookingsRes, leadsRes] = await Promise.all([
+        fetch('/api/bookings'),
+        fetch('/api/leads'),
+      ]);
+      const bookingsJson = await bookingsRes.json();
+      const leadsJson = await leadsRes.json();
+      if (bookingsJson.success) setBookings(bookingsJson.bookings);
+      else setLoadError(bookingsJson.error ?? 'Failed to load bookings.');
+      if (leadsJson.success) setLeads(leadsJson.leads);
+    } catch {
+      setLoadError('Failed to load dashboard data — check your connection.');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => { load(); }, [load]);
+
+  // Derived data - all computed from real fetched bookings/leads.
   const pendingApproval = bookings.filter(
-    (b) => b.requiresOwnerApproval && (b.status === 'quoted' || b.status === 'confirmed')
+    (b) => b.requiresOwnerApproval && b.status === 'inquiry'
   );
   const recentBookings = [...bookings]
     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
     .slice(0, 5);
 
   const totalRevenue = bookings
-    .filter((b) => ['confirmed', 'deposit_paid', 'fully_paid'].includes(b.status))
+    .filter((b) => CONFIRMED_STATUSES.includes(b.status))
     .reduce((sum, b) => sum + b.totalAmount, 0);
 
-  const activeBookings = bookings.filter((b) =>
-    ['confirmed', 'deposit_paid', 'fully_paid'].includes(b.status)
-  ).length;
+  const activeBookings = bookings.filter((b) => CONFIRMED_STATUSES.includes(b.status)).length;
 
   const newLeads = leads.filter((l) => l.stage === 'new' || l.stage === 'contacted').length;
   const wonLeads = leads.filter((l) => l.stage === 'closed_won').length;
@@ -147,11 +183,56 @@ export default function DashboardPage() {
   ).length;
   const conversionRate = totalClosed > 0 ? Math.round((wonLeads / totalClosed) * 100) : 0;
 
-  const handleApproval = (bookingId: string, approved: boolean) => {
-    setApprovalResults((prev) => ({
-      ...prev,
-      [bookingId]: approved ? 'approved' : 'declined',
+  // Real revenue by month - last 12 months, confirmed+ bookings only.
+  const revenueData = useMemo(() => {
+    const months: { key: string; month: string; revenue: number }[] = [];
+    for (let i = 11; i >= 0; i--) {
+      const d = startOfMonth(subMonths(new Date(), i));
+      months.push({ key: format(d, 'yyyy-MM'), month: format(d, 'MMM'), revenue: 0 });
+    }
+    const byKey = Object.fromEntries(months.map((m) => [m.key, m]));
+    bookings
+      .filter((b) => CONFIRMED_STATUSES.includes(b.status))
+      .forEach((b) => {
+        const key = format(new Date(b.createdAt), 'yyyy-MM');
+        if (byKey[key]) byKey[key].revenue += b.totalAmount;
+      });
+    return months;
+  }, [bookings]);
+
+  const thisMonthRevenue = revenueData[revenueData.length - 1]?.revenue ?? 0;
+  const lastMonthRevenue = revenueData[revenueData.length - 2]?.revenue ?? 0;
+  const revenueChange = lastMonthRevenue > 0
+    ? Math.round(((thisMonthRevenue - lastMonthRevenue) / lastMonthRevenue) * 100)
+    : null;
+
+  // Real bookings-by-type breakdown - replaces the old fake "Top Destinations"
+  // pie, since destination isn't a field the real booking flow captures yet.
+  const typeData = useMemo(() => {
+    const counts: Record<string, number> = {};
+    bookings.forEach((b) => { counts[b.type] = (counts[b.type] ?? 0) + 1; });
+    return Object.entries(counts).map(([name, value], i) => ({
+      name,
+      value,
+      color: TYPE_COLORS[name] ?? FALLBACK_COLORS[i % FALLBACK_COLORS.length],
     }));
+  }, [bookings]);
+
+  const handleApproval = async (bookingRef: string, approved: boolean) => {
+    setApprovalPending((prev) => new Set(prev).add(bookingRef));
+    try {
+      const res = await fetch('/api/bookings/confirm', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ bookingId: bookingRef, ownerApproved: approved }),
+      });
+      const json = await res.json();
+      if (json.success) {
+        await load();
+      }
+    } finally {
+      setApprovalPending((prev) => { const next = new Set(prev); next.delete(bookingRef); return next; });
+    }
   };
 
   return (
@@ -164,7 +245,7 @@ export default function DashboardPage() {
               Good morning, Troy 👋
             </h1>
             <p className="text-sm text-gray-500 mt-0.5">
-              {format(new Date(), 'EEEE, MMMM d, yyyy')} — Here's your business overview
+              {format(new Date(), 'EEEE, MMMM d, yyyy')} — {loading ? 'Loading…' : loadError ?? "Here's your business overview"}
             </p>
           </div>
           {/* Quick Actions */}
@@ -173,7 +254,7 @@ export default function DashboardPage() {
               { label: 'New Booking', icon: BookOpen, color: '#0A1628', href: '/dashboard/bookings' },
               { label: 'New Contact', icon: UserPlus, color: '#0A1628', href: '/dashboard/contacts' },
               { label: 'Send Email', icon: Mail, color: '#0A1628', href: '/dashboard/emails' },
-              { label: 'Add Lead', icon: Plus, color: '#FFD700', text: '#0A1628', href: '/dashboard/contacts' },
+              { label: 'Add Lead', icon: Plus, color: '#FFD700', text: '#0A1628', href: '/dashboard/crm' },
             ].map((action) => {
               const Icon = action.icon;
               const isGold = action.color === '#FFD700';
@@ -200,8 +281,8 @@ export default function DashboardPage() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <KPICard
             title="Revenue (This Month)"
-            value={`$${(89000).toLocaleString()}`}
-            change={20}
+            value={`$${thisMonthRevenue.toLocaleString()}`}
+            change={revenueChange}
             icon={DollarSign}
             iconBg="#fef9c3"
             iconColor="#ca8a04"
@@ -209,7 +290,7 @@ export default function DashboardPage() {
           <KPICard
             title="Active Bookings"
             value={String(activeBookings)}
-            change={8}
+            change={null}
             icon={BookOpen}
             iconBg="#dbeafe"
             iconColor="#1d4ed8"
@@ -217,7 +298,7 @@ export default function DashboardPage() {
           <KPICard
             title="New Leads"
             value={String(newLeads)}
-            change={-5}
+            change={null}
             icon={Users}
             iconBg="#f3e8ff"
             iconColor="#7c3aed"
@@ -225,7 +306,7 @@ export default function DashboardPage() {
           <KPICard
             title="Conversion Rate"
             value={`${conversionRate}%`}
-            change={12}
+            change={null}
             icon={Target}
             iconBg="#dcfce7"
             iconColor="#16a34a"
@@ -233,7 +314,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Pending Approvals — Gold Alert */}
-        {pendingApproval.filter((b) => !approvalResults[b.id]).length > 0 && (
+        {pendingApproval.length > 0 && (
           <div
             className="rounded-xl border-2 p-5"
             style={{ borderColor: '#FFD700', background: '#fffbeb' }}
@@ -241,60 +322,59 @@ export default function DashboardPage() {
             <div className="flex items-center gap-2 mb-4">
               <AlertTriangle size={20} style={{ color: '#FFD700' }} />
               <h2 className="text-base font-bold" style={{ color: '#0A1628' }}>
-                Pending Owner Approval ({pendingApproval.filter((b) => !approvalResults[b.id]).length})
+                Pending Owner Approval ({pendingApproval.length})
               </h2>
               <span className="text-xs text-gray-500 ml-auto">
                 These bookings cannot proceed until you approve
               </span>
             </div>
             <div className="space-y-3">
-              {pendingApproval
-                .filter((b) => !approvalResults[b.id])
-                .map((booking) => (
-                  <div
-                    key={booking.id}
-                    className="flex items-center gap-4 bg-white rounded-lg border border-yellow-200 p-4"
-                  >
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className="font-semibold text-sm" style={{ color: '#0A1628' }}>
-                          {getContactName(booking.contactId)}
-                        </span>
-                        <StatusBadge status={booking.status} />
-                      </div>
-                      <p className="text-xs text-gray-600 mt-0.5">
-                        {booking.packageName} → {booking.destination}
-                      </p>
-                      <p className="text-xs text-gray-400">
-                        {format(new Date(booking.departureDate), 'MMM d, yyyy')} •{' '}
-                        {booking.travelers.adults + booking.travelers.children} travelers
-                      </p>
+              {pendingApproval.map((booking) => (
+                <div
+                  key={booking.bookingRef}
+                  className="flex items-center gap-4 bg-white rounded-lg border border-yellow-200 p-4"
+                >
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2">
+                      <span className="font-semibold text-sm" style={{ color: '#0A1628' }}>
+                        {booking.leadTravelerName}
+                      </span>
+                      <StatusBadge status={booking.status} />
                     </div>
-                    <div className="text-right flex-shrink-0">
-                      <p className="font-bold text-lg" style={{ color: '#0A1628' }}>
-                        ${booking.totalAmount.toLocaleString()}
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-2 flex-shrink-0">
-                      <button
-                        onClick={() => handleApproval(booking.id, true)}
-                        className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-semibold transition-opacity hover:opacity-90"
-                        style={{ background: '#FFD700', color: '#0A1628' }}
-                      >
-                        <CheckCircle size={14} />
-                        Approve
-                      </button>
-                      <button
-                        onClick={() => handleApproval(booking.id, false)}
-                        className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-semibold border transition-colors hover:bg-red-50"
-                        style={{ borderColor: '#ef4444', color: '#ef4444' }}
-                      >
-                        <XCircle size={14} />
-                        Decline
-                      </button>
-                    </div>
+                    <p className="text-xs text-gray-600 mt-0.5">
+                      {booking.type} → {booking.itemId}
+                    </p>
+                    <p className="text-xs text-gray-400">
+                      {format(new Date(booking.createdAt), 'MMM d, yyyy')} • {booking.bookingRef}
+                    </p>
                   </div>
-                ))}
+                  <div className="text-right flex-shrink-0">
+                    <p className="font-bold text-lg" style={{ color: '#0A1628' }}>
+                      ${booking.totalAmount.toLocaleString()}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2 flex-shrink-0">
+                    <button
+                      onClick={() => handleApproval(booking.bookingRef, true)}
+                      disabled={approvalPending.has(booking.bookingRef)}
+                      className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-semibold transition-opacity hover:opacity-90 disabled:opacity-50"
+                      style={{ background: '#FFD700', color: '#0A1628' }}
+                    >
+                      <CheckCircle size={14} />
+                      Approve
+                    </button>
+                    <button
+                      onClick={() => handleApproval(booking.bookingRef, false)}
+                      disabled={approvalPending.has(booking.bookingRef)}
+                      className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-semibold border transition-colors hover:bg-red-50 disabled:opacity-50"
+                      style={{ borderColor: '#ef4444', color: '#ef4444' }}
+                    >
+                      <XCircle size={14} />
+                      Decline
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         )}
@@ -349,45 +429,51 @@ export default function DashboardPage() {
             </ResponsiveContainer>
           </div>
 
-          {/* Destination Pie */}
+          {/* Bookings by Type */}
           <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
             <h3 className="font-semibold text-sm mb-4" style={{ color: '#0A1628' }}>
-              Top Destinations
+              Bookings by Type
             </h3>
-            <ResponsiveContainer width="100%" height={220}>
-              <PieChart>
-                <Pie
-                  data={destinationData}
-                  cx="50%"
-                  cy="45%"
-                  innerRadius={55}
-                  outerRadius={80}
-                  paddingAngle={3}
-                  dataKey="value"
-                >
-                  {destinationData.map((entry, i) => (
-                    <Cell key={i} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Legend
-                  iconType="circle"
-                  iconSize={8}
-                  formatter={(value) => (
-                    <span style={{ fontSize: '11px', color: '#374151' }}>{value}</span>
-                  )}
-                />
-                <Tooltip
-                  formatter={(v) => [`${v as number}%`, "Share"]}
-                  contentStyle={{
-                    background: '#0A1628',
-                    border: 'none',
-                    borderRadius: '8px',
-                    color: '#fff',
-                    fontSize: '12px',
-                  }}
-                />
-              </PieChart>
-            </ResponsiveContainer>
+            {typeData.length === 0 ? (
+              <div className="flex items-center justify-center h-[220px] text-xs text-gray-400">
+                {loading ? 'Loading…' : 'No bookings yet'}
+              </div>
+            ) : (
+              <ResponsiveContainer width="100%" height={220}>
+                <PieChart>
+                  <Pie
+                    data={typeData}
+                    cx="50%"
+                    cy="45%"
+                    innerRadius={55}
+                    outerRadius={80}
+                    paddingAngle={3}
+                    dataKey="value"
+                  >
+                    {typeData.map((entry, i) => (
+                      <Cell key={i} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Legend
+                    iconType="circle"
+                    iconSize={8}
+                    formatter={(value) => (
+                      <span style={{ fontSize: '11px', color: '#374151' }}>{value}</span>
+                    )}
+                  />
+                  <Tooltip
+                    formatter={(v) => [`${v} booking${(v as number) !== 1 ? 's' : ''}`, "Count"]}
+                    contentStyle={{
+                      background: '#0A1628',
+                      border: 'none',
+                      borderRadius: '8px',
+                      color: '#fff',
+                      fontSize: '12px',
+                    }}
+                  />
+                </PieChart>
+              </ResponsiveContainer>
+            )}
           </div>
         </div>
 
@@ -410,17 +496,17 @@ export default function DashboardPage() {
               <thead>
                 <tr className="bg-gray-50 text-xs uppercase tracking-wide text-gray-500">
                   <th className="px-5 py-3 text-left font-semibold">Client</th>
-                  <th className="px-5 py-3 text-left font-semibold">Package</th>
-                  <th className="px-5 py-3 text-left font-semibold">Destination</th>
-                  <th className="px-5 py-3 text-left font-semibold">Departure</th>
+                  <th className="px-5 py-3 text-left font-semibold">Type</th>
+                  <th className="px-5 py-3 text-left font-semibold">Item</th>
+                  <th className="px-5 py-3 text-left font-semibold">Created</th>
                   <th className="px-5 py-3 text-right font-semibold">Amount</th>
                   <th className="px-5 py-3 text-left font-semibold">Status</th>
                 </tr>
               </thead>
               <tbody>
-                {recentBookings.map((b, idx) => (
+                {recentBookings.map((b) => (
                   <tr
-                    key={b.id}
+                    key={b.bookingRef}
                     className="border-t border-gray-100 hover:bg-gray-50 transition-colors"
                   >
                     <td className="px-5 py-3.5 font-medium" style={{ color: '#0A1628' }}>
@@ -429,17 +515,17 @@ export default function DashboardPage() {
                           className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
                           style={{ background: '#0A1628', color: '#FFD700' }}
                         >
-                          {getContactName(b.contactId).charAt(0)}
+                          {b.leadTravelerName.charAt(0)}
                         </div>
-                        {getContactName(b.contactId)}
+                        {b.leadTravelerName}
                       </div>
                     </td>
+                    <td className="px-5 py-3.5 text-gray-600 capitalize">{b.type}</td>
                     <td className="px-5 py-3.5 text-gray-600 max-w-[180px] truncate">
-                      {b.packageName}
+                      {b.itemId}
                     </td>
-                    <td className="px-5 py-3.5 text-gray-600">{b.destination}</td>
                     <td className="px-5 py-3.5 text-gray-500">
-                      {format(new Date(b.departureDate), 'MMM d, yyyy')}
+                      {format(new Date(b.createdAt), 'MMM d, yyyy')}
                     </td>
                     <td className="px-5 py-3.5 text-right font-semibold" style={{ color: '#0A1628' }}>
                       ${b.totalAmount.toLocaleString()}
@@ -449,6 +535,13 @@ export default function DashboardPage() {
                     </td>
                   </tr>
                 ))}
+                {recentBookings.length === 0 && (
+                  <tr>
+                    <td colSpan={6} className="py-12 text-center text-gray-400 text-sm">
+                      {loading ? 'Loading…' : 'No bookings yet'}
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>
