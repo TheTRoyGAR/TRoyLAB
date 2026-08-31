@@ -71,6 +71,7 @@ class CTODepartment:
             ),
             llm=llm,
             tools=[read_file, list_dir],
+            max_iter=15,
             verbose=False,
         )
 
@@ -85,6 +86,7 @@ class CTODepartment:
             ),
             llm=llm,
             tools=[read_file, list_dir],
+            max_iter=15,
             verbose=False,
         )
 
@@ -116,7 +118,15 @@ class CTODepartment:
                 "Hard rules: you are READ-ONLY. Do not attempt to write, edit, or modify any "
                 "file — you have no write tool and must not ask for one. If you encounter a "
                 ".env, credentials, or key/token file, note only that it exists and its path — "
-                "never quote or reproduce its contents."
+                "never quote or reproduce its contents.\n\n"
+                "Scope discipline (this is what previously blew the context budget): never "
+                "read node_modules, .next, out, dist, .venv, __pycache__, or any other "
+                "generated/dependency directory — skip them entirely, do not even list their "
+                "contents. Read at most 20 files total, prioritizing real application source "
+                "over config/lockfiles. Never read the same file twice — track what you've "
+                "already opened. If the tree is large, sample the most important-looking "
+                "files rather than trying to cover everything; a partial, honest audit beats "
+                "one that fails outright."
             ),
             expected_output=(
                 "## Codebase Audit — <target_dir>\n"
