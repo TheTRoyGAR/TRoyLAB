@@ -42,11 +42,20 @@ async function getAccessToken(): Promise<string> {
   return data.access_token
 }
 
+// RFC 2047 encoded-word: raw non-ASCII bytes in a header (e.g. TRoyGO™, an
+// em-dash) are technically invalid MIME and Gmail mojibakes them on
+// display - confirmed for real 2026-08-31 ("TRoyGOÃ¢Â„Â¢" in a live test
+// send). Every subject must go through this, not just ones that look like
+// they need it, since it's easy to add a special character later and forget.
+function encodeSubject(subject: string): string {
+  return `=?UTF-8?B?${Buffer.from(subject, 'utf-8').toString('base64')}?=`
+}
+
 function buildRawMessage(opts: { from: string; to: string; subject: string; text: string }): string {
   const message = [
     `From: ${opts.from}`,
     `To: ${opts.to}`,
-    `Subject: ${opts.subject}`,
+    `Subject: ${encodeSubject(opts.subject)}`,
     'Content-Type: text/plain; charset=UTF-8',
     '',
     opts.text,
