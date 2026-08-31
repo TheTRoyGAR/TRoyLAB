@@ -1,5 +1,6 @@
 from pathlib import Path
-from crewai_tools import SerperDevTool, ScrapeWebsiteTool, FileWriterTool, FileReadTool, DirectoryReadTool
+from crewai_tools import SerperDevTool, ScrapeWebsiteTool, FileWriterTool, FileReadTool
+from agency.tools.safe_directory_tool import SafeDirectoryReadTool
 
 search = SerperDevTool()
 scrape = ScrapeWebsiteTool()
@@ -11,4 +12,7 @@ write = FileWriterTool()
 # wander outside it.
 _PROJECT_ROOT = str(Path(__file__).resolve().parents[2])
 read_file = FileReadTool(base_dir=_PROJECT_ROOT)
-list_dir = DirectoryReadTool(directory=_PROJECT_ROOT)
+# Not crewai_tools' DirectoryReadTool: that one does a raw, unfiltered
+# os.walk() with no exclusions, so pointed at troygo/'s node_modules/.next a
+# single call returned 2.9M tokens and crashed the audit outright (2026-08-31).
+list_dir = SafeDirectoryReadTool(root=_PROJECT_ROOT)
