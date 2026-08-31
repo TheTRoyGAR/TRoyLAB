@@ -21,7 +21,7 @@ import {
   Users,
   CheckCircle,
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn, defaultSearchDate } from '@/lib/utils'
 import { sampleHotels, type Hotel as HotelType } from '@/lib/data/hotels'
 import MainLayout from '@/components/layout/MainLayout'
 
@@ -406,8 +406,8 @@ function FilterSidebar({
 function HotelsContent() {
   const params = useSearchParams()
   const [destination, setDestination] = useState(params.get('destination') ?? '')
-  const [checkIn, setCheckIn] = useState(params.get('checkin') || '2026-06-20')
-  const [checkOut, setCheckOut] = useState(params.get('checkout') || '2026-06-25')
+  const [checkIn, setCheckIn] = useState(params.get('checkin') || defaultSearchDate(21))
+  const [checkOut, setCheckOut] = useState(params.get('checkout') || defaultSearchDate(26))
   const [guests, setGuests] = useState(2)
   const [rooms, setRooms] = useState(1)
 

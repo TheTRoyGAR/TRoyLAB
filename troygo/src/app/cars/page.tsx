@@ -16,7 +16,7 @@ import {
   CheckCircle,
   DoorOpen,
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn, defaultSearchDate } from '@/lib/utils'
 import MainLayout from '@/components/layout/MainLayout'
 import { carRentals, type CarRental, type CarType, type Transmission } from '@/lib/data/cars'
 
@@ -139,9 +139,9 @@ function CarsContent() {
   const params = useSearchParams()
   const [pickupLocation, setPickupLocation] = useState(params.get('pickup') ?? '')
   const [returnLocation, setReturnLocation] = useState(params.get('dropoff') ?? '')
-  const [pickupDate, setPickupDate] = useState(params.get('pickupDate') || '2026-06-20')
+  const [pickupDate, setPickupDate] = useState(params.get('pickupDate') || defaultSearchDate(21))
   const [pickupTime, setPickupTime] = useState(params.get('pickupTime') || '10:00')
-  const [returnDate, setReturnDate] = useState(params.get('returnDate') || '2026-06-25')
+  const [returnDate, setReturnDate] = useState(params.get('returnDate') || defaultSearchDate(26))
   const [returnTime, setReturnTime] = useState(params.get('returnTime') || '10:00')
   const [sameReturn, setSameReturn] = useState(true)
 

@@ -20,7 +20,7 @@ import {
   Calendar,
   AlertCircle,
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn, defaultSearchDate } from '@/lib/utils'
 import AirportAutocomplete from '@/components/flights/AirportAutocomplete'
 import TripAddOns from '@/components/flights/TripAddOns'
 import PassengerPicker from '@/components/flights/PassengerPicker'
@@ -517,7 +517,7 @@ function FlightsContent() {
 
   const [from, setFrom] = useState(params.get('from') ?? '')
   const [to, setTo] = useState(params.get('to') ?? '')
-  const [date, setDate] = useState(params.get('date') ?? '2026-06-15')
+  const [date, setDate] = useState(params.get('date') ?? defaultSearchDate(14))
   const [returnDate, setReturnDate] = useState(params.get('return') ?? '')
   const [adults, setAdults] = useState(Number(params.get('adults') ?? params.get('passengers') ?? 1))
   const [childCount, setChildCount] = useState(Number(params.get('children') ?? 0))
