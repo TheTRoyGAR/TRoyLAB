@@ -1,34 +1,65 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import DashboardLayout from '@/components/dashboard/DashboardLayout'
 import { emailTemplates } from '@/lib/data/emailTemplates'
-import { contacts } from '@/lib/data/crm'
 import { Send, Mail, Search, Plus, Eye, Clock, CheckCheck } from 'lucide-react'
+import { format } from 'date-fns'
 
-const SENT_HISTORY = [
-  { id: 1, to: 'john.doe@email.com', subject: 'Your Quote for Bali Paradise Package', status: 'opened', sentAt: '2026-05-13 10:24', openRate: true },
-  { id: 2, to: 'sarah.m@email.com', subject: 'Booking Confirmation – Europe Grand Tour', status: 'clicked', sentAt: '2026-05-13 09:10', openRate: true },
-  { id: 3, to: 'carlos.r@email.com', subject: 'Pre-Trip Checklist: Japan Cultural 2026', status: 'sent', sentAt: '2026-05-12 16:45', openRate: false },
-  { id: 4, to: 'ana.p@email.com', subject: 'Thank You for Traveling with TRoyGO™', status: 'opened', sentAt: '2026-05-12 11:00', openRate: true },
-  { id: 5, to: 'mike.t@email.com', subject: 'Inquiry Received – Caribbean Cruise', status: 'sent', sentAt: '2026-05-11 14:30', openRate: false },
-]
+interface ContactOption {
+  id: string
+  firstName: string
+  lastName: string
+  email: string
+}
 
+interface SentEmail {
+  id: string
+  to: string
+  subject: string
+  status: 'sent' | 'failed'
+  error: string | null
+  sentAt: string
+}
+
+// Real statuses only - "sent" or "failed". No fabricated "opened"/"clicked"
+// engagement data, since there's no real open/click tracking wired up.
 const STATUS_STYLES: Record<string, string> = {
-  sent: 'bg-gray-100 text-gray-600',
-  opened: 'bg-blue-50 text-blue-700',
-  clicked: 'bg-green-50 text-green-700',
+  sent: 'bg-green-50 text-green-700',
+  failed: 'bg-red-50 text-red-700',
 }
 
 export default function EmailsPage() {
+  const [contacts, setContacts] = useState<ContactOption[]>([])
+  const [emails, setEmails] = useState<SentEmail[]>([])
+  const [loading, setLoading] = useState(true)
   const [selectedTemplate, setSelectedTemplate] = useState('')
   const [toSearch, setToSearch] = useState('')
   const [subject, setSubject] = useState('')
   const [body, setBody] = useState('')
   const [previewTemplate, setPreviewTemplate] = useState<string | null>(null)
+  const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
   const [activeTab, setActiveTab] = useState<'compose' | 'templates' | 'history'>('compose')
   const [noticeMessage, setNoticeMessage] = useState<string | null>(null)
+
+  const load = useCallback(async () => {
+    setLoading(true)
+    try {
+      const [contactsRes, emailsRes] = await Promise.all([
+        fetch('/api/contacts'),
+        fetch('/api/emails'),
+      ])
+      const contactsJson = await contactsRes.json()
+      const emailsJson = await emailsRes.json()
+      if (contactsJson.success) setContacts(contactsJson.contacts)
+      if (emailsJson.success) setEmails(emailsJson.emails)
+    } finally {
+      setLoading(false)
+    }
+  }, [])
+
+  useEffect(() => { load() }, [load])
 
   function loadTemplate(templateId: string) {
     const t = emailTemplates.find((e) => e.id === templateId)
@@ -39,10 +70,33 @@ export default function EmailsPage() {
     }
   }
 
-  function handleSend(e: React.FormEvent) {
+  async function handleSend(e: React.FormEvent) {
     e.preventDefault()
-    setSent(true)
-    setTimeout(() => setSent(false), 3000)
+    setSending(true)
+    setNoticeMessage(null)
+    try {
+      const res = await fetch('/api/emails', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ to: toSearch, subject, body }),
+      })
+      const json = await res.json()
+      if (!json.success) {
+        setNoticeMessage(json.error ?? 'Failed to send email.')
+        return
+      }
+      setSent(true)
+      setSubject('')
+      setBody('')
+      setToSearch('')
+      setSelectedTemplate('')
+      await load()
+      setTimeout(() => setSent(false), 3000)
+    } catch {
+      setNoticeMessage('Failed to send email — check your connection.')
+    } finally {
+      setSending(false)
+    }
   }
 
   const filteredContacts = contacts
@@ -157,14 +211,19 @@ export default function EmailsPage() {
                   />
                 </div>
 
+                {noticeMessage && (
+                  <p className="text-red-500 text-xs">{noticeMessage}</p>
+                )}
+
                 <div className="flex gap-3">
                   <button
                     type="submit"
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white hover:opacity-90 transition-all"
+                    disabled={sending}
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white hover:opacity-90 transition-all disabled:opacity-50"
                     style={{ background: '#00B4D8' }}
                   >
                     <Send className="h-4 w-4" />
-                    {sent ? 'Sent!' : 'Send Email'}
+                    {sending ? 'Sending…' : sent ? 'Sent!' : 'Send Email'}
                   </button>
                   <button
                     type="button"
@@ -183,21 +242,27 @@ export default function EmailsPage() {
                 <CheckCheck className="h-5 w-5 text-[#00B4D8]" /> Recent Emails
               </h2>
               <div className="space-y-3">
-                {SENT_HISTORY.map((email) => (
-                  <div key={email.id} className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors group">
-                    <div className="w-8 h-8 rounded-full bg-[#00B4D8]/10 flex items-center justify-center shrink-0">
-                      <Mail className="h-4 w-4 text-[#00B4D8]" />
+                {loading ? (
+                  <p className="text-sm text-gray-400 text-center py-6">Loading…</p>
+                ) : emails.length === 0 ? (
+                  <p className="text-sm text-gray-400 text-center py-6">No emails sent yet</p>
+                ) : (
+                  emails.slice(0, 5).map((email) => (
+                    <div key={email.id} className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors group">
+                      <div className="w-8 h-8 rounded-full bg-[#00B4D8]/10 flex items-center justify-center shrink-0">
+                        <Mail className="h-4 w-4 text-[#00B4D8]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-[#0A1628] truncate">{email.subject}</p>
+                        <p className="text-xs text-gray-400 truncate">To: {email.to}</p>
+                        <p className="text-xs text-gray-400">{format(new Date(email.sentAt), 'MMM d, yyyy HH:mm')}</p>
+                      </div>
+                      <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${STATUS_STYLES[email.status]}`}>
+                        {email.status}
+                      </span>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-[#0A1628] truncate">{email.subject}</p>
-                      <p className="text-xs text-gray-400 truncate">To: {email.to}</p>
-                      <p className="text-xs text-gray-400">{email.sentAt}</p>
-                    </div>
-                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${STATUS_STYLES[email.status]}`}>
-                      {email.status}
-                    </span>
-                  </div>
-                ))}
+                  ))
+                )}
               </div>
             </div>
           </div>
@@ -261,11 +326,18 @@ export default function EmailsPage() {
                 </tr>
               </thead>
               <tbody>
-                {SENT_HISTORY.map((email) => (
+                {emails.length === 0 && (
+                  <tr>
+                    <td colSpan={4} className="py-12 text-center text-gray-400 text-sm">
+                      {loading ? 'Loading…' : 'No emails sent yet'}
+                    </td>
+                  </tr>
+                )}
+                {emails.map((email) => (
                   <tr key={email.id} className="border-b border-gray-50 hover:bg-gray-50 transition-colors">
                     <td className="px-4 py-3 text-sm text-gray-600">{email.to}</td>
                     <td className="px-4 py-3 text-sm font-medium text-[#0A1628] max-w-xs truncate">{email.subject}</td>
-                    <td className="px-4 py-3 text-xs text-gray-400">{email.sentAt}</td>
+                    <td className="px-4 py-3 text-xs text-gray-400">{format(new Date(email.sentAt), 'MMM d, yyyy HH:mm')}</td>
                     <td className="px-4 py-3">
                       <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${STATUS_STYLES[email.status]}`}>
                         {email.status}

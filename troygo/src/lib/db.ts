@@ -98,6 +98,20 @@ export function ensureSchema(): Promise<void> {
           created_at TIMESTAMPTZ NOT NULL DEFAULT now()
         )
       `
+      // Real sent-email log - starts empty (no fabricated "opened"/"clicked"
+      // engagement stats, since there's no real open/click tracking wired
+      // up). Only real statuses this can honestly report: sent or failed.
+      await sql`
+        CREATE TABLE IF NOT EXISTS sent_emails (
+          id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+          to_email TEXT NOT NULL,
+          subject TEXT NOT NULL,
+          body TEXT NOT NULL,
+          status TEXT NOT NULL DEFAULT 'sent',
+          error TEXT,
+          sent_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        )
+      `
     })()
   }
   return schemaReady
