@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import {
   Search,
   Plus,
@@ -19,8 +19,27 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
-import { contacts, Contact, ContactStatus, ContactSource } from '@/lib/data/crm';
 import { format } from 'date-fns';
+
+// Real types (matches /api/contacts, backed by the real Postgres contacts
+// table - not the old fake mock CRM data).
+export type ContactStatus = 'lead' | 'prospect' | 'customer' | 'vip';
+export type ContactSource = 'website' | 'referral' | 'social' | 'direct';
+
+export interface Contact {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  country: string;
+  status: ContactStatus;
+  source: ContactSource;
+  totalSpent: number;
+  bookingsCount: number;
+  notes: string;
+  createdAt: string;
+}
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 const statusConfig: Record<ContactStatus, { label: string; bg: string; color: string }> = {
@@ -91,21 +110,39 @@ type ContactFormData = z.infer<typeof contactSchema>;
 function AddContactPanel({
   open,
   onClose,
+  onSaved,
 }: {
   open: boolean;
   onClose: () => void;
+  onSaved: () => void;
 }) {
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<ContactFormData>({ resolver: zodResolver(contactSchema) });
+  const [saveError, setSaveError] = useState<string | null>(null);
 
-  const onSubmit = (data: ContactFormData) => {
-    console.log('New contact:', data);
-    reset();
-    onClose();
+  const onSubmit = async (data: ContactFormData) => {
+    setSaveError(null);
+    try {
+      const res = await fetch('/api/contacts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (!json.success) {
+        setSaveError(json.error ?? 'Failed to save contact.');
+        return;
+      }
+      reset();
+      onSaved();
+      onClose();
+    } catch {
+      setSaveError('Failed to save contact — check your connection and try again.');
+    }
   };
 
   if (!open) return null;
@@ -210,14 +247,19 @@ function AddContactPanel({
             />
           </div>
 
+          {saveError && (
+            <p className="text-red-500 text-xs">{saveError}</p>
+          )}
+
           <div className="flex gap-3 pt-4">
             <button
               type="submit"
-              className="flex-1 py-2.5 rounded-lg font-semibold text-sm transition-opacity hover:opacity-90 flex items-center justify-center gap-2"
+              disabled={isSubmitting}
+              className="flex-1 py-2.5 rounded-lg font-semibold text-sm transition-opacity hover:opacity-90 flex items-center justify-center gap-2 disabled:opacity-50"
               style={{ background: '#FFD700', color: '#0A1628' }}
             >
               <Check size={16} />
-              Add Contact
+              {isSubmitting ? 'Saving…' : 'Add Contact'}
             </button>
             <button
               type="button"
@@ -237,6 +279,9 @@ function AddContactPanel({
 const PAGE_SIZE = 10;
 
 export default function ContactsPage() {
+  const [contacts, setContacts] = useState<Contact[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [sourceFilter, setSourceFilter] = useState<string>('all');
@@ -246,15 +291,43 @@ export default function ContactsPage() {
   const [panelOpen, setPanelOpen] = useState(false);
   const [viewContact, setViewContact] = useState<Contact | null>(null);
   const [noticeMessage, setNoticeMessage] = useState<string | null>(null);
-  const [deletedIds, setDeletedIds] = useState<Set<string>>(new Set());
   const [statusOverrides, setStatusOverrides] = useState<Record<string, ContactStatus>>({});
+
+  const loadContacts = useCallback(async () => {
+    setLoading(true);
+    setLoadError(null);
+    try {
+      const res = await fetch('/api/contacts');
+      const json = await res.json();
+      if (json.success) {
+        setContacts(json.contacts);
+      } else {
+        setLoadError(json.error ?? 'Failed to load contacts.');
+      }
+    } catch {
+      setLoadError('Failed to load contacts — check your connection.');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => { loadContacts(); }, [loadContacts]);
 
   const displayStatus = (c: Contact): ContactStatus => statusOverrides[c.id] ?? c.status;
 
-  const handleDeleteContact = (c: Contact) => {
-    if (window.confirm(`Delete ${c.firstName} ${c.lastName}? This can't be undone.`)) {
-      setDeletedIds((prev) => new Set([...prev, c.id]));
+  const handleDeleteContact = async (c: Contact) => {
+    if (!window.confirm(`Delete ${c.firstName} ${c.lastName}? This can't be undone.`)) return;
+    try {
+      const res = await fetch(`/api/contacts?id=${encodeURIComponent(c.id)}`, { method: 'DELETE' });
+      const json = await res.json();
+      if (!json.success) {
+        setNoticeMessage(json.error ?? 'Failed to delete contact.');
+        return;
+      }
+      setContacts((prev) => prev.filter((x) => x.id !== c.id));
       setSelected((prev) => { const next = new Set(prev); next.delete(c.id); return next; });
+    } catch {
+      setNoticeMessage('Failed to delete contact — check your connection.');
     }
   };
 
@@ -299,20 +372,19 @@ export default function ContactsPage() {
 
   const filtered = useMemo(() => {
     return contacts.filter((c) => {
-      if (deletedIds.has(c.id)) return false;
       const q = search.toLowerCase();
       const matchSearch =
         !q ||
         c.firstName.toLowerCase().includes(q) ||
         c.lastName.toLowerCase().includes(q) ||
         c.email.toLowerCase().includes(q) ||
-        c.phone.includes(q);
+        (c.phone ?? '').includes(q);
       const matchStatus = statusFilter === 'all' || displayStatus(c) === statusFilter;
       const matchSource = sourceFilter === 'all' || c.source === sourceFilter;
       const matchCountry = countryFilter === 'all' || c.country === countryFilter;
       return matchSearch && matchStatus && matchSource && matchCountry;
     });
-  }, [search, statusFilter, sourceFilter, countryFilter, deletedIds, statusOverrides]);
+  }, [contacts, search, statusFilter, sourceFilter, countryFilter, statusOverrides]);
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
@@ -351,7 +423,7 @@ export default function ContactsPage() {
               Contacts
             </h1>
             <p className="text-sm text-gray-500 mt-0.5">
-              {contacts.length} contacts total
+              {loading ? 'Loading…' : loadError ? loadError : `${contacts.length} contact${contacts.length !== 1 ? 's' : ''} total`}
             </p>
           </div>
           <button
@@ -476,7 +548,7 @@ export default function ContactsPage() {
                       className="w-4 h-4 rounded accent-teal-500"
                     />
                   </th>
-                  {['Name', 'Email', 'Phone', 'Country', 'Status', 'Total Spent', 'Last Contact', 'Actions'].map(
+                  {['Name', 'Email', 'Phone', 'Country', 'Status', 'Total Spent', 'Added', 'Actions'].map(
                     (h) => (
                       <th
                         key={h}
@@ -531,7 +603,7 @@ export default function ContactsPage() {
                       }
                     </td>
                     <td className="px-4 py-3 text-gray-500 whitespace-nowrap text-xs">
-                      {format(new Date(contact.lastContact), 'MMM d, yyyy')}
+                      {format(new Date(contact.createdAt), 'MMM d, yyyy')}
                     </td>
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-1">
@@ -566,7 +638,7 @@ export default function ContactsPage() {
                 {paginated.length === 0 && (
                   <tr>
                     <td colSpan={9} className="py-12 text-center text-gray-400 text-sm">
-                      No contacts match your filters
+                      {loading ? 'Loading contacts…' : loadError ? loadError : 'No contacts match your filters'}
                     </td>
                   </tr>
                 )}
@@ -615,7 +687,7 @@ export default function ContactsPage() {
       </div>
 
       {/* Slide-in Add Contact Panel */}
-      <AddContactPanel open={panelOpen} onClose={() => setPanelOpen(false)} />
+      <AddContactPanel open={panelOpen} onClose={() => setPanelOpen(false)} onSaved={loadContacts} />
 
       {/* View Contact Modal */}
       {viewContact && (
@@ -638,7 +710,7 @@ export default function ContactsPage() {
               <div className="flex justify-between"><span className="text-gray-500">Source</span><span className="font-semibold capitalize" style={{ color: '#0A1628' }}>{viewContact.source}</span></div>
               <div className="flex justify-between"><span className="text-gray-500">Total Spent</span><span className="font-semibold" style={{ color: '#0A1628' }}>${viewContact.totalSpent.toLocaleString()}</span></div>
               <div className="flex justify-between"><span className="text-gray-500">Bookings</span><span className="font-semibold" style={{ color: '#0A1628' }}>{viewContact.bookingsCount}</span></div>
-              <div className="flex justify-between"><span className="text-gray-500">Last Contact</span><span className="font-semibold" style={{ color: '#0A1628' }}>{format(new Date(viewContact.lastContact), 'MMM d, yyyy')}</span></div>
+              <div className="flex justify-between"><span className="text-gray-500">Added</span><span className="font-semibold" style={{ color: '#0A1628' }}>{format(new Date(viewContact.createdAt), 'MMM d, yyyy')}</span></div>
               {viewContact.notes && (
                 <div className="pt-2 border-t border-gray-100">
                   <p className="text-gray-500 mb-1">Notes</p>

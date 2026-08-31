@@ -59,6 +59,45 @@ export function ensureSchema(): Promise<void> {
           updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
         )
       `
+      await sql`
+        CREATE TABLE IF NOT EXISTS contacts (
+          id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+          first_name TEXT NOT NULL,
+          last_name TEXT NOT NULL,
+          email TEXT NOT NULL UNIQUE,
+          phone TEXT,
+          country TEXT,
+          status TEXT NOT NULL DEFAULT 'lead',
+          source TEXT NOT NULL DEFAULT 'direct',
+          total_spent NUMERIC NOT NULL DEFAULT 0,
+          notes TEXT,
+          created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        )
+      `
+      // Real seed - TRoy (Ertan Govdeli) as the first genuine contact record,
+      // replacing the old "TRoyGO Mock Data" fake CRM entirely. Real details
+      // given directly by TRoy 2026-08-31. ON CONFLICT so this is safe to
+      // run on every cold start without duplicating or overwriting edits.
+      await sql`
+        INSERT INTO contacts (first_name, last_name, email, phone, country, status, source, notes)
+        VALUES ('Ertan', 'Govdeli', 'ertangovdeli@gmail.com', '+61422781807', 'Australia', 'vip', 'direct', 'Founder & CEO, TROYGO Group™')
+        ON CONFLICT (email) DO NOTHING
+      `
+      // Real sales pipeline - starts empty (no fabricated demo leads). Grows
+      // only from real "Add Lead" entries or future real integrations.
+      await sql`
+        CREATE TABLE IF NOT EXISTS leads (
+          id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+          contact_id UUID NOT NULL REFERENCES contacts(id) ON DELETE CASCADE,
+          package_interest TEXT NOT NULL,
+          estimated_value NUMERIC NOT NULL DEFAULT 0,
+          stage TEXT NOT NULL DEFAULT 'new',
+          probability INTEGER NOT NULL DEFAULT 20,
+          expected_close DATE,
+          last_activity TIMESTAMPTZ NOT NULL DEFAULT now(),
+          created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        )
+      `
     })()
   }
   return schemaReady
