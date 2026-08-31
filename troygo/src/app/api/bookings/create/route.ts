@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { sql, ensureSchema, getSetting } from '@/lib/db'
+import { sendEmail } from '@/lib/email'
 
 /* ─── Types ───────────────────────────────────────────────────────────────── */
 interface TravelerInfo {
@@ -81,51 +82,56 @@ export async function POST(req: NextRequest) {
         cabin_class = EXCLUDED.cabin_class
     `
 
-    // Simulate sending notification email to Troy
-    // In production this would use SendGrid, Resend, Nodemailer, etc.
+    // Real notification email to Troy - actually sent via Gmail OAuth2, not
+    // logged and pretended. See src/lib/email.ts for the real send() call.
     const notificationEmail = await getSetting('notification_email')
-    const notificationPayload = {
+    const notificationBody = [
+      `New booking inquiry received!`,
+      ``,
+      `Reference: ${bookingRef}`,
+      `Status: INQUIRY — Owner approval required`,
+      ``,
+      `Customer: ${leadName}`,
+      `Email: ${leadEmail}`,
+      `Phone: ${leadTraveler?.phone ?? 'Not provided'}`,
+      ``,
+      `Booking type: ${type.toUpperCase()}`,
+      `Item ID: ${itemId}`,
+      `Cabin class: ${cabinClass ?? 'N/A'}`,
+      `Travelers: ${travelers.length}`,
+      `Add-ons: ${addOns.length > 0 ? addOns.join(', ') : 'None'}`,
+      ``,
+      `Total amount: $${totalAmount.toLocaleString()}`,
+      `Requires approval: ${requiresOwnerApproval ? 'YES' : 'NO'}`,
+      ``,
+      `Please review and respond within ${estimatedResponseTime}.`,
+      ``,
+      `— TRoyGO™ Booking System`,
+    ].join('\n')
+
+    const ownerNotification = await sendEmail({
       to: notificationEmail,
       subject: `New Booking Inquiry: ${bookingRef}`,
-      body: [
-        `New booking inquiry received!`,
-        ``,
-        `Reference: ${bookingRef}`,
-        `Status: INQUIRY — Owner approval required`,
-        ``,
-        `Customer: ${leadName}`,
-        `Email: ${leadEmail}`,
-        `Phone: ${leadTraveler?.phone ?? 'Not provided'}`,
-        ``,
-        `Booking type: ${type.toUpperCase()}`,
-        `Item ID: ${itemId}`,
-        `Cabin class: ${cabinClass ?? 'N/A'}`,
-        `Travelers: ${travelers.length}`,
-        `Add-ons: ${addOns.length > 0 ? addOns.join(', ') : 'None'}`,
-        ``,
-        `Total amount: $${totalAmount.toLocaleString()}`,
-        `Requires approval: ${requiresOwnerApproval ? 'YES' : 'NO'}`,
-        ``,
-        `Please review and respond within ${estimatedResponseTime}.`,
-        ``,
-        `— TRoyGO™ Booking System`,
-      ].join('\n'),
+      text: notificationBody,
+    })
+    if (!ownerNotification.sent) {
+      console.error(`[TRoyGO™] Owner notification email FAILED for ${bookingRef}:`, ownerNotification.error)
     }
 
-    // Log the simulated email (in production: await emailService.send(notificationPayload))
-    console.log('\n📧 [TRoyGO™] Simulated email notification:')
-    console.log('─'.repeat(60))
-    console.log(`To: ${notificationPayload.to}`)
-    console.log(`Subject: ${notificationPayload.subject}`)
-    console.log(notificationPayload.body)
-    console.log('─'.repeat(60))
-    console.log(`✅ Booking ${bookingRef} stored in Postgres. Owner approval: ${requiresOwnerApproval}\n`)
-
+    let confirmationSent = false
     if (leadEmail && leadEmail !== 'no-email-provided') {
-      console.log(`📧 [TRoyGO™] Confirmation email sent to: ${leadEmail}`)
-      console.log(`   Subject: Your TRoyGO™ Booking Request — ${bookingRef}`)
-      console.log(`   Message: Thank you ${leadName}! Your booking inquiry ${bookingRef} has been received.`)
-      console.log(`            Our travel expert will contact you within 24 hours.\n`)
+      const confirmation = await sendEmail({
+        to: leadEmail,
+        subject: `Your TRoyGO™ Booking Request — ${bookingRef}`,
+        text: [
+          `Thank you ${leadName}! Your booking inquiry ${bookingRef} has been received.`,
+          `Our travel expert will contact you within ${estimatedResponseTime}.`,
+        ].join('\n'),
+      })
+      confirmationSent = confirmation.sent
+      if (!confirmation.sent) {
+        console.error(`[TRoyGO™] Customer confirmation email FAILED for ${bookingRef}:`, confirmation.error)
+      }
     }
 
     return NextResponse.json(
@@ -135,7 +141,11 @@ export async function POST(req: NextRequest) {
         status: 'inquiry',
         requiresApproval: requiresOwnerApproval,
         estimatedResponseTime,
-        message: `Booking inquiry ${bookingRef} created successfully. Owner notification sent.`,
+        ownerNotificationSent: ownerNotification.sent,
+        confirmationEmailSent: confirmationSent,
+        message: ownerNotification.sent
+          ? `Booking inquiry ${bookingRef} created successfully. Owner notification sent.`
+          : `Booking inquiry ${bookingRef} created successfully. Owner notification email failed to send — please follow up manually.`,
       },
       { status: 201 }
     )
