@@ -71,8 +71,15 @@ export default function GroupCruisesPage() {
                         ))}
                       </ul>
                       {program.note && (
-                        <p className="text-xs text-amber-600 bg-amber-50 rounded-lg px-3 py-2">{program.note}</p>
+                        <p className="text-xs text-amber-600 bg-amber-50 rounded-lg px-3 py-2 mb-3">{program.note}</p>
                       )}
+                      <a
+                        href={`mailto:agency@troytravelagency.com?subject=${encodeURIComponent(`Group Cruise Enquiry - ${program.cruiseLine}`)}`}
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#00B4D8] hover:underline"
+                      >
+                        <Mail className="h-3.5 w-3.5" />
+                        Enquire about {program.cruiseLine}
+                      </a>
                     </div>
                   ))}
                 </div>
@@ -101,7 +108,7 @@ export default function GroupCruisesPage() {
               the booking and make sure you get every real perk you&apos;re entitled to.
             </p>
             <a
-              href="mailto:agent@troytravelagency.com?subject=Group%20Cruise%20Enquiry"
+              href="mailto:agency@troytravelagency.com?subject=Group%20Cruise%20Enquiry"
               className="inline-block px-6 py-3 rounded-xl font-bold text-sm text-white transition-all hover:scale-105"
               style={{ background: '#00B4D8' }}
             >
