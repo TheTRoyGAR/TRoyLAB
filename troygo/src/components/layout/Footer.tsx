@@ -437,12 +437,7 @@ export default function Footer() {
               <FooterHeading>Support</FooterHeading>
               <ul className="space-y-1">
                 {SUPPORT_LINKS.map((link) => (
-                  <FooterLink
-                    key={link.href + link.label}
-                    href={link.href}
-                    built={false}
-                    onUnbuilt={() => setNoticeMessage(`${link.label} page isn't built yet.`)}
-                  >
+                  <FooterLink key={link.href + link.label} href={link.href}>
                     {link.label}
                   </FooterLink>
                 ))}
@@ -452,12 +447,7 @@ export default function Footer() {
               <FooterHeading>Legal</FooterHeading>
               <ul className="space-y-1">
                 {LEGAL_LINKS.map((link) => (
-                  <FooterLink
-                    key={link.href + link.label}
-                    href={link.href}
-                    built={false}
-                    onUnbuilt={() => setNoticeMessage(`${link.label} page isn't built yet.`)}
-                  >
+                  <FooterLink key={link.href + link.label} href={link.href}>
                     {link.label}
                   </FooterLink>
                 ))}
