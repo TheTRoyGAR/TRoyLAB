@@ -24,6 +24,7 @@ import {
 import { cn, defaultSearchDate } from '@/lib/utils'
 import { sampleHotels, type Hotel as HotelType } from '@/lib/data/hotels'
 import MainLayout from '@/components/layout/MainLayout'
+import { useDestinationPhoto } from '@/hooks/useDestinationPhoto'
 
 /* ─── Types ───────────────────────────────────────────────────────────────── */
 type SortMode = 'recommended' | 'price-asc' | 'stars' | 'rating'
@@ -79,14 +80,24 @@ function RatingBadge({ rating }: { rating: number }) {
 function HotelCard({ hotel }: { hotel: HotelType }) {
   const isFree = hotel.cancellationPolicy === 'Free cancellation'
   const discount = Math.round(((hotel.originalPrice - hotel.pricePerNight) / hotel.originalPrice) * 100)
+  const photo = useDestinationPhoto(`${hotel.type} in ${hotel.location.city}`)
 
   return (
     <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden flex flex-col md:flex-row">
       {/* Image */}
-      <div className={cn('h-48 md:h-auto md:w-56 lg:w-64 shrink-0 relative bg-gradient-to-br', hotel.images)}>
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <Hotel className="h-14 w-14 text-white/25" />
-        </div>
+      <div
+        className={cn(
+          'h-48 md:h-auto md:w-56 lg:w-64 shrink-0 relative',
+          photo ? 'bg-cover bg-center' : 'bg-gradient-to-br',
+          !photo && hotel.images
+        )}
+        style={photo ? { backgroundImage: `url(${photo.url})` } : undefined}
+      >
+        {!photo && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <Hotel className="h-14 w-14 text-white/25" />
+          </div>
+        )}
         {discount > 0 && (
           <div
             className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-xs font-bold text-white shadow"

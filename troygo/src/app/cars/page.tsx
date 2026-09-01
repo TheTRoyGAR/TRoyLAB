@@ -19,6 +19,7 @@ import {
 import { cn, defaultSearchDate } from '@/lib/utils'
 import MainLayout from '@/components/layout/MainLayout'
 import { carRentals, type CarRental, type CarType, type Transmission } from '@/lib/data/cars'
+import { useDestinationPhoto } from '@/hooks/useDestinationPhoto'
 
 export type { CarRental, CarType, Transmission }
 export { carRentals }
@@ -32,12 +33,20 @@ const SUPPLIER_COLORS: Record<string, string> = {
 function CarCard({ car, pickupDate, returnDate }: { car: CarRental; pickupDate: string; returnDate: string }) {
   const days = Math.max(1, Math.ceil((new Date(returnDate).getTime() - new Date(pickupDate).getTime()) / 86400000))
   const total = car.pricePerDay * days
+  const photo = useDestinationPhoto(car.model)
 
   return (
     <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden flex flex-col md:flex-row">
-      {/* Car image placeholder */}
-      <div className={cn('h-44 md:h-auto md:w-56 lg:w-64 shrink-0 relative bg-gradient-to-br flex items-center justify-center', car.gradient)}>
-        <Car className="h-16 w-16 text-white/30" />
+      {/* Car image */}
+      <div
+        className={cn(
+          'h-44 md:h-auto md:w-56 lg:w-64 shrink-0 relative flex items-center justify-center',
+          photo ? 'bg-cover bg-center' : 'bg-gradient-to-br',
+          !photo && car.gradient
+        )}
+        style={photo ? { backgroundImage: `url(${photo.url})` } : undefined}
+      >
+        {!photo && <Car className="h-16 w-16 text-white/30" />}
         <div
           className="absolute top-3 left-3 w-9 h-9 rounded-lg flex items-center justify-center text-white font-bold text-xs shadow"
           style={{ background: SUPPLIER_COLORS[car.supplierLogo] ?? '#00B4D8' }}
