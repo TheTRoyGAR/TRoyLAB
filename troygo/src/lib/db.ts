@@ -29,6 +29,12 @@ export function ensureSchema(): Promise<void> {
           created_at TIMESTAMPTZ NOT NULL DEFAULT now()
         )
       `
+      // Real Stripe payment fields — added after the payment processor was
+      // integrated. IF NOT EXISTS keeps this idempotent for existing rows.
+      await sql`ALTER TABLE bookings ADD COLUMN IF NOT EXISTS payment_status TEXT NOT NULL DEFAULT 'unpaid'`
+      await sql`ALTER TABLE bookings ADD COLUMN IF NOT EXISTS payment_link_url TEXT`
+      await sql`ALTER TABLE bookings ADD COLUMN IF NOT EXISTS stripe_session_id TEXT`
+      await sql`ALTER TABLE bookings ADD COLUMN IF NOT EXISTS paid_at TIMESTAMPTZ`
       await sql`
         CREATE TABLE IF NOT EXISTS partner_submissions (
           id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

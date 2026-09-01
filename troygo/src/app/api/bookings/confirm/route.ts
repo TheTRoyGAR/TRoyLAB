@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { sql, ensureSchema } from '@/lib/db'
 import { sendEmail } from '@/lib/email'
+import { createBookingCheckoutSession } from '@/lib/stripe'
 
 export async function POST(request: NextRequest) {
   try {
@@ -21,7 +22,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const existing = await sql`SELECT booking_ref, lead_traveler_name, lead_traveler_email FROM bookings WHERE booking_ref = ${bookingId}`
+    const existing = await sql`SELECT booking_ref, lead_traveler_name, lead_traveler_email, total_amount, type FROM bookings WHERE booking_ref = ${bookingId}`
     if (existing.length === 0) {
       return NextResponse.json(
         { success: false, message: `Booking ${bookingId} not found.` },
@@ -30,6 +31,8 @@ export async function POST(request: NextRequest) {
     }
     const leadName = existing[0].lead_traveler_name as string
     const leadEmail = existing[0].lead_traveler_email as string
+    const totalAmount = Number(existing[0].total_amount)
+    const bookingType = existing[0].type as string
 
     const newStatus = ownerApproved ? 'confirmed' : 'declined'
     const approvedAt = new Date().toISOString()
@@ -43,10 +46,32 @@ export async function POST(request: NextRequest) {
     if (ownerApproved) {
       console.log(`[TRoyGO™ CRM] ✅ OWNER APPROVED booking ${bookingId}`)
 
+      // Real Stripe Checkout Session — a genuine, payable link, not a
+      // placeholder. Sandbox/test mode until the Stripe account completes
+      // live verification.
+      let paymentUrl: string | null = null
+      let paymentLinkFailed = false
+      if (totalAmount > 0) {
+        try {
+          const session = await createBookingCheckoutSession({
+            bookingRef: bookingId,
+            amount: totalAmount,
+            customerEmail: leadEmail,
+            description: `${bookingType} booking`,
+          })
+          paymentUrl = session.url
+          await sql`
+            UPDATE bookings
+            SET payment_link_url = ${paymentUrl}, stripe_session_id = ${session.sessionId}
+            WHERE booking_ref = ${bookingId}
+          `
+        } catch (err) {
+          paymentLinkFailed = true
+          console.error(`[TRoyGO™ STRIPE] Checkout session creation FAILED for ${bookingId}:`, err)
+        }
+      }
+
       // Real email, actually sent - not console.log pretending to be one.
-      // NOTE: no real payment processor is integrated yet (no Stripe/etc),
-      // so there is no real deposit payment link to send - do not claim one
-      // was dispatched.
       const confirmation = await sendEmail({
         to: leadEmail,
         subject: `Your TRoyGO™ Booking ${bookingId} Is Confirmed`,
@@ -54,7 +79,9 @@ export async function POST(request: NextRequest) {
           `Great news, ${leadName}!`,
           `Your booking ${bookingId} has been confirmed.`,
           ownerNotes ? `Note from your travel expert: ${ownerNotes}` : '',
-          `We'll be in touch shortly with next steps and payment details.`,
+          paymentUrl
+            ? `Please complete payment here: ${paymentUrl}`
+            : `We'll be in touch shortly with next steps and payment details.`,
         ].filter(Boolean).join('\n\n'),
       })
       if (!confirmation.sent) {
@@ -72,9 +99,14 @@ export async function POST(request: NextRequest) {
           approvedAt,
           ownerNotes: ownerNotes ?? null,
           confirmationEmailSent: confirmation.sent,
+          paymentLinkUrl: paymentUrl,
           nextSteps: [
             confirmation.sent ? 'Confirmation email sent to customer' : 'Confirmation email FAILED - follow up manually',
-            'Payment link: not yet available — no payment processor is integrated',
+            paymentUrl
+              ? 'Real Stripe payment link sent to customer'
+              : paymentLinkFailed
+                ? 'Payment link creation FAILED — check Stripe keys/logs'
+                : 'No payment link created — booking total is $0',
           ],
         },
       })
