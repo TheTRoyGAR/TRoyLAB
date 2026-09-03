@@ -140,7 +140,7 @@ export default function PackageCard({ pkg }: { pkg: TravelPackage }) {
                   </span>
                   <span className="text-xs text-gray-400">/ person</span>
                 </div>
-                {pkg.originalPrice && (
+                {pkg.originalPrice !== undefined && pkg.originalPrice > pkg.price && (
                   <span className="text-xs text-gray-400 line-through">
                     ${pkg.originalPrice.toLocaleString()}
                   </span>
