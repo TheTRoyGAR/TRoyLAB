@@ -2,10 +2,11 @@
 
 import { useState, useMemo, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { cruises } from '@/lib/data/packages'
+import { cruises, type Cruise } from '@/lib/data/packages'
 import { Star, Ship, MapPin, Clock, ChevronDown, Heart, Anchor } from 'lucide-react'
 import Link from 'next/link'
 import MainLayout from '@/components/layout/MainLayout'
+import { useDestinationPhoto } from '@/hooks/useDestinationPhoto'
 
 // Matches the real `category` values in lib/data/packages.ts — these used
 // to be fictional placeholder names that matched nothing in the actual
@@ -14,6 +15,112 @@ import MainLayout from '@/components/layout/MainLayout'
 // linesWithCounts below) — they're derived from the real cruises actually
 // in the catalog, so an option is never shown unless it has real results.
 const REGION_OPTIONS = ['Caribbean', 'Mediterranean', 'Alaska', 'Asia', 'Europe', 'Expedition', 'Transatlantic']
+
+// Real ship photo, live from Unsplash — same mechanism the packages pages use
+// (useDestinationPhoto), searched by ship name since that's more specific
+// than the cruise line or region. Falls back to the gradient (from data) when
+// Unsplash has no match, which was previously the *only* option and — since
+// those gradient classes only ever appear inside cruises-live.json, never in
+// any .ts/.tsx source Tailwind actually scans — rendered as an empty box.
+function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved: boolean; onToggleSave: () => void }) {
+  const photo = useDestinationPhoto(`${cruise.ship} cruise ship`)
+
+  return (
+    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col sm:flex-row">
+      {/* Image — real ship photo (live Unsplash, then the research agent's imageUrl), gradient fallback otherwise */}
+      <div
+        className={`relative w-full sm:w-64 h-48 sm:h-auto shrink-0 overflow-hidden ${(photo || cruise.imageUrl) ? 'bg-gray-200 bg-cover bg-center' : `bg-gradient-to-br ${cruise.imageGradient}`}`}
+        style={(photo || cruise.imageUrl) ? { backgroundImage: `url(${photo?.url ?? cruise.imageUrl})` } : undefined}
+      >
+        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors" />
+        <span className="absolute top-3 left-3 text-xs font-bold text-white bg-[#0A1628]/70 px-2.5 py-1 rounded-full">
+          {cruise.cruiseLine}
+        </span>
+        <button
+          onClick={() => onToggleSave()}
+          className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-colors"
+        >
+          <Heart className={`h-4 w-4 ${isSaved ? 'fill-red-500 text-red-500' : 'text-white'}`} />
+        </button>
+        {!photo && !cruise.imageUrl && (
+          <div className="absolute bottom-3 left-3">
+            <Ship className="h-8 w-8 text-white/60" />
+          </div>
+        )}
+        {photo && (
+          <a
+            href={photo.unsplashUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="absolute bottom-1 right-2 text-[9px] text-white/60 hover:text-white/90 transition-colors"
+          >
+            Photo: {photo.photographerName} / Unsplash
+          </a>
+        )}
+      </div>
+
+      {/* Details */}
+      <div className="flex-1 p-5 flex flex-col justify-between">
+        <div>
+          <h3 className="font-bold text-[#0A1628] text-base mb-1 group-hover:text-[#00B4D8] transition-colors">
+            {cruise.name}
+          </h3>
+          <p className="text-xs text-gray-400 mb-2">🚢 {cruise.ship}</p>
+
+          {/* Ports */}
+          <div className="flex flex-wrap gap-1.5 mb-3">
+            {cruise.itinerary.slice(0, 5).map((stop, i) => (
+              <span key={i} className="text-xs bg-[#00B4D8]/10 text-[#00B4D8] font-medium px-2 py-0.5 rounded-full flex items-center gap-1">
+                <MapPin className="h-3 w-3" />{stop.port}
+              </span>
+            ))}
+            {cruise.itinerary.length > 5 && (
+              <span className="text-xs text-gray-400 px-2 py-0.5">+{cruise.itinerary.length - 5} more</span>
+            )}
+          </div>
+
+          <div className="flex items-center gap-3 text-xs text-gray-500 mb-3">
+            <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5 text-[#00B4D8]" />{cruise.duration} nights</span>
+            <span className="flex items-center gap-1"><MapPin className="h-3.5 w-3.5 text-[#00B4D8]" />From {cruise.departurePort}</span>
+          </div>
+
+          {/* Cabin types */}
+          <div className="flex flex-wrap gap-2 mb-3">
+            {cruise.cabinTypes.map((c) => (
+              <span key={c.name} className="text-xs border border-gray-200 px-2 py-0.5 rounded-lg text-gray-600">
+                {c.name}: from ${c.price.toLocaleString()}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <div className="flex items-baseline gap-1">
+              <span className="text-xl font-black text-[#0A1628]">${cruise.price.toLocaleString()}</span>
+              <span className="text-xs text-gray-400">/ cabin</span>
+            </div>
+            {cruise.reviewCount > 0 && (
+              <div className="flex items-center gap-1 mt-0.5">
+                <Star className="h-3.5 w-3.5 fill-[#FFD700] text-[#FFD700]" />
+                <span className="text-xs font-semibold text-[#0A1628]">{cruise.rating}</span>
+                <span className="text-xs text-gray-400">({cruise.reviewCount.toLocaleString()})</span>
+              </div>
+            )}
+          </div>
+          <Link
+            href={`/booking?type=cruise&id=${cruise.id}&name=${encodeURIComponent(cruise.name)}&price=${cruise.price}`}
+            className="shrink-0 px-5 py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:scale-105"
+            style={{ background: '#00B4D8' }}
+          >
+            View Cruise
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 function CruisesContent() {
   const params = useSearchParams()
@@ -188,84 +295,12 @@ function CruisesContent() {
 
             <div className="space-y-4">
               {filtered.map((cruise) => (
-                <div key={cruise.id} className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col sm:flex-row">
-                  {/* Image — real ship photo when the research agent found one, gradient fallback otherwise */}
-                  <div
-                    className={`relative w-full sm:w-64 h-48 sm:h-auto shrink-0 ${cruise.imageUrl ? 'bg-gray-200 bg-cover bg-center' : `bg-gradient-to-br ${cruise.imageGradient}`}`}
-                    style={cruise.imageUrl ? { backgroundImage: `url(${cruise.imageUrl})` } : undefined}
-                  >
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors" />
-                    <span className="absolute top-3 left-3 text-xs font-bold text-white bg-[#0A1628]/70 px-2.5 py-1 rounded-full">
-                      {cruise.cruiseLine}
-                    </span>
-                    <button
-                      onClick={() => toggleSave(cruise.id)}
-                      className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-colors"
-                    >
-                      <Heart className={`h-4 w-4 ${saved.has(cruise.id) ? 'fill-red-500 text-red-500' : 'text-white'}`} />
-                    </button>
-                    <div className="absolute bottom-3 left-3">
-                      <Ship className="h-8 w-8 text-white/60" />
-                    </div>
-                  </div>
-
-                  {/* Details */}
-                  <div className="flex-1 p-5 flex flex-col justify-between">
-                    <div>
-                      <h3 className="font-bold text-[#0A1628] text-base mb-1 group-hover:text-[#00B4D8] transition-colors">
-                        {cruise.name}
-                      </h3>
-                      <p className="text-xs text-gray-400 mb-2">🚢 {cruise.ship}</p>
-
-                      {/* Ports */}
-                      <div className="flex flex-wrap gap-1.5 mb-3">
-                        {cruise.itinerary.slice(0, 5).map((stop, i) => (
-                          <span key={i} className="text-xs bg-[#00B4D8]/10 text-[#00B4D8] font-medium px-2 py-0.5 rounded-full flex items-center gap-1">
-                            <MapPin className="h-3 w-3" />{stop.port}
-                          </span>
-                        ))}
-                        {cruise.itinerary.length > 5 && (
-                          <span className="text-xs text-gray-400 px-2 py-0.5">+{cruise.itinerary.length - 5} more</span>
-                        )}
-                      </div>
-
-                      <div className="flex items-center gap-3 text-xs text-gray-500 mb-3">
-                        <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5 text-[#00B4D8]" />{cruise.duration} nights</span>
-                        <span className="flex items-center gap-1"><MapPin className="h-3.5 w-3.5 text-[#00B4D8]" />From {cruise.departurePort}</span>
-                      </div>
-
-                      {/* Cabin types */}
-                      <div className="flex flex-wrap gap-2 mb-3">
-                        {cruise.cabinTypes.map((c) => (
-                          <span key={c.name} className="text-xs border border-gray-200 px-2 py-0.5 rounded-lg text-gray-600">
-                            {c.name}: from ${c.price.toLocaleString()}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="flex items-center justify-between gap-3">
-                      <div>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-xl font-black text-[#0A1628]">${cruise.price.toLocaleString()}</span>
-                          <span className="text-xs text-gray-400">/ cabin</span>
-                        </div>
-                        <div className="flex items-center gap-1 mt-0.5">
-                          <Star className="h-3.5 w-3.5 fill-[#FFD700] text-[#FFD700]" />
-                          <span className="text-xs font-semibold text-[#0A1628]">{cruise.rating}</span>
-                          <span className="text-xs text-gray-400">({cruise.reviewCount.toLocaleString()})</span>
-                        </div>
-                      </div>
-                      <Link
-                        href={`/booking?type=cruise&id=${cruise.id}&name=${encodeURIComponent(cruise.name)}&price=${cruise.price}`}
-                        className="shrink-0 px-5 py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:scale-105"
-                        style={{ background: '#00B4D8' }}
-                      >
-                        View Cruise
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+                <CruiseCard
+                  key={cruise.id}
+                  cruise={cruise}
+                  isSaved={saved.has(cruise.id)}
+                  onToggleSave={() => toggleSave(cruise.id)}
+                />
               ))}
             </div>
           </div>
