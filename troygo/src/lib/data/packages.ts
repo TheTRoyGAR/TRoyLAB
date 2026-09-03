@@ -37,6 +37,9 @@ export interface TravelPackage {
   category: PackageCategory
   description: string
   itinerary: { day: number; title: string; description: string }[]
+  // True for ground-quoted packages awaiting a real ops price (price/originalPrice
+  // are placeholder 0 until quoted) — UI shows "Request a Quote" instead of $0.
+  priceOnRequest?: boolean
 }
 
 export interface CabinType {
@@ -879,6 +882,46 @@ export const travelPackages: TravelPackage[] = [
       { day: 7, title: 'Lucerne', description: 'Chapel Bridge, Lion Monument, Swiss Museum of Transport, lake steamboat.' },
       { day: 8, title: 'Departure from Zurich', description: 'Farewell Swiss breakfast. Transfer to Zurich Airport.' },
     ],
+  },
+  {
+    id: 21,
+    name: 'Gallipoli & Troy Remembrance Journey',
+    slug: 'gallipoli-troy-remembrance-journey',
+    destination: 'Türkiye',
+    countries: ['Türkiye'],
+    duration: 8,
+    price: 0,
+    originalPrice: 0,
+    currency: 'USD',
+    rating: 0,
+    reviewCount: 0,
+    imageGradient: 'from-amber-700 to-stone-900',
+    includes: { flights: false, hotel: true, transfers: true, meals: false, guide: true },
+    highlights: [
+      'Dawn Service morning at ANZAC Cove (25 April edition)',
+      'Guided walk through Lone Pine, The Nek & Chunuk Bair',
+      'Ancient Troy archaeological site with English-speaking guide',
+      'Istanbul Old City: Hagia Sophia, Blue Mosque, Topkapi Palace',
+      'Sunset Bosphorus cruise',
+      'Optional Gallipoli Simulation Centre & Cappadocia extension',
+    ],
+    departureDates: ['2027-04-22'],
+    maxGroupSize: 16,
+    difficulty: 'easy',
+    category: 'cultural',
+    description:
+      'A private, guided remembrance pilgrimage timed to the ANZAC Day Dawn Service — tracing the Gallipoli battlefields at ANZAC Cove, Lone Pine, The Nek and Chunuk Bair, then the ancient city of Troy, bookended by Istanbul\'s old city and a Bosphorus cruise. Ground services — hotels, transfers, guiding and entry fees — are operated directly by TRoyGO\'s own Türkiye ground team, not resold from a third-party package. Flights are booked separately by the traveler. Real per-person pricing for 2 adults sharing and 3–4 pax groups is being finalized directly with ground operations — request a quote below.',
+    itinerary: [
+      { day: 1, title: 'Arrive Istanbul', description: 'Private airport transfer to your hotel, followed by a welcome briefing covering the week ahead.' },
+      { day: 2, title: 'Istanbul Old City', description: 'Guided day through Hagia Sophia, the Blue Mosque, and Topkapi Palace.' },
+      { day: 3, title: 'To Çanakkale via Gallipoli', description: 'Drive/ferry to Çanakkale, stopping through the Gallipoli battlefields: ANZAC Cove, Lone Pine, The Nek, Chunuk Bair, and the Kabatepe Museum.' },
+      { day: 4, title: 'Dawn Service & Troy', description: 'Dawn Service morning at ANZAC Cove (25 April edition), followed by a guided visit to the archaeological site of Troy.' },
+      { day: 5, title: 'Free Day in Çanakkale', description: 'Rest and explore independently, or add the optional Gallipoli Simulation Centre.' },
+      { day: 6, title: 'Return to Istanbul', description: 'Transfer back to Istanbul; evening Bosphorus cruise.' },
+      { day: 7, title: 'Free Day', description: 'Explore at your own pace, or add the optional Cappadocia add-on.' },
+      { day: 8, title: 'Departure', description: 'Private transfer to the airport.' },
+    ],
+    priceOnRequest: true,
   },
 ]
 
