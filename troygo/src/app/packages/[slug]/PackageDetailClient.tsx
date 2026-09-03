@@ -11,6 +11,7 @@ import {
 import { format } from 'date-fns'
 import PackageMap from '@/components/maps/PackageMap'
 import MainLayout from '@/components/layout/MainLayout'
+import { useDestinationPhoto } from '@/hooks/useDestinationPhoto'
 
 const TABS = ['Overview', 'Itinerary', 'Inclusions', 'Reviews', 'Booking'] as const
 type Tab = typeof TABS[number]
@@ -21,6 +22,7 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
   const [travelers, setTravelers] = useState(2)
   const [selectedDate, setSelectedDate] = useState(pkg.departureDates[0] ?? '')
   const [saved, setSaved] = useState(false)
+  const photo = useDestinationPhoto(pkg.destination)
 
   const includesList = Object.entries(pkg.includes)
     .filter(([, v]) => v)
@@ -41,7 +43,21 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
       </div>
 
       {/* Hero */}
-      <div className={`w-full h-72 sm:h-96 bg-gradient-to-br ${pkg.imageGradient} relative`}>
+      <div
+        className={`w-full h-72 sm:h-96 relative ${photo ? '' : `bg-gradient-to-br ${pkg.imageGradient}`}`}
+        style={photo ? { backgroundImage: `url(${photo.url})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
+      >
+        {/* Required Unsplash attribution */}
+        {photo && (
+          <a
+            href={photo.unsplashUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute bottom-1 right-2 text-[10px] text-white/60 hover:text-white/90 transition-colors z-10"
+          >
+            Photo: {photo.photographerName} / Unsplash
+          </a>
+        )}
         <div className="absolute inset-0 bg-black/30 flex items-end">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-8">
             <span className="text-xs font-bold uppercase tracking-widest text-white/80 bg-white/20 px-3 py-1 rounded-full mb-3 inline-block">
