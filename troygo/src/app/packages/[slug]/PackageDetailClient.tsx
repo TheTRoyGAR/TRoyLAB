@@ -57,10 +57,12 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
               <span className="flex items-center gap-1"><MapPin className="h-4 w-4" />{pkg.countries.join(', ')}</span>
               <span className="flex items-center gap-1"><Clock className="h-4 w-4" />{pkg.duration} Days</span>
               <span className="flex items-center gap-1"><Users className="h-4 w-4" />Max {pkg.maxGroupSize}</span>
-              <span className="flex items-center gap-1">
-                <Star className="h-4 w-4 fill-[#FFD700] text-[#FFD700]" />
-                {pkg.rating} ({pkg.reviewCount.toLocaleString()} reviews)
-              </span>
+              {pkg.reviewCount > 0 && (
+                <span className="flex items-center gap-1">
+                  <Star className="h-4 w-4 fill-[#FFD700] text-[#FFD700]" />
+                  {pkg.rating} ({pkg.reviewCount.toLocaleString()} reviews)
+                </span>
+              )}
             </div>
           </div>
         </div>
@@ -302,11 +304,13 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
                 )}
                 <div className="text-xs text-gray-400">per person</div>
               </div>
-              <div className="flex items-center justify-center gap-1 mb-5">
-                <Star className="h-4 w-4 fill-[#FFD700] text-[#FFD700]" />
-                <span className="font-semibold text-[#0A1628] text-sm">{pkg.rating}</span>
-                <span className="text-xs text-gray-400">({pkg.reviewCount.toLocaleString()})</span>
-              </div>
+              {pkg.reviewCount > 0 && (
+                <div className="flex items-center justify-center gap-1 mb-5">
+                  <Star className="h-4 w-4 fill-[#FFD700] text-[#FFD700]" />
+                  <span className="font-semibold text-[#0A1628] text-sm">{pkg.rating}</span>
+                  <span className="text-xs text-gray-400">({pkg.reviewCount.toLocaleString()})</span>
+                </div>
+              )}
               <div className="space-y-2 mb-5 text-sm">
                 <div className="flex items-center gap-2 text-gray-600">
                   <Calendar className="h-4 w-4 text-[#00B4D8]" />

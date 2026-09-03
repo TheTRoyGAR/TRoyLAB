@@ -1,17 +1,17 @@
 [
   {
     "id": 1,
-    "name": "Istanbul and Cappadocia Tour \u2013 6 Days Turkey Package",
+    "name": "Istanbul and Cappadocia Tour – 6 Days Turkey Package",
     "slug": "istanbul-and-cappadocia-tour-6-days-turkey-package",
     "destination": "Istanbul & Cappadocia",
     "countries": [
       "Turkey"
     ],
     "duration": 6,
-    "price": 1180.0,
-    "originalPrice": 1180.0,
+    "price": 1180,
+    "originalPrice": 1180,
     "currency": "USD",
-    "rating": 5.0,
+    "rating": 5,
     "reviewCount": 162,
     "imageGradient": "from-violet-500 to-purple-700",
     "includes": {
@@ -68,15 +68,15 @@
   },
   {
     "id": 2,
-    "name": "Highlights of T\u00fcrkiye for 2 \u2013 TripADeal",
+    "name": "Highlights of Türkiye for 2 – TripADeal",
     "slug": "highlights-of-t-rkiye-for-2-tripadeal",
     "destination": "Turkey (Istanbul, Gallipoli, Cappadocia & more)",
     "countries": [
       "Turkey"
     ],
     "duration": 12,
-    "price": 2495.0,
-    "originalPrice": 2559.0,
+    "price": 2495,
+    "originalPrice": 2559,
     "currency": "USD",
     "rating": 4.4,
     "reviewCount": 42355,
@@ -168,15 +168,15 @@
   },
   {
     "id": 3,
-    "name": "Whitsunday Reefsleep & Escape \u2013 TripADeal",
+    "name": "Whitsunday Reefsleep & Escape – TripADeal",
     "slug": "whitsunday-reefsleep-escape-tripadeal",
     "destination": "Whitsundays, Queensland, Australia",
     "countries": [
       "Australia"
     ],
     "duration": 6,
-    "price": 1471.0,
-    "originalPrice": 1471.0,
+    "price": 1471,
+    "originalPrice": 1471,
     "currency": "USD",
     "rating": 4.4,
     "reviewCount": 42355,
@@ -202,7 +202,7 @@
     "maxGroupSize": 20,
     "difficulty": "easy",
     "category": "beach",
-    "description": "A 6-day Whitsunday escape including a night sleeping under the stars on the Great Barrier Reef, a visit to Whitehaven Beach, and a catamaran day trip. Priced from AUD $2,299 per person twin share. Meet in Airlie Beach \u2014 flights are not included in this package.",
+    "description": "A 6-day Whitsunday escape including a night sleeping under the stars on the Great Barrier Reef, a visit to Whitehaven Beach, and a catamaran day trip. Priced from AUD $2,299 per person twin share. Meet in Airlie Beach — flights are not included in this package.",
     "itinerary": [
       {
         "day": 1,
@@ -238,15 +238,15 @@
   },
   {
     "id": 4,
-    "name": "Best of the Whitsundays Package \u2013 Hamilton Island",
+    "name": "Best of the Whitsundays Package – Hamilton Island",
     "slug": "best-of-the-whitsundays-package-hamilton-island",
     "destination": "Hamilton Island, Whitsundays, Australia",
     "countries": [
       "Australia"
     ],
     "duration": 3,
-    "price": 780.0,
-    "originalPrice": 780.0,
+    "price": 780,
+    "originalPrice": 780,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -279,7 +279,7 @@
       {
         "day": 2,
         "title": "Great Barrier Reef Adventure",
-        "description": "Full-day guided trip to the Great Barrier Reef \u2014 snorkelling, glass-bottom boat viewing, and reef exploration."
+        "description": "Full-day guided trip to the Great Barrier Reef — snorkelling, glass-bottom boat viewing, and reef exploration."
       },
       {
         "day": 3,
@@ -295,7 +295,7 @@
   },
   {
     "id": 5,
-    "name": "Prague \u2013 Vienna \u2013 Budapest by Train",
+    "name": "Prague – Vienna – Budapest by Train",
     "slug": "prague-vienna-budapest-by-train",
     "destination": "Prague, Vienna & Budapest",
     "countries": [
@@ -304,8 +304,8 @@
       "Hungary"
     ],
     "duration": 10,
-    "price": 1269.0,
-    "originalPrice": 1269.0,
+    "price": 1269,
+    "originalPrice": 1269,
     "currency": "USD",
     "rating": 4.7,
     "reviewCount": 1951,
@@ -318,11 +318,11 @@
       "guide": false
     },
     "highlights": [
-      "Explore Prague's 1,000 years of art and architecture \u2014 'The City of a Hundred Spires'",
+      "Explore Prague's 1,000 years of art and architecture — 'The City of a Hundred Spires'",
       "Vienna's Baroque palaces, famous coffee house culture, and music heritage",
       "Budapest's dramatic contrast between historic Buda and vibrant Pest",
       "High-speed train travel between all three cities",
-      "Fully flexible itinerary \u2014 customise hotels, length of stay, and add guided experiences"
+      "Fully flexible itinerary — customise hotels, length of stay, and add guided experiences"
     ],
     "departureDates": [],
     "maxGroupSize": 12,
@@ -353,7 +353,7 @@
       {
         "day": 5,
         "title": "Vienna Sightseeing",
-        "description": "Visit Sch\u00f6nbrunn Palace, the Vienna State Opera, and the Kunsthistorisches Museum."
+        "description": "Visit Schönbrunn Palace, the Vienna State Opera, and the Kunsthistorisches Museum."
       },
       {
         "day": 6,
@@ -391,8 +391,8 @@
       "Spain"
     ],
     "duration": 7,
-    "price": 1049.0,
-    "originalPrice": 1049.0,
+    "price": 1049,
+    "originalPrice": 1049,
     "currency": "USD",
     "rating": 4.7,
     "reviewCount": 704,
@@ -406,7 +406,7 @@
     },
     "highlights": [
       "Madrid's world-class museums, vibrant nightlife and cultural landmarks",
-      "Barcelona's Gothic Quarter and iconic architecture by Antoni Gaud\u00ed",
+      "Barcelona's Gothic Quarter and iconic architecture by Antoni Gaudí",
       "High-speed train between Madrid and Barcelona",
       "Fully flexible itinerary with hotel and transport customisation",
       "Option to upgrade to guided activities or luxury private experience"
@@ -430,7 +430,7 @@
       {
         "day": 3,
         "title": "Madrid Free Day",
-        "description": "Free day to explore Malasa\u00f1a, the Thyssen-Bornemisza Museum, or a day trip to Toledo."
+        "description": "Free day to explore Malasaña, the Thyssen-Bornemisza Museum, or a day trip to Toledo."
       },
       {
         "day": 4,
@@ -440,12 +440,12 @@
       {
         "day": 5,
         "title": "Barcelona Sightseeing",
-        "description": "Visit the Sagrada Fam\u00edlia, Park G\u00fcell, and the Picasso Museum. Evening at the waterfront."
+        "description": "Visit the Sagrada Família, Park Güell, and the Picasso Museum. Evening at the waterfront."
       },
       {
         "day": 6,
         "title": "Barcelona Free Day",
-        "description": "Free day for Barceloneta beach, the Boqueria market, or more Gaud\u00ed architecture."
+        "description": "Free day for Barceloneta beach, the Boqueria market, or more Gaudí architecture."
       },
       {
         "day": 7,
@@ -456,15 +456,15 @@
   },
   {
     "id": 7,
-    "name": "Tokyo \u2013 Kyoto \u2013 Osaka by Train (Japan Golden Route)",
+    "name": "Tokyo – Kyoto – Osaka by Train (Japan Golden Route)",
     "slug": "tokyo-kyoto-osaka-by-train-japan-golden-route",
     "destination": "Tokyo, Kyoto & Osaka",
     "countries": [
       "Japan"
     ],
     "duration": 10,
-    "price": 1649.0,
-    "originalPrice": 1649.0,
+    "price": 1649,
+    "originalPrice": 1649,
     "currency": "USD",
     "rating": 4.6,
     "reviewCount": 458,
@@ -478,7 +478,7 @@
     },
     "highlights": [
       "Tokyo's Michelin-starred dining scene, Ginza shopping and neon-lit skyscrapers",
-      "Kyoto \u2014 the City of Ten Thousand Shrines and premier UNESCO World Heritage destination",
+      "Kyoto — the City of Ten Thousand Shrines and premier UNESCO World Heritage destination",
       "Osaka's Dotonbori food district, Osaka Castle and world-renowned Osaka Aquarium Kaiyukan",
       "Convenient high-speed Shinkansen bullet train travel between cities",
       "Fully flexible itinerary with optional guided upgrades"
@@ -543,15 +543,15 @@
   },
   {
     "id": 8,
-    "name": "Bangkok and Phuket by Air \u2013 Thailand Package",
+    "name": "Bangkok and Phuket by Air – Thailand Package",
     "slug": "bangkok-and-phuket-by-air-thailand-package",
     "destination": "Bangkok & Phuket",
     "countries": [
       "Thailand"
     ],
     "duration": 7,
-    "price": 1039.0,
-    "originalPrice": 1039.0,
+    "price": 1039,
+    "originalPrice": 1039,
     "currency": "USD",
     "rating": 4.6,
     "reviewCount": 264,
@@ -565,9 +565,9 @@
     },
     "highlights": [
       "Bangkok's floating markets, Grand Palace, Buddhist temples and legendary nightlife",
-      "Phuket \u2014 the 'Pearl of the South' with some of Thailand's most popular beaches",
+      "Phuket — the 'Pearl of the South' with some of Thailand's most popular beaches",
       "Intercity flight between Bangkok and Phuket included",
-      "Fully flexible itinerary \u2014 customise hotels and length of stay",
+      "Fully flexible itinerary — customise hotels and length of stay",
       "Option to upgrade to guided activities or luxury private experience"
     ],
     "departureDates": [],
@@ -615,15 +615,15 @@
   },
   {
     "id": 9,
-    "name": "Sydney and Melbourne by Air \u2013 Australia City Package",
+    "name": "Sydney and Melbourne by Air – Australia City Package",
     "slug": "sydney-and-melbourne-by-air-australia-city-package",
     "destination": "Sydney & Melbourne",
     "countries": [
       "Australia"
     ],
     "duration": 7,
-    "price": 1469.0,
-    "originalPrice": 1469.0,
+    "price": 1469,
+    "originalPrice": 1469,
     "currency": "USD",
     "rating": 4.8,
     "reviewCount": 41,
@@ -636,7 +636,7 @@
       "guide": false
     },
     "highlights": [
-      "Sydney Opera House and Sydney Harbour Bridge \u2014 two of the world's most iconic structures",
+      "Sydney Opera House and Sydney Harbour Bridge — two of the world's most iconic structures",
       "Melbourne's vibrant laneways, diverse dining scene and world-class street art",
       "Intercity flight between Sydney and Melbourne included",
       "Fully flexible itinerary with customisable hotels and stays",
@@ -661,7 +661,7 @@
       {
         "day": 3,
         "title": "Sydney Beaches & Bondi",
-        "description": "Explore Bondi Beach, the coastal walk to Coogee, and the vibrant caf\u00e9 culture of the Eastern Suburbs."
+        "description": "Explore Bondi Beach, the coastal walk to Coogee, and the vibrant café culture of the Eastern Suburbs."
       },
       {
         "day": 4,
@@ -671,7 +671,7 @@
       {
         "day": 5,
         "title": "Melbourne Culture & Food",
-        "description": "Visit the National Gallery of Victoria, explore Queen Victoria Market, and enjoy Melbourne's acclaimed caf\u00e9 and restaurant scene."
+        "description": "Visit the National Gallery of Victoria, explore Queen Victoria Market, and enjoy Melbourne's acclaimed café and restaurant scene."
       },
       {
         "day": 6,
@@ -687,7 +687,7 @@
   },
   {
     "id": 10,
-    "name": "Sandals Last-Minute Caribbean All-Inclusive \u2013 Free Night Offer",
+    "name": "Sandals Last-Minute Caribbean All-Inclusive – Free Night Offer",
     "slug": "sandals-last-minute-caribbean-all-inclusive-free-night-offer",
     "destination": "Caribbean (Jamaica, Barbados, Antigua, Saint Lucia & more)",
     "countries": [
@@ -697,12 +697,12 @@
       "Saint Lucia",
       "Grenada",
       "Bahamas",
-      "Cura\u00e7ao",
+      "Curaçao",
       "Saint Vincent and the Grenadines"
     ],
     "duration": 4,
-    "price": 374.0,
-    "originalPrice": 374.0,
+    "price": 374,
+    "originalPrice": 374,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -751,7 +751,7 @@
   },
   {
     "id": 11,
-    "name": "Runway to Rail: London \u2013 Paris and Rome",
+    "name": "Runway to Rail: London – Paris and Rome",
     "slug": "runway-to-rail-london-paris-and-rome",
     "destination": "London, Paris & Rome",
     "countries": [
@@ -760,8 +760,8 @@
       "Italy"
     ],
     "duration": 10,
-    "price": 1269.0,
-    "originalPrice": 1269.0,
+    "price": 1269,
+    "originalPrice": 1269,
     "currency": "USD",
     "rating": 4.7,
     "reviewCount": 713,
@@ -776,8 +776,8 @@
     "highlights": [
       "London's royal palaces, world-class shopping and rich history",
       "Eurostar train from London to Paris through the Channel Tunnel",
-      "Paris \u2014 the City of Lights with the Louvre and iconic Eiffel Tower",
-      "Rome \u2014 the Eternal City with the Colosseum and Roman Forum",
+      "Paris — the City of Lights with the Louvre and iconic Eiffel Tower",
+      "Rome — the Eternal City with the Colosseum and Roman Forum",
       "Intercity flight from Paris to Rome included"
     ],
     "departureDates": [],
@@ -809,7 +809,7 @@
       {
         "day": 5,
         "title": "Paris Sightseeing",
-        "description": "Visit the Louvre, the Eiffel Tower, Notre-Dame Cathedral and the Champs-\u00c9lys\u00e9es."
+        "description": "Visit the Louvre, the Eiffel Tower, Notre-Dame Cathedral and the Champs-Élysées."
       },
       {
         "day": 6,
@@ -840,15 +840,15 @@
   },
   {
     "id": 12,
-    "name": "Great Barrier Reef Adventure Package \u2013 Hamilton Island",
+    "name": "Great Barrier Reef Adventure Package – Hamilton Island",
     "slug": "great-barrier-reef-adventure-package-hamilton-island",
     "destination": "Hamilton Island, Great Barrier Reef, Australia",
     "countries": [
       "Australia"
     ],
     "duration": 3,
-    "price": 675.0,
-    "originalPrice": 675.0,
+    "price": 675,
+    "originalPrice": 675,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -861,7 +861,7 @@
       "guide": false
     },
     "highlights": [
-      "Full-day guided trip to the Great Barrier Reef \u2014 one of the Seven Natural Wonders of the World",
+      "Full-day guided trip to the Great Barrier Reef — one of the Seven Natural Wonders of the World",
       "Daily complimentary breakfast included",
       "Free use of non-motorised watersports throughout your stay",
       "Free WiFi and complimentary hotel transfers on island",
@@ -881,7 +881,7 @@
       {
         "day": 2,
         "title": "Great Barrier Reef Full-Day Trip",
-        "description": "Full-day guided excursion to the Great Barrier Reef \u2014 snorkelling, coral viewing, and marine wildlife encounters."
+        "description": "Full-day guided excursion to the Great Barrier Reef — snorkelling, coral viewing, and marine wildlife encounters."
       },
       {
         "day": 3,
@@ -904,8 +904,8 @@
       "Turkey"
     ],
     "duration": 3,
-    "price": 565.0,
-    "originalPrice": 565.0,
+    "price": 565,
+    "originalPrice": 565,
     "currency": "USD",
     "rating": 4.8,
     "reviewCount": 5784,
@@ -951,13 +951,13 @@
     "id": 14,
     "name": "16 Days Istanbul Gallipoli Troy Pergamum Ephesus Pamukkale Fethiye Blue Cruise Antalya Konya and Cappadocia Tour",
     "slug": "16-days-istanbul-gallipoli-troy-pergamum-ephesus-pamukkale-fethiye-blue-cruise-antalya-konya-and-cappadocia-tour",
-    "destination": "Turkey \u2013 Troy, Gallipoli, Aegean & Anatolia",
+    "destination": "Turkey – Troy, Gallipoli, Aegean & Anatolia",
     "countries": [
       "Turkey"
     ],
     "duration": 16,
-    "price": 3355.0,
-    "originalPrice": 3355.0,
+    "price": 3355,
+    "originalPrice": 3355,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -1014,22 +1014,22 @@
       },
       {
         "day": 7,
-        "title": "Blue Cruise Day 1 \u2013 Fethiye to Butterfly Valley",
+        "title": "Blue Cruise Day 1 – Fethiye to Butterfly Valley",
         "description": "Board gulet at Fethiye harbour. Sail to Samanlik Bay, Butterfly Valley, and Oludeniz (Blue Lagoon). Dinner on board."
       },
       {
         "day": 8,
-        "title": "Blue Cruise Day 2 \u2013 Kas & Kekova",
+        "title": "Blue Cruise Day 2 – Kas & Kekova",
         "description": "Sail to Kas fishing village (Antiphellos ruins, Lycian rock tombs) and Kekova with submerged city ruins. Dinner on board."
       },
       {
         "day": 9,
-        "title": "Blue Cruise Day 3 \u2013 Kekova & Simena",
+        "title": "Blue Cruise Day 3 – Kekova & Simena",
         "description": "Visit Sunken City of Kekova and Simena village with Ottoman castle and ancient tombs. Dinner on board."
       },
       {
         "day": 10,
-        "title": "Blue Cruise Day 4 \u2013 Disembark & Antalya",
+        "title": "Blue Cruise Day 4 – Disembark & Antalya",
         "description": "Morning cruise past Pirates Cave to Andriace Harbour. Disembark and transfer to Antalya by bus."
       },
       {
@@ -1066,15 +1066,15 @@
   },
   {
     "id": 15,
-    "name": "Best of Turkey Tour \u2013 10 Days Small Group",
+    "name": "Best of Turkey Tour – 10 Days Small Group",
     "slug": "best-of-turkey-tour-10-days-small-group",
     "destination": "Istanbul, Cappadocia, Pamukkale, Ephesus, Ankara",
     "countries": [
       "Turkey"
     ],
     "duration": 10,
-    "price": 1790.0,
-    "originalPrice": 1790.0,
+    "price": 1790,
+    "originalPrice": 1790,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -1153,15 +1153,15 @@
   },
   {
     "id": 16,
-    "name": "Top End Highlights \u2013 Darwin, Kakadu, Litchfield & Nitmiluk 6-Day Tour",
+    "name": "Top End Highlights – Darwin, Kakadu, Litchfield & Nitmiluk 6-Day Tour",
     "slug": "top-end-highlights-darwin-kakadu-litchfield-nitmiluk-6-day-tour",
     "destination": "Darwin, Kakadu, Litchfield & Nitmiluk (Katherine) National Parks",
     "countries": [
       "Australia"
     ],
     "duration": 6,
-    "price": 1978.0,
-    "originalPrice": 2155.0,
+    "price": 1978,
+    "originalPrice": 2155,
     "currency": "USD",
     "rating": 4.4,
     "reviewCount": 217,
@@ -1184,7 +1184,7 @@
     "maxGroupSize": 12,
     "difficulty": "moderate",
     "category": "adventure",
-    "description": "AAT Kings' 6-day guided tour from Darwin returning to Darwin, visiting Litchfield, Kakadu, and Nitmiluk National Parks. Includes 5 nights accommodation, 5 breakfasts, 2 dinners, expert Travel Director, and immersive MAKE TRAVEL MATTER\u00ae experiences with Indigenous communities. Currently discounted from AUD $3,345 to from AUD $3,077 per person (approx. USD $1,978 at current rates).",
+    "description": "AAT Kings' 6-day guided tour from Darwin returning to Darwin, visiting Litchfield, Kakadu, and Nitmiluk National Parks. Includes 5 nights accommodation, 5 breakfasts, 2 dinners, expert Travel Director, and immersive MAKE TRAVEL MATTER® experiences with Indigenous communities. Currently discounted from AUD $3,345 to from AUD $3,077 per person (approx. USD $1,978 at current rates).",
     "itinerary": [
       {
         "day": 1,
@@ -1193,12 +1193,12 @@
       },
       {
         "day": 2,
-        "title": "Kakadu National Park \u2013 Rock Art & Wetlands",
+        "title": "Kakadu National Park – Rock Art & Wetlands",
         "description": "Travel into Kakadu National Park. Visit the Ubirr rock art site with ancient Aboriginal paintings. Cruise Yellow Water Billabong to spot saltwater crocodiles and birdlife. Overnight in Kakadu."
       },
       {
         "day": 3,
-        "title": "Kakadu \u2013 Nourlangie & Cultural Experiences",
+        "title": "Kakadu – Nourlangie & Cultural Experiences",
         "description": "Explore Burrungkuy (Nourlangie) rock art site with climb to the lookout for panoramic views. Learn about Bininj/Mungguy culture from local guides. Overnight in Kakadu."
       },
       {
@@ -1227,8 +1227,8 @@
       "Australia"
     ],
     "duration": 8,
-    "price": 1259.0,
-    "originalPrice": 1273.0,
+    "price": 1259,
+    "originalPrice": 1273,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -1265,12 +1265,12 @@
       },
       {
         "day": 3,
-        "title": "Depart Darwin \u2013 Kakadu Day 1",
+        "title": "Depart Darwin – Kakadu Day 1",
         "description": "Join guided camping tour. Drive to Kakadu National Park, visit Ubirr rock art site and Yellow Water wetlands. Set up camp for the night."
       },
       {
         "day": 4,
-        "title": "Kakadu Day 2 \u2013 Nourlangie & Wildlife",
+        "title": "Kakadu Day 2 – Nourlangie & Wildlife",
         "description": "Explore Burrungkuy (Nourlangie) rock art and scenic lookout. Afternoon wildlife cruise on Kakadu's billabongs. Camp overnight."
       },
       {
@@ -1304,8 +1304,8 @@
       "Thailand"
     ],
     "duration": 9,
-    "price": 1609.0,
-    "originalPrice": 1609.0,
+    "price": 1609,
+    "originalPrice": 1609,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -1328,7 +1328,7 @@
     "maxGroupSize": 40,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Gate 1 Travel's 9-day classic escorted tour of Central Thailand covering 4 nights Bangkok, 2 nights Kanchanaburi (River Kwai), and 1 night Ayutthaya. Air & land price from $1,609 per person includes roundtrip international airfare, hotels, guided tours, most meals, and transfers. Season: August 2026 \u2013 May 2027.",
+    "description": "Gate 1 Travel's 9-day classic escorted tour of Central Thailand covering 4 nights Bangkok, 2 nights Kanchanaburi (River Kwai), and 1 night Ayutthaya. Air & land price from $1,609 per person includes roundtrip international airfare, hotels, guided tours, most meals, and transfers. Season: August 2026 – May 2027.",
     "itinerary": [
       {
         "day": 1,
@@ -1357,7 +1357,7 @@
       },
       {
         "day": 6,
-        "title": "Kanchanaburi \u2013 Death Railway & Nature",
+        "title": "Kanchanaburi – Death Railway & Nature",
         "description": "Ride a section of the historic Death Railway through scenic countryside. Visit Erawan National Park waterfalls (optional). Overnight in Kanchanaburi."
       },
       {
@@ -1379,7 +1379,7 @@
   },
   {
     "id": 19,
-    "name": "Barcelona and Rome by Air \u2013 European City Combo",
+    "name": "Barcelona and Rome by Air – European City Combo",
     "slug": "barcelona-and-rome-by-air-european-city-combo",
     "destination": "Barcelona & Rome",
     "countries": [
@@ -1387,8 +1387,8 @@
       "Italy"
     ],
     "duration": 6,
-    "price": 979.0,
-    "originalPrice": 979.0,
+    "price": 979,
+    "originalPrice": 979,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 400,
@@ -1447,15 +1447,15 @@
   },
   {
     "id": 20,
-    "name": "Express Turkey Tour \u2013 8 Days Small Group (Istanbul, Cappadocia, Pamukkale, Ephesus)",
+    "name": "Express Turkey Tour – 8 Days Small Group (Istanbul, Cappadocia, Pamukkale, Ephesus)",
     "slug": "express-turkey-tour-8-days-small-group-istanbul-cappadocia-pamukkale-ephesus",
     "destination": "Istanbul, Cappadocia, Konya, Pamukkale, Ephesus",
     "countries": [
       "Turkey"
     ],
     "duration": 8,
-    "price": 1660.0,
-    "originalPrice": 1660.0,
+    "price": 1660,
+    "originalPrice": 1660,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -1503,7 +1503,7 @@
       {
         "day": 5,
         "title": "Cappadocia to Konya & Pamukkale",
-        "description": "Morning visit to Uchisar Castle. Drive via Konya (Mevlana Museum \u2013 Whirling Dervishes) to Pamukkale. Overnight in Pamukkale."
+        "description": "Morning visit to Uchisar Castle. Drive via Konya (Mevlana Museum – Whirling Dervishes) to Pamukkale. Overnight in Pamukkale."
       },
       {
         "day": 6,
@@ -1531,8 +1531,8 @@
       "Thailand"
     ],
     "duration": 13,
-    "price": 2239.0,
-    "originalPrice": 2239.0,
+    "price": 2239,
+    "originalPrice": 2239,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -1547,7 +1547,7 @@
     "highlights": [
       "Bangkok Grand Palace, Wat Pho, and Chao Phraya river cruise",
       "Ayutthaya ancient temple ruins (UNESCO World Heritage)",
-      "Sukhothai Historical Park \u2013 Thailand's first capital",
+      "Sukhothai Historical Park – Thailand's first capital",
       "Chiang Rai's White Temple (Wat Rong Khun) and Golden Triangle",
       "Chiang Mai temples, elephant sanctuary, and night bazaar"
     ],
@@ -1555,7 +1555,7 @@
     "maxGroupSize": 40,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Gate 1 Travel's 13-day classic escorted tour of Thailand covering Bangkok (4 nights), Ayutthaya (1 night), Sukhothai (1 night), Chiang Rai (2 nights), and Chiang Mai (3 nights). Air & land price from $2,239 per person includes roundtrip international airfare, hotels, guided tours, most meals, and transfers. Season: August 2026 \u2013 May 2027.",
+    "description": "Gate 1 Travel's 13-day classic escorted tour of Thailand covering Bangkok (4 nights), Ayutthaya (1 night), Sukhothai (1 night), Chiang Rai (2 nights), and Chiang Mai (3 nights). Air & land price from $2,239 per person includes roundtrip international airfare, hotels, guided tours, most meals, and transfers. Season: August 2026 – May 2027.",
     "itinerary": [
       {
         "day": 1,
@@ -1609,7 +1609,7 @@
       },
       {
         "day": 11,
-        "title": "Chiang Mai \u2013 Elephant Sanctuary",
+        "title": "Chiang Mai – Elephant Sanctuary",
         "description": "Half-day visit to an ethical elephant sanctuary. Afternoon at Chiang Mai's famous Sunday Walking Street or Night Bazaar."
       },
       {
@@ -1626,7 +1626,7 @@
   },
   {
     "id": 22,
-    "name": "Barcelona and Rome by Air \u2013 9-Night Paris Add-On (Paris\u2013Barcelona\u2013Rome)",
+    "name": "Barcelona and Rome by Air – 9-Night Paris Add-On (Paris–Barcelona–Rome)",
     "slug": "barcelona-and-rome-by-air-9-night-paris-add-on-paris-barcelona-rome",
     "destination": "Paris, Barcelona & Rome",
     "countries": [
@@ -1635,8 +1635,8 @@
       "Italy"
     ],
     "duration": 9,
-    "price": 1239.0,
-    "originalPrice": 1239.0,
+    "price": 1239,
+    "originalPrice": 1239,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 162,
@@ -1650,7 +1650,7 @@
     },
     "highlights": [
       "3 nights in Paris with Eiffel Tower, Louvre, and Montmartre",
-      "Intercity flights Paris\u2013Barcelona and Barcelona\u2013Rome included",
+      "Intercity flights Paris–Barcelona and Barcelona–Rome included",
       "3 nights in Barcelona with Gaudi architecture and Gothic Quarter",
       "3 nights in Rome near Vatican, Colosseum, and Trevi Fountain",
       "Fully customizable itinerary with choice of departure city and dates"
@@ -1674,7 +1674,7 @@
       {
         "day": 3,
         "title": "Paris Free Day",
-        "description": "Free day for the Palace of Versailles day trip, Mus\u00e9e d'Orsay, or exploring Marais neighbourhood."
+        "description": "Free day for the Palace of Versailles day trip, Musée d'Orsay, or exploring Marais neighbourhood."
       },
       {
         "day": 4,
@@ -1698,7 +1698,7 @@
       },
       {
         "day": 8,
-        "title": "Rome \u2013 Vatican & Ancient Sites",
+        "title": "Rome – Vatican & Ancient Sites",
         "description": "Visit Vatican Museums, Sistine Chapel, St. Peter's Basilica. Afternoon at the Colosseum and Roman Forum."
       },
       {
@@ -1717,8 +1717,8 @@
       "Turkey"
     ],
     "duration": 10,
-    "price": 2330.0,
-    "originalPrice": 2330.0,
+    "price": 2330,
+    "originalPrice": 2330,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -1732,7 +1732,7 @@
     },
     "highlights": [
       "Istanbul's Hagia Sophia, Blue Mosque, and Topkapi Palace",
-      "Ephesus Ancient City \u2013 one of the best-preserved Roman cities in the world",
+      "Ephesus Ancient City – one of the best-preserved Roman cities in the world",
       "Pamukkale's white calcium terraces and Hierapolis ruins (UNESCO)",
       "Antalya's Roman harbour and old city (Kaleici)",
       "Cappadocia underground cities and cave hotel stay"
@@ -1804,8 +1804,8 @@
       "Vietnam"
     ],
     "duration": 12,
-    "price": 2329.0,
-    "originalPrice": 2329.0,
+    "price": 2329,
+    "originalPrice": 2329,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -1818,7 +1818,7 @@
       "guide": true
     },
     "highlights": [
-      "Ho Chi Minh City (Saigon) \u2013 Cu Chi Tunnels and War Remnants Museum",
+      "Ho Chi Minh City (Saigon) – Cu Chi Tunnels and War Remnants Museum",
       "Hoi An Ancient Town lantern-lit streets (UNESCO World Heritage)",
       "Hue Imperial Citadel and royal tombs",
       "Halong Bay overnight cruise among limestone karsts (UNESCO World Heritage)",
@@ -1828,7 +1828,7 @@
     "maxGroupSize": 40,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Gate 1 Travel's 12-day classic escorted tour of Vietnam covering Ho Chi Minh City (3 nights), Hoi An (2 nights), Hue (2 nights), Halong Bay cruise (1 night), and Hanoi (2 nights). Air & land price from $2,329 per person includes roundtrip international airfare, hotels, guided tours, most meals, and transfers. Season: July 2026 \u2013 May 2027.",
+    "description": "Gate 1 Travel's 12-day classic escorted tour of Vietnam covering Ho Chi Minh City (3 nights), Hoi An (2 nights), Hue (2 nights), Halong Bay cruise (1 night), and Hanoi (2 nights). Air & land price from $2,329 per person includes roundtrip international airfare, hotels, guided tours, most meals, and transfers. Season: July 2026 – May 2027.",
     "itinerary": [
       {
         "day": 1,
@@ -1877,12 +1877,12 @@
       },
       {
         "day": 10,
-        "title": "Halong Bay Cruise \u2013 Day 1",
+        "title": "Halong Bay Cruise – Day 1",
         "description": "Drive to Halong Bay and board overnight cruise. Sail through limestone karsts, visit caves, and kayak in sheltered bays."
       },
       {
         "day": 11,
-        "title": "Halong Bay Cruise \u2013 Day 2 & Return Hanoi",
+        "title": "Halong Bay Cruise – Day 2 & Return Hanoi",
         "description": "Morning activities on the bay (Tai Chi, cooking class). Disembark and return to Hanoi. Farewell dinner."
       },
       {
@@ -1894,15 +1894,15 @@
   },
   {
     "id": 25,
-    "name": "Top End Highlights \u2013 Darwin, Kakadu, Litchfield & Nitmiluk",
+    "name": "Top End Highlights – Darwin, Kakadu, Litchfield & Nitmiluk",
     "slug": "top-end-highlights-darwin-kakadu-litchfield-nitmiluk",
     "destination": "Darwin & Northern Territory",
     "countries": [
       "Australia"
     ],
     "duration": 6,
-    "price": 2456.0,
-    "originalPrice": 2670.0,
+    "price": 2456,
+    "originalPrice": 2670,
     "currency": "USD",
     "rating": 4.4,
     "reviewCount": 217,
@@ -1934,12 +1934,12 @@
       },
       {
         "day": 2,
-        "title": "Darwin to Kakadu \u2013 Ubirr Rock Art",
+        "title": "Darwin to Kakadu – Ubirr Rock Art",
         "description": "Drive into Kakadu National Park and visit the Ubirr Rock Art site, featuring ancient Aboriginal paintings, and enjoy panoramic views from Nadab Lookout."
       },
       {
         "day": 3,
-        "title": "Kakadu \u2013 Yellow Water Billabong Cruise",
+        "title": "Kakadu – Yellow Water Billabong Cruise",
         "description": "Take the award-winning Yellow Water Billabong cruise, spotting saltwater crocodiles, colourful birdlife, and dramatic wetland scenery. Visit Burrungkuy (Nourlangie) rock art site."
       },
       {
@@ -1961,15 +1961,15 @@
   },
   {
     "id": 26,
-    "name": "13 Day Turkish Treasures \u2013 Troy, Aegean Coast & Cappadocia",
+    "name": "13 Day Turkish Treasures – Troy, Aegean Coast & Cappadocia",
     "slug": "13-day-turkish-treasures-troy-aegean-coast-cappadocia",
     "destination": "Istanbul, Troy, Kusadasi, Cappadocia & Ankara",
     "countries": [
       "Turkey"
     ],
     "duration": 13,
-    "price": 2149.0,
-    "originalPrice": 2149.0,
+    "price": 2149,
+    "originalPrice": 2149,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -2019,7 +2019,7 @@
       {
         "day": 4,
         "title": "Troy & Canakkale",
-        "description": "Drive to Canakkale, stopping at the 4,000-year-old ruins of Troy \u2013 the legendary site of the Trojan War from Homer's Iliad. Overnight in Canakkale."
+        "description": "Drive to Canakkale, stopping at the 4,000-year-old ruins of Troy – the legendary site of the Trojan War from Homer's Iliad. Overnight in Canakkale."
       },
       {
         "day": 5,
@@ -2028,7 +2028,7 @@
       },
       {
         "day": 6,
-        "title": "Kusadasi \u2013 Optional Ephesus Tour",
+        "title": "Kusadasi – Optional Ephesus Tour",
         "description": "Day at leisure in Kusadasi, with an optional full-day excursion to Ephesus and the House of the Virgin Mary."
       },
       {
@@ -2038,7 +2038,7 @@
       },
       {
         "day": 8,
-        "title": "Konya \u2013 Mausoleum of Mevlana",
+        "title": "Konya – Mausoleum of Mevlana",
         "description": "Travel to Konya, home of the Whirling Dervishes, and visit the Mausoleum of Mevlana Celaleddin Rumi."
       },
       {
@@ -2053,7 +2053,7 @@
       },
       {
         "day": 11,
-        "title": "Ankara \u2013 Ataturk's Mausoleum",
+        "title": "Ankara – Ataturk's Mausoleum",
         "description": "Travel to Ankara and visit the Anatolian Civilizations Museum and the Mausoleum of Kemal Ataturk."
       },
       {
@@ -2070,15 +2070,15 @@
   },
   {
     "id": 27,
-    "name": "Treasures of Anatolia \u2013 Turkey 12-Day Tour (Troy, Cappadocia, Ephesus)",
+    "name": "Treasures of Anatolia – Turkey 12-Day Tour (Troy, Cappadocia, Ephesus)",
     "slug": "treasures-of-anatolia-turkey-12-day-tour-troy-cappadocia-ephesus",
     "destination": "Istanbul, Troy, Cappadocia, Ephesus & Pamukkale",
     "countries": [
       "Turkey"
     ],
     "duration": 12,
-    "price": 1699.0,
-    "originalPrice": 2619.0,
+    "price": 1699,
+    "originalPrice": 2619,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 66,
@@ -2091,9 +2091,9 @@
       "guide": true
     },
     "highlights": [
-      "Visit Troy (\u00c7anakkale) \u2013 UNESCO World Heritage archaeological site",
+      "Visit Troy (Çanakkale) – UNESCO World Heritage archaeological site",
       "Explore Cappadocia's Goreme Valley and fairy chimney rock formations",
-      "Tour the ancient ruins of Ephesus (\u00c9feso) and Pergamon",
+      "Tour the ancient ruins of Ephesus (Éfeso) and Pergamon",
       "Soak in the thermal terraces of Pamukkale",
       "Discover Istanbul's Grand Bazaar, Hagia Sophia area, and Bosphorus"
     ],
@@ -2101,7 +2101,7 @@
     "maxGroupSize": 12,
     "difficulty": "moderate",
     "category": "cultural",
-    "description": "Exoticca's best-selling 12-day Turkey tour includes flights, hotels, and guided tours covering Istanbul, Troy, Cappadocia, Ephesus, Pergamon, Pamukkale, and Izmir \u2014 currently 35% off, from $1,699 per person (was $2,619). Up to $500 cashback promotion also active until August 31.",
+    "description": "Exoticca's best-selling 12-day Turkey tour includes flights, hotels, and guided tours covering Istanbul, Troy, Cappadocia, Ephesus, Pergamon, Pamukkale, and Izmir — currently 35% off, from $1,699 per person (was $2,619). Up to $500 cashback promotion also active until August 31.",
     "itinerary": [
       {
         "day": 1,
@@ -2120,8 +2120,8 @@
       },
       {
         "day": 4,
-        "title": "Troy & \u00c7anakkale",
-        "description": "Travel to \u00c7anakkale and visit the legendary ruins of Troy, a UNESCO World Heritage Site immortalized in Homer's Iliad."
+        "title": "Troy & Çanakkale",
+        "description": "Travel to Çanakkale and visit the legendary ruins of Troy, a UNESCO World Heritage Site immortalized in Homer's Iliad."
       },
       {
         "day": 5,
@@ -2130,7 +2130,7 @@
       },
       {
         "day": 6,
-        "title": "Ephesus (\u00c9feso)",
+        "title": "Ephesus (Éfeso)",
         "description": "Tour the magnificent ruins of Ephesus, including the Library of Celsus and the Great Theatre."
       },
       {
@@ -2150,7 +2150,7 @@
       },
       {
         "day": 10,
-        "title": "Cappadocia \u2013 Optional Balloon Ride",
+        "title": "Cappadocia – Optional Balloon Ride",
         "description": "Optional hot air balloon flight at sunrise over the Cappadocian landscape, followed by free time to explore."
       },
       {
@@ -2174,8 +2174,8 @@
       "Japan"
     ],
     "duration": 9,
-    "price": 1899.0,
-    "originalPrice": 2719.0,
+    "price": 1899,
+    "originalPrice": 2719,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 24000,
@@ -2192,7 +2192,7 @@
       "Guided evening walk through Gion geisha district in Kyoto",
       "Ride the iconic Shinkansen (bullet train) between cities",
       "Optional day trip to Mount Fuji and Lake Kawaguchi",
-      "Explore Osaka's D\u014dtonbori entertainment and food district"
+      "Explore Osaka's Dōtonbori entertainment and food district"
     ],
     "departureDates": [
       "2026-07-01",
@@ -2222,12 +2222,12 @@
       },
       {
         "day": 3,
-        "title": "Tokyo \u2013 Shibuya Walking Tour",
+        "title": "Tokyo – Shibuya Walking Tour",
         "description": "Explore Tokyo at your own pace in the morning, then join a guided walking tour of Shibuya, including Shibuya Crossing, Meiji Shrine, and Hachiko Statue."
       },
       {
         "day": 4,
-        "title": "Tokyo \u2013 Free Day / Optional Mount Fuji",
+        "title": "Tokyo – Free Day / Optional Mount Fuji",
         "description": "Full free day in Tokyo. Optional excursion to Mount Fuji's 5th Station and Lake Kawaguchi."
       },
       {
@@ -2237,29 +2237,29 @@
       },
       {
         "day": 6,
-        "title": "Kyoto \u2013 Gion Geisha District Walk",
+        "title": "Kyoto – Gion Geisha District Walk",
         "description": "Morning free time in Kyoto. Evening guided walking tour of the Gion geisha district and Yasaka Shrine."
       },
       {
         "day": 7,
-        "title": "Kyoto \u2013 Free Day / Optional Nara Tour",
+        "title": "Kyoto – Free Day / Optional Nara Tour",
         "description": "Free day in Kyoto. Optional full-day tour to Kinkaku-ji (Golden Pavilion), Fushimi Inari, and Nara Park."
       },
       {
         "day": 8,
         "title": "Kyoto to Osaka by Shinkansen",
-        "description": "Short bullet train ride to Osaka. Afternoon free to explore Osaka's D\u014dtonbori district and castle area."
+        "description": "Short bullet train ride to Osaka. Afternoon free to explore Osaka's Dōtonbori district and castle area."
       },
       {
         "day": 9,
-        "title": "Osaka \u2013 Fly Home",
+        "title": "Osaka – Fly Home",
         "description": "Transfer to Osaka airport for your return flight to the US."
       }
     ]
   },
   {
     "id": 29,
-    "name": "Prague \u2013 Vienna \u2013 Budapest by Train (9 Nights)",
+    "name": "Prague – Vienna – Budapest by Train (9 Nights)",
     "slug": "prague-vienna-budapest-by-train-9-nights",
     "destination": "Prague, Vienna & Budapest",
     "countries": [
@@ -2268,8 +2268,8 @@
       "Hungary"
     ],
     "duration": 10,
-    "price": 1269.0,
-    "originalPrice": 1269.0,
+    "price": 1269,
+    "originalPrice": 1269,
     "currency": "USD",
     "rating": 4.7,
     "reviewCount": 1951,
@@ -2286,13 +2286,13 @@
       "Discover Vienna's Baroque palaces, coffee houses, and musical heritage",
       "Visit Budapest's dramatic Castle Hill and vibrant Pest riverside",
       "Travel between cities by inter-city train",
-      "Fully flexible itinerary \u2013 customize hotels, transportation, and length of stay"
+      "Fully flexible itinerary – customize hotels, transportation, and length of stay"
     ],
     "departureDates": [],
     "maxGroupSize": 2,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Tripmasters' most popular European multi-city package combines Prague, Vienna, and Budapest with train travel between cities, round-trip flights, and 3 nights in each city \u2013 from $1,269 per person based on double occupancy. Rated 4.7/5 by 1,951 customers.",
+    "description": "Tripmasters' most popular European multi-city package combines Prague, Vienna, and Budapest with train travel between cities, round-trip flights, and 3 nights in each city – from $1,269 per person based on double occupancy. Rated 4.7/5 by 1,951 customers.",
     "itinerary": [
       {
         "day": 1,
@@ -2302,11 +2302,11 @@
       {
         "day": 2,
         "title": "Prague Exploration",
-        "description": "Explore Prague's Old Town, Charles Bridge, Prague Castle, and vibrant caf\u00e9 culture."
+        "description": "Explore Prague's Old Town, Charles Bridge, Prague Castle, and vibrant café culture."
       },
       {
         "day": 3,
-        "title": "Prague \u2013 Free Day",
+        "title": "Prague – Free Day",
         "description": "Second free day in Prague to discover museums, galleries, and local neighborhoods at your own pace."
       },
       {
@@ -2317,12 +2317,12 @@
       {
         "day": 5,
         "title": "Vienna Sightseeing",
-        "description": "Explore Vienna's Baroque palaces, the Ringstrasse, Sch\u00f6nbrunn, and the famous Viennese coffee house scene."
+        "description": "Explore Vienna's Baroque palaces, the Ringstrasse, Schönbrunn, and the famous Viennese coffee house scene."
       },
       {
         "day": 6,
-        "title": "Vienna \u2013 Free Day",
-        "description": "Second free day in Vienna \u2013 visit world-class museums, attend a concert, or stroll the Prater park."
+        "title": "Vienna – Free Day",
+        "description": "Second free day in Vienna – visit world-class museums, attend a concert, or stroll the Prater park."
       },
       {
         "day": 7,
@@ -2331,12 +2331,12 @@
       },
       {
         "day": 8,
-        "title": "Budapest \u2013 Buda Side",
+        "title": "Budapest – Buda Side",
         "description": "Explore Buda's Castle Hill, Matthias Church, and Fisherman's Bastion with panoramic views over the Danube."
       },
       {
         "day": 9,
-        "title": "Budapest \u2013 Pest Side",
+        "title": "Budapest – Pest Side",
         "description": "Discover Pest's vibrant ruin bars, the Great Market Hall, and the iconic Parliament building on the riverbank."
       },
       {
@@ -2355,8 +2355,8 @@
       "Spain"
     ],
     "duration": 7,
-    "price": 1049.0,
-    "originalPrice": 1049.0,
+    "price": 1049,
+    "originalPrice": 1049,
     "currency": "USD",
     "rating": 4.7,
     "reviewCount": 704,
@@ -2370,16 +2370,16 @@
     },
     "highlights": [
       "Explore Madrid's world-class museums and vibrant nightlife scene",
-      "Discover Barcelona's Gothic Quarter and Antoni Gaud\u00ed's iconic architecture",
+      "Discover Barcelona's Gothic Quarter and Antoni Gaudí's iconic architecture",
       "Travel between cities by high-speed train",
       "3 nights in each city with flexible, customizable itinerary",
-      "Fully flexible \u2013 personalize hotels, transportation, and length of stay"
+      "Fully flexible – personalize hotels, transportation, and length of stay"
     ],
     "departureDates": [],
     "maxGroupSize": 2,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Tripmasters' popular Spain package pairs Madrid and Barcelona with a high-speed train connection between them, round-trip flights, and 3 hotel nights in each city \u2013 from $1,049 per person. Rated 4.7/5 by 704 customers.",
+    "description": "Tripmasters' popular Spain package pairs Madrid and Barcelona with a high-speed train connection between them, round-trip flights, and 3 hotel nights in each city – from $1,049 per person. Rated 4.7/5 by 704 customers.",
     "itinerary": [
       {
         "day": 1,
@@ -2393,7 +2393,7 @@
       },
       {
         "day": 3,
-        "title": "Madrid \u2013 Free Day",
+        "title": "Madrid – Free Day",
         "description": "Second free day in Madrid for independent exploration of neighborhoods, markets, and galleries."
       },
       {
@@ -2403,13 +2403,13 @@
       },
       {
         "day": 5,
-        "title": "Barcelona \u2013 Gaud\u00ed & Gothic Quarter",
-        "description": "Visit Gaud\u00ed's Sagrada Fam\u00edlia, Park G\u00fcell, and explore the atmospheric Gothic Quarter."
+        "title": "Barcelona – Gaudí & Gothic Quarter",
+        "description": "Visit Gaudí's Sagrada Família, Park Güell, and explore the atmospheric Gothic Quarter."
       },
       {
         "day": 6,
-        "title": "Barcelona \u2013 Free Day",
-        "description": "Second free day in Barcelona \u2013 relax on the beach, browse La Boqueria market, or visit the Picasso Museum."
+        "title": "Barcelona – Free Day",
+        "description": "Second free day in Barcelona – relax on the beach, browse La Boqueria market, or visit the Picasso Museum."
       },
       {
         "day": 7,
@@ -2420,15 +2420,15 @@
   },
   {
     "id": 31,
-    "name": "Sandals Jamaica \u2013 Great Jamaica Comeback Sale (All-Inclusive Adults-Only)",
+    "name": "Sandals Jamaica – Great Jamaica Comeback Sale (All-Inclusive Adults-Only)",
     "slug": "sandals-jamaica-great-jamaica-comeback-sale-all-inclusive-adults-only",
     "destination": "Jamaica",
     "countries": [
       "Jamaica"
     ],
     "duration": 7,
-    "price": 1463.0,
-    "originalPrice": 1463.0,
+    "price": 1463,
+    "originalPrice": 1463,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -2461,7 +2461,7 @@
       {
         "day": 2,
         "title": "Beach, Pool & Water Sports",
-        "description": "Enjoy unlimited water sports, swimming pools, and beachfront relaxation \u2013 all included in your stay."
+        "description": "Enjoy unlimited water sports, swimming pools, and beachfront relaxation – all included in your stay."
       },
       {
         "day": 3,
@@ -2471,7 +2471,7 @@
       {
         "day": 4,
         "title": "Free Jamaican Adventure Excursion",
-        "description": "Enjoy your complimentary Jamaican Adventure experience \u2013 options include bamboo river rafting on the Martha Brae, a catamaran cruise to YS Falls, or Dunn's River Falls."
+        "description": "Enjoy your complimentary Jamaican Adventure experience – options include bamboo river rafting on the Martha Brae, a catamaran cruise to YS Falls, or Dunn's River Falls."
       },
       {
         "day": 5,
@@ -2492,15 +2492,15 @@
   },
   {
     "id": 32,
-    "name": "Magnificent Turkey with Troy \u2013 10-Day Guided Package (Greca)",
+    "name": "Magnificent Turkey with Troy – 10-Day Guided Package (Greca)",
     "slug": "magnificent-turkey-with-troy-10-day-guided-package-greca",
     "destination": "Istanbul, Troy, Cappadocia, Ephesus, Pergamon & Pamukkale",
     "countries": [
       "Turkey"
     ],
     "duration": 10,
-    "price": 1215.0,
-    "originalPrice": 1338.0,
+    "price": 1215,
+    "originalPrice": 1338,
     "currency": "USD",
     "rating": 4.8,
     "reviewCount": 24,
@@ -2514,7 +2514,7 @@
     },
     "highlights": [
       "Guaranteed weekly departures from Istanbul (Tuesdays & Wednesdays) year-round",
-      "Visit Troy (\u00c7anakkale), Pergamon, and Ephesus on the Aegean coast",
+      "Visit Troy (Çanakkale), Pergamon, and Ephesus on the Aegean coast",
       "Explore Cappadocia's Goreme Valley and fairy chimneys",
       "See the thermal terraces of Pamukkale (Hierapolis)",
       "Free cancellation up to 60 days before arrival; book now and pay in up to 12 installments"
@@ -2523,7 +2523,7 @@
     "maxGroupSize": 20,
     "difficulty": "moderate",
     "category": "cultural",
-    "description": "Greca's 10-day 'Magnificent Turkey' guided tour departs guaranteed every Tuesday and Wednesday from Istanbul, covering Troy, Pergamon, Ephesus, Pamukkale, Cappadocia, and Izmir with an official English-speaking guide. Currently 10% off \u2013 from EUR 1,115.86 (approx. $1,215 USD) per person.",
+    "description": "Greca's 10-day 'Magnificent Turkey' guided tour departs guaranteed every Tuesday and Wednesday from Istanbul, covering Troy, Pergamon, Ephesus, Pamukkale, Cappadocia, and Izmir with an official English-speaking guide. Currently 10% off – from EUR 1,115.86 (approx. $1,215 USD) per person.",
     "itinerary": [
       {
         "day": 1,
@@ -2537,8 +2537,8 @@
       },
       {
         "day": 3,
-        "title": "Troy & \u00c7anakkale",
-        "description": "Travel to \u00c7anakkale and visit the legendary ruins of Troy (UNESCO World Heritage Site), including the famous Trojan Horse replica."
+        "title": "Troy & Çanakkale",
+        "description": "Travel to Çanakkale and visit the legendary ruins of Troy (UNESCO World Heritage Site), including the famous Trojan Horse replica."
       },
       {
         "day": 4,
@@ -2547,12 +2547,12 @@
       },
       {
         "day": 5,
-        "title": "Ephesus (\u00c9feso)",
+        "title": "Ephesus (Éfeso)",
         "description": "Tour the remarkably preserved ruins of Ephesus, including the Library of Celsus, the Great Theatre, and the Temple of Hadrian."
       },
       {
         "day": 6,
-        "title": "Pamukkale \u2013 Cotton Castle",
+        "title": "Pamukkale – Cotton Castle",
         "description": "Visit the stunning white calcium carbonate terraces of Pamukkale and the ruins of ancient Hierapolis."
       },
       {
@@ -2562,12 +2562,12 @@
       },
       {
         "day": 8,
-        "title": "Cappadocia \u2013 Goreme Valley",
+        "title": "Cappadocia – Goreme Valley",
         "description": "Explore Cappadocia's fairy chimneys, underground cities, and the Goreme Open-Air Museum."
       },
       {
         "day": 9,
-        "title": "Cappadocia \u2013 Ankara",
+        "title": "Cappadocia – Ankara",
         "description": "Optional hot air balloon ride at sunrise, then travel to Ankara and visit Ataturk's Mausoleum."
       },
       {
@@ -2579,7 +2579,7 @@
   },
   {
     "id": 33,
-    "name": "Runway to Rail: London \u2013 Paris and Rome (9 Nights)",
+    "name": "Runway to Rail: London – Paris and Rome (9 Nights)",
     "slug": "runway-to-rail-london-paris-and-rome-9-nights",
     "destination": "London, Paris & Rome",
     "countries": [
@@ -2588,8 +2588,8 @@
       "Italy"
     ],
     "duration": 10,
-    "price": 1269.0,
-    "originalPrice": 1269.0,
+    "price": 1269,
+    "originalPrice": 1269,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 713,
@@ -2612,7 +2612,7 @@
     "maxGroupSize": 2,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Tripmasters' three-city European classic combines London, Paris, and Rome with Eurostar train travel and an inter-city flight, plus round-trip flights and 3 hotel nights in each destination \u2013 from $1,269 per person. Rated 4.5/5 by 713 customers.",
+    "description": "Tripmasters' three-city European classic combines London, Paris, and Rome with Eurostar train travel and an inter-city flight, plus round-trip flights and 3 hotel nights in each destination – from $1,269 per person. Rated 4.5/5 by 713 customers.",
     "itinerary": [
       {
         "day": 1,
@@ -2626,7 +2626,7 @@
       },
       {
         "day": 3,
-        "title": "London \u2013 Free Day",
+        "title": "London – Free Day",
         "description": "Second free day in London to visit museums, take a Thames river cruise, or explore local neighborhoods."
       },
       {
@@ -2637,12 +2637,12 @@
       {
         "day": 5,
         "title": "Paris Sightseeing",
-        "description": "Visit the Louvre, stroll along the Champs-\u00c9lys\u00e9es, and enjoy the romantic atmosphere of the City of Lights."
+        "description": "Visit the Louvre, stroll along the Champs-Élysées, and enjoy the romantic atmosphere of the City of Lights."
       },
       {
         "day": 6,
-        "title": "Paris \u2013 Free Day",
-        "description": "Second free day in Paris \u2013 visit Versailles, Montmartre, or simply enjoy Parisian caf\u00e9 culture."
+        "title": "Paris – Free Day",
+        "description": "Second free day in Paris – visit Versailles, Montmartre, or simply enjoy Parisian café culture."
       },
       {
         "day": 7,
@@ -2656,7 +2656,7 @@
       },
       {
         "day": 9,
-        "title": "Rome \u2013 Free Day",
+        "title": "Rome – Free Day",
         "description": "Final free day in Rome to visit the Borghese Gallery, Trastevere neighborhood, or enjoy Italian cuisine."
       },
       {
@@ -2668,15 +2668,15 @@
   },
   {
     "id": 34,
-    "name": "Gate 1 Travel 9 Day Essential Turkey \u2013 Istanbul, Cappadocia & Ankara",
+    "name": "Gate 1 Travel 9 Day Essential Turkey – Istanbul, Cappadocia & Ankara",
     "slug": "gate-1-travel-9-day-essential-turkey-istanbul-cappadocia-ankara",
     "destination": "Istanbul, Cappadocia & Ankara",
     "countries": [
       "Turkey"
     ],
     "duration": 9,
-    "price": 1699.0,
-    "originalPrice": 1699.0,
+    "price": 1699,
+    "originalPrice": 1699,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -2693,7 +2693,7 @@
       "Discover the fairy chimney rock formations of Cappadocia",
       "Optional hot air balloon ride over the Cappadocian landscape",
       "Visit the Mausoleum of Kemal Ataturk in Ankara",
-      "4 nights Istanbul, 2 nights Cappadocia, 1 night Ankara \u2013 value-style escorted tour"
+      "4 nights Istanbul, 2 nights Cappadocia, 1 night Ankara – value-style escorted tour"
     ],
     "departureDates": [],
     "maxGroupSize": 40,
@@ -2718,12 +2718,12 @@
       },
       {
         "day": 4,
-        "title": "Istanbul \u2013 Second Day",
+        "title": "Istanbul – Second Day",
         "description": "Further exploration of Istanbul including the Sultanahmet district, Topkapi Palace area, and Bosphorus views."
       },
       {
         "day": 5,
-        "title": "Istanbul \u2013 Free Day",
+        "title": "Istanbul – Free Day",
         "description": "Day at leisure in Istanbul or optional excursion to the Princes' Islands or Asian side."
       },
       {
@@ -2757,8 +2757,8 @@
       "Australia"
     ],
     "duration": 6,
-    "price": 1329.0,
-    "originalPrice": 1648.0,
+    "price": 1329,
+    "originalPrice": 1648,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -2791,7 +2791,7 @@
       {
         "day": 2,
         "title": "Litchfield National Park Waterfalls Tour",
-        "description": "Full-day guided coach tour through Litchfield National Park. Visit Termite Mounds, Florence Falls, Tolmer Falls, and Wangi Falls. Lunch included at Litchfield Caf\u00e9."
+        "description": "Full-day guided coach tour through Litchfield National Park. Visit Termite Mounds, Florence Falls, Tolmer Falls, and Wangi Falls. Lunch included at Litchfield Café."
       },
       {
         "day": 3,
@@ -2801,7 +2801,7 @@
       {
         "day": 4,
         "title": "Kakadu National Park Explorer",
-        "description": "Full-day guided tour of Kakadu National Park \u2014 the largest national park in Australia. See ancient Aboriginal rock art sites and diverse wildlife. Lunch included."
+        "description": "Full-day guided tour of Kakadu National Park — the largest national park in Australia. See ancient Aboriginal rock art sites and diverse wildlife. Lunch included."
       },
       {
         "day": 5,
@@ -2817,15 +2817,15 @@
   },
   {
     "id": 36,
-    "name": "13 Day Turkish Treasures \u2013 Istanbul, Troy, Cappadocia & More",
+    "name": "13 Day Turkish Treasures – Istanbul, Troy, Cappadocia & More",
     "slug": "13-day-turkish-treasures-istanbul-troy-cappadocia-more",
     "destination": "Istanbul / Troy / Cappadocia / Aegean Coast",
     "countries": [
       "Turkey"
     ],
     "duration": 13,
-    "price": 3239.0,
-    "originalPrice": 3239.0,
+    "price": 3239,
+    "originalPrice": 3239,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -2934,15 +2934,15 @@
   },
   {
     "id": 37,
-    "name": "13 Day Classic Portugal & Madeira \u2013 Porto, Lisbon & Funchal",
+    "name": "13 Day Classic Portugal & Madeira – Porto, Lisbon & Funchal",
     "slug": "13-day-classic-portugal-madeira-porto-lisbon-funchal",
     "destination": "Porto / Lisbon / Funchal, Madeira",
     "countries": [
       "Portugal"
     ],
     "duration": 13,
-    "price": 3749.0,
-    "originalPrice": 4499.0,
+    "price": 3749,
+    "originalPrice": 4499,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -3048,8 +3048,8 @@
       "Japan"
     ],
     "duration": 11,
-    "price": 3990.0,
-    "originalPrice": 3990.0,
+    "price": 3990,
+    "originalPrice": 3990,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -3083,7 +3083,7 @@
       },
       {
         "day": 2,
-        "title": "Gifu & Mino \u2013 Seki & Kimono Experience",
+        "title": "Gifu & Mino – Seki & Kimono Experience",
         "description": "Visit historic sword-making town of Seki, try on a traditional uchikake kimono, and stroll through the lantern-lined streets of Mino. Evening onsen."
       },
       {
@@ -3098,7 +3098,7 @@
       },
       {
         "day": 5,
-        "title": "Nagoya \u2013 Atsuta Shrine & Nagoya Castle",
+        "title": "Nagoya – Atsuta Shrine & Nagoya Castle",
         "description": "Explore Atsuta Jingu Shrine, Nagoya Castle grounds, and bustling shopping streets of Osu and Sakae."
       },
       {
@@ -3135,15 +3135,15 @@
   },
   {
     "id": 39,
-    "name": "Sardinia Fly and Drive \u2013 5 Nights Independent Vacation Package",
+    "name": "Sardinia Fly and Drive – 5 Nights Independent Vacation Package",
     "slug": "sardinia-fly-and-drive-5-nights-independent-vacation-package",
     "destination": "Sardinia (Cagliari & Emerald Coast)",
     "countries": [
       "Italy"
     ],
     "duration": 6,
-    "price": 882.0,
-    "originalPrice": 882.0,
+    "price": 882,
+    "originalPrice": 882,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -3170,7 +3170,7 @@
     "itinerary": [
       {
         "day": 1,
-        "title": "Arrive Cagliari \u2013 Pick Up Rental Car",
+        "title": "Arrive Cagliari – Pick Up Rental Car",
         "description": "Arrive at Cagliari airport, pick up your rental car, and check in to your hotel. Begin discovering the island of Sardinia."
       },
       {
@@ -3186,7 +3186,7 @@
       {
         "day": 4,
         "title": "Emerald Coast at Leisure",
-        "description": "Free day in Porto Cervo \u2014 explore the famous Piazzetta, boutiques, and stunning turquoise waters of the Emerald Coast. Breakfast included."
+        "description": "Free day in Porto Cervo — explore the famous Piazzetta, boutiques, and stunning turquoise waters of the Emerald Coast. Breakfast included."
       },
       {
         "day": 5,
@@ -3202,15 +3202,15 @@
   },
   {
     "id": 40,
-    "name": "Big Sky Family Adventure \u2013 5 Nights with Yellowstone, Rafting, Horseback & Zipline",
+    "name": "Big Sky Family Adventure – 5 Nights with Yellowstone, Rafting, Horseback & Zipline",
     "slug": "big-sky-family-adventure-5-nights-with-yellowstone-rafting-horseback-zipline",
     "destination": "Big Sky, Montana",
     "countries": [
       "United States"
     ],
     "duration": 6,
-    "price": 1618.0,
-    "originalPrice": 1618.0,
+    "price": 1618,
+    "originalPrice": 1618,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -3233,7 +3233,7 @@
     "maxGroupSize": 4,
     "difficulty": "moderate",
     "category": "adventure",
-    "description": "AllTrips' Big Sky Family Adventure package includes 5 nights in a Cowboy Heaven mountain cabin plus four guided activities \u2014 a full-day Yellowstone tour, half-day Gallatin River whitewater rafting, a 2-hour horseback ride, and a zipline canopy tour \u2014 starting from $1,618 per person (quad occupancy). Available mid-May through September.",
+    "description": "AllTrips' Big Sky Family Adventure package includes 5 nights in a Cowboy Heaven mountain cabin plus four guided activities — a full-day Yellowstone tour, half-day Gallatin River whitewater rafting, a 2-hour horseback ride, and a zipline canopy tour — starting from $1,618 per person (quad occupancy). Available mid-May through September.",
     "itinerary": [
       {
         "day": 1,
@@ -3269,15 +3269,15 @@
   },
   {
     "id": 41,
-    "name": "Bangkok \u2013 Chiang Mai \u2013 Phuket by Air",
+    "name": "Bangkok – Chiang Mai – Phuket by Air",
     "slug": "bangkok-chiang-mai-phuket-by-air",
     "destination": "Bangkok / Chiang Mai / Phuket",
     "countries": [
       "Thailand"
     ],
     "duration": 10,
-    "price": 1349.0,
-    "originalPrice": 1349.0,
+    "price": 1349,
+    "originalPrice": 1349,
     "currency": "USD",
     "rating": 4.7,
     "reviewCount": 424,
@@ -3329,7 +3329,7 @@
       },
       {
         "day": 6,
-        "title": "Chiang Mai \u2013 Elephant Sanctuary & Markets",
+        "title": "Chiang Mai – Elephant Sanctuary & Markets",
         "description": "Optional visit to an elephant rescue sanctuary. Browse the famous Sunday Night Market for authentic local products."
       },
       {
@@ -3356,15 +3356,15 @@
   },
   {
     "id": 42,
-    "name": "Auckland \u2013 Rotorua \u2013 Queenstown by Air",
+    "name": "Auckland – Rotorua – Queenstown by Air",
     "slug": "auckland-rotorua-queenstown-by-air",
     "destination": "Auckland / Rotorua / Queenstown",
     "countries": [
       "New Zealand"
     ],
     "duration": 10,
-    "price": 1869.0,
-    "originalPrice": 1869.0,
+    "price": 1869,
+    "originalPrice": 1869,
     "currency": "USD",
     "rating": 4.3,
     "reviewCount": 18,
@@ -3443,15 +3443,15 @@
   },
   {
     "id": 43,
-    "name": "9 Day Essential Turkey \u2013 Istanbul & Cappadocia",
+    "name": "9 Day Essential Turkey – Istanbul & Cappadocia",
     "slug": "9-day-essential-turkey-istanbul-cappadocia",
     "destination": "Istanbul / Cappadocia / Ankara",
     "countries": [
       "Turkey"
     ],
     "duration": 9,
-    "price": 2629.0,
-    "originalPrice": 2629.0,
+    "price": 2629,
+    "originalPrice": 2629,
     "currency": "USD",
     "rating": 4.5,
     "reviewCount": 0,
@@ -3488,12 +3488,12 @@
       },
       {
         "day": 3,
-        "title": "Istanbul \u2013 Sultanahmet & Spice Market",
+        "title": "Istanbul – Sultanahmet & Spice Market",
         "description": "Guided tour of Hagia Sophia (UNESCO), the Hippodrome, the Serefiye Cistern, and the Spice Market."
       },
       {
         "day": 4,
-        "title": "Istanbul \u2013 Bosphorus & Grand Bazaar",
+        "title": "Istanbul – Bosphorus & Grand Bazaar",
         "description": "Cruise the Bosphorus Strait between Europe and Asia. Visit the Grand Bazaar with over 4,000 shops."
       },
       {
@@ -3503,7 +3503,7 @@
       },
       {
         "day": 6,
-        "title": "Cappadocia \u2013 Goreme Open Air Museum",
+        "title": "Cappadocia – Goreme Open Air Museum",
         "description": "Optional early hot air balloon ride at sunrise. Visit Goreme Open-Air Museum's rock-cut churches and Ozkonak Underground City."
       },
       {
@@ -3520,6 +3520,86 @@
         "day": 9,
         "title": "Depart Turkey",
         "description": "Transfer to Istanbul airport for return flight home."
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Gallipoli & Troy Remembrance Journey",
+    "slug": "gallipoli-troy-remembrance-journey",
+    "destination": "Gallipoli & Troy, Türkiye",
+    "countries": [
+      "Türkiye"
+    ],
+    "duration": 8,
+    "price": 1240,
+    "originalPrice": 1240,
+    "currency": "USD",
+    "rating": 0,
+    "reviewCount": 0,
+    "imageGradient": "from-amber-700 to-stone-900",
+    "includes": {
+      "flights": false,
+      "hotel": true,
+      "transfers": true,
+      "meals": true,
+      "guide": true
+    },
+    "highlights": [
+      "Dawn Service morning at ANZAC Cove (25 April edition)",
+      "Guided walk through Lone Pine, The Nek & Chunuk Bair",
+      "Ancient Troy archaeological site with English-speaking guide",
+      "Istanbul Old City: Hagia Sophia, Blue Mosque, Topkapi Palace",
+      "Sunset Bosphorus cruise",
+      "Optional Gallipoli Simulation Centre & Cappadocia extension"
+    ],
+    "departureDates": [
+      "2027-04-22"
+    ],
+    "maxGroupSize": 16,
+    "difficulty": "easy",
+    "category": "heritage",
+    "description": "A private, guided remembrance pilgrimage timed to the ANZAC Day Dawn Service — tracing the Gallipoli battlefields at ANZAC Cove, Lone Pine, The Nek and Chunuk Bair, then the ancient city of Troy, bookended by Istanbul's old city and a Bosphorus cruise. This is a TRoyGO-operated product — ground services (hotels, transfers, guiding, entry fees) are quoted and run directly by TRoyGO's own Türkiye ground team, not resold from a third-party operator, unlike the other multi-city Turkey packages on this site that happen to pass through Gallipoli and Troy as one stop among many. Flights are booked separately by the traveler.\n\nPricing shown ($1,240 pp for 2 adults sharing) is a September 2026 market-rate estimate built bottom-up from real, sourced comparable costs: 4-star hotels in Istanbul and Çanakkale, private vehicle transfers (including the Istanbul↔Çanakkale leg via Gallipoli), a licensed English-speaking guide for the Gallipoli and Troy days, all site entry fees (Topkapi Palace, Troy incl. museum; the Gallipoli battlefield sites themselves — ANZAC Cove, Lone Pine, Kabatepe Museum — are free to enter), and restaurant meals. It is not a fabricated or placeholder number, but also not yet a locked ground-ops contract rate. Per-person cost drops as group size grows, since the vehicle and guide are shared: approx. $1,060 pp for 3 travelers and $965 pp for 4 travelers. Children under 12 pay reduced or free entry at several sites (Troy is free under 12); exact child pricing depends on age and room configuration. Final confirmed pricing for specific travel dates comes directly from TRoyGO's ground operations team.",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrive Istanbul",
+        "description": "Private airport transfer to your hotel, followed by a welcome briefing covering the week ahead."
+      },
+      {
+        "day": 2,
+        "title": "Istanbul Old City",
+        "description": "Guided day through Hagia Sophia, the Blue Mosque, and Topkapi Palace."
+      },
+      {
+        "day": 3,
+        "title": "To Çanakkale via Gallipoli",
+        "description": "Drive/ferry to Çanakkale, stopping through the Gallipoli battlefields: ANZAC Cove, Lone Pine, The Nek, Chunuk Bair, and the Kabatepe Museum."
+      },
+      {
+        "day": 4,
+        "title": "Dawn Service & Troy",
+        "description": "Dawn Service morning at ANZAC Cove (25 April edition), followed by a guided visit to the archaeological site of Troy."
+      },
+      {
+        "day": 5,
+        "title": "Free Day in Çanakkale",
+        "description": "Rest and explore independently, or add the optional Gallipoli Simulation Centre."
+      },
+      {
+        "day": 6,
+        "title": "Return to Istanbul",
+        "description": "Transfer back to Istanbul; evening Bosphorus cruise."
+      },
+      {
+        "day": 7,
+        "title": "Free Day",
+        "description": "Explore at your own pace, or add the optional Cappadocia add-on."
+      },
+      {
+        "day": 8,
+        "title": "Departure",
+        "description": "Private transfer to the airport."
       }
     ]
   }
