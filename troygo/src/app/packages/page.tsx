@@ -31,8 +31,8 @@ export default function PackagesPage() {
   const filtered = useMemo(() => {
     let list = [...travelPackages]
 
-    // price
-    list = list.filter((p) => p.price >= filters.priceMin && p.price <= filters.priceMax)
+    // price (quote-on-request packages have no real price yet, so price filters don't apply to them)
+    list = list.filter((p) => p.priceOnRequest || (p.price >= filters.priceMin && p.price <= filters.priceMax))
 
     // duration
     if (filters.durations.length > 0) {
@@ -112,6 +112,7 @@ export default function PackagesPage() {
     category: p.category,
     maxGroupSize: p.maxGroupSize,
     difficulty: p.difficulty,
+    priceOnRequest: p.priceOnRequest,
   })
 
   return (

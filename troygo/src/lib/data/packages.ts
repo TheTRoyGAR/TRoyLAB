@@ -37,6 +37,9 @@ export interface TravelPackage {
   category: PackageCategory
   description: string
   itinerary: { day: number; title: string; description: string }[]
+  // True for ground-quoted packages awaiting a real ops price (price/originalPrice
+  // are placeholder 0 until quoted) — UI shows "Request a Quote" instead of $0.
+  priceOnRequest?: boolean
 }
 
 export interface CabinType {
@@ -878,6 +881,75 @@ export const travelPackages: TravelPackage[] = [
       { day: 6, title: 'Jungfraujoch', description: 'Top of Europe at 3,454m: Sphinx Observatory, Aletsch Glacier, snow palace.' },
       { day: 7, title: 'Lucerne', description: 'Chapel Bridge, Lion Monument, Swiss Museum of Transport, lake steamboat.' },
       { day: 8, title: 'Departure from Zurich', description: 'Farewell Swiss breakfast. Transfer to Zurich Airport.' },
+    ],
+  },
+  // Gallipoli & Troy Remembrance Journey — pricing is a market-rate ESTIMATE, not a
+  // contracted ground-ops quote. Built bottom-up from real, sourced comparable rates
+  // researched 2026-09-03 (hotels, private transfers, licensed guide day-rate, site
+  // entry fees, restaurant meal costs), all in USD, per person:
+  //   Hotels (double-occ, breakfast incl.): Istanbul 4★ ~$100/night avg x 4 nights ($200pp)
+  //     + Çanakkale 4★ ~$110/night avg x 3 nights ($165pp) = $365pp
+  //     sources: hotelscombined.com/Place/Istanbul-4-Star-Hotels, hotelperula.com/en/sultanahmet-hotel-prices,
+  //              zenhotels.com/hotel/en-us/turkey/canakkale/star4, trip.com canakkale-hotels-list-7636
+  //   Private vehicle (per-vehicle, split by pax): airport transfer in/out $45 each,
+  //     Istanbul city-day transfers ~$60, Istanbul<->Çanakkale private car (~6hr, via Gallipoli) ~$350 each way
+  //     = $850/vehicle -> $425pp (2pax) / $283pp (3pax) / $213pp (4pax)
+  //     sources: mytransfers.com/en/destination/turkey/istanbul-ataturk-airport-ist/canakkale,
+  //              kiwitaxi.com/en/turkey/istanbul-canakkale, getyourguide.com Istanbul airport transfers
+  //   English-speaking licensed guide, Gallipoli+Troy days (2 guide-days) @ ~$130/day = $260
+  //     -> $130pp (2pax) / $87pp (3pax) / $65pp (4pax)
+  //     source: travelatelier.com/services/guide-booking-turkey (licensed guides from EUR120/day)
+  //   Entry fees (fixed pp): Topkapi Palace ~$60 (EUR55 combined ticket), Troy incl. museum ~$29 (EUR27),
+  //     Gallipoli battlefield sites (ANZAC Cove/Lone Pine/The Nek/Chunuk Bair/Kabatepe Museum) $0 (free),
+  //     Bosphorus cruise (shared) ~$33 (from EUR30) = $122pp
+  //     sources: felicitytravelturkey.com/topkapi-palace-entrance-fee-hours, istanbulclues.com/troy-ancient-city-and-museum-turkey,
+  //              regularturkeytours.com/gallipoli-national-park, merrysails.com/blog/bosphorus-cruise-prices-2026
+  //   Meals (lunch+dinner, mid-range, breakfast incl. w/ hotel) ~$200pp for 7 days
+  //     source: mahsunusta.com/en/blog/istanbul-food-prices-2026-budget-guide (mid-range mains $8-15, dinner-for-two $25-50)
+  //   TOTAL per person: 2 adults sharing $1,240 | 3 pax $1,060 | 4 pax $965
+  //   Optional Gallipoli Simulation Centre ~$12pp (400 TRY). Cappadocia extension priced separately —
+  //   not researched here. Children under 12: Troy entry free, Topkapi discounted under 12 (free under 6),
+  //   Bosphorus cruise ~50% — final child rate depends on age/room config, confirmed by ops.
+  // `price` below is the 2-adults-sharing figure, matching this package's other per-person pricing.
+  // This is a real ground-quoted product (see priceOnRequest pattern) — these are planning estimates
+  // pending final confirmation from TRoyGO's own Türkiye ground operations team, not resold markup.
+  {
+    id: 21,
+    name: 'Gallipoli & Troy Remembrance Journey',
+    slug: 'gallipoli-troy-remembrance-journey',
+    destination: 'Türkiye',
+    countries: ['Türkiye'],
+    duration: 8,
+    price: 1240,
+    originalPrice: 1240,
+    currency: 'USD',
+    rating: 0,
+    reviewCount: 0,
+    imageGradient: 'from-amber-700 to-stone-900',
+    includes: { flights: false, hotel: true, transfers: true, meals: true, guide: true },
+    highlights: [
+      'Dawn Service morning at ANZAC Cove (25 April edition)',
+      'Guided walk through Lone Pine, The Nek & Chunuk Bair',
+      'Ancient Troy archaeological site with English-speaking guide',
+      'Istanbul Old City: Hagia Sophia, Blue Mosque, Topkapi Palace',
+      'Sunset Bosphorus cruise',
+      'Optional Gallipoli Simulation Centre & Cappadocia extension',
+    ],
+    departureDates: ['2027-04-22'],
+    maxGroupSize: 16,
+    difficulty: 'easy',
+    category: 'cultural',
+    description:
+      'A private, guided remembrance pilgrimage timed to the ANZAC Day Dawn Service — tracing the Gallipoli battlefields at ANZAC Cove, Lone Pine, The Nek and Chunuk Bair, then the ancient city of Troy, bookended by Istanbul\'s old city and a Bosphorus cruise. Ground services — hotels, transfers, guiding and entry fees — are operated directly by TRoyGO\'s own Türkiye ground team, not resold from a third-party package. Flights are booked separately by the traveler.\n\nPricing shown ($1,240 pp for 2 adults sharing) is a September 2026 market-rate estimate built from real, sourced comparable costs — 4-star hotels in Istanbul and Çanakkale, private vehicle transfers, a licensed English-speaking guide for the Gallipoli and Troy days, all site entry fees, and restaurant meals — not a fabricated or placeholder number, but also not yet a locked ground-ops rate. Per-person cost drops as group size grows, since the vehicle and guide are shared: approx. $1,060 pp for 3 travelers and $965 pp for 4 travelers. Children under 12 pay reduced or free entry at several sites (Troy is free under 12); exact child pricing depends on age and room configuration. Final confirmed pricing for your travel dates will come directly from TRoyGO\'s ground operations team — request a quote below.',
+    itinerary: [
+      { day: 1, title: 'Arrive Istanbul', description: 'Private airport transfer to your hotel, followed by a welcome briefing covering the week ahead.' },
+      { day: 2, title: 'Istanbul Old City', description: 'Guided day through Hagia Sophia, the Blue Mosque, and Topkapi Palace.' },
+      { day: 3, title: 'To Çanakkale via Gallipoli', description: 'Drive/ferry to Çanakkale, stopping through the Gallipoli battlefields: ANZAC Cove, Lone Pine, The Nek, Chunuk Bair, and the Kabatepe Museum.' },
+      { day: 4, title: 'Dawn Service & Troy', description: 'Dawn Service morning at ANZAC Cove (25 April edition), followed by a guided visit to the archaeological site of Troy.' },
+      { day: 5, title: 'Free Day in Çanakkale', description: 'Rest and explore independently, or add the optional Gallipoli Simulation Centre.' },
+      { day: 6, title: 'Return to Istanbul', description: 'Transfer back to Istanbul; evening Bosphorus cruise.' },
+      { day: 7, title: 'Free Day', description: 'Explore at your own pace, or add the optional Cappadocia add-on.' },
+      { day: 8, title: 'Departure', description: 'Private transfer to the airport.' },
     ],
   },
 ]

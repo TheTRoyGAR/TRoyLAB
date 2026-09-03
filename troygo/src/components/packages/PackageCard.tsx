@@ -22,6 +22,7 @@ interface TravelPackage {
   category: string
   maxGroupSize: number
   difficulty?: string
+  priceOnRequest?: boolean
 }
 
 const INCLUDE_ICONS: Record<string, React.ReactNode> = {
@@ -46,7 +47,7 @@ export default function PackageCard({ pkg }: { pkg: TravelPackage }) {
   const discount = pkg.originalPrice
     ? Math.round(((pkg.originalPrice - pkg.price) / pkg.originalPrice) * 100)
     : 0
-  const isBestSeller = pkg.rating >= 4.7
+  const isBestSeller = pkg.rating >= 4.7 && pkg.reviewCount > 0
 
   return (
     <Link
@@ -129,28 +130,36 @@ export default function PackageCard({ pkg }: { pkg: TravelPackage }) {
         {/* Price + CTA */}
         <div className="flex items-center justify-between gap-3">
           <div>
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-xl font-black text-[#0A1628]">
-                ${pkg.price.toLocaleString()}
-              </span>
-              <span className="text-xs text-gray-400">/ person</span>
-            </div>
-            {pkg.originalPrice && (
-              <span className="text-xs text-gray-400 line-through">
-                ${pkg.originalPrice.toLocaleString()}
-              </span>
+            {pkg.priceOnRequest ? (
+              <span className="text-base font-black text-[#0A1628]">Request a Quote</span>
+            ) : (
+              <>
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-xl font-black text-[#0A1628]">
+                    ${pkg.price.toLocaleString()}
+                  </span>
+                  <span className="text-xs text-gray-400">/ person</span>
+                </div>
+                {pkg.originalPrice !== undefined && pkg.originalPrice > pkg.price && (
+                  <span className="text-xs text-gray-400 line-through">
+                    ${pkg.originalPrice.toLocaleString()}
+                  </span>
+                )}
+              </>
             )}
-            <div className="flex items-center gap-1 mt-0.5">
-              <Star className="h-3.5 w-3.5 fill-[#FFD700] text-[#FFD700]" />
-              <span className="text-xs font-semibold text-[#0A1628]">{pkg.rating}</span>
-              <span className="text-xs text-gray-400">({pkg.reviewCount.toLocaleString()})</span>
-            </div>
+            {pkg.reviewCount > 0 && (
+              <div className="flex items-center gap-1 mt-0.5">
+                <Star className="h-3.5 w-3.5 fill-[#FFD700] text-[#FFD700]" />
+                <span className="text-xs font-semibold text-[#0A1628]">{pkg.rating}</span>
+                <span className="text-xs text-gray-400">({pkg.reviewCount.toLocaleString()})</span>
+              </div>
+            )}
           </div>
           <span
             className="shrink-0 px-5 py-2.5 rounded-xl font-bold text-sm text-white transition-all group-hover:scale-105"
             style={{ background: '#00B4D8' }}
           >
-            View Deal
+            {pkg.priceOnRequest ? 'View Details' : 'View Deal'}
           </span>
         </div>
       </div>

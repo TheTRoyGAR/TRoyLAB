@@ -54,10 +54,12 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
               <span className="flex items-center gap-1"><MapPin className="h-4 w-4" />{pkg.countries.join(', ')}</span>
               <span className="flex items-center gap-1"><Clock className="h-4 w-4" />{pkg.duration} Days</span>
               <span className="flex items-center gap-1"><Users className="h-4 w-4" />Max {pkg.maxGroupSize}</span>
-              <span className="flex items-center gap-1">
-                <Star className="h-4 w-4 fill-[#FFD700] text-[#FFD700]" />
-                {pkg.rating} ({pkg.reviewCount.toLocaleString()} reviews)
-              </span>
+              {pkg.reviewCount > 0 && (
+                <span className="flex items-center gap-1">
+                  <Star className="h-4 w-4 fill-[#FFD700] text-[#FFD700]" />
+                  {pkg.rating} ({pkg.reviewCount.toLocaleString()} reviews)
+                </span>
+              )}
             </div>
           </div>
         </div>
@@ -214,70 +216,92 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
                     <p className="text-sm text-gray-500">{pkg.reviewCount.toLocaleString()} reviews</p>
                   </div>
                 </div>
-                {[
-                  { name: 'Sarah M.', location: 'New York, USA', date: '2 weeks ago', rating: 5, text: 'Absolutely incredible experience! Every detail was perfectly planned. The local guides were knowledgeable and passionate. Would book again in a heartbeat.' },
-                  { name: 'James T.', location: 'London, UK', date: '1 month ago', rating: 5, text: 'Best travel experience of my life. The itinerary struck the perfect balance between guided tours and free time. Hotels were top-notch.' },
-                  { name: 'Ana C.', location: 'Sydney, AU', date: '2 months ago', rating: 4, text: 'Wonderful trip overall. A few minor scheduling hiccups but the TRoyGO™ team handled everything smoothly. Highly recommend!' },
-                ].map((review, i) => (
-                  <div key={i} className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
-                    <div className="flex items-start justify-between mb-2">
-                      <div>
-                        <p className="font-bold text-[#0A1628] text-sm">{review.name}</p>
-                        <p className="text-xs text-gray-400">{review.location} · {review.date}</p>
+                {pkg.reviewCount === 0 ? (
+                  <p className="text-sm text-gray-500">This is a newly launched journey — no reviews yet. Be the first to travel it.</p>
+                ) : (
+                  [
+                    { name: 'Sarah M.', location: 'New York, USA', date: '2 weeks ago', rating: 5, text: 'Absolutely incredible experience! Every detail was perfectly planned. The local guides were knowledgeable and passionate. Would book again in a heartbeat.' },
+                    { name: 'James T.', location: 'London, UK', date: '1 month ago', rating: 5, text: 'Best travel experience of my life. The itinerary struck the perfect balance between guided tours and free time. Hotels were top-notch.' },
+                    { name: 'Ana C.', location: 'Sydney, AU', date: '2 months ago', rating: 4, text: 'Wonderful trip overall. A few minor scheduling hiccups but the TRoyGO™ team handled everything smoothly. Highly recommend!' },
+                  ].map((review, i) => (
+                    <div key={i} className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                      <div className="flex items-start justify-between mb-2">
+                        <div>
+                          <p className="font-bold text-[#0A1628] text-sm">{review.name}</p>
+                          <p className="text-xs text-gray-400">{review.location} · {review.date}</p>
+                        </div>
+                        <div className="flex gap-0.5">
+                          {[1,2,3,4,5].map((s) => (
+                            <Star key={s} className={`h-3.5 w-3.5 ${s <= review.rating ? 'fill-[#FFD700] text-[#FFD700]' : 'text-gray-200 fill-gray-200'}`} />
+                          ))}
+                        </div>
                       </div>
-                      <div className="flex gap-0.5">
-                        {[1,2,3,4,5].map((s) => (
-                          <Star key={s} className={`h-3.5 w-3.5 ${s <= review.rating ? 'fill-[#FFD700] text-[#FFD700]' : 'text-gray-200 fill-gray-200'}`} />
-                        ))}
-                      </div>
+                      <p className="text-sm text-gray-600 leading-relaxed">{review.text}</p>
                     </div>
-                    <p className="text-sm text-gray-600 leading-relaxed">{review.text}</p>
-                  </div>
-                ))}
+                  ))
+                )}
               </div>
             )}
 
             {/* Booking tab */}
             {activeTab === 'Booking' && (
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 max-w-md">
-                <h3 className="font-bold text-[#0A1628] text-lg mb-5">Book This Package</h3>
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">Departure Date</label>
-                    <select
-                      value={selectedDate}
-                      onChange={(e) => setSelectedDate(e.target.value)}
-                      className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#00B4D8]/40"
+                {pkg.priceOnRequest ? (
+                  <>
+                    <h3 className="font-bold text-[#0A1628] text-lg mb-2">Request a Quote</h3>
+                    <p className="text-sm text-gray-500 mb-5">
+                      Ground rates for this journey are quoted directly by our Türkiye operations team based on group size and travel dates. Tell us your details and we&apos;ll get back with real pricing.
+                    </p>
+                    <a
+                      href={`mailto:thetroygarage@gmail.com?subject=${encodeURIComponent(`Quote Request — ${pkg.name}`)}&body=${encodeURIComponent(`Group size: \nPreferred dates: \nChildren traveling: `)}`}
+                      className="block w-full text-center py-3 rounded-xl font-bold text-[#0A1628] text-sm hover:brightness-110 transition-all"
+                      style={{ background: '#FFD700' }}
                     >
-                      {pkg.departureDates.map((d) => (
-                        <option key={d} value={d}>{format(new Date(d), 'MMMM d, yyyy')}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">Number of Travelers</label>
-                    <div className="flex items-center gap-3">
-                      <button onClick={() => setTravelers(Math.max(1, travelers - 1))} className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-lg font-bold hover:border-[#00B4D8] transition-colors">−</button>
-                      <span className="font-bold text-[#0A1628] w-6 text-center">{travelers}</span>
-                      <button onClick={() => setTravelers(Math.min(pkg.maxGroupSize, travelers + 1))} className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-lg font-bold hover:border-[#00B4D8] transition-colors">+</button>
+                      Request a Quote
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    <h3 className="font-bold text-[#0A1628] text-lg mb-5">Book This Package</h3>
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">Departure Date</label>
+                        <select
+                          value={selectedDate}
+                          onChange={(e) => setSelectedDate(e.target.value)}
+                          className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#00B4D8]/40"
+                        >
+                          {pkg.departureDates.map((d) => (
+                            <option key={d} value={d}>{format(new Date(d), 'MMMM d, yyyy')}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">Number of Travelers</label>
+                        <div className="flex items-center gap-3">
+                          <button onClick={() => setTravelers(Math.max(1, travelers - 1))} className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-lg font-bold hover:border-[#00B4D8] transition-colors">−</button>
+                          <span className="font-bold text-[#0A1628] w-6 text-center">{travelers}</span>
+                          <button onClick={() => setTravelers(Math.min(pkg.maxGroupSize, travelers + 1))} className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-lg font-bold hover:border-[#00B4D8] transition-colors">+</button>
+                        </div>
+                      </div>
+                      <div className="pt-2 border-t border-gray-100">
+                        <div className="flex justify-between text-sm mb-1">
+                          <span className="text-gray-500">${pkg.price.toLocaleString()} × {travelers} travelers</span>
+                          <span className="font-bold text-[#0A1628]">${totalPrice.toLocaleString()}</span>
+                        </div>
+                        <p className="text-xs text-gray-400">Final price includes taxes & fees</p>
+                      </div>
+                      <Link
+                        href={`/booking?type=package&id=${pkg.id}&travelers=${travelers}&date=${selectedDate}&price=${totalPrice}&name=${encodeURIComponent(pkg.name)}`}
+                        className="block w-full text-center py-3 rounded-xl font-bold text-[#0A1628] text-sm hover:brightness-110 transition-all"
+                        style={{ background: '#FFD700' }}
+                      >
+                        Book Now — ${totalPrice.toLocaleString()}
+                      </Link>
+                      <p className="text-xs text-center text-gray-400">Free cancellation up to 30 days before departure</p>
                     </div>
-                  </div>
-                  <div className="pt-2 border-t border-gray-100">
-                    <div className="flex justify-between text-sm mb-1">
-                      <span className="text-gray-500">${pkg.price.toLocaleString()} × {travelers} travelers</span>
-                      <span className="font-bold text-[#0A1628]">${totalPrice.toLocaleString()}</span>
-                    </div>
-                    <p className="text-xs text-gray-400">Final price includes taxes & fees</p>
-                  </div>
-                  <Link
-                    href={`/booking?type=package&id=${pkg.id}&travelers=${travelers}&date=${selectedDate}&price=${totalPrice}&name=${encodeURIComponent(pkg.name)}`}
-                    className="block w-full text-center py-3 rounded-xl font-bold text-[#0A1628] text-sm hover:brightness-110 transition-all"
-                    style={{ background: '#FFD700' }}
-                  >
-                    Book Now — ${totalPrice.toLocaleString()}
-                  </Link>
-                  <p className="text-xs text-center text-gray-400">Free cancellation up to 30 days before departure</p>
-                </div>
+                  </>
+                )}
               </div>
             )}
           </div>
@@ -286,17 +310,25 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
           <aside className="w-full lg:w-80 shrink-0">
             <div className="sticky top-24 bg-white rounded-2xl shadow-md border border-gray-100 p-6">
               <div className="text-center mb-4">
-                <div className="text-3xl font-black text-[#0A1628]">${pkg.price.toLocaleString()}</div>
-                {pkg.originalPrice > pkg.price && (
-                  <div className="text-sm text-gray-400 line-through">${pkg.originalPrice.toLocaleString()}</div>
+                {pkg.priceOnRequest ? (
+                  <div className="text-2xl font-black text-[#0A1628]">Request a Quote</div>
+                ) : (
+                  <>
+                    <div className="text-3xl font-black text-[#0A1628]">${pkg.price.toLocaleString()}</div>
+                    {pkg.originalPrice > pkg.price && (
+                      <div className="text-sm text-gray-400 line-through">${pkg.originalPrice.toLocaleString()}</div>
+                    )}
+                    <div className="text-xs text-gray-400">per person</div>
+                  </>
                 )}
-                <div className="text-xs text-gray-400">per person</div>
               </div>
-              <div className="flex items-center justify-center gap-1 mb-5">
-                <Star className="h-4 w-4 fill-[#FFD700] text-[#FFD700]" />
-                <span className="font-semibold text-[#0A1628] text-sm">{pkg.rating}</span>
-                <span className="text-xs text-gray-400">({pkg.reviewCount.toLocaleString()})</span>
-              </div>
+              {pkg.reviewCount > 0 && (
+                <div className="flex items-center justify-center gap-1 mb-5">
+                  <Star className="h-4 w-4 fill-[#FFD700] text-[#FFD700]" />
+                  <span className="font-semibold text-[#0A1628] text-sm">{pkg.rating}</span>
+                  <span className="text-xs text-gray-400">({pkg.reviewCount.toLocaleString()})</span>
+                </div>
+              )}
               <div className="space-y-2 mb-5 text-sm">
                 <div className="flex items-center gap-2 text-gray-600">
                   <Calendar className="h-4 w-4 text-[#00B4D8]" />
@@ -311,20 +343,32 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
                   <span>Max group size: {pkg.maxGroupSize}</span>
                 </div>
               </div>
-              <Link
-                href={`/booking?type=package&id=${pkg.id}&name=${encodeURIComponent(pkg.name)}&price=${pkg.price}`}
-                className="block w-full text-center py-3 rounded-xl font-bold text-[#0A1628] text-sm hover:brightness-110 transition-all mb-3"
-                style={{ background: '#FFD700' }}
-              >
-                Book Now
-              </Link>
-              <button
-                onClick={() => setActiveTab('Booking')}
-                className="block w-full text-center py-3 rounded-xl font-bold text-white text-sm hover:opacity-90 transition-all"
-                style={{ background: '#00B4D8' }}
-              >
-                Customize Trip
-              </button>
+              {pkg.priceOnRequest ? (
+                <a
+                  href={`mailto:thetroygarage@gmail.com?subject=${encodeURIComponent(`Quote Request — ${pkg.name}`)}&body=${encodeURIComponent(`Group size: \nPreferred dates: \nChildren traveling: `)}`}
+                  className="block w-full text-center py-3 rounded-xl font-bold text-[#0A1628] text-sm hover:brightness-110 transition-all mb-3"
+                  style={{ background: '#FFD700' }}
+                >
+                  Request a Quote
+                </a>
+              ) : (
+                <>
+                  <Link
+                    href={`/booking?type=package&id=${pkg.id}&name=${encodeURIComponent(pkg.name)}&price=${pkg.price}`}
+                    className="block w-full text-center py-3 rounded-xl font-bold text-[#0A1628] text-sm hover:brightness-110 transition-all mb-3"
+                    style={{ background: '#FFD700' }}
+                  >
+                    Book Now
+                  </Link>
+                  <button
+                    onClick={() => setActiveTab('Booking')}
+                    className="block w-full text-center py-3 rounded-xl font-bold text-white text-sm hover:opacity-90 transition-all"
+                    style={{ background: '#00B4D8' }}
+                  >
+                    Customize Trip
+                  </button>
+                </>
+              )}
             </div>
           </aside>
         </div>
