@@ -809,5 +809,667 @@
     "category": "Mediterranean",
     "description": "A 15-day cruise exploring the ancient civilizations of Greece, Turkey, Italy, Tunisia and Spain. Includes 11 guided shore excursions visiting Acropolis, Istanbul, Troy, Ephesus, and more. Multiple sailing dates Dec 2027–Jan 2029 across five Viking ships.",
     "videoUrl": "https://tamarketing.vikingcruises.com/market/product-detail?product-id=BE82BA09-0545-4EF0-925D-7C5AD71F0217"
+  },
+  {
+    "id": 8,
+    "name": "Norway & Scandinavia Discovery",
+    "ship": "Viking Jupiter",
+    "cruiseLine": "Viking River Cruises",
+    "itinerary": [
+      {
+        "port": "London (Greenwich)",
+        "country": "England",
+        "arrivalTime": "embarkation",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Tower of London",
+          "Westminster Abbey",
+          "London Eye"
+        ]
+      },
+      {
+        "port": "English Channel",
+        "country": "England",
+        "arrivalTime": "9:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Coastal scenery",
+          "Dover Cliffs"
+        ]
+      },
+      {
+        "port": "Honfleur",
+        "country": "France",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Charming harbour",
+          "Renaissance architecture",
+          "Art galleries"
+        ]
+      },
+      {
+        "port": "Cork",
+        "country": "Ireland",
+        "arrivalTime": "7:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Cork City",
+          "Blarney Stone",
+          "Irish countryside"
+        ]
+      },
+      {
+        "port": "Liverpool",
+        "country": "England",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Albert Dock",
+          "Maritime Museum",
+          "Historic city"
+        ]
+      },
+      {
+        "port": "Belfast",
+        "country": "Northern Ireland",
+        "arrivalTime": "7:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Titanic Museum",
+          "City centre",
+          "Botanic Gardens"
+        ]
+      },
+      {
+        "port": "Stavanger",
+        "country": "Norway",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Preikestolen (Pulpit Rock)",
+          "Lysefjord",
+          "Old town"
+        ]
+      },
+      {
+        "port": "Bergen",
+        "country": "Norway",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": [
+          "Bryggen Wharf",
+          "Mount Fløyen",
+          "Fish Market",
+          "Fjord gateway"
+        ]
+      }
+    ],
+    "duration": 14,
+    "price": 13545,
+    "originalPrice": 13545,
+    "cabinTypes": [
+      {
+        "name": "Veranda",
+        "price": 13545,
+        "description": "Cabin with private veranda"
+      },
+      {
+        "name": "Suite",
+        "price": 15795,
+        "description": "Spacious suite with premium amenities"
+      }
+    ],
+    "rating": 4.7,
+    "reviewCount": 0,
+    "departurePort": "London (Greenwich), England",
+    "includes": [
+      "All meals and beverages",
+      "Guided shore excursions in most ports",
+      "All onboard activities",
+      "WiFi",
+      "Port taxes and fees"
+    ],
+    "amenities": [
+      "Fine dining",
+      "Multiple restaurants",
+      "Observatory deck",
+      "Fitness centre",
+      "Spa and wellness",
+      "Lounges and bars"
+    ],
+    "imageGradient": "from-slate-400 to-blue-700",
+    "category": "Europe",
+    "description": "A 14-day transatlantic river cruise from London to Bergen, exploring the British Isles and Norwegian fjords. Visit Cork, Belfast, and Stavanger before arriving in the gateway to Norway's famous fjords. Departing Sep 2026."
+  },
+  {
+    "id": 9,
+    "name": "British Isles to Bergen Cruise",
+    "ship": "Viking Libra",
+    "cruiseLine": "Viking River Cruises",
+    "itinerary": [
+      {
+        "port": "London (Tilbury)",
+        "country": "England",
+        "arrivalTime": "embarkation",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "River Thames",
+          "London landmarks",
+          "Easy access to city centre"
+        ]
+      },
+      {
+        "port": "Cherbourg",
+        "country": "France",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "D-Day beaches nearby",
+          "Normandy countryside",
+          "Port city charm"
+        ]
+      },
+      {
+        "port": "Cork",
+        "country": "Ireland",
+        "arrivalTime": "7:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Cork City",
+          "River Lee",
+          "Irish culture"
+        ]
+      },
+      {
+        "port": "Holyhead",
+        "country": "Wales",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Snowdonia National Park nearby",
+          "Isle of Anglesey",
+          "Welsh coastline"
+        ]
+      },
+      {
+        "port": "Edinburgh / Leith",
+        "country": "Scotland",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Edinburgh Castle",
+          "Royal Mile",
+          "Scotland's capital"
+        ]
+      },
+      {
+        "port": "Norwegian Fjords",
+        "country": "Norway",
+        "arrivalTime": "Variable",
+        "departureTime": "Variable",
+        "highlights": [
+          "Dramatic mountain scenery",
+          "Glacier views",
+          "Traditional villages"
+        ]
+      },
+      {
+        "port": "Stavanger",
+        "country": "Norway",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Lysefjord",
+          "Pulpit Rock views",
+          "Norwegian culture"
+        ]
+      },
+      {
+        "port": "Bergen",
+        "country": "Norway",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": [
+          "Bryggen UNESCO site",
+          "Fløibanen funicular",
+          "Fjord destination"
+        ]
+      }
+    ],
+    "duration": 14,
+    "price": 16795,
+    "originalPrice": 16795,
+    "cabinTypes": [
+      {
+        "name": "Veranda",
+        "price": 16795,
+        "description": "Cabin with private veranda"
+      },
+      {
+        "name": "Suite",
+        "price": 19495,
+        "description": "Spacious suite with premium benefits"
+      }
+    ],
+    "rating": 4.8,
+    "reviewCount": 0,
+    "departurePort": "London (Tilbury), England",
+    "includes": [
+      "All meals and premium beverages",
+      "Guided excursions in select ports",
+      "All activities onboard",
+      "WiFi throughout ship",
+      "Port charges included"
+    ],
+    "amenities": [
+      "World-class dining",
+      "Panoramic observatory",
+      "Full-service spa",
+      "Multiple bars and lounges",
+      "Theatre with live entertainment",
+      "Fitness and yoga studio"
+    ],
+    "imageGradient": "from-cyan-400 to-indigo-600",
+    "category": "Europe",
+    "description": "A 14-day river cruise exploring Britain and Scandinavia. Sail from London through the British Isles to Edinburgh, then through spectacular Norwegian fjords to Bergen. Spring 2027 departures aboard Viking Libra and Viking Vela."
+  },
+  {
+    "id": 10,
+    "name": "Bergen to London River Cruise",
+    "ship": "Viking Vela",
+    "cruiseLine": "Viking River Cruises",
+    "itinerary": [
+      {
+        "port": "Bergen",
+        "country": "Norway",
+        "arrivalTime": "embarkation",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Bryggen historic wharf",
+          "Mount Fløyen views",
+          "Norwegian gateway port"
+        ]
+      },
+      {
+        "port": "Norwegian Fjords",
+        "country": "Norway",
+        "arrivalTime": "Variable",
+        "departureTime": "Variable",
+        "highlights": [
+          "Geirangerfjord",
+          "Nærøyfjord",
+          "Spectacular mountain scenery"
+        ]
+      },
+      {
+        "port": "Stavanger",
+        "country": "Norway",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Lysefjord cruising",
+          "Pulpit Rock (Preikestolen)",
+          "Coastal charm"
+        ]
+      },
+      {
+        "port": "Edinburgh / Leith",
+        "country": "Scotland",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Edinburgh Castle",
+          "Royal Mile",
+          "Historic Scottish city"
+        ]
+      },
+      {
+        "port": "Holyhead",
+        "country": "Wales",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Welsh culture",
+          "Snowdonia views",
+          "Coastal scenery"
+        ]
+      },
+      {
+        "port": "Cork",
+        "country": "Ireland",
+        "arrivalTime": "7:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Cork City discovery",
+          "Blarney Castle nearby",
+          "Irish hospitality"
+        ]
+      },
+      {
+        "port": "Cherbourg",
+        "country": "France",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Normandy beaches",
+          "D-Day history",
+          "French culture"
+        ]
+      },
+      {
+        "port": "London (Greenwich)",
+        "country": "England",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": [
+          "River Thames",
+          "London landmarks",
+          "End of voyage"
+        ]
+      }
+    ],
+    "duration": 14,
+    "price": 16795,
+    "originalPrice": 16795,
+    "cabinTypes": [
+      {
+        "name": "Veranda",
+        "price": 16795,
+        "description": "Cabin with private veranda"
+      },
+      {
+        "name": "Suite",
+        "price": 19495,
+        "description": "Luxury suite with exclusive perks"
+      }
+    ],
+    "rating": 4.8,
+    "reviewCount": 0,
+    "departurePort": "Bergen, Norway",
+    "includes": [
+      "All meals and premium drinks",
+      "Guided shore excursions",
+      "All onboard entertainment",
+      "WiFi access",
+      "Port taxes and gratuities"
+    ],
+    "amenities": [
+      "Fine dining restaurants",
+      "Observation lounge",
+      "Full spa services",
+      "Multiple lounges and bars",
+      "Live entertainment theatre",
+      "State-of-the-art fitness centre"
+    ],
+    "imageGradient": "from-blue-400 to-slate-600",
+    "category": "Europe",
+    "description": "A 14-day reverse journey from Bergen to London. Explore Norwegian fjords in reverse, then cruise through the Scottish Hebrides, Ireland, Wales and across the English Channel. Spring 2027 sailings aboard Viking Vela."
+  },
+  {
+    "id": 11,
+    "name": "London-Bergen Northern Lights Route",
+    "ship": "Viking Saturn",
+    "cruiseLine": "Viking River Cruises",
+    "itinerary": [
+      {
+        "port": "London (Greenwich)",
+        "country": "England",
+        "arrivalTime": "embarkation",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "London sightseeing",
+          "Thames departure",
+          "British heritage"
+        ]
+      },
+      {
+        "port": "Honfleur & Normandy",
+        "country": "France",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Normandy coastline",
+          "Charming harbours",
+          "French countryside"
+        ]
+      },
+      {
+        "port": "Liverpool",
+        "country": "England",
+        "arrivalTime": "7:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Historic port",
+          "The Beatles heritage",
+          "Albert Dock"
+        ]
+      },
+      {
+        "port": "Belfast",
+        "country": "Northern Ireland",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Titanic Museum",
+          "City renaissance",
+          "Irish culture"
+        ]
+      },
+      {
+        "port": "Dundee",
+        "country": "Scotland",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Scottish heritage",
+          "RRS Discovery ship",
+          "Tayside region"
+        ]
+      },
+      {
+        "port": "Orkney Islands",
+        "country": "Scotland",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Ancient standing stones",
+          "Remote island beauty",
+          "Archaeological sites"
+        ]
+      },
+      {
+        "port": "Norwegian North Coast",
+        "country": "Norway",
+        "arrivalTime": "Variable",
+        "departureTime": "Variable",
+        "highlights": [
+          "Arctic scenery",
+          "Northern lights viewing",
+          "Midnight sun (seasonal)"
+        ]
+      },
+      {
+        "port": "Bergen",
+        "country": "Norway",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": [
+          "Fjord adventure finale",
+          "Bryggen wharf",
+          "Gateway to Norway"
+        ]
+      }
+    ],
+    "duration": 14,
+    "price": 17295,
+    "originalPrice": 17295,
+    "cabinTypes": [
+      {
+        "name": "Veranda",
+        "price": 17295,
+        "description": "Cabin with private veranda"
+      },
+      {
+        "name": "Suite",
+        "price": 20195,
+        "description": "Deluxe suite with added amenities"
+      }
+    ],
+    "rating": 4.9,
+    "reviewCount": 0,
+    "departurePort": "London (Greenwich), England",
+    "includes": [
+      "All gourmet meals",
+      "Premium beverages all day",
+      "Expert-led shore excursions",
+      "All entertainment and activities",
+      "WiFi throughout",
+      "Port charges"
+    ],
+    "amenities": [
+      "Michelin-trained chefs",
+      "Observation deck",
+      "Luxury spa and sauna",
+      "Multiple dining venues",
+      "Theatre and nightclub",
+      "Comprehensive fitness facilities"
+    ],
+    "imageGradient": "from-indigo-400 to-slate-700",
+    "category": "Europe",
+    "description": "A 14-day Northern Europe adventure from London to Bergen via Scotland's remotest islands and the Norwegian Arctic coast. Spring 2027 sailing aboard Viking Saturn, designed for those seeking dramatic landscapes and authentic Nordic experiences."
+  },
+  {
+    "id": 12,
+    "name": "Spring Isles & Fjords Explorer",
+    "ship": "Viking Sky",
+    "cruiseLine": "Viking River Cruises",
+    "itinerary": [
+      {
+        "port": "London (Greenwich)",
+        "country": "England",
+        "arrivalTime": "embarkation",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "London departure",
+          "Thames cruise",
+          "British icons"
+        ]
+      },
+      {
+        "port": "Isle of Wight",
+        "country": "England",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "3:00 PM",
+        "highlights": [
+          "Needles rock formation",
+          "Sandy beaches",
+          "Coastal villages"
+        ]
+      },
+      {
+        "port": "Cherbourg",
+        "country": "France",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Fort Vauban",
+          "WWII history",
+          "French charm"
+        ]
+      },
+      {
+        "port": "Cork",
+        "country": "Ireland",
+        "arrivalTime": "7:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Cork City",
+          "River Lee valley",
+          "Irish warmth"
+        ]
+      },
+      {
+        "port": "Holyhead",
+        "country": "Wales",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Snowdonia gateway",
+          "Welsh heritage",
+          "Mountain views"
+        ]
+      },
+      {
+        "port": "Dublin / Dun Laoghaire",
+        "country": "Ireland",
+        "arrivalTime": "7:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Dublin city tour",
+          "Guinness Storehouse",
+          "Georgian architecture"
+        ]
+      },
+      {
+        "port": "Isle of Man",
+        "country": "Isle of Man",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Celtic heritage",
+          "Manx culture",
+          "Mountain railway"
+        ]
+      },
+      {
+        "port": "Bergen",
+        "country": "Norway",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": [
+          "Fjord gateway",
+          "Bryggen heritage site",
+          "Norwegian culture"
+        ]
+      }
+    ],
+    "duration": 14,
+    "price": 16995,
+    "originalPrice": 16995,
+    "cabinTypes": [
+      {
+        "name": "Veranda",
+        "price": 16995,
+        "description": "Cabin with private veranda"
+      },
+      {
+        "name": "Suite",
+        "price": 19795,
+        "description": "Premium suite with concierge service"
+      }
+    ],
+    "rating": 4.8,
+    "reviewCount": 0,
+    "departurePort": "London (Greenwich), England",
+    "includes": [
+      "All meals and beverages",
+      "Shore excursions in each port",
+      "All onboard activities",
+      "Entertainment programmes",
+      "WiFi connectivity",
+      "Service charges included"
+    ],
+    "amenities": [
+      "Gourmet restaurants",
+      "Sky deck with views",
+      "Wellness spa",
+      "Specialty bars and lounges",
+      "Live shows and performances",
+      "Full fitness and yoga programmes"
+    ],
+    "imageGradient": "from-cyan-400 to-blue-700",
+    "category": "Europe",
+    "description": "A 14-day spring voyage from London through the British Isles to the Norwegian fjords. Visit the Isles of Wight and Man, explore Dublin, and arrive in Bergen as a gateway to Norway's most spectacular scenery. May 2027 sailing aboard Viking Sky."
   }
 ]
