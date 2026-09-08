@@ -41,7 +41,7 @@ export const emailTemplates: EmailTemplate[] = [
         <li>You'll receive a detailed quote within {{responseTime}}</li>
       </ul>
     </div>
-    <p>In the meantime, feel free to browse our <a href="https://troygo.com/packages" style="color: #00B4D8;">featured packages</a> for inspiration.</p>
+    <p>In the meantime, feel free to browse our <a href="https://troytravelagency.com/packages" style="color: #00B4D8;">featured packages</a> for inspiration.</p>
     <p style="margin-top: 32px;">Warmly,<br/><strong>{{agentName}}</strong><br/><span style="color: #6b7280;">TRoyGO™ Travel Specialist</span></p>
   </div>
   <div style="background: #0A1628; padding: 24px; text-align: center;">
@@ -76,7 +76,7 @@ export const emailTemplates: EmailTemplate[] = [
       <p style="margin: 4px 0 0; color: #7c3aed; font-size: 13px;">Prices and availability are subject to change after this date.</p>
     </div>
     <div style="text-align: center; margin: 32px 0;">
-      <a href="https://troygo.com/booking" style="background: #FFD700; color: #0A1628; font-weight: 700; padding: 16px 40px; border-radius: 8px; text-decoration: none; font-size: 16px; display: inline-block;">Accept Quote & Book Now</a>
+      <a href="https://troytravelagency.com/booking" style="background: #FFD700; color: #0A1628; font-weight: 700; padding: 16px 40px; border-radius: 8px; text-decoration: none; font-size: 16px; display: inline-block;">Accept Quote & Book Now</a>
     </div>
     <p>Questions? Reply to this email or call us directly. I'm here to make this dream trip a reality.</p>
     <p style="margin-top: 32px;">With excitement,<br/><strong>{{agentName}}</strong><br/><span style="color: #6b7280;">TRoyGO™ Travel Specialist</span></p>
@@ -146,7 +146,7 @@ export const emailTemplates: EmailTemplate[] = [
     <p>This is a friendly reminder that a payment of <strong style="color: #0A1628; font-size: 20px;">{{amountDue}}</strong> is due for your upcoming <strong>{{destination}}</strong> trip (Booking #{{bookingId}}).</p>
     <p>Please complete your payment by <strong>{{dueDate}}</strong> to secure your booking and avoid any cancellation.</p>
     <div style="text-align: center; margin: 32px 0;">
-      <a href="https://troygo.com/payment" style="background: #0A1628; color: #FFD700; font-weight: 700; padding: 16px 40px; border-radius: 8px; text-decoration: none; font-size: 16px; display: inline-block;">Complete Payment Now</a>
+      <a href="https://troytravelagency.com/payment" style="background: #0A1628; color: #FFD700; font-weight: 700; padding: 16px 40px; border-radius: 8px; text-decoration: none; font-size: 16px; display: inline-block;">Complete Payment Now</a>
     </div>
     <p>If you have any questions about your payment or need to discuss alternatives, please don't hesitate to reach out to me directly.</p>
     <p style="margin-top: 32px;">Best regards,<br/><strong>{{agentName}}</strong><br/><span style="color: #6b7280;">TRoyGO™ Travel Specialist</span></p>
@@ -225,7 +225,7 @@ export const emailTemplates: EmailTemplate[] = [
     <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border-radius: 12px; padding: 24px; margin: 24px 0; text-align: center;">
       <p style="font-weight: 600; color: #0A1628; margin: 0 0 8px;">Already dreaming of your next adventure?</p>
       <p style="color: #6b7280; margin: 0 0 16px;">How about <strong>{{nextDestination}}</strong>? We have some amazing packages just for you.</p>
-      <a href="https://troygo.com/packages" style="background: #00B4D8; color: #ffffff; font-weight: 600; padding: 12px 32px; border-radius: 8px; text-decoration: none; display: inline-block;">Explore Next Adventure</a>
+      <a href="https://troytravelagency.com/packages" style="background: #00B4D8; color: #ffffff; font-weight: 600; padding: 12px 32px; border-radius: 8px; text-decoration: none; display: inline-block;">Explore Next Adventure</a>
     </div>
     <p style="margin-top: 32px;">Until next time,<br/><strong>{{agentName}}</strong><br/><span style="color: #6b7280;">TRoyGO™ Travel Specialist</span></p>
   </div>
@@ -291,7 +291,7 @@ export const emailTemplates: EmailTemplate[] = [
           <p style="color: #FFD700; font-size: 28px; font-weight: 700; margin: 0;">{{deal1Price}}</p>
         </div>
       </div>
-      <a href="https://troygo.com/packages" style="display: block; background: #FFD700; color: #0A1628; font-weight: 700; padding: 10px; border-radius: 6px; text-decoration: none; text-align: center; margin-top: 16px;">View Package</a>
+      <a href="https://troytravelagency.com/packages" style="display: block; background: #FFD700; color: #0A1628; font-weight: 700; padding: 10px; border-radius: 6px; text-decoration: none; text-align: center; margin-top: 16px;">View Package</a>
     </div>
     <div style="background: linear-gradient(135deg, #0A1628, #152D55); border-radius: 12px; padding: 24px; margin: 16px 0; color: #fff;">
       <div>
@@ -299,10 +299,10 @@ export const emailTemplates: EmailTemplate[] = [
         <p style="color: #ffffff; font-size: 22px; font-weight: 700; margin: 0;">{{deal2Destination}}</p>
         <p style="color: #FFD700; font-size: 24px; font-weight: 700; margin: 8px 0 0;">{{deal2Price}}</p>
       </div>
-      <a href="https://troygo.com/packages" style="display: block; background: #00B4D8; color: #ffffff; font-weight: 700; padding: 10px; border-radius: 6px; text-decoration: none; text-align: center; margin-top: 16px;">Explore Now</a>
+      <a href="https://troytravelagency.com/packages" style="display: block; background: #00B4D8; color: #ffffff; font-weight: 700; padding: 10px; border-radius: 6px; text-decoration: none; text-align: center; margin-top: 16px;">Explore Now</a>
     </div>
     <div style="text-align: center; margin: 32px 0;">
-      <a href="https://troygo.com/packages" style="background: #0A1628; color: #FFD700; font-weight: 700; padding: 14px 36px; border-radius: 8px; text-decoration: none; display: inline-block;">View All {{month}} Deals</a>
+      <a href="https://troytravelagency.com/packages" style="background: #0A1628; color: #FFD700; font-weight: 700; padding: 14px 36px; border-radius: 8px; text-decoration: none; display: inline-block;">View All {{month}} Deals</a>
     </div>
     <p style="margin-top: 32px; color: #6b7280; font-size: 14px;">Safe travels and big dreams,<br/><strong>{{agentName}}</strong><br/><span>TRoyGO™ Travel Specialist</span></p>
   </div>

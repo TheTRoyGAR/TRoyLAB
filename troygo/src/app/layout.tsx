@@ -44,11 +44,11 @@ export const metadata: Metadata = {
   authors: [{ name: "TRoy Travel Agency™" }],
   creator: "TRoy Travel Agency™",
   publisher: "TRoyGO™",
-  metadataBase: new URL("https://troygo.com"),
+  metadataBase: new URL("https://troytravelagency.com"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://troygo.com",
+    url: "https://troytravelagency.com",
     siteName: "TRoyGO™",
     title: "TRoyGO™ – Your World, Your Journey",
     description:
