@@ -47,27 +47,27 @@
       }
     ],
     "duration": 4,
-    "price": 398.0,
-    "originalPrice": 559.0,
+    "price": 398,
+    "originalPrice": 559,
     "cabinTypes": [
       {
         "name": "Interior",
-        "price": 398.0,
+        "price": 398,
         "description": "Classic interior stateroom, affordable way to cruise in comfort"
       },
       {
         "name": "Oceanview",
-        "price": 458.0,
+        "price": 458,
         "description": "Picture window with ocean views"
       },
       {
         "name": "Balcony",
-        "price": 468.0,
-        "description": "Private balcony \u2014 currently priced at same level as oceanview, rare alignment"
+        "price": 468,
+        "description": "Private balcony — currently priced at same level as oceanview, rare alignment"
       },
       {
         "name": "Suite",
-        "price": 1140.0,
+        "price": 1140,
         "description": "Spacious suite with premium amenities and priority boarding"
       }
     ],
@@ -160,27 +160,27 @@
       }
     ],
     "duration": 7,
-    "price": 679.0,
-    "originalPrice": 998.0,
+    "price": 679,
+    "originalPrice": 998,
     "cabinTypes": [
       {
         "name": "Interior",
-        "price": 679.0,
+        "price": 679,
         "description": "Classic inside stateroom, great value for Freestyle cruising"
       },
       {
         "name": "Oceanview",
-        "price": 799.0,
+        "price": 799,
         "description": "Stateroom with ocean-view window"
       },
       {
         "name": "Balcony",
-        "price": 999.0,
+        "price": 999,
         "description": "Private balcony stateroom"
       },
       {
         "name": "The Haven Suite",
-        "price": 1769.0,
+        "price": 1769,
         "description": "Exclusive Haven by Norwegian suite with premium amenities and dedicated concierge"
       }
     ],
@@ -205,7 +205,7 @@
     ],
     "imageGradient": "from-cyan-400 to-blue-600",
     "category": "Caribbean",
-    "description": "A 7-night roundtrip Caribbean cruise from Galveston aboard Norwegian Viva, visiting Cozumel, Harvest Caye (Belize), Roatan (Honduras), and Costa Maya \u2014 all with Norwegian's signature Freestyle no-schedule dining and entertainment approach. Taxes, fees and port expenses are included in the listed fare."
+    "description": "A 7-night roundtrip Caribbean cruise from Galveston aboard Norwegian Viva, visiting Cozumel, Harvest Caye (Belize), Roatan (Honduras), and Costa Maya — all with Norwegian's signature Freestyle no-schedule dining and entertainment approach. Taxes, fees and port expenses are included in the listed fare."
   },
   {
     "id": 3,
@@ -219,7 +219,7 @@
         "arrivalTime": "embarkation",
         "departureTime": "6:00 PM",
         "highlights": [
-          "Sagrada Fam\u00edlia",
+          "Sagrada Família",
           "Las Ramblas",
           "Gothic Quarter"
         ]
@@ -232,7 +232,7 @@
         "highlights": [
           "Calanques National Park",
           "Old Port (Vieux-Port)",
-          "Ch\u00e2teau d'If"
+          "Château d'If"
         ]
       },
       {
@@ -288,22 +288,22 @@
       }
     ],
     "duration": 7,
-    "price": 1066.0,
-    "originalPrice": 1066.0,
+    "price": 1066,
+    "originalPrice": 1066,
     "cabinTypes": [
       {
         "name": "Interior",
-        "price": 1066.0,
+        "price": 1066,
         "description": "Classic interior stateroom on the world-class MSC World Europa"
       },
       {
         "name": "Balcony",
-        "price": 1456.0,
+        "price": 1456,
         "description": "Private balcony stateroom with Mediterranean sea views"
       },
       {
         "name": "Suite",
-        "price": 3947.0,
+        "price": 3947,
         "description": "Spacious suite with premium amenities and priority service"
       }
     ],
@@ -422,12 +422,12 @@
       }
     ],
     "duration": 7,
-    "price": 1119.0,
-    "originalPrice": 1119.0,
+    "price": 1119,
+    "originalPrice": 1119,
     "cabinTypes": [
       {
         "name": "Inside",
-        "price": 1119.0,
+        "price": 1119,
         "description": "Classic interior stateroom with queen-size bed, couch and desk; 24-hour complimentary room service"
       }
     ],
@@ -514,27 +514,27 @@
       }
     ],
     "duration": 8,
-    "price": 814.0,
-    "originalPrice": 844.0,
+    "price": 814,
+    "originalPrice": 844,
     "cabinTypes": [
       {
         "name": "Interior",
-        "price": 814.0,
+        "price": 814,
         "description": "Classic interior stateroom with dedicated attendant and Italian-style touches"
       },
       {
         "name": "Oceanview",
-        "price": 1044.0,
+        "price": 1044,
         "description": "Ocean-view stateroom with picture window"
       },
       {
         "name": "Balcony",
-        "price": 1254.0,
+        "price": 1254,
         "description": "Balcony stateroom for sea-breeze relaxation"
       },
       {
         "name": "Suite",
-        "price": 2459.0,
+        "price": 2459,
         "description": "Ocean Suite with walk-in closet, whirlpool tub, and large balcony; priority boarding included"
       }
     ],
@@ -559,11 +559,11 @@
     ],
     "imageGradient": "from-indigo-500 to-purple-700",
     "category": "Caribbean",
-    "description": "An 8-night roundtrip Eastern Caribbean cruise from Manhattan aboard Carnival Venezia \u2014 Carnival's 'Fun Italian Style' ship \u2014 visiting Celebration Key, Half Moon Cay, and Grand Turk. The Venice-inspired ship features Italian-themed dining, bars, and entertainment alongside classic Carnival fun."
+    "description": "An 8-night roundtrip Eastern Caribbean cruise from Manhattan aboard Carnival Venezia — Carnival's 'Fun Italian Style' ship — visiting Celebration Key, Half Moon Cay, and Grand Turk. The Venice-inspired ship features Italian-themed dining, bars, and entertainment alongside classic Carnival fun."
   },
   {
     "id": 6,
-    "name": "Rhine Getaway \u2014 Amsterdam to Basel",
+    "name": "Rhine Getaway — Amsterdam to Basel",
     "ship": "Viking Longship (Rhine fleet)",
     "cruiseLine": "Viking River Cruises",
     "itinerary": [
@@ -601,7 +601,7 @@
         ]
       },
       {
-        "port": "Koblenz & R\u00fcdesheim",
+        "port": "Koblenz & Rüdesheim",
         "country": "Germany",
         "arrivalTime": "",
         "departureTime": "",
@@ -646,17 +646,17 @@
       }
     ],
     "duration": 7,
-    "price": 1999.0,
-    "originalPrice": 2799.0,
+    "price": 1999,
+    "originalPrice": 2799,
     "cabinTypes": [
       {
         "name": "Standard Stateroom",
-        "price": 1999.0,
+        "price": 1999,
         "description": "River-view stateroom with queen-size Viking Explorer Bed, heated bathroom floor, premium Freyja toiletries, and individual climate control"
       },
       {
         "name": "Veranda Stateroom",
-        "price": 2499.0,
+        "price": 2499,
         "description": "Stateroom with French balcony (floor-to-ceiling sliding glass doors) and river views"
       }
     ],
@@ -685,6 +685,128 @@
     ],
     "imageGradient": "from-cyan-300 to-teal-500",
     "category": "River",
-    "description": "An 8-day Rhine River cruise from Amsterdam to Basel sailing through 4 countries \u2014 the Netherlands, Germany, France, and Switzerland \u2014 aboard a Viking Longship. The itinerary includes UNESCO World Heritage sites, guided tours in every port, and all meals and drinks with lunch and dinner included in the fare."
+    "description": "An 8-day Rhine River cruise from Amsterdam to Basel sailing through 4 countries — the Netherlands, Germany, France, and Switzerland — aboard a Viking Longship. The itinerary includes UNESCO World Heritage sites, guided tours in every port, and all meals and drinks with lunch and dinner included in the fare."
+  },
+  {
+    "id": 7,
+    "name": "Aegean & Mediterranean Explorer",
+    "ship": "Viking Neptune / Viking Saturn / Viking Libra / Viking Vega / Viking Lyra",
+    "cruiseLine": "Viking River Cruises",
+    "itinerary": [
+      {
+        "port": "Athens (Piraeus)",
+        "country": "Greece",
+        "arrivalTime": "embarkation",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Acropolis and Parthenon",
+          "Ancient Agora",
+          "Plaka district"
+        ]
+      },
+      {
+        "port": "Istanbul",
+        "country": "Turkey",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Hagia Sophia",
+          "Blue Mosque",
+          "Topkapi Palace",
+          "Bosphorus Strait"
+        ]
+      },
+      {
+        "port": "Çanakkale",
+        "country": "Turkey",
+        "arrivalTime": "7:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Gallipoli sites",
+          "Troy archaeological site",
+          "Dardanelles Strait"
+        ]
+      },
+      {
+        "port": "Kusadasi",
+        "country": "Turkey",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Ephesus ancient city",
+          "Library of Celsus",
+          "Temple of Artemis"
+        ]
+      },
+      {
+        "port": "Messina",
+        "country": "Italy",
+        "arrivalTime": "7:00 AM",
+        "departureTime": "1:00 PM",
+        "highlights": [
+          "Strait of Messina",
+          "Cathedral and bell tower",
+          "Mondello Beach"
+        ]
+      },
+      {
+        "port": "Palma de Mallorca",
+        "country": "Spain",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Palma Cathedral",
+          "Old Town",
+          "beaches"
+        ]
+      },
+      {
+        "port": "Barcelona",
+        "country": "Spain",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": [
+          "Sagrada Familia",
+          "Park Güell",
+          "Gothic Quarter"
+        ]
+      }
+    ],
+    "duration": 15,
+    "price": 10595,
+    "originalPrice": 10595,
+    "cabinTypes": [
+      {
+        "name": "Veranda",
+        "price": 10595,
+        "description": "Premium cabin with private veranda"
+      },
+      {
+        "name": "Suite",
+        "price": 13495,
+        "description": "Spacious suite with additional amenities"
+      }
+    ],
+    "rating": 4.8,
+    "reviewCount": 0,
+    "departurePort": "Athens (Piraeus), Greece",
+    "includes": [
+      "All meals and beverages",
+      "11 guided shore excursions",
+      "All onboard activities",
+      "Enrichment lectures",
+      "WiFi"
+    ],
+    "amenities": [
+      "Fine dining restaurants",
+      "Observation deck",
+      "Library",
+      "Fitness center",
+      "Spa",
+      "Lounge and bar areas"
+    ],
+    "imageGradient": "from-cyan-400 to-blue-600",
+    "category": "Mediterranean",
+    "description": "A 15-day cruise exploring the ancient civilizations of Greece, Turkey, Italy, Tunisia and Spain. Includes 11 guided shore excursions visiting Acropolis, Istanbul, Troy, Ephesus, and more. Multiple sailing dates Dec 2027–Jan 2029 across five Viking ships."
   }
 ]
