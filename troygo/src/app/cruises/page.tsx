@@ -3,7 +3,7 @@
 import { useState, useMemo, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { cruises, type Cruise } from '@/lib/data/packages'
-import { Star, Ship, MapPin, Clock, ChevronDown, Heart, Anchor } from 'lucide-react'
+import { Star, Ship, MapPin, Clock, ChevronDown, Heart, Anchor, Play } from 'lucide-react'
 import Link from 'next/link'
 import MainLayout from '@/components/layout/MainLayout'
 import { useDestinationPhoto } from '@/hooks/useDestinationPhoto'
@@ -109,13 +109,27 @@ function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved
               </div>
             )}
           </div>
-          <Link
-            href={`/booking?type=cruise&id=${cruise.id}&name=${encodeURIComponent(cruise.name)}&price=${cruise.price}`}
-            className="shrink-0 px-5 py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:scale-105"
-            style={{ background: '#00B4D8' }}
-          >
-            View Cruise
-          </Link>
+          <div className="shrink-0 flex flex-col gap-2">
+            <Link
+              href={`/booking?type=cruise&id=${cruise.id}&name=${encodeURIComponent(cruise.name)}&price=${cruise.price}`}
+              className="px-5 py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:scale-105 text-center"
+              style={{ background: '#00B4D8' }}
+            >
+              View Cruise
+            </Link>
+            {cruise.videoUrl && (
+              <a
+                href={cruise.videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:scale-105 text-center flex items-center justify-center gap-1"
+                style={{ background: '#FFD700', color: '#0A1628' }}
+              >
+                <Play className="h-3.5 w-3.5" />
+                Watch Video
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>
