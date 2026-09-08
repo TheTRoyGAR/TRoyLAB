@@ -49,15 +49,12 @@ function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved
           </div>
         )}
         {photo && (
-          <a
-            href={photo.unsplashUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(photo.unsplashUrl, '_blank'); }}
-            className="absolute bottom-1 right-2 text-[9px] text-white/60 hover:text-white/90 transition-colors"
+          <button
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); if (typeof window !== 'undefined') window.open(photo.unsplashUrl, '_blank'); }}
+            className="absolute bottom-1 right-2 text-[9px] text-white/60 hover:text-white/90 transition-colors bg-none border-none p-0 cursor-pointer"
           >
             Photo: {photo.photographerName} / Unsplash
-          </a>
+          </button>
         )}
       </div>
 
@@ -118,17 +115,14 @@ function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved
               View Cruise
             </div>
             {cruise.videoUrl && (
-              <a
-                href={cruise.videoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="px-5 py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:scale-105 text-center flex items-center justify-center gap-1"
+              <button
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); if (typeof window !== 'undefined') window.open(cruise.videoUrl, '_blank'); }}
+                className="px-5 py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:scale-105 text-center flex items-center justify-center gap-1 border-none cursor-pointer"
                 style={{ background: '#FFD700', color: '#0A1628' }}
               >
                 <Play className="h-3.5 w-3.5" />
                 Watch Video
-              </a>
+              </button>
             )}
           </div>
         </div>
