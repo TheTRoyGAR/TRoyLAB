@@ -92,7 +92,8 @@
     ],
     "imageGradient": "from-blue-400 to-indigo-600",
     "category": "Caribbean",
-    "description": "A 4-night roundtrip sailing from Miami aboard the world-class Oasis-class Wonder of the Seas, visiting Royal Caribbean's award-winning private island Perfect Day CocoCay and Nassau, Bahamas. Pricing on balcony cabins is currently aligned with oceanview rates, making upgrades unusually accessible."
+    "description": "A 4-night roundtrip sailing from Miami aboard the world-class Oasis-class Wonder of the Seas, visiting Royal Caribbean's award-winning private island Perfect Day CocoCay and Nassau, Bahamas. Pricing on balcony cabins is currently aligned with oceanview rates, making upgrades unusually accessible.",
+    "imageUrl": "https://images.unsplash.com/photo-1511316695145-4992006ffddb?w=800&q=80"
   },
   {
     "id": 2,
@@ -205,7 +206,8 @@
     ],
     "imageGradient": "from-cyan-400 to-blue-600",
     "category": "Caribbean",
-    "description": "A 7-night roundtrip Caribbean cruise from Galveston aboard Norwegian Viva, visiting Cozumel, Harvest Caye (Belize), Roatan (Honduras), and Costa Maya — all with Norwegian's signature Freestyle no-schedule dining and entertainment approach. Taxes, fees and port expenses are included in the listed fare."
+    "description": "A 7-night roundtrip Caribbean cruise from Galveston aboard Norwegian Viva, visiting Cozumel, Harvest Caye (Belize), Roatan (Honduras), and Costa Maya — all with Norwegian's signature Freestyle no-schedule dining and entertainment approach. Taxes, fees and port expenses are included in the listed fare.",
+    "imageUrl": "https://images.unsplash.com/photo-1599640842225-85d111c60e6b?w=800&q=80"
   },
   {
     "id": 3,
@@ -328,7 +330,8 @@
     ],
     "imageGradient": "from-teal-400 to-green-600",
     "category": "Mediterranean",
-    "description": "A 7-night roundtrip Western Mediterranean cruise departing Barcelona aboard the MSC World Europa, one of the world's largest cruise ships (5,200+ guests), visiting Marseille, Portofino, Naples, Messina, and Valletta. Prices include all meals, entertainment, taxes, and fees."
+    "description": "A 7-night roundtrip Western Mediterranean cruise departing Barcelona aboard the MSC World Europa, one of the world's largest cruise ships (5,200+ guests), visiting Marseille, Portofino, Naples, Messina, and Valletta. Prices include all meals, entertainment, taxes, and fees.",
+    "imageUrl": "https://images.unsplash.com/photo-1554254464-7046778097bf?w=800&q=80"
   },
   {
     "id": 4,
@@ -453,7 +456,8 @@
     ],
     "imageGradient": "from-sky-400 to-blue-500",
     "category": "Alaska",
-    "description": "A 7-night roundtrip Alaska Explorer cruise from Seattle aboard Holland America's Eurodam, featuring Glacier Bay National Park scenic cruising with National Park Rangers, plus port calls in Juneau, Icy Strait Point, Sitka, Ketchikan, and Victoria, BC. Price includes all meals, entertainment, taxes, and port fees."
+    "description": "A 7-night roundtrip Alaska Explorer cruise from Seattle aboard Holland America's Eurodam, featuring Glacier Bay National Park scenic cruising with National Park Rangers, plus port calls in Juneau, Icy Strait Point, Sitka, Ketchikan, and Victoria, BC. Price includes all meals, entertainment, taxes, and port fees.",
+    "imageUrl": "https://images.unsplash.com/photo-1580541631950-7282082b53ce?w=800&q=80"
   },
   {
     "id": 5,
@@ -559,7 +563,8 @@
     ],
     "imageGradient": "from-indigo-500 to-purple-700",
     "category": "Caribbean",
-    "description": "An 8-night roundtrip Eastern Caribbean cruise from Manhattan aboard Carnival Venezia — Carnival's 'Fun Italian Style' ship — visiting Celebration Key, Half Moon Cay, and Grand Turk. The Venice-inspired ship features Italian-themed dining, bars, and entertainment alongside classic Carnival fun."
+    "description": "An 8-night roundtrip Eastern Caribbean cruise from Manhattan aboard Carnival Venezia — Carnival's 'Fun Italian Style' ship — visiting Celebration Key, Half Moon Cay, and Grand Turk. The Venice-inspired ship features Italian-themed dining, bars, and entertainment alongside classic Carnival fun.",
+    "imageUrl": "https://images.unsplash.com/photo-1618064541372-289bdb6f5b7b?w=800&q=80"
   },
   {
     "id": 6,
@@ -683,6 +688,7 @@
       "40-42 inch flat-screen Sony TV with Movies On Demand",
       "Individual climate control in all staterooms"
     ],
+    "imageUrl": "https://images.unsplash.com/photo-1554254648-2d58a1bc3fd5?w=800&q=80",
     "imageGradient": "from-cyan-300 to-teal-500",
     "category": "River",
     "description": "An 8-day Rhine River cruise from Amsterdam to Basel sailing through 4 countries — the Netherlands, Germany, France, and Switzerland — aboard a Viking Longship. The itinerary includes UNESCO World Heritage sites, guided tours in every port, and all meals and drinks with lunch and dinner included in the fare."
@@ -807,7 +813,8 @@
     ],
     "imageGradient": "from-cyan-400 to-blue-600",
     "category": "Mediterranean",
-    "description": "A 15-day cruise exploring the ancient civilizations of Greece, Turkey, Italy, Tunisia and Spain. Includes 11 guided shore excursions visiting Acropolis, Istanbul, Troy, Ephesus, and more. Multiple sailing dates Dec 2027–Jan 2029 across five Viking ships."
+    "description": "A 15-day cruise exploring the ancient civilizations of Greece, Turkey, Italy, Tunisia and Spain. Includes 11 guided shore excursions visiting Acropolis, Istanbul, Troy, Ephesus, and more. Multiple sailing dates Dec 2027–Jan 2029 across five Viking ships.",
+    "imageUrl": "https://images.unsplash.com/photo-1635184611438-710719a80d64?w=800&q=80"
   },
   {
     "id": 8,
@@ -939,7 +946,8 @@
     ],
     "imageGradient": "from-slate-400 to-blue-700",
     "category": "Europe",
-    "description": "A 14-day transatlantic river cruise from London to Bergen, exploring the British Isles and Norwegian fjords. Visit Cork, Belfast, and Stavanger before arriving in the gateway to Norway's famous fjords. Departing Sep 2026."
+    "description": "A 14-day transatlantic river cruise from London to Bergen, exploring the British Isles and Norwegian fjords. Visit Cork, Belfast, and Stavanger before arriving in the gateway to Norway's famous fjords. Departing Sep 2026.",
+    "imageUrl": "https://images.unsplash.com/photo-1551415923-31d2072bc248?w=800&q=80"
   },
   {
     "id": 9,
@@ -1071,7 +1079,8 @@
     ],
     "imageGradient": "from-cyan-400 to-indigo-600",
     "category": "Europe",
-    "description": "A 14-day river cruise exploring Britain and Scandinavia. Sail from London through the British Isles to Edinburgh, then through spectacular Norwegian fjords to Bergen. Spring 2027 departures aboard Viking Libra and Viking Vela."
+    "description": "A 14-day river cruise exploring Britain and Scandinavia. Sail from London through the British Isles to Edinburgh, then through spectacular Norwegian fjords to Bergen. Spring 2027 departures aboard Viking Libra and Viking Vela.",
+    "imageUrl": "https://images.unsplash.com/photo-1692052903308-c2cb42c8720e?w=800&q=80"
   },
   {
     "id": 10,
@@ -1203,7 +1212,8 @@
     ],
     "imageGradient": "from-blue-400 to-slate-600",
     "category": "Europe",
-    "description": "A 14-day reverse journey from Bergen to London. Explore Norwegian fjords in reverse, then cruise through the Scottish Hebrides, Ireland, Wales and across the English Channel. Spring 2027 sailings aboard Viking Vela."
+    "description": "A 14-day reverse journey from Bergen to London. Explore Norwegian fjords in reverse, then cruise through the Scottish Hebrides, Ireland, Wales and across the English Channel. Spring 2027 sailings aboard Viking Vela.",
+    "imageUrl": "https://images.unsplash.com/photo-1551415923-31d2072bc248?w=800&q=80"
   },
   {
     "id": 11,
@@ -1336,7 +1346,8 @@
     ],
     "imageGradient": "from-indigo-400 to-slate-700",
     "category": "Europe",
-    "description": "A 14-day Northern Europe adventure from London to Bergen via Scotland's remotest islands and the Norwegian Arctic coast. Spring 2027 sailing aboard Viking Saturn, designed for those seeking dramatic landscapes and authentic Nordic experiences."
+    "description": "A 14-day Northern Europe adventure from London to Bergen via Scotland's remotest islands and the Norwegian Arctic coast. Spring 2027 sailing aboard Viking Saturn, designed for those seeking dramatic landscapes and authentic Nordic experiences.",
+    "imageUrl": "https://images.unsplash.com/photo-GG1CwF4qdlg?w=800&q=80"
   },
   {
     "id": 12,
@@ -1469,7 +1480,8 @@
     ],
     "imageGradient": "from-cyan-400 to-blue-700",
     "category": "Europe",
-    "description": "A 14-day spring voyage from London through the British Isles to the Norwegian fjords. Visit the Isles of Wight and Man, explore Dublin, and arrive in Bergen as a gateway to Norway's most spectacular scenery. May 2027 sailing aboard Viking Sky."
+    "description": "A 14-day spring voyage from London through the British Isles to the Norwegian fjords. Visit the Isles of Wight and Man, explore Dublin, and arrive in Bergen as a gateway to Norway's most spectacular scenery. May 2027 sailing aboard Viking Sky.",
+    "imageUrl": "https://images.unsplash.com/photo-1642928614293-ba6ff94b4a75?w=800&q=80"
   },
   {
     "id": 13,
@@ -1477,31 +1489,135 @@
     "ship": "Viking Orion / Viking Polaris",
     "cruiseLine": "Viking Ocean Cruises",
     "itinerary": [
-      {"port": "Buenos Aires", "country": "Argentina", "arrivalTime": "embarkation", "departureTime": "5:00 PM", "highlights": ["La Boca neighbourhood", "Teatro Colon", "Argentine tango"]},
-      {"port": "Ushuaia", "country": "Argentina", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Southernmost city", "Beagle Channel", "End of the World"]},
-      {"port": "Drake Passage", "country": "Drake Passage", "arrivalTime": "Variable", "departureTime": "Variable", "highlights": ["Open ocean crossing", "Sea life viewing", "Dramatic seascapes"]},
-      {"port": "Antarctica - Lemaire Channel", "country": "Antarctica", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Glaciers and icebergs", "Penguin colonies", "Zodiac excursions"]},
-      {"port": "Antarctica - Paradise Cove", "country": "Antarctica", "arrivalTime": "8:00 AM", "departureTime": "4:00 PM", "highlights": ["Polar exploration", "Wildlife viewing", "Photography opportunities"]},
-      {"port": "Antarctic Peninsula", "country": "Antarctica", "arrivalTime": "Variable", "departureTime": "Variable", "highlights": ["Ice shelf exploration", "Seal colonies", "Research stations"]},
-      {"port": "Drake Passage (Return)", "country": "Drake Passage", "arrivalTime": "Variable", "departureTime": "Variable", "highlights": ["Return crossing", "Atlantic views"]},
-      {"port": "Buenos Aires", "country": "Argentina", "arrivalTime": "8:00 AM", "departureTime": "disembarkation", "highlights": ["Arrival and disembarkation"]}
+      {
+        "port": "Buenos Aires",
+        "country": "Argentina",
+        "arrivalTime": "embarkation",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "La Boca neighbourhood",
+          "Teatro Colon",
+          "Argentine tango"
+        ]
+      },
+      {
+        "port": "Ushuaia",
+        "country": "Argentina",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Southernmost city",
+          "Beagle Channel",
+          "End of the World"
+        ]
+      },
+      {
+        "port": "Drake Passage",
+        "country": "Drake Passage",
+        "arrivalTime": "Variable",
+        "departureTime": "Variable",
+        "highlights": [
+          "Open ocean crossing",
+          "Sea life viewing",
+          "Dramatic seascapes"
+        ]
+      },
+      {
+        "port": "Antarctica - Lemaire Channel",
+        "country": "Antarctica",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Glaciers and icebergs",
+          "Penguin colonies",
+          "Zodiac excursions"
+        ]
+      },
+      {
+        "port": "Antarctica - Paradise Cove",
+        "country": "Antarctica",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Polar exploration",
+          "Wildlife viewing",
+          "Photography opportunities"
+        ]
+      },
+      {
+        "port": "Antarctic Peninsula",
+        "country": "Antarctica",
+        "arrivalTime": "Variable",
+        "departureTime": "Variable",
+        "highlights": [
+          "Ice shelf exploration",
+          "Seal colonies",
+          "Research stations"
+        ]
+      },
+      {
+        "port": "Drake Passage (Return)",
+        "country": "Drake Passage",
+        "arrivalTime": "Variable",
+        "departureTime": "Variable",
+        "highlights": [
+          "Return crossing",
+          "Atlantic views"
+        ]
+      },
+      {
+        "port": "Buenos Aires",
+        "country": "Argentina",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": [
+          "Arrival and disembarkation"
+        ]
+      }
     ],
     "duration": 13,
     "price": 18345,
     "originalPrice": 38440,
     "cabinTypes": [
-      {"name": "Inside", "price": 18345, "description": "Inside cabin"},
-      {"name": "Ocean View", "price": 22995, "description": "Oceanview window"},
-      {"name": "Veranda Suite", "price": 31895, "description": "Suite with veranda"}
+      {
+        "name": "Inside",
+        "price": 18345,
+        "description": "Inside cabin"
+      },
+      {
+        "name": "Ocean View",
+        "price": 22995,
+        "description": "Oceanview window"
+      },
+      {
+        "name": "Veranda Suite",
+        "price": 31895,
+        "description": "Suite with veranda"
+      }
     ],
     "rating": 4.9,
     "reviewCount": 0,
     "departurePort": "Buenos Aires, Argentina",
-    "includes": ["All meals and beverages", "Expert-led excursions", "Zodiac expeditions", "Enrichment programmes", "WiFi", "Port charges"],
-    "amenities": ["Fine dining", "Explorer's Lounge", "Observation deck", "Fitness centre", "Spa", "Library"],
+    "includes": [
+      "All meals and beverages",
+      "Expert-led excursions",
+      "Zodiac expeditions",
+      "Enrichment programmes",
+      "WiFi",
+      "Port charges"
+    ],
+    "amenities": [
+      "Fine dining",
+      "Explorer's Lounge",
+      "Observation deck",
+      "Fitness centre",
+      "Spa",
+      "Library"
+    ],
     "imageGradient": "from-cyan-500 to-blue-700",
     "category": "Expedition",
-    "description": "A 13-day polar expedition to Antarctica from Buenos Aires. Explore the Antarctic Peninsula, view penguin colonies, navigate the Drake Passage, and experience one of Earth's most remote continents. Multiple sailings Dec 2026–Mar 2029."
+    "description": "A 13-day polar expedition to Antarctica from Buenos Aires. Explore the Antarctic Peninsula, view penguin colonies, navigate the Drake Passage, and experience one of Earth's most remote continents. Multiple sailings Dec 2026–Mar 2029.",
+    "imageUrl": "https://images.unsplash.com/photo-1664304481949-7342698006f3?w=800&q=80"
   },
   {
     "id": 14,
@@ -1509,31 +1625,135 @@
     "ship": "Viking Polaris",
     "cruiseLine": "Viking Ocean Cruises",
     "itinerary": [
-      {"port": "Seattle", "country": "United States", "arrivalTime": "embarkation", "departureTime": "5:00 PM", "highlights": ["Pike Place Market", "Space Needle", "Puget Sound"]},
-      {"port": "Ketchikan", "country": "United States", "arrivalTime": "8:00 AM", "departureTime": "4:00 PM", "highlights": ["Inside Passage", "Totem poles", "Native culture"]},
-      {"port": "Juneau", "country": "United States", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Mendenhall Glacier", "Capital of Alaska", "Wildlife viewing"]},
-      {"port": "Glacier Bay", "country": "United States", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Tidewater glaciers", "Bears and eagles", "Pristine wilderness"]},
-      {"port": "Sitka", "country": "United States", "arrivalTime": "8:00 AM", "departureTime": "4:00 PM", "highlights": ["Russian heritage", "Totem poles", "Alaska culture"]},
-      {"port": "Prince Rupert", "country": "Canada", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Gateway to British Columbia", "Haida heritage", "Mountain views"]},
-      {"port": "Inside Passage", "country": "Canada", "arrivalTime": "Variable", "departureTime": "Variable", "highlights": ["Scenic cruising", "Fjords and inlets"]},
-      {"port": "Vancouver", "country": "Canada", "arrivalTime": "8:00 AM", "departureTime": "disembarkation", "highlights": ["Gateway to Canada", "Mountains and ocean"]}
+      {
+        "port": "Seattle",
+        "country": "United States",
+        "arrivalTime": "embarkation",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Pike Place Market",
+          "Space Needle",
+          "Puget Sound"
+        ]
+      },
+      {
+        "port": "Ketchikan",
+        "country": "United States",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Inside Passage",
+          "Totem poles",
+          "Native culture"
+        ]
+      },
+      {
+        "port": "Juneau",
+        "country": "United States",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Mendenhall Glacier",
+          "Capital of Alaska",
+          "Wildlife viewing"
+        ]
+      },
+      {
+        "port": "Glacier Bay",
+        "country": "United States",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Tidewater glaciers",
+          "Bears and eagles",
+          "Pristine wilderness"
+        ]
+      },
+      {
+        "port": "Sitka",
+        "country": "United States",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Russian heritage",
+          "Totem poles",
+          "Alaska culture"
+        ]
+      },
+      {
+        "port": "Prince Rupert",
+        "country": "Canada",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Gateway to British Columbia",
+          "Haida heritage",
+          "Mountain views"
+        ]
+      },
+      {
+        "port": "Inside Passage",
+        "country": "Canada",
+        "arrivalTime": "Variable",
+        "departureTime": "Variable",
+        "highlights": [
+          "Scenic cruising",
+          "Fjords and inlets"
+        ]
+      },
+      {
+        "port": "Vancouver",
+        "country": "Canada",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": [
+          "Gateway to Canada",
+          "Mountains and ocean"
+        ]
+      }
     ],
     "duration": 13,
     "price": 13995,
     "originalPrice": 13995,
     "cabinTypes": [
-      {"name": "Inside", "price": 13995, "description": "Inside cabin"},
-      {"name": "Oceanview", "price": 16795, "description": "Window cabin"},
-      {"name": "Veranda Suite", "price": 22995, "description": "Veranda suite with upgrades"}
+      {
+        "name": "Inside",
+        "price": 13995,
+        "description": "Inside cabin"
+      },
+      {
+        "name": "Oceanview",
+        "price": 16795,
+        "description": "Window cabin"
+      },
+      {
+        "name": "Veranda Suite",
+        "price": 22995,
+        "description": "Veranda suite with upgrades"
+      }
     ],
     "rating": 4.8,
     "reviewCount": 0,
     "departurePort": "Seattle, Washington USA",
-    "includes": ["All meals", "Guided shore excursions", "Wildlife viewing", "Educational programmes", "WiFi", "Gratuities"],
-    "amenities": ["Fine dining", "Explorer's lounge", "Observation decks", "Fitness centre", "Spa"],
+    "includes": [
+      "All meals",
+      "Guided shore excursions",
+      "Wildlife viewing",
+      "Educational programmes",
+      "WiFi",
+      "Gratuities"
+    ],
+    "amenities": [
+      "Fine dining",
+      "Explorer's lounge",
+      "Observation decks",
+      "Fitness centre",
+      "Spa"
+    ],
     "imageGradient": "from-emerald-400 to-blue-600",
     "category": "Expedition",
-    "description": "A 13-day Alaska and British Columbia cruise. Experience Inside Passage, visit glacier bays, encounter wildlife, and explore Native Alaskan culture. Oct 2026–Sep 2029 sailings."
+    "description": "A 13-day Alaska and British Columbia cruise. Experience Inside Passage, visit glacier bays, encounter wildlife, and explore Native Alaskan culture. Oct 2026–Sep 2029 sailings.",
+    "imageUrl": "https://images.unsplash.com/photo-1486566584569-b9319dc74315?w=800&q=80"
   },
   {
     "id": 15,
@@ -1541,32 +1761,145 @@
     "ship": "Viking Polaris / Viking Orion",
     "cruiseLine": "Viking Ocean Cruises",
     "itinerary": [
-      {"port": "Reykjavik", "country": "Iceland", "arrivalTime": "embarkation", "departureTime": "5:00 PM", "highlights": ["Iceland's capital", "Blue Lagoon nearby", "Golden Circle"]},
-      {"port": "Akureyri", "country": "Iceland", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["North Iceland", "Waterfalls", "Hot springs"]},
-      {"port": "Isafjordur", "country": "Iceland", "arrivalTime": "8:00 AM", "departureTime": "4:00 PM", "highlights": ["Westfjords", "Arctic views"]},
-      {"port": "Greenland - Nuuk", "country": "Greenland", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Greenland's capital", "Arctic culture", "Icebergs"]},
-      {"port": "Sisimiut", "country": "Greenland", "arrivalTime": "8:00 AM", "departureTime": "4:00 PM", "highlights": ["Arctic community", "Dog sledding (seasonal)", "Polar lights"]},
-      {"port": "Qeqertarsuaq", "country": "Greenland", "arrivalTime": "8:00 AM", "departureTime": "4:00 PM", "highlights": ["Disko Island", "Glacier views", "Arctic wildlife"]},
-      {"port": "Ilulissat", "country": "Greenland", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Icefjord", "UNESCO site", "Midnight sun"]},
-      {"port": "Kangerlussuaq", "country": "Greenland", "arrivalTime": "Variable", "departureTime": "Variable", "highlights": ["Inland exploration", "Lake Søndre Strømfjord"]},
-      {"port": "Reykjavik", "country": "Iceland", "arrivalTime": "8:00 AM", "departureTime": "disembarkation", "highlights": ["Return to Iceland"]}
+      {
+        "port": "Reykjavik",
+        "country": "Iceland",
+        "arrivalTime": "embarkation",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Iceland's capital",
+          "Blue Lagoon nearby",
+          "Golden Circle"
+        ]
+      },
+      {
+        "port": "Akureyri",
+        "country": "Iceland",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "North Iceland",
+          "Waterfalls",
+          "Hot springs"
+        ]
+      },
+      {
+        "port": "Isafjordur",
+        "country": "Iceland",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Westfjords",
+          "Arctic views"
+        ]
+      },
+      {
+        "port": "Greenland - Nuuk",
+        "country": "Greenland",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Greenland's capital",
+          "Arctic culture",
+          "Icebergs"
+        ]
+      },
+      {
+        "port": "Sisimiut",
+        "country": "Greenland",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Arctic community",
+          "Dog sledding (seasonal)",
+          "Polar lights"
+        ]
+      },
+      {
+        "port": "Qeqertarsuaq",
+        "country": "Greenland",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Disko Island",
+          "Glacier views",
+          "Arctic wildlife"
+        ]
+      },
+      {
+        "port": "Ilulissat",
+        "country": "Greenland",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Icefjord",
+          "UNESCO site",
+          "Midnight sun"
+        ]
+      },
+      {
+        "port": "Kangerlussuaq",
+        "country": "Greenland",
+        "arrivalTime": "Variable",
+        "departureTime": "Variable",
+        "highlights": [
+          "Inland exploration",
+          "Lake Søndre Strømfjord"
+        ]
+      },
+      {
+        "port": "Reykjavik",
+        "country": "Iceland",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": [
+          "Return to Iceland"
+        ]
+      }
     ],
     "duration": 15,
     "price": 22695,
     "originalPrice": 22695,
     "cabinTypes": [
-      {"name": "Inside", "price": 22695, "description": "Inside cabin"},
-      {"name": "Oceanview", "price": 26495, "description": "Arctic views"},
-      {"name": "Suite", "price": 35995, "description": "Veranda suite with expedition privileges"}
+      {
+        "name": "Inside",
+        "price": 22695,
+        "description": "Inside cabin"
+      },
+      {
+        "name": "Oceanview",
+        "price": 26495,
+        "description": "Arctic views"
+      },
+      {
+        "name": "Suite",
+        "price": 35995,
+        "description": "Veranda suite with expedition privileges"
+      }
     ],
     "rating": 4.9,
     "reviewCount": 0,
     "departurePort": "Reykjavik, Iceland",
-    "includes": ["All meals", "Expert naturalists", "Zodiac excursions", "Enrichment lectures", "WiFi", "Port charges"],
-    "amenities": ["Fine dining", "Science lab", "Observation lounge", "Fitness", "Spa", "Library"],
+    "includes": [
+      "All meals",
+      "Expert naturalists",
+      "Zodiac excursions",
+      "Enrichment lectures",
+      "WiFi",
+      "Port charges"
+    ],
+    "amenities": [
+      "Fine dining",
+      "Science lab",
+      "Observation lounge",
+      "Fitness",
+      "Spa",
+      "Library"
+    ],
     "imageGradient": "from-slate-400 to-cyan-600",
     "category": "Expedition",
-    "description": "A 15-day Arctic exploration of Greenland and Iceland. Cruise alongside massive icebergs, visit remote Arctic settlements, experience midnight sun, and explore UNESCO World Heritage sites. Sep 2026–Jul 2029 sailings."
+    "description": "A 15-day Arctic exploration of Greenland and Iceland. Cruise alongside massive icebergs, visit remote Arctic settlements, experience midnight sun, and explore UNESCO World Heritage sites. Sep 2026–Jul 2029 sailings.",
+    "imageUrl": "https://images.unsplash.com/photo-1551415923-31d2072bc248?w=800&q=80"
   },
   {
     "id": 16,
@@ -1574,30 +1907,120 @@
     "ship": "Viking Orion",
     "cruiseLine": "Viking Ocean Cruises",
     "itinerary": [
-      {"port": "Vancouver", "country": "Canada", "arrivalTime": "embarkation", "departureTime": "5:00 PM", "highlights": ["Vancouver cityscape", "Mountains and water"]},
-      {"port": "Victoria", "country": "Canada", "arrivalTime": "8:00 AM", "departureTime": "4:00 PM", "highlights": ["British Columbia capital", "Butchart Gardens", "Inner Harbour"]},
-      {"port": "Ketchikan", "country": "United States", "arrivalTime": "8:00 AM", "departureTime": "4:00 PM", "highlights": ["Inside Passage", "Totem heritage", "Alaska charm"]},
-      {"port": "Juneau", "country": "United States", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Mendenhall Glacier", "State capital", "Whale watching"]},
-      {"port": "Sitka", "country": "United States", "arrivalTime": "8:00 AM", "departureTime": "4:00 PM", "highlights": ["Totem Park", "Russian heritage", "Eagle encounters"]},
-      {"port": "Inside Passage", "country": "Canada/USA", "arrivalTime": "Scenic", "departureTime": "Scenic", "highlights": ["Fjords and forests", "Mountain views"]},
-      {"port": "Vancouver", "country": "Canada", "arrivalTime": "8:00 AM", "departureTime": "disembarkation", "highlights": ["Voyage conclusion"]}
+      {
+        "port": "Vancouver",
+        "country": "Canada",
+        "arrivalTime": "embarkation",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Vancouver cityscape",
+          "Mountains and water"
+        ]
+      },
+      {
+        "port": "Victoria",
+        "country": "Canada",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "British Columbia capital",
+          "Butchart Gardens",
+          "Inner Harbour"
+        ]
+      },
+      {
+        "port": "Ketchikan",
+        "country": "United States",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Inside Passage",
+          "Totem heritage",
+          "Alaska charm"
+        ]
+      },
+      {
+        "port": "Juneau",
+        "country": "United States",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Mendenhall Glacier",
+          "State capital",
+          "Whale watching"
+        ]
+      },
+      {
+        "port": "Sitka",
+        "country": "United States",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Totem Park",
+          "Russian heritage",
+          "Eagle encounters"
+        ]
+      },
+      {
+        "port": "Inside Passage",
+        "country": "Canada/USA",
+        "arrivalTime": "Scenic",
+        "departureTime": "Scenic",
+        "highlights": [
+          "Fjords and forests",
+          "Mountain views"
+        ]
+      },
+      {
+        "port": "Vancouver",
+        "country": "Canada",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": [
+          "Voyage conclusion"
+        ]
+      }
     ],
     "duration": 8,
     "price": 11995,
     "originalPrice": 11995,
     "cabinTypes": [
-      {"name": "Inside", "price": 11995, "description": "Inside cabin"},
-      {"name": "Oceanview", "price": 14495, "description": "Window cabin"},
-      {"name": "Veranda", "price": 19495, "description": "Veranda suite"}
+      {
+        "name": "Inside",
+        "price": 11995,
+        "description": "Inside cabin"
+      },
+      {
+        "name": "Oceanview",
+        "price": 14495,
+        "description": "Window cabin"
+      },
+      {
+        "name": "Veranda",
+        "price": 19495,
+        "description": "Veranda suite"
+      }
     ],
     "rating": 4.7,
     "reviewCount": 0,
     "departurePort": "Vancouver, British Columbia Canada",
-    "includes": ["All meals", "Shore excursions in key ports", "Entertainment", "WiFi", "Port taxes"],
-    "amenities": ["Dining venues", "Pool deck", "Theatre", "Fitness centre"],
+    "includes": [
+      "All meals",
+      "Shore excursions in key ports",
+      "Entertainment",
+      "WiFi",
+      "Port taxes"
+    ],
+    "amenities": [
+      "Dining venues",
+      "Pool deck",
+      "Theatre",
+      "Fitness centre"
+    ],
     "imageGradient": "from-emerald-500 to-blue-700",
     "category": "Expedition",
-    "description": "An 8-day Alaska cruise from Vancouver. Navigate the stunning Inside Passage, visit Ketchikan and Juneau, cruise past tidewater glaciers, and experience pristine wilderness. Oct 2026–Sep 2029 sailings."
+    "description": "An 8-day Alaska cruise from Vancouver. Navigate the stunning Inside Passage, visit Ketchikan and Juneau, cruise past tidewater glaciers, and experience pristine wilderness. Oct 2026–Sep 2029 sailings.",
+    "imageUrl": "https://images.unsplash.com/photo-1618064541372-289bdb6f5b7b?w=800&q=80"
   },
   {
     "id": 17,
@@ -1605,32 +2028,142 @@
     "ship": "Viking Sun",
     "cruiseLine": "Viking Ocean Cruises",
     "itinerary": [
-      {"port": "Miami", "country": "United States", "arrivalTime": "embarkation", "departureTime": "5:00 PM", "highlights": ["South Florida gateway"]},
-      {"port": "At Sea", "country": "Atlantic", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Ocean cruising"]},
-      {"port": "Panama Canal - Colon", "country": "Panama", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Panama Canal transit", "Caribbean gateway"]},
-      {"port": "Cartagena", "country": "Colombia", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Colonial city", "Caribbean jewel", "Colourful architecture"]},
-      {"port": "Montego Bay", "country": "Jamaica", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Beach paradise", "Blue Mountains", "Reggae culture"]},
-      {"port": "Belmopan", "country": "Belize", "arrivalTime": "8:00 AM", "departureTime": "4:00 PM", "highlights": ["Mayan ruins", "Coral reefs", "Barrier reef"]},
-      {"port": "Cozumel", "country": "Mexico", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Caribbean island", "Diving and snorkeling", "Mayan culture"]},
-      {"port": "Nassau", "country": "Bahamas", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Nassau islands", "Beaches", "Caribbean culture"]},
-      {"port": "Miami", "country": "United States", "arrivalTime": "8:00 AM", "departureTime": "disembarkation", "highlights": ["Voyage completion"]}
+      {
+        "port": "Miami",
+        "country": "United States",
+        "arrivalTime": "embarkation",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "South Florida gateway"
+        ]
+      },
+      {
+        "port": "At Sea",
+        "country": "Atlantic",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Ocean cruising"
+        ]
+      },
+      {
+        "port": "Panama Canal - Colon",
+        "country": "Panama",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Panama Canal transit",
+          "Caribbean gateway"
+        ]
+      },
+      {
+        "port": "Cartagena",
+        "country": "Colombia",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Colonial city",
+          "Caribbean jewel",
+          "Colourful architecture"
+        ]
+      },
+      {
+        "port": "Montego Bay",
+        "country": "Jamaica",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Beach paradise",
+          "Blue Mountains",
+          "Reggae culture"
+        ]
+      },
+      {
+        "port": "Belmopan",
+        "country": "Belize",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Mayan ruins",
+          "Coral reefs",
+          "Barrier reef"
+        ]
+      },
+      {
+        "port": "Cozumel",
+        "country": "Mexico",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Caribbean island",
+          "Diving and snorkeling",
+          "Mayan culture"
+        ]
+      },
+      {
+        "port": "Nassau",
+        "country": "Bahamas",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Nassau islands",
+          "Beaches",
+          "Caribbean culture"
+        ]
+      },
+      {
+        "port": "Miami",
+        "country": "United States",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": [
+          "Voyage completion"
+        ]
+      }
     ],
     "duration": 20,
     "price": 17795,
     "originalPrice": 17795,
     "cabinTypes": [
-      {"name": "Inside", "price": 17795, "description": "Inside cabin"},
-      {"name": "Oceanview", "price": 21495, "description": "Ocean view"},
-      {"name": "Suite", "price": 29995, "description": "Luxury suite"}
+      {
+        "name": "Inside",
+        "price": 17795,
+        "description": "Inside cabin"
+      },
+      {
+        "name": "Oceanview",
+        "price": 21495,
+        "description": "Ocean view"
+      },
+      {
+        "name": "Suite",
+        "price": 29995,
+        "description": "Luxury suite"
+      }
     ],
     "rating": 4.8,
     "reviewCount": 0,
     "departurePort": "Miami, Florida USA",
-    "includes": ["All meals", "Shore excursions", "Panama Canal transit", "Entertainment", "WiFi", "Service charges"],
-    "amenities": ["Multiple restaurants", "Pools and spas", "Theatre", "Casino", "Fitness centre", "Specialty dining"],
+    "includes": [
+      "All meals",
+      "Shore excursions",
+      "Panama Canal transit",
+      "Entertainment",
+      "WiFi",
+      "Service charges"
+    ],
+    "amenities": [
+      "Multiple restaurants",
+      "Pools and spas",
+      "Theatre",
+      "Casino",
+      "Fitness centre",
+      "Specialty dining"
+    ],
     "imageGradient": "from-emerald-400 to-cyan-600",
     "category": "Caribbean",
-    "description": "A 20-day Caribbean Grand Voyage from Miami via the Panama Canal. Visit Jamaica, Belize, Mexico, and the Bahamas with expert excursions and unique itineraries. Oct 2026–Oct 2029 sailings."
+    "description": "A 20-day Caribbean Grand Voyage from Miami via the Panama Canal. Visit Jamaica, Belize, Mexico, and the Bahamas with expert excursions and unique itineraries. Oct 2026–Oct 2029 sailings.",
+    "imageUrl": "https://images.unsplash.com/photo-1771945484043-3a17fbf57a4b?w=800&q=80"
   },
   {
     "id": 18,
@@ -1638,32 +2171,143 @@
     "ship": "Viking Orion / Viking Polaris",
     "cruiseLine": "Viking Ocean Cruises",
     "itinerary": [
-      {"port": "Buenos Aires", "country": "Argentina", "arrivalTime": "embarkation", "departureTime": "5:00 PM", "highlights": ["Tango capital", "La Boca", "Teatro Colon"]},
-      {"port": "Ushuaia", "country": "Argentina", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Southernmost city", "Beagle Channel", "Patagonia"]},
-      {"port": "Drake Passage", "country": "Drake Passage", "arrivalTime": "Variable", "departureTime": "Variable", "highlights": ["Open ocean", "Seabird watching"]},
-      {"port": "Falkland Islands", "country": "Falkland Islands", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Stanley capital", "Penguin colonies", "Sheep farming"]},
-      {"port": "South Georgia", "country": "South Georgia", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Sub-Antarctic island", "Seals and penguins", "Ernest Shackleton heritage"]},
-      {"port": "South Sandwich Islands", "country": "South Sandwich Islands", "arrivalTime": "Variable", "departureTime": "Variable", "highlights": ["Remote expedition", "Polar exploration"]},
-      {"port": "Antarctica", "country": "Antarctica", "arrivalTime": "Variable", "departureTime": "Variable", "highlights": ["Polar continent", "Icebergs", "Wildlife"]},
-      {"port": "Drake Passage (Return)", "country": "Drake Passage", "arrivalTime": "Variable", "departureTime": "Variable", "highlights": ["Return voyage"]},
-      {"port": "Buenos Aires", "country": "Argentina", "arrivalTime": "8:00 AM", "departureTime": "disembarkation", "highlights": ["Voyage end"]}
+      {
+        "port": "Buenos Aires",
+        "country": "Argentina",
+        "arrivalTime": "embarkation",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Tango capital",
+          "La Boca",
+          "Teatro Colon"
+        ]
+      },
+      {
+        "port": "Ushuaia",
+        "country": "Argentina",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Southernmost city",
+          "Beagle Channel",
+          "Patagonia"
+        ]
+      },
+      {
+        "port": "Drake Passage",
+        "country": "Drake Passage",
+        "arrivalTime": "Variable",
+        "departureTime": "Variable",
+        "highlights": [
+          "Open ocean",
+          "Seabird watching"
+        ]
+      },
+      {
+        "port": "Falkland Islands",
+        "country": "Falkland Islands",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Stanley capital",
+          "Penguin colonies",
+          "Sheep farming"
+        ]
+      },
+      {
+        "port": "South Georgia",
+        "country": "South Georgia",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Sub-Antarctic island",
+          "Seals and penguins",
+          "Ernest Shackleton heritage"
+        ]
+      },
+      {
+        "port": "South Sandwich Islands",
+        "country": "South Sandwich Islands",
+        "arrivalTime": "Variable",
+        "departureTime": "Variable",
+        "highlights": [
+          "Remote expedition",
+          "Polar exploration"
+        ]
+      },
+      {
+        "port": "Antarctica",
+        "country": "Antarctica",
+        "arrivalTime": "Variable",
+        "departureTime": "Variable",
+        "highlights": [
+          "Polar continent",
+          "Icebergs",
+          "Wildlife"
+        ]
+      },
+      {
+        "port": "Drake Passage (Return)",
+        "country": "Drake Passage",
+        "arrivalTime": "Variable",
+        "departureTime": "Variable",
+        "highlights": [
+          "Return voyage"
+        ]
+      },
+      {
+        "port": "Buenos Aires",
+        "country": "Argentina",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": [
+          "Voyage end"
+        ]
+      }
     ],
     "duration": 19,
     "price": 32795,
     "originalPrice": 64840,
     "cabinTypes": [
-      {"name": "Inside", "price": 32795, "description": "Inside cabin"},
-      {"name": "Oceanview", "price": 39495, "description": "Ocean view with balcony"},
-      {"name": "Suite", "price": 54995, "description": "Luxury expedition suite"}
+      {
+        "name": "Inside",
+        "price": 32795,
+        "description": "Inside cabin"
+      },
+      {
+        "name": "Oceanview",
+        "price": 39495,
+        "description": "Ocean view with balcony"
+      },
+      {
+        "name": "Suite",
+        "price": 54995,
+        "description": "Luxury expedition suite"
+      }
     ],
     "rating": 4.9,
     "reviewCount": 0,
     "departurePort": "Buenos Aires, Argentina",
-    "includes": ["All meals and beverages", "Expert expeditions", "Zodiac excursions", "Enrichment programmes", "WiFi", "Port charges"],
-    "amenities": ["Fine dining", "Science lab", "Observation deck", "Fitness", "Library", "Spa"],
+    "includes": [
+      "All meals and beverages",
+      "Expert expeditions",
+      "Zodiac excursions",
+      "Enrichment programmes",
+      "WiFi",
+      "Port charges"
+    ],
+    "amenities": [
+      "Fine dining",
+      "Science lab",
+      "Observation deck",
+      "Fitness",
+      "Library",
+      "Spa"
+    ],
     "imageGradient": "from-slate-500 to-blue-800",
     "category": "Expedition",
-    "description": "A 19-day ultimate polar expedition. Visit the Falkland Islands, South Georgia, and Antarctica with expert naturalists. See penguin colonies, encounter seals, and explore some of Earth's most remote regions. Nov 2026–Feb 2029 sailings."
+    "description": "A 19-day ultimate polar expedition. Visit the Falkland Islands, South Georgia, and Antarctica with expert naturalists. See penguin colonies, encounter seals, and explore some of Earth's most remote regions. Nov 2026–Feb 2029 sailings.",
+    "imageUrl": "https://images.unsplash.com/photo-1642928614293-ba6ff94b4a75?w=800&q=80"
   },
   {
     "id": 19,
@@ -1671,35 +2315,166 @@
     "ship": "Viking Neptune",
     "cruiseLine": "Viking River Cruises",
     "itinerary": [
-      {"port": "Vancouver", "country": "Canada", "arrivalTime": "embarkation", "departureTime": "5:00 PM", "highlights": ["Pacific gateway"]},
-      {"port": "Alaska Inside Passage", "country": "United States", "arrivalTime": "Multiple", "departureTime": "Multiple", "highlights": ["Glaciers", "Wildlife", "Remote ports"]},
-      {"port": "San Francisco", "country": "United States", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Golden Gate Bridge", "Bay City"]},
-      {"port": "Los Angeles", "country": "United States", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Hollywood", "Beaches", "Entertainment"]},
-      {"port": "San Diego", "country": "United States", "arrivalTime": "8:00 AM", "departureTime": "4:00 PM", "highlights": ["Navy heritage", "Beaches"]},
-      {"port": "Cabo San Lucas", "country": "Mexico", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Sea of Cortez", "Desert meets ocean"]},
-      {"port": "Puerto Vallarta", "country": "Mexico", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Pacific beach resort"]},
-      {"port": "Acapulco", "country": "Mexico", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Dive cliffs", "Bay beauty"]},
-      {"port": "Panama Canal", "country": "Panama", "arrivalTime": "Variable", "departureTime": "Variable", "highlights": ["Engineering marvel"]},
-      {"port": "Cartagena", "country": "Colombia", "arrivalTime": "8:00 AM", "departureTime": "4:00 PM", "highlights": ["Colonial charm"]},
-      {"port": "Panama Canal (Gatun Locks)", "country": "Panama", "arrivalTime": "Variable", "departureTime": "Variable", "highlights": ["Return transit"]},
-      {"port": "Vancouver", "country": "Canada", "arrivalTime": "8:00 AM", "departureTime": "disembarkation", "highlights": ["Voyage completion"]}
+      {
+        "port": "Vancouver",
+        "country": "Canada",
+        "arrivalTime": "embarkation",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Pacific gateway"
+        ]
+      },
+      {
+        "port": "Alaska Inside Passage",
+        "country": "United States",
+        "arrivalTime": "Multiple",
+        "departureTime": "Multiple",
+        "highlights": [
+          "Glaciers",
+          "Wildlife",
+          "Remote ports"
+        ]
+      },
+      {
+        "port": "San Francisco",
+        "country": "United States",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Golden Gate Bridge",
+          "Bay City"
+        ]
+      },
+      {
+        "port": "Los Angeles",
+        "country": "United States",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Hollywood",
+          "Beaches",
+          "Entertainment"
+        ]
+      },
+      {
+        "port": "San Diego",
+        "country": "United States",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Navy heritage",
+          "Beaches"
+        ]
+      },
+      {
+        "port": "Cabo San Lucas",
+        "country": "Mexico",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Sea of Cortez",
+          "Desert meets ocean"
+        ]
+      },
+      {
+        "port": "Puerto Vallarta",
+        "country": "Mexico",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Pacific beach resort"
+        ]
+      },
+      {
+        "port": "Acapulco",
+        "country": "Mexico",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Dive cliffs",
+          "Bay beauty"
+        ]
+      },
+      {
+        "port": "Panama Canal",
+        "country": "Panama",
+        "arrivalTime": "Variable",
+        "departureTime": "Variable",
+        "highlights": [
+          "Engineering marvel"
+        ]
+      },
+      {
+        "port": "Cartagena",
+        "country": "Colombia",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "4:00 PM",
+        "highlights": [
+          "Colonial charm"
+        ]
+      },
+      {
+        "port": "Panama Canal (Gatun Locks)",
+        "country": "Panama",
+        "arrivalTime": "Variable",
+        "departureTime": "Variable",
+        "highlights": [
+          "Return transit"
+        ]
+      },
+      {
+        "port": "Vancouver",
+        "country": "Canada",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": [
+          "Voyage completion"
+        ]
+      }
     ],
     "duration": 27,
     "price": 42395,
     "originalPrice": 42395,
     "cabinTypes": [
-      {"name": "Inside", "price": 42395, "description": "Inside cabin"},
-      {"name": "Oceanview", "price": 48995, "description": "Ocean view"},
-      {"name": "Suite", "price": 69995, "description": "Premium suite"}
+      {
+        "name": "Inside",
+        "price": 42395,
+        "description": "Inside cabin"
+      },
+      {
+        "name": "Oceanview",
+        "price": 48995,
+        "description": "Ocean view"
+      },
+      {
+        "name": "Suite",
+        "price": 69995,
+        "description": "Premium suite"
+      }
     ],
     "rating": 4.8,
     "reviewCount": 0,
     "departurePort": "Vancouver, British Columbia Canada",
-    "includes": ["All meals", "Shore excursions", "Entertainment", "WiFi", "Gratuities", "Port charges"],
-    "amenities": ["Multiple restaurants", "Pools", "Theatre", "Casino", "Spa", "Fitness centre"],
+    "includes": [
+      "All meals",
+      "Shore excursions",
+      "Entertainment",
+      "WiFi",
+      "Gratuities",
+      "Port charges"
+    ],
+    "amenities": [
+      "Multiple restaurants",
+      "Pools",
+      "Theatre",
+      "Casino",
+      "Spa",
+      "Fitness centre"
+    ],
     "imageGradient": "from-cyan-400 to-indigo-700",
     "category": "Expedition",
-    "description": "A 27-day Americas exploration. Cruise Alaska's Inside Passage, visit California's coast, transit the Panama Canal, and explore the Caribbean. Sep 2026–Jul 2029 sailings."
+    "description": "A 27-day Americas exploration. Cruise Alaska's Inside Passage, visit California's coast, transit the Panama Canal, and explore the Caribbean. Sep 2026–Jul 2029 sailings.",
+    "imageUrl": "https://images.unsplash.com/photo-1664304481949-7342698006f3?w=800&q=80"
   },
   {
     "id": 20,
@@ -1707,31 +2482,135 @@
     "ship": "Viking Orion",
     "cruiseLine": "Viking Ocean Cruises",
     "itinerary": [
-      {"port": "Buenos Aires", "country": "Argentina", "arrivalTime": "embarkation", "departureTime": "5:00 PM", "highlights": ["Argentine gateway"]},
-      {"port": "Uruguay", "country": "Uruguay", "arrivalTime": "Multiple", "departureTime": "Multiple", "highlights": ["South American coast"]},
-      {"port": "Patagonia", "country": "Argentina/Chile", "arrivalTime": "Multiple", "departureTime": "Multiple", "highlights": ["Glacier regions", "Majestic landscapes"]},
-      {"port": "Ushuaia", "country": "Argentina", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["World's southernmost city"]},
-      {"port": "Drake Passage", "country": "Drake Passage", "arrivalTime": "Variable", "departureTime": "Variable", "highlights": ["Legendary crossing"]},
-      {"port": "Antarctica - Multiple Landings", "country": "Antarctica", "arrivalTime": "Multiple", "departureTime": "Multiple", "highlights": ["Penguin colonies", "Icebergs", "Research stations"]},
-      {"port": "Falkland Islands", "country": "Falkland Islands", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Seabird paradise"]},
-      {"port": "South Georgia", "country": "South Georgia", "arrivalTime": "8:00 AM", "departureTime": "5:00 PM", "highlights": ["Sub-Antarctic wildlife"]},
-      {"port": "Buenos Aires", "country": "Argentina", "arrivalTime": "8:00 AM", "departureTime": "disembarkation", "highlights": ["Expedition completion"]}
+      {
+        "port": "Buenos Aires",
+        "country": "Argentina",
+        "arrivalTime": "embarkation",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Argentine gateway"
+        ]
+      },
+      {
+        "port": "Uruguay",
+        "country": "Uruguay",
+        "arrivalTime": "Multiple",
+        "departureTime": "Multiple",
+        "highlights": [
+          "South American coast"
+        ]
+      },
+      {
+        "port": "Patagonia",
+        "country": "Argentina/Chile",
+        "arrivalTime": "Multiple",
+        "departureTime": "Multiple",
+        "highlights": [
+          "Glacier regions",
+          "Majestic landscapes"
+        ]
+      },
+      {
+        "port": "Ushuaia",
+        "country": "Argentina",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "World's southernmost city"
+        ]
+      },
+      {
+        "port": "Drake Passage",
+        "country": "Drake Passage",
+        "arrivalTime": "Variable",
+        "departureTime": "Variable",
+        "highlights": [
+          "Legendary crossing"
+        ]
+      },
+      {
+        "port": "Antarctica - Multiple Landings",
+        "country": "Antarctica",
+        "arrivalTime": "Multiple",
+        "departureTime": "Multiple",
+        "highlights": [
+          "Penguin colonies",
+          "Icebergs",
+          "Research stations"
+        ]
+      },
+      {
+        "port": "Falkland Islands",
+        "country": "Falkland Islands",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Seabird paradise"
+        ]
+      },
+      {
+        "port": "South Georgia",
+        "country": "South Georgia",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "5:00 PM",
+        "highlights": [
+          "Sub-Antarctic wildlife"
+        ]
+      },
+      {
+        "port": "Buenos Aires",
+        "country": "Argentina",
+        "arrivalTime": "8:00 AM",
+        "departureTime": "disembarkation",
+        "highlights": [
+          "Expedition completion"
+        ]
+      }
     ],
     "duration": 63,
     "price": 88595,
     "originalPrice": 176065,
     "cabinTypes": [
-      {"name": "Inside", "price": 88595, "description": "Inside cabin"},
-      {"name": "Oceanview", "price": 102995, "description": "Ocean view"},
-      {"name": "Suite", "price": 154995, "description": "Ultra-luxury expedition suite"}
+      {
+        "name": "Inside",
+        "price": 88595,
+        "description": "Inside cabin"
+      },
+      {
+        "name": "Oceanview",
+        "price": 102995,
+        "description": "Ocean view"
+      },
+      {
+        "name": "Suite",
+        "price": 154995,
+        "description": "Ultra-luxury expedition suite"
+      }
     ],
     "rating": 4.9,
     "reviewCount": 0,
     "departurePort": "Buenos Aires, Argentina",
-    "includes": ["All meals", "Expert naturalists", "Daily zodiac excursions", "Enrichment lectures", "WiFi", "All port charges", "Pre-voyage hotel"],
-    "amenities": ["Fine dining", "Science lab", "Multiple observation decks", "Fitness", "Spa", "Library", "Photography equipment"],
+    "includes": [
+      "All meals",
+      "Expert naturalists",
+      "Daily zodiac excursions",
+      "Enrichment lectures",
+      "WiFi",
+      "All port charges",
+      "Pre-voyage hotel"
+    ],
+    "amenities": [
+      "Fine dining",
+      "Science lab",
+      "Multiple observation decks",
+      "Fitness",
+      "Spa",
+      "Library",
+      "Photography equipment"
+    ],
     "imageGradient": "from-slate-600 to-blue-900",
     "category": "Expedition",
-    "description": "An epic 63-day Antarctic expedition from Buenos Aires. Experience the complete polar journey—Patagonia, Antarctica, South Georgia, and Falkland Islands. The ultimate adventure for polar explorers. Mar 2028–Mar 2029 sailings."
+    "description": "An epic 63-day Antarctic expedition from Buenos Aires. Experience the complete polar journey—Patagonia, Antarctica, South Georgia, and Falkland Islands. The ultimate adventure for polar explorers. Mar 2028–Mar 2029 sailings.",
+    "imageUrl": "https://images.unsplash.com/photo-1664302928092-1409244798cc?w=800&q=80"
   }
 ]
