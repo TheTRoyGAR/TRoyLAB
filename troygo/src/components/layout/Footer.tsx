@@ -68,11 +68,11 @@ function PinterestIcon({ className }: { className?: string }) {
 
 /* ─── Footer link lists ─────────────────────────────────────────────────── */
 const COMPANY_LINKS = [
-  { label: 'About Us',    href: '/about'   },
-  { label: 'Our Team',    href: '/team'    },
-  { label: 'Careers',     href: '/careers' },
-  { label: 'Press',       href: '/press'   },
-  { label: 'Blog',        href: '/blog'    },
+  { label: 'About Us',             href: '/about'   },
+  { label: 'Departments & Agents', href: '/team'    },
+  { label: 'Careers',              href: '/careers' },
+  { label: 'Press',                href: '/press'   },
+  { label: 'Blog',                 href: '/blog'    },
 ]
 
 const SERVICE_LINKS = [
@@ -102,17 +102,21 @@ const LEGAL_LINKS = [
 const SOCIAL_LINKS = [
   {
     label:   'Follow TRoy Travel Agency™ on Facebook',
-    href:    '#',
+    href:    'https://www.facebook.com/TRoyTravelAgency',
     Icon:    FacebookIcon,
     color:   '#1877F2',
   },
   {
     label:   'Follow TRoy Travel Agency™ on Instagram',
-    href:    '#',
+    href:    'https://www.instagram.com/troytravelagency/',
     Icon:    InstagramIcon,
     color:   '#E1306C',
   },
   {
+    // No real Pinterest account found for TRoy Travel Agency as of 2026-09-03
+    // (searched web + checked pinterest.com/troyagency directly - "User not
+    // found"). Left as '#' rather than guessing a URL - ask Troy for the real
+    // one if/when the account exists.
     label:   'Follow TRoy Travel Agency™ on Pinterest',
     href:    '#',
     Icon:    PinterestIcon,
@@ -120,7 +124,7 @@ const SOCIAL_LINKS = [
   },
   {
     label:   'Follow TRoy Travel Agency™ on LinkedIn',
-    href:    '#',
+    href:    'https://au.linkedin.com/company/troytravelagency',
     Icon:    LinkedinIcon,
     color:   '#0A66C2',
   },
@@ -395,12 +399,7 @@ export default function Footer() {
             <FooterHeading>Company</FooterHeading>
             <ul className="space-y-1">
               {COMPANY_LINKS.map((link) => (
-                <FooterLink
-                  key={link.href}
-                  href={link.href}
-                  built={false}
-                  onUnbuilt={() => setNoticeMessage(`${link.label} page isn't built yet.`)}
-                >
+                <FooterLink key={link.href} href={link.href}>
                   {link.label}
                 </FooterLink>
               ))}
