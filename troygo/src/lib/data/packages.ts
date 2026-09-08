@@ -77,6 +77,7 @@ export interface Cruise {
   imageGradient: string
   category: string
   description: string
+  videoUrl?: string // optional marketing/promotional video URL
 }
 
 // ─── Travel Packages ──────────────────────────────────────────────────────
