@@ -24,9 +24,10 @@ const REGION_OPTIONS = ['Caribbean', 'Mediterranean', 'Alaska', 'Asia', 'Europe'
 // any .ts/.tsx source Tailwind actually scans — rendered as an empty box.
 function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved: boolean; onToggleSave: () => void }) {
   const photo = useDestinationPhoto(`${cruise.ship} cruise ship`)
+  const bookingUrl = `/booking?type=cruise&id=${cruise.id}&name=${encodeURIComponent(cruise.name)}&price=${cruise.price}`
 
   return (
-    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col sm:flex-row">
+    <Link href={bookingUrl} className="block bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col sm:flex-row cursor-pointer">
       {/* Image — real ship photo (live Unsplash, then the research agent's imageUrl), gradient fallback otherwise */}
       <div
         className={`relative w-full sm:w-64 h-48 sm:h-auto shrink-0 overflow-hidden ${(photo || cruise.imageUrl) ? 'bg-gray-200 bg-cover bg-center' : `bg-gradient-to-br ${cruise.imageGradient}`}`}
@@ -37,7 +38,7 @@ function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved
           {cruise.cruiseLine}
         </span>
         <button
-          onClick={() => onToggleSave()}
+          onClick={(e) => { e.preventDefault(); onToggleSave(); }}
           className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-colors"
         >
           <Heart className={`h-4 w-4 ${isSaved ? 'fill-red-500 text-red-500' : 'text-white'}`} />
@@ -52,7 +53,7 @@ function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved
             href={photo.unsplashUrl}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(photo.unsplashUrl, '_blank'); }}
             className="absolute bottom-1 right-2 text-[9px] text-white/60 hover:text-white/90 transition-colors"
           >
             Photo: {photo.photographerName} / Unsplash
@@ -110,18 +111,18 @@ function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved
             )}
           </div>
           <div className="shrink-0 flex flex-col gap-2">
-            <Link
-              href={`/booking?type=cruise&id=${cruise.id}&name=${encodeURIComponent(cruise.name)}&price=${cruise.price}`}
+            <div
               className="px-5 py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:scale-105 text-center"
               style={{ background: '#00B4D8' }}
             >
               View Cruise
-            </Link>
+            </div>
             {cruise.videoUrl && (
               <a
                 href={cruise.videoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 className="px-5 py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:scale-105 text-center flex items-center justify-center gap-1"
                 style={{ background: '#FFD700', color: '#0A1628' }}
               >
@@ -132,7 +133,7 @@ function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
