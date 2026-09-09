@@ -101,7 +101,7 @@ const LEGAL_LINKS = [
 const TROY_GROUP_LINKS = [
   { label: 'TRoy Maritime Agency™',  href: 'https://troymaritime.com',     external: true },
   { label: 'TRoy Media Agency™',     href: 'https://troymediagency.com',   external: true },
-  { label: 'TRoyAI™ E-Otomation',    href: 'https://troyaiagent.com',      external: true },
+  { label: 'TRoyAI™ E-Automation',   href: 'https://troyaiagent.com',      external: true },
 ]
 
 /* ─── Social links ──────────────────────────────────────────────────────── */
@@ -464,7 +464,7 @@ export default function Footer() {
               <h3 className="font-semibold text-white mb-4">TRoy Group™</h3>
               <ul className="space-y-3">
                 {TROY_GROUP_LINKS.map((link) => (
-                  <FooterLink key={link.href + link.label} href={link.href} external={link.external}>
+                  <FooterLink key={link.href + link.label} href={link.href}>
                     {link.label}
                   </FooterLink>
                 ))}
