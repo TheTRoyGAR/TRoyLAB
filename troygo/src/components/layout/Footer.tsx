@@ -98,6 +98,12 @@ const LEGAL_LINKS = [
   { label: 'Sitemap',            href: '/sitemap' },
 ]
 
+const TROY_GROUP_LINKS = [
+  { label: 'TRoy Maritime Agency™',  href: 'https://troymaritime.com',     external: true },
+  { label: 'TRoy Media Agency™',     href: 'https://troymediagency.com',   external: true },
+  { label: 'TRoyAI™ E-Otomation',    href: 'https://troyaiagent.com',      external: true },
+]
+
 /* ─── Social links ──────────────────────────────────────────────────────── */
 const SOCIAL_LINKS = [
   {
@@ -447,6 +453,18 @@ export default function Footer() {
               <ul className="space-y-1">
                 {LEGAL_LINKS.map((link) => (
                   <FooterLink key={link.href + link.label} href={link.href}>
+                    {link.label}
+                  </FooterLink>
+                ))}
+              </ul>
+            </div>
+
+            {/* TRoy Group Links */}
+            <div>
+              <h3 className="font-semibold text-white mb-4">TRoy Group™</h3>
+              <ul className="space-y-3">
+                {TROY_GROUP_LINKS.map((link) => (
+                  <FooterLink key={link.href + link.label} href={link.href} external={link.external}>
                     {link.label}
                   </FooterLink>
                 ))}
