@@ -31,6 +31,7 @@ import {
   Ship,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useCurrency } from '@/lib/currency-context'
 import { sampleFlights } from '@/lib/data/flights'
 import { sampleHotels } from '@/lib/data/hotels'
 import { travelPackages, cruises } from '@/lib/data/packages'
@@ -197,7 +198,7 @@ function StepReview({
             )}
           </div>
           <div className="text-right shrink-0">
-            <p className="text-2xl font-black text-navy">${item.price.toLocaleString()}</p>
+            <p className="text-2xl font-black text-navy">{formatPrice(item.price)}</p>
             <p className="text-xs text-slate-400">per person</p>
           </div>
         </div>
@@ -237,20 +238,20 @@ function StepReview({
         <h2 className="text-lg font-bold text-navy mb-4">Price Breakdown</h2>
         <div className="space-y-3">
           <div className="flex justify-between text-sm">
-            <span className="text-slate-500">${item.price.toLocaleString()} × {passengers} traveler{passengers > 1 ? 's' : ''}</span>
-            <span className="font-semibold">${subtotal.toLocaleString()}</span>
+            <span className="text-slate-500">{formatPrice(item.price)} × {passengers} traveler{passengers > 1 ? 's' : ''}</span>
+            <span className="font-semibold">{formatPrice(subtotal)}</span>
           </div>
           <div className="flex justify-between text-sm">
             <span className="text-slate-500">Taxes & fees (12%)</span>
-            <span className="font-semibold">${taxes.toLocaleString()}</span>
+            <span className="font-semibold">{formatPrice(taxes)}</span>
           </div>
           <div className="flex justify-between text-sm">
             <span className="text-slate-500">Service fee</span>
-            <span className="font-semibold">${fees}</span>
+            <span className="font-semibold">{formatPrice(fees)}</span>
           </div>
           <div className="border-t border-slate-100 pt-3 flex justify-between">
             <span className="font-bold text-navy">Total</span>
-            <span className="font-black text-navy text-xl">${total.toLocaleString()}</span>
+            <span className="font-black text-navy text-xl">{formatPrice(total)}</span>
           </div>
         </div>
       </div>
@@ -500,7 +501,7 @@ function StepAddOns({
                   </div>
                 </div>
                 <div className="flex items-center gap-3 shrink-0">
-                  <span className="font-bold text-navy">+${addOn.price}</span>
+                  <span className="font-bold text-navy">+{formatPrice(addOn.price)}</span>
                   <input
                     type="checkbox"
                     checked={addOn.selected}
@@ -728,17 +729,17 @@ function StepPayment({
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
             <span className="text-slate-500">Subtotal</span>
-            <span className="font-semibold">${total.toLocaleString()}</span>
+            <span className="font-semibold">{formatPrice(total)}</span>
           </div>
           {promoDiscount > 0 && (
             <div className="flex justify-between text-sm">
               <span className="text-emerald-600">Promo discount</span>
-              <span className="font-semibold text-emerald-600">−${promoDiscount}</span>
+              <span className="font-semibold text-emerald-600">−{formatPrice(promoDiscount)}</span>
             </div>
           )}
           <div className="border-t border-slate-100 pt-2 flex justify-between">
             <span className="font-bold text-navy">Total Due Today</span>
-            <span className="font-black text-navy text-xl">${finalTotal.toLocaleString()}</span>
+            <span className="font-black text-navy text-xl">{formatPrice(finalTotal)}</span>
           </div>
         </div>
         <p className="mt-3 text-xs text-slate-400 flex items-center gap-1.5">
@@ -952,6 +953,7 @@ function StepConfirmationPending({
 
 /* ─── Page ────────────────────────────────────────────────────────────────── */
 function BookingContent() {
+  const { formatPrice } = useCurrency()
   const params = useSearchParams()
   const router = useRouter()
 
