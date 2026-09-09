@@ -21,6 +21,7 @@ import {
   PartyPopper,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useCurrency } from '@/lib/currency-context'
 
 /* ─── Types ────────────────────────────────────────────────────────────────── */
 interface NavItem {
@@ -137,11 +138,14 @@ function Dropdown({
 /* ─── Header component ─────────────────────────────────────────────────────── */
 export default function Header() {
   const pathname = usePathname()
+  const { currency, setCurrency } = useCurrency()
   const [scrolled, setScrolled]       = useState(false)
   const [mobileOpen, setMobileOpen]   = useState(false)
   const [activeLang, setActiveLang]   = useState<Language>(LANGUAGES[0])
-  const [activeCurrency, setActiveCurrency] = useState<Currency>(CURRENCIES[0])
   const [noticeMessage, setNoticeMessage] = useState<string | null>(null)
+
+  // Find active currency from CURRENCIES list
+  const activeCurrency = CURRENCIES.find(c => c.code === currency) || CURRENCIES[0]
 
   /* Track scroll for blur/shadow effect */
   useEffect(() => {
@@ -235,10 +239,8 @@ export default function Header() {
                 role="option"
                 aria-selected={activeCurrency.code === cur.code}
                 onClick={() => {
-                  setActiveCurrency(cur)
-                  if (cur.code !== 'USD') {
-                    setNoticeMessage("Live currency conversion isn't built yet — prices will stay in USD for now.")
-                  }
+                  setCurrency(cur.code)
+                  setNoticeMessage(`Currency changed to ${cur.label} (${cur.code})`)
                 }}
                 className={cn(
                   'w-full flex items-center justify-between gap-4 px-4 py-2.5 text-sm transition-colors text-left',

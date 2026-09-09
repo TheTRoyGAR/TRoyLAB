@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import { CurrencyProvider } from "@/lib/currency-context";
 import "./globals.css";
 
 const inter = Inter({
@@ -102,7 +103,9 @@ export default function RootLayout({
       className={`${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
       <body className="min-h-screen bg-white text-navy flex flex-col">
-        <div className="min-h-screen flex flex-col">{children}</div>
+        <CurrencyProvider>
+          <div className="min-h-screen flex flex-col">{children}</div>
+        </CurrencyProvider>
         <Toaster
           position="top-right"
           toastOptions={{
