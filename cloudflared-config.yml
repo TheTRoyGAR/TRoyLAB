@@ -3,5 +3,5 @@ credentials-file: C:\Users\ertan\.cloudflared\a6cf93e2-746e-44c1-8583-9168f71545
 
 ingress:
   - hostname: backend.troytravelagency.com
-    service: http://localhost:8001
+    service: http://127.0.0.1:8001
   - service: http_status:404
