@@ -167,6 +167,7 @@ function StepReview({
   passengers: number
   onNext: () => void
 }) {
+  const { formatPrice } = useCurrency()
   const Icon = item.icon
   const subtotal = item.price * passengers
   const taxes = Math.round(subtotal * 0.12)
@@ -463,6 +464,7 @@ function StepAddOns({
   onNext: () => void
   onBack: () => void
 }) {
+  const { formatPrice } = useCurrency()
   function toggle(id: string) {
     setAddOns(addOns.map((a) => (a.id === id ? { ...a, selected: !a.selected } : a)))
   }
@@ -551,6 +553,7 @@ function StepPayment({
   onBack: () => void
   isSubmitting: boolean
 }) {
+  const { formatPrice } = useCurrency()
   const [cardNumber, setCardNumber] = useState('')
   const [cardName, setCardName] = useState('')
   const [expiry, setExpiry] = useState('')
