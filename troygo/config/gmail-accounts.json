@@ -1,0 +1,85 @@
+{
+  "accounts": [
+    {
+      "id": 1,
+      "email": "ertangovdeli@gmail.com",
+      "name": "Ertan Govdeli (Personal)",
+      "workspace": true,
+      "type": "personal"
+    },
+    {
+      "id": 2,
+      "email": "troytravelagency@gmail.com",
+      "name": "TRoy Travel Agency",
+      "workspace": true,
+      "type": "business"
+    },
+    {
+      "id": 3,
+      "email": "agency@troytravelagency.com",
+      "name": "TRoy Travel - Primary",
+      "workspace": true,
+      "type": "business"
+    },
+    {
+      "id": 4,
+      "email": "troyaiagent@gmail.com",
+      "name": "TRoy AI Agent",
+      "workspace": true,
+      "type": "business"
+    },
+    {
+      "id": 5,
+      "email": "agent@troyaiagent.com",
+      "name": "TRoy AI - Business",
+      "workspace": true,
+      "type": "business"
+    },
+    {
+      "id": 6,
+      "email": "troymaritimeagency@gmail.com",
+      "name": "TRoy Maritime Agency",
+      "workspace": true,
+      "type": "business"
+    },
+    {
+      "id": 7,
+      "email": "troymediagency@gmail.com",
+      "name": "TRoy Media Agency",
+      "workspace": true,
+      "type": "business"
+    },
+    {
+      "id": 8,
+      "email": "troytradingagency@gmail.com",
+      "name": "TRoy Trading Agency",
+      "workspace": true,
+      "type": "business"
+    },
+    {
+      "id": 9,
+      "email": "thetroygarage@gmail.com",
+      "name": "The TRoy Garage",
+      "workspace": true,
+      "type": "business"
+    },
+    {
+      "id": 10,
+      "email": "thetroygaragelab@gmail.com",
+      "name": "TRoy Garage Lab",
+      "workspace": true,
+      "type": "business"
+    },
+    {
+      "id": 11,
+      "email": "goupoftroy@gmail.com",
+      "name": "Group of TRoy",
+      "workspace": true,
+      "type": "business"
+    }
+  ],
+  "primary_account": "agency@troytravelagency.com",
+  "oauth_method": "workspace_delegation",
+  "created": "2026-09-12",
+  "description": "All 11 TRoy Group Gmail accounts with Google Workspace delegation"
+}
