@@ -168,13 +168,15 @@ export default function StoryPage() {
               Honest state, not a pitch exaggeration
             </div>
             <p className="text-sm text-white/80 leading-relaxed">
-              TRoyGO is a registered Australian travel agency (ABN 30 302 098 137)
-              with real booking infrastructure already live, not a mockup.
+              <strong>TROYGO</strong> is the registered Australian sole-trader
+              business name behind this site (ABN 30 302 098 137) — chosen
+              because &ldquo;TRoy Group&rdquo; itself wasn&apos;t available to
+              register directly.
             </p>
             <p className="text-sm text-white/50 leading-relaxed mt-2">
-              It&apos;s the second company built on the AI-agent template TRoyAI
-              proved first — still early, still growing the partner and customer
-              base, and never presenting a placeholder as a confirmed deal or price.
+              Real booking infrastructure is already live here, not a mockup —
+              still early, still growing the partner and customer base, and never
+              presenting a placeholder as a confirmed deal or price.
             </p>
           </div>
         </div>
