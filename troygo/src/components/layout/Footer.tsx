@@ -69,6 +69,7 @@ function PinterestIcon({ className }: { className?: string }) {
 /* ─── Footer link lists ─────────────────────────────────────────────────── */
 const COMPANY_LINKS = [
   { label: 'About Us',             href: '/about'   },
+  { label: 'Our Story',            href: '/story'   },
   { label: 'Departments & Agents', href: '/team'    },
   { label: 'Careers',              href: '/careers' },
   { label: 'Press',                href: '/press'   },
