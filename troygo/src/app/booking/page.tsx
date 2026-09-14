@@ -19,6 +19,7 @@ import {
   CheckCircle,
   PartyPopper,
   Copy,
+  Landmark,
   ExternalLink,
   ChevronLeft,
   User,
@@ -554,6 +555,7 @@ function StepPayment({
   isSubmitting: boolean
 }) {
   const { formatPrice } = useCurrency()
+  const [paymentMethod, setPaymentMethod] = useState<'bank_transfer' | 'card'>('bank_transfer')
   const [cardNumber, setCardNumber] = useState('')
   const [cardName, setCardName] = useState('')
   const [expiry, setExpiry] = useState('')
@@ -563,6 +565,16 @@ function StepPayment({
   const [promoDiscount, setPromoDiscount] = useState(0)
   const [agreedTerms, setAgreedTerms] = useState(false)
   const [noticeMessage, setNoticeMessage] = useState<string | null>(null)
+  const [copiedField, setCopiedField] = useState<'bsb' | 'account' | null>(null)
+
+  const BSB = '085-933'
+  const ACCOUNT_NUMBER = '43-289-0887'
+
+  function copyField(field: 'bsb' | 'account', value: string) {
+    navigator.clipboard.writeText(value)
+    setCopiedField(field)
+    setTimeout(() => setCopiedField(null), 2000)
+  }
 
   function formatCard(val: string) {
     return val.replace(/\D/g, '').slice(0, 16).replace(/(.{4})/g, '$1 ').trim()
@@ -587,18 +599,104 @@ function StepPayment({
 
   const finalTotal = total - promoDiscount
 
-  const isValid = cardNumber.replace(/\s/g, '').length === 16 && cardName && expiry.length === 5 && cvv.length >= 3 && agreedTerms
+  const isValid =
+    agreedTerms &&
+    (paymentMethod === 'bank_transfer' ||
+      (cardNumber.replace(/\s/g, '').length === 16 && !!cardName && expiry.length === 5 && cvv.length >= 3))
 
   return (
     <>
     <div className="space-y-6">
-      {/* Card form */}
+      {/* Payment method */}
       <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
         <h2 className="text-lg font-bold text-navy mb-5 flex items-center gap-2">
           <CreditCard className="h-5 w-5" style={{ color: '#00B4D8' }} />
           Payment Details
         </h2>
 
+        <div className="grid grid-cols-2 gap-2 mb-6">
+          <button
+            type="button"
+            onClick={() => setPaymentMethod('bank_transfer')}
+            className={cn(
+              'flex items-center justify-center gap-2 py-2.5 rounded-xl font-semibold text-sm border transition-colors',
+              paymentMethod === 'bank_transfer'
+                ? 'border-transparent text-white'
+                : 'border-slate-200 text-slate-500 hover:bg-slate-50'
+            )}
+            style={paymentMethod === 'bank_transfer' ? { background: '#00B4D8' } : undefined}
+          >
+            <Landmark className="h-4 w-4" />
+            Bank Transfer
+          </button>
+          <button
+            type="button"
+            onClick={() => setPaymentMethod('card')}
+            className={cn(
+              'flex items-center justify-center gap-2 py-2.5 rounded-xl font-semibold text-sm border transition-colors',
+              paymentMethod === 'card'
+                ? 'border-transparent text-white'
+                : 'border-slate-200 text-slate-500 hover:bg-slate-50'
+            )}
+            style={paymentMethod === 'card' ? { background: '#00B4D8' } : undefined}
+          >
+            <CreditCard className="h-4 w-4" />
+            Card
+          </button>
+        </div>
+
+        {paymentMethod === 'bank_transfer' ? (
+          <div>
+            <div
+              className="rounded-2xl p-5 text-white relative overflow-hidden"
+              style={{ background: 'linear-gradient(135deg, #0A1628 0%, #152D55 50%, #00B4D8 100%)' }}
+            >
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-white translate-x-8 -translate-y-8" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-white -translate-x-6 translate-y-6" />
+              </div>
+              <div className="relative z-10 space-y-4">
+                <div className="flex justify-between items-start">
+                  <span className="text-xs font-semibold tracking-widest opacity-70">TRoyGO™ TRAVEL — DIRECT DEPOSIT</span>
+                  <Landmark className="h-6 w-6 opacity-60" />
+                </div>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="text-xs opacity-60 uppercase tracking-wide">BSB</p>
+                    <p className="text-lg font-mono tracking-widest">{BSB}</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => copyField('bsb', BSB.replace(/-/g, ''))}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/10 hover:bg-white/20 transition-colors"
+                  >
+                    {copiedField === 'bsb' ? <CheckCircle className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+                    {copiedField === 'bsb' ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="text-xs opacity-60 uppercase tracking-wide">Account Number</p>
+                    <p className="text-lg font-mono tracking-widest">{ACCOUNT_NUMBER}</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => copyField('account', ACCOUNT_NUMBER.replace(/-/g, ''))}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/10 hover:bg-white/20 transition-colors"
+                  >
+                    {copiedField === 'account' ? <CheckCircle className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+                    {copiedField === 'account' ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <p className="mt-3 text-xs text-slate-500 flex items-start gap-1.5">
+              <AlertCircle className="h-3.5 w-3.5 mt-0.5 shrink-0" />
+              Please use your full name as the payment reference so we can match your transfer to this booking. We'll confirm receipt once your booking request is approved.
+            </p>
+          </div>
+        ) : (
+        <>
         {/* Visual card preview */}
         <div
           className="rounded-2xl p-5 mb-6 text-white relative overflow-hidden"
@@ -693,6 +791,8 @@ function StepPayment({
           <Lock className="h-3 w-3" />
           Your payment details are encrypted and secure. This is a demo form — no actual charge will be made.
         </p>
+        </>
+        )}
       </div>
 
       {/* Promo code */}
