@@ -178,6 +178,11 @@ export default function StoryPage() {
               still early, still growing the partner and customer base, and never
               presenting a placeholder as a confirmed deal or price.
             </p>
+            <p className="text-sm text-white/50 leading-relaxed mt-2">
+              TRoyGO&apos;s own shared-memory system was real-tested this month:
+              asked for open cross-department items, it honestly reported zero
+              rather than inventing any to fill the answer.
+            </p>
           </div>
         </div>
 
