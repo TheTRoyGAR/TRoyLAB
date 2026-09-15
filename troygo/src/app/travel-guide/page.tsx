@@ -32,6 +32,13 @@ const DESTINATIONS = [
     tagline: 'Live weather, season & what’s on in the Top End’s tropical capital.',
     featured: true,
   },
+  {
+    name: 'Istanbul',
+    country: 'Turkey',
+    href: '/travel-guide/istanbul',
+    tagline: 'Live weather, season & what’s on in the city spanning two continents.',
+    featured: true,
+  },
 ]
 
 export default function TravelGuideHubPage() {

@@ -15,6 +15,7 @@ const SECTIONS = [
       { label: 'Trip Planner', href: '/trip-planner' },
       { label: 'Travel Guide', href: '/travel-guide' },
       { label: 'Darwin Travel Guide', href: '/travel-guide/darwin' },
+      { label: 'Istanbul Travel Guide', href: '/travel-guide/istanbul' },
       { label: 'Partners', href: '/partners' },
     ],
   },
