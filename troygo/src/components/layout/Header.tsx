@@ -52,6 +52,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Cruises',     href: '/cruises',       icon: Ship,   description: 'Sail the world in style'            },
   { label: 'Group Cruises', href: '/group-cruises', icon: PartyPopper, description: 'Weddings, reunions, corporate retreats' },
   { label: 'Trips',       href: '/trip-planner',  icon: Map,    description: 'AI-powered trip planning'           },
+  { label: 'Travel Guide', href: '/travel-guide', icon: Compass, description: 'Local guides & live daily conditions' },
   { label: 'Agents',      href: '/agents',        icon: Users,  description: 'Connect with travel experts'        },
   { label: 'Partners',    href: '/partners',      icon: ShieldCheck, description: 'Trusted local ground operators' },
 ]

@@ -13,6 +13,8 @@ const SECTIONS = [
       { label: 'Cruises', href: '/cruises' },
       { label: 'Group Cruises', href: '/group-cruises' },
       { label: 'Trip Planner', href: '/trip-planner' },
+      { label: 'Travel Guide', href: '/travel-guide' },
+      { label: 'Darwin Travel Guide', href: '/travel-guide/darwin' },
       { label: 'Partners', href: '/partners' },
     ],
   },
