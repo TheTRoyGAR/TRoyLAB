@@ -27,20 +27,43 @@ function AgentProfileContent({ numId }: { numId: number }) {
     ? travelGuides.find((g) => g.id === numId - 1000)
     : localAgents.find((a) => a.id === numId)
 
-  if (!agent) return notFound()
-
   const [showContact, setShowContact] = useState(searchParams.get('contact') === '1')
-  const [form, setForm] = useState({ destination: '', dates: '', travelers: '2', message: '' })
-  const [submitted, setSubmitted] = useState(false)
+  const [form, setForm] = useState({ name: '', email: '', destination: '', dates: '', travelers: '2', message: '' })
+  const [submitState, setSubmitState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [submitError, setSubmitError] = useState('')
+
+  if (!agent) return notFound()
 
   const colorClass = AVATAR_COLORS[numId % AVATAR_COLORS.length]
   const tours = 'tours' in agent ? agent.tours : agent.featuredTours
   const agency = 'agency' in agent ? agent.agency : null
   const certifications = 'certifications' in agent ? agent.certifications : []
+  const expertName = agent.name
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setSubmitted(true)
+    setSubmitState('submitting')
+    setSubmitError('')
+
+    try {
+      const res = await fetch('/api/agents/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, expertName }),
+      })
+      const data = await res.json()
+
+      if (!res.ok || !data.success) {
+        setSubmitError(data.error ?? 'Something went wrong. Please try again.')
+        setSubmitState('error')
+        return
+      }
+
+      setSubmitState('success')
+    } catch {
+      setSubmitError('Network error. Please try again.')
+      setSubmitState('error')
+    }
   }
 
   return (
@@ -208,14 +231,32 @@ function AgentProfileContent({ numId }: { numId: number }) {
           {/* Contact form */}
           <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
             <h3 className="font-bold text-[#0A1628] mb-4">Request a Quote</h3>
-            {submitted ? (
+            {submitState === 'success' ? (
               <div className="text-center py-4">
                 <div className="text-3xl mb-2">✅</div>
                 <p className="font-semibold text-[#0A1628] text-sm">Request sent!</p>
-                <p className="text-xs text-gray-500 mt-1">You&apos;ll hear back within 24 hours.</p>
+                <p className="text-xs text-gray-500 mt-1">
+                  Sent to TRoyGO™&apos;s team — you&apos;ll hear back at {form.email} soon.
+                </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-3">
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  required
+                  className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#00B4D8]/40"
+                />
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  required
+                  className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#00B4D8]/40"
+                />
                 <input
                   type="text"
                   placeholder="Destination"
@@ -247,12 +288,16 @@ function AgentProfileContent({ numId }: { numId: number }) {
                   required
                   className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-[#00B4D8]/40"
                 />
+                {submitState === 'error' && (
+                  <p className="text-xs text-red-600 font-medium">{submitError}</p>
+                )}
                 <button
                   type="submit"
-                  className="w-full py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:opacity-90"
+                  disabled={submitState === 'submitting'}
+                  className="w-full py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:opacity-90 disabled:opacity-60"
                   style={{ background: '#00B4D8' }}
                 >
-                  Send Request
+                  {submitState === 'submitting' ? 'Sending…' : 'Send Request'}
                 </button>
               </form>
             )}
