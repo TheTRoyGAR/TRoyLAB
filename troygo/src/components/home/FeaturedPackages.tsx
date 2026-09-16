@@ -62,7 +62,10 @@ function PackageCard({ pkg }: { pkg: Package }) {
   const photo = useDestinationPhoto(pkg.destination);
 
   return (
-    <div className="flex-none w-[320px] sm:w-[360px] bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden border border-gray-100 group">
+    <Link
+      href={`/packages/${pkg.slug}`}
+      className="block flex-none w-[320px] sm:w-[360px] bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden border border-gray-100 group"
+    >
       {/* Image banner — real photo once loaded, gradient fallback until then */}
       <div
         className={`relative h-48 overflow-hidden ${photo ? '' : `bg-gradient-to-br ${pkg.gradient}`}`}
@@ -97,18 +100,16 @@ function PackageCard({ pkg }: { pkg: Package }) {
           <span>{pkg.destinations.length} destinations</span>
         </div>
 
-        {/* Required Unsplash attribution — safe as a real link here since
-            this banner isn't nested inside the card's own <Link> */}
+        {/* Required Unsplash attribution — button, not <a>, since the whole
+            card is now a Link and anchors can't nest inside anchors */}
         {photo && (
-          <a
-            href={photo.unsplashUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="absolute top-1 left-2 text-[9px] text-white/50 hover:text-white/80 transition-colors z-10"
+          <button
+            type="button"
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(photo.unsplashUrl, '_blank', 'noopener,noreferrer'); }}
+            className="absolute top-1 left-2 text-[9px] text-white/50 hover:text-white/80 transition-colors z-10 bg-transparent border-0 cursor-pointer"
           >
             Photo: {photo.photographerName} / Unsplash
-          </a>
+          </button>
         )}
       </div>
 
@@ -166,16 +167,13 @@ function PackageCard({ pkg }: { pkg: Package }) {
           </div>
         </div>
 
-        {/* CTA */}
-        <Link
-          href={`/packages/${pkg.slug}`}
-          className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#00B4D8] to-[#0096B5] hover:from-[#0096B5] hover:to-[#007A94] text-white font-bold py-2.5 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-[#00B4D8]/30 hover:gap-3"
-        >
+        {/* CTA — visual only; the whole card above is already the link */}
+        <span className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#00B4D8] to-[#0096B5] group-hover:from-[#0096B5] group-hover:to-[#007A94] text-white font-bold py-2.5 rounded-xl transition-all duration-200 group-hover:shadow-lg group-hover:shadow-[#00B4D8]/30 group-hover:gap-3">
           View Deal
           <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-        </Link>
+        </span>
       </div>
-    </div>
+    </Link>
   );
 }
 
