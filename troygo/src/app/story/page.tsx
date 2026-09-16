@@ -183,6 +183,15 @@ export default function StoryPage() {
               asked for open cross-department items, it honestly reported zero
               rather than inventing any to fill the answer.
             </p>
+            <p className="text-sm text-white/50 leading-relaxed mt-2">
+              This week: a live{' '}
+              <Link href="/travel-guide" className="underline" style={{ color: '#00B4D8' }}>Travel Guide</Link>
+              {' '}launched across five real cities, each with genuinely live
+              weather and season data, not static copy. The Partners page no
+              longer links offsite, and the &quot;Request a Quote&quot; form on
+              every agent and guide profile now really sends an email instead
+              of faking a local success message.
+            </p>
           </div>
         </div>
 
