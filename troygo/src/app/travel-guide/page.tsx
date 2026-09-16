@@ -39,6 +39,27 @@ const DESTINATIONS = [
     tagline: 'Live weather, season & what’s on in the city spanning two continents.',
     featured: true,
   },
+  {
+    name: 'Tokyo',
+    country: 'Japan',
+    href: '/travel-guide/tokyo',
+    tagline: 'Live weather, season & what’s on in Japan’s capital and gateway to the Golden Route.',
+    featured: true,
+  },
+  {
+    name: 'Bangkok',
+    country: 'Thailand',
+    href: '/travel-guide/bangkok',
+    tagline: 'Live weather, season & what’s on in the City of Angels.',
+    featured: true,
+  },
+  {
+    name: 'Sydney',
+    country: 'Australia',
+    href: '/travel-guide/sydney',
+    tagline: 'Live weather, season & what’s on around the Harbour Bridge and Opera House.',
+    featured: true,
+  },
 ]
 
 export default function TravelGuideHubPage() {
