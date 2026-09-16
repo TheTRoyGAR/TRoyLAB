@@ -95,7 +95,7 @@ function AgentProfileContent({ numId }: { numId: number }) {
               <MessageSquare className="h-4 w-4" /> Request Quote
             </button>
             <a
-              href={`mailto:${agent.contactEmail}`}
+              href="mailto:agency@troytravelagency.com"
               className="flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-sm border-2 border-white/30 text-white hover:bg-white/10 transition-colors"
             >
               <Mail className="h-4 w-4" /> Email
@@ -185,7 +185,7 @@ function AgentProfileContent({ numId }: { numId: number }) {
             </div>
             <div className="flex items-center gap-2 text-gray-600">
               <Mail className="h-4 w-4 text-[#00B4D8]" />
-              <a href={`mailto:${agent.contactEmail}`} className="text-[#00B4D8] hover:underline truncate">{agent.contactEmail}</a>
+              <a href="mailto:agency@troytravelagency.com" className="text-[#00B4D8] hover:underline truncate">agency@troytravelagency.com</a>
             </div>
             {'toursOffered' in agent && agent.toursOffered && (
               <div className="flex items-center gap-2 text-gray-600">
