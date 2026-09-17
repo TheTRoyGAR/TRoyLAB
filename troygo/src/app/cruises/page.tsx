@@ -7,6 +7,7 @@ import { Star, Ship, MapPin, Clock, ChevronDown, Heart, Anchor, Play } from 'luc
 import Link from 'next/link'
 import MainLayout from '@/components/layout/MainLayout'
 import { useDestinationPhoto } from '@/hooks/useDestinationPhoto'
+import { useCurrency } from '@/lib/currency-context'
 
 // Matches the real `category` values in lib/data/packages.ts — these used
 // to be fictional placeholder names that matched nothing in the actual
@@ -24,6 +25,7 @@ const REGION_OPTIONS = ['Caribbean', 'Mediterranean', 'Alaska', 'Asia', 'Europe'
 // any .ts/.tsx source Tailwind actually scans — rendered as an empty box.
 function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved: boolean; onToggleSave: () => void }) {
   const photo = useDestinationPhoto(`${cruise.ship} cruise ship`)
+  const { formatPrice } = useCurrency()
   const bookingUrl = `/booking?type=cruise&id=${cruise.id}&name=${encodeURIComponent(cruise.name)}&price=${cruise.price}`
 
   return (
@@ -87,7 +89,7 @@ function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved
           <div className="flex flex-wrap gap-2 mb-3">
             {cruise.cabinTypes.map((c) => (
               <span key={c.name} className="text-xs border border-gray-200 px-2 py-0.5 rounded-lg text-gray-600">
-                {c.name}: from ${c.price.toLocaleString()}
+                {c.name}: from {formatPrice(c.price)}
               </span>
             ))}
           </div>
@@ -96,7 +98,7 @@ function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved
         <div className="flex items-center justify-between gap-3">
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="text-xl font-black text-[#0A1628]">${cruise.price.toLocaleString()}</span>
+              <span className="text-xl font-black text-[#0A1628]">{formatPrice(cruise.price)}</span>
               <span className="text-xs text-gray-400">/ cabin</span>
             </div>
             {cruise.reviewCount > 0 && (

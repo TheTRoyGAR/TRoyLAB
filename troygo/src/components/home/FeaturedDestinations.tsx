@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import { useDestinationPhoto } from '@/hooks/useDestinationPhoto';
+import { useCurrency } from '@/lib/currency-context';
 
 interface Destination {
   name: string;
@@ -79,6 +80,7 @@ const destinations: Destination[] = [
 function DestinationCard({ dest }: { dest: Destination }) {
   const photo = useDestinationPhoto(dest.photoQuery);
   const router = useRouter();
+  const { formatPrice } = useCurrency();
   const href = `/packages?to=${encodeURIComponent(dest.name)}`;
 
   return (
@@ -130,7 +132,7 @@ function DestinationCard({ dest }: { dest: Destination }) {
             <div>
               <span className="text-white/70 text-xs">From</span>
               <p className="text-white font-bold text-xl leading-none">
-                ${dest.price.toLocaleString()}
+                {formatPrice(dest.price)}
               </p>
               <span className="text-white/60 text-xs">per person</span>
             </div>

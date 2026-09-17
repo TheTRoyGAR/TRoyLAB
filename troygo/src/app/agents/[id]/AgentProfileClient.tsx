@@ -9,6 +9,7 @@ import {
   Clock, Users, Award, MessageSquare, Calendar
 } from 'lucide-react'
 import MainLayout from '@/components/layout/MainLayout'
+import { useCurrency } from '@/lib/currency-context'
 
 const AVATAR_COLORS = [
   'from-violet-500 to-purple-700',
@@ -31,6 +32,7 @@ function AgentProfileContent({ numId }: { numId: number }) {
   const [form, setForm] = useState({ name: '', email: '', destination: '', dates: '', travelers: '2', message: '' })
   const [submitState, setSubmitState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [submitError, setSubmitError] = useState('')
+  const { formatPrice } = useCurrency()
 
   if (!agent) return notFound()
 
@@ -163,7 +165,7 @@ function AgentProfileContent({ numId }: { numId: number }) {
                       <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{tour.duration}</span>
                       {tour.maxGroup && <span className="flex items-center gap-1"><Users className="h-3 w-3" />Max {tour.maxGroup}</span>}
                     </div>
-                    <span className="font-bold text-[#00B4D8] text-sm">from ${tour.price.toLocaleString()}</span>
+                    <span className="font-bold text-[#00B4D8] text-sm">from {formatPrice(tour.price)}</span>
                   </div>
                 </div>
               ))}

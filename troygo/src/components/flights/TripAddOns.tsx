@@ -5,6 +5,7 @@ import { Building2, Car, MapPinned, ArrowRight, Sparkles } from 'lucide-react'
 import { sampleHotels } from '@/lib/data/hotels'
 import { carRentals } from '@/lib/data/cars'
 import { travelPackages } from '@/lib/data/packages'
+import { useCurrency } from '@/lib/currency-context'
 
 interface TripAddOnsProps {
   cityName: string
@@ -24,6 +25,7 @@ function matchesCity(value: string, city: string): boolean {
 // If nothing genuinely matches the searched city, it falls back to a single
 // CTA into the Trip Planner instead of showing an empty or fake result.
 export default function TripAddOns({ cityName, departureDate, returnDate }: TripAddOnsProps) {
+  const { formatPrice } = useCurrency()
   const matchedHotels = sampleHotels.filter((h) => matchesCity(h.location.city, cityName)).slice(0, 3)
   const matchedCars = carRentals
     .filter((c) => c.pickupLocations.some((loc) => matchesCity(loc, cityName)))
@@ -87,7 +89,7 @@ export default function TripAddOns({ cityName, departureDate, returnDate }: Trip
                 <p className="font-semibold text-sm text-[#0A1628] truncate">{h.name}</p>
                 <p className="text-xs text-slate-500 mt-0.5">{h.stars}★ · {h.location.city}</p>
                 <p className="text-sm font-bold text-[#0A1628] mt-2">
-                  ${h.pricePerNight.toLocaleString()} <span className="text-xs font-normal text-slate-400">/ night</span>
+                  {formatPrice(h.pricePerNight)} <span className="text-xs font-normal text-slate-400">/ night</span>
                 </p>
               </Link>
             ))}
@@ -110,7 +112,7 @@ export default function TripAddOns({ cityName, departureDate, returnDate }: Trip
                 <p className="font-semibold text-sm text-[#0A1628] truncate">{c.name}</p>
                 <p className="text-xs text-slate-500 mt-0.5">{c.type} · {c.transmission}</p>
                 <p className="text-sm font-bold text-[#0A1628] mt-2">
-                  ${c.pricePerDay.toLocaleString()} <span className="text-xs font-normal text-slate-400">/ day</span>
+                  {formatPrice(c.pricePerDay)} <span className="text-xs font-normal text-slate-400">/ day</span>
                 </p>
               </Link>
             ))}
@@ -133,7 +135,7 @@ export default function TripAddOns({ cityName, departureDate, returnDate }: Trip
                 <p className="font-semibold text-sm text-[#0A1628] truncate">{p.name}</p>
                 <p className="text-xs text-slate-500 mt-0.5">{p.duration} day{p.duration > 1 ? 's' : ''} · {p.category}</p>
                 <p className="text-sm font-bold text-[#0A1628] mt-2">
-                  ${p.price.toLocaleString()} <span className="text-xs font-normal text-slate-400">/ person</span>
+                  {formatPrice(p.price)} <span className="text-xs font-normal text-slate-400">/ person</span>
                 </p>
               </Link>
             ))}

@@ -12,6 +12,7 @@ import { format } from 'date-fns'
 import PackageMap from '@/components/maps/PackageMap'
 import MainLayout from '@/components/layout/MainLayout'
 import { useDestinationPhoto } from '@/hooks/useDestinationPhoto'
+import { useCurrency } from '@/lib/currency-context'
 
 const TABS = ['Overview', 'Itinerary', 'Inclusions', 'Reviews', 'Booking'] as const
 type Tab = typeof TABS[number]
@@ -23,6 +24,7 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
   const [selectedDate, setSelectedDate] = useState(pkg.departureDates[0] ?? '')
   const [saved, setSaved] = useState(false)
   const photo = useDestinationPhoto(pkg.destination)
+  const { formatPrice } = useCurrency()
 
   const includesList = Object.entries(pkg.includes)
     .filter(([, v]) => v)
@@ -292,8 +294,8 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
                   </div>
                   <div className="pt-2 border-t border-gray-100">
                     <div className="flex justify-between text-sm mb-1">
-                      <span className="text-gray-500">${pkg.price.toLocaleString()} × {travelers} travelers</span>
-                      <span className="font-bold text-[#0A1628]">${totalPrice.toLocaleString()}</span>
+                      <span className="text-gray-500">{formatPrice(pkg.price)} × {travelers} travelers</span>
+                      <span className="font-bold text-[#0A1628]">{formatPrice(totalPrice)}</span>
                     </div>
                     <p className="text-xs text-gray-400">Final price includes taxes & fees</p>
                   </div>
@@ -302,7 +304,7 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
                     className="block w-full text-center py-3 rounded-xl font-bold text-[#0A1628] text-sm hover:brightness-110 transition-all"
                     style={{ background: '#FFD700' }}
                   >
-                    Book Now — ${totalPrice.toLocaleString()}
+                    Book Now — {formatPrice(totalPrice)}
                   </Link>
                   <p className="text-xs text-center text-gray-400">Free cancellation up to 30 days before departure</p>
                 </div>
@@ -314,9 +316,9 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
           <aside className="w-full lg:w-80 shrink-0">
             <div className="sticky top-24 bg-white rounded-2xl shadow-md border border-gray-100 p-6">
               <div className="text-center mb-4">
-                <div className="text-3xl font-black text-[#0A1628]">${pkg.price.toLocaleString()}</div>
+                <div className="text-3xl font-black text-[#0A1628]">{formatPrice(pkg.price)}</div>
                 {pkg.originalPrice > pkg.price && (
-                  <div className="text-sm text-gray-400 line-through">${pkg.originalPrice.toLocaleString()}</div>
+                  <div className="text-sm text-gray-400 line-through">{formatPrice(pkg.originalPrice)}</div>
                 )}
                 <div className="text-xs text-gray-400">per person</div>
               </div>

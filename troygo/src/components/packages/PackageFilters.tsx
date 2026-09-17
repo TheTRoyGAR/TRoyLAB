@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { SlidersHorizontal, X } from 'lucide-react'
+import { useCurrency } from '@/lib/currency-context'
 
 export interface PackageFilterState {
   priceMin: number
@@ -77,6 +78,7 @@ interface Props {
 export default function PackageFilters({ onChange }: Props) {
   const [filters, setFilters] = useState<PackageFilterState>(DEFAULT_FILTERS)
   const [open, setOpen] = useState(false)
+  const { formatPrice } = useCurrency()
 
   function update(patch: Partial<PackageFilterState>) {
     const next = { ...filters, ...patch }
@@ -138,9 +140,9 @@ export default function PackageFilters({ onChange }: Props) {
               className="w-full accent-[#00B4D8]"
             />
             <div className="flex justify-between text-xs text-gray-500">
-              <span>$0</span>
+              <span>{formatPrice(0)}</span>
               <span className="font-semibold text-[#0A1628]">
-                Up to ${filters.priceMax === 20000 ? '20,000+' : filters.priceMax.toLocaleString()}
+                Up to {filters.priceMax === 20000 ? `${formatPrice(20000)}+` : formatPrice(filters.priceMax)}
               </span>
             </div>
           </div>

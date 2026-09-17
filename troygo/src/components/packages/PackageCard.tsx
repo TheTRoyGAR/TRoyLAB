@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Heart, Star, Plane, Building2, Utensils, Users, Clock, MapPin } from 'lucide-react'
 import { useState } from 'react'
 import { useDestinationPhoto } from '@/hooks/useDestinationPhoto'
+import { useCurrency } from '@/lib/currency-context'
 
 interface TravelPackage {
   id: string
@@ -46,6 +47,7 @@ const CATEGORY_COLORS: Record<string, string> = {
 export default function PackageCard({ pkg }: { pkg: TravelPackage }) {
   const [saved, setSaved] = useState(false)
   const photo = useDestinationPhoto(pkg.destination)
+  const { formatPrice } = useCurrency()
   const discount = pkg.originalPrice
     ? Math.round(((pkg.originalPrice - pkg.price) / pkg.originalPrice) * 100)
     : 0
@@ -149,13 +151,13 @@ export default function PackageCard({ pkg }: { pkg: TravelPackage }) {
           <div>
             <div className="flex items-baseline gap-1.5">
               <span className="text-xl font-black text-[#0A1628]">
-                ${pkg.price.toLocaleString()}
+                {formatPrice(pkg.price)}
               </span>
               <span className="text-xs text-gray-400">/ person</span>
             </div>
             {pkg.originalPrice !== undefined && pkg.originalPrice > pkg.price && (
               <span className="text-xs text-gray-400 line-through">
-                ${pkg.originalPrice.toLocaleString()}
+                {formatPrice(pkg.originalPrice)}
               </span>
             )}
             {pkg.reviewCount > 0 && (

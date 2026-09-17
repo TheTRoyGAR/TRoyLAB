@@ -5,6 +5,7 @@ import { ArrowRight, Star, Clock, MapPin, Plane, Hotel, Car, ChevronLeft, Chevro
 import { useRef } from 'react';
 import { travelPackages } from '@/lib/data/packages';
 import { useDestinationPhoto } from '@/hooks/useDestinationPhoto';
+import { useCurrency } from '@/lib/currency-context';
 
 interface Package {
   id: number;
@@ -60,6 +61,7 @@ function PackageCard({ pkg }: { pkg: Package }) {
   const savings = pkg.originalPrice - pkg.pricePerPerson;
   const savingsPct = Math.round((savings / pkg.originalPrice) * 100);
   const photo = useDestinationPhoto(pkg.destination);
+  const { formatPrice } = useCurrency();
 
   return (
     <Link
@@ -159,9 +161,9 @@ function PackageCard({ pkg }: { pkg: Package }) {
             </div>
           </div>
           <div className="text-right">
-            <p className="text-gray-400 text-xs line-through">${pkg.originalPrice.toLocaleString()}</p>
+            <p className="text-gray-400 text-xs line-through">{formatPrice(pkg.originalPrice)}</p>
             <p className="text-[#0A1628] font-bold text-xl leading-tight">
-              ${pkg.pricePerPerson.toLocaleString()}
+              {formatPrice(pkg.pricePerPerson)}
             </p>
             <p className="text-gray-400 text-xs">per person</p>
           </div>

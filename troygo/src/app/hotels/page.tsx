@@ -25,6 +25,7 @@ import { cn, defaultSearchDate } from '@/lib/utils'
 import { sampleHotels, type Hotel as HotelType } from '@/lib/data/hotels'
 import MainLayout from '@/components/layout/MainLayout'
 import { useDestinationPhoto } from '@/hooks/useDestinationPhoto'
+import { useCurrency } from '@/lib/currency-context'
 
 /* ─── Types ───────────────────────────────────────────────────────────────── */
 type SortMode = 'recommended' | 'price-asc' | 'stars' | 'rating'
@@ -81,6 +82,7 @@ function HotelCard({ hotel }: { hotel: HotelType }) {
   const isFree = hotel.cancellationPolicy === 'Free cancellation'
   const discount = Math.round(((hotel.originalPrice - hotel.pricePerNight) / hotel.originalPrice) * 100)
   const photo = useDestinationPhoto(`${hotel.type} in ${hotel.location.city}`)
+  const { formatPrice } = useCurrency()
 
   return (
     <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden flex flex-col md:flex-row">
@@ -152,9 +154,9 @@ function HotelCard({ hotel }: { hotel: HotelType }) {
           <div>
             <p className="text-xs text-slate-400">per night from</p>
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-black text-navy">${hotel.pricePerNight.toLocaleString()}</span>
+              <span className="text-2xl font-black text-navy">{formatPrice(hotel.pricePerNight)}</span>
               {hotel.originalPrice > hotel.pricePerNight && (
-                <span className="text-sm text-slate-400 line-through">${hotel.originalPrice.toLocaleString()}</span>
+                <span className="text-sm text-slate-400 line-through">{formatPrice(hotel.originalPrice)}</span>
               )}
             </div>
             <p className="text-xs text-slate-400 mt-0.5">{hotel.reviewCount.toLocaleString()} reviews</p>
@@ -270,6 +272,8 @@ function FilterSidebar({
   ratingMin: number; setRatingMin: (v: number) => void
   typeFilter: Set<HotelTypeFilter>; setTypeFilter: (v: Set<HotelTypeFilter>) => void
 }) {
+  const { formatPrice } = useCurrency()
+
   function toggleSet<T>(set: Set<T>, val: T, setter: (v: Set<T>) => void) {
     const next = new Set(set)
     next.has(val) ? next.delete(val) : next.add(val)
@@ -311,8 +315,8 @@ function FilterSidebar({
       <div>
         <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wide mb-3">Price Per Night</h4>
         <div className="flex items-center justify-between mb-1">
-          <span className="text-xs text-slate-500">$0</span>
-          <span className="text-xs font-semibold text-navy">Up to ${priceRange[1].toLocaleString()}</span>
+          <span className="text-xs text-slate-500">{formatPrice(0)}</span>
+          <span className="text-xs font-semibold text-navy">Up to {formatPrice(priceRange[1])}</span>
         </div>
         <input
           type="range"

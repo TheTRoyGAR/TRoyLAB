@@ -450,9 +450,9 @@ export default function Header() {
               defaultValue={activeCurrency.code}
               onChange={(e) => {
                 const cur = CURRENCIES.find((c) => c.code === e.target.value)
-                if (cur) setCurrency(cur.code)
-                if (e.target.value !== 'USD') {
-                  setNoticeMessage("Live currency conversion isn't built yet — prices will stay in USD for now.")
+                if (cur) {
+                  setCurrency(cur.code)
+                  setNoticeMessage(`Currency changed to ${cur.label} (${cur.code})`)
                 }
               }}
               className="bg-transparent text-white/70 text-sm focus:outline-none"

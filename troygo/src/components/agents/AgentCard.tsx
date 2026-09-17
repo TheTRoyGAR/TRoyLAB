@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import { Star, MapPin, Globe, ShieldCheck, MessageSquare } from 'lucide-react'
+import { useCurrency } from '@/lib/currency-context'
 
 interface AgentCardProps {
   id: number
@@ -35,6 +38,7 @@ export default function AgentCard({
   bio, featuredTours, type,
 }: AgentCardProps) {
   const colorClass = AVATAR_COLORS[id % AVATAR_COLORS.length]
+  const { formatPrice } = useCurrency()
 
   return (
     <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 overflow-hidden group">
@@ -112,7 +116,7 @@ export default function AgentCard({
                   <p className="text-xs font-semibold text-[#0A1628] leading-snug">{tour.name}</p>
                   <p className="text-xs text-gray-400">{tour.duration}</p>
                 </div>
-                <span className="text-xs font-bold text-[#00B4D8]">from ${tour.price.toLocaleString()}</span>
+                <span className="text-xs font-bold text-[#00B4D8]">from {formatPrice(tour.price)}</span>
               </div>
             ))}
           </div>

@@ -27,6 +27,7 @@ import PassengerPicker from '@/components/flights/PassengerPicker'
 import { sampleFlights, type Flight } from '@/lib/data/flights'
 import MainLayout from '@/components/layout/MainLayout'
 import LiveFlightTracker from '@/components/flights/LiveFlightTracker'
+import { useCurrency } from '@/lib/currency-context'
 
 /* ─── Types ───────────────────────────────────────────────────────────────── */
 type SortMode = 'best' | 'cheapest' | 'fastest'
@@ -119,6 +120,7 @@ function AmenityIcons({ amenities }: { amenities: Flight['amenities'] }) {
 /* ─── Flight Card ─────────────────────────────────────────────────────────── */
 function FlightCard({ flight, selectedClass }: { flight: Flight; selectedClass: CabinClass }) {
   const price = classPrice(flight, selectedClass)
+  const { formatPrice } = useCurrency()
   const isLowSeats = flight.seatsLeft < 5
 
   return (
@@ -179,16 +181,16 @@ function FlightCard({ flight, selectedClass }: { flight: Flight; selectedClass: 
               <AlertCircle className="h-3.5 w-3.5" /> {flight.seatsLeft} seats left
             </p>
           )}
-          <p className="text-2xl font-black text-navy">${price.toLocaleString()}</p>
+          <p className="text-2xl font-black text-navy">{formatPrice(price)}</p>
           <p className="text-xs text-slate-400 capitalize">{selectedClass} · per person</p>
           {selectedClass === 'economy' && (
             <div className="mt-0.5 space-y-0.5">
               <p className="text-xs text-slate-400">
-                Business: <span className="font-medium text-slate-600">${flight.price.business.toLocaleString()}</span>
+                Business: <span className="font-medium text-slate-600">{formatPrice(flight.price.business)}</span>
               </p>
               {flight.price.first > 0 && (
                 <p className="text-xs text-slate-400">
-                  First: <span className="font-medium text-slate-600">${flight.price.first.toLocaleString()}</span>
+                  First: <span className="font-medium text-slate-600">{formatPrice(flight.price.first)}</span>
                 </p>
               )}
             </div>
@@ -375,6 +377,7 @@ function FilterSidebar({
   maxDuration: number; setMaxDuration: (v: number) => void
 }) {
   const allAirlines = [...new Set(sampleFlights.map((f) => f.airline))].sort()
+  const { formatPrice } = useCurrency()
 
   function toggleSet<T>(set: Set<T>, val: T, setter: (v: Set<T>) => void) {
     const next = new Set(set)
@@ -412,9 +415,9 @@ function FilterSidebar({
       <div>
         <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wide mb-3">Price Range</h4>
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-xs text-slate-500">${priceRange[0]}</span>
+          <span className="text-xs text-slate-500">{formatPrice(priceRange[0])}</span>
           <div className="flex-1" />
-          <span className="text-xs font-semibold text-navy">${priceRange[1].toLocaleString()}</span>
+          <span className="text-xs font-semibold text-navy">{formatPrice(priceRange[1])}</span>
         </div>
         <input
           type="range"
