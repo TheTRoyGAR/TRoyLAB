@@ -192,6 +192,15 @@ export default function StoryPage() {
               every agent and guide profile now really sends an email instead
               of faking a local success message.
             </p>
+            <p className="text-sm text-white/50 leading-relaxed mt-2">
+              Also this week: prices across the site — packages, hotels,
+              flights, cruises, and agent tour listings — now convert live to
+              EUR, GBP, JPY, CAD, AUD, and AED instead of a hardcoded
+              USD-only display. And the fabricated traveler reviews that used
+              to sit on package and agent pages are gone, replaced with an
+              honest &quot;no reviews yet&quot; state or a real, sourced
+              aggregate rating.
+            </p>
           </div>
         </div>
 
