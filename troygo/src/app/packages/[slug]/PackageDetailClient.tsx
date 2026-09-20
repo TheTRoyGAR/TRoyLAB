@@ -233,26 +233,11 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
                   </div>
                 </div>
                 {pkg.reviewCount > 0 ? (
-                  [
-                    { name: 'Sarah M.', location: 'New York, USA', date: '2 weeks ago', rating: 5, text: 'Absolutely incredible experience! Every detail was perfectly planned. The local guides were knowledgeable and passionate. Would book again in a heartbeat.' },
-                    { name: 'James T.', location: 'London, UK', date: '1 month ago', rating: 5, text: 'Best travel experience of my life. The itinerary struck the perfect balance between guided tours and free time. Hotels were top-notch.' },
-                    { name: 'Ana C.', location: 'Sydney, AU', date: '2 months ago', rating: 4, text: 'Wonderful trip overall. A few minor scheduling hiccups but the TRoyGO™ team handled everything smoothly. Highly recommend!' },
-                  ].map((review, i) => (
-                    <div key={i} className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
-                      <div className="flex items-start justify-between mb-2">
-                        <div>
-                          <p className="font-bold text-[#0A1628] text-sm">{review.name}</p>
-                          <p className="text-xs text-gray-400">{review.location} · {review.date}</p>
-                        </div>
-                        <div className="flex gap-0.5">
-                          {[1,2,3,4,5].map((s) => (
-                            <Star key={s} className={`h-3.5 w-3.5 ${s <= review.rating ? 'fill-[#FFD700] text-[#FFD700]' : 'text-gray-200 fill-gray-200'}`} />
-                          ))}
-                        </div>
-                      </div>
-                      <p className="text-sm text-gray-600 leading-relaxed">{review.text}</p>
-                    </div>
-                  ))
+                  <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-sm text-gray-500">
+                    This package has a {pkg.rating}★ rating from {pkg.reviewCount.toLocaleString()} travelers,
+                    aggregated from our booking partners — individual written reviews aren&apos;t available on
+                    TRoyGO™ yet.
+                  </div>
                 ) : (
                   <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-sm text-gray-500">
                     No reviews yet for this deal — be the first to book and share your experience.

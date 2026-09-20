@@ -175,27 +175,8 @@ function AgentProfileContent({ numId }: { numId: number }) {
           {/* Reviews */}
           <section className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
             <h2 className="font-bold text-[#0A1628] text-lg mb-4">Traveler Reviews</h2>
-            <div className="space-y-4">
-              {[
-                { name: 'Michael R.', date: '3 weeks ago', rating: 5, text: 'Outstanding experience! Incredibly knowledgeable and made our trip truly special. Every recommendation was perfect.' },
-                { name: 'Laura K.', date: '1 month ago', rating: 5, text: 'Professional, responsive, and went above and beyond. Already planning our next trip with them!' },
-                { name: 'David P.', date: '2 months ago', rating: 4, text: 'Great itinerary planning and excellent communication throughout. Highly recommend.' },
-              ].map((r, i) => (
-                <div key={i} className="border-b border-gray-100 last:border-0 pb-4 last:pb-0">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <div>
-                      <span className="font-semibold text-sm text-[#0A1628]">{r.name}</span>
-                      <span className="text-xs text-gray-400 ml-2">{r.date}</span>
-                    </div>
-                    <div className="flex gap-0.5">
-                      {[1,2,3,4,5].map((s) => (
-                        <Star key={s} className={`h-3.5 w-3.5 ${s <= r.rating ? 'fill-[#FFD700] text-[#FFD700]' : 'fill-gray-200 text-gray-200'}`} />
-                      ))}
-                    </div>
-                  </div>
-                  <p className="text-sm text-gray-600">{r.text}</p>
-                </div>
-              ))}
+            <div className="text-sm text-gray-500">
+              No written reviews yet for {agent.name.split(' ')[0]} — be the first traveler to book and share your experience.
             </div>
           </section>
         </div>
