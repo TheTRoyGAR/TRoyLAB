@@ -8,6 +8,13 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  async rewrites() {
+    return [
+      // Serves the static flight-tracker page (public/flight-tracker.html)
+      // at a clean URL, matching the pattern of the other app routes.
+      { source: "/flight-tracker", destination: "/flight-tracker.html" },
+    ];
+  },
 };
 
 export default nextConfig;
