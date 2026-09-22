@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { Plus, X, MapPin, Calendar, Users, Wallet, Sparkles } from 'lucide-react';
 
 // ── Types ────────────────────────────────────────────────────────────────────
@@ -93,31 +93,33 @@ function InputField({
   );
 }
 
-function formatDDMMYYYY(isoDate: string) {
-  if (!isoDate) return '';
-  return new Date(`${isoDate}T00:00:00`).toLocaleDateString('en-AU', {
-    day: '2-digit', month: '2-digit', year: 'numeric',
-  });
-}
-
-// A plain `<input type="date">` only reliably opens its native picker when
-// the browser's own small icon is clicked precisely — that's what made this
-// hard to use. This overlays a full-size transparent date input over a
-// styled display so clicking anywhere in the field opens the picker.
+// The real, visible native date input — an earlier version hid this input
+// (opacity-0) under a fake styled display, which meant typing gave no visual
+// feedback at all and the real clickable calendar icon was invisible and in
+// the wrong place. This keeps the real input on screen so typing is visible,
+// and the decorative icon calls showPicker() so it's a genuine second way in.
 function DateFieldInput({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+  const inputRef = useRef<HTMLInputElement>(null);
   return (
     <div
-      className="relative flex items-center px-3 py-2.5 rounded-xl text-sm"
+      className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm"
       style={{ background: 'rgba(255,255,255,0.9)', border: '1.5px solid rgba(0,180,216,0.2)' }}
     >
-      <span style={{ color: '#0A1628' }}>
-        {value ? formatDDMMYYYY(value) : <span className="text-gray-400">dd/mm/yyyy</span>}
-      </span>
+      <button
+        type="button"
+        className="shrink-0 text-gray-400"
+        onClick={() => inputRef.current?.showPicker?.()}
+        aria-label="Open calendar"
+      >
+        <Calendar className="h-4 w-4" />
+      </button>
       <input
+        ref={inputRef}
         type="date"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+        className="w-full bg-transparent focus:outline-none [color-scheme:light]"
+        style={{ color: '#0A1628' }}
       />
     </div>
   );

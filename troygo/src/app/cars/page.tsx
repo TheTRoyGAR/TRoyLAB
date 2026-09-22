@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo, Suspense } from 'react'
+import { useState, useMemo, useRef, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import {
@@ -153,6 +153,8 @@ function CarsContent() {
   const [returnDate, setReturnDate] = useState(params.get('returnDate') || defaultSearchDate(26))
   const [returnTime, setReturnTime] = useState(params.get('returnTime') || '10:00')
   const [sameReturn, setSameReturn] = useState(true)
+  const pickupDateRef = useRef<HTMLInputElement>(null)
+  const returnDateRef = useRef<HTMLInputElement>(null)
 
   // Filters
   const [typeFilter, setTypeFilter] = useState<Set<CarType>>(new Set(['Economy', 'Compact', 'SUV', 'Luxury', 'Van']))
@@ -241,16 +243,21 @@ function CarsContent() {
                 <div>
                   <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Pickup Date & Time</label>
                   <div className="flex items-center gap-2 mt-1">
-                    <Calendar className="h-4 w-4 text-slate-400 shrink-0" />
-                    <span className="relative text-sm font-semibold text-navy">
-                      {pickupDate ? new Date(`${pickupDate}T00:00:00`).toLocaleDateString('en-AU', { day: '2-digit', month: '2-digit', year: 'numeric' }) : <span className="text-slate-400 font-normal">dd/mm/yyyy</span>}
-                      <input
-                        type="date"
-                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                        value={pickupDate}
-                        onChange={(e) => setPickupDate(e.target.value)}
-                      />
-                    </span>
+                    <button
+                      type="button"
+                      className="text-slate-400 shrink-0"
+                      onClick={() => pickupDateRef.current?.showPicker?.()}
+                      aria-label="Open pickup date calendar"
+                    >
+                      <Calendar className="h-4 w-4" />
+                    </button>
+                    <input
+                      ref={pickupDateRef}
+                      type="date"
+                      className="text-sm font-semibold text-navy bg-transparent focus:outline-none [color-scheme:light]"
+                      value={pickupDate}
+                      onChange={(e) => setPickupDate(e.target.value)}
+                    />
                     <input
                       type="time"
                       className="text-sm text-slate-500 outline-none bg-transparent"
@@ -264,16 +271,21 @@ function CarsContent() {
                 <div>
                   <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Return Date & Time</label>
                   <div className="flex items-center gap-2 mt-1">
-                    <Calendar className="h-4 w-4 text-slate-400 shrink-0" />
-                    <span className="relative text-sm font-semibold text-navy">
-                      {returnDate ? new Date(`${returnDate}T00:00:00`).toLocaleDateString('en-AU', { day: '2-digit', month: '2-digit', year: 'numeric' }) : <span className="text-slate-400 font-normal">dd/mm/yyyy</span>}
-                      <input
-                        type="date"
-                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                        value={returnDate}
-                        onChange={(e) => setReturnDate(e.target.value)}
-                      />
-                    </span>
+                    <button
+                      type="button"
+                      className="text-slate-400 shrink-0"
+                      onClick={() => returnDateRef.current?.showPicker?.()}
+                      aria-label="Open return date calendar"
+                    >
+                      <Calendar className="h-4 w-4" />
+                    </button>
+                    <input
+                      ref={returnDateRef}
+                      type="date"
+                      className="text-sm font-semibold text-navy bg-transparent focus:outline-none [color-scheme:light]"
+                      value={returnDate}
+                      onChange={(e) => setReturnDate(e.target.value)}
+                    />
                     <input
                       type="time"
                       className="text-sm text-slate-500 outline-none bg-transparent"

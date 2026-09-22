@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import {
   Plane,
@@ -73,13 +73,6 @@ function InputField({
   );
 }
 
-function formatDDMMYYYY(isoDate: string) {
-  if (!isoDate) return '';
-  return new Date(`${isoDate}T00:00:00`).toLocaleDateString('en-AU', {
-    day: '2-digit', month: '2-digit', year: 'numeric',
-  });
-}
-
 // Real airport lookup (resolves "Darwin" -> DRW via Duffel's own place
 // search, same component the dedicated /flights page already uses) styled
 // to match this form's InputField boxes.
@@ -106,31 +99,35 @@ function AirportField({
   );
 }
 
-// A real, click-anywhere date field — a plain `<input type="date">` only
-// reliably opens its native picker when the browser's own small icon is
-// clicked precisely, which is what made the old date fields hard to use.
-// This overlays a full-size transparent date input, same pattern already
-// proven on /flights.
+// The real, visible native date input — an earlier version hid this input
+// (opacity-0) under a fake styled display, which meant typing gave no visual
+// feedback at all and the real clickable calendar icon was invisible and in
+// the wrong place. This keeps the real input on screen so typing is visible,
+// and the decorative icon calls showPicker() so it's a genuine second way in.
 function DateFieldBox({
   label, value, onChange, className,
 }: { label: string; value: string; onChange: (v: string) => void; className?: string }) {
+  const inputRef = useRef<HTMLInputElement>(null);
   return (
     <div className={clsx('flex flex-col', className)}>
       <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1 px-1">
         {label}
       </label>
-      <div className="relative flex items-center bg-white rounded-xl shadow-sm border border-gray-200 hover:border-[#00B4D8] transition-colors focus-within:border-[#00B4D8] focus-within:ring-2 focus-within:ring-[#00B4D8]/20 py-3 px-3">
-        <span className="text-[#00B4D8] mr-2 shrink-0">
+      <div className="flex items-center bg-white rounded-xl shadow-sm border border-gray-200 hover:border-[#00B4D8] transition-colors focus-within:border-[#00B4D8] focus-within:ring-2 focus-within:ring-[#00B4D8]/20 py-3 px-3">
+        <button
+          type="button"
+          className="text-[#00B4D8] mr-2 shrink-0"
+          onClick={() => inputRef.current?.showPicker?.()}
+          aria-label={`Open ${label} calendar`}
+        >
           <Calendar className="w-4 h-4" />
-        </span>
-        <span className="text-sm text-gray-800">
-          {value ? formatDDMMYYYY(value) : <span className="text-gray-400">dd/mm/yyyy</span>}
-        </span>
+        </button>
         <input
+          ref={inputRef}
           type="date"
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          className="w-full bg-transparent text-sm text-gray-800 focus:outline-none [color-scheme:light]"
         />
       </div>
     </div>
