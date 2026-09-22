@@ -174,8 +174,10 @@ export default function ChatInterface({ tripDetails, initialMessage }: ChatInter
           );
         }
 
-        // Parse itinerary from accumulated response
-        const parsed = parseItineraryFromText(accumulated);
+        // Parse itinerary from accumulated response — strip real flight-card
+        // JSON blocks first so the day/heading parser never scans through them.
+        const textForItinerary = accumulated.replace(/<<FLIGHTS_DATA>>[\s\S]*?<<END_FLIGHTS_DATA>>/g, '');
+        const parsed = parseItineraryFromText(textForItinerary);
         if (parsed.days.length > 0) {
           setItinerary(parsed);
           // Auto-open panel when itinerary arrives

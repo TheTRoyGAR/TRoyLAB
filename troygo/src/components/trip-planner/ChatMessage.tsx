@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
+import { Plane, ArrowRight } from 'lucide-react';
 
 export interface Message {
   id: string;
@@ -8,6 +10,146 @@ export interface Message {
   content: string;
   timestamp: Date;
   isPending?: boolean;
+}
+
+// ── Real flight offer shape (matches src/lib/duffel/search.ts output) ───────
+interface FlightLeg {
+  flightNumber: string;
+  from: { city: string; code: string };
+  to: { city: string; code: string };
+  departure: string;
+  arrival: string;
+  duration: string;
+  stops: 0 | 1 | 2;
+  stopCity?: string;
+}
+interface FlightOffer extends FlightLeg {
+  id: string;
+  airline: string;
+  returnLeg?: FlightLeg;
+  price: { economy: number; business: number; first: number };
+  currency: string;
+  cabinClassSearched: string;
+}
+interface FlightRouteSnapshot {
+  origin: string;
+  destination: string;
+  departureDate: string;
+  returnDate?: string;
+  adults: number;
+  children: number[];
+  infants: number[];
+  cabinClass: string;
+}
+interface FlightCardsPayload {
+  flights: FlightOffer[];
+  route: FlightRouteSnapshot;
+}
+
+const FLIGHTS_MARKER = /<<FLIGHTS_DATA>>([\s\S]*?)<<END_FLIGHTS_DATA>>/g;
+
+function formatTime(iso: string) {
+  return new Date(iso).toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit', hour12: false });
+}
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' });
+}
+
+// ── Real, bookable flight offer card — a live Duffel result, not a text
+// description. "Book this flight" stashes the exact offer + search params
+// the same way /flights does, then hands off to the real booking flow. ──
+function FlightOfferCard({ flight, route }: { flight: FlightOffer; route: FlightRouteSnapshot }) {
+  const router = useRouter();
+  const totalTravelers = route.adults + route.children.length + route.infants.length;
+
+  const handleBook = () => {
+    try {
+      sessionStorage.setItem(`troygo_flight_${flight.id}`, JSON.stringify(flight));
+      sessionStorage.setItem(`troygo_route_${flight.id}`, JSON.stringify(route));
+    } catch {
+      // sessionStorage can throw in private browsing — booking page falls
+      // back gracefully if the stashed flight isn't found.
+    }
+    router.push(`/booking?type=flight&id=${flight.id}&class=${flight.cabinClassSearched}&passengers=${totalTravelers}`);
+  };
+
+  return (
+    <div
+      className="rounded-xl p-3 my-1.5"
+      style={{ background: '#f8fafc', border: '1px solid rgba(0,180,216,0.2)' }}
+    >
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2 min-w-0">
+          <div
+            className="w-8 h-8 rounded-lg flex items-center justify-center text-white shrink-0"
+            style={{ background: '#0A1628' }}
+          >
+            <Plane className="w-4 h-4" />
+          </div>
+          <div className="min-w-0">
+            <p className="text-xs font-bold truncate" style={{ color: '#0A1628' }}>{flight.airline}</p>
+            <p className="text-[11px] text-gray-500">{flight.flightNumber}</p>
+          </div>
+        </div>
+        <div className="text-right shrink-0">
+          <p className="text-sm font-bold" style={{ color: '#00B4D8' }}>
+            {flight.currency} {flight.price.economy.toFixed(2)}
+          </p>
+          <p className="text-[10px] text-gray-400">{flight.returnLeg ? 'round trip total' : 'total'}</p>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-2 mt-2 text-xs text-gray-600">
+        <span className="font-semibold" style={{ color: '#0A1628' }}>{flight.from.code}</span>
+        <span>{formatTime(flight.departure)}</span>
+        <ArrowRight className="w-3 h-3 text-gray-300" />
+        <span className="font-semibold" style={{ color: '#0A1628' }}>{flight.to.code}</span>
+        <span>{formatTime(flight.arrival)}</span>
+        <span className="text-gray-400">· {flight.duration} · {flight.stops === 0 ? 'Direct' : `${flight.stops} stop${flight.stops > 1 ? 's' : ''}`}</span>
+      </div>
+      <p className="text-[10px] text-gray-400 mt-0.5">{formatDate(flight.departure)}</p>
+
+      {flight.returnLeg && (
+        <>
+          <div className="flex items-center gap-2 mt-1.5 text-xs text-gray-600">
+            <span className="font-semibold" style={{ color: '#0A1628' }}>{flight.returnLeg.from.code}</span>
+            <span>{formatTime(flight.returnLeg.departure)}</span>
+            <ArrowRight className="w-3 h-3 text-gray-300" />
+            <span className="font-semibold" style={{ color: '#0A1628' }}>{flight.returnLeg.to.code}</span>
+            <span>{formatTime(flight.returnLeg.arrival)}</span>
+            <span className="text-gray-400">· {flight.returnLeg.duration} · {flight.returnLeg.stops === 0 ? 'Direct' : `${flight.returnLeg.stops} stop${flight.returnLeg.stops > 1 ? 's' : ''}`}</span>
+          </div>
+          <p className="text-[10px] text-gray-400 mt-0.5">{formatDate(flight.returnLeg.departure)} return</p>
+        </>
+      )}
+
+      <button
+        type="button"
+        onClick={handleBook}
+        className="w-full mt-2.5 py-2 rounded-lg text-xs font-bold text-white transition-all hover:brightness-110"
+        style={{ background: '#00B4D8' }}
+      >
+        Book this flight
+      </button>
+    </div>
+  );
+}
+
+function FlightResultsBlock({ payload }: { payload: string }) {
+  let data: FlightCardsPayload | null = null;
+  try {
+    data = JSON.parse(payload);
+  } catch {
+    return null;
+  }
+  if (!data || !data.flights?.length) return null;
+  return (
+    <div className="my-2">
+      {data.flights.map((f) => (
+        <FlightOfferCard key={f.id} flight={f} route={data!.route} />
+      ))}
+    </div>
+  );
 }
 
 // ── Simple markdown renderer ─────────────────────────────────────────────────
@@ -157,6 +299,29 @@ function renderMarkdown(text: string): React.ReactNode[] {
   return nodes;
 }
 
+// Splits the message on <<FLIGHTS_DATA>> markers, rendering real bookable
+// flight cards inline and everything else as markdown text.
+function renderContent(text: string): React.ReactNode {
+  const segments: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let segKey = 0;
+  FLIGHTS_MARKER.lastIndex = 0;
+  let match: RegExpExecArray | null;
+  while ((match = FLIGHTS_MARKER.exec(text)) !== null) {
+    const before = text.slice(lastIndex, match.index);
+    if (before.trim()) {
+      segments.push(<React.Fragment key={`t${segKey++}`}>{renderMarkdown(before)}</React.Fragment>);
+    }
+    segments.push(<FlightResultsBlock key={`f${segKey++}`} payload={match[1]} />);
+    lastIndex = FLIGHTS_MARKER.lastIndex;
+  }
+  const rest = text.slice(lastIndex);
+  if (rest.trim()) {
+    segments.push(<React.Fragment key={`t${segKey++}`}>{renderMarkdown(rest)}</React.Fragment>);
+  }
+  return segments;
+}
+
 // ── Loading skeleton ─────────────────────────────────────────────────────────
 function LoadingSkeleton() {
   return (
@@ -179,7 +344,7 @@ function LoadingSkeleton() {
 }
 
 // ── Format timestamp ─────────────────────────────────────────────────────────
-function formatTime(date: Date): string {
+function formatMsgTime(date: Date): string {
   return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
@@ -205,7 +370,7 @@ export default function ChatMessage({ message }: { message: Message }) {
           >
             {message.content}
           </div>
-          <span className="text-[10px] text-black/40 pr-1">{formatTime(message.timestamp)}</span>
+          <span className="text-[10px] text-black/40 pr-1">{formatMsgTime(message.timestamp)}</span>
         </div>
       </div>
     );
@@ -240,9 +405,9 @@ export default function ChatMessage({ message }: { message: Message }) {
             color: '#0A1628',
           }}
         >
-          <div className="space-y-0.5">{renderMarkdown(message.content)}</div>
+          <div className="space-y-0.5">{renderContent(message.content)}</div>
         </div>
-        <span className="text-[10px] text-black/40 pl-1">{formatTime(message.timestamp)}</span>
+        <span className="text-[10px] text-black/40 pl-1">{formatMsgTime(message.timestamp)}</span>
       </div>
     </div>
   );
