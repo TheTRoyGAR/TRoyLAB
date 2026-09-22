@@ -92,6 +92,29 @@ export const viewport = {
   themeColor: "#0A1628",
 };
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  name: "TRoyGO™ - TRoy Travel Agency™",
+  url: "https://troytravelagency.com",
+  logo: "https://troytravelagency.com/logo.png",
+  image: "https://troytravelagency.com/og-image.jpg",
+  telephone: "+61422781807",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "University Drive North",
+    addressLocality: "Brinkin",
+    addressRegion: "NT",
+    postalCode: "0810",
+    addressCountry: "AU",
+  },
+  sameAs: [
+    "https://www.facebook.com/TRoyTravelAgency",
+    "https://www.instagram.com/troytravelagency/",
+    "https://au.linkedin.com/company/troytravelagency",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -103,6 +126,10 @@ export default function RootLayout({
       className={`${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
       <body className="min-h-screen bg-white text-navy flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <CurrencyProvider>
           <div className="min-h-screen flex flex-col">{children}</div>
         </CurrencyProvider>
