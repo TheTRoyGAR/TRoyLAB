@@ -148,7 +148,12 @@ function FlightLegRow({ leg, label }: { leg: FlightLegInfo; label: string }) {
   )
 }
 
-function FlightCard({ flight, selectedClass, passengerTotal = 1 }: { flight: Flight; selectedClass: CabinClass; passengerTotal?: number }) {
+function FlightCard({
+  flight, selectedClass, passengerTotal = 1, passengerCounts,
+}: {
+  flight: Flight; selectedClass: CabinClass; passengerTotal?: number
+  passengerCounts?: PassengerCounts
+}) {
   const price = classPrice(flight, selectedClass)
   const { formatPrice } = useCurrency()
   const isLowSeats = flight.seatsLeft < 5
@@ -247,7 +252,35 @@ function FlightCard({ flight, selectedClass, passengerTotal = 1 }: { flight: Fli
           )}
         </div>
         <Link
-          href={`/booking?type=flight&id=${flight.id}&class=${selectedClass}`}
+          href={`/booking?type=flight&id=${flight.id}&class=${selectedClass}&passengers=${passengerTotal}`}
+          onClick={() => {
+            // Real Duffel offers (id starts with "off_") don't exist in the
+            // static sample data the booking page falls back to — stash the
+            // real flight AND the real search parameters (real passenger
+            // ages, not just a headcount) so a later re-search — needed
+            // because offers expire long before owner approval + Stripe
+            // payment complete — can reproduce the exact same real request.
+            if (flight.id.startsWith('off_')) {
+              try {
+                sessionStorage.setItem(`troygo_flight_${flight.id}`, JSON.stringify(flight))
+                if (passengerCounts) {
+                  sessionStorage.setItem(`troygo_route_${flight.id}`, JSON.stringify({
+                    origin: flight.from.code,
+                    destination: flight.to.code,
+                    departureDate: flight.departure.slice(0, 10),
+                    returnDate: flight.returnLeg ? flight.returnLeg.departure.slice(0, 10) : undefined,
+                    adults: passengerCounts.adults,
+                    children: passengerCounts.children.map((c) => c.age),
+                    infants: passengerCounts.infants.map((i) => i.age),
+                    cabinClass: selectedClass,
+                  }))
+                }
+              } catch {
+                // sessionStorage can throw in private browsing — booking page
+                // falls back gracefully if the stashed flight isn't found.
+              }
+            }
+          }}
           className="px-5 py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:brightness-110 hover:-translate-y-0.5 shadow-sm whitespace-nowrap"
           style={{ background: '#00B4D8' }}
         >
@@ -888,7 +921,7 @@ function FlightsContent() {
                           </div>
                         ) : (
                           leg.results.map((flight) => (
-                            <FlightCard key={flight.id} flight={flight} selectedClass={cabinClass} passengerTotal={passengers} />
+                            <FlightCard key={flight.id} flight={flight} selectedClass={cabinClass} passengerTotal={passengers} passengerCounts={passengerCounts} />
                           ))
                         )}
                       </div>
@@ -905,7 +938,7 @@ function FlightsContent() {
                     </div>
                   ) : (
                     sorted.map((flight) => (
-                      <FlightCard key={flight.id} flight={flight} selectedClass={cabinClass} passengerTotal={passengers} />
+                      <FlightCard key={flight.id} flight={flight} selectedClass={cabinClass} passengerTotal={passengers} passengerCounts={passengerCounts} />
                     ))
                   )}
                 </div>

@@ -35,6 +35,16 @@ export function ensureSchema(): Promise<void> {
       await sql`ALTER TABLE bookings ADD COLUMN IF NOT EXISTS payment_link_url TEXT`
       await sql`ALTER TABLE bookings ADD COLUMN IF NOT EXISTS stripe_session_id TEXT`
       await sql`ALTER TABLE bookings ADD COLUMN IF NOT EXISTS paid_at TIMESTAMPTZ`
+      // Real Duffel order-completion fields — the original selected Duffel
+      // offer expires long before a real client finishes browsing, gets
+      // owner-approved, and pays via Stripe, so route_snapshot stores what's
+      // needed to re-search for a fresh, valid offer at the moment payment
+      // actually clears, rather than trying to reuse a stale offer ID.
+      await sql`ALTER TABLE bookings ADD COLUMN IF NOT EXISTS route_snapshot JSONB`
+      await sql`ALTER TABLE bookings ADD COLUMN IF NOT EXISTS duffel_order_status TEXT NOT NULL DEFAULT 'not_started'`
+      await sql`ALTER TABLE bookings ADD COLUMN IF NOT EXISTS duffel_order_id TEXT`
+      await sql`ALTER TABLE bookings ADD COLUMN IF NOT EXISTS duffel_booking_reference TEXT`
+      await sql`ALTER TABLE bookings ADD COLUMN IF NOT EXISTS duffel_order_error TEXT`
       await sql`
         CREATE TABLE IF NOT EXISTS partner_submissions (
           id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

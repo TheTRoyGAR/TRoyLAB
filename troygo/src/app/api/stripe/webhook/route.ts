@@ -33,6 +33,20 @@ export async function POST(req: NextRequest) {
         WHERE booking_ref = ${bookingRef}
       `
       console.log(`[TRoyGO™ STRIPE] Booking ${bookingRef} marked as PAID via real Stripe webhook`)
+
+      // Real payment confirmed — this is the actual trigger for TRoyGO's own
+      // agent to complete the real airline booking. Runs in the background
+      // (not awaited) so the webhook still responds to Stripe quickly;
+      // failures land in duffel_order_status/duffel_order_error on the
+      // booking row for the owner to see, not silently lost.
+      const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://troytravelagency.com'
+      fetch(`${baseUrl}/api/bookings/complete-duffel-order`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ bookingRef }),
+      }).catch((err) => {
+        console.error(`[TRoyGO™ STRIPE] Failed to trigger Duffel order completion for ${bookingRef}:`, err)
+      })
     }
   }
 

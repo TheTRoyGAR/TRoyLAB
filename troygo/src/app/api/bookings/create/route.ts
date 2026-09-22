@@ -13,6 +13,17 @@ interface TravelerInfo {
   phone?: string
 }
 
+interface FlightRouteSnapshot {
+  origin: string
+  destination: string
+  departureDate: string
+  returnDate?: string
+  adults: number
+  children: number[]
+  infants: number[]
+  cabinClass: string
+}
+
 interface BookingPayload {
   bookingRef?: string
   type?: string
@@ -21,6 +32,7 @@ interface BookingPayload {
   addOns?: string[]
   totalAmount?: number
   cabinClass?: string
+  routeSnapshot?: FlightRouteSnapshot
 }
 
 /* ─── Reference generator ─────────────────────────────────────────────────── */
@@ -48,6 +60,7 @@ export async function POST(req: NextRequest) {
       addOns = [],
       totalAmount = 0,
       cabinClass = null,
+      routeSnapshot = null,
     } = body
 
     const bookingRef = providedRef ?? generateRef()
@@ -66,11 +79,12 @@ export async function POST(req: NextRequest) {
     await sql`
       INSERT INTO bookings (
         booking_ref, status, requires_owner_approval, type, item_id,
-        travelers, add_ons, total_amount, cabin_class,
+        travelers, add_ons, total_amount, cabin_class, route_snapshot,
         estimated_response_time, lead_traveler_name, lead_traveler_email, created_at
       ) VALUES (
         ${bookingRef}, 'inquiry', ${requiresOwnerApproval}, ${type}, ${itemId},
         ${JSON.stringify(travelers)}, ${JSON.stringify(addOns)}, ${totalAmount}, ${cabinClass},
+        ${routeSnapshot ? JSON.stringify(routeSnapshot) : null},
         ${estimatedResponseTime}, ${leadName}, ${leadEmail}, ${createdAt}
       )
       ON CONFLICT (booking_ref) DO UPDATE SET
@@ -79,7 +93,8 @@ export async function POST(req: NextRequest) {
         travelers = EXCLUDED.travelers,
         add_ons = EXCLUDED.add_ons,
         total_amount = EXCLUDED.total_amount,
-        cabin_class = EXCLUDED.cabin_class
+        cabin_class = EXCLUDED.cabin_class,
+        route_snapshot = EXCLUDED.route_snapshot
     `
 
     // Real notification email to Troy - actually sent via Gmail OAuth2, not

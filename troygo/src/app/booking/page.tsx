@@ -33,7 +33,7 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useCurrency } from '@/lib/currency-context'
-import { sampleFlights } from '@/lib/data/flights'
+import { sampleFlights, type Flight } from '@/lib/data/flights'
 import { sampleHotels } from '@/lib/data/hotels'
 import { travelPackages, cruises } from '@/lib/data/packages'
 import { carRentals } from '@/app/cars/page'
@@ -42,6 +42,8 @@ import MainLayout from '@/components/layout/MainLayout'
 
 /* ─── Types ───────────────────────────────────────────────────────────────── */
 interface TravelerInfo {
+  title: 'mr' | 'ms' | 'mrs' | 'miss' | 'dr'
+  gender: 'm' | 'f'
   firstName: string
   lastName: string
   dob: string
@@ -61,7 +63,7 @@ interface AddOn {
 }
 
 function emptyTraveler(): TravelerInfo {
-  return { firstName: '', lastName: '', dob: '', passport: '', nationality: '', email: '', phone: '' }
+  return { title: 'mr', gender: 'm', firstName: '', lastName: '', dob: '', passport: '', nationality: '', email: '', phone: '' }
 }
 
 /* ─── Helpers ─────────────────────────────────────────────────────────────── */
@@ -74,7 +76,21 @@ function generateRef(): string {
 
 function getBookingItem(type: string | null, id: string | null, cls: string | null) {
   if (type === 'flight') {
-    const f = sampleFlights.find((x) => x.id === id)
+    // Real Duffel offers (id starts with "off_") are stashed in
+    // sessionStorage by the flights page's Select button, since they don't
+    // exist in the static sample data below — using the sample-data lookup
+    // for a real offer would silently show the client a completely
+    // different, unrelated flight than the one they actually selected.
+    let f: Flight | undefined
+    if (id?.startsWith('off_') && typeof window !== 'undefined') {
+      try {
+        const stashed = sessionStorage.getItem(`troygo_flight_${id}`)
+        if (stashed) f = JSON.parse(stashed) as Flight
+      } catch {
+        // fall through to sample lookup below
+      }
+    }
+    if (!f) f = sampleFlights.find((x) => x.id === id)
     if (!f) return null
     const cabin = (cls as 'economy' | 'business' | 'first') ?? 'economy'
     return {
@@ -287,7 +303,10 @@ function StepTravelerDetails({
 
   function validate() {
     const lead = travelers[0]
-    return lead.firstName && lead.lastName && lead.email && lead.phone
+    if (!lead.firstName || !lead.lastName || !lead.email || !lead.phone) return false
+    // Every traveler needs a real name + DOB — Duffel requires this per
+    // passenger to actually create a real order, not just for the lead.
+    return travelers.every((t) => t.firstName && t.lastName && t.dob)
   }
 
   return (
@@ -301,6 +320,43 @@ function StepTravelerDetails({
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Title */}
+            <div>
+              <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">
+                Title (as on passport)
+              </label>
+              <select
+                className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm text-navy focus:outline-none transition-colors bg-white"
+                value={t.title}
+                onChange={(e) => update(idx, 'title', e.target.value as TravelerInfo['title'])}
+                onFocus={(e) => (e.currentTarget.style.borderColor = '#00B4D8')}
+                onBlur={(e) => (e.currentTarget.style.borderColor = '')}
+              >
+                <option value="mr">Mr</option>
+                <option value="mrs">Mrs</option>
+                <option value="ms">Ms</option>
+                <option value="miss">Miss</option>
+                <option value="dr">Dr</option>
+              </select>
+            </div>
+
+            {/* Gender */}
+            <div>
+              <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">
+                Gender (as on passport)
+              </label>
+              <select
+                className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm text-navy focus:outline-none transition-colors bg-white"
+                value={t.gender}
+                onChange={(e) => update(idx, 'gender', e.target.value as TravelerInfo['gender'])}
+                onFocus={(e) => (e.currentTarget.style.borderColor = '#00B4D8')}
+                onBlur={(e) => (e.currentTarget.style.borderColor = '')}
+              >
+                <option value="m">Male</option>
+                <option value="f">Female</option>
+              </select>
+            </div>
+
             {/* First name */}
             <div>
               <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">
@@ -341,7 +397,7 @@ function StepTravelerDetails({
             {/* DOB */}
             <div>
               <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">
-                Date of Birth
+                Date of Birth *
               </label>
               <div className="relative">
                 <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
@@ -1096,6 +1152,20 @@ function BookingContent() {
     setIsSubmitting(true)
     try {
       const ref = generateRef()
+      // Real Duffel offers stash their real search params alongside the
+      // flight itself, so the booking record can re-search for a fresh,
+      // valid offer once payment actually clears (see FlightCard's onClick
+      // in flights/page.tsx — the original offer expires long before then).
+      let routeSnapshot: unknown = null
+      if (type === 'flight' && id?.startsWith('off_') && typeof window !== 'undefined') {
+        try {
+          const stashed = sessionStorage.getItem(`troygo_route_${id}`)
+          if (stashed) routeSnapshot = JSON.parse(stashed)
+        } catch {
+          // no stashed route data — Duffel order completion will need
+          // manual owner handling for this booking instead of auto re-search
+        }
+      }
       const res = await fetch('/api/bookings/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -1103,6 +1173,7 @@ function BookingContent() {
           bookingRef: ref,
           type,
           itemId: id,
+          routeSnapshot,
           travelers,
           addOns: addOns.filter((a) => a.selected).map((a) => a.name),
           totalAmount: grandTotal,
