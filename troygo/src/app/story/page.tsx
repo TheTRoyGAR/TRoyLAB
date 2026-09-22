@@ -128,7 +128,9 @@ export default function StoryPage() {
                 <h3 className="font-bold mb-1">AI trip planner</h3>
                 <p className="text-sm text-white/60">
                   Builds a personalized itinerary directly from a traveler&apos;s
-                  brief — try it on the{' '}
+                  brief, and now pulls real, live, bookable flight offers into
+                  the chat itself — no more describing flights from memory. Try
+                  it on the{' '}
                   <Link href="/trip-planner" className="underline" style={{ color: '#00B4D8' }}>
                     Trip Planner
                   </Link>{' '}
@@ -200,6 +202,17 @@ export default function StoryPage() {
               to sit on package and agent pages are gone, replaced with an
               honest &quot;no reviews yet&quot; state or a real, sourced
               aggregate rating.
+            </p>
+            <p className="text-sm text-white/50 leading-relaxed mt-2">
+              Latest: the AI Trip Planner now searches our real airline
+              booking system live, mid-conversation, and shows the actual
+              bookable offers it finds — real airlines, real prices, real
+              flight numbers — with a direct path into the same real booking
+              flow used everywhere else on the site. It no longer just
+              describes flights from memory. Date pickers across every search
+              form (homepage, flights, trip planner, cars) were also rebuilt
+              after we found the old ones were effectively invisible to type
+              or click into.
             </p>
           </div>
         </div>
