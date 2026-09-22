@@ -23,8 +23,8 @@ import {
 import { cn, defaultSearchDate } from '@/lib/utils'
 import AirportAutocomplete from '@/components/flights/AirportAutocomplete'
 import TripAddOns from '@/components/flights/TripAddOns'
-import PassengerPicker from '@/components/flights/PassengerPicker'
-import { sampleFlights, type Flight } from '@/lib/data/flights'
+import PassengerPicker, { type PassengerCounts } from '@/components/flights/PassengerPicker'
+import { sampleFlights, type Flight, type FlightLegInfo } from '@/lib/data/flights'
 import MainLayout from '@/components/layout/MainLayout'
 import LiveFlightTracker from '@/components/flights/LiveFlightTracker'
 import { useCurrency } from '@/lib/currency-context'
@@ -33,6 +33,7 @@ import { useCurrency } from '@/lib/currency-context'
 type SortMode = 'best' | 'cheapest' | 'fastest'
 type DepartureTime = 'morning' | 'afternoon' | 'evening' | 'night'
 type CabinClass = 'economy' | 'business' | 'first'
+type TripType = 'roundtrip' | 'oneway'
 
 /* ─── Airline logo colors ─────────────────────────────────────────────────── */
 const AIRLINE_COLORS: Record<string, string> = {
@@ -118,7 +119,36 @@ function AmenityIcons({ amenities }: { amenities: Flight['amenities'] }) {
 }
 
 /* ─── Flight Card ─────────────────────────────────────────────────────────── */
-function FlightCard({ flight, selectedClass }: { flight: Flight; selectedClass: CabinClass }) {
+function FlightLegRow({ leg, label }: { leg: FlightLegInfo; label: string }) {
+  return (
+    <div className="flex-1 flex items-center gap-3">
+      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wide w-12 shrink-0">{label}</span>
+      <div className="text-center min-w-[56px]">
+        <p className="text-lg font-bold text-navy tracking-tight">{formatTime(leg.departure)}</p>
+        <p className="text-xs font-semibold text-slate-500 mt-0.5">{leg.from.code}</p>
+        <p className="text-xs text-slate-400">{formatDate(leg.departure)}</p>
+      </div>
+      <div className="flex-1 flex flex-col items-center gap-1 px-2">
+        <p className="text-xs text-slate-400 flex items-center gap-1">
+          <Clock className="h-3 w-3" /> {leg.duration}
+        </p>
+        <div className="relative w-full flex items-center">
+          <div className="flex-1 h-px bg-slate-200" />
+          <Plane className="h-3 w-3 text-teal mx-1 shrink-0" />
+          <div className="flex-1 h-px bg-slate-200" />
+        </div>
+        <StopsIndicator stops={leg.stops} stopCity={leg.stopCity} />
+      </div>
+      <div className="text-center min-w-[56px]">
+        <p className="text-lg font-bold text-navy tracking-tight">{formatTime(leg.arrival)}</p>
+        <p className="text-xs font-semibold text-slate-500 mt-0.5">{leg.to.code}</p>
+        <p className="text-xs text-slate-400">{formatDate(leg.arrival)}</p>
+      </div>
+    </div>
+  )
+}
+
+function FlightCard({ flight, selectedClass, passengerTotal = 1 }: { flight: Flight; selectedClass: CabinClass; passengerTotal?: number }) {
   const price = classPrice(flight, selectedClass)
   const { formatPrice } = useCurrency()
   const isLowSeats = flight.seatsLeft < 5
@@ -136,33 +166,50 @@ function FlightCard({ flight, selectedClass }: { flight: Flight; selectedClass: 
       </div>
 
       {/* Route / times */}
-      <div className="flex-1 flex items-center gap-3">
-        {/* Departure */}
-        <div className="text-center min-w-[64px]">
-          <p className="text-2xl font-bold text-navy tracking-tight">{formatTime(flight.departure)}</p>
-          <p className="text-xs font-semibold text-slate-500 mt-0.5">{flight.from.code}</p>
-          <p className="text-xs text-slate-400">{formatDate(flight.departure)}</p>
-        </div>
+      <div className="flex-1 flex flex-col gap-3">
+        {flight.returnLeg ? (
+          <>
+            <FlightLegRow
+              leg={{
+                flightNumber: flight.flightNumber, from: flight.from, to: flight.to,
+                departure: flight.departure, arrival: flight.arrival, duration: flight.duration,
+                stops: flight.stops, stopCity: flight.stopCity,
+              }}
+              label="Depart"
+            />
+            <div className="h-px bg-slate-100" />
+            <FlightLegRow leg={flight.returnLeg} label="Return" />
+          </>
+        ) : (
+          <div className="flex items-center gap-3">
+            {/* Departure */}
+            <div className="text-center min-w-[64px]">
+              <p className="text-2xl font-bold text-navy tracking-tight">{formatTime(flight.departure)}</p>
+              <p className="text-xs font-semibold text-slate-500 mt-0.5">{flight.from.code}</p>
+              <p className="text-xs text-slate-400">{formatDate(flight.departure)}</p>
+            </div>
 
-        {/* Line */}
-        <div className="flex-1 flex flex-col items-center gap-1 px-2">
-          <p className="text-xs text-slate-400 flex items-center gap-1">
-            <Clock className="h-3 w-3" /> {flight.duration}
-          </p>
-          <div className="relative w-full flex items-center">
-            <div className="flex-1 h-px bg-slate-200" />
-            <Plane className="h-3.5 w-3.5 text-teal mx-1 shrink-0" />
-            <div className="flex-1 h-px bg-slate-200" />
+            {/* Line */}
+            <div className="flex-1 flex flex-col items-center gap-1 px-2">
+              <p className="text-xs text-slate-400 flex items-center gap-1">
+                <Clock className="h-3 w-3" /> {flight.duration}
+              </p>
+              <div className="relative w-full flex items-center">
+                <div className="flex-1 h-px bg-slate-200" />
+                <Plane className="h-3.5 w-3.5 text-teal mx-1 shrink-0" />
+                <div className="flex-1 h-px bg-slate-200" />
+              </div>
+              <StopsIndicator stops={flight.stops} stopCity={flight.stopCity} />
+            </div>
+
+            {/* Arrival */}
+            <div className="text-center min-w-[64px]">
+              <p className="text-2xl font-bold text-navy tracking-tight">{formatTime(flight.arrival)}</p>
+              <p className="text-xs font-semibold text-slate-500 mt-0.5">{flight.to.code}</p>
+              <p className="text-xs text-slate-400">{formatDate(flight.arrival)}</p>
+            </div>
           </div>
-          <StopsIndicator stops={flight.stops} stopCity={flight.stopCity} />
-        </div>
-
-        {/* Arrival */}
-        <div className="text-center min-w-[64px]">
-          <p className="text-2xl font-bold text-navy tracking-tight">{formatTime(flight.arrival)}</p>
-          <p className="text-xs font-semibold text-slate-500 mt-0.5">{flight.to.code}</p>
-          <p className="text-xs text-slate-400">{formatDate(flight.arrival)}</p>
-        </div>
+        )}
       </div>
 
       {/* Amenities + route label */}
@@ -182,7 +229,10 @@ function FlightCard({ flight, selectedClass }: { flight: Flight; selectedClass: 
             </p>
           )}
           <p className="text-2xl font-black text-navy">{formatPrice(price)}</p>
-          <p className="text-xs text-slate-400 capitalize">{selectedClass} · per person</p>
+          <p className="text-xs text-slate-400 capitalize">
+            {selectedClass} · {passengerTotal > 1 ? `total for ${passengerTotal} passengers` : 'per person'}
+            {flight.returnLeg ? ' · round trip' : ''}
+          </p>
           {selectedClass === 'economy' && (
             <div className="mt-0.5 space-y-0.5">
               <p className="text-xs text-slate-400">
@@ -212,17 +262,19 @@ type FlightLeg = { id: string; from: string; to: string; date: string }
 
 /* ─── Search Bar ──────────────────────────────────────────────────────────── */
 function SearchBar({
+  tripType, setTripType,
   from, setFrom, to, setTo,
   date, setDate, returnDate, setReturnDate,
-  adults, childCount, setPassengerCounts, cabinClass, setCabinClass,
+  passengerCounts, setPassengerCounts, cabinClass, setCabinClass,
   extraLegs, onAddLeg, onRemoveLeg, onUpdateLeg,
   onSearch,
 }: {
+  tripType: TripType; setTripType: (v: TripType) => void
   from: string; setFrom: (v: string) => void
   to: string; setTo: (v: string) => void
   date: string; setDate: (v: string) => void
   returnDate: string; setReturnDate: (v: string) => void
-  adults: number; childCount: number; setPassengerCounts: (adults: number, childCount: number) => void
+  passengerCounts: PassengerCounts; setPassengerCounts: (v: PassengerCounts) => void
   cabinClass: CabinClass; setCabinClass: (v: CabinClass) => void
   extraLegs: FlightLeg[]
   onAddLeg: () => void
@@ -232,6 +284,26 @@ function SearchBar({
 }) {
   return (
     <div className="bg-white rounded-2xl shadow-lg p-4 border border-slate-100">
+      {/* Trip type */}
+      <div className="flex items-center gap-1 mb-3">
+        {([
+          { value: 'roundtrip', label: 'Round Trip' },
+          { value: 'oneway', label: 'One Way' },
+        ] as const).map((opt) => (
+          <button
+            key={opt.value}
+            type="button"
+            onClick={() => setTripType(opt.value)}
+            className={cn(
+              'px-3 py-1.5 rounded-lg text-xs font-bold transition-colors',
+              tripType === opt.value ? 'text-white' : 'text-slate-500 hover:text-navy'
+            )}
+            style={tripType === opt.value ? { background: '#00B4D8' } : {}}
+          >
+            {opt.label}
+          </button>
+        ))}
+      </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         {/* From */}
         <div className="lg:col-span-1">
@@ -274,13 +346,17 @@ function SearchBar({
         <DateField label="Depart" value={date} onChange={setDate} />
 
         {/* Return */}
-        <DateField label="Return" value={returnDate} onChange={setReturnDate} />
+        {tripType === 'roundtrip' ? (
+          <DateField label="Return" value={returnDate} onChange={setReturnDate} />
+        ) : (
+          <div className="hidden lg:block" />
+        )}
 
         {/* Passengers */}
         <div>
           <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Passengers</label>
           <div className="mt-1">
-            <PassengerPicker adults={adults} childCount={childCount} onChange={setPassengerCounts} />
+            <PassengerPicker value={passengerCounts} onChange={setPassengerCounts} />
           </div>
         </div>
 
@@ -520,12 +596,15 @@ function FlightsContent() {
 
   const [from, setFrom] = useState(params.get('from') ?? '')
   const [to, setTo] = useState(params.get('to') ?? '')
+  const [tripType, setTripType] = useState<TripType>((params.get('return') ? 'roundtrip' : 'oneway') as TripType)
   const [date, setDate] = useState(params.get('date') ?? defaultSearchDate(14))
   const [returnDate, setReturnDate] = useState(params.get('return') ?? '')
-  const [adults, setAdults] = useState(Number(params.get('adults') ?? params.get('passengers') ?? 1))
-  const [childCount, setChildCount] = useState(Number(params.get('children') ?? 0))
-  const passengers = adults + childCount
-  const setPassengerCounts = (a: number, c: number) => { setAdults(a); setChildCount(c) }
+  const [passengerCounts, setPassengerCounts] = useState<PassengerCounts>({
+    adults: Number(params.get('adults') ?? params.get('passengers') ?? 1),
+    children: [],
+    infants: [],
+  })
+  const passengers = passengerCounts.adults + passengerCounts.children.length + passengerCounts.infants.length
   const [cabinClass, setCabinClass] = useState<CabinClass>((params.get('class') as CabinClass) ?? 'economy')
 
   const [extraLegs, setExtraLegs] = useState<FlightLeg[]>([])
@@ -613,13 +692,29 @@ function FlightsContent() {
       setLiveError(null)
       return
     }
+    if (tripType === 'roundtrip' && !returnDate) {
+      // Round trip selected but no return date yet — wait for it rather
+      // than firing a one-way search that doesn't match what's shown.
+      setLiveFlights(null)
+      setLiveError(null)
+      return
+    }
     let cancelled = false
     setLiveLoading(true)
     setLiveError(null)
     fetch('/api/flights/search', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ origin: from, destination: to, departureDate: date, passengers, cabinClass }),
+      body: JSON.stringify({
+        origin: from,
+        destination: to,
+        departureDate: date,
+        returnDate: tripType === 'roundtrip' ? returnDate : undefined,
+        adults: passengerCounts.adults,
+        children: passengerCounts.children.map((c) => c.age),
+        infants: passengerCounts.infants.map((i) => i.age),
+        cabinClass,
+      }),
     })
       .then(async (res) => {
         if (cancelled) return
@@ -641,7 +736,7 @@ function FlightsContent() {
         if (!cancelled) setLiveLoading(false)
       })
     return () => { cancelled = true }
-  }, [from, to, date, passengers, cabinClass])
+  }, [from, to, date, tripType, returnDate, passengerCounts, cabinClass])
 
   const filtered = useMemo(() => {
     if (liveFlights) {
@@ -681,11 +776,12 @@ function FlightsContent() {
             </div>
             <h1 className="text-2xl font-bold text-white mb-6">Search Flights</h1>
             <SearchBar
+              tripType={tripType} setTripType={setTripType}
               from={from} setFrom={setFrom}
               to={to} setTo={setTo}
               date={date} setDate={setDate}
               returnDate={returnDate} setReturnDate={setReturnDate}
-              adults={adults} childCount={childCount} setPassengerCounts={setPassengerCounts}
+              passengerCounts={passengerCounts} setPassengerCounts={setPassengerCounts}
               cabinClass={cabinClass} setCabinClass={setCabinClass}
               extraLegs={extraLegs} onAddLeg={addLeg} onRemoveLeg={removeLeg} onUpdateLeg={updateLeg}
               onSearch={() => document.getElementById('flight-results')?.scrollIntoView({ behavior: 'smooth' })}
@@ -792,7 +888,7 @@ function FlightsContent() {
                           </div>
                         ) : (
                           leg.results.map((flight) => (
-                            <FlightCard key={flight.id} flight={flight} selectedClass={cabinClass} />
+                            <FlightCard key={flight.id} flight={flight} selectedClass={cabinClass} passengerTotal={passengers} />
                           ))
                         )}
                       </div>
@@ -809,7 +905,7 @@ function FlightsContent() {
                     </div>
                   ) : (
                     sorted.map((flight) => (
-                      <FlightCard key={flight.id} flight={flight} selectedClass={cabinClass} />
+                      <FlightCard key={flight.id} flight={flight} selectedClass={cabinClass} passengerTotal={passengers} />
                     ))
                   )}
                 </div>

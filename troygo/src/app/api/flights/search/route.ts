@@ -43,16 +43,11 @@ function sliceDurationTotal(slice: DuffelSlice): string {
   return `${h}h ${m}m`
 }
 
-function mapOfferToFlight(offer: DuffelOffer, cabinClass: string) {
-  const slice = offer.slices[0]
+function mapSliceToLeg(slice: DuffelSlice) {
   const segments = slice.segments
   const first = segments[0]
   const last = segments[segments.length - 1]
-  const price = Number(offer.total_amount)
-
   return {
-    id: offer.id,
-    airline: first.marketing_carrier.name,
     flightNumber: `${first.marketing_carrier.iata_code} ${first.marketing_carrier_flight_number}`,
     from: { city: first.origin.city_name ?? first.origin.name, code: first.origin.iata_code },
     to: { city: last.destination.city_name ?? last.destination.name, code: last.destination.iata_code },
@@ -61,15 +56,38 @@ function mapOfferToFlight(offer: DuffelOffer, cabinClass: string) {
     duration: sliceDurationTotal(slice),
     stops: Math.min(segments.length - 1, 2) as 0 | 1 | 2,
     stopCity: segments.length > 1 ? segments[0].destination.city_name ?? undefined : undefined,
-    // Real Duffel pricing is per searched cabin class only — we don't
-    // fabricate different economy/business/first numbers for classes we
-    // didn't actually search. All three carry the same real price; the UI
-    // cabin-class switcher will show identical numbers for live results
-    // until we run per-class searches.
+  }
+}
+
+function mapOfferToFlight(offer: DuffelOffer, cabinClass: string) {
+  // Real Duffel pricing is per searched cabin class only, and — for a
+  // multi-slice (round-trip) request — total_amount is already the real
+  // combined fare, not the sum of two independently-priced one-ways. Never
+  // recompute or split this; it's the one number that's actually accurate.
+  const price = Number(offer.total_amount)
+  const outboundLeg = mapSliceToLeg(offer.slices[0])
+  const returnLeg = offer.slices.length > 1 ? mapSliceToLeg(offer.slices[1]) : undefined
+  const firstSeg = offer.slices[0].segments[0]
+
+  return {
+    id: offer.id,
+    airline: firstSeg.marketing_carrier.name,
+    flightNumber: outboundLeg.flightNumber,
+    from: outboundLeg.from,
+    to: outboundLeg.to,
+    departure: outboundLeg.departure,
+    arrival: outboundLeg.arrival,
+    duration: outboundLeg.duration,
+    stops: outboundLeg.stops,
+    stopCity: outboundLeg.stopCity,
+    returnLeg,
+    // We don't fabricate different economy/business/first numbers for
+    // classes we didn't actually search — all three carry the same real
+    // price until we run per-class searches.
     price: { economy: price, business: price, first: price },
-    aircraft: first.aircraft?.name ?? 'Aircraft type not specified',
+    aircraft: firstSeg.aircraft?.name ?? 'Aircraft type not specified',
     amenities: {
-      wifi: first.passengers[0]?.cabin?.amenities?.wifi?.available ?? false,
+      wifi: firstSeg.passengers[0]?.cabin?.amenities?.wifi?.available ?? false,
       meals: false,
       entertainment: false,
     },
@@ -78,10 +96,22 @@ function mapOfferToFlight(offer: DuffelOffer, cabinClass: string) {
     // available" (same convention major airline sites use), not a
     // fabricated number.
     seatsLeft: 9,
-    logo: first.marketing_carrier.iata_code,
+    logo: firstSeg.marketing_carrier.iata_code,
     currency: offer.total_currency,
     cabinClassSearched: cabinClass,
   }
+}
+
+// Real IATA age bands: infant under 2, child 2-11, adult 12+. Fare
+// classification genuinely depends on exact age — a 9-year-old and a
+// 16-year-old price completely differently on the same flight, so this
+// isn't optional metadata, it's what makes a quote accurate.
+function buildPassengers(adults: number, children: number[], infants: number[]) {
+  const passengers: Array<{ type: string } | { age: number }> = []
+  for (let i = 0; i < Math.max(1, adults); i++) passengers.push({ type: 'adult' })
+  for (const age of children) passengers.push({ age })
+  for (const age of infants) passengers.push({ age })
+  return passengers
 }
 
 export async function POST(request: Request) {
@@ -94,11 +124,18 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json()
-    const { origin, destination, departureDate, passengers = 1, cabinClass = 'economy' } = body as {
+    const {
+      origin, destination, departureDate, returnDate,
+      adults = 1, children = [], infants = [],
+      cabinClass = 'economy',
+    } = body as {
       origin: string
       destination: string
       departureDate: string
-      passengers?: number
+      returnDate?: string
+      adults?: number
+      children?: number[]
+      infants?: number[]
       cabinClass?: string
     }
 
@@ -107,6 +144,18 @@ export async function POST(request: Request) {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       })
+    }
+
+    if (infants.length > adults) {
+      return new Response(JSON.stringify({ error: 'Each infant must be accompanied by an adult (max one infant per adult).' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
+
+    const slices = [{ origin: origin.toUpperCase(), destination: destination.toUpperCase(), departure_date: departureDate }]
+    if (returnDate) {
+      slices.push({ origin: destination.toUpperCase(), destination: origin.toUpperCase(), departure_date: returnDate })
     }
 
     const duffelRes = await fetch('https://api.duffel.com/air/offer_requests?return_offers=true', {
@@ -119,8 +168,8 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         data: {
-          slices: [{ origin: origin.toUpperCase(), destination: destination.toUpperCase(), departure_date: departureDate }],
-          passengers: Array.from({ length: Math.max(1, passengers) }, () => ({ type: 'adult' })),
+          slices,
+          passengers: buildPassengers(adults, children, infants),
           cabin_class: cabinClass,
         },
       }),
@@ -139,7 +188,7 @@ export async function POST(request: Request) {
     const duffelData = await duffelRes.json()
     const offers: DuffelOffer[] = duffelData.data?.offers ?? []
     const flights = offers
-      .filter((o) => o.slices?.[0]?.segments?.length > 0)
+      .filter((o) => o.slices?.every((s) => s.segments?.length > 0))
       .slice(0, 20)
       .map((o) => mapOfferToFlight(o, cabinClass))
 
