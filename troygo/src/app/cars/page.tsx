@@ -242,12 +242,15 @@ function CarsContent() {
                   <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Pickup Date & Time</label>
                   <div className="flex items-center gap-2 mt-1">
                     <Calendar className="h-4 w-4 text-slate-400 shrink-0" />
-                    <input
-                      type="date"
-                      className="text-sm font-semibold text-navy outline-none bg-transparent"
-                      value={pickupDate}
-                      onChange={(e) => setPickupDate(e.target.value)}
-                    />
+                    <span className="relative text-sm font-semibold text-navy">
+                      {pickupDate ? new Date(`${pickupDate}T00:00:00`).toLocaleDateString('en-AU', { day: '2-digit', month: '2-digit', year: 'numeric' }) : <span className="text-slate-400 font-normal">dd/mm/yyyy</span>}
+                      <input
+                        type="date"
+                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                        value={pickupDate}
+                        onChange={(e) => setPickupDate(e.target.value)}
+                      />
+                    </span>
                     <input
                       type="time"
                       className="text-sm text-slate-500 outline-none bg-transparent"
@@ -262,12 +265,15 @@ function CarsContent() {
                   <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Return Date & Time</label>
                   <div className="flex items-center gap-2 mt-1">
                     <Calendar className="h-4 w-4 text-slate-400 shrink-0" />
-                    <input
-                      type="date"
-                      className="text-sm font-semibold text-navy outline-none bg-transparent"
-                      value={returnDate}
-                      onChange={(e) => setReturnDate(e.target.value)}
-                    />
+                    <span className="relative text-sm font-semibold text-navy">
+                      {returnDate ? new Date(`${returnDate}T00:00:00`).toLocaleDateString('en-AU', { day: '2-digit', month: '2-digit', year: 'numeric' }) : <span className="text-slate-400 font-normal">dd/mm/yyyy</span>}
+                      <input
+                        type="date"
+                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                        value={returnDate}
+                        onChange={(e) => setReturnDate(e.target.value)}
+                      />
+                    </span>
                     <input
                       type="time"
                       className="text-sm text-slate-500 outline-none bg-transparent"

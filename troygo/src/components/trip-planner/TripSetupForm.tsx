@@ -93,6 +93,36 @@ function InputField({
   );
 }
 
+function formatDDMMYYYY(isoDate: string) {
+  if (!isoDate) return '';
+  return new Date(`${isoDate}T00:00:00`).toLocaleDateString('en-AU', {
+    day: '2-digit', month: '2-digit', year: 'numeric',
+  });
+}
+
+// A plain `<input type="date">` only reliably opens its native picker when
+// the browser's own small icon is clicked precisely — that's what made this
+// hard to use. This overlays a full-size transparent date input over a
+// styled display so clicking anywhere in the field opens the picker.
+function DateFieldInput({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+  return (
+    <div
+      className="relative flex items-center px-3 py-2.5 rounded-xl text-sm"
+      style={{ background: 'rgba(255,255,255,0.9)', border: '1.5px solid rgba(0,180,216,0.2)' }}
+    >
+      <span style={{ color: '#0A1628' }}>
+        {value ? formatDDMMYYYY(value) : <span className="text-gray-400">dd/mm/yyyy</span>}
+      </span>
+      <input
+        type="date"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+      />
+    </div>
+  );
+}
+
 function CounterInput({
   label,
   value,
@@ -375,21 +405,11 @@ export default function TripSetupForm({ initialValues, onSubmit }: TripSetupForm
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-[11px] text-gray-500 mb-1 ml-1">Departure</label>
-                  <InputField
-                    type="date"
-                    value={departureDate}
-                    onChange={setDepartureDate}
-                    placeholder=""
-                  />
+                  <DateFieldInput value={departureDate} onChange={setDepartureDate} />
                 </div>
                 <div>
                   <label className="block text-[11px] text-gray-500 mb-1 ml-1">Return</label>
-                  <InputField
-                    type="date"
-                    value={returnDate}
-                    onChange={setReturnDate}
-                    placeholder=""
-                  />
+                  <DateFieldInput value={returnDate} onChange={setReturnDate} />
                 </div>
               </div>
             </div>

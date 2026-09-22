@@ -16,6 +16,8 @@ import {
   Clock,
 } from 'lucide-react';
 import { clsx } from 'clsx';
+import AirportAutocomplete from '@/components/flights/AirportAutocomplete';
+import PassengerPicker, { type PassengerCounts } from '@/components/flights/PassengerPicker';
 
 type Tab = 'flights' | 'hotels' | 'cars' | 'packages' | 'cruises';
 
@@ -71,6 +73,70 @@ function InputField({
   );
 }
 
+function formatDDMMYYYY(isoDate: string) {
+  if (!isoDate) return '';
+  return new Date(`${isoDate}T00:00:00`).toLocaleDateString('en-AU', {
+    day: '2-digit', month: '2-digit', year: 'numeric',
+  });
+}
+
+// Real airport lookup (resolves "Darwin" -> DRW via Duffel's own place
+// search, same component the dedicated /flights page already uses) styled
+// to match this form's InputField boxes.
+function AirportField({
+  label, placeholder, value, onChange, className,
+}: { label: string; placeholder: string; value: string; onChange: (v: string) => void; className?: string }) {
+  return (
+    <div className={clsx('flex flex-col', className)}>
+      <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1 px-1">
+        {label}
+      </label>
+      <div className="relative flex items-center bg-white rounded-xl shadow-sm border border-gray-200 hover:border-[#00B4D8] transition-colors focus-within:border-[#00B4D8] focus-within:ring-2 focus-within:ring-[#00B4D8]/20">
+        <span className="absolute left-3 text-[#00B4D8] pointer-events-none z-10">
+          <MapPin className="w-4 h-4" />
+        </span>
+        <AirportAutocomplete
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          className="w-full pl-10 pr-3 py-3 bg-transparent text-gray-800 placeholder-gray-400 text-sm rounded-xl focus:outline-none"
+        />
+      </div>
+    </div>
+  );
+}
+
+// A real, click-anywhere date field — a plain `<input type="date">` only
+// reliably opens its native picker when the browser's own small icon is
+// clicked precisely, which is what made the old date fields hard to use.
+// This overlays a full-size transparent date input, same pattern already
+// proven on /flights.
+function DateFieldBox({
+  label, value, onChange, className,
+}: { label: string; value: string; onChange: (v: string) => void; className?: string }) {
+  return (
+    <div className={clsx('flex flex-col', className)}>
+      <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1 px-1">
+        {label}
+      </label>
+      <div className="relative flex items-center bg-white rounded-xl shadow-sm border border-gray-200 hover:border-[#00B4D8] transition-colors focus-within:border-[#00B4D8] focus-within:ring-2 focus-within:ring-[#00B4D8]/20 py-3 px-3">
+        <span className="text-[#00B4D8] mr-2 shrink-0">
+          <Calendar className="w-4 h-4" />
+        </span>
+        <span className="text-sm text-gray-800">
+          {value ? formatDDMMYYYY(value) : <span className="text-gray-400">dd/mm/yyyy</span>}
+        </span>
+        <input
+          type="date"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+        />
+      </div>
+    </div>
+  );
+}
+
 function SearchButton({
   label = 'Search',
   tab,
@@ -103,20 +169,59 @@ function SearchButton({
 }
 
 function FlightsForm() {
+  const router = useRouter();
+  const [tripType, setTripType] = useState<'roundtrip' | 'oneway'>('roundtrip');
   const [origin, setOrigin] = useState('');
   const [destination, setDestination] = useState('');
   const [departure, setDeparture] = useState('');
   const [returnDate, setReturnDate] = useState('');
-  const [passengers, setPassengers] = useState('1 Adult');
+  const [passengerCounts, setPassengerCounts] = useState<PassengerCounts>({
+    adults: 1, children: [], infants: [],
+  });
+
+  function handleSearch() {
+    const query = new URLSearchParams();
+    // These param names must match what /flights actually reads (from, to,
+    // date, return, adults) -- the old field names here ("departure",
+    // "returnDate") silently didn't match, so dates never carried through
+    // from a homepage search.
+    if (origin.trim()) query.set('from', origin.trim());
+    if (destination.trim()) query.set('to', destination.trim());
+    if (departure) query.set('date', departure);
+    if (tripType === 'roundtrip' && returnDate) query.set('return', returnDate);
+    query.set('adults', String(passengerCounts.adults));
+    if (passengerCounts.children.length > 0) query.set('children', passengerCounts.children.map((c) => c.age).join(','));
+    if (passengerCounts.infants.length > 0) query.set('infants', passengerCounts.infants.map((i) => i.age).join(','));
+    const qs = query.toString();
+    router.push(qs ? `/flights?${qs}` : '/flights');
+  }
 
   return (
     <div className="flex flex-col gap-3">
+      {/* Trip type */}
+      <div className="flex items-center gap-1">
+        {([
+          { value: 'roundtrip', label: 'Round Trip' },
+          { value: 'oneway', label: 'One Way' },
+        ] as const).map((opt) => (
+          <button
+            key={opt.value}
+            type="button"
+            onClick={() => setTripType(opt.value)}
+            className={clsx(
+              'px-3 py-1.5 rounded-lg text-xs font-bold transition-colors',
+              tripType === opt.value ? 'text-white bg-[#00B4D8]' : 'text-gray-500 hover:text-gray-800'
+            )}
+          >
+            {opt.label}
+          </button>
+        ))}
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         <div className="relative">
-          <InputField
-            icon={<MapPin className="w-4 h-4" />}
+          <AirportField
             label="From"
-            placeholder="Origin city or airport"
+            placeholder="City or airport"
             value={origin}
             onChange={setOrigin}
           />
@@ -133,44 +238,39 @@ function FlightsForm() {
             <ArrowRightLeft className="w-3 h-3" />
           </button>
         </div>
-        <InputField
-          icon={<MapPin className="w-4 h-4" />}
+        <AirportField
           label="To"
-          placeholder="Destination city or airport"
+          placeholder="City or airport"
           value={destination}
           onChange={setDestination}
         />
-        <InputField
-          icon={<Calendar className="w-4 h-4" />}
-          label="Departure"
-          placeholder="Select date"
-          type="date"
-          value={departure}
-          onChange={setDeparture}
-        />
-        <InputField
-          icon={<Calendar className="w-4 h-4" />}
-          label="Return"
-          placeholder="Select date"
-          type="date"
-          value={returnDate}
-          onChange={setReturnDate}
-        />
+        <DateFieldBox label="Departure" value={departure} onChange={setDeparture} />
+        {tripType === 'roundtrip' ? (
+          <DateFieldBox label="Return" value={returnDate} onChange={setReturnDate} />
+        ) : (
+          <div className="hidden lg:block" />
+        )}
       </div>
       <div className="flex gap-3 items-end">
-        <InputField
-          icon={<Users className="w-4 h-4" />}
-          label="Passengers"
-          placeholder="1 Adult"
-          value={passengers}
-          onChange={setPassengers}
-          className="flex-1 max-w-xs"
-        />
-        <SearchButton
-          label="Search Flights"
-          tab="flights"
-          params={{ from: origin, to: destination, departure, returnDate, passengers }}
-        />
+        <div className="flex flex-col flex-1 max-w-xs">
+          <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1 px-1">
+            Passengers
+          </label>
+          <div className="relative flex items-center bg-white rounded-xl shadow-sm border border-gray-200 hover:border-[#00B4D8] transition-colors px-3 py-3">
+            <span className="text-[#00B4D8] mr-2 shrink-0">
+              <Users className="w-4 h-4" />
+            </span>
+            <PassengerPicker value={passengerCounts} onChange={setPassengerCounts} />
+          </div>
+        </div>
+        <button
+          type="button"
+          onClick={handleSearch}
+          className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#00B4D8] to-[#0096c7] hover:from-[#0096c7] hover:to-[#0077b6] text-white font-bold px-8 py-3 rounded-xl shadow-lg shadow-[#00B4D8]/30 transition-all duration-200 hover:shadow-[#00B4D8]/50 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
+        >
+          <Search className="w-4 h-4" />
+          Search Flights
+        </button>
       </div>
     </div>
   );
@@ -193,22 +293,8 @@ function HotelsForm() {
           onChange={setDestination}
           className="lg:col-span-1"
         />
-        <InputField
-          icon={<Calendar className="w-4 h-4" />}
-          label="Check-in"
-          placeholder="Select date"
-          type="date"
-          value={checkin}
-          onChange={setCheckin}
-        />
-        <InputField
-          icon={<Calendar className="w-4 h-4" />}
-          label="Check-out"
-          placeholder="Select date"
-          type="date"
-          value={checkout}
-          onChange={setCheckout}
-        />
+        <DateFieldBox label="Check-in" value={checkin} onChange={setCheckin} />
+        <DateFieldBox label="Check-out" value={checkout} onChange={setCheckout} />
         <InputField
           icon={<Users className="w-4 h-4" />}
           label="Guests / Rooms"
@@ -254,14 +340,7 @@ function CarsForm() {
           onChange={setDropoff}
         />
         <div className="grid grid-cols-2 gap-2">
-          <InputField
-            icon={<Calendar className="w-4 h-4" />}
-            label="Pickup Date"
-            placeholder="Date"
-            type="date"
-            value={pickupDate}
-            onChange={setPickupDate}
-          />
+          <DateFieldBox label="Pickup Date" value={pickupDate} onChange={setPickupDate} />
           <InputField
             icon={<Clock className="w-4 h-4" />}
             label="Pickup Time"
@@ -274,14 +353,7 @@ function CarsForm() {
       </div>
       <div className="flex gap-3 items-end">
         <div className="grid grid-cols-2 gap-2 flex-1 max-w-sm">
-          <InputField
-            icon={<Calendar className="w-4 h-4" />}
-            label="Return Date"
-            placeholder="Date"
-            type="date"
-            value={returnDate}
-            onChange={setReturnDate}
-          />
+          <DateFieldBox label="Return Date" value={returnDate} onChange={setReturnDate} />
           <InputField
             icon={<Clock className="w-4 h-4" />}
             label="Return Time"
@@ -325,22 +397,8 @@ function PackagesForm() {
           value={to}
           onChange={setTo}
         />
-        <InputField
-          icon={<Calendar className="w-4 h-4" />}
-          label="Departure"
-          placeholder="Select date"
-          type="date"
-          value={departure}
-          onChange={setDeparture}
-        />
-        <InputField
-          icon={<Calendar className="w-4 h-4" />}
-          label="Return"
-          placeholder="Select date"
-          type="date"
-          value={returnDate}
-          onChange={setReturnDate}
-        />
+        <DateFieldBox label="Departure" value={departure} onChange={setDeparture} />
+        <DateFieldBox label="Return" value={returnDate} onChange={setReturnDate} />
       </div>
       <div className="flex gap-3 items-end">
         <InputField
@@ -385,22 +443,8 @@ function CruisesForm() {
           value={region}
           onChange={setRegion}
         />
-        <InputField
-          icon={<Calendar className="w-4 h-4" />}
-          label="Date From"
-          placeholder="Select date"
-          type="date"
-          value={dateFrom}
-          onChange={setDateFrom}
-        />
-        <InputField
-          icon={<Calendar className="w-4 h-4" />}
-          label="Date To"
-          placeholder="Select date"
-          type="date"
-          value={dateTo}
-          onChange={setDateTo}
-        />
+        <DateFieldBox label="Date From" value={dateFrom} onChange={setDateFrom} />
+        <DateFieldBox label="Date To" value={dateTo} onChange={setDateTo} />
       </div>
       <div className="flex gap-3 items-end">
         <InputField

@@ -24,6 +24,7 @@ import {
 import { cn, defaultSearchDate } from '@/lib/utils'
 import { sampleHotels, type Hotel as HotelType } from '@/lib/data/hotels'
 import MainLayout from '@/components/layout/MainLayout'
+import DateField from '@/components/ui/DateField'
 import { useDestinationPhoto } from '@/hooks/useDestinationPhoto'
 import { useCurrency } from '@/lib/currency-context'
 
@@ -205,30 +206,8 @@ function SearchBar({
             />
           </div>
         </div>
-        <div>
-          <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Check-in</label>
-          <div className="flex items-center gap-2 mt-1">
-            <Calendar className="h-4 w-4 text-slate-400 shrink-0" />
-            <input
-              type="date"
-              className="w-full text-sm font-semibold text-navy outline-none bg-transparent"
-              value={checkIn}
-              onChange={(e) => setCheckIn(e.target.value)}
-            />
-          </div>
-        </div>
-        <div>
-          <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Check-out</label>
-          <div className="flex items-center gap-2 mt-1">
-            <Calendar className="h-4 w-4 text-slate-400 shrink-0" />
-            <input
-              type="date"
-              className="w-full text-sm font-semibold text-navy outline-none bg-transparent"
-              value={checkOut}
-              onChange={(e) => setCheckOut(e.target.value)}
-            />
-          </div>
-        </div>
+        <DateField label="Check-in" value={checkIn} onChange={setCheckIn} />
+        <DateField label="Check-out" value={checkOut} onChange={setCheckOut} />
         <div>
           <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Guests & Rooms</label>
           <div className="flex items-center gap-2 mt-1">

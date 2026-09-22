@@ -634,8 +634,11 @@ function FlightsContent() {
   const [returnDate, setReturnDate] = useState(params.get('return') ?? '')
   const [passengerCounts, setPassengerCounts] = useState<PassengerCounts>({
     adults: Number(params.get('adults') ?? params.get('passengers') ?? 1),
-    children: [],
-    infants: [],
+    // Real per-passenger ages carried over from the homepage search
+    // (comma-separated in the URL) -- a homepage search with real children
+    // selected was silently losing that info before this read it back.
+    children: (params.get('children') ?? '').split(',').filter(Boolean).map((age, i) => ({ id: `url-child-${i}`, age: Number(age) })),
+    infants: (params.get('infants') ?? '').split(',').filter(Boolean).map((age, i) => ({ id: `url-infant-${i}`, age: Number(age) })),
   })
   const passengers = passengerCounts.adults + passengerCounts.children.length + passengerCounts.infants.length
   const [cabinClass, setCabinClass] = useState<CabinClass>((params.get('class') as CabinClass) ?? 'economy')
