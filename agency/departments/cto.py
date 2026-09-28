@@ -71,7 +71,7 @@ class CTODepartment:
             ),
             llm=llm,
             tools=[read_file, list_dir],
-            max_iter=15,
+            max_iter=40,
             verbose=False,
         )
 
@@ -86,7 +86,7 @@ class CTODepartment:
             ),
             llm=llm,
             tools=[read_file, list_dir],
-            max_iter=15,
+            max_iter=40,
             verbose=False,
         )
 
@@ -155,7 +155,11 @@ class CTODepartment:
             memory=shared_memory,
             verbose=False,
         )
-        result = str(crew.kickoff())
+        crew_output = crew.kickoff()
+        result = (
+            f"## Codebase Audit — {target_dir}\n\n{crew_output.tasks_output[0].raw}\n\n"
+            f"---\n\n{crew_output.tasks_output[1].raw}"
+        )
         remember(
             f"CTO AUDIT_CODEBASE for '{target_dir}':\n{result}",
             scope="/dept/cto/audit_codebase",
@@ -195,7 +199,11 @@ class CTODepartment:
             memory=shared_memory,
             verbose=False,
         )
-        result = str(crew.kickoff())
+        crew_output = crew.kickoff()
+        result = (
+            f"{crew_output.tasks_output[0].raw}\n\n---\n\n"
+            f"## Security Review\n\n{crew_output.tasks_output[1].raw}"
+        )
         remember(
             f"CTO WORKFLOW_MAP for '{brief}':\n{result}",
             scope="/dept/cto/workflow_map",
