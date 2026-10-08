@@ -275,3 +275,10 @@ body {
     padding-bottom: 3rem;
   }
 }
+
+/* Phones: never let the page slide sideways (also keeps floating widgets in the visible corner) */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
