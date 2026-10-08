@@ -86,9 +86,9 @@ export default function AgentsPage() {
       {/* Tabs + filters */}
       <div className="bg-white border-b border-gray-100 sticky top-0 z-10 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-wrap items-center justify-between">
             {/* Tabs */}
-            <div className="flex">
+            <div className="flex max-w-full min-w-0 overflow-x-auto">
               {([
                 { key: 'agents', label: 'Travel Agents & Operators', count: filteredAgents.length },
                 { key: 'guides', label: 'Travel Guides', count: filteredGuides.length },
@@ -96,7 +96,7 @@ export default function AgentsPage() {
                 <button
                   key={key}
                   onClick={() => setTab(key)}
-                  className={`px-5 py-4 text-sm font-semibold border-b-2 transition-colors ${
+                  className={`px-3 sm:px-5 py-4 text-sm font-semibold border-b-2 transition-colors whitespace-nowrap ${
                     tab === key
                       ? 'border-[#00B4D8] text-[#00B4D8]'
                       : 'border-transparent text-gray-500 hover:text-[#0A1628]'

@@ -197,7 +197,7 @@ function CarsContent() {
 
             {/* Search form */}
             <div className="bg-white rounded-2xl shadow-lg p-4 border border-slate-100">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-3">
                 {/* Pickup */}
                 <div>
                   <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Pickup Location</label>
