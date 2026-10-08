@@ -25,6 +25,7 @@ import AirportAutocomplete from '@/components/flights/AirportAutocomplete'
 import TripAddOns from '@/components/flights/TripAddOns'
 import PassengerPicker, { type PassengerCounts } from '@/components/flights/PassengerPicker'
 import { sampleFlights, type Flight, type FlightLegInfo } from '@/lib/data/flights'
+import JetstarFallback from '@/components/flights/JetstarFallback'
 import MainLayout from '@/components/layout/MainLayout'
 import LiveFlightTracker from '@/components/flights/LiveFlightTracker'
 import { useCurrency } from '@/lib/currency-context'
@@ -789,6 +790,9 @@ function FlightsContent() {
 
   const sorted = useMemo(() => sortResults(filtered), [filtered, sortMode, cabinClass])
 
+  // True when our live search ran successfully and found no flights at all (so the Jetstar hand-off makes sense).
+  const liveFoundNothing = liveFlights !== null && liveFlights.length === 0 && !liveLoading && !liveError
+
   // When extra destinations are added, show each leg's results separately.
   const legResults = useMemo(() => {
     if (extraLegs.length === 0) return null
@@ -856,7 +860,7 @@ function FlightsContent() {
               )}
               {liveFlights && !liveLoading && !liveError && (
                 <div className="mb-3 text-sm font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg px-3 py-2">
-                  Real live flight search results (sandbox mode — Duffel API)
+                  Live flight search results (via Duffel)
                 </div>
               )}
               {/* Sort bar */}
@@ -921,6 +925,9 @@ function FlightsContent() {
                           <div className="bg-white rounded-2xl p-8 text-center border border-slate-100">
                             <p className="text-sm font-semibold text-navy mb-1">No flights found for this leg</p>
                             <p className="text-slate-500 text-xs">Try adjusting your filters or the route entered.</p>
+                            {(i > 0 || liveFoundNothing) && (
+                              <JetstarFallback from={leg.legFrom} to={leg.legTo} date={i === 0 ? date : undefined} returnDate={i === 0 && tripType === 'roundtrip' ? returnDate : undefined} adults={passengerCounts.adults} children={passengerCounts.children.length} infants={passengerCounts.infants.length} />
+                            )}
                           </div>
                         ) : (
                           leg.results.map((flight) => (
@@ -938,6 +945,9 @@ function FlightsContent() {
                       <Plane className="h-12 w-12 text-slate-200 mx-auto mb-3" />
                       <p className="text-lg font-bold text-navy mb-2">No flights found</p>
                       <p className="text-slate-500 text-sm">Try adjusting your filters or search criteria.</p>
+                      {liveFoundNothing && (
+                        <JetstarFallback from={from} to={to} date={date} returnDate={tripType === 'roundtrip' ? returnDate : undefined} adults={passengerCounts.adults} children={passengerCounts.children.length} infants={passengerCounts.infants.length} />
+                      )}
                     </div>
                   ) : (
                     sorted.map((flight) => (
