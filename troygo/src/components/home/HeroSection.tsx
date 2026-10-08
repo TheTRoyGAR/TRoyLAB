@@ -1,14 +1,15 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { Shield, Globe, Clock, Tag } from 'lucide-react';
+import { Globe, Clock, Tag } from 'lucide-react';
 import HeroSearch from './HeroSearch';
 
+// Honest hero badges: only statements that are true of what TRoyGO offers today (no traveller counts,
+// no country counts, no price guarantees).
 const trustBadges = [
-  { icon: <Globe className="w-5 h-5" />, value: '10M+', label: 'Travelers' },
-  { icon: <Shield className="w-5 h-5" />, value: '195', label: 'Countries' },
-  { icon: <Clock className="w-5 h-5" />, value: '24/7', label: 'AI Support' },
-  { icon: <Tag className="w-5 h-5" />, value: '100%', label: 'Best Price Guarantee' },
+  { icon: <Globe className="w-5 h-5" />, value: 'Worldwide', label: 'trip planning' },
+  { icon: <Clock className="w-5 h-5" />, value: '24/7', label: 'AI trip planner' },
+  { icon: <Tag className="w-5 h-5" />, value: 'Personal', label: 'quotes from our team' },
 ];
 
 function FloatingDot({
@@ -159,7 +160,7 @@ export default function HeroSection() {
           </h1>
           <p className="text-lg sm:text-xl text-white/70 font-light max-w-2xl mx-auto">
             AI-powered travel planning for every destination worldwide — curated
-            experiences, expert guides, unbeatable prices.
+            experiences and personal service.
           </p>
         </div>
 
