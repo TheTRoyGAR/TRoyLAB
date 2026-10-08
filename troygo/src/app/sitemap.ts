@@ -1,6 +1,5 @@
 import type { MetadataRoute } from 'next'
 import { travelPackages } from '@/lib/data/packages'
-import { localAgents, travelGuides } from '@/lib/data/agents'
 
 const BASE_URL = 'https://troytravelagency.com'
 
@@ -54,19 +53,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  const agentEntries: MetadataRoute.Sitemap = localAgents.map((agent) => ({
-    url: `${BASE_URL}/agents/${agent.id}`,
-    lastModified: now,
-    changeFrequency: 'monthly',
-    priority: 0.5,
-  }))
-
-  const guideProfileEntries: MetadataRoute.Sitemap = travelGuides.map((guide) => ({
-    url: `${BASE_URL}/agents/${guide.id + 1000}`,
-    lastModified: now,
-    changeFrequency: 'monthly',
-    priority: 0.5,
-  }))
-
-  return [...staticEntries, ...guideEntries, ...packageEntries, ...agentEntries, ...guideProfileEntries]
+  return [...staticEntries, ...guideEntries, ...packageEntries]
 }

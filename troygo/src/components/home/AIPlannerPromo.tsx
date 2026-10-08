@@ -157,22 +157,6 @@ export default function AIPlannerPromo() {
                 See Sample Itinerary
               </Link>
             </div>
-
-            {/* Social proof */}
-            <div className="flex items-center gap-3 text-sm text-gray-500">
-              <div className="flex -space-x-2">
-                {['#667eea', '#f5576c', '#4facfe', '#fa709a'].map((color, i) => (
-                  <div
-                    key={i}
-                    className="w-7 h-7 rounded-full border-2 border-white"
-                    style={{ background: color }}
-                  />
-                ))}
-              </div>
-              <span>
-                <strong className="text-[#0A1628]">50,000+</strong> trips planned this month
-              </span>
-            </div>
           </div>
 
           {/* Right: AI Chat mockup */}

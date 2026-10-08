@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      // The old agent/guide profile pages described people who were never real; send old links to /agents.
+      { source: "/agents/:path+", destination: "/agents", permanent: true },
+    ];
+  },
   async rewrites() {
     return [
       // Serves the static flight-tracker page (public/flight-tracker.html)
