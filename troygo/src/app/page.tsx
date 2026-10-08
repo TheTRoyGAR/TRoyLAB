@@ -4,7 +4,6 @@ import FeaturedDestinations from '@/components/home/FeaturedDestinations';
 import FeaturedPackages from '@/components/home/FeaturedPackages';
 import AIPlannerPromo from '@/components/home/AIPlannerPromo';
 import FeaturedAgents from '@/components/home/FeaturedAgents';
-import Testimonials from '@/components/home/Testimonials';
 
 export default function Home() {
   return (
@@ -25,8 +24,6 @@ export default function Home() {
         {/* Travel expert agents */}
         <FeaturedAgents />
 
-        {/* Customer testimonials carousel */}
-        <Testimonials />
       </div>
     </MainLayout>
   );

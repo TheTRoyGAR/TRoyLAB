@@ -1,200 +1,155 @@
 'use client'
 
-import { useState, useMemo } from 'react'
-import { localAgents, travelGuides } from '@/lib/data/agents'
-import AgentCard from '@/components/agents/AgentCard'
-import { Search, Users, ShieldCheck } from 'lucide-react'
+import { useState } from 'react'
+import Link from 'next/link'
+import { Users, Send, CheckCircle2, AlertCircle, ArrowRight } from 'lucide-react'
 import MainLayout from '@/components/layout/MainLayout'
 
-type TabType = 'agents' | 'guides'
+type Status = 'idle' | 'sending' | 'sent' | 'error'
 
+// Honest version: TRoyGO has no public directory of local agents yet, so this page does not list anyone,
+// rate anyone or quote any prices. It takes a real request that lands in the agency inbox.
 export default function AgentsPage() {
-  const [tab, setTab] = useState<TabType>('agents')
-  const [query, setQuery] = useState('')
-  const [verifiedOnly, setVerifiedOnly] = useState(false)
-  const [minRating, setMinRating] = useState(0)
+  const [status, setStatus] = useState<Status>('idle')
+  const [error, setError] = useState('')
+  const [form, setForm] = useState({ name: '', email: '', destination: '', dates: '', travelers: '', message: '' })
 
-  const filteredAgents = useMemo(() => {
-    let list = [...localAgents]
-    if (verifiedOnly) list = list.filter((a) => a.verified)
-    if (minRating > 0) list = list.filter((a) => a.rating >= minRating)
-    if (query.trim()) {
-      const q = query.toLowerCase()
-      list = list.filter(
-        (a) =>
-          a.name.toLowerCase().includes(q) ||
-          a.agency.toLowerCase().includes(q) ||
-          a.location.city.toLowerCase().includes(q) ||
-          a.location.country.toLowerCase().includes(q) ||
-          a.specialty.some((s) => s.toLowerCase().includes(q))
-      )
+  const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setForm((f) => ({ ...f, [k]: e.target.value }))
+
+  async function submit(e: React.FormEvent) {
+    e.preventDefault()
+    setStatus('sending')
+    setError('')
+    try {
+      const res = await fetch('/api/agents/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, expertName: 'Local expert introduction' }),
+      })
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok || !data.success) throw new Error(data.error || 'Something went wrong. Please email us instead.')
+      setStatus('sent')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please email us instead.')
+      setStatus('error')
     }
-    return list
-  }, [query, verifiedOnly, minRating])
+  }
 
-  const filteredGuides = useMemo(() => {
-    let list = [...travelGuides]
-    if (verifiedOnly) list = list.filter((g) => g.verified)
-    if (minRating > 0) list = list.filter((g) => g.rating >= minRating)
-    if (query.trim()) {
-      const q = query.toLowerCase()
-      list = list.filter(
-        (g) =>
-          g.name.toLowerCase().includes(q) ||
-          g.location.city.toLowerCase().includes(q) ||
-          g.location.country.toLowerCase().includes(q) ||
-          g.specialty.some((s) => s.toLowerCase().includes(q))
-      )
-    }
-    return list
-  }, [query, verifiedOnly, minRating])
-
-  const activeList = tab === 'agents' ? filteredAgents : filteredGuides
+  const input =
+    'w-full px-4 py-3 rounded-xl border border-gray-200 text-[#0A1628] text-sm focus:outline-none focus:ring-2 focus:ring-[#00B4D8]/40 bg-white'
 
   return (
     <MainLayout>
-    <main className="min-h-screen bg-gray-50">
-      {/* Hero */}
-      <div
-        className="py-14 px-4 text-center"
-        style={{ background: 'linear-gradient(135deg, #0A1628 0%, #152D55 60%, #00B4D8 100%)' }}
-      >
-        <Users className="h-12 w-12 text-[#FFD700] mx-auto mb-4" />
-        <h1
-          className="text-4xl sm:text-5xl font-black text-white mb-3"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+      <main className="min-h-screen bg-gray-50">
+        {/* Hero */}
+        <div
+          className="py-14 px-4 text-center"
+          style={{ background: 'linear-gradient(135deg, #0A1628 0%, #152D55 60%, #00B4D8 100%)' }}
         >
-          Find Your Perfect Travel Expert
-        </h1>
-        <p className="text-white/70 max-w-2xl mx-auto text-lg mb-6">
-          We search across 10,000+ local agents, tour operators, and travel guides worldwide — all verified by TRoyGO™.
-        </p>
-
-        {/* Search bar */}
-        <div className="max-w-xl mx-auto relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search by name, location, specialty…"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-4 rounded-2xl text-[#0A1628] text-sm focus:outline-none focus:ring-2 focus:ring-[#FFD700]/40 shadow-xl"
-          />
+          <Users className="h-12 w-12 text-[#FFD700] mx-auto mb-4" />
+          <h1
+            className="text-4xl sm:text-5xl font-black text-white mb-3"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          >
+            Local Travel Experts
+          </h1>
+          <p className="text-white/70 max-w-2xl mx-auto text-lg">
+            We&apos;re building a network of local agents, tour operators and guides. It isn&apos;t open yet, so we don&apos;t
+            list anyone here. Tell us where you&apos;re going and our team will reply personally.
+          </p>
         </div>
-      </div>
 
-      {/* Tabs + filters */}
-      <div className="bg-white border-b border-gray-100 sticky top-0 z-10 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-between">
-            {/* Tabs */}
-            <div className="flex max-w-full min-w-0 overflow-x-auto">
-              {([
-                { key: 'agents', label: 'Travel Agents & Operators', count: filteredAgents.length },
-                { key: 'guides', label: 'Travel Guides', count: filteredGuides.length },
-              ] as { key: TabType; label: string; count: number }[]).map(({ key, label, count }) => (
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10 space-y-8">
+          {/* How it works */}
+          <section className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+            <h2 className="text-xl font-bold text-[#0A1628] mb-4">How it works</h2>
+            <ol className="space-y-3 text-gray-600 text-sm list-decimal list-inside">
+              <li>Tell us your destination and what you&apos;d like help with.</li>
+              <li>Our team reads your request and replies by email.</li>
+              <li>If we can help, we&apos;ll say how. If we can&apos;t, we&apos;ll tell you honestly. No obligation.</li>
+            </ol>
+          </section>
+
+          {/* Request form */}
+          <section className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+            <h2 className="text-xl font-bold text-[#0A1628] mb-1">Ask for a local expert introduction</h2>
+            <p className="text-gray-500 text-sm mb-5">We use your details only to reply to this request.</p>
+
+            {status === 'sent' ? (
+              <div role="status" className="flex items-start gap-3 rounded-xl bg-green-50 border border-green-200 p-4 text-green-800 text-sm">
+                <CheckCircle2 className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                <p>Thanks, your request has been received. Our team will reply to {form.email} by email.</p>
+              </div>
+            ) : (
+              <form onSubmit={submit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <label className="block text-sm font-medium text-[#0A1628]">
+                    Your name
+                    <input required className={`${input} mt-1`} value={form.name} onChange={set('name')} autoComplete="name" />
+                  </label>
+                  <label className="block text-sm font-medium text-[#0A1628]">
+                    Email
+                    <input required type="email" className={`${input} mt-1`} value={form.email} onChange={set('email')} autoComplete="email" />
+                  </label>
+                </div>
+                <label className="block text-sm font-medium text-[#0A1628]">
+                  Where are you going?
+                  <input required className={`${input} mt-1`} value={form.destination} onChange={set('destination')} placeholder="City or country" />
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <label className="block text-sm font-medium text-[#0A1628]">
+                    Travel dates (optional)
+                    <input className={`${input} mt-1`} value={form.dates} onChange={set('dates')} placeholder="e.g. March 2027" />
+                  </label>
+                  <label className="block text-sm font-medium text-[#0A1628]">
+                    Travellers (optional)
+                    <input className={`${input} mt-1`} value={form.travelers} onChange={set('travelers')} placeholder="e.g. 2 adults" />
+                  </label>
+                </div>
+                <label className="block text-sm font-medium text-[#0A1628]">
+                  What would you like help with?
+                  <textarea required rows={4} className={`${input} mt-1`} value={form.message} onChange={set('message')} />
+                </label>
+
+                {status === 'error' && (
+                  <div role="alert" className="flex items-start gap-3 rounded-xl bg-red-50 border border-red-200 p-4 text-red-800 text-sm">
+                    <AlertCircle className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                    <p>
+                      {error} You can also write to{' '}
+                      <a className="underline font-semibold" href="mailto:agency@troytravelagency.com">agency@troytravelagency.com</a>.
+                    </p>
+                  </div>
+                )}
+
                 <button
-                  key={key}
-                  onClick={() => setTab(key)}
-                  className={`px-3 sm:px-5 py-4 text-sm font-semibold border-b-2 transition-colors whitespace-nowrap ${
-                    tab === key
-                      ? 'border-[#00B4D8] text-[#00B4D8]'
-                      : 'border-transparent text-gray-500 hover:text-[#0A1628]'
-                  }`}
+                  type="submit"
+                  disabled={status === 'sending'}
+                  className="inline-flex items-center gap-2 bg-[#0A1628] hover:bg-[#152D55] disabled:opacity-60 text-white font-semibold px-6 py-3 rounded-xl transition-colors"
                 >
-                  {label}
-                  <span className="ml-2 bg-gray-100 text-gray-500 text-xs px-2 py-0.5 rounded-full">{count}</span>
+                  <Send className="h-4 w-4" />
+                  {status === 'sending' ? 'Sending…' : 'Send request'}
                 </button>
-              ))}
-            </div>
+              </form>
+            )}
+          </section>
 
-            {/* Quick filters */}
-            <div className="flex items-center gap-4 py-2">
-              <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600">
-                <input
-                  type="checkbox"
-                  checked={verifiedOnly}
-                  onChange={(e) => setVerifiedOnly(e.target.checked)}
-                  className="accent-[#00B4D8]"
-                />
-                <ShieldCheck className="h-3.5 w-3.5 text-[#00B4D8]" />
-                Verified only
-              </label>
-              <select
-                value={minRating}
-                onChange={(e) => setMinRating(Number(e.target.value))}
-                className="text-sm border border-gray-200 rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-[#00B4D8]/40"
-              >
-                <option value={0}>Any rating</option>
-                <option value={4}>4+ stars</option>
-                <option value={4.5}>4.5+ stars</option>
-              </select>
+          {/* For local experts */}
+          <section className="rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4" style={{ background: 'linear-gradient(135deg, #0A1628 0%, #152D55 100%)' }}>
+            <div>
+              <h2 className="text-lg font-bold text-white mb-1">Are you a local agent, operator or guide?</h2>
+              <p className="text-white/60 text-sm">Tell us about your business and we&apos;ll be in touch.</p>
             </div>
-          </div>
+            <Link
+              href="/partners#become-a-partner"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#FFD700] to-[#E6C200] text-[#0A1628] font-bold px-6 py-3 rounded-xl whitespace-nowrap self-start sm:self-auto"
+            >
+              Partner with us
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </section>
         </div>
-      </div>
-
-      {/* Results grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        {activeList.length === 0 ? (
-          <div className="text-center py-20 text-gray-400">
-            <Users className="h-12 w-12 mx-auto mb-3 opacity-30" />
-            <p className="font-medium">No experts match your search.</p>
-            <button onClick={() => { setQuery(''); setVerifiedOnly(false); setMinRating(0) }} className="mt-2 text-[#00B4D8] text-sm font-medium underline">
-              Clear filters
-            </button>
-          </div>
-        ) : (
-          <>
-            <p className="text-sm text-gray-500 mb-6">
-              Showing <span className="font-bold text-[#0A1628]">{activeList.length}</span> {tab === 'agents' ? 'agents & operators' : 'travel guides'}
-            </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {tab === 'agents'
-                ? filteredAgents.map((agent) => (
-                    <AgentCard
-                      key={agent.id}
-                      id={agent.id}
-                      name={agent.name}
-                      agency={agent.agency}
-                      specialty={agent.specialty}
-                      regions={agent.regions}
-                      location={agent.location}
-                      rating={agent.rating}
-                      reviewCount={agent.reviewCount}
-                      yearsExperience={agent.yearsExperience}
-                      toursOffered={agent.toursOffered}
-                      languages={agent.languages}
-                      avatar={agent.avatar}
-                      verified={agent.verified}
-                      bio={agent.bio}
-                      featuredTours={agent.featuredTours}
-                      type="agent"
-                    />
-                  ))
-                : filteredGuides.map((guide) => (
-                    <AgentCard
-                      key={guide.id}
-                      id={guide.id + 1000}
-                      name={guide.name}
-                      specialty={guide.specialty}
-                      location={guide.location}
-                      rating={guide.rating}
-                      reviewCount={guide.reviewCount}
-                      yearsExperience={guide.yearsExperience}
-                      languages={guide.languages}
-                      avatar={guide.avatar}
-                      verified={guide.verified}
-                      bio={guide.bio}
-                      featuredTours={guide.tours.slice(0, 2).map((t) => ({ name: t.name, price: t.price, duration: t.duration }))}
-                      type="guide"
-                    />
-                  ))}
-            </div>
-          </>
-        )}
-      </div>
-    </main>
+      </main>
     </MainLayout>
   )
 }
