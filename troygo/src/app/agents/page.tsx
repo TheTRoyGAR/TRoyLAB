@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Users, Send, CheckCircle2, AlertCircle, ArrowRight } from 'lucide-react'
 import MainLayout from '@/components/layout/MainLayout'
+import TurnstileWidget, { TURNSTILE_SITE_KEY } from '@/components/ui/TurnstileWidget'
 
 type Status = 'idle' | 'sending' | 'sent' | 'error'
 
@@ -12,6 +13,8 @@ type Status = 'idle' | 'sending' | 'sent' | 'error'
 export default function AgentsPage() {
   const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState('')
+  const [captcha, setCaptcha] = useState('')
+  const [captchaReset, setCaptchaReset] = useState(0)
   const [form, setForm] = useState({ name: '', email: '', destination: '', dates: '', travelers: '', message: '' })
 
   const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
@@ -25,7 +28,7 @@ export default function AgentsPage() {
       const res = await fetch('/api/agents/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, expertName: 'Local expert introduction' }),
+        body: JSON.stringify({ ...form, expertName: 'Local expert introduction', turnstile: captcha }),
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok || !data.success) throw new Error(data.error || 'Something went wrong. Please email us instead.')
@@ -33,6 +36,7 @@ export default function AgentsPage() {
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please email us instead.')
       setStatus('error')
+      setCaptcha(''); setCaptchaReset((n) => n + 1)
     }
   }
 
@@ -112,6 +116,8 @@ export default function AgentsPage() {
                   <textarea required rows={4} className={`${input} mt-1`} value={form.message} onChange={set('message')} />
                 </label>
 
+                <TurnstileWidget onToken={setCaptcha} resetKey={captchaReset} />
+
                 {status === 'error' && (
                   <div role="alert" className="flex items-start gap-3 rounded-xl bg-red-50 border border-red-200 p-4 text-red-800 text-sm">
                     <AlertCircle className="h-5 w-5 flex-shrink-0 mt-0.5" />
@@ -124,7 +130,7 @@ export default function AgentsPage() {
 
                 <button
                   type="submit"
-                  disabled={status === 'sending'}
+                  disabled={status === 'sending' || (!!TURNSTILE_SITE_KEY && !captcha)}
                   className="inline-flex items-center gap-2 bg-[#0A1628] hover:bg-[#152D55] disabled:opacity-60 text-white font-semibold px-6 py-3 rounded-xl transition-colors"
                 >
                   <Send className="h-4 w-4" />

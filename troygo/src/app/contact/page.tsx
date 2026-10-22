@@ -3,10 +3,13 @@
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Send, Loader2, CheckCircle2 } from 'lucide-react'
 import MainLayout from '@/components/layout/MainLayout'
+import TurnstileWidget, { TURNSTILE_SITE_KEY } from '@/components/ui/TurnstileWidget'
 
 export default function ContactPage() {
   const [state, setState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const [captcha, setCaptcha] = useState('')
+  const [captchaReset, setCaptchaReset] = useState(0)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -18,6 +21,7 @@ export default function ContactPage() {
       name: (form.elements.namedItem('name') as HTMLInputElement).value,
       email: (form.elements.namedItem('email') as HTMLInputElement).value,
       message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+      turnstile: captcha,
     }
 
     try {
@@ -30,6 +34,7 @@ export default function ContactPage() {
       if (!res.ok || !json.success) {
         setErrorMessage(json.error ?? 'Something went wrong. Please try again.')
         setState('error')
+        setCaptcha(''); setCaptchaReset((n) => n + 1)
         return
       }
       setState('success')
@@ -108,10 +113,11 @@ export default function ContactPage() {
                       placeholder="How can we help?"
                     />
                   </div>
+                  <TurnstileWidget onToken={setCaptcha} resetKey={captchaReset} />
                   {state === 'error' && <p className="text-sm text-red-400">{errorMessage}</p>}
                   <button
                     type="submit"
-                    disabled={state === 'submitting'}
+                    disabled={state === 'submitting' || (!!TURNSTILE_SITE_KEY && !captcha)}
                     className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold disabled:opacity-60"
                     style={{ background: '#FFD700', color: '#0A1628' }}
                   >
