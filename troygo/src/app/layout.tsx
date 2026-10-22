@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import Script from "next/script";
 import { Toaster } from "react-hot-toast";
 import { CurrencyProvider } from "@/lib/currency-context";
+import ChatWidget from "@/components/layout/ChatWidget";
 import "./globals.css";
 
 const inter = Inter({
@@ -134,8 +134,8 @@ export default function RootLayout({
         <CurrencyProvider>
           <div className="min-h-screen flex flex-col">{children}</div>
         </CurrencyProvider>
-        {/* TRoyTEL website chat. Loads from troytel.com; if that is unreachable nothing is shown. */}
-        <Script src="https://troytel.com/widget.js" data-inbox="troygo" strategy="afterInteractive" />
+        {/* TRoyTEL website chat (loads from troytel.com; hidden on the admin portal). */}
+        <ChatWidget />
         <Toaster
           position="top-right"
           toastOptions={{
