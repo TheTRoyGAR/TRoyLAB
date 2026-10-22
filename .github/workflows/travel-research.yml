@@ -1,8 +1,7 @@
 name: Travel Research Agents
 
-# Runs TRoyGO's real research agents (packages, hotels, cars, cruises) on a
-# schedule so the catalog keeps growing on its own — no manual trigger
-# needed. Each script does real web searches (Serper) + real LLM calls
+# Runs TRoyGO's real research agents (packages, hotels, cars, cruises) when
+# started by hand (no schedule since 2026-10-23). Each script does real web searches (Serper) + real LLM calls
 # (Anthropic) and only writes confirmed, sourced listings; see
 # troygo/agents/travel_research/README.md for the full design.
 #
@@ -17,9 +16,10 @@ name: Travel Research Agents
 #                      way, falls back automatically if not)
 
 on:
-  schedule:
-    - cron: '0 2 * * *'  # 02:00 UTC daily
-  workflow_dispatch: {}   # manual "Run workflow" button in the Actions tab
+  # The daily schedule (02:00 UTC) was REMOVED 2026-10-23 on TRoy's instruction:
+  # every run spends real Anthropic + Serper credit. Runs are manual only, from
+  # the Actions tab or the dashboard's Research Agents page.
+  workflow_dispatch: {}
 
 permissions:
   contents: write
