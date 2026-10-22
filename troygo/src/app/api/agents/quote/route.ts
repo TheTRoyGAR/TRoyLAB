@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { sql, ensureSchema } from '@/lib/db'
 import { sendEmail } from '@/lib/email'
 import { isValidEmail, clip, formRateLimited } from '@/lib/form-guard'
+import { verifyTurnstile } from '@/lib/turnstile'
 
 /* ─── POST /api/agents/quote ─────────────────────────────────────────────
  * Real "Request a Quote" handler for an agent/travel guide profile page.
@@ -13,6 +14,7 @@ export async function POST(req: NextRequest) {
   try {
     await ensureSchema()
     const body = await req.json() as {
+      turnstile?: string
       name: string
       email: string
       expertName: string
@@ -29,6 +31,10 @@ export async function POST(req: NextRequest) {
       )
     }
 
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? null
+    if (!(await verifyTurnstile(body.turnstile, ip))) {
+      return NextResponse.json({ success: false, error: 'Please complete the security check and try again.' }, { status: 403 })
+    }
     if (!isValidEmail(body.email)) {
       return NextResponse.json({ success: false, error: 'Please enter a valid email address.' }, { status: 400 })
     }
