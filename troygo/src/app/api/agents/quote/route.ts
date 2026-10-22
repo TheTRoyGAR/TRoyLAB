@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { sql, ensureSchema } from '@/lib/db'
 import { sendEmail } from '@/lib/email'
+import { isValidEmail, clip, formRateLimited } from '@/lib/form-guard'
 
 /* ─── POST /api/agents/quote ─────────────────────────────────────────────
  * Real "Request a Quote" handler for an agent/travel guide profile page.
@@ -26,6 +27,23 @@ export async function POST(req: NextRequest) {
         { success: false, error: 'name, email, expertName, destination, and message are required.' },
         { status: 400 }
       )
+    }
+
+    if (!isValidEmail(body.email)) {
+      return NextResponse.json({ success: false, error: 'Please enter a valid email address.' }, { status: 400 })
+    }
+    body.name = clip(body.name, 80)
+    body.email = body.email.trim()
+    body.expertName = clip(body.expertName, 120)
+    body.destination = clip(body.destination, 120)
+    body.dates = clip(body.dates, 120)
+    body.travelers = clip(body.travelers, 40)
+    body.message = clip(body.message, 2000)
+    if (!body.name || !body.message) {
+      return NextResponse.json({ success: false, error: 'name and message are required.' }, { status: 400 })
+    }
+    if (await formRateLimited()) {
+      return NextResponse.json({ success: false, error: 'Too many requests right now. Please try again later.' }, { status: 429 })
     }
 
     const [firstName, ...rest] = body.name.trim().split(' ')
@@ -54,7 +72,7 @@ export async function POST(req: NextRequest) {
     const confirm = await sendEmail({
       to: body.email,
       subject: 'We received your quote request — TRoy Travel Agency™',
-      text: `Hi ${firstName},\n\nThanks for your quote request regarding ${body.expertName} for ${body.destination}. TRoyGO™'s team has received it and will get back to you as soon as we can.\n\nYour message:\n${body.message}\n\n- TRoyGO™`,
+      text: `Hi ${firstName},\n\nThanks for your quote request regarding ${body.expertName} for ${body.destination}. TRoyGO™'s team has received it and will get back to you as soon as we can.\n\nIf you did not send this, you can ignore this email.\n\n- TRoyGO™`,
     })
 
     return NextResponse.json({
