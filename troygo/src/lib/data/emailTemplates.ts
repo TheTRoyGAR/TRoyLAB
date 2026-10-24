@@ -45,7 +45,7 @@ export const emailTemplates: EmailTemplate[] = [
     <p style="margin-top: 32px;">Warmly,<br/><strong>{{agentName}}</strong><br/><span style="color: #6b7280;">TRoyGO™ Travel Specialist</span></p>
   </div>
   <div style="background: #0A1628; padding: 24px; text-align: center;">
-    <p style="color: #9ca3af; font-size: 12px; margin: 0;">© 2026 TRoyGO™ by TRoy Travel Agency™ | <a href="#" style="color: #00B4D8;">Unsubscribe</a></p>
+    <p style="color: #9ca3af; font-size: 12px; margin: 0;">© ${new Date().getFullYear()} TRoyGO™ by TRoy Travel Agency™ | <a href="#" style="color: #00B4D8;">Unsubscribe</a></p>
   </div>
 </div>`,
   },
@@ -82,7 +82,7 @@ export const emailTemplates: EmailTemplate[] = [
     <p style="margin-top: 32px;">With excitement,<br/><strong>{{agentName}}</strong><br/><span style="color: #6b7280;">TRoyGO™ Travel Specialist</span></p>
   </div>
   <div style="background: #0A1628; padding: 24px; text-align: center;">
-    <p style="color: #9ca3af; font-size: 12px; margin: 0;">© 2026 TRoyGO™ by TRoy Travel Agency™ | <a href="#" style="color: #00B4D8;">Unsubscribe</a></p>
+    <p style="color: #9ca3af; font-size: 12px; margin: 0;">© ${new Date().getFullYear()} TRoyGO™ by TRoy Travel Agency™ | <a href="#" style="color: #00B4D8;">Unsubscribe</a></p>
   </div>
 </div>`,
   },
@@ -121,7 +121,7 @@ export const emailTemplates: EmailTemplate[] = [
     <p style="margin-top: 32px;">Can't wait for you to have an amazing time,<br/><strong>{{agentName}}</strong><br/><span style="color: #6b7280;">TRoyGO™ Travel Specialist</span></p>
   </div>
   <div style="background: #0A1628; padding: 24px; text-align: center;">
-    <p style="color: #9ca3af; font-size: 12px; margin: 0;">© 2026 TRoyGO™ by TRoy Travel Agency™ | <a href="#" style="color: #00B4D8;">Unsubscribe</a></p>
+    <p style="color: #9ca3af; font-size: 12px; margin: 0;">© ${new Date().getFullYear()} TRoyGO™ by TRoy Travel Agency™ | <a href="#" style="color: #00B4D8;">Unsubscribe</a></p>
   </div>
 </div>`,
   },
@@ -152,7 +152,7 @@ export const emailTemplates: EmailTemplate[] = [
     <p style="margin-top: 32px;">Best regards,<br/><strong>{{agentName}}</strong><br/><span style="color: #6b7280;">TRoyGO™ Travel Specialist</span></p>
   </div>
   <div style="background: #0A1628; padding: 24px; text-align: center;">
-    <p style="color: #9ca3af; font-size: 12px; margin: 0;">© 2026 TRoyGO™ by TRoy Travel Agency™ | <a href="#" style="color: #00B4D8;">Unsubscribe</a></p>
+    <p style="color: #9ca3af; font-size: 12px; margin: 0;">© ${new Date().getFullYear()} TRoyGO™ by TRoy Travel Agency™ | <a href="#" style="color: #00B4D8;">Unsubscribe</a></p>
   </div>
 </div>`,
   },
@@ -201,7 +201,7 @@ export const emailTemplates: EmailTemplate[] = [
     <p style="margin-top: 32px;">Bon Voyage! ✈️<br/><strong>{{agentName}}</strong><br/><span style="color: #6b7280;">TRoyGO™ Travel Specialist</span></p>
   </div>
   <div style="background: #0A1628; padding: 24px; text-align: center;">
-    <p style="color: #9ca3af; font-size: 12px; margin: 0;">© 2026 TRoyGO™ by TRoy Travel Agency™ | <a href="#" style="color: #00B4D8;">Unsubscribe</a></p>
+    <p style="color: #9ca3af; font-size: 12px; margin: 0;">© ${new Date().getFullYear()} TRoyGO™ by TRoy Travel Agency™ | <a href="#" style="color: #00B4D8;">Unsubscribe</a></p>
   </div>
 </div>`,
   },
@@ -230,7 +230,7 @@ export const emailTemplates: EmailTemplate[] = [
     <p style="margin-top: 32px;">Until next time,<br/><strong>{{agentName}}</strong><br/><span style="color: #6b7280;">TRoyGO™ Travel Specialist</span></p>
   </div>
   <div style="background: #0A1628; padding: 24px; text-align: center;">
-    <p style="color: #9ca3af; font-size: 12px; margin: 0;">© 2026 TRoyGO™ by TRoy Travel Agency™ | <a href="#" style="color: #00B4D8;">Unsubscribe</a></p>
+    <p style="color: #9ca3af; font-size: 12px; margin: 0;">© ${new Date().getFullYear()} TRoyGO™ by TRoy Travel Agency™ | <a href="#" style="color: #00B4D8;">Unsubscribe</a></p>
   </div>
 </div>`,
   },
@@ -259,7 +259,7 @@ export const emailTemplates: EmailTemplate[] = [
     <p style="margin-top: 32px;">With gratitude,<br/><strong>{{agentName}}</strong><br/><span style="color: #6b7280;">TRoyGO™ Travel Specialist</span></p>
   </div>
   <div style="background: #0A1628; padding: 24px; text-align: center;">
-    <p style="color: #9ca3af; font-size: 12px; margin: 0;">© 2026 TRoyGO™ by TRoy Travel Agency™ | <a href="#" style="color: #00B4D8;">Unsubscribe</a></p>
+    <p style="color: #9ca3af; font-size: 12px; margin: 0;">© ${new Date().getFullYear()} TRoyGO™ by TRoy Travel Agency™ | <a href="#" style="color: #00B4D8;">Unsubscribe</a></p>
   </div>
 </div>`,
   },
@@ -307,7 +307,7 @@ export const emailTemplates: EmailTemplate[] = [
     <p style="margin-top: 32px; color: #6b7280; font-size: 14px;">Safe travels and big dreams,<br/><strong>{{agentName}}</strong><br/><span>TRoyGO™ Travel Specialist</span></p>
   </div>
   <div style="background: #0A1628; padding: 24px; text-align: center;">
-    <p style="color: #9ca3af; font-size: 12px; margin: 0;">© 2026 TRoyGO™ by TRoy Travel Agency™ | <a href="#" style="color: #00B4D8;">Unsubscribe</a> | <a href="#" style="color: #00B4D8;">Preferences</a></p>
+    <p style="color: #9ca3af; font-size: 12px; margin: 0;">© ${new Date().getFullYear()} TRoyGO™ by TRoy Travel Agency™ | <a href="#" style="color: #00B4D8;">Unsubscribe</a> | <a href="#" style="color: #00B4D8;">Preferences</a></p>
   </div>
 </div>`,
   },

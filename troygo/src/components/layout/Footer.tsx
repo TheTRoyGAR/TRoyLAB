@@ -483,7 +483,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
             <p>
-              © 2025{' '}
+              © {new Date().getFullYear()}{' '}
               <span className="text-white/60 font-medium">TRoy Travel Agency™</span>
               . All rights reserved. ABN 30 302 098 137
             </p>
