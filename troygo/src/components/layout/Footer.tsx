@@ -490,7 +490,7 @@ export default function Footer() {
             <p className="flex items-center gap-1.5">
               <Globe className="h-3 w-3" style={{ color: '#00B4D8' }} />
               <span style={{ color: '#FFD700' }} className="font-semibold">TRoyGO™</span>
-              {' '}is a registered trademark of TRoy Travel Agency™
+              {' '}is a trademark of TRoy Travel Agency™
             </p>
           </div>
         </div>

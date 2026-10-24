@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | TRoyGO™",
   },
   description:
-    "Discover the world with TRoyGO™ by TRoy Travel Agency™. Book flights, hotels, car rentals, vacation packages, cruises, and custom trip experiences with premium service and unbeatable deals.",
+    "Discover the world with TRoyGO™ by TRoy Travel Agency™. Book flights, hotels, car rentals, vacation packages, cruises, and custom trip experiences with personal service from a real team.",
   keywords: [
     "travel agency",
     "book flights",

@@ -232,33 +232,6 @@ export default function AIPlannerPromo() {
                 </button>
               </div>
             </div>
-
-            {/* Floating stat cards */}
-            <div
-              className="absolute -left-6 top-16 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 border border-gray-100"
-              style={{ minWidth: 160 }}
-            >
-              <div className="w-9 h-9 rounded-xl bg-green-50 flex items-center justify-center">
-                <Sparkles className="w-4.5 h-4.5 text-green-500" />
-              </div>
-              <div>
-                <p className="text-[#0A1628] font-bold text-sm">2 min</p>
-                <p className="text-gray-500 text-xs">Avg. plan time</p>
-              </div>
-            </div>
-
-            <div
-              className="absolute -right-6 bottom-24 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 border border-gray-100"
-              style={{ minWidth: 160 }}
-            >
-              <div className="w-9 h-9 rounded-xl bg-[#00B4D8]/10 flex items-center justify-center">
-                <MapPin className="w-4.5 h-4.5 text-[#00B4D8]" />
-              </div>
-              <div>
-                <p className="text-[#0A1628] font-bold text-sm">195 Countries</p>
-                <p className="text-gray-500 text-xs">Destinations covered</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
