@@ -25,7 +25,18 @@ import { useCurrency } from '@/lib/currency-context'
 function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved: boolean; onToggleSave: () => void }) {
   const photo = useDestinationPhoto(`${cruise.ship} cruise ship`)
   const { formatPrice } = useCurrency()
-  const bookingUrl = `/booking?type=cruise&id=${cruise.id}&name=${encodeURIComponent(cruise.name)}&price=${cruise.price}`
+  const quoteUrl = `mailto:agency@troytravelagency.com?subject=${encodeURIComponent(`Cruise quote request: ${cruise.name}`)}&body=${encodeURIComponent(`Hello,
+
+I would like a quote for: ${cruise.name} (${cruise.ship}, ${cruise.duration} nights).
+
+Preferred dates:
+Number of travellers:
+Cabin type:
+
+Thank you`)}`
+  const bookingUrl = cruise.priceOnRequest
+    ? quoteUrl
+    : `/booking?type=cruise&id=${cruise.id}&name=${encodeURIComponent(cruise.name)}&price=${cruise.price}`
 
   return (
     <Link href={bookingUrl} className="block bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col sm:flex-row cursor-pointer">
@@ -88,7 +99,7 @@ function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved
           <div className="flex flex-wrap gap-2 mb-3">
             {cruise.cabinTypes.map((c) => (
               <span key={c.name} className="text-xs border border-gray-200 px-2 py-0.5 rounded-lg text-gray-600">
-                {c.name}: from {formatPrice(c.price)}
+                {cruise.priceOnRequest ? c.name : `${c.name}: from ${formatPrice(c.price)}`}
               </span>
             ))}
           </div>
@@ -97,8 +108,14 @@ function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved
         <div className="flex items-center justify-between gap-3">
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="text-xl font-black text-[#0A1628]">{formatPrice(cruise.price)}</span>
-              <span className="text-xs text-gray-400">/ cabin</span>
+              {cruise.priceOnRequest ? (
+                <span className="text-base font-bold text-[#0A1628]">Price on request</span>
+              ) : (
+                <>
+                  <span className="text-xl font-black text-[#0A1628]">{formatPrice(cruise.price)}</span>
+                  <span className="text-xs text-gray-400">/ cabin</span>
+                </>
+              )}
             </div>
             {cruise.reviewCount > 0 && (
               <div className="flex items-center gap-1 mt-0.5">
@@ -113,7 +130,7 @@ function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved
               className="px-5 py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:scale-105 text-center"
               style={{ background: '#00B4D8' }}
             >
-              View Cruise
+              {cruise.priceOnRequest ? 'Request a Quote' : 'View Cruise'}
             </div>
             {cruise.videoUrl && (
               <button
@@ -136,6 +153,7 @@ function CruisesContent() {
   const params = useSearchParams()
   const [selectedRegion, setSelectedRegion] = useState(params.get('region') ?? '')
   const [selectedLine, setSelectedLine] = useState('')
+  const hasPrices = useMemo(() => cruises.some((c) => !c.priceOnRequest), [])
   const [maxPrice, setMaxPrice] = useState(20000)
   const [maxDuration, setMaxDuration] = useState(21)
   const [sort, setSort] = useState('recommended')
@@ -155,7 +173,7 @@ function CruisesContent() {
 
   const filtered = useMemo(() => {
     let list = [...cruises]
-    if (maxPrice < 20000) list = list.filter((c) => c.price <= maxPrice)
+    if (maxPrice < 20000) list = list.filter((c) => c.priceOnRequest || c.price <= maxPrice)
     if (maxDuration < 21) list = list.filter((c) => c.duration <= maxDuration)
     if (selectedRegion) list = list.filter((c) => c.category === selectedRegion)
     if (selectedLine) list = list.filter((c) => c.cruiseLine === selectedLine)
@@ -232,12 +250,14 @@ function CruisesContent() {
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-6">
               <h3 className="font-bold text-[#0A1628] text-sm uppercase tracking-wider">Filter Cruises</h3>
 
-              {/* Price */}
-              <div>
-                <h4 className="text-sm font-semibold text-[#0A1628] mb-3">Price per Cabin</h4>
-                <input type="range" min={500} max={20000} step={100} value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} className="w-full accent-[#00B4D8]" />
-                <p className="text-xs text-gray-500 mt-1">Up to ${maxPrice === 20000 ? '20,000+' : maxPrice.toLocaleString()}</p>
-              </div>
+              {/* Price (hidden while every cruise is quoted individually) */}
+              {hasPrices && (
+                <div>
+                  <h4 className="text-sm font-semibold text-[#0A1628] mb-3">Price per Cabin</h4>
+                  <input type="range" min={500} max={20000} step={100} value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} className="w-full accent-[#00B4D8]" />
+                  <p className="text-xs text-gray-500 mt-1">Up to ${maxPrice === 20000 ? '20,000+' : maxPrice.toLocaleString()}</p>
+                </div>
+              )}
 
               {/* Duration */}
               <div>
@@ -297,8 +317,8 @@ function CruisesContent() {
                   className="appearance-none pl-3 pr-8 py-2 rounded-xl border border-gray-200 text-sm bg-white focus:outline-none"
                 >
                   <option value="recommended">Recommended</option>
-                  <option value="price-asc">Price: Low to High</option>
-                  <option value="price-desc">Price: High to Low</option>
+                  {hasPrices && <option value="price-asc">Price: Low to High</option>}
+                  {hasPrices && <option value="price-desc">Price: High to Low</option>}
                 </select>
                 <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
               </div>

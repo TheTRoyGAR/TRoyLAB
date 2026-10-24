@@ -148,7 +148,7 @@ function getBookingItem(type: string | null, id: string | null, cls: string | nu
   }
   if (type === 'cruise') {
     const cr = cruises.find((x) => String(x.id) === id)
-    if (!cr) return null
+    if (!cr || cr.priceOnRequest) return null
     return {
       type: 'cruise' as const,
       data: cr,
@@ -1192,6 +1192,31 @@ function BookingContent() {
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  const quotedCruise = type === 'cruise' ? cruises.find((x) => String(x.id) === id && x.priceOnRequest) : undefined
+  if (quotedCruise) {
+    const subject = encodeURIComponent(`Cruise quote request: ${quotedCruise.name}`)
+    return (
+      <MainLayout>
+        <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
+          <div className="text-center max-w-md">
+            <p className="text-xl font-bold text-navy mb-2">{quotedCruise.name}</p>
+            <p className="text-slate-600 mb-5">
+              This cruise is quoted individually, so there is no online price yet. Send us your dates and number of
+              travellers and we will come back with a real quote.
+            </p>
+            <a
+              href={`mailto:agency@troytravelagency.com?subject=${subject}`}
+              className="inline-block px-6 py-3 rounded-xl font-bold text-white"
+              style={{ background: '#00B4D8' }}
+            >
+              Request a Quote
+            </a>
+          </div>
+        </div>
+      </MainLayout>
+    )
   }
 
   if (!item) {
