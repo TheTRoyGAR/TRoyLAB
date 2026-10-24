@@ -15,7 +15,6 @@ import { useCurrency } from '@/lib/currency-context'
 // Cruise line options are no longer a static guess-list (see
 // linesWithCounts below) — they're derived from the real cruises actually
 // in the catalog, so an option is never shown unless it has real results.
-const REGION_OPTIONS = ['Caribbean', 'Mediterranean', 'Alaska', 'Asia', 'Europe', 'Expedition', 'Transatlantic']
 
 // Real ship photo, live from Unsplash — same mechanism the packages pages use
 // (useDestinationPhoto), searched by ship name since that's more specific
@@ -151,6 +150,9 @@ function CruisesContent() {
     return [...counts.entries()].sort((a, b) => b[1] - a[1])
   }, [])
 
+  // Regions come from the cruises actually listed, so an option never returns nothing.
+  const regionOptions = useMemo(() => [...new Set(cruises.map((c) => c.category))].sort(), [])
+
   const filtered = useMemo(() => {
     let list = [...cruises]
     if (maxPrice < 20000) list = list.filter((c) => c.price <= maxPrice)
@@ -160,7 +162,6 @@ function CruisesContent() {
     switch (sort) {
       case 'price-asc': list.sort((a, b) => a.price - b.price); break
       case 'price-desc': list.sort((a, b) => b.price - a.price); break
-      case 'rating': list.sort((a, b) => b.rating - a.rating); break
     }
     return list
   }, [maxPrice, maxDuration, selectedRegion, selectedLine, sort])
@@ -191,7 +192,7 @@ function CruisesContent() {
             Sail the World&apos;s Most Beautiful Waters
           </h1>
           <p className="text-white/70 max-w-2xl mx-auto text-lg">
-            Discover handpicked cruise itineraries from the Caribbean to Antarctica — luxury cabins, world-class dining, unforgettable destinations.
+            Viking river and ocean cruises, booked through TRoyGO. Ask us for current fares and availability.
           </p>
         </div>
       </div>
@@ -249,7 +250,7 @@ function CruisesContent() {
               <div>
                 <h4 className="text-sm font-semibold text-[#0A1628] mb-3">Region</h4>
                 <div className="space-y-2">
-                  {REGION_OPTIONS.map((r) => (
+                  {regionOptions.map((r) => (
                     <label key={r} className="flex items-center gap-2.5 cursor-pointer">
                       <input
                         type="radio"
@@ -298,7 +299,6 @@ function CruisesContent() {
                   <option value="recommended">Recommended</option>
                   <option value="price-asc">Price: Low to High</option>
                   <option value="price-desc">Price: High to Low</option>
-                  <option value="rating">Top Rated</option>
                 </select>
                 <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
               </div>
