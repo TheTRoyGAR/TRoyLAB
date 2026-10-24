@@ -64,8 +64,9 @@ export interface Cruise {
   cruiseLine: string
   itinerary: PortStop[]
   duration: number // nights
-  price: number // USD per cabin
+  price: number // USD per cabin; 0 when priceOnRequest
   originalPrice: number
+  priceOnRequest?: boolean // true = no confirmed price: show "Price on request" and quote individually, never a number
   cabinTypes: CabinType[]
   rating: number
   reviewCount: number

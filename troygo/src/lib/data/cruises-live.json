@@ -84,17 +84,17 @@
       }
     ],
     "duration": 7,
-    "price": 1999,
-    "originalPrice": 2799,
+    "price": 0,
+    "originalPrice": 0,
     "cabinTypes": [
       {
         "name": "Standard Stateroom",
-        "price": 1999,
+        "price": 0,
         "description": "River-view stateroom with queen-size Viking Explorer Bed, heated bathroom floor, premium Freyja toiletries, and individual climate control"
       },
       {
         "name": "Veranda Stateroom",
-        "price": 2499,
+        "price": 0,
         "description": "Stateroom with French balcony (floor-to-ceiling sliding glass doors) and river views"
       }
     ],
@@ -124,7 +124,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1554254648-2d58a1bc3fd5?w=800&q=80",
     "imageGradient": "from-cyan-300 to-teal-500",
     "category": "River",
-    "description": "An 8-day Rhine River cruise from Amsterdam to Basel sailing through 4 countries — the Netherlands, Germany, France, and Switzerland — aboard a Viking Longship. The itinerary includes UNESCO World Heritage sites, guided tours in every port, and all meals and drinks with lunch and dinner included in the fare."
+    "description": "An 8-day Rhine River cruise from Amsterdam to Basel sailing through 4 countries — the Netherlands, Germany, France, and Switzerland — aboard a Viking Longship. The itinerary includes UNESCO World Heritage sites, guided tours in every port, and all meals and drinks with lunch and dinner included in the fare.",
+    "priceOnRequest": true
   },
   {
     "id": 7,
@@ -212,17 +213,17 @@
       }
     ],
     "duration": 15,
-    "price": 10595,
-    "originalPrice": 10595,
+    "price": 0,
+    "originalPrice": 0,
     "cabinTypes": [
       {
         "name": "Veranda",
-        "price": 10595,
+        "price": 0,
         "description": "Premium cabin with private veranda"
       },
       {
         "name": "Suite",
-        "price": 13495,
+        "price": 0,
         "description": "Spacious suite with additional amenities"
       }
     ],
@@ -247,7 +248,8 @@
     "imageGradient": "from-cyan-400 to-blue-600",
     "category": "Mediterranean",
     "description": "A 15-day cruise exploring the ancient civilizations of Greece, Turkey, Italy, Tunisia and Spain. Includes 11 guided shore excursions visiting Acropolis, Istanbul, Troy, Ephesus, and more. Multiple sailing dates Dec 2027–Jan 2029 across five Viking ships.",
-    "imageUrl": "https://images.unsplash.com/photo-1635184611438-710719a80d64?w=800&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1635184611438-710719a80d64?w=800&q=80",
+    "priceOnRequest": true
   },
   {
     "id": 8,
@@ -345,17 +347,17 @@
       }
     ],
     "duration": 14,
-    "price": 13545,
-    "originalPrice": 13545,
+    "price": 0,
+    "originalPrice": 0,
     "cabinTypes": [
       {
         "name": "Veranda",
-        "price": 13545,
+        "price": 0,
         "description": "Cabin with private veranda"
       },
       {
         "name": "Suite",
-        "price": 15795,
+        "price": 0,
         "description": "Spacious suite with premium amenities"
       }
     ],
@@ -380,7 +382,8 @@
     "imageGradient": "from-slate-400 to-blue-700",
     "category": "Europe",
     "description": "A 14-day transatlantic river cruise from London to Bergen, exploring the British Isles and Norwegian fjords. Visit Cork, Belfast, and Stavanger before arriving in the gateway to Norway's famous fjords. Departing Sep 2026.",
-    "imageUrl": "https://images.unsplash.com/photo-1551415923-31d2072bc248?w=800&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1551415923-31d2072bc248?w=800&q=80",
+    "priceOnRequest": true
   },
   {
     "id": 9,
@@ -478,17 +481,17 @@
       }
     ],
     "duration": 14,
-    "price": 16795,
-    "originalPrice": 16795,
+    "price": 0,
+    "originalPrice": 0,
     "cabinTypes": [
       {
         "name": "Veranda",
-        "price": 16795,
+        "price": 0,
         "description": "Cabin with private veranda"
       },
       {
         "name": "Suite",
-        "price": 19495,
+        "price": 0,
         "description": "Spacious suite with premium benefits"
       }
     ],
@@ -513,7 +516,8 @@
     "imageGradient": "from-cyan-400 to-indigo-600",
     "category": "Europe",
     "description": "A 14-day river cruise exploring Britain and Scandinavia. Sail from London through the British Isles to Edinburgh, then through spectacular Norwegian fjords to Bergen. Spring 2027 departures aboard Viking Libra and Viking Vela.",
-    "imageUrl": "https://images.unsplash.com/photo-1692052903308-c2cb42c8720e?w=800&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1692052903308-c2cb42c8720e?w=800&q=80",
+    "priceOnRequest": true
   },
   {
     "id": 10,
@@ -611,17 +615,17 @@
       }
     ],
     "duration": 14,
-    "price": 16795,
-    "originalPrice": 16795,
+    "price": 0,
+    "originalPrice": 0,
     "cabinTypes": [
       {
         "name": "Veranda",
-        "price": 16795,
+        "price": 0,
         "description": "Cabin with private veranda"
       },
       {
         "name": "Suite",
-        "price": 19495,
+        "price": 0,
         "description": "Luxury suite with exclusive perks"
       }
     ],
@@ -646,7 +650,8 @@
     "imageGradient": "from-blue-400 to-slate-600",
     "category": "Europe",
     "description": "A 14-day reverse journey from Bergen to London. Explore Norwegian fjords in reverse, then cruise through the Scottish Hebrides, Ireland, Wales and across the English Channel. Spring 2027 sailings aboard Viking Vela.",
-    "imageUrl": "https://images.unsplash.com/photo-1551415923-31d2072bc248?w=800&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1551415923-31d2072bc248?w=800&q=80",
+    "priceOnRequest": true
   },
   {
     "id": 11,
@@ -744,17 +749,17 @@
       }
     ],
     "duration": 14,
-    "price": 17295,
-    "originalPrice": 17295,
+    "price": 0,
+    "originalPrice": 0,
     "cabinTypes": [
       {
         "name": "Veranda",
-        "price": 17295,
+        "price": 0,
         "description": "Cabin with private veranda"
       },
       {
         "name": "Suite",
-        "price": 20195,
+        "price": 0,
         "description": "Deluxe suite with added amenities"
       }
     ],
@@ -780,7 +785,8 @@
     "imageGradient": "from-indigo-400 to-slate-700",
     "category": "Europe",
     "description": "A 14-day Northern Europe adventure from London to Bergen via Scotland's remotest islands and the Norwegian Arctic coast. Spring 2027 sailing aboard Viking Saturn, designed for those seeking dramatic landscapes and authentic Nordic experiences.",
-    "imageUrl": "https://images.unsplash.com/photo-GG1CwF4qdlg?w=800&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-GG1CwF4qdlg?w=800&q=80",
+    "priceOnRequest": true
   },
   {
     "id": 12,
@@ -878,17 +884,17 @@
       }
     ],
     "duration": 14,
-    "price": 16995,
-    "originalPrice": 16995,
+    "price": 0,
+    "originalPrice": 0,
     "cabinTypes": [
       {
         "name": "Veranda",
-        "price": 16995,
+        "price": 0,
         "description": "Cabin with private veranda"
       },
       {
         "name": "Suite",
-        "price": 19795,
+        "price": 0,
         "description": "Premium suite with concierge service"
       }
     ],
@@ -914,7 +920,8 @@
     "imageGradient": "from-cyan-400 to-blue-700",
     "category": "Europe",
     "description": "A 14-day spring voyage from London through the British Isles to the Norwegian fjords. Visit the Isles of Wight and Man, explore Dublin, and arrive in Bergen as a gateway to Norway's most spectacular scenery. May 2027 sailing aboard Viking Sky.",
-    "imageUrl": "https://images.unsplash.com/photo-1642928614293-ba6ff94b4a75?w=800&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1642928614293-ba6ff94b4a75?w=800&q=80",
+    "priceOnRequest": true
   },
   {
     "id": 13,
@@ -1009,22 +1016,22 @@
       }
     ],
     "duration": 13,
-    "price": 18345,
-    "originalPrice": 38440,
+    "price": 0,
+    "originalPrice": 0,
     "cabinTypes": [
       {
         "name": "Inside",
-        "price": 18345,
+        "price": 0,
         "description": "Inside cabin"
       },
       {
         "name": "Ocean View",
-        "price": 22995,
+        "price": 0,
         "description": "Oceanview window"
       },
       {
         "name": "Veranda Suite",
-        "price": 31895,
+        "price": 0,
         "description": "Suite with veranda"
       }
     ],
@@ -1050,7 +1057,8 @@
     "imageGradient": "from-cyan-500 to-blue-700",
     "category": "Expedition",
     "description": "A 13-day polar expedition to Antarctica from Buenos Aires. Explore the Antarctic Peninsula, view penguin colonies, navigate the Drake Passage, and experience one of Earth's most remote continents. Multiple sailings Dec 2026–Mar 2029.",
-    "imageUrl": "https://images.unsplash.com/photo-1664304481949-7342698006f3?w=800&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1664304481949-7342698006f3?w=800&q=80",
+    "priceOnRequest": true
   },
   {
     "id": 14,
@@ -1146,22 +1154,22 @@
       }
     ],
     "duration": 13,
-    "price": 13995,
-    "originalPrice": 13995,
+    "price": 0,
+    "originalPrice": 0,
     "cabinTypes": [
       {
         "name": "Inside",
-        "price": 13995,
+        "price": 0,
         "description": "Inside cabin"
       },
       {
         "name": "Oceanview",
-        "price": 16795,
+        "price": 0,
         "description": "Window cabin"
       },
       {
         "name": "Veranda Suite",
-        "price": 22995,
+        "price": 0,
         "description": "Veranda suite with upgrades"
       }
     ],
@@ -1186,7 +1194,8 @@
     "imageGradient": "from-emerald-400 to-blue-600",
     "category": "Expedition",
     "description": "A 13-day Alaska and British Columbia cruise. Experience Inside Passage, visit glacier bays, encounter wildlife, and explore Native Alaskan culture. Oct 2026–Sep 2029 sailings.",
-    "imageUrl": "https://images.unsplash.com/photo-1486566584569-b9319dc74315?w=800&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1486566584569-b9319dc74315?w=800&q=80",
+    "priceOnRequest": true
   },
   {
     "id": 15,
@@ -1291,22 +1300,22 @@
       }
     ],
     "duration": 15,
-    "price": 22695,
-    "originalPrice": 22695,
+    "price": 0,
+    "originalPrice": 0,
     "cabinTypes": [
       {
         "name": "Inside",
-        "price": 22695,
+        "price": 0,
         "description": "Inside cabin"
       },
       {
         "name": "Oceanview",
-        "price": 26495,
+        "price": 0,
         "description": "Arctic views"
       },
       {
         "name": "Suite",
-        "price": 35995,
+        "price": 0,
         "description": "Veranda suite with expedition privileges"
       }
     ],
@@ -1332,7 +1341,8 @@
     "imageGradient": "from-slate-400 to-cyan-600",
     "category": "Expedition",
     "description": "A 15-day Arctic exploration of Greenland and Iceland. Cruise alongside massive icebergs, visit remote Arctic settlements, experience midnight sun, and explore UNESCO World Heritage sites. Sep 2026–Jul 2029 sailings.",
-    "imageUrl": "https://images.unsplash.com/photo-1551415923-31d2072bc248?w=800&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1551415923-31d2072bc248?w=800&q=80",
+    "priceOnRequest": true
   },
   {
     "id": 16,
@@ -1415,22 +1425,22 @@
       }
     ],
     "duration": 8,
-    "price": 11995,
-    "originalPrice": 11995,
+    "price": 0,
+    "originalPrice": 0,
     "cabinTypes": [
       {
         "name": "Inside",
-        "price": 11995,
+        "price": 0,
         "description": "Inside cabin"
       },
       {
         "name": "Oceanview",
-        "price": 14495,
+        "price": 0,
         "description": "Window cabin"
       },
       {
         "name": "Veranda",
-        "price": 19495,
+        "price": 0,
         "description": "Veranda suite"
       }
     ],
@@ -1453,7 +1463,8 @@
     "imageGradient": "from-emerald-500 to-blue-700",
     "category": "Expedition",
     "description": "An 8-day Alaska cruise from Vancouver. Navigate the stunning Inside Passage, visit Ketchikan and Juneau, cruise past tidewater glaciers, and experience pristine wilderness. Oct 2026–Sep 2029 sailings.",
-    "imageUrl": "https://images.unsplash.com/photo-1618064541372-289bdb6f5b7b?w=800&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1618064541372-289bdb6f5b7b?w=800&q=80",
+    "priceOnRequest": true
   },
   {
     "id": 17,
@@ -1555,22 +1566,22 @@
       }
     ],
     "duration": 20,
-    "price": 17795,
-    "originalPrice": 17795,
+    "price": 0,
+    "originalPrice": 0,
     "cabinTypes": [
       {
         "name": "Inside",
-        "price": 17795,
+        "price": 0,
         "description": "Inside cabin"
       },
       {
         "name": "Oceanview",
-        "price": 21495,
+        "price": 0,
         "description": "Ocean view"
       },
       {
         "name": "Suite",
-        "price": 29995,
+        "price": 0,
         "description": "Luxury suite"
       }
     ],
@@ -1596,7 +1607,8 @@
     "imageGradient": "from-emerald-400 to-cyan-600",
     "category": "Caribbean",
     "description": "A 20-day Caribbean Grand Voyage from Miami via the Panama Canal. Visit Jamaica, Belize, Mexico, and the Bahamas with expert excursions and unique itineraries. Oct 2026–Oct 2029 sailings.",
-    "imageUrl": "https://images.unsplash.com/photo-1771945484043-3a17fbf57a4b?w=800&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1771945484043-3a17fbf57a4b?w=800&q=80",
+    "priceOnRequest": true
   },
   {
     "id": 18,
@@ -1699,22 +1711,22 @@
       }
     ],
     "duration": 19,
-    "price": 32795,
-    "originalPrice": 64840,
+    "price": 0,
+    "originalPrice": 0,
     "cabinTypes": [
       {
         "name": "Inside",
-        "price": 32795,
+        "price": 0,
         "description": "Inside cabin"
       },
       {
         "name": "Oceanview",
-        "price": 39495,
+        "price": 0,
         "description": "Ocean view with balcony"
       },
       {
         "name": "Suite",
-        "price": 54995,
+        "price": 0,
         "description": "Luxury expedition suite"
       }
     ],
@@ -1740,7 +1752,8 @@
     "imageGradient": "from-slate-500 to-blue-800",
     "category": "Expedition",
     "description": "A 19-day ultimate polar expedition. Visit the Falkland Islands, South Georgia, and Antarctica with expert naturalists. See penguin colonies, encounter seals, and explore some of Earth's most remote regions. Nov 2026–Feb 2029 sailings.",
-    "imageUrl": "https://images.unsplash.com/photo-1642928614293-ba6ff94b4a75?w=800&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1642928614293-ba6ff94b4a75?w=800&q=80",
+    "priceOnRequest": true
   },
   {
     "id": 19,
@@ -1866,22 +1879,22 @@
       }
     ],
     "duration": 27,
-    "price": 42395,
-    "originalPrice": 42395,
+    "price": 0,
+    "originalPrice": 0,
     "cabinTypes": [
       {
         "name": "Inside",
-        "price": 42395,
+        "price": 0,
         "description": "Inside cabin"
       },
       {
         "name": "Oceanview",
-        "price": 48995,
+        "price": 0,
         "description": "Ocean view"
       },
       {
         "name": "Suite",
-        "price": 69995,
+        "price": 0,
         "description": "Premium suite"
       }
     ],
@@ -1907,7 +1920,8 @@
     "imageGradient": "from-cyan-400 to-indigo-700",
     "category": "Expedition",
     "description": "A 27-day Americas exploration. Cruise Alaska's Inside Passage, visit California's coast, transit the Panama Canal, and explore the Caribbean. Sep 2026–Jul 2029 sailings.",
-    "imageUrl": "https://images.unsplash.com/photo-1664304481949-7342698006f3?w=800&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1664304481949-7342698006f3?w=800&q=80",
+    "priceOnRequest": true
   },
   {
     "id": 20,
@@ -2001,22 +2015,22 @@
       }
     ],
     "duration": 63,
-    "price": 88595,
-    "originalPrice": 176065,
+    "price": 0,
+    "originalPrice": 0,
     "cabinTypes": [
       {
         "name": "Inside",
-        "price": 88595,
+        "price": 0,
         "description": "Inside cabin"
       },
       {
         "name": "Oceanview",
-        "price": 102995,
+        "price": 0,
         "description": "Ocean view"
       },
       {
         "name": "Suite",
-        "price": 154995,
+        "price": 0,
         "description": "Ultra-luxury expedition suite"
       }
     ],
@@ -2044,6 +2058,7 @@
     "imageGradient": "from-slate-600 to-blue-900",
     "category": "Expedition",
     "description": "An epic 63-day Antarctic expedition from Buenos Aires. Experience the complete polar journey—Patagonia, Antarctica, South Georgia, and Falkland Islands. The ultimate adventure for polar explorers. Mar 2028–Mar 2029 sailings.",
-    "imageUrl": "https://images.unsplash.com/photo-1664302928092-1409244798cc?w=800&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1664302928092-1409244798cc?w=800&q=80",
+    "priceOnRequest": true
   }
 ]
