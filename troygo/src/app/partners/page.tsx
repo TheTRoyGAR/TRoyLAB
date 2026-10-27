@@ -267,7 +267,7 @@ export default function PartnersPage() {
             >
               Registered with
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
                 <h3 className="text-lg font-bold text-[#0A1628] mb-2">Duffel</h3>
                 <p className="text-sm text-gray-700">
@@ -280,6 +280,13 @@ export default function PartnersPage() {
                 <p className="text-sm text-gray-700">
                   TROYGO is registered with Jetstar as a travel agent. Jetstar fares are not yet bookable on
                   TRoyGO™; we are working on this with Jetstar and Duffel.
+                </p>
+              </div>
+              <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+                <h3 className="text-lg font-bold text-[#0A1628] mb-2">Viking</h3>
+                <p className="text-sm text-gray-700">
+                  TROYGO is an approved Viking travel agent. The cruises on TRoyGO™ are Viking cruises, and we
+                  confirm the price with you before you book.
                 </p>
               </div>
             </div>
