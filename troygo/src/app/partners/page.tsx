@@ -1,9 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { ShieldCheck, MapPin, UserPlus, CheckCircle2, Loader2 } from 'lucide-react'
+import { ShieldCheck, UserPlus, CheckCircle2, Loader2 } from 'lucide-react'
 import MainLayout from '@/components/layout/MainLayout'
-import { trustedPartners } from '@/lib/data/partners'
 import TurnstileWidget, { TURNSTILE_SITE_KEY } from '@/components/ui/TurnstileWidget'
 
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error'
@@ -239,11 +238,6 @@ function BecomeAPartnerForm() {
 }
 
 export default function PartnersPage() {
-  const byCountry = trustedPartners.reduce<Record<string, typeof trustedPartners>>((acc, p) => {
-    (acc[p.country] ??= []).push(p)
-    return acc
-  }, {})
-
   return (
     <MainLayout>
       <main className="min-h-screen bg-gray-50">
@@ -257,64 +251,41 @@ export default function PartnersPage() {
             className="text-4xl sm:text-5xl font-black text-white mb-3"
             style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
-            Trusted Local Partners
+            Partner with TRoyGO™
           </h1>
           <p className="text-white/70 max-w-2xl mx-auto text-lg">
-            Independent, real ground operators and destination management companies TRoyGO™ works with
-            for local expertise — not our own staff, but vetted specialists on the ground.
-          </p>
-          <p className="text-white/50 max-w-2xl mx-auto text-sm mt-3">
-            TRoyGO™ is Darwin, Northern Territory based — the Top End operators below aren't just
-            another researched region for us, they're our own backyard.
+            Local tour operators, travel agencies, destination companies and guides, big and small, from anywhere in
+            the world: tell us about your business and your packages.
           </p>
         </div>
 
         <div className="max-w-5xl mx-auto px-4 py-14 space-y-14">
-          {Object.entries(byCountry).map(([country, partners]) => (
-            <section key={country}>
-              <h2
-                className="text-2xl font-bold text-[#0A1628] mb-6 flex items-center gap-2"
-                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-              >
-                <MapPin className="h-5 w-5 text-[#00B4D8]" />
-                {country}
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {partners.map((p) => (
-                  <div
-                    key={p.name}
-                    className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm"
-                  >
-                    <h3 className="text-lg font-bold text-[#0A1628] mb-2">{p.name}</h3>
-                    <p className="text-sm text-gray-500 mb-3">
-                      Covers: {p.destinationsCovered.join(', ')}
-                    </p>
-                    <p className="text-sm text-gray-700 mb-3">{p.description}</p>
-                    {p.accreditations && p.accreditations.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5">
-                        {p.accreditations.map((a) => (
-                          <span
-                            key={a}
-                            className="text-[10px] font-semibold text-[#00B4D8] bg-[#00B4D8]/10 px-2 py-1 rounded-full"
-                          >
-                            {a}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
+          <section id="registered-with">
+            <h2
+              className="text-2xl font-bold text-[#0A1628] mb-6 text-center"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              Registered with
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+                <h3 className="text-lg font-bold text-[#0A1628] mb-2">Duffel</h3>
+                <p className="text-sm text-gray-700">
+                  Flight search and booking technology. TROYGO holds a live Duffel account, and the flights you
+                  search on TRoyGO™ come from Duffel.
+                </p>
               </div>
-            </section>
-          ))}
+              <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+                <h3 className="text-lg font-bold text-[#0A1628] mb-2">Jetstar</h3>
+                <p className="text-sm text-gray-700">
+                  TROYGO is registered with Jetstar as a travel agent. Jetstar fares are not yet bookable on
+                  TRoyGO™; we are working on this with Jetstar and Duffel.
+                </p>
+              </div>
+            </div>
+          </section>
 
-          <p className="text-xs text-gray-400 text-center pt-6 border-t border-gray-200">
-            Shown for information only, based on public reputation and accreditation — not yet a
-            confirmed commercial partnership with TRoyGO™ unless stated otherwise. These listings
-            don&apos;t link offsite; nothing here is bookable through a partner&apos;s own website.
-          </p>
-
-          <section id="become-a-partner" className="pt-6">
+          <section id="become-a-partner">
             <div className="text-center mb-8">
               <UserPlus className="h-9 w-9 text-[#00B4D8] mx-auto mb-3" />
               <h2
@@ -324,9 +295,8 @@ export default function PartnersPage() {
                 Become a TRoyGO™ Partner
               </h2>
               <p className="text-gray-600 max-w-xl mx-auto text-sm">
-                A destination expert or ground operator not listed above? Submit your details and
-                travel packages — TRoyGO™&apos;s team reviews every application before it becomes
-                a confirmed partnership.
+                Submit your details and travel packages. TRoyGO™&apos;s team reviews every application by hand, and
+                applying does not create a partnership.
               </p>
             </div>
             <BecomeAPartnerForm />
