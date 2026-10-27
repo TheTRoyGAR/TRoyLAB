@@ -39,6 +39,7 @@ import { travelPackages, cruises } from '@/lib/data/packages'
 import { carRentals } from '@/app/cars/page'
 import BookingSteps, { type StepId } from '@/components/booking/BookingSteps'
 import MainLayout from '@/components/layout/MainLayout'
+import TurnstileWidget, { TURNSTILE_SITE_KEY } from '@/components/ui/TurnstileWidget'
 
 /* ─── Types ───────────────────────────────────────────────────────────────── */
 interface TravelerInfo {
@@ -96,7 +97,8 @@ function getBookingItem(type: string | null, id: string | null, cls: string | nu
       type: 'flight' as const,
       data: f,
       cabin,
-      price: f.price[cabin],
+      price: f.price[cabin], // Duffel's total for the whole searched party
+      priceIsTotal: true,
       label: `${f.airline} ${f.flightNumber}`,
       subtitle: `${f.from.city} (${f.from.code}) → ${f.to.city} (${f.to.code})`,
       date: f.departure,
@@ -104,27 +106,18 @@ function getBookingItem(type: string | null, id: string | null, cls: string | nu
     }
   }
   if (type === 'hotel') {
-    const h = sampleHotels.find((x) => x.id === id)
-    if (!h) return null
-    return {
-      type: 'hotel' as const,
-      data: h,
-      cabin: null,
-      price: h.pricePerNight,
-      label: h.name,
-      subtitle: `${h.location.city}, ${h.location.country}`,
-      date: null,
-      icon: Hotel,
-    }
+    // Hotel data is sample data with no confirmed prices: quote-only (see the quote notice below).
+    return null
   }
   if (type === 'package') {
     const p = travelPackages.find((x) => String(x.id) === id)
-    if (!p) return null
+    if (!p || p.priceOnRequest) return null
     return {
       type: 'package' as const,
       data: p,
       cabin: null,
       price: p.price,
+      priceIsTotal: false,
       label: p.name,
       subtitle: p.countries.join(', '),
       date: p.departureDates[0] ?? null,
@@ -132,18 +125,8 @@ function getBookingItem(type: string | null, id: string | null, cls: string | nu
     }
   }
   if (type === 'car') {
-    const c = carRentals.find((x) => x.id === id)
-    if (!c) return null
-    return {
-      type: 'car' as const,
-      data: c,
-      cabin: null,
-      price: c.pricePerDay,
-      label: `${c.name} (${c.model})`,
-      subtitle: `${c.type} · ${c.supplier}`,
-      date: null,
-      icon: Car,
-    }
+    // Car data has no confirmed prices: quote-only (see the quote notice below).
+    return null
   }
   if (type === 'cruise') {
     const cr = cruises.find((x) => String(x.id) === id)
@@ -153,6 +136,7 @@ function getBookingItem(type: string | null, id: string | null, cls: string | nu
       data: cr,
       cabin: null,
       price: cr.price,
+      priceIsTotal: false,
       label: cr.name,
       subtitle: `${cr.ship} · ${cr.cruiseLine}`,
       date: null,
@@ -185,7 +169,7 @@ function StepReview({
 }) {
   const { formatPrice } = useCurrency()
   const Icon = item.icon
-  const subtotal = item.price * passengers
+  const subtotal = item.priceIsTotal ? item.price : item.price * passengers
   const total = subtotal
 
   return (
@@ -239,12 +223,6 @@ function StepReview({
               </div>
             </>
           )}
-          {item.type === 'hotel' && (
-            <div className="flex justify-between text-sm">
-              <dt className="text-slate-500">Stars</dt>
-              <dd className="font-medium text-navy">{'★'.repeat((item.data as typeof sampleHotels[0]).stars)}</dd>
-            </div>
-          )}
         </dl>
       </div>
 
@@ -253,7 +231,11 @@ function StepReview({
         <h2 className="text-lg font-bold text-navy mb-4">Price Breakdown</h2>
         <div className="space-y-3">
           <div className="flex justify-between text-sm">
-            <span className="text-slate-500">{formatPrice(item.price)} × {passengers} traveler{passengers > 1 ? 's' : ''}</span>
+            <span className="text-slate-500">
+              {item.priceIsTotal
+                ? `Total fare for ${passengers} passenger${passengers > 1 ? 's' : ''}`
+                : `${formatPrice(item.price)} × ${passengers} traveler${passengers > 1 ? 's' : ''}`}
+            </span>
             <span className="font-semibold">{formatPrice(subtotal)}</span>
           </div>
           <div className="border-t border-slate-100 pt-3 flex justify-between">
@@ -600,12 +582,18 @@ function StepPayment({
   onBack,
   isSubmitting,
   submitError,
+  onCaptcha,
+  captcha,
+  captchaReset,
 }: {
   total: number
   onNext: () => void
   onBack: () => void
   isSubmitting: boolean
   submitError: string | null
+  onCaptcha: (t: string) => void
+  captcha: string
+  captchaReset: number
 }) {
   const { formatPrice } = useCurrency()
   const [agreedTerms, setAgreedTerms] = useState(false)
@@ -721,6 +709,8 @@ function StepPayment({
         </span>
       </label>
 
+      <TurnstileWidget onToken={onCaptcha} resetKey={captchaReset} />
+
       {submitError && (
         <div role="alert" className="rounded-xl bg-red-50 border border-red-200 p-4 text-sm text-red-800 flex items-start gap-2">
           <AlertCircle className="h-4 w-4 mt-0.5 shrink-0" />
@@ -734,7 +724,7 @@ function StepPayment({
         </button>
         <button
           onClick={onNext}
-          disabled={!agreedTerms || isSubmitting}
+          disabled={!agreedTerms || isSubmitting || (!!TURNSTILE_SITE_KEY && !captcha)}
           className="flex-1 py-3 rounded-xl font-bold text-white text-base shadow-lg hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           style={{ background: '#00B4D8' }}
         >
@@ -924,12 +914,14 @@ function BookingContent() {
     ] : []),
   ])
   const [submitError, setSubmitError] = useState<string | null>(null)
+  const [captcha, setCaptcha] = useState('')
+  const [captchaReset, setCaptchaReset] = useState(0)
   const [bookingRef, setBookingRef] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   // Listed price only: no invented tax, fee or add-on prices. We confirm the
   // final price in writing before any payment is requested.
-  const basePrice = item ? item.price * Math.max(1, passengersParam) : 0
+  const basePrice = item ? (item.priceIsTotal ? item.price : item.price * Math.max(1, passengersParam)) : 0
   const grandTotal = basePrice
 
   async function handlePaymentSubmit() {
@@ -951,18 +943,24 @@ function BookingContent() {
           // manual owner handling for this booking instead of auto re-search
         }
       }
+      // The server makes the reference and works out the real price itself (it
+      // re-checks flight fares); what is sent here is what the customer chose.
+      const flightKey = item && item.type === 'flight'
+        ? (() => { const f = item.data as { airline: string; flightNumber: string; departure: string }; return { airline: f.airline, flightNumber: f.flightNumber, departure: f.departure } })()
+        : null
       const res = await fetch('/api/bookings/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          bookingRef: ref,
           type,
           itemId: id,
           routeSnapshot,
+          flightKey,
           travelers,
           addOns: addOns.filter((a) => a.selected).map((a) => a.name),
-          totalAmount: grandTotal,
+          clientEstimate: grandTotal,
           cabinClass: cls,
+          turnstile: captcha,
         }),
       })
       if (res.ok) {
@@ -970,26 +968,38 @@ function BookingContent() {
         setBookingRef(data.bookingRef ?? ref)
         setStep(5)
       } else {
-        setSubmitError('We could not save your request. Nothing has been submitted. Please try again, or email agency@troytravelagency.com or call +61 422 781 807.')
+        let msg = 'We could not save your request. Nothing has been submitted. Please try again, or email agency@troytravelagency.com or call +61 422 781 807.'
+        try { const j = await res.json(); if (j && typeof j.error === 'string' && res.status < 500) msg = j.error } catch { /* keep the default message */ }
+        setSubmitError(msg)
+        setCaptcha(''); setCaptchaReset((n) => n + 1)
       }
     } catch {
       setSubmitError('We could not reach our server. Nothing has been submitted. Please check your connection and try again, or email agency@troytravelagency.com.')
+      setCaptcha(''); setCaptchaReset((n) => n + 1)
     } finally {
       setIsSubmitting(false)
     }
   }
 
-  const quotedCruise = type === 'cruise' ? cruises.find((x) => String(x.id) === id && x.priceOnRequest) : undefined
-  if (quotedCruise) {
-    const subject = encodeURIComponent(`Cruise quote request: ${quotedCruise.name}`)
+  // Items without a confirmed price are quoted individually by email and never
+  // go through the checkout: priceless cruises and packages, and hotels and cars
+  // (their listings are sample data with no confirmed prices).
+  const quoteOnly = (() => {
+    if (type === 'cruise') { const c = cruises.find((x) => String(x.id) === id); return c && c.priceOnRequest ? { kind: 'cruise', name: c.name } : null }
+    if (type === 'package') { const pk = travelPackages.find((x) => String(x.id) === id); return pk && pk.priceOnRequest ? { kind: 'package', name: pk.name } : null }
+    if (type === 'hotel' || type === 'car') return { kind: type, name: params.get('name') ?? (type === 'hotel' ? 'this hotel' : 'this car') }
+    return null
+  })()
+  if (quoteOnly) {
+    const subject = encodeURIComponent(`${quoteOnly.kind[0].toUpperCase()}${quoteOnly.kind.slice(1)} quote request: ${quoteOnly.name}`)
     return (
       <MainLayout>
         <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
           <div className="text-center max-w-md">
-            <p className="text-xl font-bold text-navy mb-2">{quotedCruise.name}</p>
+            <p className="text-xl font-bold text-navy mb-2">{quoteOnly.name}</p>
             <p className="text-slate-600 mb-5">
-              This cruise is quoted individually, so there is no online price yet. Send us your dates and number of
-              travellers and we will come back with a real quote.
+              This {quoteOnly.kind} is quoted individually, so there is no online price yet. Send us your dates and
+              number of travellers and we will come back with a real quote.
             </p>
             <a
               href={`mailto:agency@troytravelagency.com?subject=${subject}`}
@@ -1069,6 +1079,9 @@ function BookingContent() {
             <StepPayment
               total={grandTotal}
               submitError={submitError}
+              onCaptcha={setCaptcha}
+              captcha={captcha}
+              captchaReset={captchaReset}
               onNext={handlePaymentSubmit}
               onBack={() => setStep(3)}
               isSubmitting={isSubmitting}

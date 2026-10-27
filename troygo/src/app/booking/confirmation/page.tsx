@@ -8,11 +8,15 @@ import MainLayout from '@/components/layout/MainLayout'
 
 function ConfirmationContent() {
   const searchParams = useSearchParams()
-  const ref = searchParams.get('ref') ?? 'TRG-XXXXXX'
-  const status = searchParams.get('status') ?? 'pending'
-  const packageName = searchParams.get('name') ?? 'Your Travel Package'
+  const refParam = searchParams.get('ref') ?? ''
+  const ref = /^TRG-[A-Z0-9]{6}$/.test(refParam) ? refParam : 'TRG-XXXXXX'
+  const packageName = (searchParams.get('name') ?? 'Your Travel Package').slice(0, 100)
 
-  const isConfirmed = status === 'confirmed'
+  // This page can only ever say "request received". The address bar is not proof
+  // of anything: a booking is confirmed by our written email, never by a URL like
+  // ?status=confirmed, and a payment is confirmed by email, never by ?paid=1.
+  const isConfirmed = false
+  const returnedFromPayment = searchParams.get('paid') === '1'
 
   return (
     <MainLayout>
@@ -44,6 +48,13 @@ function ConfirmationContent() {
           </div>
         </div>
       </div>
+
+      {returnedFromPayment && (
+        <div className="w-full max-w-2xl rounded-2xl bg-blue-50 border border-blue-200 p-4 mb-5 text-sm text-blue-900">
+          If you have just paid, thank you. We confirm your payment and your booking by email. This page cannot show
+          payment status.
+        </div>
+      )}
 
       {/* Status card */}
       <div className="w-full max-w-2xl bg-white rounded-3xl shadow-md border border-gray-100 p-6 mb-5">

@@ -16,6 +16,7 @@ interface Package {
   destinations: string[];
   pricePerPerson: number;
   originalPrice: number;
+  priceOnRequest: boolean;
   gradient: string;
   rating: number;
   reviews: number;
@@ -35,6 +36,7 @@ const packages: Package[] = travelPackages.slice(0, 4).map((p) => ({
   destinations: p.countries,
   pricePerPerson: p.price,
   originalPrice: p.originalPrice,
+  priceOnRequest: !!p.priceOnRequest,
   gradient: p.imageGradient,
   rating: p.rating,
   reviews: p.reviewCount,
@@ -58,8 +60,8 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 function PackageCard({ pkg }: { pkg: Package }) {
-  const savings = pkg.originalPrice - pkg.pricePerPerson;
-  const savingsPct = Math.round((savings / pkg.originalPrice) * 100);
+  const savings = pkg.priceOnRequest ? 0 : pkg.originalPrice - pkg.pricePerPerson;
+  const savingsPct = pkg.priceOnRequest || !pkg.originalPrice ? 0 : Math.round((savings / pkg.originalPrice) * 100);
   const photo = useDestinationPhoto(pkg.destination);
   const { formatPrice } = useCurrency();
 
@@ -84,11 +86,13 @@ function PackageCard({ pkg }: { pkg: Package }) {
         )}
 
         {/* Savings badge */}
-        <div className="absolute top-4 right-4 z-10">
-          <span className="bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-full">
-            Save {savingsPct}%
-          </span>
-        </div>
+        {savingsPct > 0 && (
+          <div className="absolute top-4 right-4 z-10">
+            <span className="bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-full">
+              Save {savingsPct}%
+            </span>
+          </div>
+        )}
 
         {/* Duration badge at bottom */}
         <div className="absolute bottom-4 left-4 z-10 flex items-center gap-1.5 bg-black/30 backdrop-blur-sm text-white text-sm font-semibold px-3 py-1.5 rounded-full border border-white/20">
@@ -154,18 +158,26 @@ function PackageCard({ pkg }: { pkg: Package }) {
         {/* Rating & price */}
         <div className="flex items-end justify-between">
           <div>
-            <div className="flex items-center gap-1.5">
-              <StarRating rating={pkg.rating} />
-              <span className="text-[#0A1628] font-bold text-sm">{pkg.rating}</span>
-              <span className="text-gray-400 text-xs">({pkg.reviews.toLocaleString()} reviews)</span>
-            </div>
+            {pkg.reviews > 0 && (
+              <div className="flex items-center gap-1.5">
+                <StarRating rating={pkg.rating} />
+                <span className="text-[#0A1628] font-bold text-sm">{pkg.rating}</span>
+                <span className="text-gray-400 text-xs">({pkg.reviews.toLocaleString()} reviews)</span>
+              </div>
+            )}
           </div>
           <div className="text-right">
-            <p className="text-gray-400 text-xs line-through">{formatPrice(pkg.originalPrice)}</p>
-            <p className="text-[#0A1628] font-bold text-xl leading-tight">
-              {formatPrice(pkg.pricePerPerson)}
-            </p>
-            <p className="text-gray-400 text-xs">per person</p>
+            {pkg.priceOnRequest ? (
+              <p className="text-[#0A1628] font-bold text-base leading-tight">Price on request</p>
+            ) : (
+              <>
+                <p className="text-gray-400 text-xs line-through">{formatPrice(pkg.originalPrice)}</p>
+                <p className="text-[#0A1628] font-bold text-xl leading-tight">
+                  {formatPrice(pkg.pricePerPerson)}
+                </p>
+                <p className="text-gray-400 text-xs">per person</p>
+              </>
+            )}
           </div>
         </div>
 

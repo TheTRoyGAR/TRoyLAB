@@ -34,6 +34,11 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
 
   const totalPrice = pkg.price * travelers
 
+  // Packages without a confirmed price are quoted individually by email.
+  const quoteUrl = `mailto:agency@troytravelagency.com?subject=${encodeURIComponent(`Package quote request: ${pkg.name}`)}&body=${encodeURIComponent(
+    `Hello,\n\nI would like a quote for: ${pkg.name}.\n\nPreferred departure date: ${selectedDate || '(not chosen)'}\nNumber of travellers: ${travelers}\n\nThank you`
+  )}`
+
   return (
     <MainLayout>
     <main className="min-h-screen bg-gray-50">
@@ -221,6 +226,7 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
             {/* Reviews */}
             {activeTab === 'Reviews' && (
               <div className="space-y-6">
+                {pkg.reviewCount > 0 && (
                 <div className="flex items-center gap-4">
                   <div className="text-5xl font-black text-[#0A1628]">{pkg.rating}</div>
                   <div>
@@ -232,6 +238,7 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
                     <p className="text-sm text-gray-500">{pkg.reviewCount.toLocaleString()} reviews</p>
                   </div>
                 </div>
+                )}
                 {pkg.reviewCount > 0 ? (
                   <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-sm text-gray-500">
                     This package has a {pkg.rating}★ rating from {pkg.reviewCount.toLocaleString()} travelers,
@@ -240,7 +247,7 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
                   </div>
                 ) : (
                   <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-sm text-gray-500">
-                    No reviews yet for this deal — be the first to book and share your experience.
+                    No TRoyGO™ customer reviews yet.
                   </div>
                 )}
               </div>
@@ -278,20 +285,34 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
                     </div>
                   </div>
                   <div className="pt-2 border-t border-gray-100">
-                    <div className="flex justify-between text-sm mb-1">
-                      <span className="text-gray-500">{formatPrice(pkg.price)} × {travelers} travelers</span>
-                      <span className="font-bold text-[#0A1628]">{formatPrice(totalPrice)}</span>
-                    </div>
-                    <p className="text-xs text-gray-400">Final price includes taxes & fees</p>
+                    {pkg.priceOnRequest ? (
+                      <p className="text-sm font-semibold text-[#0A1628]">Price on request</p>
+                    ) : (
+                      <div className="flex justify-between text-sm mb-1">
+                        <span className="text-gray-500">{formatPrice(pkg.price)} × {travelers} travelers</span>
+                        <span className="font-bold text-[#0A1628]">{formatPrice(totalPrice)}</span>
+                      </div>
+                    )}
+                    <p className="text-xs text-gray-400">We confirm the final price and availability in writing before you pay.</p>
                   </div>
-                  <Link
-                    href={`/booking?type=package&id=${pkg.id}&travelers=${travelers}&date=${selectedDate}&price=${totalPrice}&name=${encodeURIComponent(pkg.name)}`}
-                    className="block w-full text-center py-3 rounded-xl font-bold text-[#0A1628] text-sm hover:brightness-110 transition-all"
-                    style={{ background: '#FFD700' }}
-                  >
-                    Book Now — {formatPrice(totalPrice)}
-                  </Link>
-                  <p className="text-xs text-center text-gray-400">Free cancellation up to 30 days before departure</p>
+                  {pkg.priceOnRequest ? (
+                    <a
+                      href={quoteUrl}
+                      className="block w-full text-center py-3 rounded-xl font-bold text-[#0A1628] text-sm hover:brightness-110 transition-all"
+                      style={{ background: '#FFD700' }}
+                    >
+                      Request a Quote
+                    </a>
+                  ) : (
+                    <Link
+                      href={`/booking?type=package&id=${pkg.id}&travelers=${travelers}&date=${selectedDate}&price=${totalPrice}&name=${encodeURIComponent(pkg.name)}`}
+                      className="block w-full text-center py-3 rounded-xl font-bold text-[#0A1628] text-sm hover:brightness-110 transition-all"
+                      style={{ background: '#FFD700' }}
+                    >
+                      Book Now — {formatPrice(totalPrice)}
+                    </Link>
+                  )}
+                  <p className="text-xs text-center text-gray-400">Cancellation and change terms depend on the supplier and are confirmed in writing with your booking.</p>
                 </div>
               </div>
             )}
@@ -301,11 +322,17 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
           <aside className="w-full lg:w-80 shrink-0">
             <div className="sticky top-24 bg-white rounded-2xl shadow-md border border-gray-100 p-6">
               <div className="text-center mb-4">
-                <div className="text-3xl font-black text-[#0A1628]">{formatPrice(pkg.price)}</div>
-                {pkg.originalPrice > pkg.price && (
-                  <div className="text-sm text-gray-400 line-through">{formatPrice(pkg.originalPrice)}</div>
+                {pkg.priceOnRequest ? (
+                  <div className="text-2xl font-black text-[#0A1628]">Price on request</div>
+                ) : (
+                  <>
+                    <div className="text-3xl font-black text-[#0A1628]">{formatPrice(pkg.price)}</div>
+                    {pkg.originalPrice > pkg.price && (
+                      <div className="text-sm text-gray-400 line-through">{formatPrice(pkg.originalPrice)}</div>
+                    )}
+                    <div className="text-xs text-gray-400">per person</div>
+                  </>
                 )}
-                <div className="text-xs text-gray-400">per person</div>
               </div>
               {pkg.reviewCount > 0 && (
                 <div className="flex items-center justify-center gap-1 mb-5">
@@ -328,13 +355,23 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
                   <span>Max group size: {pkg.maxGroupSize}</span>
                 </div>
               </div>
-              <Link
-                href={`/booking?type=package&id=${pkg.id}&name=${encodeURIComponent(pkg.name)}&price=${pkg.price}`}
-                className="block w-full text-center py-3 rounded-xl font-bold text-[#0A1628] text-sm hover:brightness-110 transition-all mb-3"
-                style={{ background: '#FFD700' }}
-              >
-                Book Now
-              </Link>
+              {pkg.priceOnRequest ? (
+                <a
+                  href={quoteUrl}
+                  className="block w-full text-center py-3 rounded-xl font-bold text-[#0A1628] text-sm hover:brightness-110 transition-all mb-3"
+                  style={{ background: '#FFD700' }}
+                >
+                  Request a Quote
+                </a>
+              ) : (
+                <Link
+                  href={`/booking?type=package&id=${pkg.id}&name=${encodeURIComponent(pkg.name)}&price=${pkg.price}`}
+                  className="block w-full text-center py-3 rounded-xl font-bold text-[#0A1628] text-sm hover:brightness-110 transition-all mb-3"
+                  style={{ background: '#FFD700' }}
+                >
+                  Book Now
+                </Link>
+              )}
               <button
                 onClick={() => setActiveTab('Booking')}
                 className="block w-full text-center py-3 rounded-xl font-bold text-white text-sm hover:opacity-90 transition-all"
