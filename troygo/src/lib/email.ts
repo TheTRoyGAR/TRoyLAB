@@ -1,3 +1,5 @@
+// Email sending. Primary: Resend (see sendViaResend). Fallback: the Gmail API path below, which needs a live
+// Gmail OAuth login (the saved one pointed at a deleted Google account on 2026-10-28, so it fails until replaced).
 // Real Gmail send via agency@troytravelagency.com - reuses the same OAuth2
 // consent already granted for that account (see
 // TRoyAI/.gmail_token_agency_troytravelagency.json / gmail_tool.py in the
@@ -81,6 +83,9 @@ export interface SendEmailResult {
  * the whole request over an email problem.
  */
 export async function sendEmail(opts: { to: string; subject: string; text: string }): Promise<SendEmailResult> {
+  // Preferred path: Resend (no Google login to expire or be deleted). Used whenever RESEND_API_KEY is set.
+  if (process.env.RESEND_API_KEY) return sendViaResend(opts)
+
   const sender = process.env.GMAIL_SENDER_ADDRESS
   const { GMAIL_OAUTH_CLIENT_ID, GMAIL_OAUTH_CLIENT_SECRET, GMAIL_OAUTH_REFRESH_TOKEN } = process.env
 
@@ -111,6 +116,44 @@ export async function sendEmail(opts: { to: string; subject: string; text: strin
     return { sent: true }
   } catch (err) {
     console.error('[TRoyGO email] Real send failed:', err)
+    return { sent: false, error: err instanceof Error ? err.message : String(err) }
+  }
+}
+
+// Resend REST API. Env vars (Vercel, Production + Preview):
+//   RESEND_API_KEY  - sending-access key from resend.com (sensitive)
+//   EMAIL_FROM      - e.g. "TRoyGO <agency@send.troytravelagency.com>" (an address on the verified Resend domain)
+//   EMAIL_REPLY_TO  - optional, defaults to agency@troytravelagency.com so customer replies reach the real mailbox
+async function sendViaResend(opts: { to: string; subject: string; text: string }): Promise<SendEmailResult> {
+  const from = process.env.EMAIL_FROM
+  if (!from) {
+    const error = 'Email not configured: RESEND_API_KEY is set but EMAIL_FROM is missing.'
+    console.error('[TRoyGO email]', error)
+    return { sent: false, error }
+  }
+  try {
+    const resp = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from,
+        to: [opts.to],
+        subject: opts.subject,
+        text: opts.text,
+        reply_to: process.env.EMAIL_REPLY_TO || 'agency@troytravelagency.com',
+      }),
+      signal: AbortSignal.timeout(15000),
+    })
+    if (!resp.ok) {
+      const body = await resp.text()
+      throw new Error(`Resend send failed: ${resp.status} ${body}`)
+    }
+    return { sent: true }
+  } catch (err) {
+    console.error('[TRoyGO email] Resend send failed:', err)
     return { sent: false, error: err instanceof Error ? err.message : String(err) }
   }
 }
