@@ -21,8 +21,9 @@ export interface TravelPackage {
   destination: string
   countries: string[]
   duration: number // days
-  price: number // USD per person
+  price: number // USD per person; 0 when priceOnRequest
   originalPrice: number // USD per person
+  priceOnRequest?: boolean // true = no confirmed price: show "Price on request", quote individually
   currency: 'USD'
   rating: number
   reviewCount: number

@@ -73,9 +73,11 @@ function CheckOption({
 
 interface Props {
   onChange: (filters: PackageFilterState) => void
+  showPrice?: boolean
+  showRating?: boolean
 }
 
-export default function PackageFilters({ onChange }: Props) {
+export default function PackageFilters({ onChange, showPrice = true, showRating = true }: Props) {
   const [filters, setFilters] = useState<PackageFilterState>(DEFAULT_FILTERS)
   const [open, setOpen] = useState(false)
   const { formatPrice } = useCurrency()
@@ -127,6 +129,7 @@ export default function PackageFilters({ onChange }: Props) {
         </div>
 
         {/* Price range */}
+        {showPrice && (
         <div>
           <h4 className="text-sm font-semibold text-[#0A1628] mb-3">Price per Person</h4>
           <div className="space-y-2">
@@ -147,6 +150,7 @@ export default function PackageFilters({ onChange }: Props) {
             </div>
           </div>
         </div>
+        )}
 
         {/* Duration */}
         <div>
@@ -179,6 +183,7 @@ export default function PackageFilters({ onChange }: Props) {
         </div>
 
         {/* Rating */}
+        {showRating && (
         <div>
           <h4 className="text-sm font-semibold text-[#0A1628] mb-3">Guest Rating</h4>
           <div className="space-y-2">
@@ -196,6 +201,7 @@ export default function PackageFilters({ onChange }: Props) {
             ))}
           </div>
         </div>
+        )}
 
         {/* Includes */}
         <div>

@@ -15,6 +15,7 @@ interface TravelPackage {
   duration: number
   price: number
   originalPrice?: number
+  priceOnRequest?: boolean
   currency: string
   rating: number
   reviewCount: number
@@ -48,7 +49,7 @@ export default function PackageCard({ pkg }: { pkg: TravelPackage }) {
   const [saved, setSaved] = useState(false)
   const photo = useDestinationPhoto(pkg.destination)
   const { formatPrice } = useCurrency()
-  const discount = pkg.originalPrice
+  const discount = !pkg.priceOnRequest && pkg.originalPrice
     ? Math.round(((pkg.originalPrice - pkg.price) / pkg.originalPrice) * 100)
     : 0
   const isBestSeller = pkg.rating >= 4.7 && pkg.reviewCount > 0
@@ -150,12 +151,18 @@ export default function PackageCard({ pkg }: { pkg: TravelPackage }) {
         <div className="flex items-center justify-between gap-3">
           <div>
             <div className="flex items-baseline gap-1.5">
-              <span className="text-xl font-black text-[#0A1628]">
-                {formatPrice(pkg.price)}
-              </span>
-              <span className="text-xs text-gray-400">/ person</span>
+              {pkg.priceOnRequest ? (
+                <span className="text-base font-bold text-[#0A1628]">Price on request</span>
+              ) : (
+                <>
+                  <span className="text-xl font-black text-[#0A1628]">
+                    {formatPrice(pkg.price)}
+                  </span>
+                  <span className="text-xs text-gray-400">/ person</span>
+                </>
+              )}
             </div>
-            {pkg.originalPrice !== undefined && pkg.originalPrice > pkg.price && (
+            {!pkg.priceOnRequest && pkg.originalPrice !== undefined && pkg.originalPrice > pkg.price && (
               <span className="text-xs text-gray-400 line-through">
                 {formatPrice(pkg.originalPrice)}
               </span>

@@ -10,10 +10,10 @@ import MainLayout from '@/components/layout/MainLayout'
 
 const SORT_OPTIONS = [
   { value: 'recommended', label: 'Recommended' },
-  { value: 'price-asc', label: 'Price: Low to High' },
-  { value: 'price-desc', label: 'Price: High to Low' },
-  { value: 'rating', label: 'Top Rated' },
-  { value: 'popular', label: 'Most Popular' },
+  { value: 'price-asc', label: 'Price: Low to High', needsPrices: true },
+  { value: 'price-desc', label: 'Price: High to Low', needsPrices: true },
+  { value: 'rating', label: 'Top Rated', needsReviews: true },
+  { value: 'popular', label: 'Most Popular', needsReviews: true },
 ]
 
 const PER_PAGE = 9
@@ -32,6 +32,9 @@ function PackagesContent() {
   })
   const [page, setPage] = useState(1)
 
+  const hasPrices = useMemo(() => travelPackages.some((p) => !p.priceOnRequest), [])
+  const hasReviews = useMemo(() => travelPackages.some((p) => p.reviewCount > 0), [])
+
   const filtered = useMemo(() => {
     let list = [...travelPackages]
 
@@ -46,7 +49,7 @@ function PackagesContent() {
     }
 
     // price
-    list = list.filter((p) => p.price >= filters.priceMin && p.price <= filters.priceMax)
+    list = list.filter((p) => p.priceOnRequest || (p.price >= filters.priceMin && p.price <= filters.priceMax))
 
     // duration
     if (filters.durations.length > 0) {
@@ -115,6 +118,7 @@ function PackagesContent() {
     duration: p.duration,
     price: p.price,
     originalPrice: p.originalPrice,
+    priceOnRequest: p.priceOnRequest,
     currency: p.currency,
     rating: p.rating,
     reviewCount: p.reviewCount,
@@ -174,7 +178,7 @@ function PackagesContent() {
               onChange={(e) => { setSort(e.target.value); setPage(1) }}
               className="appearance-none pl-3 pr-8 py-2 rounded-xl border border-gray-200 text-sm font-medium text-[#0A1628] bg-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8]/40 cursor-pointer"
             >
-              {SORT_OPTIONS.map((o) => (
+              {SORT_OPTIONS.filter((o) => (!('needsPrices' in o) || hasPrices) && (!('needsReviews' in o) || hasReviews)).map((o) => (
                 <option key={o.value} value={o.value}>{o.label}</option>
               ))}
             </select>
@@ -185,14 +189,14 @@ function PackagesContent() {
         <div className="flex gap-8">
           {/* Filters sidebar */}
           <aside className="w-64 shrink-0 hidden lg:block">
-            <PackageFilters onChange={handleFilterChange} />
+            <PackageFilters onChange={handleFilterChange} showPrice={hasPrices} showRating={hasReviews} />
           </aside>
 
           {/* Results */}
           <div className="flex-1">
             {/* Mobile filters */}
             <div className="lg:hidden mb-4">
-              <PackageFilters onChange={handleFilterChange} />
+              <PackageFilters onChange={handleFilterChange} showPrice={hasPrices} showRating={hasReviews} />
             </div>
 
             {paged.length === 0 ? (
