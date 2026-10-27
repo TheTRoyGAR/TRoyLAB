@@ -260,12 +260,12 @@ export default function PartnersPage() {
         </div>
 
         <div className="max-w-5xl mx-auto px-4 py-14 space-y-14">
-          <section id="registered-with">
+          <section id="our-partners">
             <h2
               className="text-2xl font-bold text-[#0A1628] mb-6 text-center"
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
-              Registered with
+              Our Partners
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
