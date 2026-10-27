@@ -4,12 +4,15 @@ import { useState } from 'react'
 import { ShieldCheck, MapPin, UserPlus, CheckCircle2, Loader2 } from 'lucide-react'
 import MainLayout from '@/components/layout/MainLayout'
 import { trustedPartners } from '@/lib/data/partners'
+import TurnstileWidget, { TURNSTILE_SITE_KEY } from '@/components/ui/TurnstileWidget'
 
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error'
 
 function BecomeAPartnerForm() {
   const [state, setState] = useState<SubmitState>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const [captcha, setCaptcha] = useState('')
+  const [captchaReset, setCaptchaReset] = useState(0)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -18,6 +21,7 @@ function BecomeAPartnerForm() {
 
     const form = e.currentTarget
     const formData = new FormData(form)
+    formData.set('turnstile', captcha)
 
     try {
       const res = await fetch('/api/partners/apply', { method: 'POST', body: formData })
@@ -26,6 +30,7 @@ function BecomeAPartnerForm() {
       if (!res.ok || !data.success) {
         setErrorMessage(data.error ?? 'Something went wrong. Please try again.')
         setState('error')
+        setCaptcha(''); setCaptchaReset((n) => n + 1)
         return
       }
 
@@ -34,6 +39,7 @@ function BecomeAPartnerForm() {
     } catch {
       setErrorMessage('Network error. Please try again.')
       setState('error')
+      setCaptcha(''); setCaptchaReset((n) => n + 1)
     }
   }
 
@@ -54,15 +60,30 @@ function BecomeAPartnerForm() {
     <form onSubmit={handleSubmit} className="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 space-y-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
+          <label className="block text-sm font-semibold text-[#0A1628] mb-1.5" htmlFor="organisation">
+            Business or organisation name *
+          </label>
+          <input
+            id="organisation"
+            name="organisation"
+            required
+            autoComplete="organization"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
+          />
+          
+        </div>
+        <div>
           <label className="block text-sm font-semibold text-[#0A1628] mb-1.5" htmlFor="name">
-            Name / Company *
+            Contact person *
           </label>
           <input
             id="name"
             name="name"
             required
+            autoComplete="name"
             className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
           />
+          
         </div>
         <div>
           <label className="block text-sm font-semibold text-[#0A1628] mb-1.5" htmlFor="email">
@@ -71,10 +92,50 @@ function BecomeAPartnerForm() {
           <input
             id="email"
             name="email"
-            type="email"
             required
+            type="email" autoComplete="email"
             className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
           />
+          
+        </div>
+        <div>
+          <label className="block text-sm font-semibold text-[#0A1628] mb-1.5" htmlFor="country">
+            Country you operate from *
+          </label>
+          <input
+            id="country"
+            name="country"
+            required
+            autoComplete="country-name"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
+          />
+          
+        </div>
+        <div>
+          <label className="block text-sm font-semibold text-[#0A1628] mb-1.5" htmlFor="website">
+            Website
+          </label>
+          <input
+            id="website"
+            name="website"
+            
+            placeholder="https://example.com"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
+          />
+          
+        </div>
+        <div>
+          <label className="block text-sm font-semibold text-[#0A1628] mb-1.5" htmlFor="registrationNumber">
+            Business registration number
+          </label>
+          <input
+            id="registrationNumber"
+            name="registrationNumber"
+            
+            placeholder="ABN if Australian, or your local company number"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
+          />
+          <p className="mt-1 text-xs text-gray-500">Helps us verify you. Australian businesses: your ABN.</p>
         </div>
       </div>
 
@@ -141,13 +202,23 @@ function BecomeAPartnerForm() {
         />
       </div>
 
+      <label className="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" name="consent" required className="w-5 h-5 mt-0.5 rounded shrink-0" style={{ accentColor: '#00B4D8' }} />
+        <span className="text-sm text-gray-600">
+          I confirm the details above are accurate and that I am authorised to offer these services and packages.
+          I understand TRoyGO™ reviews every application and that applying does not create a partnership.
+        </span>
+      </label>
+
+      <TurnstileWidget onToken={setCaptcha} resetKey={captchaReset} />
+
       {state === 'error' && (
         <p className="text-sm text-red-600 font-medium">{errorMessage}</p>
       )}
 
       <button
         type="submit"
-        disabled={state === 'submitting'}
+        disabled={state === 'submitting' || (!!TURNSTILE_SITE_KEY && !captcha)}
         className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-[#0A1628] text-white font-semibold px-6 py-3 text-sm hover:bg-[#152D55] transition-colors disabled:opacity-60"
       >
         {state === 'submitting' ? (
