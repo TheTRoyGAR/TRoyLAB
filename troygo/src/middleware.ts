@@ -15,7 +15,8 @@ const ADMIN_ONLY_API: Record<string, string[] | '*'> = {
   '/api/bookings/create': ['GET', 'DELETE'], // POST = the public booking form
   '/api/agents/trigger': '*',
   '/api/newsletter': ['GET'], // POST = public signup
-  '/api/partners/apply': ['GET'], // POST = public application
+  '/api/partners/apply': ['GET', 'PATCH'], // POST = public application
+  '/api/partners/document': '*', // the applicant's private document
 }
 
 function isAdminOnlyApi(pathname: string, method: string): boolean {

@@ -62,6 +62,11 @@ export function ensureSchema(): Promise<void> {
           reviewed_at TIMESTAMPTZ
         )
       `
+      // Partner review fields (added with the admin Partners screen). IF NOT EXISTS keeps this idempotent.
+      await sql`ALTER TABLE partner_submissions ADD COLUMN IF NOT EXISTS organisation TEXT`
+      await sql`ALTER TABLE partner_submissions ADD COLUMN IF NOT EXISTS country TEXT`
+      await sql`ALTER TABLE partner_submissions ADD COLUMN IF NOT EXISTS website TEXT`
+      await sql`ALTER TABLE partner_submissions ADD COLUMN IF NOT EXISTS registration_number TEXT`
       await sql`
         CREATE TABLE IF NOT EXISTS newsletter_subscribers (
           email TEXT PRIMARY KEY,
