@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import PartnerLogos from '@/components/ui/PartnerLogos'
 import {
   Plane,
   Hotel,
@@ -472,6 +473,14 @@ export default function Footer() {
               </ul>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* ── Our Partners ────────────────────────────────────────────────────── */}
+      <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <p className="text-center text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">Our Partners</p>
+          <PartnerLogos size="sm" />
         </div>
       </div>
 
