@@ -89,7 +89,7 @@ export default function TripAddOns({ cityName, departureDate, returnDate }: Trip
                 <p className="font-semibold text-sm text-[#0A1628] truncate">{h.name}</p>
                 <p className="text-xs text-slate-500 mt-0.5">{h.stars}★ · {h.location.city}</p>
                 <p className="text-sm font-bold text-[#0A1628] mt-2">
-                  {formatPrice(h.pricePerNight)} <span className="text-xs font-normal text-slate-400">/ night</span>
+                  {h.priceOnRequest ? 'Price on request' : <>{formatPrice(h.pricePerNight)} <span className="text-xs font-normal text-slate-400">/ night</span></>}
                 </p>
               </Link>
             ))}
@@ -112,7 +112,7 @@ export default function TripAddOns({ cityName, departureDate, returnDate }: Trip
                 <p className="font-semibold text-sm text-[#0A1628] truncate">{c.name}</p>
                 <p className="text-xs text-slate-500 mt-0.5">{c.type} · {c.transmission}</p>
                 <p className="text-sm font-bold text-[#0A1628] mt-2">
-                  {formatPrice(c.pricePerDay)} <span className="text-xs font-normal text-slate-400">/ day</span>
+                  {c.priceOnRequest ? 'Price on request' : <>{formatPrice(c.pricePerDay)} <span className="text-xs font-normal text-slate-400">/ day</span></>}
                 </p>
               </Link>
             ))}
@@ -135,7 +135,7 @@ export default function TripAddOns({ cityName, departureDate, returnDate }: Trip
                 <p className="font-semibold text-sm text-[#0A1628] truncate">{p.name}</p>
                 <p className="text-xs text-slate-500 mt-0.5">{p.duration} day{p.duration > 1 ? 's' : ''} · {p.category}</p>
                 <p className="text-sm font-bold text-[#0A1628] mt-2">
-                  {formatPrice(p.price)} <span className="text-xs font-normal text-slate-400">/ person</span>
+                  {p.priceOnRequest ? 'Price on request' : <>{formatPrice(p.price)} <span className="text-xs font-normal text-slate-400">/ person</span></>}
                 </p>
               </Link>
             ))}

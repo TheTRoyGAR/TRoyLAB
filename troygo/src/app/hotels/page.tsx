@@ -80,8 +80,8 @@ function RatingBadge({ rating }: { rating: number }) {
 
 /* ─── Hotel Card ──────────────────────────────────────────────────────────── */
 function HotelCard({ hotel }: { hotel: HotelType }) {
-  const isFree = hotel.cancellationPolicy === 'Free cancellation'
-  const discount = Math.round(((hotel.originalPrice - hotel.pricePerNight) / hotel.originalPrice) * 100)
+  const isFree = !hotel.priceOnRequest && hotel.cancellationPolicy === 'Free cancellation'
+  const discount = hotel.priceOnRequest || !hotel.originalPrice ? 0 : Math.round(((hotel.originalPrice - hotel.pricePerNight) / hotel.originalPrice) * 100)
   const photo = useDestinationPhoto(`${hotel.type} in ${hotel.location.city}`)
   const { formatPrice } = useCurrency()
 
@@ -134,7 +134,7 @@ function HotelCard({ hotel }: { hotel: HotelType }) {
             </div>
             <p className="text-sm text-slate-500 leading-relaxed line-clamp-2">{hotel.description}</p>
           </div>
-          <RatingBadge rating={hotel.rating} />
+          {hotel.reviewCount > 0 && <RatingBadge rating={hotel.rating} />}
         </div>
 
         {/* Amenities */}
@@ -153,21 +153,29 @@ function HotelCard({ hotel }: { hotel: HotelType }) {
         {/* Price + CTA */}
         <div className="mt-auto pt-4 flex items-end justify-between gap-3">
           <div>
-            <p className="text-xs text-slate-400">per night from</p>
-            <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-black text-navy">{formatPrice(hotel.pricePerNight)}</span>
-              {hotel.originalPrice > hotel.pricePerNight && (
-                <span className="text-sm text-slate-400 line-through">{formatPrice(hotel.originalPrice)}</span>
-              )}
-            </div>
-            <p className="text-xs text-slate-400 mt-0.5">{hotel.reviewCount.toLocaleString()} reviews</p>
+            {hotel.priceOnRequest ? (
+              <p className="text-base font-bold text-navy">Price on request</p>
+            ) : (
+              <>
+                <p className="text-xs text-slate-400">per night from</p>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-2xl font-black text-navy">{formatPrice(hotel.pricePerNight)}</span>
+                  {hotel.originalPrice > hotel.pricePerNight && (
+                    <span className="text-sm text-slate-400 line-through">{formatPrice(hotel.originalPrice)}</span>
+                  )}
+                </div>
+              </>
+            )}
+            {hotel.reviewCount > 0 && (
+              <p className="text-xs text-slate-400 mt-0.5">{hotel.reviewCount.toLocaleString()} reviews</p>
+            )}
           </div>
           <Link
-            href={`/booking?type=hotel&id=${hotel.id}`}
+            href={`/booking?type=hotel&id=${hotel.id}&name=${encodeURIComponent(hotel.name)}`}
             className="px-5 py-2.5 rounded-xl font-bold text-sm text-white shadow-sm hover:brightness-110 hover:-translate-y-0.5 transition-all whitespace-nowrap"
             style={{ background: '#00B4D8' }}
           >
-            View Hotel
+            {hotel.priceOnRequest ? 'Request a Quote' : 'View Hotel'}
           </Link>
         </div>
       </div>
@@ -244,7 +252,9 @@ function FilterSidebar({
   amenityFilter, setAmenityFilter,
   ratingMin, setRatingMin,
   typeFilter, setTypeFilter,
+  showPrice, showRating,
 }: {
+  showPrice: boolean; showRating: boolean
   starFilter: Set<number>; setStarFilter: (v: Set<number>) => void
   priceRange: [number, number]; setPriceRange: (v: [number, number]) => void
   amenityFilter: Set<string>; setAmenityFilter: (v: Set<string>) => void
@@ -291,6 +301,7 @@ function FilterSidebar({
       </div>
 
       {/* Price range */}
+      {showPrice && (
       <div>
         <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wide mb-3">Price Per Night</h4>
         <div className="flex items-center justify-between mb-1">
@@ -308,8 +319,10 @@ function FilterSidebar({
           style={{ accentColor: '#00B4D8' }}
         />
       </div>
+      )}
 
       {/* Guest rating */}
+      {showRating && (
       <div>
         <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wide mb-3">Guest Rating</h4>
         <div className="space-y-2">
@@ -342,6 +355,7 @@ function FilterSidebar({
           </label>
         </div>
       </div>
+      )}
 
       {/* Hotel type */}
       <div>
@@ -414,11 +428,14 @@ function HotelsContent() {
   const [ratingMin, setRatingMin] = useState(0)
   const [typeFilter, setTypeFilter] = useState<Set<HotelTypeFilter>>(new Set(['hotel', 'resort', 'hostel', 'boutique']))
 
+  const hasPrices = useMemo(() => sampleHotels.some((h) => !h.priceOnRequest), [])
+  const hasRatings = useMemo(() => sampleHotels.some((h) => h.reviewCount > 0), [])
+
   const filtered = useMemo(() => {
     return sampleHotels.filter((h) => {
       if (!starFilter.has(h.stars)) return false
-      if (h.pricePerNight > priceRange[1]) return false
-      if (h.rating < ratingMin) return false
+      if (!h.priceOnRequest && h.pricePerNight > priceRange[1]) return false
+      if (h.reviewCount > 0 && h.rating < ratingMin) return false
       if (!typeFilter.has(h.type)) return false
       if (amenityFilter.size > 0) {
         for (const a of amenityFilter) {
@@ -441,7 +458,7 @@ function HotelsContent() {
       if (sortMode === 'stars') return b.stars - a.stars
       if (sortMode === 'rating') return b.rating - a.rating
       // recommended: stars * rating
-      return (b.stars * b.rating) - (a.stars * a.rating)
+      return (b.stars * (b.rating || 1)) - (a.stars * (a.rating || 1))
     })
   }, [filtered, sortMode])
 
@@ -478,6 +495,7 @@ function HotelsContent() {
                 amenityFilter={amenityFilter} setAmenityFilter={setAmenityFilter}
                 ratingMin={ratingMin} setRatingMin={setRatingMin}
                 typeFilter={typeFilter} setTypeFilter={setTypeFilter}
+                showPrice={hasPrices} showRating={hasRatings}
               />
             </div>
 
@@ -497,7 +515,7 @@ function HotelsContent() {
                       { label: 'Price', value: 'price-asc' },
                       { label: 'Stars', value: 'stars' },
                       { label: 'Rating', value: 'rating' },
-                    ] as const).map((opt) => (
+                    ] as const).filter((opt) => (opt.value !== 'price-asc' || hasPrices) && (opt.value !== 'rating' || hasRatings)).map((opt) => (
                       <button
                         key={opt.value}
                         onClick={() => setSortMode(opt.value)}

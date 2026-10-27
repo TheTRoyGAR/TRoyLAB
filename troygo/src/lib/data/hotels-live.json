@@ -8,26 +8,26 @@
       "address": "147 West 43rd Street, New York, NY 10036"
     },
     "stars": 4,
-    "rating": 9.3,
-    "reviewCount": 1308,
-    "pricePerNight": 292.0,
-    "originalPrice": 292.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "Petite Queen Room",
-        "price": 236.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "Queen"
       },
       {
         "name": "Deluxe Room",
-        "price": 292.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "Queen"
       },
       {
         "name": "Mini Suite",
-        "price": 353.0,
+        "price": 0,
         "capacity": 4,
         "bedType": "King + Sofabed"
       }
@@ -46,7 +46,7 @@
       "Flat-screen TV with 45 premium channels"
     ],
     "images": "from-blue-900 via-indigo-800 to-purple-900",
-    "description": "An intimate boutique hotel in the heart of Times Square's Broadway Theatre District, inspired by the film 'Casablanca,' offering Moroccan-style guestrooms and generous included amenities such as daily breakfast and all-day refreshments at Rick's Cafe. Rated #13 hotel in the US by TripAdvisor Travelers' Choice Awards.",
+    "description": "An intimate boutique hotel in the heart of Times Square's Broadway Theatre District, inspired by the film 'Casablanca,' offering Moroccan-style guestrooms and generous included amenities such as daily breakfast and all-day refreshments at Rick's Cafe.",
     "nearbyAttractions": [
       "Times Square",
       "Broadway Theater District",
@@ -55,8 +55,9 @@
     ],
     "checkInTime": "15:00",
     "checkOutTime": "11:00",
-    "cancellationPolicy": "Free cancellation",
-    "type": "boutique"
+    "cancellationPolicy": "To be confirmed",
+    "type": "boutique",
+    "priceOnRequest": true
   },
   {
     "id": "HTL002",
@@ -67,44 +68,44 @@
       "address": "851 Eighth Ave, New York City, New York 10019"
     },
     "stars": 4,
-    "rating": 8.7,
-    "reviewCount": 5214,
-    "pricePerNight": 162.0,
-    "originalPrice": 162.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "Deluxe King",
-        "price": 159.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       },
       {
         "name": "Deluxe Two Queen Beds",
-        "price": 199.0,
+        "price": 0,
         "capacity": 4,
         "bedType": "2 Queens"
       },
       {
         "name": "One Bedroom King Suite",
-        "price": 259.0,
+        "price": 0,
         "capacity": 4,
         "bedType": "King"
       }
     ],
     "amenities": [
-      "Neighborhood Caf\u00e9 (all-day coffee and bites)",
+      "Neighborhood Café (all-day coffee and bites)",
       "So & So's piano bar and restaurant",
       "Fitness center",
       "Free Wi-Fi",
       "Pet-friendly",
       "Local artwork in rooms",
       "Seating area in every room",
-      "\u00c0 la carte breakfast available",
+      "À la carte breakfast available",
       "Concierge with neighborhood recommendations",
       "Parking packages available"
     ],
     "images": "from-red-900 via-rose-800 to-pink-900",
-    "description": "A stylish neighborhood hotel in Hell's Kitchen, Manhattan, just west of Broadway and a short walk from Times Square, designed to reflect the eclectic character of the area with pre-war inspired d\u00e9cor, local artwork, and a plush piano bar. Offers rooms ranging from 300 to 650 sq ft.",
+    "description": "A stylish neighborhood hotel in Hell's Kitchen, Manhattan, just west of Broadway and a short walk from Times Square, designed to reflect the eclectic character of the area with pre-war inspired décor, local artwork, and a plush piano bar. Offers rooms ranging from 300 to 650 sq ft.",
     "nearbyAttractions": [
       "Times Square",
       "Broadway Theaters",
@@ -113,8 +114,9 @@
     ],
     "checkInTime": "15:00",
     "checkOutTime": "11:00",
-    "cancellationPolicy": "Free cancellation",
-    "type": "hotel"
+    "cancellationPolicy": "To be confirmed",
+    "type": "hotel",
+    "priceOnRequest": true
   },
   {
     "id": "HTL003",
@@ -125,26 +127,26 @@
       "address": "9 Rue Frochot, 75009 Paris, France"
     },
     "stars": 4,
-    "rating": 8.6,
-    "reviewCount": 893,
-    "pricePerNight": 213.0,
-    "originalPrice": 213.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "Standard Room",
-        "price": 213.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "Double"
       },
       {
         "name": "Queen Room",
-        "price": 286.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "Queen"
       },
       {
         "name": "King Room",
-        "price": 345.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       }
@@ -165,17 +167,18 @@
       "Secure parking"
     ],
     "images": "from-cyan-800 via-teal-700 to-emerald-800",
-    "description": "A vibrant 40-room boutique hotel in the heart of the Pigalle neighborhood, designed by FESTEN Architecture and deeply rooted in the local artistic community, with custom-furnished rooms, a neighborhood caf\u00e9, bar, and restaurant run by local characters. Described as a 'neighborhood hotel' and member of Design Hotels.",
+    "description": "A vibrant 40-room boutique hotel in the heart of the Pigalle neighborhood, designed by FESTEN Architecture and deeply rooted in the local artistic community, with custom-furnished rooms, a neighborhood café, bar, and restaurant run by local characters. Described as a 'neighborhood hotel' and member of Design Hotels.",
     "nearbyAttractions": [
       "Moulin Rouge (0.3 mi)",
-      "Montmartre and Sacr\u00e9-C\u0153ur Basilica (0.5 mi)",
-      "Op\u00e9ra Garnier (0.7 mi)",
+      "Montmartre and Sacré-Cœur Basilica (0.5 mi)",
+      "Opéra Garnier (0.7 mi)",
       "Louvre Museum (1.4 mi)"
     ],
     "checkInTime": "15:00",
     "checkOutTime": "12:00",
-    "cancellationPolicy": "Free cancellation",
-    "type": "boutique"
+    "cancellationPolicy": "To be confirmed",
+    "type": "boutique",
+    "priceOnRequest": true
   },
   {
     "id": "HTL004",
@@ -186,26 +189,26 @@
       "address": "1-9-1 Otemachi, Chiyoda-ku, Tokyo 100-0004"
     },
     "stars": 5,
-    "rating": 9.2,
-    "reviewCount": 268,
-    "pricePerNight": 422.0,
-    "originalPrice": 422.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "Deluxe Room (Sakura / Twin)",
-        "price": 422.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "Twin"
       },
       {
         "name": "Deluxe Room (Yuri / King)",
-        "price": 816.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       },
       {
         "name": "Kiku Executive Triple Room",
-        "price": 761.0,
+        "price": 0,
         "capacity": 3,
         "bedType": "3 Single beds"
       }
@@ -213,7 +216,7 @@
     "amenities": [
       "Rooftop open-air onsen (hot springs)",
       "3 restaurants",
-      "Caf\u00e9/lounge",
+      "Café/lounge",
       "Spa and massage",
       "Free Wi-Fi",
       "Private ochanoma (traditional lounge) per floor",
@@ -236,8 +239,9 @@
     ],
     "checkInTime": "15:00",
     "checkOutTime": "12:00",
-    "cancellationPolicy": "Free cancellation",
-    "type": "boutique"
+    "cancellationPolicy": "To be confirmed",
+    "type": "boutique",
+    "priceOnRequest": true
   },
   {
     "id": "HTL005",
@@ -248,26 +252,26 @@
       "address": "Kawasan Pariwisata, Nusa Dua, Lot S6, South Kuta 80363, Bali"
     },
     "stars": 5,
-    "rating": 9.7,
-    "reviewCount": 534,
-    "pricePerNight": 505.0,
-    "originalPrice": 505.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "Standard King Room",
-        "price": 505.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       },
       {
         "name": "Double Room (2 Queens)",
-        "price": 558.0,
+        "price": 0,
         "capacity": 4,
         "bedType": "2 Queens"
       },
       {
         "name": "Double Room (2 Doubles)",
-        "price": 752.0,
+        "price": 0,
         "capacity": 4,
         "bedType": "2 Doubles"
       }
@@ -292,7 +296,7 @@
       "Water sports facilities"
     ],
     "images": "from-slate-700 via-gray-600 to-zinc-700",
-    "description": "An award-winning 5-star beachfront resort in Nusa Dua with 123 air-conditioned rooms, a private beach, multiple pools, a world-class spa, and fine dining at Kayuputi Restaurant \u2014 consistently rated among the best luxury resorts in Bali. Rated 9.7/10 Wonderful on KAYAK from 534 verified reviews.",
+    "description": "An award-winning 5-star beachfront resort in Nusa Dua with 123 air-conditioned rooms, a private beach, multiple pools, a world-class spa, and fine dining at Kayuputi Restaurant — consistently rated among the best luxury resorts in Bali.",
     "nearbyAttractions": [
       "Bali Collection Shopping Centre (0.8 mi)",
       "Nusa Dua Beach (1.3 mi)",
@@ -301,8 +305,9 @@
     ],
     "checkInTime": "15:00",
     "checkOutTime": "12:00",
-    "cancellationPolicy": "Free cancellation",
-    "type": "resort"
+    "cancellationPolicy": "To be confirmed",
+    "type": "resort",
+    "priceOnRequest": true
   },
   {
     "id": "HTL006",
@@ -310,35 +315,35 @@
     "location": {
       "city": "Rome",
       "country": "Italy",
-      "address": "Piazza della Trinit\u00e0 dei Monti, 6, 00187 Roma, Italia"
+      "address": "Piazza della Trinità dei Monti, 6, 00187 Roma, Italia"
     },
     "stars": 5,
-    "rating": 9.6,
-    "reviewCount": 606,
-    "pricePerNight": 393.0,
-    "originalPrice": 393.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "Deluxe Room",
-        "price": 176.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King or Twin"
       },
       {
         "name": "Grand Deluxe Room",
-        "price": 393.0,
+        "price": 0,
         "capacity": 3,
         "bedType": "King"
       },
       {
         "name": "Junior Suite",
-        "price": 761.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       }
     ],
     "amenities": [
-      "Michelin-starred Im\u00e0go restaurant",
+      "Michelin-starred Imàgo restaurant",
       "Salone Eva & Palm Court restaurant",
       "Carmen's Bar",
       "7th Floor Terrace with panoramic views",
@@ -355,7 +360,7 @@
       "Air conditioning"
     ],
     "images": "from-amber-800 via-yellow-700 to-lime-800",
-    "description": "A quintessential 5-star luxury hotel atop the Spanish Steps in Rome, offering 82 individually decorated rooms and suites with panoramic terraces overlooking the Eternal City's rooftops, a Michelin-starred restaurant, and a full-service spa. Rated 9.6/10 Wonderful on KAYAK from 606 verified reviews.",
+    "description": "A quintessential 5-star luxury hotel atop the Spanish Steps in Rome, offering 82 individually decorated rooms and suites with panoramic terraces overlooking the Eternal City's rooftops, a Michelin-starred restaurant, and a full-service spa.",
     "nearbyAttractions": [
       "Spanish Steps (64 yards)",
       "Trevi Fountain (0.3 mi)",
@@ -364,8 +369,9 @@
     ],
     "checkInTime": "14:00",
     "checkOutTime": "12:00",
-    "cancellationPolicy": "Free cancellation",
-    "type": "hotel"
+    "cancellationPolicy": "To be confirmed",
+    "type": "hotel",
+    "priceOnRequest": true
   },
   {
     "id": "HTL007",
@@ -376,26 +382,26 @@
       "address": "Dock Road, V&A Waterfront, Cape Town, Western Cape"
     },
     "stars": 5,
-    "rating": 9.1,
-    "reviewCount": 574,
-    "pricePerNight": 877.0,
-    "originalPrice": 877.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "Double Room",
-        "price": 877.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "Double"
       },
       {
         "name": "Premier Room (2 Queen Beds)",
-        "price": 1031.0,
+        "price": 0,
         "capacity": 4,
         "bedType": "2 Queens"
       },
       {
         "name": "King Room",
-        "price": 1006.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       }
@@ -420,7 +426,7 @@
       "Minibar"
     ],
     "images": "from-green-800 via-emerald-700 to-teal-800",
-    "description": "A 5-star luxury waterfront resort on the V&A Waterfront with Table Mountain as its stunning backdrop, offering elegant rooms with private balconies, a lush infinity pool, world-class spa, and dining at Nobu and Reuben's restaurants. Rated 9.1/10 Wonderful on KAYAK from 574 verified reviews.",
+    "description": "A 5-star luxury waterfront resort on the V&A Waterfront with Table Mountain as its stunning backdrop, offering elegant rooms with private balconies, a lush infinity pool, world-class spa, and dining at Nobu and Reuben's restaurants.",
     "nearbyAttractions": [
       "Victoria & Alfred Waterfront (0.3 mi)",
       "Cape Town Stadium (0.5 mi)",
@@ -429,8 +435,9 @@
     ],
     "checkInTime": "14:00",
     "checkOutTime": "11:00",
-    "cancellationPolicy": "Free cancellation",
-    "type": "resort"
+    "cancellationPolicy": "To be confirmed",
+    "type": "resort",
+    "priceOnRequest": true
   },
   {
     "id": "HTL008",
@@ -441,26 +448,26 @@
       "address": "196-3-8 Soi Damnoen Klang Tai, Ratchadamnoen Rd., Bovornnivet, Phranakorn, Bangkok"
     },
     "stars": 3,
-    "rating": 9.2,
-    "reviewCount": 3746,
-    "pricePerNight": 15.0,
-    "originalPrice": 15.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "Mixed Dormitory",
-        "price": 10.0,
+        "price": 0,
         "capacity": 8,
         "bedType": "Bunk bed (with curtain)"
       },
       {
         "name": "Female-Only Dormitory",
-        "price": 12.0,
+        "price": 0,
         "capacity": 6,
         "bedType": "Bunk bed (with curtain)"
       },
       {
         "name": "Private Room",
-        "price": 25.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "Double"
       }
@@ -469,7 +476,7 @@
       "Free Wi-Fi",
       "THERE BAR & GARDEN (outdoor garden bar)",
       "Pool",
-      "Caf\u00e9",
+      "Café",
       "24-hour reception",
       "Luggage storage (free for 30 days)",
       "Bicycle parking",
@@ -484,7 +491,7 @@
       "Organized events (pub crawl, live music, pub quiz)"
     ],
     "images": "from-orange-800 via-amber-700 to-yellow-800",
-    "description": "A highly social hostel in a nearly 100-year-old renovated building in Bangkok's Old Town, a short walk from Khao San Road and the Grand Palace, featuring a signature lobby slide, garden pool bar, and a lively events calendar that earned it a TripAdvisor Certificate of Excellence. Rated 9.2 Superb by Hostelworld from 3,746 reviews.",
+    "description": "A highly social hostel in a nearly 100-year-old renovated building in Bangkok's Old Town, a short walk from Khao San Road and the Grand Palace, featuring a signature lobby slide, garden pool bar, and a lively events calendar.",
     "nearbyAttractions": [
       "Khao San Road (10-minute walk)",
       "Grand Palace",
@@ -493,8 +500,9 @@
     ],
     "checkInTime": "14:00",
     "checkOutTime": "12:00",
-    "cancellationPolicy": "24h cancellation",
-    "type": "hostel"
+    "cancellationPolicy": "To be confirmed",
+    "type": "hostel",
+    "priceOnRequest": true
   },
   {
     "id": "HTL009",
@@ -505,26 +513,26 @@
       "address": "7 Hickson Road, The Rocks, Sydney, NSW 2000"
     },
     "stars": 5,
-    "rating": 9.2,
-    "reviewCount": 594,
-    "pricePerNight": 248.0,
-    "originalPrice": 248.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "King Room",
-        "price": 248.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       },
       {
         "name": "Harbour Suite",
-        "price": 665.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       },
       {
         "name": "Opera Suite",
-        "price": 1068.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       }
@@ -555,8 +563,9 @@
     ],
     "checkInTime": "15:00",
     "checkOutTime": "11:00",
-    "cancellationPolicy": "Free cancellation",
-    "type": "hotel"
+    "cancellationPolicy": "To be confirmed",
+    "type": "hotel",
+    "priceOnRequest": true
   },
   {
     "id": "HTL010",
@@ -567,26 +576,26 @@
       "address": "176 Cumberland Street, The Rocks, Sydney, NSW 2000"
     },
     "stars": 5,
-    "rating": 8.7,
-    "reviewCount": 6865,
-    "pricePerNight": 305.0,
-    "originalPrice": 305.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "Deluxe Room",
-        "price": 305.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       },
       {
         "name": "Executive Room",
-        "price": 399.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King or Twin"
       },
       {
         "name": "Horizon Club Premier Sydney Harbour Room",
-        "price": 531.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       }
@@ -616,8 +625,9 @@
     ],
     "checkInTime": "15:00",
     "checkOutTime": "11:00",
-    "cancellationPolicy": "Free cancellation",
-    "type": "hotel"
+    "cancellationPolicy": "To be confirmed",
+    "type": "hotel",
+    "priceOnRequest": true
   },
   {
     "id": "HTL011",
@@ -628,26 +638,26 @@
       "address": "32 Mitchell Street, Darwin, NT 0800"
     },
     "stars": 5,
-    "rating": 8.7,
-    "reviewCount": 1065,
-    "pricePerNight": 101.0,
-    "originalPrice": 101.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "Double Room",
-        "price": 101.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "Double"
       },
       {
         "name": "King Room",
-        "price": 142.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       },
       {
         "name": "Standard Room",
-        "price": 163.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "2 Double Beds"
       }
@@ -679,8 +689,9 @@
     ],
     "checkInTime": "15:00",
     "checkOutTime": "12:00",
-    "cancellationPolicy": "Free cancellation",
-    "type": "hotel"
+    "cancellationPolicy": "To be confirmed",
+    "type": "hotel",
+    "priceOnRequest": true
   },
   {
     "id": "HTL012",
@@ -691,26 +702,26 @@
       "address": "7 Kitchener Drive, Darwin, NT 0800"
     },
     "stars": 4,
-    "rating": 8.2,
-    "reviewCount": 602,
-    "pricePerNight": 136.0,
-    "originalPrice": 136.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "Guest Room King or Twin",
-        "price": 136.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King or Twin"
       },
       {
         "name": "Guest Room King or Twin with View",
-        "price": 160.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King or Twin"
       },
       {
         "name": "Guest Room King or Twin and Single",
-        "price": 180.0,
+        "price": 0,
         "capacity": 3,
         "bedType": "King or Twin + Single"
       }
@@ -726,7 +737,7 @@
       "Room service",
       "Conference facilities",
       "Wedding facilities",
-      "On-site parking ($19/day)",
+      "On-site parking",
       "In-room safe",
       "Work desk",
       "Tea and coffee amenities",
@@ -743,38 +754,39 @@
     ],
     "checkInTime": "15:00",
     "checkOutTime": "11:00",
-    "cancellationPolicy": "Free cancellation",
-    "type": "hotel"
+    "cancellationPolicy": "To be confirmed",
+    "type": "hotel",
+    "priceOnRequest": true
   },
   {
     "id": "HTL013",
     "name": "Argos in Cappadocia",
     "location": {
-      "city": "U\u00e7hisar",
+      "city": "Uçhisar",
       "country": "Turkey",
-      "address": "Kayaba\u015f\u0131 Street 23, U\u00e7hisar 50240, Nev\u015fehir"
+      "address": "Kayabaşı Street 23, Uçhisar 50240, Nevşehir"
     },
     "stars": 5,
-    "rating": 9.6,
-    "reviewCount": 444,
-    "pricePerNight": 454.0,
-    "originalPrice": 454.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "Standard Room",
-        "price": 454.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "Double or Twin"
       },
       {
         "name": "Deluxe Room",
-        "price": 648.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "Double or Twin"
       },
       {
         "name": "Cave Splendid Suite",
-        "price": 1257.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "Double"
       }
@@ -802,17 +814,18 @@
       "Horse riding"
     ],
     "images": "from-rose-800 via-pink-700 to-fuchsia-800",
-    "description": "Restored from the ancient remains of a 9th-century monastery, Argos in Cappadocia features 71 unique hand-chiselled cave and stone rooms spread across nine mansions descending the hillside of historic U\u00e7hisar Village. A Forbes Travel Guide-rated property offering fine dining with farm-to-table cuisine, an ethereal cave spa pool, and breathtaking valley views.",
+    "description": "Restored from the ancient remains of a 9th-century monastery, Argos in Cappadocia features 71 unique hand-chiselled cave and stone rooms spread across nine mansions descending the hillside of historic Uçhisar Village. A property offering fine dining with farm-to-table cuisine, an ethereal cave spa pool, and breathtaking valley views.",
     "nearbyAttractions": [
-      "U\u00e7hisar Castle (166 yd)",
+      "Uçhisar Castle (166 yd)",
       "Pigeon Valley (0.7 mi)",
-      "G\u00f6reme Open Air Museum",
+      "Göreme Open Air Museum",
       "Hot air balloon launch sites"
     ],
     "checkInTime": "15:00",
     "checkOutTime": "12:00",
-    "cancellationPolicy": "Free cancellation",
-    "type": "boutique"
+    "cancellationPolicy": "To be confirmed",
+    "type": "boutique",
+    "priceOnRequest": true
   },
   {
     "id": "HTL014",
@@ -823,26 +836,26 @@
       "address": "Kihavah Huravalhi Island, Baa Atoll, Uthuru 20215"
     },
     "stars": 5,
-    "rating": 9.6,
-    "reviewCount": 250,
-    "pricePerNight": 1224.0,
-    "originalPrice": 1224.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "Beach Pool Villa",
-        "price": 1224.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       },
       {
         "name": "Over Water Pool Villa",
-        "price": 2463.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       },
       {
         "name": "Two-Bedroom Over Water Pool Residence",
-        "price": 4146.0,
+        "price": 0,
         "capacity": 4,
         "bedType": "King + Twin"
       }
@@ -876,8 +889,9 @@
     ],
     "checkInTime": "14:00",
     "checkOutTime": "12:00",
-    "cancellationPolicy": "Free cancellation",
-    "type": "resort"
+    "cancellationPolicy": "To be confirmed",
+    "type": "resort",
+    "priceOnRequest": true
   },
   {
     "id": "HTL015",
@@ -888,26 +902,26 @@
       "address": "218 West 50th Street, New York, NY 10019"
     },
     "stars": 4,
-    "rating": 8.9,
-    "reviewCount": 6975,
-    "pricePerNight": 137.0,
-    "originalPrice": 137.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "King Room",
-        "price": 137.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       },
       {
         "name": "Standard Room",
-        "price": 176.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       },
       {
         "name": "Superior Room",
-        "price": 185.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "King"
       }
@@ -940,8 +954,9 @@
     ],
     "checkInTime": "14:00",
     "checkOutTime": "11:00",
-    "cancellationPolicy": "Free cancellation",
-    "type": "boutique"
+    "cancellationPolicy": "To be confirmed",
+    "type": "boutique",
+    "priceOnRequest": true
   },
   {
     "id": "HTL016",
@@ -952,26 +967,26 @@
       "address": "Gran Via de Les Corts Catalanes, 700, 08010 Barcelona"
     },
     "stars": 4,
-    "rating": 9.0,
-    "reviewCount": 1550,
-    "pricePerNight": 152.0,
-    "originalPrice": 152.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "Double Room",
-        "price": 152.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "Double"
       },
       {
         "name": "Deluxe Room",
-        "price": 239.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "Double"
       },
       {
         "name": "Courtyard Terrace Suite",
-        "price": 351.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "Double"
       }
@@ -995,17 +1010,18 @@
       "Room service"
     ],
     "images": "from-blue-900 via-indigo-800 to-purple-900",
-    "description": "An independent 4-star boutique hotel housed in an 1856 building in Barcelona's Eixample district, steps from Passeig de Gr\u00e0cia and a 10-minute walk from Sagrada Fam\u00edlia, featuring artisan-designed rooms, two rooftop terraces, a wine bar, and multiple in-house dining concepts. Rooms include luxury linens, Malin + Goetz toiletries, and locally made snacks.",
+    "description": "An independent 4-star boutique hotel housed in an 1856 building in Barcelona's Eixample district, steps from Passeig de Gràcia and a 10-minute walk from Sagrada Família, featuring artisan-designed rooms, two rooftop terraces, a wine bar, and multiple in-house dining concepts. Rooms include luxury linens, Malin + Goetz toiletries, and locally made snacks.",
     "nearbyAttractions": [
-      "Sagrada Fam\u00edlia (0.7 mi)",
-      "Passeig de Gr\u00e0cia (0.6 mi)",
+      "Sagrada Família (0.7 mi)",
+      "Passeig de Gràcia (0.6 mi)",
       "Museu Picasso Barcelona (0.7 mi)",
-      "Palau de la M\u00fasica Catalana (0.4 mi)"
+      "Palau de la Música Catalana (0.4 mi)"
     ],
     "checkInTime": "15:00",
     "checkOutTime": "12:00",
-    "cancellationPolicy": "Free cancellation",
-    "type": "boutique"
+    "cancellationPolicy": "To be confirmed",
+    "type": "boutique",
+    "priceOnRequest": true
   },
   {
     "id": "HTL017",
@@ -1016,26 +1032,26 @@
       "address": "382-384-386 Vanich 1 Road, Chakkrawat, Samphanthawong, Bangkok"
     },
     "stars": 3,
-    "rating": 8.3,
-    "reviewCount": 1209,
-    "pricePerNight": 14.0,
-    "originalPrice": 14.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "Mixed Dorm (6-bed)",
-        "price": 14.0,
+        "price": 0,
         "capacity": 1,
         "bedType": "Bunk Bed"
       },
       {
         "name": "Female-Only Dorm",
-        "price": 16.0,
+        "price": 0,
         "capacity": 1,
         "bedType": "Bunk Bed"
       },
       {
         "name": "Private Room",
-        "price": 37.0,
+        "price": 0,
         "capacity": 2,
         "bedType": "Double"
       }
@@ -1044,7 +1060,7 @@
       "Free Wi-Fi",
       "Air-conditioned co-working space",
       "Rooftop terrace",
-      "In-house caf\u00e9 (Thai tea soft serve)",
+      "In-house café (Thai tea soft serve)",
       "Free egg sandwiches and filtered water 24/7",
       "Kitchen access",
       "Laundry machines",
@@ -1055,7 +1071,7 @@
       "5 minutes to MRT"
     ],
     "images": "from-red-900 via-rose-800 to-pink-900",
-    "description": "A highly-rated budget hostel in the heart of Bangkok's vibrant Chinatown and historic Old City, offering stylish pod-style dorms and private rooms with modern design, a rooftop terrace, and a co-working space. Known for its free egg sandwiches, excellent staff, and central location steps from street food markets and 5 minutes from the MRT.",
+    "description": "A budget hostel in the heart of Bangkok's vibrant Chinatown and historic Old City, offering stylish pod-style dorms and private rooms with modern design, a rooftop terrace, and a co-working space. Known for its free egg sandwiches, excellent staff, and central location steps from street food markets and 5 minutes from the MRT.",
     "nearbyAttractions": [
       "Chinatown / Yaowarat Road (steps away)",
       "Wat Traimit (Golden Buddha Temple)",
@@ -1064,8 +1080,9 @@
     ],
     "checkInTime": "13:00",
     "checkOutTime": "11:00",
-    "cancellationPolicy": "24h cancellation",
-    "type": "hostel"
+    "cancellationPolicy": "To be confirmed",
+    "type": "hostel",
+    "priceOnRequest": true
   },
   {
     "id": "HTL018",
@@ -1076,26 +1093,26 @@
       "address": "22 Soi Samranrat, Mahachai Road, Phranakhon District, Bangkok"
     },
     "stars": 3,
-    "rating": 9.4,
-    "reviewCount": 4516,
-    "pricePerNight": 16.0,
-    "originalPrice": 16.0,
+    "rating": 0,
+    "reviewCount": 0,
+    "pricePerNight": 0,
+    "originalPrice": 0,
     "roomTypes": [
       {
         "name": "Mixed Dorm",
-        "price": 16.0,
+        "price": 0,
         "capacity": 1,
         "bedType": "Bunk Bed with blackout curtain"
       },
       {
         "name": "Female-Only Dorm",
-        "price": 17.0,
+        "price": 0,
         "capacity": 1,
         "bedType": "Bunk Bed with blackout curtain"
       },
       {
         "name": "Deluxe Dorm",
-        "price": 19.0,
+        "price": 0,
         "capacity": 1,
         "bedType": "Bunk Bed with private locker"
       }
@@ -1115,7 +1132,7 @@
       "Blackout curtains on beds"
     ],
     "images": "from-cyan-800 via-teal-700 to-emerald-800",
-    "description": "A superb-rated hostel in Bangkok's Old Town (Phranakhon District), just 0.2 km from the city centre and steps from iconic temples like Wat Saket and Khaosan Road, offering pod-style dorms with blackout curtains and private lockers, a rooftop terrace with stunning views, and complimentary egg sandwiches. Rated 9.4/10 by over 4,500 travellers on Hostelworld.",
+    "description": "A hostel in Bangkok's Old Town (Phranakhon District), just 0.2 km from the city centre and steps from iconic temples like Wat Saket and Khaosan Road, offering pod-style dorms with blackout curtains and private lockers, a rooftop terrace with stunning views, and complimentary egg sandwiches.",
     "nearbyAttractions": [
       "Wat Saket (Golden Mount Temple)",
       "Khaosan Road (backpacker hub)",
@@ -1124,7 +1141,8 @@
     ],
     "checkInTime": "13:00",
     "checkOutTime": "11:00",
-    "cancellationPolicy": "Free cancellation",
-    "type": "hostel"
+    "cancellationPolicy": "To be confirmed",
+    "type": "hostel",
+    "priceOnRequest": true
   }
 ]

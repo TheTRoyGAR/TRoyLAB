@@ -194,7 +194,7 @@ export const emailTemplates: EmailTemplate[] = [
       </ul>
     </div>
     <div style="background: #0A1628; border-radius: 8px; padding: 20px; margin: 24px 0; text-align: center;">
-      <p style="color: #9ca3af; font-size: 13px; margin: 0 0 4px;">24/7 Emergency Contact</p>
+      <p style="color: #9ca3af; font-size: 13px; margin: 0 0 4px;">Emergency Contact</p>
       <p style="color: #FFD700; font-size: 18px; font-weight: 700; margin: 0;">{{emergencyContact}}</p>
     </div>
     <p>Have an absolutely wonderful trip, {{firstName}}! We can't wait to hear about your adventure.</p>

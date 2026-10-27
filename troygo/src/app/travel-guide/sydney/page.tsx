@@ -75,6 +75,7 @@ export default async function SydneyTravelGuidePage() {
       duration: p.duration,
       price: p.price,
       originalPrice: p.originalPrice,
+      priceOnRequest: p.priceOnRequest,
       currency: p.currency,
       rating: p.rating,
       reviewCount: p.reviewCount,

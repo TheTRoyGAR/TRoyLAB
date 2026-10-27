@@ -9,7 +9,7 @@
     "bags": 2,
     "doors": 4,
     "ac": true,
-    "pricePerDay": 42.0,
+    "pricePerDay": 0,
     "supplier": "Hertz",
     "supplierLogo": "H",
     "gradient": "from-slate-600 via-gray-500 to-zinc-600",
@@ -24,7 +24,8 @@
       "Downtown"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   },
   {
     "id": "CAR002",
@@ -36,7 +37,7 @@
     "bags": 3,
     "doors": 4,
     "ac": true,
-    "pricePerDay": 46.0,
+    "pricePerDay": 0,
     "supplier": "Hertz",
     "supplierLogo": "H",
     "gradient": "from-blue-700 via-blue-600 to-indigo-700",
@@ -51,7 +52,8 @@
       "Downtown"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   },
   {
     "id": "CAR003",
@@ -63,7 +65,7 @@
     "bags": 5,
     "doors": 4,
     "ac": true,
-    "pricePerDay": 63.0,
+    "pricePerDay": 0,
     "supplier": "Hertz",
     "supplierLogo": "H",
     "gradient": "from-red-700 via-rose-600 to-pink-700",
@@ -78,7 +80,8 @@
       "Downtown"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   },
   {
     "id": "CAR004",
@@ -90,7 +93,7 @@
     "bags": 2,
     "doors": 4,
     "ac": true,
-    "pricePerDay": 19.0,
+    "pricePerDay": 0,
     "supplier": "Avis",
     "supplierLogo": "AV",
     "gradient": "from-zinc-700 via-stone-600 to-neutral-700",
@@ -105,7 +108,8 @@
       "Downtown"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   },
   {
     "id": "CAR005",
@@ -117,7 +121,7 @@
     "bags": 3,
     "doors": 4,
     "ac": true,
-    "pricePerDay": 23.0,
+    "pricePerDay": 0,
     "supplier": "Avis",
     "supplierLogo": "AV",
     "gradient": "from-emerald-700 via-green-600 to-teal-700",
@@ -132,7 +136,8 @@
       "Downtown"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   },
   {
     "id": "CAR006",
@@ -144,7 +149,7 @@
     "bags": 5,
     "doors": 4,
     "ac": true,
-    "pricePerDay": 53.0,
+    "pricePerDay": 0,
     "supplier": "Avis",
     "supplierLogo": "AV",
     "gradient": "from-yellow-600 via-amber-500 to-orange-600",
@@ -159,7 +164,8 @@
       "Downtown"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   },
   {
     "id": "CAR007",
@@ -171,7 +177,7 @@
     "bags": 5,
     "doors": 4,
     "ac": true,
-    "pricePerDay": 59.0,
+    "pricePerDay": 0,
     "supplier": "National",
     "supplierLogo": "N",
     "gradient": "from-indigo-700 via-violet-600 to-purple-700",
@@ -185,7 +191,8 @@
       "Airport"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   },
   {
     "id": "CAR008",
@@ -197,7 +204,7 @@
     "bags": 5,
     "doors": 4,
     "ac": true,
-    "pricePerDay": 58.0,
+    "pricePerDay": 0,
     "supplier": "National",
     "supplierLogo": "N",
     "gradient": "from-cyan-700 via-sky-600 to-blue-700",
@@ -211,7 +218,8 @@
       "Airport"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   },
   {
     "id": "CAR009",
@@ -223,7 +231,7 @@
     "bags": 3,
     "doors": 4,
     "ac": true,
-    "pricePerDay": 58.0,
+    "pricePerDay": 0,
     "supplier": "Enterprise",
     "supplierLogo": "E",
     "gradient": "from-teal-700 via-emerald-600 to-green-700",
@@ -238,7 +246,8 @@
       "Downtown"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   },
   {
     "id": "CAR010",
@@ -250,7 +259,7 @@
     "bags": 5,
     "doors": 4,
     "ac": true,
-    "pricePerDay": 62.0,
+    "pricePerDay": 0,
     "supplier": "Enterprise",
     "supplierLogo": "E",
     "gradient": "from-slate-700 via-gray-600 to-slate-800",
@@ -265,7 +274,8 @@
       "Downtown"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   },
   {
     "id": "CAR011",
@@ -277,7 +287,7 @@
     "bags": 2,
     "doors": 4,
     "ac": true,
-    "pricePerDay": 120.0,
+    "pricePerDay": 0,
     "supplier": "Hertz",
     "supplierLogo": "H",
     "gradient": "from-slate-600 via-gray-500 to-zinc-600",
@@ -291,7 +301,8 @@
       "Sydney Airport"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   },
   {
     "id": "CAR012",
@@ -303,7 +314,7 @@
     "bags": 4,
     "doors": 4,
     "ac": true,
-    "pricePerDay": 107.0,
+    "pricePerDay": 0,
     "supplier": "Europcar",
     "supplierLogo": "EP",
     "gradient": "from-blue-700 via-blue-600 to-indigo-700",
@@ -317,7 +328,8 @@
       "Sydney Airport"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   },
   {
     "id": "CAR013",
@@ -329,7 +341,7 @@
     "bags": 1,
     "doors": 4,
     "ac": true,
-    "pricePerDay": 66.0,
+    "pricePerDay": 0,
     "supplier": "Thrifty",
     "supplierLogo": "T",
     "gradient": "from-red-700 via-rose-600 to-pink-700",
@@ -343,7 +355,8 @@
       "Darwin Airport"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   },
   {
     "id": "CAR014",
@@ -355,7 +368,7 @@
     "bags": 3,
     "doors": 4,
     "ac": true,
-    "pricePerDay": 75.0,
+    "pricePerDay": 0,
     "supplier": "Thrifty",
     "supplierLogo": "T",
     "gradient": "from-zinc-700 via-stone-600 to-neutral-700",
@@ -369,7 +382,8 @@
       "Darwin Airport"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   },
   {
     "id": "CAR015",
@@ -381,7 +395,7 @@
     "bags": 3,
     "doors": 4,
     "ac": true,
-    "pricePerDay": 46.0,
+    "pricePerDay": 0,
     "supplier": "Hertz",
     "supplierLogo": "H",
     "gradient": "from-emerald-700 via-green-600 to-teal-700",
@@ -396,7 +410,8 @@
       "Sydney Downtown"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   },
   {
     "id": "CAR016",
@@ -408,7 +423,7 @@
     "bags": 2,
     "doors": 4,
     "ac": true,
-    "pricePerDay": 36.0,
+    "pricePerDay": 0,
     "supplier": "Hertz",
     "supplierLogo": "H",
     "gradient": "from-yellow-600 via-amber-500 to-orange-600",
@@ -423,7 +438,8 @@
       "Sydney Downtown"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   },
   {
     "id": "CAR017",
@@ -435,7 +451,7 @@
     "bags": 4,
     "doors": 5,
     "ac": true,
-    "pricePerDay": 150.0,
+    "pricePerDay": 0,
     "supplier": "Sixt",
     "supplierLogo": "SX",
     "gradient": "from-indigo-700 via-violet-600 to-purple-700",
@@ -450,6 +466,7 @@
       "New York Downtown"
     ],
     "fuelPolicy": "Full-to-Full",
-    "mileage": "Unlimited"
+    "mileage": "Unlimited",
+    "priceOnRequest": true
   }
 ]

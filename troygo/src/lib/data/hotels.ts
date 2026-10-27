@@ -18,8 +18,9 @@ export interface Hotel {
   stars: 3 | 4 | 5;
   rating: number;
   reviewCount: number;
-  pricePerNight: number;
+  pricePerNight: number; // 0 when priceOnRequest
   originalPrice: number;
+  priceOnRequest?: boolean; // true = no confirmed price: shown as "Price on request"
   roomTypes: RoomType[];
   amenities: string[];
   images: string; // gradient class or inline style key
@@ -27,7 +28,7 @@ export interface Hotel {
   nearbyAttractions: string[];
   checkInTime: string;
   checkOutTime: string;
-  cancellationPolicy: 'Free cancellation' | 'Non-refundable' | '24h cancellation';
+  cancellationPolicy: 'Free cancellation' | 'Non-refundable' | '24h cancellation' | 'To be confirmed';
   type: 'hotel' | 'resort' | 'hostel' | 'boutique';
 }
 
