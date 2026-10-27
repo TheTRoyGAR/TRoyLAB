@@ -13,7 +13,8 @@ export interface CarRental {
   bags: number
   doors: number
   ac: boolean
-  pricePerDay: number
+  pricePerDay: number // 0 when priceOnRequest
+  priceOnRequest?: boolean // true = no confirmed price: shown as "Price on request"
   supplier: string
   supplierLogo: string
   gradient: string

@@ -48,15 +48,15 @@ interface Currency {
 const NAV_ITEMS: NavItem[] = [
   { label: 'Flights',     href: '/flights',       icon: Plane,  description: 'Search & book flights worldwide'     },
   { label: 'Track Flights', href: '/flight-tracker', icon: Radar, description: 'Live global flight positions'      },
-  { label: 'Hotels',      href: '/hotels',        icon: Hotel,  description: 'Millions of hotels & properties'     },
-  { label: 'Cars',        href: '/cars',          icon: Car,    description: 'Car rentals at top destinations'     },
-  { label: 'Packages',    href: '/packages',      icon: Package,description: 'All-inclusive vacation bundles'      },
+  { label: 'Hotels',      href: '/hotels',        icon: Hotel,  description: 'Hotels, quoted on request'            },
+  { label: 'Cars',        href: '/cars',          icon: Car,    description: 'Car rentals, quoted on request'     },
+  { label: 'Packages',    href: '/packages',      icon: Package,description: 'Holiday packages, quoted on request' },
   { label: 'Cruises',     href: '/cruises',       icon: Ship,   description: 'Sail the world in style'            },
   { label: 'Group Cruises', href: '/group-cruises', icon: PartyPopper, description: 'Weddings, reunions, corporate retreats' },
   { label: 'Trips',       href: '/trip-planner',  icon: Map,    description: 'AI-powered trip planning'           },
   { label: 'Travel Guide', href: '/travel-guide', icon: Compass, description: 'Local guides & live daily conditions' },
   { label: 'Agents',      href: '/agents',        icon: Users,  description: 'Ask for a local expert introduction'        },
-  { label: 'Partners',    href: '/partners',      icon: ShieldCheck, description: 'Trusted local ground operators' },
+  { label: 'Partners',    href: '/partners',      icon: ShieldCheck, description: 'Local ground operators and partners' },
 ]
 
 const LANGUAGES: Language[] = [

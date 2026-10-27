@@ -69,7 +69,7 @@
   },
   {
     "id": 2,
-    "name": "Highlights of Türkiye for 2 – TripADeal",
+    "name": "Highlights of Türkiye for 2",
     "slug": "highlights-of-t-rkiye-for-2-tripadeal",
     "destination": "Turkey (Istanbul, Gallipoli, Cappadocia & more)",
     "countries": [
@@ -103,7 +103,7 @@
     "maxGroupSize": 20,
     "difficulty": "easy",
     "category": "heritage",
-    "description": "A 12-day guided tour for two people covering Turkey's most iconic destinations including Istanbul, Gallipoli, Cappadocia and more, with all international and internal flights included. Priced from AUD $7,799 for 2 people (was AUD $7,999), saving $200 for 2 people.",
+    "description": "A 12-day guided tour for two people covering Turkey's most iconic destinations including Istanbul, Gallipoli, Cappadocia and more, with all international and internal flights included.",
     "itinerary": [
       {
         "day": 1,
@@ -170,7 +170,7 @@
   },
   {
     "id": 3,
-    "name": "Whitsunday Reefsleep & Escape – TripADeal",
+    "name": "Whitsunday Reefsleep & Escape",
     "slug": "whitsunday-reefsleep-escape-tripadeal",
     "destination": "Whitsundays, Queensland, Australia",
     "countries": [
@@ -204,7 +204,7 @@
     "maxGroupSize": 20,
     "difficulty": "easy",
     "category": "beach",
-    "description": "A 6-day Whitsunday escape including a night sleeping under the stars on the Great Barrier Reef, a visit to Whitehaven Beach, and a catamaran day trip. Priced from AUD $2,299 per person twin share. Meet in Airlie Beach — flights are not included in this package.",
+    "description": "A 6-day Whitsunday escape including a night sleeping under the stars on the Great Barrier Reef, a visit to Whitehaven Beach, and a catamaran day trip. Meet in Airlie Beach — flights are not included in this package.",
     "itinerary": [
       {
         "day": 1,
@@ -272,7 +272,7 @@
     "maxGroupSize": 12,
     "difficulty": "easy",
     "category": "beach",
-    "description": "A 3-night Hamilton Island package starting from AUD $2,443 for two adults at The Reef View Hotel (twin share), including a full-day Great Barrier Reef trip, a half-day Whitehaven Beach excursion, wildlife entry, and daily breakfast. Book direct for no booking fees.",
+    "description": "Book direct for no booking fees.",
     "itinerary": [
       {
         "day": 1,
@@ -332,7 +332,7 @@
     "maxGroupSize": 12,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "A 9-night (10-day) self-guided package combining three of Central Europe's most beloved capitals by train, including round-trip flights, 3 nights each in Prague, Vienna and Budapest, and inter-city train tickets. Prices from $1,269 per person based on double occupancy.",
+    "description": "A 9-night (10-day) self-guided package combining three of Central Europe's most beloved capitals by train, including round-trip flights, 3 nights each in Prague, Vienna and Budapest, and inter-city train tickets.",
     "itinerary": [
       {
         "day": 1,
@@ -420,7 +420,7 @@
     "maxGroupSize": 12,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "A 6-night (7-day) self-guided package to Spain's two most iconic cities, including round-trip flights into Madrid and out of Barcelona, 3 nights in each city, and a high-speed train ticket between them. Priced from $1,049 per person based on double occupancy.",
+    "description": "A 6-night (7-day) self-guided package to Spain's two most iconic cities, including round-trip flights into Madrid and out of Barcelona, 3 nights in each city, and a high-speed train ticket between them.",
     "itinerary": [
       {
         "day": 1,
@@ -493,7 +493,7 @@
     "maxGroupSize": 12,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "A 9-night (10-day) self-guided Japan package travelling the famous Golden Route by bullet train, including round-trip flights into Tokyo and out of Osaka, 3 nights each in Tokyo, Kyoto and Osaka, and Shinkansen inter-city train tickets. Priced from $1,649 per person based on double occupancy.",
+    "description": "A 9-night (10-day) self-guided Japan package travelling the famous Golden Route by bullet train, including round-trip flights into Tokyo and out of Osaka, 3 nights each in Tokyo, Kyoto and Osaka, and Shinkansen inter-city train tickets.",
     "itinerary": [
       {
         "day": 1,
@@ -581,7 +581,7 @@
     "maxGroupSize": 12,
     "difficulty": "easy",
     "category": "beach",
-    "description": "A 6-night (7-day) self-guided Thailand package including round-trip flights into Bangkok and out of Phuket, 3 nights in each city, and an intercity flight. Priced from $1,039 per person based on double occupancy.",
+    "description": "A 6-night (7-day) self-guided Thailand package including round-trip flights into Bangkok and out of Phuket, 3 nights in each city, and an intercity flight.",
     "itinerary": [
       {
         "day": 1,
@@ -654,7 +654,7 @@
     "maxGroupSize": 12,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "A 6-night (7-day) self-guided Australia package visiting the country's two largest and most sophisticated cities, including round-trip flights into Sydney and out of Melbourne, 3 nights in each city, and an intercity flight. Priced from $1,469 per person based on double occupancy.",
+    "description": "A 6-night (7-day) self-guided Australia package visiting the country's two largest and most sophisticated cities, including round-trip flights into Sydney and out of Melbourne, 3 nights in each city, and an intercity flight.",
     "itinerary": [
       {
         "day": 1,
@@ -725,16 +725,14 @@
     },
     "highlights": [
       "Get a FREE night for every 3 or 4 night stay at select Sandals resorts",
-      "Up to 65% off rack rates on last-minute travel dates",
       "All-inclusive dining, unlimited premium spirits, and watersports included",
-      "Choice of 17 adults-only Sandals resorts across 8 Caribbean islands",
-      "Reserve your room for just $49 per person with Best Price Guarantee"
+      "Choice of 17 adults-only Sandals resorts across 8 Caribbean islands"
     ],
     "departureDates": [],
     "maxGroupSize": 2,
     "difficulty": "easy",
     "category": "honeymoon",
-    "description": "Sandals Resorts is currently offering last-minute all-inclusive Caribbean deals with a free night for every 3 or 4 night stay, plus up to 65% off rack rates. Rates start from $374 per person per night at select resorts including Sandals Ochi, Sandals Negril, Sandals Grande Antigua, Sandals Royal Barbados and more. International flights are not included.",
+    "description": "International flights are not included.",
     "itinerary": [
       {
         "day": 1,
@@ -794,7 +792,7 @@
     "maxGroupSize": 12,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "A 9-night (10-day) self-guided multi-city Europe package combining London, Paris and Rome, including round-trip flights into London and out of Rome, 3 nights in each city, Eurostar train from London to Paris, and an intercity flight from Paris to Rome. Priced from $1,269 per person based on double occupancy.",
+    "description": "A 9-night (10-day) self-guided multi-city Europe package combining London, Paris and Rome, including round-trip flights into London and out of Rome, 3 nights in each city, Eurostar train from London to Paris, and an intercity flight from Paris to Rome.",
     "itinerary": [
       {
         "day": 1,
@@ -882,7 +880,7 @@
     "maxGroupSize": 12,
     "difficulty": "easy",
     "category": "adventure",
-    "description": "A 3-night Hamilton Island package starting from AUD $2,111 for two adults at The Reef View Hotel (twin share), including a full-day Great Barrier Reef trip, daily breakfast, free non-motorised watersports, and free WiFi. Book direct for no booking or credit card fees.",
+    "description": "Book direct for no booking or credit card fees.",
     "itinerary": [
       {
         "day": 1,
@@ -1199,7 +1197,7 @@
     "maxGroupSize": 12,
     "difficulty": "moderate",
     "category": "adventure",
-    "description": "AAT Kings' 6-day guided tour from Darwin returning to Darwin, visiting Litchfield, Kakadu, and Nitmiluk National Parks. Includes 5 nights accommodation, 5 breakfasts, 2 dinners, expert Travel Director, and immersive MAKE TRAVEL MATTER® experiences with Indigenous communities. Currently discounted from AUD $3,345 to from AUD $3,077 per person (approx. USD $1,978 at current rates).",
+    "description": "AAT Kings' 6-day guided tour from Darwin returning to Darwin, visiting Litchfield, Kakadu, and Nitmiluk National Parks. Includes 5 nights accommodation, 5 breakfasts, 2 dinners, expert Travel Director, and immersive MAKE TRAVEL MATTER® experiences with Indigenous communities.",
     "itinerary": [
       {
         "day": 1,
@@ -1267,7 +1265,7 @@
     "maxGroupSize": 12,
     "difficulty": "moderate",
     "category": "adventure",
-    "description": "An 8-day Top End adventure package from Happy Travels combining 3 nights in Darwin hostel accommodation with a 5-day/4-night fully inclusive guided camping tour through Kakadu National Park, Nitmiluk (Katherine) Gorge, and Litchfield National Park. Priced from AUD $1,959 (approx. USD $1,259) per person.",
+    "description": "An 8-day Top End adventure package from Happy Travels combining 3 nights in Darwin hostel accommodation with a 5-day/4-night fully inclusive guided camping tour through Kakadu National Park, Nitmiluk (Katherine) Gorge, and Litchfield National Park.",
     "itinerary": [
       {
         "day": 1,
@@ -1345,7 +1343,7 @@
     "maxGroupSize": 40,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Gate 1 Travel's 9-day classic escorted tour of Central Thailand covering 4 nights Bangkok, 2 nights Kanchanaburi (River Kwai), and 1 night Ayutthaya. Air & land price from $1,609 per person includes roundtrip international airfare, hotels, guided tours, most meals, and transfers. Season: August 2026 – May 2027.",
+    "description": "A 9-day classic escorted tour of Central Thailand covering 4 nights Bangkok, 2 nights Kanchanaburi (River Kwai), and 1 night Ayutthaya. Season: August 2026 – May 2027.",
     "itinerary": [
       {
         "day": 1,
@@ -1429,7 +1427,7 @@
     "maxGroupSize": 2,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Tripmasters' customizable independent vacation package combining 3 nights in Barcelona and 3 nights in Rome, with a flight from Barcelona to Rome included. Priced from $979 per person (based on double occupancy) including all air taxes and fuel surcharges. Dates and hotels are fully flexible.",
+    "description": "A customizable independent vacation package combining 3 nights in Barcelona and 3 nights in Rome, with a flight from Barcelona to Rome included. Dates and hotels are fully flexible.",
     "itinerary": [
       {
         "day": 1,
@@ -1497,7 +1495,7 @@
     "maxGroupSize": 10,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Anatolia Tours' best-selling 8-day/7-night extra small group tour (max 10 travelers) covering all major Turkish highlights: Istanbul, Cappadocia, Konya, Pamukkale, and Ephesus. Guaranteed departures three times per week from Istanbul. Priced from $1,660 per person land-only, including hotels, breakfasts, guided tours, and transfers.",
+    "description": "Anatolia Tours' 8-day/7-night extra small group tour (max 10 travelers) covering all major Turkish highlights: Istanbul, Cappadocia, Konya, Pamukkale, and Ephesus. Guaranteed departures three times per week from Istanbul.",
     "itinerary": [
       {
         "day": 1,
@@ -1575,7 +1573,7 @@
     "maxGroupSize": 40,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Gate 1 Travel's 13-day classic escorted tour of Thailand covering Bangkok (4 nights), Ayutthaya (1 night), Sukhothai (1 night), Chiang Rai (2 nights), and Chiang Mai (3 nights). Air & land price from $2,239 per person includes roundtrip international airfare, hotels, guided tours, most meals, and transfers. Season: August 2026 – May 2027.",
+    "description": "A 13-day classic escorted tour of Thailand covering Bangkok (4 nights), Ayutthaya (1 night), Sukhothai (1 night), Chiang Rai (2 nights), and Chiang Mai (3 nights). Season: August 2026 – May 2027.",
     "itinerary": [
       {
         "day": 1,
@@ -1680,7 +1678,7 @@
     "maxGroupSize": 2,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Tripmasters' 9-night independent vacation package visiting Paris, Barcelona, and Rome with intercity flights included. Priced from $1,239 per person (double occupancy) including all air taxes and fuel surcharges. Fully flexible dates and hotel selection.",
+    "description": "A 9-night independent vacation package visiting Paris, Barcelona, and Rome with intercity flights included. Fully flexible dates and hotel selection.",
     "itinerary": [
       {
         "day": 1,
@@ -1763,7 +1761,7 @@
     "maxGroupSize": 18,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "ToursTurkey.com's 10-day/9-night guided group tour (max 18 people) covering Istanbul, Ephesus, Pamukkale, Antalya, Konya, and Cappadocia. Priced from USD $2,330 per person including hotels with breakfast, lunches on tour days, guided excursions, and transfers. Airfare not included. Operated since 1999 with TripAdvisor Certificate of Excellence.",
+    "description": "A 10-day/9-night guided group tour (max 18 people) covering Istanbul, Ephesus, Pamukkale, Antalya, Konya, and Cappadocia. Airfare not included. Operated since 1999 with TripAdvisor Certificate of Excellence.",
     "itinerary": [
       {
         "day": 1,
@@ -1851,7 +1849,7 @@
     "maxGroupSize": 40,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Gate 1 Travel's 12-day classic escorted tour of Vietnam covering Ho Chi Minh City (3 nights), Hoi An (2 nights), Hue (2 nights), Halong Bay cruise (1 night), and Hanoi (2 nights). Air & land price from $2,329 per person includes roundtrip international airfare, hotels, guided tours, most meals, and transfers. Season: July 2026 – May 2027.",
+    "description": "A 12-day classic escorted tour of Vietnam covering Ho Chi Minh City (3 nights), Hoi An (2 nights), Hue (2 nights), Halong Bay cruise (1 night), and Hanoi (2 nights). Season: July 2026 – May 2027.",
     "itinerary": [
       {
         "day": 1,
@@ -1949,7 +1947,7 @@
     "maxGroupSize": 20,
     "difficulty": "moderate",
     "category": "adventure",
-    "description": "This 6-day guided journey from Darwin takes in Kakadu, Litchfield, and Nitmiluk National Parks, featuring Yellow Water Billabong cruises, ancient Aboriginal rock art, and Katherine Gorge. Currently discounted from $2,670 to $2,456 per person (land only, flights not included).",
+    "description": "This 6-day guided journey from Darwin takes in Kakadu, Litchfield, and Nitmiluk National Parks, featuring Yellow Water Billabong cruises, ancient Aboriginal rock art, and Katherine Gorge.",
     "itinerary": [
       {
         "day": 1,
@@ -2024,7 +2022,7 @@
     "maxGroupSize": 40,
     "difficulty": "moderate",
     "category": "cultural",
-    "description": "Gate 1 Travel's classic 13-day escorted tour covers Istanbul, the ancient city of Troy (Canakkale), Pergamum, Kusadasi, Pamukkale, Konya, Cappadocia, and Ankara, with 21 meals and an English-speaking tour manager throughout. Land only from $2,149 per person; air & land from $3,239 per person.",
+    "description": "A classic 13-day escorted tour covers Istanbul, the ancient city of Troy (Canakkale), Pergamum, Kusadasi, Pamukkale, Konya, Cappadocia, and Ankara, with 21 meals and an English-speaking tour manager throughout.",
     "itinerary": [
       {
         "day": 1,
@@ -2127,7 +2125,7 @@
     "maxGroupSize": 12,
     "difficulty": "moderate",
     "category": "cultural",
-    "description": "Exoticca's best-selling 12-day Turkey tour includes flights, hotels, and guided tours covering Istanbul, Troy, Cappadocia, Ephesus, Pergamon, Pamukkale, and Izmir — currently 35% off, from $1,699 per person (was $2,619). Up to $500 cashback promotion also active until August 31.",
+    "description": "A 12-day Turkey tour with flights, hotels and guided tours covering Istanbul, Troy, Cappadocia, Ephesus, Pergamon, Pamukkale and Izmir.",
     "itinerary": [
       {
         "day": 1,
@@ -2235,7 +2233,7 @@
     "maxGroupSize": 12,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Exoticca's best-selling self-guided Japan package covers Tokyo, Kyoto, and Osaka over 9 days, including international flights, 7 nights in hotels, bullet train transfers between cities, and two included guided walking tours (Shibuya and Gion). Currently 30% off at $1,899 per person (was $2,719).",
+    "description": "A self-guided Japan package covers Tokyo, Kyoto, and Osaka over 9 days, including international flights, 7 nights in hotels, bullet train transfers between cities, and two included guided walking tours (Shibuya and Gion).",
     "itinerary": [
       {
         "day": 1,
@@ -2245,7 +2243,7 @@
       {
         "day": 2,
         "title": "Arrive Tokyo",
-        "description": "Arrive at Tokyo Airport and meet an Exoticca representative who will assist with your transfer to the hotel."
+        "description": "Arrive at Tokyo Airport and meet a local representative who will assist with your transfer to the hotel."
       },
       {
         "day": 3,
@@ -2320,7 +2318,7 @@
     "maxGroupSize": 2,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Tripmasters' most popular European multi-city package combines Prague, Vienna, and Budapest with train travel between cities, round-trip flights, and 3 nights in each city – from $1,269 per person based on double occupancy. Rated 4.7/5 by 1,951 customers.",
+    "description": "A multi-city European package combining Prague, Vienna and Budapest, with train travel between cities, round-trip flights and 3 nights in each city.",
     "itinerary": [
       {
         "day": 1,
@@ -2408,7 +2406,7 @@
     "maxGroupSize": 2,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Tripmasters' popular Spain package pairs Madrid and Barcelona with a high-speed train connection between them, round-trip flights, and 3 hotel nights in each city – from $1,049 per person. Rated 4.7/5 by 704 customers.",
+    "description": "A Spain package pairing Madrid and Barcelona with a high-speed train connection, round-trip flights and 3 hotel nights in each city.",
     "itinerary": [
       {
         "day": 1,
@@ -2474,14 +2472,13 @@
       "All-inclusive resort stay with unlimited food, premium drinks, and entertainment",
       "Free Jamaican Adventure experience with 5+ night bookings (e.g. bamboo river rafting or catamaran cruise to YS Falls)",
       "Choose from 7 Jamaica resorts including Sandals Negril, Ochi, Dunn's River, and Royal Plantation",
-      "Unlimited water sports and green fees at nearby golf courses",
-      "Up to $1,500 Instant Credit plus up to $350 Air Credit available on qualifying bookings"
+      "Unlimited water sports and green fees at nearby golf courses"
     ],
     "departureDates": [],
     "maxGroupSize": 2,
     "difficulty": "easy",
     "category": "beach",
-    "description": "Sandals' Great Jamaica Comeback Sale offers all-inclusive adults-only resort stays across 7 Jamaica properties, starting from $209 per person per night (e.g. Sandals Ochi). Book 5+ nights and receive a free Jamaican Adventure experience. A $100 discount is also available when booking online.",
+    "description": "Sandals Ochi). Book 5+ nights and receive a free Jamaican Adventure experience.",
     "itinerary": [
       {
         "day": 1,
@@ -2523,7 +2520,7 @@
   },
   {
     "id": 32,
-    "name": "Magnificent Turkey with Troy – 10-Day Guided Package (Greca)",
+    "name": "Magnificent Turkey with Troy – 10-Day Guided Package",
     "slug": "magnificent-turkey-with-troy-10-day-guided-package-greca",
     "destination": "Istanbul, Troy, Cappadocia, Ephesus, Pergamon & Pamukkale",
     "countries": [
@@ -2554,7 +2551,7 @@
     "maxGroupSize": 20,
     "difficulty": "moderate",
     "category": "cultural",
-    "description": "Greca's 10-day 'Magnificent Turkey' guided tour departs guaranteed every Tuesday and Wednesday from Istanbul, covering Troy, Pergamon, Ephesus, Pamukkale, Cappadocia, and Izmir with an official English-speaking guide. Currently 10% off – from EUR 1,115.86 (approx. $1,215 USD) per person.",
+    "description": "A 10-day 'Magnificent Turkey' guided tour departs from Istanbul, covering Troy, Pergamon, Ephesus, Pamukkale, Cappadocia, and Izmir with an official English-speaking guide.",
     "itinerary": [
       {
         "day": 1,
@@ -2644,7 +2641,7 @@
     "maxGroupSize": 2,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Tripmasters' three-city European classic combines London, Paris, and Rome with Eurostar train travel and an inter-city flight, plus round-trip flights and 3 hotel nights in each destination – from $1,269 per person. Rated 4.5/5 by 713 customers.",
+    "description": "A three-city European package combining London, Paris and Rome, with Eurostar train travel, an inter-city flight, round-trip flights and 3 hotel nights in each destination.",
     "itinerary": [
       {
         "day": 1,
@@ -2701,7 +2698,7 @@
   },
   {
     "id": 34,
-    "name": "Gate 1 Travel 9 Day Essential Turkey – Istanbul, Cappadocia & Ankara",
+    "name": "9 Day Essential Turkey – Istanbul, Cappadocia & Ankara",
     "slug": "gate-1-travel-9-day-essential-turkey-istanbul-cappadocia-ankara",
     "destination": "Istanbul, Cappadocia & Ankara",
     "countries": [
@@ -2732,7 +2729,7 @@
     "maxGroupSize": 40,
     "difficulty": "moderate",
     "category": "cultural",
-    "description": "Gate 1 Travel's 9 Day Essential Turkey tour is their value-priced escorted package covering Istanbul (4 nights), Cappadocia (2 nights), and Ankara (1 night) with an English-speaking tour manager throughout. Land only from $1,699 per person; air & land from $2,629 per person. Book by Oct 8, 2026 to save.",
+    "description": "A 9-day escorted tour covering Istanbul (4 nights), Cappadocia (2 nights) and Ankara (1 night), with an English-speaking tour manager throughout.",
     "itinerary": [
       {
         "day": 1,
@@ -2898,7 +2895,7 @@
     "maxGroupSize": 40,
     "difficulty": "moderate",
     "category": "cultural",
-    "description": "A classic 13-day escorted tour from Gate 1 Travel covering Istanbul, the ancient city of Troy, Pergamum, Kusadasi, Pamukkale, Konya, Cappadocia, and Ankara, with round-trip flights from New York, 11 nights first-class hotels, and 21 meals included. Book by Oct 8, 2026 to save.",
+    "description": "A classic 13-day escorted tour covering Istanbul, the ancient city of Troy, Pergamum, Kusadasi, Pamukkale, Konya, Cappadocia, and Ankara, with round-trip flights from New York, 11 nights first-class hotels, and 21 meals included.",
     "itinerary": [
       {
         "day": 1,
@@ -3006,7 +3003,7 @@
     "maxGroupSize": 40,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Gate 1 Travel's 13-day escorted tour covering Porto, Tomar, Evora, Lisbon, and Funchal (Madeira), with round-trip flights from New York, 11 nights accommodations, 16 meals, and an intra-flight from Lisbon to Funchal. Save $750 per person with code DLCPMV750 when booked by August 24, 2026.",
+    "description": "A 13-day escorted tour covering Porto, Tomar, Evora, Lisbon, and Funchal (Madeira), with round-trip flights from New York, 11 nights accommodations, 16 meals, and an intra-flight from Lisbon to Funchal.",
     "itinerary": [
       {
         "day": 1,
@@ -3204,7 +3201,7 @@
     "maxGroupSize": 2,
     "difficulty": "easy",
     "category": "beach",
-    "description": "Central Holidays' independent Fly and Drive Sardinia package includes 5 nights hotel accommodation with daily buffet breakfast and a 6-day car rental, starting from $882 per person based on double occupancy. Explore Cagliari's historic fortification, the Emerald Coast, and La Maddalena National Park at your own pace.",
+    "description": "Explore Cagliari's historic fortification, the Emerald Coast, and La Maddalena National Park at your own pace.",
     "itinerary": [
       {
         "day": 1,
@@ -3272,7 +3269,7 @@
     "maxGroupSize": 4,
     "difficulty": "moderate",
     "category": "adventure",
-    "description": "AllTrips' Big Sky Family Adventure package includes 5 nights in a Cowboy Heaven mountain cabin plus four guided activities — a full-day Yellowstone tour, half-day Gallatin River whitewater rafting, a 2-hour horseback ride, and a zipline canopy tour — starting from $1,618 per person (quad occupancy). Available mid-May through September.",
+    "description": "Available mid-May through September.",
     "itinerary": [
       {
         "day": 1,
@@ -3340,7 +3337,7 @@
     "maxGroupSize": 12,
     "difficulty": "easy",
     "category": "cultural",
-    "description": "Tripmasters' #1 bestselling Thailand package covers 9 nights across Bangkok (3 nights), Chiang Mai (3 nights), and Phuket (3 nights) with intercity flights included, from $1,349 per person based on double occupancy. Fully flexible and customizable.",
+    "description": "Fully flexible and customizable.",
     "itinerary": [
       {
         "day": 1,
@@ -3428,7 +3425,7 @@
     "maxGroupSize": 12,
     "difficulty": "easy",
     "category": "adventure",
-    "description": "Tripmasters' top-rated New Zealand package covers 9 nights across Auckland (3 nights), Rotorua (3 nights), and Queenstown (3 nights) with all intercity flights included, from $1,869 per person based on double occupancy. Fully flexible and customizable.",
+    "description": "Fully flexible and customizable.",
     "itinerary": [
       {
         "day": 1,
@@ -3516,7 +3513,7 @@
     "maxGroupSize": 40,
     "difficulty": "moderate",
     "category": "cultural",
-    "description": "Gate 1 Travel's value-priced 9-day escorted tour covering Istanbul (4 nights), Cappadocia (2 nights), and Ankara (1 night), with round-trip flights, first-class hotels, and guided sightseeing included. Book by October 8, 2026 to save on this popular Anatolia itinerary.",
+    "description": "A 9-day escorted tour covering Istanbul (4 nights), Cappadocia (2 nights) and Ankara (1 night), with round-trip flights, hotels and guided sightseeing included.",
     "itinerary": [
       {
         "day": 1,
@@ -3602,7 +3599,7 @@
     "maxGroupSize": 16,
     "difficulty": "easy",
     "category": "heritage",
-    "description": "A private, guided remembrance pilgrimage timed to the ANZAC Day Dawn Service — tracing the Gallipoli battlefields at ANZAC Cove, Lone Pine, The Nek and Chunuk Bair, then the ancient city of Troy, bookended by Istanbul's old city and a Bosphorus cruise. This is a TRoyGO-operated product — ground services (hotels, transfers, guiding, entry fees) are quoted and run directly by TRoyGO's own Türkiye ground team, not resold from a third-party operator, unlike the other multi-city Turkey packages on this site that happen to pass through Gallipoli and Troy as one stop among many. Flights are booked separately by the traveler.\n\nPricing shown ($1,240 pp for 2 adults sharing) is a September 2026 market-rate estimate built bottom-up from real, sourced comparable costs: 4-star hotels in Istanbul and Çanakkale, private vehicle transfers (including the Istanbul↔Çanakkale leg via Gallipoli), a licensed English-speaking guide for the Gallipoli and Troy days, all site entry fees (Topkapi Palace, Troy incl. museum; the Gallipoli battlefield sites themselves — ANZAC Cove, Lone Pine, Kabatepe Museum — are free to enter), and restaurant meals. It is not a fabricated or placeholder number, but also not yet a locked ground-ops contract rate. Per-person cost drops as group size grows, since the vehicle and guide are shared: approx. $1,060 pp for 3 travelers and $965 pp for 4 travelers. Children under 12 pay reduced or free entry at several sites (Troy is free under 12); exact child pricing depends on age and room configuration. Final confirmed pricing for specific travel dates comes directly from TRoyGO's ground operations team.",
+    "description": "A private, guided remembrance pilgrimage timed to the ANZAC Day Dawn Service — tracing the Gallipoli battlefields at ANZAC Cove, Lone Pine, The Nek and Chunuk Bair, then the ancient city of Troy, bookended by Istanbul's old city and a Bosphorus cruise. This is a TRoyGO-operated product — ground services (hotels, transfers, guiding, entry fees) are quoted and run directly by TRoyGO's own Türkiye ground team, not resold from a third-party operator, unlike the other multi-city Turkey packages on this site that happen to pass through Gallipoli and Troy as one stop among many. Flights are booked separately by the traveler. It is not a fabricated or placeholder number, but also not yet a locked ground-ops contract rate.",
     "itinerary": [
       {
         "day": 1,

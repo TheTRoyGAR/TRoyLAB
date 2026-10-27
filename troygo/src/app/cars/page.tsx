@@ -123,19 +123,25 @@ function CarCard({ car, pickupDate, returnDate }: { car: CarRental; pickupDate: 
         {/* Price + CTA */}
         <div className="mt-auto flex items-end justify-between gap-3">
           <div>
-            <p className="text-xs text-slate-400">per day</p>
-            <p className="text-2xl font-black text-navy">${car.pricePerDay}</p>
-            <p className="text-sm text-slate-500">
-              Total: <span className="font-bold text-navy">${total.toLocaleString()}</span>
-              {days > 1 && <span className="text-slate-400"> ({days} days)</span>}
-            </p>
+            {car.priceOnRequest ? (
+              <p className="text-base font-bold text-navy">Price on request</p>
+            ) : (
+              <>
+                <p className="text-xs text-slate-400">per day</p>
+                <p className="text-2xl font-black text-navy">${car.pricePerDay}</p>
+                <p className="text-sm text-slate-500">
+                  Total: <span className="font-bold text-navy">${total.toLocaleString()}</span>
+                  {days > 1 && <span className="text-slate-400"> ({days} days)</span>}
+                </p>
+              </>
+            )}
           </div>
           <Link
-            href={`/booking?type=car&id=${car.id}`}
+            href={`/booking?type=car&id=${car.id}&name=${encodeURIComponent(car.name)}`}
             className="px-5 py-2.5 rounded-xl font-bold text-sm text-white shadow-sm hover:brightness-110 hover:-translate-y-0.5 transition-all whitespace-nowrap"
             style={{ background: '#00B4D8' }}
           >
-            Reserve
+            {car.priceOnRequest ? 'Request a Quote' : 'Reserve'}
           </Link>
         </div>
       </div>
@@ -163,6 +169,7 @@ function CarsContent() {
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 300])
 
   const allSuppliers = [...new Set(carRentals.map((c) => c.supplier))].sort()
+  const hasPrices = carRentals.some((c) => !c.priceOnRequest)
 
   function toggleSet<T>(set: Set<T>, val: T, setter: (v: Set<T>) => void) {
     const next = new Set(set)
@@ -175,7 +182,7 @@ function CarsContent() {
       if (!typeFilter.has(c.type)) return false
       if (!transmissionFilter.has(c.transmission)) return false
       if (supplierFilter.size > 0 && !supplierFilter.has(c.supplier)) return false
-      if (c.pricePerDay > priceRange[1]) return false
+      if (!c.priceOnRequest && c.pricePerDay > priceRange[1]) return false
       return true
     })
   }, [typeFilter, transmissionFilter, supplierFilter, priceRange])
@@ -355,7 +362,8 @@ function CarsContent() {
                   </div>
                 </div>
 
-                {/* Price per day */}
+                {/* Price per day (hidden while no car has a confirmed price) */}
+                {hasPrices && (
                 <div>
                   <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wide mb-3">Max Price/Day</h4>
                   <div className="flex items-center justify-between mb-1">
@@ -373,6 +381,7 @@ function CarsContent() {
                     style={{ accentColor: '#00B4D8' }}
                   />
                 </div>
+                )}
 
                 {/* Supplier */}
                 <div>
@@ -411,7 +420,7 @@ function CarsContent() {
               <div className="flex items-center justify-between mb-5">
                 <p className="text-sm text-slate-500">
                   Showing <span className="font-bold text-navy">{filtered.length}</span> vehicles
-                  {days > 1 && <span className="text-slate-400"> · {days}-day total shown</span>}
+                  {hasPrices && days > 1 && <span className="text-slate-400"> · {days}-day total shown</span>}
                 </p>
               </div>
 

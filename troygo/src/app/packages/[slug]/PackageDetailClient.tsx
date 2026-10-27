@@ -201,10 +201,6 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
                         {item}
                       </li>
                     ))}
-                    <li className="flex items-center gap-2 text-sm text-gray-700">
-                      <CheckCircle2 className="h-4 w-4 text-green-500 shrink-0" />
-                      24/7 TRoyGO™ support
-                    </li>
                   </ul>
                 </div>
                 <div>

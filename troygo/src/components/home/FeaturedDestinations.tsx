@@ -4,12 +4,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import { useDestinationPhoto } from '@/hooks/useDestinationPhoto';
-import { useCurrency } from '@/lib/currency-context';
 
 interface Destination {
   name: string;
   country: string;
-  price: number;
   photoQuery: string;
   gradient: string;
   tag?: string;
@@ -26,25 +24,20 @@ const destinations: Destination[] = [
   {
     name: 'Paris',
     country: 'France',
-    price: 1800,
     photoQuery: 'Paris France Eiffel Tower',
     gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    tag: 'Most Loved',
     patternColor: 'rgba(255,255,255,0.06)',
   },
   {
     name: 'Southeast Asia',
     country: 'Thailand, Malaysia & Indonesia',
-    price: 1734,
     photoQuery: 'Bali Indonesia beach temple',
     gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-    tag: 'Trending',
     patternColor: 'rgba(255,255,255,0.06)',
   },
   {
     name: 'Cancun',
     country: 'Mexico',
-    price: 1200,
     photoQuery: 'Cancun Mexico beach resort',
     gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     patternColor: 'rgba(255,255,255,0.06)',
@@ -52,16 +45,13 @@ const destinations: Destination[] = [
   {
     name: 'Japan',
     country: 'Japan',
-    price: 1649,
     photoQuery: 'Tokyo Kyoto Japan travel',
     gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-    tag: 'Editor\'s Pick',
     patternColor: 'rgba(255,255,255,0.06)',
   },
   {
     name: 'Antigua',
     country: 'Antigua and Barbuda',
-    price: 1400,
     photoQuery: 'Antigua Caribbean beach',
     gradient: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)',
     patternColor: 'rgba(255,255,255,0.06)',
@@ -69,10 +59,8 @@ const destinations: Destination[] = [
   {
     name: 'Italy',
     country: 'Italy',
-    price: 2431,
     photoQuery: 'Italy Tuscany travel landscape',
     gradient: 'linear-gradient(135deg, #ffd200 0%, #f7971e 100%)',
-    tag: 'Luxury',
     patternColor: 'rgba(0,0,0,0.08)',
   },
 ];
@@ -80,7 +68,6 @@ const destinations: Destination[] = [
 function DestinationCard({ dest }: { dest: Destination }) {
   const photo = useDestinationPhoto(dest.photoQuery);
   const router = useRouter();
-  const { formatPrice } = useCurrency();
   const href = `/packages?to=${encodeURIComponent(dest.name)}`;
 
   return (
@@ -130,11 +117,8 @@ function DestinationCard({ dest }: { dest: Destination }) {
           <h3 className="text-white text-2xl font-bold mt-0.5 mb-2">{dest.name}</h3>
           <div className="flex items-center justify-between">
             <div>
-              <span className="text-white/70 text-xs">From</span>
-              <p className="text-white font-bold text-xl leading-none">
-                {formatPrice(dest.price)}
-              </p>
-              <span className="text-white/60 text-xs">per person</span>
+              <span className="text-white/70 text-xs">Packages</span>
+              <p className="text-white font-bold text-base leading-none">Price on request</p>
             </div>
             <span className="flex items-center gap-1.5 bg-white/20 group-hover:bg-white backdrop-blur-sm text-white group-hover:text-gray-800 text-sm font-semibold px-4 py-2 rounded-xl border border-white/30 transition-colors">
               Explore
