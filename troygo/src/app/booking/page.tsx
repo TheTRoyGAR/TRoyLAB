@@ -57,7 +57,6 @@ interface AddOn {
   id: string
   name: string
   description: string
-  price: number
   icon: React.ElementType
   selected: boolean
 }
@@ -187,9 +186,7 @@ function StepReview({
   const { formatPrice } = useCurrency()
   const Icon = item.icon
   const subtotal = item.price * passengers
-  const taxes = Math.round(subtotal * 0.12)
-  const fees = 25
-  const total = subtotal + taxes + fees
+  const total = subtotal
 
   return (
     <div className="space-y-6">
@@ -259,19 +256,15 @@ function StepReview({
             <span className="text-slate-500">{formatPrice(item.price)} × {passengers} traveler{passengers > 1 ? 's' : ''}</span>
             <span className="font-semibold">{formatPrice(subtotal)}</span>
           </div>
-          <div className="flex justify-between text-sm">
-            <span className="text-slate-500">Taxes & fees (12%)</span>
-            <span className="font-semibold">{formatPrice(taxes)}</span>
-          </div>
-          <div className="flex justify-between text-sm">
-            <span className="text-slate-500">Service fee</span>
-            <span className="font-semibold">{formatPrice(fees)}</span>
-          </div>
           <div className="border-t border-slate-100 pt-3 flex justify-between">
-            <span className="font-bold text-navy">Total</span>
+            <span className="font-bold text-navy">Estimated total</span>
             <span className="font-black text-navy text-xl">{formatPrice(total)}</span>
           </div>
         </div>
+        <p className="mt-3 text-xs text-slate-500">
+          This is the listed price only. We confirm the final price and availability with you in writing before
+          you pay anything.
+        </p>
       </div>
 
       <button onClick={onNext} className="w-full py-4 rounded-xl font-bold text-white text-base shadow-lg hover:brightness-110 transition-all" style={{ background: '#00B4D8' }}>
@@ -527,13 +520,15 @@ function StepAddOns({
   }
 
   const selected = addOns.filter((a) => a.selected)
-  const total = selected.reduce((s, a) => s + a.price, 0)
 
   return (
     <div className="space-y-6">
       <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
         <h2 className="text-lg font-bold text-navy mb-2">Enhance Your Trip</h2>
-        <p className="text-sm text-slate-500 mb-5">Optional extras to make your journey more comfortable.</p>
+        <p className="text-sm text-slate-500 mb-5">
+          Tick anything you would like us to ask about. Nothing is added to your total, and we quote extras
+          separately.
+        </p>
 
         <div className="space-y-3">
           {addOns.map((addOn) => {
@@ -560,7 +555,7 @@ function StepAddOns({
                   </div>
                 </div>
                 <div className="flex items-center gap-3 shrink-0">
-                  <span className="font-bold text-navy">+{formatPrice(addOn.price)}</span>
+                  <span className="text-xs font-semibold text-slate-500">We&apos;ll quote</span>
                   <input
                     type="checkbox"
                     checked={addOn.selected}
@@ -577,8 +572,8 @@ function StepAddOns({
 
       {selected.length > 0 && (
         <div className="bg-teal/10 rounded-xl p-4 flex items-center justify-between" style={{ background: 'rgba(0,180,216,0.08)' }}>
-          <p className="text-sm font-semibold text-navy">{selected.length} add-on{selected.length > 1 ? 's' : ''} selected</p>
-          <p className="font-bold text-navy">+${total}</p>
+          <p className="text-sm font-semibold text-navy">{selected.length} extra{selected.length > 1 ? 's' : ''} to quote</p>
+          <p className="text-xs text-slate-500">No charge added</p>
         </div>
       )}
 
@@ -604,23 +599,16 @@ function StepPayment({
   onNext,
   onBack,
   isSubmitting,
+  submitError,
 }: {
   total: number
   onNext: () => void
   onBack: () => void
   isSubmitting: boolean
+  submitError: string | null
 }) {
   const { formatPrice } = useCurrency()
-  const [paymentMethod, setPaymentMethod] = useState<'bank_transfer' | 'card'>('bank_transfer')
-  const [cardNumber, setCardNumber] = useState('')
-  const [cardName, setCardName] = useState('')
-  const [expiry, setExpiry] = useState('')
-  const [cvv, setCvv] = useState('')
-  const [promo, setPromo] = useState('')
-  const [promoApplied, setPromoApplied] = useState(false)
-  const [promoDiscount, setPromoDiscount] = useState(0)
   const [agreedTerms, setAgreedTerms] = useState(false)
-  const [noticeMessage, setNoticeMessage] = useState<string | null>(null)
   const [copiedField, setCopiedField] = useState<'bsb' | 'account' | null>(null)
 
   const BSB = '085-933'
@@ -632,278 +620,82 @@ function StepPayment({
     setTimeout(() => setCopiedField(null), 2000)
   }
 
-  function formatCard(val: string) {
-    return val.replace(/\D/g, '').slice(0, 16).replace(/(.{4})/g, '$1 ').trim()
-  }
-  function formatExpiry(val: string) {
-    const v = val.replace(/\D/g, '').slice(0, 4)
-    return v.length > 2 ? `${v.slice(0, 2)}/${v.slice(2)}` : v
-  }
-
-  function applyPromo() {
-    if (promo.toUpperCase() === 'TROY10') {
-      setPromoDiscount(Math.round(total * 0.1))
-      setPromoApplied(true)
-    } else if (promo.toUpperCase() === 'WELCOME') {
-      setPromoDiscount(50)
-      setPromoApplied(true)
-    } else {
-      setPromoApplied(false)
-      setPromoDiscount(0)
-    }
-  }
-
-  const finalTotal = total - promoDiscount
-
-  const isValid =
-    agreedTerms &&
-    (paymentMethod === 'bank_transfer' ||
-      (cardNumber.replace(/\s/g, '').length === 16 && !!cardName && expiry.length === 5 && cvv.length >= 3))
-
   return (
-    <>
     <div className="space-y-6">
-      {/* Payment method */}
+      {/* How payment works */}
       <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
-        <h2 className="text-lg font-bold text-navy mb-5 flex items-center gap-2">
+        <h2 className="text-lg font-bold text-navy mb-3 flex items-center gap-2">
           <CreditCard className="h-5 w-5" style={{ color: '#00B4D8' }} />
-          Payment Details
+          How payment works
         </h2>
+        <ol className="space-y-2 text-sm text-slate-600 list-decimal pl-5">
+          <li>You pay nothing now. This is a booking request.</li>
+          <li>We check real availability and confirm the final price with you in writing.</li>
+          <li>After we confirm, we email you a secure payment link.</li>
+        </ol>
+      </div>
 
-        <div className="grid grid-cols-2 gap-2 mb-6">
-          <button
-            type="button"
-            onClick={() => setPaymentMethod('bank_transfer')}
-            className={cn(
-              'flex items-center justify-center gap-2 py-2.5 rounded-xl font-semibold text-sm border transition-colors',
-              paymentMethod === 'bank_transfer'
-                ? 'border-transparent text-white'
-                : 'border-slate-200 text-slate-500 hover:bg-slate-50'
-            )}
-            style={paymentMethod === 'bank_transfer' ? { background: '#00B4D8' } : undefined}
-          >
-            <Landmark className="h-4 w-4" />
-            Bank Transfer
-          </button>
-          <button
-            type="button"
-            onClick={() => setPaymentMethod('card')}
-            className={cn(
-              'flex items-center justify-center gap-2 py-2.5 rounded-xl font-semibold text-sm border transition-colors',
-              paymentMethod === 'card'
-                ? 'border-transparent text-white'
-                : 'border-slate-200 text-slate-500 hover:bg-slate-50'
-            )}
-            style={paymentMethod === 'card' ? { background: '#00B4D8' } : undefined}
-          >
-            <CreditCard className="h-4 w-4" />
-            Card
-          </button>
-        </div>
-
-        {paymentMethod === 'bank_transfer' ? (
-          <div>
-            <div
-              className="rounded-2xl p-5 text-white relative overflow-hidden"
-              style={{ background: 'linear-gradient(135deg, #0A1628 0%, #152D55 50%, #00B4D8 100%)' }}
-            >
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-white translate-x-8 -translate-y-8" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-white -translate-x-6 translate-y-6" />
-              </div>
-              <div className="relative z-10 space-y-4">
-                <div className="flex justify-between items-start">
-                  <span className="text-xs font-semibold tracking-widest opacity-70">TRoyGO™ TRAVEL — DIRECT DEPOSIT</span>
-                  <Landmark className="h-6 w-6 opacity-60" />
-                </div>
-                <div className="flex justify-between items-center">
-                  <div>
-                    <p className="text-xs opacity-60 uppercase tracking-wide">BSB</p>
-                    <p className="text-lg font-mono tracking-widest">{BSB}</p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => copyField('bsb', BSB.replace(/-/g, ''))}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/10 hover:bg-white/20 transition-colors"
-                  >
-                    {copiedField === 'bsb' ? <CheckCircle className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
-                    {copiedField === 'bsb' ? 'Copied' : 'Copy'}
-                  </button>
-                </div>
-                <div className="flex justify-between items-center">
-                  <div>
-                    <p className="text-xs opacity-60 uppercase tracking-wide">Account Number</p>
-                    <p className="text-lg font-mono tracking-widest">{ACCOUNT_NUMBER}</p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => copyField('account', ACCOUNT_NUMBER.replace(/-/g, ''))}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/10 hover:bg-white/20 transition-colors"
-                  >
-                    {copiedField === 'account' ? <CheckCircle className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
-                    {copiedField === 'account' ? 'Copied' : 'Copy'}
-                  </button>
-                </div>
-              </div>
-            </div>
-            <p className="mt-3 text-xs text-slate-500 flex items-start gap-1.5">
-              <AlertCircle className="h-3.5 w-3.5 mt-0.5 shrink-0" />
-              Please use your full name as the payment reference so we can match your transfer to this booking. We'll confirm receipt once your booking request is approved.
-            </p>
-          </div>
-        ) : (
-        <>
-        {/* Visual card preview */}
-        <div
-          className="rounded-2xl p-5 mb-6 text-white relative overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, #0A1628 0%, #152D55 50%, #00B4D8 100%)', minHeight: 160 }}
-        >
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-white translate-x-8 -translate-y-8" />
-            <div className="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-white -translate-x-6 translate-y-6" />
-          </div>
-          <div className="relative z-10">
-            <div className="flex justify-between items-start mb-6">
-              <span className="text-xs font-semibold tracking-widest opacity-70">TRoyGO™ TRAVEL</span>
-              <CreditCard className="h-6 w-6 opacity-60" />
-            </div>
-            <p className="text-lg font-mono tracking-widest mb-4">
-              {cardNumber || '•••• •••• •••• ••••'}
-            </p>
-            <div className="flex justify-between items-end">
-              <div>
-                <p className="text-xs opacity-60 uppercase tracking-wide">Cardholder</p>
-                <p className="font-semibold">{cardName || 'YOUR NAME'}</p>
-              </div>
-              <div className="text-right">
-                <p className="text-xs opacity-60 uppercase tracking-wide">Expires</p>
-                <p className="font-semibold">{expiry || 'MM/YY'}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="md:col-span-2">
-            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">Card Number</label>
-            <div className="relative">
-              <CreditCard className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-              <input
-                className="w-full pl-9 pr-3 py-2.5 border border-slate-200 rounded-xl text-sm font-mono text-navy focus:outline-none transition-colors"
-                value={cardNumber}
-                onChange={(e) => setCardNumber(formatCard(e.target.value))}
-                placeholder="1234 5678 9012 3456"
-                maxLength={19}
-                onFocus={(e) => (e.currentTarget.style.borderColor = '#00B4D8')}
-                onBlur={(e) => (e.currentTarget.style.borderColor = '')}
-              />
-            </div>
-          </div>
-
-          <div className="md:col-span-2">
-            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">Cardholder Name</label>
-            <input
-              className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm text-navy focus:outline-none transition-colors"
-              value={cardName}
-              onChange={(e) => setCardName(e.target.value.toUpperCase())}
-              placeholder="JOHN SMITH"
-              onFocus={(e) => (e.currentTarget.style.borderColor = '#00B4D8')}
-              onBlur={(e) => (e.currentTarget.style.borderColor = '')}
-            />
-          </div>
-
-          <div>
-            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">Expiry Date</label>
-            <input
-              className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm font-mono text-navy focus:outline-none transition-colors"
-              value={expiry}
-              onChange={(e) => setExpiry(formatExpiry(e.target.value))}
-              placeholder="MM/YY"
-              maxLength={5}
-              onFocus={(e) => (e.currentTarget.style.borderColor = '#00B4D8')}
-              onBlur={(e) => (e.currentTarget.style.borderColor = '')}
-            />
-          </div>
-
-          <div>
-            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">CVV</label>
-            <div className="relative">
-              <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-              <input
-                type="password"
-                className="w-full pl-9 pr-3 py-2.5 border border-slate-200 rounded-xl text-sm font-mono text-navy focus:outline-none transition-colors"
-                value={cvv}
-                onChange={(e) => setCvv(e.target.value.replace(/\D/g, '').slice(0, 4))}
-                placeholder="•••"
-                maxLength={4}
-                onFocus={(e) => (e.currentTarget.style.borderColor = '#00B4D8')}
-                onBlur={(e) => (e.currentTarget.style.borderColor = '')}
-              />
-            </div>
-          </div>
-        </div>
-
-        <p className="mt-3 text-xs text-slate-400 flex items-center gap-1.5">
-          <Lock className="h-3 w-3" />
-          Your payment details are encrypted and secure. This is a demo form — no actual charge will be made.
+      {/* Bank transfer details: for use only after confirmation */}
+      <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
+        <h3 className="font-bold text-navy mb-1">Prefer a bank transfer?</h3>
+        <p className="text-xs text-slate-500 mb-4">
+          Please only transfer money after we have confirmed your booking in writing.
         </p>
-        </>
-        )}
-      </div>
-
-      {/* Promo code */}
-      <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
-        <h3 className="font-bold text-navy mb-3 flex items-center gap-2">
-          <Tag className="h-4 w-4" style={{ color: '#FFD700' }} />
-          Promo Code
-        </h3>
-        <div className="flex gap-2">
-          <input
-            className="flex-1 px-3 py-2.5 border border-slate-200 rounded-xl text-sm font-mono text-navy focus:outline-none transition-colors uppercase"
-            value={promo}
-            onChange={(e) => { setPromo(e.target.value); setPromoApplied(false); setPromoDiscount(0) }}
-            placeholder="Enter code (try TROY10)"
-            onFocus={(e) => (e.currentTarget.style.borderColor = '#00B4D8')}
-            onBlur={(e) => (e.currentTarget.style.borderColor = '')}
-          />
-          <button
-            onClick={applyPromo}
-            className="px-4 py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:brightness-110"
-            style={{ background: '#FFD700', color: '#0A1628' }}
-          >
-            Apply
-          </button>
-        </div>
-        {promoApplied && (
-          <p className="mt-2 text-sm font-semibold text-emerald-600 flex items-center gap-1.5">
-            <CheckCircle className="h-4 w-4" />
-            Promo applied! You save ${promoDiscount}.
-          </p>
-        )}
-      </div>
-
-      {/* Price summary */}
-      <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
-        <h3 className="font-bold text-navy mb-4">Order Summary</h3>
-        <div className="space-y-2">
-          <div className="flex justify-between text-sm">
-            <span className="text-slate-500">Subtotal</span>
-            <span className="font-semibold">{formatPrice(total)}</span>
-          </div>
-          {promoDiscount > 0 && (
-            <div className="flex justify-between text-sm">
-              <span className="text-emerald-600">Promo discount</span>
-              <span className="font-semibold text-emerald-600">−{formatPrice(promoDiscount)}</span>
+        <div
+          className="rounded-2xl p-5 text-white relative overflow-hidden"
+          style={{ background: 'linear-gradient(135deg, #0A1628 0%, #152D55 50%, #00B4D8 100%)' }}
+        >
+          <div className="relative z-10 space-y-4">
+            <div className="flex justify-between items-start">
+              <span className="text-xs font-semibold tracking-widest opacity-70">TRoyGO™ TRAVEL — DIRECT DEPOSIT</span>
+              <Landmark className="h-6 w-6 opacity-60" />
             </div>
-          )}
-          <div className="border-t border-slate-100 pt-2 flex justify-between">
-            <span className="font-bold text-navy">Total Due Today</span>
-            <span className="font-black text-navy text-xl">{formatPrice(finalTotal)}</span>
+            <div className="flex justify-between items-center">
+              <div>
+                <p className="text-xs opacity-60 uppercase tracking-wide">BSB</p>
+                <p className="text-lg font-mono tracking-widest">{BSB}</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => copyField('bsb', BSB.replace(/-/g, ''))}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                {copiedField === 'bsb' ? <CheckCircle className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+                {copiedField === 'bsb' ? 'Copied' : 'Copy'}
+              </button>
+            </div>
+            <div className="flex justify-between items-center">
+              <div>
+                <p className="text-xs opacity-60 uppercase tracking-wide">Account Number</p>
+                <p className="text-lg font-mono tracking-widest">{ACCOUNT_NUMBER}</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => copyField('account', ACCOUNT_NUMBER.replace(/-/g, ''))}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                {copiedField === 'account' ? <CheckCircle className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+                {copiedField === 'account' ? 'Copied' : 'Copy'}
+              </button>
+            </div>
           </div>
+        </div>
+        <p className="mt-3 text-xs text-slate-500 flex items-start gap-1.5">
+          <AlertCircle className="h-3.5 w-3.5 mt-0.5 shrink-0" />
+          Use your full name as the payment reference so we can match your transfer to this booking.
+        </p>
+      </div>
+
+      {/* Summary */}
+      <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
+        <h3 className="font-bold text-navy mb-4">Request summary</h3>
+        <div className="flex justify-between">
+          <span className="font-bold text-navy">Estimated total</span>
+          <span className="font-black text-navy text-xl">{formatPrice(total)}</span>
         </div>
         <p className="mt-3 text-xs text-slate-400 flex items-center gap-1.5">
           <AlertCircle className="h-3 w-3" />
-          This booking requires owner approval. A deposit link will be sent once confirmed.
+          The final price is confirmed in writing before you pay. Nothing is charged by submitting this request.
         </p>
       </div>
 
@@ -918,12 +710,23 @@ function StepPayment({
         />
         <span className="text-sm text-slate-600">
           I agree to the{' '}
-          <button type="button" onClick={() => setNoticeMessage("Terms & Conditions page isn't built yet.")} className="underline hover:no-underline" style={{ color: '#00B4D8' }}>Terms & Conditions</button>
+          <Link href="/terms" target="_blank" className="underline hover:no-underline" style={{ color: '#00B4D8' }}>
+            Terms &amp; Conditions
+          </Link>
           {' '}and{' '}
-          <button type="button" onClick={() => setNoticeMessage("Privacy Policy page isn't built yet.")} className="underline hover:no-underline" style={{ color: '#00B4D8' }}>Privacy Policy</button>
-          . I understand this is a booking inquiry that requires approval.
+          <Link href="/privacy" target="_blank" className="underline hover:no-underline" style={{ color: '#00B4D8' }}>
+            Privacy Policy
+          </Link>
+          . I understand this is a booking request that needs our written confirmation.
         </span>
       </label>
+
+      {submitError && (
+        <div role="alert" className="rounded-xl bg-red-50 border border-red-200 p-4 text-sm text-red-800 flex items-start gap-2">
+          <AlertCircle className="h-4 w-4 mt-0.5 shrink-0" />
+          <p>{submitError}</p>
+        </div>
+      )}
 
       <div className="flex gap-3">
         <button onClick={onBack} className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-slate-600 border border-slate-200 hover:bg-slate-50 transition-colors">
@@ -931,7 +734,7 @@ function StepPayment({
         </button>
         <button
           onClick={onNext}
-          disabled={!isValid || isSubmitting}
+          disabled={!agreedTerms || isSubmitting}
           className="flex-1 py-3 rounded-xl font-bold text-white text-base shadow-lg hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           style={{ background: '#00B4D8' }}
         >
@@ -949,23 +752,6 @@ function StepPayment({
         </button>
       </div>
     </div>
-
-    {/* Lightweight notice for not-yet-built pages */}
-    {noticeMessage && (
-      <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 text-center">
-          <p className="text-sm text-gray-600 mb-5">{noticeMessage}</p>
-          <button
-            onClick={() => setNoticeMessage(null)}
-            className="w-full py-2.5 rounded-xl font-semibold text-sm text-white"
-            style={{ background: '#0A1628' }}
-          >
-            Got it
-          </button>
-        </div>
-      </div>
-    )}
-    </>
   )
 }
 
@@ -1131,25 +917,24 @@ function BookingContent() {
     Array.from({ length: Math.max(1, passengersParam) }, emptyTraveler)
   )
   const [addOns, setAddOns] = useState<AddOn[]>([
-    { id: 'insurance', name: 'Travel Insurance', description: 'Comprehensive coverage: medical, cancellation, lost baggage.', price: 89, icon: Shield, selected: false },
-    { id: 'transfer', name: 'Airport Transfer', description: 'Private car transfer to/from the airport at your destination.', price: 65, icon: Car, selected: false },
-    { id: 'sim', name: 'International SIM Card', description: '10GB data + calls in 80+ countries, delivered to your door.', price: 29, icon: Smartphone, selected: false },
-    { id: 'wifi', name: 'Pocket Wi-Fi Device', description: 'Unlimited data portable Wi-Fi device, up to 10 devices.', price: 45, icon: Wifi, selected: false },
+    { id: 'insurance', name: 'Travel insurance', description: 'Ask us about travel insurance. We will quote it separately.', icon: Shield, selected: false },
+    { id: 'transfer', name: 'Airport transfers', description: 'Ask us about transfers at your destination. We will quote them separately.', icon: Car, selected: false },
     ...(type === 'flight' ? [
-      { id: 'seat', name: 'Seat Upgrade', description: 'Priority seating with extra legroom and preferred location.', price: 55, icon: ArrowUpCircle, selected: false },
+      { id: 'seat', name: 'Seat selection', description: 'Ask us about seat choice. Availability and cost depend on the airline.', icon: ArrowUpCircle, selected: false },
     ] : []),
   ])
+  const [submitError, setSubmitError] = useState<string | null>(null)
   const [bookingRef, setBookingRef] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  // Listed price only: no invented tax, fee or add-on prices. We confirm the
+  // final price in writing before any payment is requested.
   const basePrice = item ? item.price * Math.max(1, passengersParam) : 0
-  const taxes = Math.round(basePrice * 0.12)
-  const fees = 25
-  const addOnTotal = addOns.filter((a) => a.selected).reduce((s, a) => s + a.price, 0)
-  const grandTotal = basePrice + taxes + fees + addOnTotal
+  const grandTotal = basePrice
 
   async function handlePaymentSubmit() {
     setIsSubmitting(true)
+    setSubmitError(null)
     try {
       const ref = generateRef()
       // Real Duffel offers stash their real search params alongside the
@@ -1184,11 +969,11 @@ function BookingContent() {
         const data = await res.json()
         setBookingRef(data.bookingRef ?? ref)
         setStep(5)
+      } else {
+        setSubmitError('We could not save your request. Nothing has been submitted. Please try again, or email agency@troytravelagency.com or call +61 422 781 807.')
       }
     } catch {
-      // Still advance even on network error in demo
-      setBookingRef(generateRef())
-      setStep(5)
+      setSubmitError('We could not reach our server. Nothing has been submitted. Please check your connection and try again, or email agency@troytravelagency.com.')
     } finally {
       setIsSubmitting(false)
     }
@@ -1283,6 +1068,7 @@ function BookingContent() {
           {step === 4 && (
             <StepPayment
               total={grandTotal}
+              submitError={submitError}
               onNext={handlePaymentSubmit}
               onBack={() => setStep(3)}
               isSubmitting={isSubmitting}
