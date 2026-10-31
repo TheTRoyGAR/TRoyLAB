@@ -40,6 +40,7 @@ import { carRentals } from '@/app/cars/page'
 import BookingSteps, { type StepId } from '@/components/booking/BookingSteps'
 import MainLayout from '@/components/layout/MainLayout'
 import TurnstileWidget, { TURNSTILE_SITE_KEY } from '@/components/ui/TurnstileWidget'
+import QuoteRequestButton from '@/components/ui/QuoteRequest'
 
 /* ─── Types ───────────────────────────────────────────────────────────────── */
 interface TravelerInfo {
@@ -980,7 +981,6 @@ function BookingContent() {
     return null
   })()
   if (quoteOnly) {
-    const subject = encodeURIComponent(`${quoteOnly.kind[0].toUpperCase()}${quoteOnly.kind.slice(1)} quote request: ${quoteOnly.name}`)
     return (
       <MainLayout>
         <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
@@ -990,13 +990,12 @@ function BookingContent() {
               This {quoteOnly.kind} is quoted individually, so there is no online price yet. Send us your dates and
               number of travellers and we will come back with a real quote.
             </p>
-            <a
-              href={`mailto:agency@troytravelagency.com?subject=${subject}`}
-              className="inline-block px-6 py-3 rounded-xl font-bold text-white"
-              style={{ background: '#00B4D8' }}
-            >
-              Request a Quote
-            </a>
+            <QuoteRequestButton
+              kind={quoteOnly.kind as 'cruise' | 'package' | 'hotel' | 'car'}
+              itemName={quoteOnly.name}
+              dates={params.get('date') ?? ''}
+              className="inline-block px-6 py-3 rounded-xl font-bold text-white bg-[#0077b6] hover:bg-[#006399]"
+            />
           </div>
         </div>
       </MainLayout>

@@ -10,6 +10,7 @@ import {
 } from 'lucide-react'
 import { format } from 'date-fns'
 import PackageMap from '@/components/maps/PackageMap'
+import QuoteRequestButton from '@/components/ui/QuoteRequest'
 import MainLayout from '@/components/layout/MainLayout'
 import { useDestinationPhoto } from '@/hooks/useDestinationPhoto'
 import { useCurrency } from '@/lib/currency-context'
@@ -33,11 +34,6 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
   const excludesList = ['Visa fees', 'Personal expenses', 'Optional activities', 'Travel insurance']
 
   const totalPrice = pkg.price * travelers
-
-  // Packages without a confirmed price are quoted individually by email.
-  const quoteUrl = `mailto:agency@troytravelagency.com?subject=${encodeURIComponent(`Package quote request: ${pkg.name}`)}&body=${encodeURIComponent(
-    `Hello,\n\nI would like a quote for: ${pkg.name}.\n\nPreferred departure date: ${selectedDate || '(not chosen)'}\nNumber of travellers: ${travelers}\n\nThank you`
-  )}`
 
   return (
     <MainLayout>
@@ -292,13 +288,14 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
                     <p className="text-xs text-gray-400">We confirm the final price and availability in writing before you pay.</p>
                   </div>
                   {pkg.priceOnRequest ? (
-                    <a
-                      href={quoteUrl}
+                    <QuoteRequestButton
+                      kind="package"
+                      itemName={pkg.name}
+                      dates={selectedDate}
+                      travelers={`${travelers} traveller${travelers === 1 ? '' : 's'}`}
                       className="block w-full text-center py-3 rounded-xl font-bold text-[#0A1628] text-sm hover:brightness-110 transition-all"
                       style={{ background: '#FFD700' }}
-                    >
-                      Request a Quote
-                    </a>
+                    />
                   ) : (
                     <Link
                       href={`/booking?type=package&id=${pkg.id}&travelers=${travelers}&date=${selectedDate}&price=${totalPrice}&name=${encodeURIComponent(pkg.name)}`}
@@ -352,13 +349,14 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
                 </div>
               </div>
               {pkg.priceOnRequest ? (
-                <a
-                  href={quoteUrl}
+                <QuoteRequestButton
+                  kind="package"
+                  itemName={pkg.name}
+                  dates={selectedDate}
+                  travelers={`${travelers} traveller${travelers === 1 ? '' : 's'}`}
                   className="block w-full text-center py-3 rounded-xl font-bold text-[#0A1628] text-sm hover:brightness-110 transition-all mb-3"
                   style={{ background: '#FFD700' }}
-                >
-                  Request a Quote
-                </a>
+                />
               ) : (
                 <Link
                   href={`/booking?type=package&id=${pkg.id}&name=${encodeURIComponent(pkg.name)}&price=${pkg.price}`}
