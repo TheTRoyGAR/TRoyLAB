@@ -12,13 +12,9 @@ const nextConfig: NextConfig = {
     return [
       // The old agent/guide profile pages described people who were never real; send old links to /agents.
       { source: "/agents/:path+", destination: "/agents", permanent: true },
-    ];
-  },
-  async rewrites() {
-    return [
-      // Serves the static flight-tracker page (public/flight-tracker.html)
-      // at a clean URL, matching the pattern of the other app routes.
-      { source: "/flight-tracker", destination: "/flight-tracker.html" },
+      // The Track Flights page was removed (2026-11-01): old links go to flight search instead of a 404.
+      { source: "/flight-tracker", destination: "/flights", permanent: true },
+      { source: "/flight-tracker.html", destination: "/flights", permanent: true },
     ];
   },
 };

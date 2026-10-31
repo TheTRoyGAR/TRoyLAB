@@ -19,7 +19,6 @@ import {
   Compass,
   ShieldCheck,
   PartyPopper,
-  Radar,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useCurrency } from '@/lib/currency-context'
@@ -47,7 +46,6 @@ interface Currency {
 /* ─── Navigation config ──────────────────────────────────────────────────── */
 const NAV_ITEMS: NavItem[] = [
   { label: 'Flights',     href: '/flights',       icon: Plane,  description: 'Search & book flights worldwide'     },
-  { label: 'Track Flights', href: '/flight-tracker', icon: Radar, description: 'Live global flight positions'      },
   { label: 'Hotels',      href: '/hotels',        icon: Hotel,  description: 'Hotels, quoted on request'            },
   { label: 'Cars',        href: '/cars',          icon: Car,    description: 'Car rentals, quoted on request'     },
   { label: 'Packages',    href: '/packages',      icon: Package,description: 'Holiday packages, quoted on request' },
