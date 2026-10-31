@@ -33,7 +33,7 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useCurrency } from '@/lib/currency-context'
-import { sampleFlights, type Flight } from '@/lib/data/flights'
+import type { Flight } from '@/lib/data/flights'
 import { sampleHotels } from '@/lib/data/hotels'
 import { travelPackages, cruises } from '@/lib/data/packages'
 import { carRentals } from '@/app/cars/page'
@@ -90,7 +90,7 @@ function getBookingItem(type: string | null, id: string | null, cls: string | nu
         // fall through to sample lookup below
       }
     }
-    if (!f) f = sampleFlights.find((x) => x.id === id)
+    // No invented fallback: if the selection is gone (e.g. the page was reopened later), the page asks the visitor to search again.
     if (!f) return null
     const cabin = (cls as 'economy' | 'business' | 'first') ?? 'economy'
     return {
@@ -143,18 +143,7 @@ function getBookingItem(type: string | null, id: string | null, cls: string | nu
       icon: Ship,
     }
   }
-  // Default: sample flight for demo
-  const f = sampleFlights[0]
-  return {
-    type: 'flight' as const,
-    data: f,
-    cabin: 'economy' as const,
-    price: f.price.economy,
-    label: `${f.airline} ${f.flightNumber}`,
-    subtitle: `${f.from.city} (${f.from.code}) → ${f.to.city} (${f.to.code})`,
-    date: f.departure,
-    icon: Plane,
-  }
+  return null
 }
 
 /* ─── Step 1: Review ──────────────────────────────────────────────────────── */
@@ -215,11 +204,11 @@ function StepReview({
             <>
               <div className="flex justify-between text-sm">
                 <dt className="text-slate-500">Aircraft</dt>
-                <dd className="font-medium text-navy">{(item.data as typeof sampleFlights[0]).aircraft}</dd>
+                <dd className="font-medium text-navy">{(item.data as Flight).aircraft}</dd>
               </div>
               <div className="flex justify-between text-sm">
                 <dt className="text-slate-500">Duration</dt>
-                <dd className="font-medium text-navy">{(item.data as typeof sampleFlights[0]).duration}</dd>
+                <dd className="font-medium text-navy">{(item.data as Flight).duration}</dd>
               </div>
             </>
           )}
@@ -1019,9 +1008,12 @@ function BookingContent() {
       <MainLayout>
         <div className="min-h-screen bg-slate-50 flex items-center justify-center">
           <div className="text-center">
-            <p className="text-xl font-bold text-navy mb-2">No booking item selected</p>
-            <Link href="/flights" className="text-teal hover:underline" style={{ color: '#00B4D8' }}>
-              Browse Flights
+            <p className="text-xl font-bold text-navy mb-2">This selection is no longer available</p>
+            <p className="text-slate-500 text-sm mb-4 max-w-sm mx-auto">
+              Flight offers expire, so please search again to see current prices.
+            </p>
+            <Link href="/flights" className="text-[#0077b6] font-semibold hover:underline">
+              Search flights
             </Link>
           </div>
         </div>

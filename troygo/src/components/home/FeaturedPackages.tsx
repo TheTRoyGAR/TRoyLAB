@@ -103,7 +103,7 @@ function PackageCard({ pkg }: { pkg: Package }) {
         {/* Destinations overlay */}
         <div className="absolute bottom-4 right-4 z-10 flex items-center gap-1 text-white/90 text-xs">
           <MapPin className="w-3 h-3" />
-          <span>{pkg.destinations.length} destinations</span>
+          <span>{pkg.destinations.length} {pkg.destinations.length === 1 ? 'country' : 'countries'}</span>
         </div>
 
         {/* Required Unsplash attribution — button, not <a>, since the whole

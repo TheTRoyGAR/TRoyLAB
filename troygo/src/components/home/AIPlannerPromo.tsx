@@ -45,7 +45,7 @@ const chatMessages = [
   },
   {
     role: 'ai' as const,
-    text: "Absolutely! I've added a traditional tea ceremony at En tea house in Gion for Day 5 afternoon. I also found flights from $1,249/pp. Shall I book?",
+    text: "Absolutely! I've added a traditional tea ceremony at En tea house in Gion for Day 5 afternoon. I can also search live flights for your dates. Shall I?",
   },
 ];
 
@@ -188,7 +188,7 @@ export default function AIPlannerPromo() {
                   <p className="text-white font-bold text-sm">TRoy AI Planner</p>
                   <div className="flex items-center gap-1.5">
                     <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                    <span className="text-white/60 text-xs">Online · Thinking in real-time</span>
+                    <span className="text-white/60 text-xs">Example conversation</span>
                   </div>
                 </div>
                 <div className="ml-auto flex gap-1.5">
