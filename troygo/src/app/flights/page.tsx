@@ -25,7 +25,6 @@ import PassengerPicker, { type PassengerCounts } from '@/components/flights/Pass
 import type { Flight, FlightLegInfo } from '@/lib/data/flights'
 import JetstarFallback from '@/components/flights/JetstarFallback'
 import MainLayout from '@/components/layout/MainLayout'
-import LiveFlightTracker from '@/components/flights/LiveFlightTracker'
 import { useCurrency } from '@/lib/currency-context'
 
 /* ─── Types ───────────────────────────────────────────────────────────────── */
@@ -1007,10 +1006,6 @@ function FlightsContent() {
               />
             </div>
           )}
-
-          <div className="mt-10">
-            <LiveFlightTracker />
-          </div>
         </div>
       </div>
     </MainLayout>
