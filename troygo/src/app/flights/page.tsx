@@ -14,8 +14,6 @@ import {
   Wifi,
   Utensils,
   Monitor,
-  Bell,
-  BellOff,
   ChevronRight,
   Calendar,
   AlertCircle,
@@ -24,7 +22,7 @@ import { cn, defaultSearchDate } from '@/lib/utils'
 import AirportAutocomplete from '@/components/flights/AirportAutocomplete'
 import TripAddOns from '@/components/flights/TripAddOns'
 import PassengerPicker, { type PassengerCounts } from '@/components/flights/PassengerPicker'
-import { sampleFlights, type Flight, type FlightLegInfo } from '@/lib/data/flights'
+import type { Flight, FlightLegInfo } from '@/lib/data/flights'
 import JetstarFallback from '@/components/flights/JetstarFallback'
 import MainLayout from '@/components/layout/MainLayout'
 import LiveFlightTracker from '@/components/flights/LiveFlightTracker'
@@ -239,18 +237,6 @@ function FlightCard({
             {selectedClass} · {passengerTotal > 1 ? `total for ${passengerTotal} passengers` : 'per person'}
             {flight.returnLeg ? ' · round trip' : ''}
           </p>
-          {selectedClass === 'economy' && (
-            <div className="mt-0.5 space-y-0.5">
-              <p className="text-xs text-slate-400">
-                Business: <span className="font-medium text-slate-600">{formatPrice(flight.price.business)}</span>
-              </p>
-              {flight.price.first > 0 && (
-                <p className="text-xs text-slate-400">
-                  First: <span className="font-medium text-slate-600">{formatPrice(flight.price.first)}</span>
-                </p>
-              )}
-            </div>
-          )}
         </div>
         <Link
           href={`/booking?type=flight&id=${flight.id}&class=${selectedClass}&passengers=${passengerTotal}`}
@@ -479,14 +465,16 @@ function FilterSidebar({
   stops, setStops, priceRange, setPriceRange,
   airlines, setAirlines, departureTimes, setDepartureTimes,
   maxDuration, setMaxDuration,
+  airlineOptions, priceMax,
 }: {
+  airlineOptions: string[]; priceMax: number
   stops: Set<number>; setStops: (v: Set<number>) => void
   priceRange: [number, number]; setPriceRange: (v: [number, number]) => void
   airlines: Set<string>; setAirlines: (v: Set<string>) => void
   departureTimes: Set<DepartureTime>; setDepartureTimes: (v: Set<DepartureTime>) => void
   maxDuration: number; setMaxDuration: (v: number) => void
 }) {
-  const allAirlines = [...new Set(sampleFlights.map((f) => f.airline))].sort()
+  const allAirlines = airlineOptions
   const { formatPrice } = useCurrency()
 
   function toggleSet<T>(set: Set<T>, val: T, setter: (v: Set<T>) => void) {
@@ -527,14 +515,14 @@ function FilterSidebar({
         <div className="flex items-center gap-2 mb-2">
           <span className="text-xs text-slate-500">{formatPrice(priceRange[0])}</span>
           <div className="flex-1" />
-          <span className="text-xs font-semibold text-navy">{formatPrice(priceRange[1])}</span>
+          <span className="text-xs font-semibold text-navy">{formatPrice(Math.min(priceRange[1], priceMax))}</span>
         </div>
         <input
           type="range"
           min={0}
-          max={2000}
-          step={50}
-          value={priceRange[1]}
+          max={priceMax}
+          step={Math.max(1, Math.round(priceMax / 40))}
+          value={Math.min(priceRange[1], priceMax)}
           onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
           className="w-full"
           style={{ accentColor: '#00B4D8' }}
@@ -658,11 +646,11 @@ function FlightsContent() {
   }
 
   const [sortMode, setSortMode] = useState<SortMode>('best')
-  const [priceAlert, setPriceAlert] = useState(false)
+  const [showFilters, setShowFilters] = useState(false)
 
   // Filters
   const [stops, setStops] = useState<Set<number>>(new Set([0, 1, 2]))
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 2000])
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 1_000_000])
   const [airlines, setAirlines] = useState<Set<string>>(new Set())
   const [departureTimes, setDepartureTimes] = useState<Set<DepartureTime>>(new Set())
   const [maxDuration, setMaxDuration] = useState(24)
@@ -679,26 +667,6 @@ function FlightsContent() {
     const match = d.match(/(\d+)h\s*(\d+)?m?/)
     if (!match) return 99
     return Number(match[1]) + (Number(match[2] ?? 0) / 60)
-  }
-
-  function matchesRoute(query: string, endpoint: { city: string; code: string }): boolean {
-    const q = query.trim().toLowerCase()
-    if (!q) return true
-    return endpoint.city.toLowerCase().includes(q) || endpoint.code.toLowerCase() === q
-  }
-
-  function filterByLeg(legFrom: string, legTo: string) {
-    return sampleFlights.filter((f) => {
-      if (!matchesRoute(legFrom, f.from)) return false
-      if (!matchesRoute(legTo, f.to)) return false
-      if (!stops.has(f.stops)) return false
-      const price = f.price[cabinClass]
-      if (price < priceRange[0] || price > priceRange[1]) return false
-      if (airlines.size > 0 && !airlines.has(f.airline)) return false
-      if (departureTimes.size > 0 && !departureTimes.has(getDepartureSlot(f.departure))) return false
-      if (parseDurationHours(f.duration) > maxDuration) return false
-      return true
-    })
   }
 
   function sortResults(list: Flight[]) {
@@ -775,46 +743,68 @@ function FlightsContent() {
     return () => { cancelled = true }
   }, [from, to, date, tripType, returnDate, passengerCounts, cabinClass])
 
+  // Only real, live results are ever shown. Nothing is invented when a search cannot run.
   const filtered = useMemo(() => {
-    if (liveFlights) {
-      return liveFlights.filter((f) => {
-        if (!stops.has(f.stops)) return false
-        const price = f.price[cabinClass]
-        if (price < priceRange[0] || price > priceRange[1]) return false
-        if (departureTimes.size > 0 && !departureTimes.has(getDepartureSlot(f.departure))) return false
-        return true
-      })
-    }
-    return filterByLeg(from, to)
-  }, [liveFlights, from, to, stops, priceRange, airlines, departureTimes, maxDuration, cabinClass])
+    if (!liveFlights) return []
+    return liveFlights.filter((f) => {
+      if (!stops.has(f.stops)) return false
+      const price = f.price[cabinClass]
+      if (price < priceRange[0] || price > priceRange[1]) return false
+      if (airlines.size > 0 && !airlines.has(f.airline)) return false
+      if (departureTimes.size > 0 && !departureTimes.has(getDepartureSlot(f.departure))) return false
+      if (parseDurationHours(f.duration) > maxDuration) return false
+      return true
+    })
+  }, [liveFlights, stops, priceRange, airlines, departureTimes, maxDuration, cabinClass])
+
+  const airlineOptions = useMemo(
+    () => [...new Set((liveFlights ?? []).map((f) => f.airline))].sort(),
+    [liveFlights],
+  )
+  const priceMax = useMemo(() => {
+    const top = Math.max(0, ...(liveFlights ?? []).map((f) => f.price[cabinClass]))
+    if (top <= 0) return 1000
+    const step = top > 5000 ? 500 : top > 1000 ? 100 : 50
+    return Math.ceil(top / step) * step
+  }, [liveFlights, cabinClass])
+
+  const searchReady =
+    looksLikeIataCode(from) && looksLikeIataCode(to) && !!date && (tripType === 'oneway' || !!returnDate)
+  const filtersHideAll = !!liveFlights && liveFlights.length > 0 && filtered.length === 0
+  function resetFilters() {
+    setStops(new Set([0, 1, 2]))
+    setPriceRange([0, 1_000_000])
+    setAirlines(new Set())
+    setDepartureTimes(new Set())
+    setMaxDuration(24)
+  }
 
   const sorted = useMemo(() => sortResults(filtered), [filtered, sortMode, cabinClass])
 
   // True when our live search ran successfully and found no flights at all (so the Jetstar hand-off makes sense).
   const liveFoundNothing = liveFlights !== null && liveFlights.length === 0 && !liveLoading && !liveError
 
-  // When extra destinations are added, show each leg's results separately.
+  // Extra destinations: only the first leg is searched live. Other legs are quoted personally.
   const legResults = useMemo(() => {
     if (extraLegs.length === 0) return null
-    const legs = [
-      { label: `${from || 'Anywhere'} → ${to || 'Anywhere'}`, legFrom: from, legTo: to },
-      ...extraLegs.map((l) => ({ label: `${l.from || 'Anywhere'} → ${l.to || 'Anywhere'}`, legFrom: l.from, legTo: l.to })),
+    return [
+      { label: `${from || 'Anywhere'} → ${to || 'Anywhere'}`, legFrom: from, legTo: to, results: sorted, live: true },
+      ...extraLegs.map((l) => ({ label: `${l.from || 'Anywhere'} → ${l.to || 'Anywhere'}`, legFrom: l.from, legTo: l.to, results: [] as Flight[], live: false })),
     ]
-    return legs.map((leg) => ({ ...leg, results: sortResults(filterByLeg(leg.legFrom, leg.legTo)) }))
-  }, [from, to, extraLegs, stops, priceRange, airlines, departureTimes, maxDuration, cabinClass, sortMode])
+  }, [from, to, extraLegs, sorted])
 
   return (
     <MainLayout>
       <div className="min-h-screen bg-slate-50">
         {/* Hero bar */}
-        <div className="py-8 px-4 md:px-8" style={{ background: '#0A1628' }}>
+        <div className="py-8 px-4 md:px-8 bg-gradient-to-b from-sky-50 to-slate-50 border-b border-slate-200">
           <div className="max-w-7xl mx-auto">
-            <div className="flex items-center gap-2 text-white/60 text-sm mb-4">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <div className="flex items-center gap-2 text-slate-500 text-sm mb-4">
+              <Link href="/" className="hover:text-[#0077b6] transition-colors">Home</Link>
               <ChevronRight className="h-4 w-4" />
-              <span className="text-white">Flights</span>
+              <span className="text-slate-900">Flights</span>
             </div>
-            <h1 className="text-2xl font-bold text-white mb-6">Search Flights</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold text-[#0A1628] mb-5">Search flights</h1>
             <SearchBar
               tripType={tripType} setTripType={setTripType}
               from={from} setFrom={setFrom}
@@ -830,20 +820,30 @@ function FlightsContent() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8">
-          <div className="mb-6">
-            <LiveFlightTracker />
-          </div>
           <div className="flex flex-col lg:flex-row gap-6">
-            {/* Sidebar */}
+            {/* Sidebar: only once there are real results to filter */}
+            {(liveFlights?.length ?? 0) > 0 && (
             <div className="lg:w-64 shrink-0">
+              <button
+                type="button"
+                onClick={() => setShowFilters((v) => !v)}
+                aria-expanded={showFilters}
+                className="lg:hidden w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-slate-300 bg-white text-sm font-semibold text-slate-700"
+              >
+                <Filter className="h-4 w-4" /> {showFilters ? 'Hide filters' : 'Filters'}
+              </button>
+              <div className={cn('mt-3 lg:mt-0', showFilters ? 'block' : 'hidden lg:block')}>
               <FilterSidebar
                 stops={stops} setStops={setStops}
                 priceRange={priceRange} setPriceRange={setPriceRange}
                 airlines={airlines} setAirlines={setAirlines}
                 departureTimes={departureTimes} setDepartureTimes={setDepartureTimes}
                 maxDuration={maxDuration} setMaxDuration={setMaxDuration}
+                airlineOptions={airlineOptions} priceMax={priceMax}
               />
+              </div>
             </div>
+            )}
 
             {/* Results */}
             <div id="flight-results" className="flex-1 min-w-0">
@@ -853,20 +853,18 @@ function FlightsContent() {
                   Searching real live flights for {from.toUpperCase()} → {to.toUpperCase()}...
                 </div>
               )}
-              {liveError && (
-                <div className="mb-3 text-sm font-medium text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
-                  Live flight search unavailable ({liveError}) — showing sample data instead.
-                </div>
-              )}
-              {liveFlights && !liveLoading && !liveError && (
-                <div className="mb-3 text-sm font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg px-3 py-2">
-                  Live flight search results (via Duffel)
-                </div>
+              {liveFlights && !liveLoading && !liveError && liveFlights.length > 0 && (
+                <p className="mb-3 text-sm text-slate-600">
+                  Live prices from airlines via Duffel. The price shown is the total for your whole party.
+                </p>
               )}
               {/* Sort bar */}
+              {(liveFlights?.length ?? 0) > 0 && (
               <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
-                <p className="text-sm text-slate-500">
-                  {legResults ? (
+                <p className="text-sm text-slate-500" aria-live="polite">
+                  {!liveFlights ? (
+                    <>&nbsp;</>
+                  ) : legResults ? (
                     <>Showing <span className="font-bold text-navy">{legResults.reduce((n, l) => n + l.results.length, 0)}</span> flights across <span className="font-bold text-navy">{legResults.length}</span> destinations</>
                   ) : (
                     <>Showing <span className="font-bold text-navy">{sorted.length}</span> flights</>
@@ -892,22 +890,10 @@ function FlightsContent() {
                     ))}
                   </div>
 
-                  {/* Price alert */}
-                  <button
-                    onClick={() => setPriceAlert((v) => !v)}
-                    className={cn(
-                      'flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs font-semibold transition-all',
-                      priceAlert
-                        ? 'text-white border-transparent shadow-sm'
-                        : 'text-slate-600 border-slate-200 hover:border-slate-300'
-                    )}
-                    style={priceAlert ? { background: '#FFD700', color: '#0A1628', borderColor: '#FFD700' } : {}}
-                  >
-                    {priceAlert ? <Bell className="h-3.5 w-3.5" /> : <BellOff className="h-3.5 w-3.5" />}
-                    Price Alert {priceAlert ? 'On' : 'Off'}
-                  </button>
                 </div>
               </div>
+
+              )}
 
               {/* Flight list */}
               {legResults ? (
@@ -923,9 +909,20 @@ function FlightsContent() {
                       <div className="space-y-3">
                         {leg.results.length === 0 ? (
                           <div className="bg-white rounded-2xl p-8 text-center border border-slate-100">
-                            <p className="text-sm font-semibold text-navy mb-1">No flights found for this leg</p>
-                            <p className="text-slate-500 text-xs">Try adjusting your filters or the route entered.</p>
-                            {(i > 0 || liveFoundNothing) && (
+                            {leg.live ? (
+                              <>
+                                <p className="text-sm font-semibold text-navy mb-1">No flights found for this leg</p>
+                                <p className="text-slate-500 text-xs">Try adjusting your filters or the route entered.</p>
+                              </>
+                            ) : (
+                              <>
+                                <p className="text-sm font-semibold text-navy mb-1">We quote extra destinations personally</p>
+                                <p className="text-slate-500 text-xs">
+                                  Live prices cover the first route only. <Link href="/contact" className="text-[#0077b6] font-semibold underline">Send us this route</Link> and we will reply with a confirmed price.
+                                </p>
+                              </>
+                            )}
+                            {(!leg.live || liveFoundNothing) && (
                               <JetstarFallback from={leg.legFrom} to={leg.legTo} date={i === 0 ? date : undefined} returnDate={i === 0 && tripType === 'roundtrip' ? returnDate : undefined} adults={passengerCounts.adults} children={passengerCounts.children.length} infants={passengerCounts.infants.length} />
                             )}
                           </div>
@@ -941,14 +938,53 @@ function FlightsContent() {
               ) : (
                 <div className="space-y-3">
                   {sorted.length === 0 ? (
-                    <div className="bg-white rounded-2xl p-12 text-center border border-slate-100">
-                      <Plane className="h-12 w-12 text-slate-200 mx-auto mb-3" />
-                      <p className="text-lg font-bold text-navy mb-2">No flights found</p>
-                      <p className="text-slate-500 text-sm">Try adjusting your filters or search criteria.</p>
-                      {liveFoundNothing && (
-                        <JetstarFallback from={from} to={to} date={date} returnDate={tripType === 'roundtrip' ? returnDate : undefined} adults={passengerCounts.adults} children={passengerCounts.children.length} infants={passengerCounts.infants.length} />
-                      )}
-                    </div>
+                    liveLoading ? (
+                      <div className="space-y-3" aria-busy="true">
+                        {[0, 1, 2].map((i) => (
+                          <div key={i} className="bg-white rounded-2xl border border-slate-100 p-6 animate-pulse">
+                            <div className="h-4 w-1/3 bg-slate-100 rounded mb-4" />
+                            <div className="h-8 w-2/3 bg-slate-100 rounded" />
+                          </div>
+                        ))}
+                        <p className="text-sm text-slate-500 text-center">
+                          Searching live flights for {from.toUpperCase()} → {to.toUpperCase()}…
+                        </p>
+                      </div>
+                    ) : liveError ? (
+                      <div className="bg-white rounded-2xl p-10 text-center border border-amber-200">
+                        <AlertCircle className="h-10 w-10 text-amber-500 mx-auto mb-3" />
+                        <p className="text-lg font-bold text-navy mb-2">We could not search flights just now</p>
+                        <p className="text-slate-500 text-sm max-w-md mx-auto">
+                          Please try again in a moment. If it keeps happening, <Link href="/contact" className="text-[#0077b6] font-semibold underline">tell us your route and dates</Link> and we will find the flight for you.
+                        </p>
+                      </div>
+                    ) : !searchReady ? (
+                      <div className="bg-white rounded-2xl p-10 text-center border border-slate-100">
+                        <Plane className="h-10 w-10 text-[#0077b6] mx-auto mb-3" />
+                        <p className="text-lg font-bold text-navy mb-2">Where are you flying?</p>
+                        <p className="text-slate-500 text-sm max-w-md mx-auto">
+                          Choose your <strong>From</strong> and <strong>To</strong> airports from the suggestions, pick a date{tripType === 'roundtrip' ? ' and a return date' : ''}, and live prices appear here.
+                        </p>
+                      </div>
+                    ) : filtersHideAll ? (
+                      <div className="bg-white rounded-2xl p-10 text-center border border-slate-100">
+                        <Filter className="h-10 w-10 text-slate-300 mx-auto mb-3" />
+                        <p className="text-lg font-bold text-navy mb-2">No flights match your filters</p>
+                        <p className="text-slate-500 text-sm mb-4">{liveFlights?.length} flights were found for this search.</p>
+                        <button onClick={resetFilters} className="px-5 py-2.5 rounded-xl bg-[#0077b6] text-white text-sm font-semibold hover:bg-[#006399]">
+                          Clear filters
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="bg-white rounded-2xl p-12 text-center border border-slate-100">
+                        <Plane className="h-12 w-12 text-slate-200 mx-auto mb-3" />
+                        <p className="text-lg font-bold text-navy mb-2">No flights found for these dates</p>
+                        <p className="text-slate-500 text-sm">Try other dates or a nearby airport.</p>
+                        {liveFoundNothing && (
+                          <JetstarFallback from={from} to={to} date={date} returnDate={tripType === 'roundtrip' ? returnDate : undefined} adults={passengerCounts.adults} children={passengerCounts.children.length} infants={passengerCounts.infants.length} />
+                        )}
+                      </div>
+                    )
                   ) : (
                     sorted.map((flight) => (
                       <FlightCard key={flight.id} flight={flight} selectedClass={cabinClass} passengerTotal={passengers} passengerCounts={passengerCounts} />
@@ -971,6 +1007,10 @@ function FlightsContent() {
               />
             </div>
           )}
+
+          <div className="mt-10">
+            <LiveFlightTracker />
+          </div>
         </div>
       </div>
     </MainLayout>
