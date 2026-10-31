@@ -18,7 +18,7 @@ export function clip(value: unknown, max: number): string {
 export async function formRateLimited(limitPerHour = 15): Promise<boolean> {
   const rows = await sql`
     SELECT COUNT(*)::int AS n FROM contacts
-    WHERE source IN ('contact_form', 'agent_quote_request')
+    WHERE source IN ('contact_form', 'agent_quote_request', 'quote_request')
       AND created_at > now() - interval '1 hour'
   `
   return Number(rows[0]?.n ?? 0) >= limitPerHour
