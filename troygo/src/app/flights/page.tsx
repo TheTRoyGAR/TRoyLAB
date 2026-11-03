@@ -23,7 +23,6 @@ import AirportAutocomplete from '@/components/flights/AirportAutocomplete'
 import TripAddOns from '@/components/flights/TripAddOns'
 import PassengerPicker, { type PassengerCounts } from '@/components/flights/PassengerPicker'
 import type { Flight, FlightLegInfo } from '@/lib/data/flights'
-import JetstarFallback from '@/components/flights/JetstarFallback'
 import MainLayout from '@/components/layout/MainLayout'
 import { useCurrency } from '@/lib/currency-context'
 
@@ -780,8 +779,6 @@ function FlightsContent() {
 
   const sorted = useMemo(() => sortResults(filtered), [filtered, sortMode, cabinClass])
 
-  // True when our live search ran successfully and found no flights at all (so the Jetstar hand-off makes sense).
-  const liveFoundNothing = liveFlights !== null && liveFlights.length === 0 && !liveLoading && !liveError
 
   // Extra destinations: only the first leg is searched live. Other legs are quoted personally.
   const legResults = useMemo(() => {
@@ -921,9 +918,6 @@ function FlightsContent() {
                                 </p>
                               </>
                             )}
-                            {(!leg.live || liveFoundNothing) && (
-                              <JetstarFallback from={leg.legFrom} to={leg.legTo} date={i === 0 ? date : undefined} returnDate={i === 0 && tripType === 'roundtrip' ? returnDate : undefined} adults={passengerCounts.adults} children={passengerCounts.children.length} infants={passengerCounts.infants.length} />
-                            )}
                           </div>
                         ) : (
                           leg.results.map((flight) => (
@@ -979,9 +973,6 @@ function FlightsContent() {
                         <Plane className="h-12 w-12 text-slate-200 mx-auto mb-3" />
                         <p className="text-lg font-bold text-navy mb-2">No flights found for these dates</p>
                         <p className="text-slate-500 text-sm">Try other dates or a nearby airport.</p>
-                        {liveFoundNothing && (
-                          <JetstarFallback from={from} to={to} date={date} returnDate={tripType === 'roundtrip' ? returnDate : undefined} adults={passengerCounts.adults} children={passengerCounts.children.length} infants={passengerCounts.infants.length} />
-                        )}
                       </div>
                     )
                   ) : (
