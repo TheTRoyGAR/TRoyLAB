@@ -1,0 +1,80 @@
+{
+  "BMW 7 Series": {
+    "file": "/cars/bmw-7-series.jpg",
+    "credit": "MB-one",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:BMW,_IAA_2017_(1Y7A2712).jpg"
+  },
+  "BMW X5": {
+    "file": "/cars/bmw-x5.jpg",
+    "credit": "Captainmorlypogi1959",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:BMW_X5_2021.jpg"
+  },
+  "Chevrolet Spark": {
+    "file": "/cars/chevrolet-spark.jpg",
+    "credit": "MercurySable99",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:2021_Chevrolet_Spark_1LT,_front_left,_11-15-2022.jpg"
+  },
+  "Chrysler Pacifica": {
+    "file": "/cars/chrysler-pacifica.jpg",
+    "credit": "Kevauto",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:2021_Chrysler_Pacifica_Touring_L,_front_8.5.21.jpg"
+  },
+  "Hyundai i30": {
+    "file": "/cars/hyundai-i30.jpg",
+    "credit": "Alexander Migl",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:2024_Hyundai_i30_(PD)_DSC_8543.jpg"
+  },
+  "Kia Soul": {
+    "file": "/cars/kia-soul.jpg",
+    "credit": "DieselFordMondeo",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:2012_Kia_Soul_1_1.6_(Front).jpg"
+  },
+  "Mazda CX-5": {
+    "file": "/cars/mazda-cx-5.jpg",
+    "credit": "TTTNIS",
+    "license": "CC0",
+    "page": "https://commons.wikimedia.org/wiki/File:2026_Mazda_CX-5_e-SKYACTIV_G_2.5_L.jpg"
+  },
+  "Nissan Maxima": {
+    "file": "/cars/nissan-maxima.jpg",
+    "credit": "Mr.choppers",
+    "license": "CC BY-SA 3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:2021_Nissan_Maxima_SR_in_Pearl_White,_front_left.jpg"
+  },
+  "Nissan Qashqai": {
+    "file": "/cars/nissan-qashqai.jpg",
+    "credit": "M 93",
+    "license": "CC BY-SA 3.0 de",
+    "page": "https://commons.wikimedia.org/wiki/File:Nissan_Qashqai_(III)_%E2%80%93_f_25042024.jpg"
+  },
+  "Nissan Rogue": {
+    "file": "/cars/nissan-rogue.jpg",
+    "credit": "Kevauto",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:2021_Nissan_Rogue_SV_AWD,_front_1.1.21.jpg"
+  },
+  "Suzuki Swift": {
+    "file": "/cars/suzuki-swift.jpg",
+    "credit": "Alexander Migl",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Suzuki_Swift_(2024)_hybrid_DSC_7922.jpg"
+  },
+  "Toyota Corolla": {
+    "file": "/cars/toyota-corolla.jpg",
+    "credit": "JamesYoung8167",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_E210_sedan_Shishi_01_2022-06-13.jpg"
+  },
+  "Toyota RAV4": {
+    "file": "/cars/toyota-rav4.jpg",
+    "credit": "LuvsMG481",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:2024_Toyota_RAV4_Cruiser_Hybrid_front.jpg"
+  }
+}

@@ -20,6 +20,7 @@ import { cn, defaultSearchDate } from '@/lib/utils'
 import MainLayout from '@/components/layout/MainLayout'
 import { carRentals, type CarRental, type CarType, type Transmission } from '@/lib/data/cars'
 import { useDestinationPhoto } from '@/hooks/useDestinationPhoto'
+import carPhotos from '@/lib/data/car-photos.json'
 
 export type { CarRental, CarType, Transmission }
 export { carRentals }
@@ -33,7 +34,19 @@ const SUPPLIER_COLORS: Record<string, string> = {
 function CarCard({ car, pickupDate, returnDate }: { car: CarRental; pickupDate: string; returnDate: string }) {
   const days = Math.max(1, Math.ceil((new Date(returnDate).getTime() - new Date(pickupDate).getTime()) / 86400000))
   const total = car.pricePerDay * days
-  const photo = useDestinationPhoto(car.model)
+  // 1) A real photo of this exact model from Wikimedia Commons (free licence, credit shown), saved in /public/cars.
+  // 2) Otherwise a generic photo for the car type from Unsplash. (car.model holds the model YEAR, so search by name.)
+  const commons = (carPhotos as Record<string, { file: string; credit: string; license: string; page: string }>)[car.name]
+  const ownPhoto = useDestinationPhoto(car.name)
+  const typePhoto = useDestinationPhoto(`${car.type} car rental`)
+  const make = car.name.split(' ')[0].toLowerCase()
+  const unsplash = ownPhoto && ownPhoto.altDescription.toLowerCase().includes(make) ? ownPhoto : typePhoto
+  const imageUrl = commons ? commons.file : unsplash?.url
+  const credit = commons
+    ? { href: commons.page, text: `Example photo · ${commons.credit}, ${commons.license}, Wikimedia Commons` }
+    : unsplash
+      ? { href: unsplash.unsplashUrl, text: `${unsplash.photographerName} / Unsplash` }
+      : null
 
   return (
     <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden flex flex-col md:flex-row">
@@ -41,12 +54,18 @@ function CarCard({ car, pickupDate, returnDate }: { car: CarRental; pickupDate: 
       <div
         className={cn(
           'h-44 md:h-auto md:w-56 lg:w-64 shrink-0 relative flex items-center justify-center',
-          photo ? 'bg-cover bg-center' : 'bg-gradient-to-br',
-          !photo && car.gradient
+          imageUrl ? 'bg-cover bg-center' : 'bg-gradient-to-br',
+          !imageUrl && car.gradient
         )}
-        style={photo ? { backgroundImage: `url(${photo.url})` } : undefined}
+        style={
+          imageUrl
+            ? commons
+              ? { backgroundImage: `url(${imageUrl})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: '#e2e8f0' }
+              : { backgroundImage: `url(${imageUrl})` }
+            : undefined
+        }
       >
-        {!photo && <Car className="h-16 w-16 text-white/30" />}
+        {!imageUrl && <Car className="h-16 w-16 text-white/30" />}
         <div
           className="absolute top-3 left-3 w-9 h-9 rounded-lg flex items-center justify-center text-white font-bold text-xs shadow"
           style={{ background: SUPPLIER_COLORS[car.supplierLogo] ?? '#00B4D8' }}
@@ -57,6 +76,16 @@ function CarCard({ car, pickupDate, returnDate }: { car: CarRental; pickupDate: 
         <span className="absolute bottom-3 left-3 text-xs font-bold text-white bg-black/30 backdrop-blur-sm px-2 py-1 rounded-full">
           {car.type}
         </span>
+        {credit && (
+          <a
+            href={credit.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute top-2 right-2 max-w-[70%] text-[9px] leading-tight text-right text-white bg-black/35 hover:bg-black/55 rounded px-1.5 py-0.5 transition-colors"
+          >
+            {credit.text}
+          </a>
+        )}
       </div>
 
       {/* Content */}
