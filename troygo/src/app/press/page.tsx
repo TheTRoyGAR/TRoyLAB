@@ -12,8 +12,7 @@ export default function PressPage() {
             Press
           </h1>
           <p className="text-white/70 leading-relaxed">
-            No press coverage to share yet — check back soon. For media enquiries,
-            contact{' '}
+            For media enquiries, contact{' '}
             <a href="mailto:agency@troytravelagency.com" className="underline" style={{ color: '#00B4D8' }}>
               agency@troytravelagency.com
             </a>.

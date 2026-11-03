@@ -167,52 +167,11 @@ export default function StoryPage() {
             style={{ background: 'rgba(255,215,0,0.06)', border: '1px solid rgba(255,215,0,0.3)' }}
           >
             <div className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: '#FFD700' }}>
-              Honest state, not a pitch exaggeration
+              About TROYGO
             </div>
             <p className="text-sm text-white/80 leading-relaxed">
               <strong>TROYGO</strong> is the registered Australian sole-trader
-              business name behind this site (ABN 30 302 098 137) — chosen
-              because &ldquo;TRoy Group&rdquo; itself wasn&apos;t available to
-              register directly.
-            </p>
-            <p className="text-sm text-white/50 leading-relaxed mt-2">
-              Real booking infrastructure is already live here, not a mockup —
-              still early, still growing the partner and customer base, and never
-              presenting a placeholder as a confirmed deal or price.
-            </p>
-            <p className="text-sm text-white/50 leading-relaxed mt-2">
-              TRoyGO&apos;s own shared-memory system was real-tested this month:
-              asked for open cross-department items, it honestly reported zero
-              rather than inventing any to fill the answer.
-            </p>
-            <p className="text-sm text-white/50 leading-relaxed mt-2">
-              This week: a live{' '}
-              <Link href="/travel-guide" className="underline" style={{ color: '#00B4D8' }}>Travel Guide</Link>
-              {' '}launched across five real cities, each with genuinely live
-              weather and season data, not static copy. The Partners page no
-              longer links offsite, and the &quot;Request a Quote&quot; form on
-              every agent and guide profile now really sends an email instead
-              of faking a local success message.
-            </p>
-            <p className="text-sm text-white/50 leading-relaxed mt-2">
-              Also this week: prices across the site — packages, hotels,
-              flights, cruises, and agent tour listings — now convert live to
-              EUR, GBP, JPY, CAD, AUD, and AED instead of a hardcoded
-              USD-only display. And the fabricated traveler reviews that used
-              to sit on package and agent pages are gone, replaced with an
-              honest &quot;no reviews yet&quot; state or a real, sourced
-              aggregate rating.
-            </p>
-            <p className="text-sm text-white/50 leading-relaxed mt-2">
-              Latest: the AI Trip Planner now searches our real airline
-              booking system live, mid-conversation, and shows the actual
-              bookable offers it finds — real airlines, real prices, real
-              flight numbers — with a direct path into the same real booking
-              flow used everywhere else on the site. It no longer just
-              describes flights from memory. Date pickers across every search
-              form (homepage, flights, trip planner, cars) were also rebuilt
-              after we found the old ones were effectively invisible to type
-              or click into.
+              business name behind this site (ABN 30 302 098 137).
             </p>
           </div>
         </div>
