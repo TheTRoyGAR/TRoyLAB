@@ -1,0 +1,65 @@
+{
+  "Viking Sky": {
+    "file": "/cruises/viking-sky.jpg",
+    "credit": "Cavernia",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:9650420_Viking_Sky_2017.jpg",
+    "shows": "Viking Sky"
+  },
+  "Viking Orion": {
+    "file": "/cruises/viking-orion.jpg",
+    "credit": "Bernard Spragg. NZ from Christchurch, New Zealand",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Viking_Orion._(52642897562).jpg",
+    "shows": "Viking Orion"
+  },
+  "Viking Jupiter": {
+    "file": "/cruises/viking-jupiter.jpg",
+    "credit": "Cavernia",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:9796262_Viking_Jupiter_2019.jpg",
+    "shows": "Viking Jupiter"
+  },
+  "Viking Saturn": {
+    "file": "/cruises/viking-saturn.jpg",
+    "credit": "Werner Wilmes",
+    "license": "CC BY 2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Viking_Saturn,_Bergen.jpg",
+    "shows": "Viking Saturn"
+  },
+  "Viking Sun": {
+    "file": "/cruises/viking-sun.jpg",
+    "credit": "Cavernia",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:9725433_Viking_Sun_2017.jpg",
+    "shows": "Viking Sun"
+  },
+  "Viking Vela": {
+    "file": "/cruises/viking-vela.jpg",
+    "credit": "Pjotr Mahhonin",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Viking_Vela_moored_at_Pier_26_in_Port_of_Tallinn_9_May_2026.jpg",
+    "shows": "Viking Vela"
+  },
+  "Viking Polaris": {
+    "file": "/cruises/viking-polaris.jpg",
+    "credit": "Nolabob",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Viking_Polaris.jpg",
+    "shows": "Viking Polaris"
+  },
+  "_river": {
+    "file": "/cruises/river.jpg",
+    "credit": "Raimond Spekking",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Flusskreuzfahrtschiff_Viking_Sigyn_-_ENI_07002115_-_am_Steiger_in_K%C3%B6ln-40111.jpg",
+    "shows": "Viking Sigyn (a Viking Longship river ship)"
+  },
+  "_ocean": {
+    "file": "/cruises/viking-saturn.jpg",
+    "credit": "Werner Wilmes",
+    "license": "CC BY 2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Viking_Saturn,_Bergen.jpg",
+    "shows": "Viking Saturn (a Viking ocean ship)"
+  }
+}

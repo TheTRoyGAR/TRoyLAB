@@ -6,7 +6,7 @@ import { cruises, type Cruise } from '@/lib/data/packages'
 import { Star, Ship, MapPin, Clock, ChevronDown, Heart, Anchor, Play } from 'lucide-react'
 import Link from 'next/link'
 import MainLayout from '@/components/layout/MainLayout'
-import { useDestinationPhoto } from '@/hooks/useDestinationPhoto'
+import cruisePhotos from '@/lib/data/cruise-photos.json'
 import { useCurrency } from '@/lib/currency-context'
 
 // Matches the real `category` values in lib/data/packages.ts — these used
@@ -16,14 +16,20 @@ import { useCurrency } from '@/lib/currency-context'
 // linesWithCounts below) — they're derived from the real cruises actually
 // in the catalog, so an option is never shown unless it has real results.
 
-// Real ship photo, live from Unsplash — same mechanism the packages pages use
-// (useDestinationPhoto), searched by ship name since that's more specific
-// than the cruise line or region. Falls back to the gradient (from data) when
-// Unsplash has no match, which was previously the *only* option and — since
-// those gradient classes only ever appear inside cruises-live.json, never in
-// any .ts/.tsx source Tailwind actually scans — rendered as an empty box.
+// Ship photo: a real photo of the named Viking ship from Wikimedia Commons (free licence, credit shown, files in
+// /public/cruises). Ships without their own free photo show a sister ship of the same class, and the caption names
+// the ship actually shown. The old random Unsplash search / research-agent imageUrl were wrong (e.g. a Viking Line
+// ferry, an iceberg), so they are no longer used. No photo at all -> the gradient.
+type ShipPhoto = { file: string; credit: string; license: string; page: string; shows: string }
+function shipPhotoFor(cruise: Cruise): ShipPhoto | null {
+  const photos = cruisePhotos as Record<string, ShipPhoto>
+  const first = cruise.ship.split('/')[0].trim()
+  if (photos[first]) return photos[first]
+  if (/longship/i.test(first)) return photos['_river'] ?? null
+  return photos['_ocean'] ?? null
+}
 function CruiseCard({ cruise, isSaved, onToggleSave }: { cruise: Cruise; isSaved: boolean; onToggleSave: () => void }) {
-  const photo = useDestinationPhoto(`${cruise.ship} cruise ship`)
+  const photo = shipPhotoFor(cruise)
   const { formatPrice } = useCurrency()
   const quoteUrl = `mailto:agency@troytravelagency.com?subject=${encodeURIComponent(`Cruise quote request: ${cruise.name}`)}&body=${encodeURIComponent(`Hello,
 
@@ -40,10 +46,10 @@ Thank you`)}`
 
   return (
     <Link href={bookingUrl} className="block bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col sm:flex-row cursor-pointer">
-      {/* Image — real ship photo (live Unsplash, then the research agent's imageUrl), gradient fallback otherwise */}
+      {/* Image: real ship photo from Wikimedia Commons, gradient fallback otherwise */}
       <div
-        className={`relative w-full sm:w-64 h-48 sm:h-auto shrink-0 overflow-hidden ${(photo || cruise.imageUrl) ? 'bg-gray-200 bg-cover bg-center' : `bg-gradient-to-br ${cruise.imageGradient}`}`}
-        style={(photo || cruise.imageUrl) ? { backgroundImage: `url(${photo?.url ?? cruise.imageUrl})` } : undefined}
+        className={`relative w-full sm:w-64 h-48 sm:h-auto shrink-0 overflow-hidden ${photo ? 'bg-gray-200 bg-cover bg-center' : `bg-gradient-to-br ${cruise.imageGradient}`}`}
+        style={photo ? { backgroundImage: `url(${photo.file})` } : undefined}
       >
         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors" />
         <span className="absolute top-3 left-3 text-xs font-bold text-white bg-[#0A1628]/70 px-2.5 py-1 rounded-full">
@@ -55,17 +61,17 @@ Thank you`)}`
         >
           <Heart className={`h-4 w-4 ${isSaved ? 'fill-red-500 text-red-500' : 'text-white'}`} />
         </button>
-        {!photo && !cruise.imageUrl && (
+        {!photo && (
           <div className="absolute bottom-3 left-3">
             <Ship className="h-8 w-8 text-white/60" />
           </div>
         )}
         {photo && (
           <button
-            onClick={(e) => { e.preventDefault(); e.stopPropagation(); if (typeof window !== 'undefined') window.open(photo.unsplashUrl, '_blank'); }}
-            className="absolute bottom-1 right-2 text-[9px] text-white/60 hover:text-white/90 transition-colors bg-none border-none p-0 cursor-pointer"
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); if (typeof window !== 'undefined') window.open(photo.page, '_blank', 'noopener,noreferrer'); }}
+            className="absolute bottom-1 right-2 max-w-[90%] text-[9px] leading-tight text-right text-white/80 hover:text-white transition-colors bg-black/35 rounded px-1.5 py-0.5 border-none cursor-pointer"
           >
-            Photo: {photo.photographerName} / Unsplash
+            Example photo: {photo.shows} · {photo.credit}, {photo.license}, Wikimedia Commons
           </button>
         )}
       </div>
