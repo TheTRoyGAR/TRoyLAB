@@ -111,7 +111,7 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
           <div className="flex-1">
             {/* Tabs */}
             <div className="flex gap-0 border-b border-gray-200 mb-6 overflow-x-auto">
-              {TABS.map((tab) => (
+              {TABS.filter((tab) => tab !== 'Reviews' || pkg.reviewCount > 0).map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
@@ -231,15 +231,10 @@ export default function PackageDetailClient({ pkg }: { pkg: TravelPackage }) {
                   </div>
                 </div>
                 )}
-                {pkg.reviewCount > 0 ? (
+                {pkg.reviewCount > 0 && (
                   <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-sm text-gray-500">
                     This package has a {pkg.rating}★ rating from {pkg.reviewCount.toLocaleString()} travelers,
-                    aggregated from our booking partners — individual written reviews aren&apos;t available on
-                    TRoyGO™ yet.
-                  </div>
-                ) : (
-                  <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-sm text-gray-500">
-                    No TRoyGO™ customer reviews yet.
+                    aggregated from our booking partners.
                   </div>
                 )}
               </div>
