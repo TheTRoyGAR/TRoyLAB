@@ -33,7 +33,13 @@ const SUPPLIER_COLORS: Record<string, string> = {
 function CarCard({ car, pickupDate, returnDate }: { car: CarRental; pickupDate: string; returnDate: string }) {
   const days = Math.max(1, Math.ceil((new Date(returnDate).getTime() - new Date(pickupDate).getTime()) / 86400000))
   const total = car.pricePerDay * days
-  const photo = useDestinationPhoto(car.model)
+  // car.model holds the model YEAR in the live data, so search by the real car name; use it only when the
+  // photo description actually mentions the make, otherwise show a generic photo for the car type.
+  const ownPhoto = useDestinationPhoto(car.name)
+  const typePhoto = useDestinationPhoto(`${car.type} car rental`)
+  const make = car.name.split(' ')[0].toLowerCase()
+  const photo = ownPhoto && ownPhoto.altDescription.toLowerCase().includes(make) ? ownPhoto : typePhoto
+  const photoIsExact = photo !== null && photo === ownPhoto
 
   return (
     <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden flex flex-col md:flex-row">
@@ -57,6 +63,16 @@ function CarCard({ car, pickupDate, returnDate }: { car: CarRental; pickupDate: 
         <span className="absolute bottom-3 left-3 text-xs font-bold text-white bg-black/30 backdrop-blur-sm px-2 py-1 rounded-full">
           {car.type}
         </span>
+        {photo && (
+          <a
+            href={photo.unsplashUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute top-2 right-2 max-w-[70%] text-[9px] leading-tight text-right text-white bg-black/35 hover:bg-black/55 rounded px-1.5 py-0.5 transition-colors"
+          >
+            {photoIsExact ? '' : 'Illustration only · '}Photo: {photo.photographerName} / Unsplash
+          </a>
+        )}
       </div>
 
       {/* Content */}

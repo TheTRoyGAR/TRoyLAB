@@ -13,7 +13,7 @@
     "photographerName": "Engin Yapici",
     "photographerUrl": "https://unsplash.com/@yapici?utm_source=troygo&utm_medium=referral",
     "unsplashUrl": "https://unsplash.com/photos/ferry-crossing-bosphorus-in-istanbul-WA1u0scVLZU?utm_source=troygo&utm_medium=referral",
-    "altDescription": "A ferry crossing the Bosphorus with the skyline of Eminönü, Istanbul, in the background"
+    "altDescription": "A ferry crossing the Bosphorus with the skyline of Emin\u00f6n\u00fc, Istanbul, in the background"
   },
   "Cappadocia": {
     "url": "https://images.unsplash.com/photo-1604156789095-3348604c0f43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8Q2FwcGFkb2NpYXxlbnwwfDB8fHwxNzg3MDc5NTMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -26,7 +26,7 @@
   "Paris": {
     "url": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8UGFyaXN8ZW58MHwwfHx8MTc4NzA3MjAwNXww&ixlib=rb-4.1.0&q=80&w=1080",
     "thumbUrl": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8UGFyaXN8ZW58MHwwfHx8MTc4NzA3MjAwNXww&ixlib=rb-4.1.0&q=80&w=400",
-    "photographerName": "Léonard Cotte",
+    "photographerName": "L\u00e9onard Cotte",
     "photographerUrl": "https://unsplash.com/@ettocl?utm_source=troygo&utm_medium=referral",
     "unsplashUrl": "https://unsplash.com/photos/pont-alexandre-iii-bridge-in-paris-R5scocnOOdM?utm_source=troygo&utm_medium=referral",
     "altDescription": "The Pont Alexandre III bridge illuminated at night in Paris, France"
@@ -78,5 +78,86 @@
     "photographerUrl": "https://unsplash.com/@iamengjell?utm_source=troygo&utm_medium=referral",
     "unsplashUrl": "https://unsplash.com/photos/house-in-middle-of-grass-field-M0OIyN5u8ZM?utm_source=troygo&utm_medium=referral",
     "altDescription": "house in middle of grass field"
-  }
+  },
+  "Compact car rental": {
+    "url": "https://images.unsplash.com/photo-1582639510494-c80b5de9f148?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8Q29tcGFjdCUyMGNhciUyMHJlbnRhbHxlbnwwfDB8fHwxNzkzNjgzOTk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "thumbUrl": "https://images.unsplash.com/photo-1582639510494-c80b5de9f148?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8Q29tcGFjdCUyMGNhciUyMHJlbnRhbHxlbnwwfDB8fHwxNzkzNjgzOTk5fDA&ixlib=rb-4.1.0&q=80&w=400",
+    "photographerName": "Youssef D",
+    "photographerUrl": "https://unsplash.com/@ussefd?utm_source=troygo&utm_medium=referral",
+    "unsplashUrl": "https://unsplash.com/photos/white-honda-sedan-on-road-during-daytime-DkGUn0Y1VzA?utm_source=troygo&utm_medium=referral",
+    "altDescription": "white honda sedan on road during daytime"
+  },
+  "Economy car rental": {
+    "url": "https://images.unsplash.com/photo-1630165356623-266076eaceb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8RWNvbm9teSUyMGNhciUyMHJlbnRhbHxlbnwwfDB8fHwxNzkzNjg0MDAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "thumbUrl": "https://images.unsplash.com/photo-1630165356623-266076eaceb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8RWNvbm9teSUyMGNhciUyMHJlbnRhbHxlbnwwfDB8fHwxNzkzNjg0MDAwfDA&ixlib=rb-4.1.0&q=80&w=400",
+    "photographerName": "Sara Kurfe\u00df",
+    "photographerUrl": "https://unsplash.com/@stereophototyp?utm_source=troygo&utm_medium=referral",
+    "unsplashUrl": "https://unsplash.com/photos/row-of-parked-cars-in-lot-xCm3FGX8lb8?utm_source=troygo&utm_medium=referral",
+    "altDescription": "A row of parked cars including white, olive, and red sedans in a lot"
+  },
+  "Luxury car rental": {
+    "url": "https://images.unsplash.com/photo-1535448580089-c7f9490c78b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8THV4dXJ5JTIwY2FyJTIwcmVudGFsfGVufDB8MHx8fDE3OTM2ODQwMDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "thumbUrl": "https://images.unsplash.com/photo-1535448580089-c7f9490c78b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8THV4dXJ5JTIwY2FyJTIwcmVudGFsfGVufDB8MHx8fDE3OTM2ODQwMDF8MA&ixlib=rb-4.1.0&q=80&w=400",
+    "photographerName": "Chelsea fern",
+    "photographerUrl": "https://unsplash.com/@chelseafern?utm_source=troygo&utm_medium=referral",
+    "unsplashUrl": "https://unsplash.com/photos/black-sports-car-tck12YHwl2Q?utm_source=troygo&utm_medium=referral",
+    "altDescription": "black sports car"
+  },
+  "SUV car rental": {
+    "url": "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8U1VWJTIwY2FyJTIwcmVudGFsfGVufDB8MHx8fDE3OTM2ODQwMDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "thumbUrl": "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8U1VWJTIwY2FyJTIwcmVudGFsfGVufDB8MHx8fDE3OTM2ODQwMDJ8MA&ixlib=rb-4.1.0&q=80&w=400",
+    "photographerName": "Tabea Schimpf",
+    "photographerUrl": "https://unsplash.com/@tabeaschimpf?utm_source=troygo&utm_medium=referral",
+    "unsplashUrl": "https://unsplash.com/photos/white-honda-suv-on-gray-floor-O7WzqmeYoqc?utm_source=troygo&utm_medium=referral",
+    "altDescription": "white Honda SUV on gray floor"
+  },
+  "Van car rental": {
+    "url": "https://images.unsplash.com/photo-1587813369290-091c9d432daf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8VmFuJTIwY2FyJTIwcmVudGFsfGVufDB8MHx8fDE3OTM2ODQwMDN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "thumbUrl": "https://images.unsplash.com/photo-1587813369290-091c9d432daf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8VmFuJTIwY2FyJTIwcmVudGFsfGVufDB8MHx8fDE3OTM2ODQwMDN8MA&ixlib=rb-4.1.0&q=80&w=400",
+    "photographerName": "Markus Winkler",
+    "photographerUrl": "https://unsplash.com/@markuswinkler?utm_source=troygo&utm_medium=referral",
+    "unsplashUrl": "https://unsplash.com/photos/white-vans-parked-in-mossingen-3vlGNkDep4E?utm_source=troygo&utm_medium=referral",
+    "altDescription": "A row of white vans parked in a lot in M\u00f6ssingen, Germany"
+  },
+  "BMW 7 Series": {
+    "url": "https://images.unsplash.com/photo-1523983388277-336a66bf9bcd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8Qk1XJTIwNyUyMFNlcmllc3xlbnwwfDB8fHwxNzkzNjgzOTg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "thumbUrl": "https://images.unsplash.com/photo-1523983388277-336a66bf9bcd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8Qk1XJTIwNyUyMFNlcmllc3xlbnwwfDB8fHwxNzkzNjgzOTg2fDA&ixlib=rb-4.1.0&q=80&w=400",
+    "photographerName": "Arteum.ro",
+    "photographerUrl": "https://unsplash.com/@arteum?utm_source=troygo&utm_medium=referral",
+    "unsplashUrl": "https://unsplash.com/photos/black-bmw-sedan-KiTalJFRkcg?utm_source=troygo&utm_medium=referral",
+    "altDescription": "black BMW sedan"
+  },
+  "BMW X5": null,
+  "Chevrolet Spark": {
+    "url": "https://images.unsplash.com/photo-1604945417112-07c84e9a21fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8Q2hldnJvbGV0JTIwU3Bhcmt8ZW58MHwwfHx8MTc5MzY4Mzk4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "thumbUrl": "https://images.unsplash.com/photo-1604945417112-07c84e9a21fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8Q2hldnJvbGV0JTIwU3Bhcmt8ZW58MHwwfHx8MTc5MzY4Mzk4OHww&ixlib=rb-4.1.0&q=80&w=400",
+    "photographerName": "Ethan Currier",
+    "photographerUrl": "https://unsplash.com/@ethancurrier?utm_source=troygo&utm_medium=referral",
+    "unsplashUrl": "https://unsplash.com/photos/white-chevrolet-car-on-road-during-daytime-ks2ekIUu2lo?utm_source=troygo&utm_medium=referral",
+    "altDescription": "white chevrolet car on road during daytime"
+  },
+  "Chrysler Pacifica": null,
+  "Hyundai i30": null,
+  "Kia Soul": null,
+  "Mazda CX-5": {
+    "url": "https://images.unsplash.com/photo-1743114713466-f12a85992a75?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8TWF6ZGElMjBDWC01fGVufDB8MHx8fDE3OTM2ODM5OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "thumbUrl": "https://images.unsplash.com/photo-1743114713466-f12a85992a75?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8TWF6ZGElMjBDWC01fGVufDB8MHx8fDE3OTM2ODM5OTJ8MA&ixlib=rb-4.1.0&q=80&w=400",
+    "photographerName": "Ryan Collins",
+    "photographerUrl": "https://unsplash.com/@ironlogicfit?utm_source=troygo&utm_medium=referral",
+    "unsplashUrl": "https://unsplash.com/photos/a-black-mazda-suv-is-parked-at-night-969FKoxL-KU?utm_source=troygo&utm_medium=referral",
+    "altDescription": "A black mazda suv is parked at night"
+  },
+  "Nissan Maxima": null,
+  "Nissan Qashqai": null,
+  "Nissan Rogue": {
+    "url": "https://images.unsplash.com/photo-1551817280-6d59c77ce1b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8Tmlzc2FuJTIwUm9ndWV8ZW58MHwwfHx8MTc5MzY4Mzk5NXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "thumbUrl": "https://images.unsplash.com/photo-1551817280-6d59c77ce1b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDM0NjI2fDB8MXxzZWFyY2h8MXx8Tmlzc2FuJTIwUm9ndWV8ZW58MHwwfHx8MTc5MzY4Mzk5NXww&ixlib=rb-4.1.0&q=80&w=400",
+    "photographerName": "Matthijs Waanders",
+    "photographerUrl": "https://unsplash.com/@mackwanders?utm_source=troygo&utm_medium=referral",
+    "unsplashUrl": "https://unsplash.com/photos/gray-nissan-rogue-suv-outdoor-during-nighttime-iw0D_9wHnf4?utm_source=troygo&utm_medium=referral",
+    "altDescription": "gray Nissan Rogue SUV outdoor during nighttime"
+  },
+  "Suzuki Swift": null,
+  "Toyota Corolla": null,
+  "Toyota RAV4": null
 }
