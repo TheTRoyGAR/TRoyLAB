@@ -14,7 +14,7 @@
 >
 > Quick tabs for Trip Planner, Flights, Hotels, and Packages, all pulling live data from troytravelagency.com.
 >
-> Built by TRoyAI™ E-Automation Agency, part of TRoy Group™.
+> Built by TRoyAI™ E-Automation Agency, part of TRoyGO Group™.
 
 **Category:** Travel (or Productivity)
 **Language:** English

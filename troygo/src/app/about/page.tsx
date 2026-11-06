@@ -24,9 +24,9 @@ export default function AboutPage() {
             </p>
 
             <div className="bg-white/5 rounded-2xl p-6">
-              <h2 className="text-lg font-bold mb-2" style={{ color: '#00B4D8' }}>Part of TRoy Group™</h2>
+              <h2 className="text-lg font-bold mb-2" style={{ color: '#00B4D8' }}>Part of TRoyGO Group™</h2>
               <p className="text-white/70">
-                TRoyGO is one company within TRoy Group™, a family of focused
+                TRoyGO is one company within TRoyGO Group™, a family of focused
                 businesses each run by a small, real team backed by AI agents rather
                 than large departments. Alongside TRoyGO, the Group includes{' '}
                 <strong className="text-white">TRoyAI™</strong> (an AI automation
