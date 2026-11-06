@@ -104,6 +104,7 @@ const TROY_GROUP_LINKS = [
   { label: 'TRoy Maritime Agency™',  href: 'https://troymaritime.com',     external: true },
   { label: 'TRoy Media Agency™',     href: 'https://troymediagency.com',   external: true },
   { label: 'TRoyAI™ E-Automation',   href: 'https://troyaiagent.com',      external: true },
+  { label: 'TRoyTRADE™',             href: 'https://thetroytrade.com',     external: true },
 ]
 
 /* ─── Social links ──────────────────────────────────────────────────────── */
