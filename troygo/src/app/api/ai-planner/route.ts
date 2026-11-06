@@ -1,4 +1,4 @@
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 
 import Anthropic from "@anthropic-ai/sdk";
 import { searchFlights } from "@/lib/duffel/search";

@@ -37,11 +37,12 @@ class CTODepartment:
                 "(e.g. live flight tracking, listing verification automation).\n\n"
                 "You are careful and honest: you never invent a bug to pad a report, and you "
                 "never claim something is fixed without it actually being verified.\n\n"
-                "Operating rules: remember Cloudflare Pages has no GitHub integration here — a "
-                "git push alone does not deploy; only a manual `wrangler pages deploy --branch=main` "
-                "does. Treat the Neon Postgres bookings table as containing real customer data — "
-                "security review must flag any exposure risk, not just code style. You operate "
-                "under TROYGO Group's standing CEO directive (auto-injected into every task)."
+                "Operating rules: remember the real site deploys to Vercel (`vercel deploy "
+                "--prod`), not a static export — it has live API routes, middleware, a Neon "
+                "Postgres database, Stripe, and Resend/Gmail email sending. Treat the Neon "
+                "Postgres bookings table as containing real customer data — security review "
+                "must flag any exposure risk, not just code style. You operate under TROYGO "
+                "Group's standing CEO directive (auto-injected into every task)."
             ),
             llm=llm_opus,
             tools=[search],
@@ -53,8 +54,9 @@ class CTODepartment:
             goal="Design real, working fixes for bugs found across TRoyGO's codebase.",
             backstory=(
                 "You are the Software Developer at TRoyGO. You know the real stack: Next.js "
-                "static export (troygo/), a Python/CrewAI backend (agency/), and a Cloudflare "
-                "Worker (worker/) proxying live flight data."
+                "deployed to Vercel with live API routes and middleware (troygo/), a Neon "
+                "Postgres database, a Python/CrewAI backend (agency/), and a Cloudflare Worker "
+                "(worker/) proxying live flight data."
             ),
             llm=llm_opus,
             tools=[search, write],
@@ -95,8 +97,8 @@ class CTODepartment:
             goal="Plan real deployments to Cloudflare (Pages/Workers/DNS) for TRoyGO.",
             backstory=(
                 "You are the DevOps Engineer at TRoyGO. You know the real deploy pipeline: "
-                "static export to the gh-pages branch, GitHub Pages custom domain "
-                "(troytravelagency.com), and the Cloudflare Worker flight proxy."
+                "`vercel deploy --prod` to Vercel, with the custom domain (troytravelagency.com) "
+                "pointed at the Vercel deployment, and the Cloudflare Worker flight proxy."
             ),
             llm=llm,
             verbose=False,
@@ -177,8 +179,8 @@ class CTODepartment:
                 f"WORKFLOW_MAP: Design a step-by-step, implementable blueprint for this real "
                 f"feature: {brief}\n\n"
                 "Cover: trigger, steps, decision points, data flow, error handling, and how it "
-                "fits TRoyGO's real stack (Next.js static export, Python/CrewAI backend, "
-                "Cloudflare Worker)."
+                "fits TRoyGO's real stack (Next.js on Vercel with live API routes, Neon "
+                "Postgres, Python/CrewAI backend, Cloudflare Worker)."
             ),
             expected_output=(
                 "## Workflow Blueprint\n**Trigger**\n**Steps** — numbered, with actor per step\n"
@@ -215,7 +217,7 @@ class CTODepartment:
 
     def deploy_plan(self, what: str) -> str:
         task = Task(
-            description=f"{recall_context(what)}Create a deployment plan and real commands for: {what}. Target: Cloudflare/GitHub Pages.",
+            description=f"{recall_context(what)}Create a deployment plan and real commands for: {what}. Target: Vercel.",
             expected_output="Step-by-step deployment commands with verification steps.",
             agent=self.devops,
         )
