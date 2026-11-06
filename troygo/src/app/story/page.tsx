@@ -107,7 +107,7 @@ export default function StoryPage() {
             <a href="https://troyaiagent.com" target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#00B4D8' }}>
               TRoyAI™
             </a>&apos;s 7 departments and 31 agents, the same shared template proven
-            across TRoy Group. Several of those agents are live on this site today.
+            across TRoyGO Group. Several of those agents are live on this site today.
           </p>
 
           <div className="grid sm:grid-cols-2 gap-4 mb-4">
@@ -188,7 +188,7 @@ export default function StoryPage() {
           <div className="mb-2" style={{ fontFamily: "Georgia, serif" }}>
             — I. Ertan Govdeli, Founder &amp; CEO
           </div>
-          <div className="text-white/50 text-sm mb-8">troytravelagency.com · TRoy Group™</div>
+          <div className="text-white/50 text-sm mb-8">troytravelagency.com · TRoyGO Group™</div>
           <Link
             href="/"
             className="inline-block font-bold text-sm px-7 py-3 rounded-lg"
